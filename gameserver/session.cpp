@@ -89,6 +89,7 @@ void Session::parseReqAdvertisementRefreshTask(google::protobuf::Message* p)
 void Session::parseReqBuyHero(google::protobuf::Message* p)
 {
 	message::MsgC2SReqBuyHero* msg = (message::MsgC2SReqBuyHero*)p;
+	_dream_hero->ReqBuyHero(msg);
 
 }
 
