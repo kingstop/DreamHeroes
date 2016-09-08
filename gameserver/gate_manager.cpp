@@ -165,8 +165,8 @@ void GateManager::collectSessionInfo()
 	}
 	int current_player = offline_count + online_count;
 	int size_temp_account = vcTemp.size();
-	Mylog::log_server(LOG_INFO, "session account count[%d], current hero count[%d], current session count[%d], online session count[%d], offline session count[%d]", 
-		size_temp_account, have_hero_count, current_player, online_count, offline_count);
+	//Mylog::log_server(LOG_INFO, "session account count[%d], current hero count[%d], current session count[%d], online session count[%d], offline session count[%d]", 
+	//	size_temp_account, have_hero_count, current_player, online_count, offline_count);
 	std::map<int, int>::iterator it_gate = MAPINT_online.begin();
 	for (; it_gate != MAPINT_online.end(); ++ it_gate)
 	{
