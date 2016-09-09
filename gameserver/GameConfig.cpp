@@ -218,7 +218,7 @@ void GameConfig::Load(DBQuery* p)
 		{
 			DBRow& row = sResult[i];
 			message::MsgGoldShopConfigInfo entry;
-			entry.set_id(row['shop_id']);
+			entry.set_id(row["shop_id"]);
 			entry.set_describe(row["describe"]);
 			entry.set_gold(row["gold"]);
 			entry.set_resource_id(row["resource_id"]);
