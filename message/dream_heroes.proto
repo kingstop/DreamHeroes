@@ -53,7 +53,7 @@ message MsgS2CNewTaskNotify
 message MsgS2CHeroesInit
 {
 	required MsgHeroData info = 1;
-	repeated MsgTaskConfigInfo task_config_inos = 2;
+	repeated MsgTaskConfigInfo task_config_infos = 2;
 }
 
 message MsgC2SReqEnterGame

@@ -599,17 +599,17 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::message::MsgHeroData* release_info();
   void set_allocated_info(::message::MsgHeroData* info);
 
-  // repeated .message.MsgTaskConfigInfo task_config_inos = 2;
-  int task_config_inos_size() const;
-  void clear_task_config_inos();
-  static const int kTaskConfigInosFieldNumber = 2;
-  const ::message::MsgTaskConfigInfo& task_config_inos(int index) const;
-  ::message::MsgTaskConfigInfo* mutable_task_config_inos(int index);
-  ::message::MsgTaskConfigInfo* add_task_config_inos();
+  // repeated .message.MsgTaskConfigInfo task_config_infos = 2;
+  int task_config_infos_size() const;
+  void clear_task_config_infos();
+  static const int kTaskConfigInfosFieldNumber = 2;
+  const ::message::MsgTaskConfigInfo& task_config_infos(int index) const;
+  ::message::MsgTaskConfigInfo* mutable_task_config_infos(int index);
+  ::message::MsgTaskConfigInfo* add_task_config_infos();
   const ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >&
-      task_config_inos() const;
+      task_config_infos() const;
   ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >*
-      mutable_task_config_inos();
+      mutable_task_config_infos();
 
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
@@ -620,7 +620,7 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::message::MsgHeroData* info_;
-  ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo > task_config_inos_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo > task_config_infos_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -2142,34 +2142,34 @@ inline void MsgS2CHeroesInit::set_allocated_info(::message::MsgHeroData* info) {
   // @@protoc_insertion_point(field_set_allocated:message.MsgS2CHeroesInit.info)
 }
 
-// repeated .message.MsgTaskConfigInfo task_config_inos = 2;
-inline int MsgS2CHeroesInit::task_config_inos_size() const {
-  return task_config_inos_.size();
+// repeated .message.MsgTaskConfigInfo task_config_infos = 2;
+inline int MsgS2CHeroesInit::task_config_infos_size() const {
+  return task_config_infos_.size();
 }
-inline void MsgS2CHeroesInit::clear_task_config_inos() {
-  task_config_inos_.Clear();
+inline void MsgS2CHeroesInit::clear_task_config_infos() {
+  task_config_infos_.Clear();
 }
-inline const ::message::MsgTaskConfigInfo& MsgS2CHeroesInit::task_config_inos(int index) const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.task_config_inos)
-  return task_config_inos_.Get(index);
+inline const ::message::MsgTaskConfigInfo& MsgS2CHeroesInit::task_config_infos(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.task_config_infos)
+  return task_config_infos_.Get(index);
 }
-inline ::message::MsgTaskConfigInfo* MsgS2CHeroesInit::mutable_task_config_inos(int index) {
-  // @@protoc_insertion_point(field_mutable:message.MsgS2CHeroesInit.task_config_inos)
-  return task_config_inos_.Mutable(index);
+inline ::message::MsgTaskConfigInfo* MsgS2CHeroesInit::mutable_task_config_infos(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CHeroesInit.task_config_infos)
+  return task_config_infos_.Mutable(index);
 }
-inline ::message::MsgTaskConfigInfo* MsgS2CHeroesInit::add_task_config_inos() {
-  // @@protoc_insertion_point(field_add:message.MsgS2CHeroesInit.task_config_inos)
-  return task_config_inos_.Add();
+inline ::message::MsgTaskConfigInfo* MsgS2CHeroesInit::add_task_config_infos() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CHeroesInit.task_config_infos)
+  return task_config_infos_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >&
-MsgS2CHeroesInit::task_config_inos() const {
-  // @@protoc_insertion_point(field_list:message.MsgS2CHeroesInit.task_config_inos)
-  return task_config_inos_;
+MsgS2CHeroesInit::task_config_infos() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CHeroesInit.task_config_infos)
+  return task_config_infos_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >*
-MsgS2CHeroesInit::mutable_task_config_inos() {
-  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CHeroesInit.task_config_inos)
-  return &task_config_inos_;
+MsgS2CHeroesInit::mutable_task_config_infos() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CHeroesInit.task_config_infos)
+  return &task_config_infos_;
 }
 
 // -------------------------------------------------------------------

@@ -137,7 +137,7 @@ void DreamHero::dayRefresh(bool need_send_msg)
 				message::MsgTaskInfo* task_entry = _info.add_tasks();
 				task_entry->set_argument_1(0);
 				task_entry->set_taskid(task_config_entry.taskid());
-				task_entry->set_usetime(0);				
+				task_entry->set_usetime(0);		
 			}
 		}
 	}
@@ -594,6 +594,24 @@ void DreamHero::SendClientInit()
 	StartSave();
 	message::MsgS2CHeroesInit msg;
 	msg.mutable_info()->CopyFrom(_info);
+	int length = _info.tasks_size();
+	for (size_t i = 0; i < length; i++)
+	{
+		const message::MsgTaskInfo entry =  _info.tasks(i);
+		if (entry.taskid() != 0)
+		{
+			const message::MsgTaskConfigInfo* entry_config =  gGameConfig.getMapTask(entry.taskid());
+			if (entry_config != NULL)
+			{
+				message::MsgTaskConfigInfo* cur_entry = msg.add_task_config_infos();
+				cur_entry->CopyFrom(*entry_config);
+			}
+			else
+			{
+				//need log;
+			}
+		}
+	}
 
 	sendPBMessage(&msg);
 	_online = true;
@@ -687,133 +705,7 @@ void DreamHero::SaveHero()
 	message::MsgSaveDataGS2DB msg_db;
 	msg_db.set_sql(temp);
 	gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
-	/*
-	std::string sql_temp;
-	char temp[2048];
-	int suits_size_temp = _info.suits_size();
-	char suit_temp[256];
-	std::string suits_sql;
-	for (int i = 0; i < suits_size_temp; i ++)
-	{
-		if (i != 0)
-		{
-			suits_sql += ":";
-		}
-		const message::MsgSuitData temp_data = _info.suits(i);
 
-		sprintf(suit_temp, "%d,%s", temp_data.suit_id(), temp_data.suit_name().c_str());
-		suits_sql += suit_temp;
-		for (int i = 0; i < temp_data.equip_ids_size(); i ++)
-		{
-			suits_sql += ",";
-			u64 equip_id = temp_data.equip_ids(i);
-#ifdef WIN32
-			sprintf(suit_temp, "%llu", equip_id);
-#else
-			sprintf(suit_temp, "%llu", equip_id);
-#endif
-			suits_sql += suit_temp;
-		}		
-	}
-
-#ifdef WIN32
-	sprintf(temp, "replace into `character`(`account_id`, `level`, `name`,`action_point`, `diamand`, `gold`, `suits_name`) values(%llu, %d, '%s', %d, %d, %d, '%s')",
-		_info.account(), _info.level(), _info.name().c_str(), _info.action_point(), _info.diamand(), _info.gold(), suits_sql.c_str());
-
-#else
-	sprintf(temp, "replace into `character`(`account_id`, `level`, `name`,`action_point`, `diamand`, `gold`, `suits_name`) values(%lu, %d, '%s', %d, %d, %d, '%s')",
-		_info.account(), _info.level(), _info.name().c_str(), _info.action_point(), _info.diamand(), _info.gold(), suits_sql.c_str());
-
-#endif // WIN32
-	sql_temp = temp;
-	message::MsgSaveDataGS2DB msg_db;
-	msg_db.set_sql(sql_temp.c_str());
-	sql_temp.clear();
- 
-	gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
-	//gGSDBClient.parseQueryChar()
-	if (_hero_equips.size() != 0)
-	{
-		std::string sql_item = "replace into `character_equip`(`equip_id`, `account_id`, `equip_config_id`, `level`, `equipped`, `client_save_flag`,`equip_count`) values";
-		HEROEQUIPS::iterator it = _hero_equips.begin();
-		int item_count = 0;
-		for (; it != _hero_equips.end(); ++ it, item_count ++)
-		{
-			if (item_count >= 20)
-			{
-				msg_db.clear_sql();
-				msg_db.set_sql(sql_temp.c_str());
-				gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
-				item_count = 0;
-			}
-
-			if (item_count == 0)
-			{
-				sql_temp += sql_item;
-			}
-			else
-			{
-				sql_temp += ",";
-			}
-			message::MsgEquipData entry = it->second; 
-#ifdef WIN32
-			sprintf(temp, "(%llu, %llu, %d, %d, %d, %d, %d)", entry.id(), _info.account(), entry.equip_id(), entry.level(), (int)entry.equipped(), entry.client_save_flag(), entry.count());
-#else
-			sprintf(temp, "(%lu, %lu, %d, %d, %d, %d, %d)", entry.id(), _info.account(), entry.equip_id(), entry.level(), (int)entry.equipped(), entry.client_save_flag(), entry.count());
-#endif // 
-			sql_temp += temp;
-
-		}
-
-		if (sql_temp.empty() == false)
-		{
-			msg_db.clear_sql();
-			msg_db.set_sql(sql_temp.c_str());
-			gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
-		}
-	}
-
-	if (_hero_toys.size() != 0)
-	{
-		std::string sql_head = "replace into `character_toy`(`toy_cd_key`, `account`, `toy_config_id`, `toy_config_type`, `toy_level`, `verify_time`) values";
-		std::string sql_excute = "";
-		HEROTOYS::iterator it_toy = _hero_toys.begin();
-		int toy_save_count = 0;
-		for (; it_toy != _hero_toys.end(); ++it_toy, toy_save_count++)
-		{
-			if (toy_save_count > 20)
-			{
-				toy_save_count = 0;
-				msg_db.clear_sql();
-				msg_db.set_sql(sql_excute.c_str());
-				gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
-				sql_excute.clear();
-			}
-
-			if (toy_save_count == 0)
-			{
-				sql_excute += sql_head;
-			}
-			else
-			{
-				sql_excute += ",";
-			}
-
-			char sztemp[512];
-			std::string verify_time = get_time(it_toy->second.time_stamp());
-			sprintf(sztemp, "('%s', '%llu', %d, %d, %d, '%s')", it_toy->second.toy_cd_key().c_str(), _account,
-				it_toy->second.toy().toy_config_id(), it_toy->second.toy().toy_config_type(), it_toy->second.toy().toy_level(), verify_time.c_str());
-			sql_excute += sztemp;
-		}
-
-		if (sql_excute.empty() == false)
-		{
-			msg_db.clear_sql();
-			msg_db.set_sql(sql_excute.c_str());
-			gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
-		}
-	}
-	*/
 }
 
 void DreamHero::set_name(const char* name)
