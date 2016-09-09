@@ -88,6 +88,10 @@ public:
 			 Mylog::log_server(LOG_ERROR,"not found protocol message [%s]", name.c_str());
 		     return false;
 		}
+		else
+		{
+			Mylog::log_server(LOG_INFO, "parse message [%s]", name.c_str());
+		}
 
         (p->*methond)(message, flag);
         delete message;
