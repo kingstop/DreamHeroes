@@ -77,3 +77,12 @@ message MsgChapterConfigInfo
 	required int32 max_section_count = 6;
 }
 
+message MsgGoldShopConfigInfo
+{
+	required int32 id = 1;
+	required int32 resource_id = 2;
+	required int32 gold = 3;
+	required float money = 4;
+	required string describe = 5;
+}
+

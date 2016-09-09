@@ -41,6 +41,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgChapterConfigInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgChapterConfigInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgGoldShopConfigInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgGoldShopConfigInfo_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* TaskType_descriptor_ = NULL;
 
 }  // namespace
@@ -183,6 +186,25 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgChapterConfigInfo),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, _internal_metadata_),
       -1);
+  MsgGoldShopConfigInfo_descriptor_ = file->message_type(7);
+  static const int MsgGoldShopConfigInfo_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, resource_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, gold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, money_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, describe_),
+  };
+  MsgGoldShopConfigInfo_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgGoldShopConfigInfo_descriptor_,
+      MsgGoldShopConfigInfo::default_instance_,
+      MsgGoldShopConfigInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgGoldShopConfigInfo),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, _internal_metadata_),
+      -1);
   TaskType_descriptor_ = file->enum_type(0);
 }
 
@@ -210,6 +232,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
       MsgTaskInfo_descriptor_, &MsgTaskInfo::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgChapterConfigInfo_descriptor_, &MsgChapterConfigInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgGoldShopConfigInfo_descriptor_, &MsgGoldShopConfigInfo::default_instance());
 }
 
 }  // namespace
@@ -229,6 +253,8 @@ void protobuf_ShutdownFile_common_2eproto() {
   delete MsgTaskInfo_reflection_;
   delete MsgChapterConfigInfo::default_instance_;
   delete MsgChapterConfigInfo_reflection_;
+  delete MsgGoldShopConfigInfo::default_instance_;
+  delete MsgGoldShopConfigInfo_reflection_;
 }
 
 void protobuf_AddDesc_common_2eproto() {
@@ -262,13 +288,16 @@ void protobuf_AddDesc_common_2eproto() {
     "\030\001 \002(\005\022\033\n\023required_chapter_id\030\002 \002(\005\022\033\n\023r"
     "equired_section_id\030\003 \002(\005\022$\n\034required_tas"
     "k_complete_count\030\004 \002(\005\022\024\n\014require_gold\030\005"
-    " \002(\005\022\031\n\021max_section_count\030\006 \002(\005*\342\001\n\010Task"
-    "Type\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_Kill"
-    "Monster\020\001\022\025\n\021TaskType_PassGame\020\002\022\026\n\022Task"
-    "Type_LimitTime\020\003\022\027\n\023TaskType_LimitLevel\020"
-    "\004\022\030\n\024TaskType_LimitRevive\020\005\022\"\n\036TaskType_"
-    "LimitTime_KillMonster\020\006\022#\n\037TaskType_Accu"
-    "mulate_KillMonster\020\007", 1220);
+    " \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"g\n\025MsgGo"
+    "ldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013resource"
+    "_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 \002(\002\022\020"
+    "\n\010describe\030\005 \002(\t*\342\001\n\010TaskType\022\021\n\rTaskTyp"
+    "e_NULL\020\000\022\030\n\024TaskType_KillMonster\020\001\022\025\n\021Ta"
+    "skType_PassGame\020\002\022\026\n\022TaskType_LimitTime\020"
+    "\003\022\027\n\023TaskType_LimitLevel\020\004\022\030\n\024TaskType_L"
+    "imitRevive\020\005\022\"\n\036TaskType_LimitTime_KillM"
+    "onster\020\006\022#\n\037TaskType_Accumulate_KillMons"
+    "ter\020\007", 1325);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   MsgIntPair::default_instance_ = new MsgIntPair();
@@ -278,6 +307,7 @@ void protobuf_AddDesc_common_2eproto() {
   MsgShopConfigInfo::default_instance_ = new MsgShopConfigInfo();
   MsgTaskInfo::default_instance_ = new MsgTaskInfo();
   MsgChapterConfigInfo::default_instance_ = new MsgChapterConfigInfo();
+  MsgGoldShopConfigInfo::default_instance_ = new MsgGoldShopConfigInfo();
   MsgIntPair::default_instance_->InitAsDefaultInstance();
   MsgHeroData::default_instance_->InitAsDefaultInstance();
   MsgTaskConditionInfo::default_instance_->InitAsDefaultInstance();
@@ -285,6 +315,7 @@ void protobuf_AddDesc_common_2eproto() {
   MsgShopConfigInfo::default_instance_->InitAsDefaultInstance();
   MsgTaskInfo::default_instance_->InitAsDefaultInstance();
   MsgChapterConfigInfo::default_instance_->InitAsDefaultInstance();
+  MsgGoldShopConfigInfo::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_common_2eproto);
 }
 
@@ -4140,6 +4171,606 @@ void MsgChapterConfigInfo::InternalSwap(MsgChapterConfigInfo* other) {
   set_has_max_section_count();
   max_section_count_ = value;
   // @@protoc_insertion_point(field_set:message.MsgChapterConfigInfo.max_section_count)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgGoldShopConfigInfo::kIdFieldNumber;
+const int MsgGoldShopConfigInfo::kResourceIdFieldNumber;
+const int MsgGoldShopConfigInfo::kGoldFieldNumber;
+const int MsgGoldShopConfigInfo::kMoneyFieldNumber;
+const int MsgGoldShopConfigInfo::kDescribeFieldNumber;
+#endif  // !_MSC_VER
+
+MsgGoldShopConfigInfo::MsgGoldShopConfigInfo()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgGoldShopConfigInfo)
+}
+
+void MsgGoldShopConfigInfo::InitAsDefaultInstance() {
+}
+
+MsgGoldShopConfigInfo::MsgGoldShopConfigInfo(const MsgGoldShopConfigInfo& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgGoldShopConfigInfo)
+}
+
+void MsgGoldShopConfigInfo::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  id_ = 0;
+  resource_id_ = 0;
+  gold_ = 0;
+  money_ = 0;
+  describe_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgGoldShopConfigInfo::~MsgGoldShopConfigInfo() {
+  // @@protoc_insertion_point(destructor:message.MsgGoldShopConfigInfo)
+  SharedDtor();
+}
+
+void MsgGoldShopConfigInfo::SharedDtor() {
+  describe_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void MsgGoldShopConfigInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgGoldShopConfigInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgGoldShopConfigInfo_descriptor_;
+}
+
+const MsgGoldShopConfigInfo& MsgGoldShopConfigInfo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
+  return *default_instance_;
+}
+
+MsgGoldShopConfigInfo* MsgGoldShopConfigInfo::default_instance_ = NULL;
+
+MsgGoldShopConfigInfo* MsgGoldShopConfigInfo::New(::google::protobuf::Arena* arena) const {
+  MsgGoldShopConfigInfo* n = new MsgGoldShopConfigInfo;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgGoldShopConfigInfo::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgGoldShopConfigInfo*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  if (_has_bits_[0 / 32] & 31) {
+    ZR_(id_, money_);
+    if (has_describe()) {
+      describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+  }
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgGoldShopConfigInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgGoldShopConfigInfo)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_resource_id;
+        break;
+      }
+
+      // required int32 resource_id = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_resource_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &resource_id_)));
+          set_has_resource_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_gold;
+        break;
+      }
+
+      // required int32 gold = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_gold:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &gold_)));
+          set_has_gold();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(37)) goto parse_money;
+        break;
+      }
+
+      // required float money = 4;
+      case 4: {
+        if (tag == 37) {
+         parse_money:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &money_)));
+          set_has_money();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_describe;
+        break;
+      }
+
+      // required string describe = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_describe:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_describe()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->describe().data(), this->describe().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgGoldShopConfigInfo.describe");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgGoldShopConfigInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgGoldShopConfigInfo)
+  return false;
+#undef DO_
+}
+
+void MsgGoldShopConfigInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgGoldShopConfigInfo)
+  // required int32 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  }
+
+  // required int32 resource_id = 2;
+  if (has_resource_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->resource_id(), output);
+  }
+
+  // required int32 gold = 3;
+  if (has_gold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->gold(), output);
+  }
+
+  // required float money = 4;
+  if (has_money()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->money(), output);
+  }
+
+  // required string describe = 5;
+  if (has_describe()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->describe().data(), this->describe().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgGoldShopConfigInfo.describe");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->describe(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgGoldShopConfigInfo)
+}
+
+::google::protobuf::uint8* MsgGoldShopConfigInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgGoldShopConfigInfo)
+  // required int32 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  }
+
+  // required int32 resource_id = 2;
+  if (has_resource_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->resource_id(), target);
+  }
+
+  // required int32 gold = 3;
+  if (has_gold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->gold(), target);
+  }
+
+  // required float money = 4;
+  if (has_money()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->money(), target);
+  }
+
+  // required string describe = 5;
+  if (has_describe()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->describe().data(), this->describe().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgGoldShopConfigInfo.describe");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->describe(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgGoldShopConfigInfo)
+  return target;
+}
+
+int MsgGoldShopConfigInfo::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_id()) {
+    // required int32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->id());
+  }
+
+  if (has_resource_id()) {
+    // required int32 resource_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->resource_id());
+  }
+
+  if (has_gold()) {
+    // required int32 gold = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->gold());
+  }
+
+  if (has_money()) {
+    // required float money = 4;
+    total_size += 1 + 4;
+  }
+
+  if (has_describe()) {
+    // required string describe = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->describe());
+  }
+
+  return total_size;
+}
+int MsgGoldShopConfigInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+    // required int32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->id());
+
+    // required int32 resource_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->resource_id());
+
+    // required int32 gold = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->gold());
+
+    // required float money = 4;
+    total_size += 1 + 4;
+
+    // required string describe = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->describe());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgGoldShopConfigInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgGoldShopConfigInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgGoldShopConfigInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgGoldShopConfigInfo::MergeFrom(const MsgGoldShopConfigInfo& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_resource_id()) {
+      set_resource_id(from.resource_id());
+    }
+    if (from.has_gold()) {
+      set_gold(from.gold());
+    }
+    if (from.has_money()) {
+      set_money(from.money());
+    }
+    if (from.has_describe()) {
+      set_has_describe();
+      describe_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.describe_);
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgGoldShopConfigInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgGoldShopConfigInfo::CopyFrom(const MsgGoldShopConfigInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgGoldShopConfigInfo::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+
+  return true;
+}
+
+void MsgGoldShopConfigInfo::Swap(MsgGoldShopConfigInfo* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgGoldShopConfigInfo::InternalSwap(MsgGoldShopConfigInfo* other) {
+  std::swap(id_, other->id_);
+  std::swap(resource_id_, other->resource_id_);
+  std::swap(gold_, other->gold_);
+  std::swap(money_, other->money_);
+  describe_.Swap(&other->describe_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgGoldShopConfigInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgGoldShopConfigInfo_descriptor_;
+  metadata.reflection = MsgGoldShopConfigInfo_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgGoldShopConfigInfo
+
+// required int32 id = 1;
+ bool MsgGoldShopConfigInfo::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgGoldShopConfigInfo::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgGoldShopConfigInfo::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgGoldShopConfigInfo::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+ ::google::protobuf::int32 MsgGoldShopConfigInfo::id() const {
+  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.id)
+  return id_;
+}
+ void MsgGoldShopConfigInfo::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.id)
+}
+
+// required int32 resource_id = 2;
+ bool MsgGoldShopConfigInfo::has_resource_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgGoldShopConfigInfo::set_has_resource_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgGoldShopConfigInfo::clear_has_resource_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgGoldShopConfigInfo::clear_resource_id() {
+  resource_id_ = 0;
+  clear_has_resource_id();
+}
+ ::google::protobuf::int32 MsgGoldShopConfigInfo::resource_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.resource_id)
+  return resource_id_;
+}
+ void MsgGoldShopConfigInfo::set_resource_id(::google::protobuf::int32 value) {
+  set_has_resource_id();
+  resource_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.resource_id)
+}
+
+// required int32 gold = 3;
+ bool MsgGoldShopConfigInfo::has_gold() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgGoldShopConfigInfo::set_has_gold() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgGoldShopConfigInfo::clear_has_gold() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgGoldShopConfigInfo::clear_gold() {
+  gold_ = 0;
+  clear_has_gold();
+}
+ ::google::protobuf::int32 MsgGoldShopConfigInfo::gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.gold)
+  return gold_;
+}
+ void MsgGoldShopConfigInfo::set_gold(::google::protobuf::int32 value) {
+  set_has_gold();
+  gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.gold)
+}
+
+// required float money = 4;
+ bool MsgGoldShopConfigInfo::has_money() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void MsgGoldShopConfigInfo::set_has_money() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void MsgGoldShopConfigInfo::clear_has_money() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+ void MsgGoldShopConfigInfo::clear_money() {
+  money_ = 0;
+  clear_has_money();
+}
+ float MsgGoldShopConfigInfo::money() const {
+  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.money)
+  return money_;
+}
+ void MsgGoldShopConfigInfo::set_money(float value) {
+  set_has_money();
+  money_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.money)
+}
+
+// required string describe = 5;
+ bool MsgGoldShopConfigInfo::has_describe() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+ void MsgGoldShopConfigInfo::set_has_describe() {
+  _has_bits_[0] |= 0x00000010u;
+}
+ void MsgGoldShopConfigInfo::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+ void MsgGoldShopConfigInfo::clear_describe() {
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_describe();
+}
+ const ::std::string& MsgGoldShopConfigInfo::describe() const {
+  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.describe)
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgGoldShopConfigInfo::set_describe(const ::std::string& value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.describe)
+}
+ void MsgGoldShopConfigInfo::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgGoldShopConfigInfo.describe)
+}
+ void MsgGoldShopConfigInfo::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgGoldShopConfigInfo.describe)
+}
+ ::std::string* MsgGoldShopConfigInfo::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgGoldShopConfigInfo.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgGoldShopConfigInfo::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgGoldShopConfigInfo::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
+  } else {
+    clear_has_describe();
+  }
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgGoldShopConfigInfo.describe)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

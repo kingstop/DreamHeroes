@@ -56,6 +56,8 @@ class MsgS2CAdvertisementRefreshTaskACK;
 class MsgS2CUnlockChapterACK;
 class MsgC2SReqBuyHero;
 class MsgS2CBuyHeroACK;
+class MsgC2SReqGoldShopConfigs;
+class MsgS2CGoldShopConfigsACK;
 
 enum GameError {
   Error_NO = 0,
@@ -1968,6 +1970,177 @@ class MsgS2CBuyHeroACK : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgS2CBuyHeroACK* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgC2SReqGoldShopConfigs : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqGoldShopConfigs();
+  virtual ~MsgC2SReqGoldShopConfigs();
+
+  MsgC2SReqGoldShopConfigs(const MsgC2SReqGoldShopConfigs& from);
+
+  inline MsgC2SReqGoldShopConfigs& operator=(const MsgC2SReqGoldShopConfigs& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqGoldShopConfigs& default_instance();
+
+  void Swap(MsgC2SReqGoldShopConfigs* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqGoldShopConfigs* New() const { return New(NULL); }
+
+  MsgC2SReqGoldShopConfigs* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqGoldShopConfigs& from);
+  void MergeFrom(const MsgC2SReqGoldShopConfigs& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqGoldShopConfigs* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqGoldShopConfigs)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqGoldShopConfigs* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CGoldShopConfigsACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CGoldShopConfigsACK();
+  virtual ~MsgS2CGoldShopConfigsACK();
+
+  MsgS2CGoldShopConfigsACK(const MsgS2CGoldShopConfigsACK& from);
+
+  inline MsgS2CGoldShopConfigsACK& operator=(const MsgS2CGoldShopConfigsACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CGoldShopConfigsACK& default_instance();
+
+  void Swap(MsgS2CGoldShopConfigsACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CGoldShopConfigsACK* New() const { return New(NULL); }
+
+  MsgS2CGoldShopConfigsACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CGoldShopConfigsACK& from);
+  void MergeFrom(const MsgS2CGoldShopConfigsACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CGoldShopConfigsACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .message.MsgGoldShopConfigInfo infos = 1;
+  int infos_size() const;
+  void clear_infos();
+  static const int kInfosFieldNumber = 1;
+  const ::message::MsgGoldShopConfigInfo& infos(int index) const;
+  ::message::MsgGoldShopConfigInfo* mutable_infos(int index);
+  ::message::MsgGoldShopConfigInfo* add_infos();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgGoldShopConfigInfo >&
+      infos() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgGoldShopConfigInfo >*
+      mutable_infos();
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CGoldShopConfigsACK)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgGoldShopConfigInfo > infos_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CGoldShopConfigsACK* default_instance_;
+};
 // ===================================================================
 
 
@@ -3100,6 +3273,44 @@ inline void MsgS2CBuyHeroACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CBuyHeroACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqGoldShopConfigs
+
+// -------------------------------------------------------------------
+
+// MsgS2CGoldShopConfigsACK
+
+// repeated .message.MsgGoldShopConfigInfo infos = 1;
+inline int MsgS2CGoldShopConfigsACK::infos_size() const {
+  return infos_.size();
+}
+inline void MsgS2CGoldShopConfigsACK::clear_infos() {
+  infos_.Clear();
+}
+inline const ::message::MsgGoldShopConfigInfo& MsgS2CGoldShopConfigsACK::infos(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CGoldShopConfigsACK.infos)
+  return infos_.Get(index);
+}
+inline ::message::MsgGoldShopConfigInfo* MsgS2CGoldShopConfigsACK::mutable_infos(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CGoldShopConfigsACK.infos)
+  return infos_.Mutable(index);
+}
+inline ::message::MsgGoldShopConfigInfo* MsgS2CGoldShopConfigsACK::add_infos() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CGoldShopConfigsACK.infos)
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgGoldShopConfigInfo >&
+MsgS2CGoldShopConfigsACK::infos() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CGoldShopConfigsACK.infos)
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgGoldShopConfigInfo >*
+MsgS2CGoldShopConfigsACK::mutable_infos() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CGoldShopConfigsACK.infos)
+  return &infos_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

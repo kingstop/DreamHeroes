@@ -33,6 +33,22 @@ const MAPTASKS* GameConfig::getMapTasks()
 	return &_tasks;
 }
 
+const MAPGOLDSHOPCONFIGINFOS* GameConfig::getGoldShopConfigInfos()
+{
+	return &_gold_shop_config_infos;
+}
+
+const message::MsgGoldShopConfigInfo* GameConfig::getGoldShopConfigInfo(int id)
+{
+	message::MsgGoldShopConfigInfo* entry = NULL;
+	MAPGOLDSHOPCONFIGINFOS::iterator it = _gold_shop_config_infos.find(id);
+	if (it != _gold_shop_config_infos.end())
+	{
+		entry = &it->second;
+	}
+	return entry;
+}
+
 
 const  message::MsgChapterConfigInfo* GameConfig::getChapterConfigInfo(int id)
 {
@@ -182,7 +198,7 @@ void GameConfig::Load(DBQuery* p)
 		rows_length = sResult.num_rows();
 		for (int i = 0; i < rows_length; i ++)
 		{
-			DBRow& row = sResult[0];
+			DBRow& row = sResult[i];
 			TimeShopSalesPromotionConfig SalesPromotionConfig;
 			SalesPromotionConfig.id_ = row["sales_promotion_id"];
 			SalesPromotionConfig.grid_id_ = row["grid_id"];
@@ -190,6 +206,24 @@ void GameConfig::Load(DBQuery* p)
 			SalesPromotionConfig.begin_time_ = row["UNIX_TIMESTAMP(`begin_time`)"];
 			SalesPromotionConfig.end_time_ = row["UNIX_TIMESTAMP(`end_time`)"];
 			_shop_time_sales_promotion.insert(MAPTIMESHOPSALESPROMOTIONCONFIGS::value_type(SalesPromotionConfig.id_, SalesPromotionConfig));
+		}
+
+
+		query.reset();
+		sResult.clear();
+		query << "select * from gold_shop_config_info;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			DBRow& row = sResult[i];
+			message::MsgGoldShopConfigInfo entry;
+			entry.set_id(row['shop_id']);
+			entry.set_describe(row["describe"]);
+			entry.set_gold(row["gold"]);
+			entry.set_resource_id(row["resource_id"]);
+			entry.set_money(row["money"]);
+			_gold_shop_config_infos[entry.id()] = entry;
 		}
 	}	
 }

@@ -142,3 +142,13 @@ message MsgS2CBuyHeroACK
 	required int32 current_gold = 2;	
 	required GameError error = 3 [default=Error_NO];
 }
+
+message MsgC2SReqGoldShopConfigs
+{
+
+}
+
+message MsgS2CGoldShopConfigsACK
+{
+	repeated MsgGoldShopConfigInfo infos = 1;
+}

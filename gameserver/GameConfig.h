@@ -41,6 +41,7 @@ struct TimeShopSalesPromotionConfig : public ShopSalesPromotionConfig
 typedef std::map<int, message::MsgTaskConfigInfo> MAPTASKS;
 typedef std::map<int, message::MsgShopConfigInfo> MAPSHOPHEROCONFIGS;
 typedef std::map<int, message::MsgChapterConfigInfo> MAPCHAPTERCONFIGINFOS;
+typedef std::map<int, message::MsgGoldShopConfigInfo> MAPGOLDSHOPCONFIGINFOS;
 typedef std::map<int, TimeShopSalesPromotionConfig> MAPTIMESHOPSALESPROMOTIONCONFIGS;
 
 
@@ -58,6 +59,8 @@ public:
 	const MAPTIMESHOPSALESPROMOTIONCONFIGS* getTimeShopSalesPromotionConfigs();
 	const TimeShopSalesPromotionConfig* getTimeShopSalesPromotionConfig(int id);
 	const  message::MsgChapterConfigInfo* getChapterConfigInfo(int id);
+	const MAPGOLDSHOPCONFIGINFOS* getGoldShopConfigInfos();
+	const message::MsgGoldShopConfigInfo* getGoldShopConfigInfo(int id);
 
 	const globalConfig& getGlobalConfig();
 	
@@ -66,6 +69,7 @@ protected:
 	MAPSHOPHEROCONFIGS _shop_heroes;
 	MAPTIMESHOPSALESPROMOTIONCONFIGS _shop_time_sales_promotion;
 	MAPCHAPTERCONFIGINFOS _chapter_config_infos;
+	MAPGOLDSHOPCONFIGINFOS _gold_shop_config_infos;
 	
 	globalConfig _global_config;
 };

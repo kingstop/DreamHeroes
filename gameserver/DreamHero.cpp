@@ -682,19 +682,19 @@ void DreamHero::SaveHero()
 
 
 	build_unix_time_to_string(_last_task_advertisement_time, last_task_advertisement_time_temp);
-#ifdef WIN32
+//#ifdef WIN32
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
 		(%llu, 'normal', %d, '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s');",
 		_account, _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.gold(), _info.complete_task_count(), _current_free_task_count, last_task_advertisement_time_temp.c_str());
-#else
-	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
-		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
-		(%llu, 'normal', %d, '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s');",
-		_account, _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), _info.current_hero(), _current_chapter,
-		_current_section, _info.gold(), _info.complete_task_count(), _current_free_task_count, last_task_advertisement_time_temp.c_str());
-#endif
+//#else
+//	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
+//		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
+//		(%llu, 'normal', %d, '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s');",
+//		_account, _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), _info.current_hero(), _current_chapter,
+//		_current_section, _info.gold(), _info.complete_task_count(), _current_free_task_count, last_task_advertisement_time_temp.c_str());
+//#endif
 
 
 	message::MsgSaveDataGS2DB msg_db;
@@ -708,6 +708,19 @@ void DreamHero::set_name(const char* name)
 	_info.set_name(name);
 }
 
+
+void DreamHero::ReqGoldShopConfigs()
+{
+	message::MsgS2CGoldShopConfigsACK msg;
+	const MAPGOLDSHOPCONFIGINFOS* infos = gGameConfig.getGoldShopConfigInfos();
+	MAPGOLDSHOPCONFIGINFOS::const_iterator it = infos->begin();
+	for (; it != infos->end(); ++ it)
+	{
+		message::MsgGoldShopConfigInfo* entry_info = msg.add_infos();
+		entry_info->CopyFrom(it->second);
+	}
+	sendPBMessage(&msg);
+}
 //int DreamHero::get_level()
 //{
 //	return _info.level();
