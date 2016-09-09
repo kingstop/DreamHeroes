@@ -55,7 +55,6 @@ Session* DreamHero::get_session()
 	return _session;
 }
 
-
 std::vector<int> MapVersionFormat(std::string cur_version)
 {
 	std::vector<std::string> vcstr;
@@ -289,7 +288,6 @@ void DreamHero::ReqUnlockChapter(const message::MsgC2SReqUnlockChapter* msg)
 
 void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 {
-	
 	int chapter_id_temp = msg->chapter_id();
 	int section_id_temp = msg->section_id();
 	int task_size = msg->task_infos_size();
@@ -300,15 +298,12 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 	msgACK.set_current_gold(0);
 	msgACK.set_success(msg->success());
 	msgACK.set_error(message::Error_NO);
-	
-
 	if (chapter_id_temp != _current_chapter || section_id_temp != _current_section)
 	{
 		msgACK.set_error(message::Error_NotEnterTheExitGame);
 	}
 	else
 	{
-
 		google::protobuf::RepeatedPtrField< ::message::MsgTaskInfo >* temp_repeated = NULL;
 		::google::protobuf::RepeatedPtrField< ::message::MsgTaskInfo >::iterator it;
 		temp_repeated = _info.mutable_tasks();
@@ -600,7 +595,7 @@ void DreamHero::SendClientInit()
 		const message::MsgTaskInfo entry =  _info.tasks(i);
 		if (entry.taskid() != 0)
 		{
-			const message::MsgTaskConfigInfo* entry_config =  gGameConfig.getMapTask(entry.taskid());
+			const message::MsgTaskConfigInfo* entry_config = gGameConfig.getMapTask(entry.taskid());
 			if (entry_config != NULL)
 			{
 				message::MsgTaskConfigInfo* cur_entry = msg.add_task_config_infos();
@@ -693,7 +688,7 @@ void DreamHero::SaveHero()
 		(%llu, 'normal', %d, '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s');",
 		_account, _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.gold(), _info.complete_task_count(), _current_free_task_count, last_task_advertisement_time_temp.c_str());
-#elif LINUX
+#else
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
 		(%lu, 'normal', %d, '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s');",
