@@ -279,7 +279,7 @@ void protobuf_AddDesc_common_2eproto() {
     "time\030\003 \002(\005\022\036\n\026require_unlock_chapter\030\004 \002"
     "(\005\022\036\n\026require_unlock_section\030\005 \002(\005\022*\n\"re"
     "quire_unlock_complete_task_count\030\006 \002(\005\022\021"
-    "\n\tgift_gold\030\007 \002(\005\022\020\n\010describe\030\010 \002(\005\"`\n\021M"
+    "\n\tgift_gold\030\007 \002(\005\022\020\n\010describe\030\010 \002(\t\"`\n\021M"
     "sgShopConfigInfo\022\017\n\007grid_id\030\001 \002(\005\022\017\n\007her"
     "o_id\030\002 \002(\005\022\024\n\014require_gold\030\003 \002(\005\022\023\n\013chea"
     "pe_gold\030\004 \002(\005\"B\n\013MsgTaskInfo\022\016\n\006TaskID\030\001"
@@ -1916,6 +1916,7 @@ MsgTaskConfigInfo::MsgTaskConfigInfo(const MsgTaskConfigInfo& from)
 }
 
 void MsgTaskConfigInfo::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   taskid_ = 0;
   require_time_ = 0;
@@ -1923,7 +1924,7 @@ void MsgTaskConfigInfo::SharedCtor() {
   require_unlock_section_ = 0;
   require_unlock_complete_task_count_ = 0;
   gift_gold_ = 0;
-  describe_ = 0;
+  describe_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1933,6 +1934,7 @@ MsgTaskConfigInfo::~MsgTaskConfigInfo() {
 }
 
 void MsgTaskConfigInfo::SharedDtor() {
+  describe_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -1972,7 +1974,10 @@ void MsgTaskConfigInfo::Clear() {
 } while (0)
 
   if (_has_bits_[0 / 32] & 253) {
-    ZR_(taskid_, describe_);
+    ZR_(taskid_, gift_gold_);
+    if (has_describe()) {
+      describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
   }
 
 #undef ZR_HELPER_
@@ -2094,18 +2099,20 @@ bool MsgTaskConfigInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(64)) goto parse_describe;
+        if (input->ExpectTag(66)) goto parse_describe;
         break;
       }
 
-      // required int32 describe = 8;
+      // required string describe = 8;
       case 8: {
-        if (tag == 64) {
+        if (tag == 66) {
          parse_describe:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &describe_)));
-          set_has_describe();
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_describe()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->describe().data(), this->describe().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgTaskConfigInfo.describe");
         } else {
           goto handle_unusual;
         }
@@ -2174,9 +2181,14 @@ void MsgTaskConfigInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->gift_gold(), output);
   }
 
-  // required int32 describe = 8;
+  // required string describe = 8;
   if (has_describe()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->describe(), output);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->describe().data(), this->describe().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgTaskConfigInfo.describe");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      8, this->describe(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2226,9 +2238,15 @@ void MsgTaskConfigInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->gift_gold(), target);
   }
 
-  // required int32 describe = 8;
+  // required string describe = 8;
   if (has_describe()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->describe(), target);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->describe().data(), this->describe().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgTaskConfigInfo.describe");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->describe(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2285,9 +2303,9 @@ int MsgTaskConfigInfo::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_describe()) {
-    // required int32 describe = 8;
+    // required string describe = 8;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::StringSize(
         this->describe());
   }
 
@@ -2327,9 +2345,9 @@ int MsgTaskConfigInfo::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->gift_gold());
 
-    // required int32 describe = 8;
+    // required string describe = 8;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::StringSize(
         this->describe());
 
   } else {
@@ -2389,7 +2407,8 @@ void MsgTaskConfigInfo::MergeFrom(const MsgTaskConfigInfo& from) {
       set_gift_gold(from.gift_gold());
     }
     if (from.has_describe()) {
-      set_describe(from.describe());
+      set_has_describe();
+      describe_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.describe_);
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -2428,7 +2447,7 @@ void MsgTaskConfigInfo::InternalSwap(MsgTaskConfigInfo* other) {
   std::swap(require_unlock_section_, other->require_unlock_section_);
   std::swap(require_unlock_complete_task_count_, other->require_unlock_complete_task_count_);
   std::swap(gift_gold_, other->gift_gold_);
-  std::swap(describe_, other->describe_);
+  describe_.Swap(&other->describe_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2619,7 +2638,7 @@ MsgTaskConfigInfo::mutable_task_condition() {
   // @@protoc_insertion_point(field_set:message.MsgTaskConfigInfo.gift_gold)
 }
 
-// required int32 describe = 8;
+// required string describe = 8;
  bool MsgTaskConfigInfo::has_describe() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -2630,17 +2649,46 @@ MsgTaskConfigInfo::mutable_task_condition() {
   _has_bits_[0] &= ~0x00000080u;
 }
  void MsgTaskConfigInfo::clear_describe() {
-  describe_ = 0;
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_describe();
 }
- ::google::protobuf::int32 MsgTaskConfigInfo::describe() const {
+ const ::std::string& MsgTaskConfigInfo::describe() const {
   // @@protoc_insertion_point(field_get:message.MsgTaskConfigInfo.describe)
-  return describe_;
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgTaskConfigInfo::set_describe(::google::protobuf::int32 value) {
+ void MsgTaskConfigInfo::set_describe(const ::std::string& value) {
   set_has_describe();
-  describe_ = value;
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:message.MsgTaskConfigInfo.describe)
+}
+ void MsgTaskConfigInfo::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgTaskConfigInfo.describe)
+}
+ void MsgTaskConfigInfo::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgTaskConfigInfo.describe)
+}
+ ::std::string* MsgTaskConfigInfo::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgTaskConfigInfo.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgTaskConfigInfo::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgTaskConfigInfo::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
+  } else {
+    clear_has_describe();
+  }
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgTaskConfigInfo.describe)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

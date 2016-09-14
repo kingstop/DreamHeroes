@@ -138,6 +138,7 @@ void GameConfig::Load(DBQuery* p)
 			TaskInfoConfig.set_require_time(row["require_time"]);
 			TaskInfoConfig.set_require_unlock_complete_task_count(row["require_complete_task_count"]);
 			TaskInfoConfig.set_gift_gold(row["gift_gold"]);
+			TaskInfoConfig.set_describe(row["describe"]);
 			_tasks.insert(MAPTASKS::value_type(TaskInfoConfig.taskid(), TaskInfoConfig));
 		}
 

@@ -571,12 +571,17 @@ class MsgTaskConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 gift_gold() const;
   void set_gift_gold(::google::protobuf::int32 value);
 
-  // required int32 describe = 8;
+  // required string describe = 8;
   bool has_describe() const;
   void clear_describe();
   static const int kDescribeFieldNumber = 8;
-  ::google::protobuf::int32 describe() const;
-  void set_describe(::google::protobuf::int32 value);
+  const ::std::string& describe() const;
+  void set_describe(const ::std::string& value);
+  void set_describe(const char* value);
+  void set_describe(const char* value, size_t size);
+  ::std::string* mutable_describe();
+  ::std::string* release_describe();
+  void set_allocated_describe(::std::string* describe);
 
   // @@protoc_insertion_point(class_scope:message.MsgTaskConfigInfo)
  private:
@@ -608,7 +613,7 @@ class MsgTaskConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 require_unlock_section_;
   ::google::protobuf::int32 require_unlock_complete_task_count_;
   ::google::protobuf::int32 gift_gold_;
-  ::google::protobuf::int32 describe_;
+  ::google::protobuf::internal::ArenaStringPtr describe_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1659,7 +1664,7 @@ inline void MsgTaskConfigInfo::set_gift_gold(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:message.MsgTaskConfigInfo.gift_gold)
 }
 
-// required int32 describe = 8;
+// required string describe = 8;
 inline bool MsgTaskConfigInfo::has_describe() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1670,17 +1675,46 @@ inline void MsgTaskConfigInfo::clear_has_describe() {
   _has_bits_[0] &= ~0x00000080u;
 }
 inline void MsgTaskConfigInfo::clear_describe() {
-  describe_ = 0;
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_describe();
 }
-inline ::google::protobuf::int32 MsgTaskConfigInfo::describe() const {
+inline const ::std::string& MsgTaskConfigInfo::describe() const {
   // @@protoc_insertion_point(field_get:message.MsgTaskConfigInfo.describe)
-  return describe_;
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgTaskConfigInfo::set_describe(::google::protobuf::int32 value) {
+inline void MsgTaskConfigInfo::set_describe(const ::std::string& value) {
   set_has_describe();
-  describe_ = value;
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:message.MsgTaskConfigInfo.describe)
+}
+inline void MsgTaskConfigInfo::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgTaskConfigInfo.describe)
+}
+inline void MsgTaskConfigInfo::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgTaskConfigInfo.describe)
+}
+inline ::std::string* MsgTaskConfigInfo::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgTaskConfigInfo.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgTaskConfigInfo::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgTaskConfigInfo::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
+  } else {
+    clear_has_describe();
+  }
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgTaskConfigInfo.describe)
 }
 
 // -------------------------------------------------------------------
