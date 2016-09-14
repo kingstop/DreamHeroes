@@ -390,8 +390,8 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 				}
 			}
 		}
-
 		msgACK.set_current_gold(gold_entry);
+		_info.set_gold(gold_entry);
 	}
 	sendPBMessage(&msgACK);	
 }

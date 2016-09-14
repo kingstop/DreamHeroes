@@ -48,7 +48,7 @@ message MsgTaskConfigInfo
 	required int32 require_unlock_section = 5;
 	required int32 require_unlock_complete_task_count = 6;
 	required int32 gift_gold = 7;
-	required int32 describe = 8;
+	required string describe = 8;
 }
 
 
