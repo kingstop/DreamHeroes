@@ -57,7 +57,7 @@ void DBServer::memoryLog()
 
 void DBServer::setStop()
 {
-
+	Mylog::log_server(LOG_INFO, "database server set stop");
 }
 
 void DBServer::checkStop()
@@ -65,13 +65,14 @@ void DBServer::checkStop()
 	if (gDBCharDatabase.isObjStop())
 	{
 		shutDown();
+		Mylog::log_server(LOG_INFO, "_stop = true");
 		_stop = true;
 	}
 }
 
 void DBServer::signalStop()
 {
-	_wait_stop = true;
+	ServerFrame::signalStop();
 }
 
 

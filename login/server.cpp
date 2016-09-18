@@ -70,6 +70,7 @@ void LoginServer::setStop()
 }
 void LoginServer::checkStop()
 {
+	shutDown();
 	_stop = true;
 }
 bool LoginServer::initDataFromDatabase(DBQuery* p, const void* data)
@@ -93,7 +94,7 @@ bool LoginServer::initDataFromDatabase(DBQuery* p, const void* data)
 
 	if(!gLGUserServer.create( user_net._port, user_net._max_connect, user_net._thread_count))
 	{
-		Mylog::log_server( LOG_ERROR, "UDPSERVER Init NetConfig failed!");
+		Mylog::log_server( LOG_ERROR, "Init NetConfig failed!");
 		return false;
 	}
 	
