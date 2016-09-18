@@ -66,12 +66,15 @@ void LoginServer::memoryLog()
 }
 void LoginServer::setStop()
 {
-	_wait_stop = true;
+	 gLGCenterDB.setObjState(RunObject::_wait_stop_);
 }
 void LoginServer::checkStop()
 {
-	shutDown();
-	_stop = true;
+	if (gLGCenterDB.isObjStop())
+	{
+		shutDown();
+		_stop = true;
+	}
 }
 bool LoginServer::initDataFromDatabase(DBQuery* p, const void* data)
 {
