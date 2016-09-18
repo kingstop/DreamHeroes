@@ -57,7 +57,7 @@ void DBServer::memoryLog()
 
 void DBServer::setStop()
 {
-	Mylog::log_server(LOG_INFO, "database server set stop");
+	//Mylog::log_server(LOG_INFO, "database server set stop");
 }
 
 void DBServer::checkStop()
@@ -65,7 +65,7 @@ void DBServer::checkStop()
 	if (gDBCharDatabase.isObjStop())
 	{
 		shutDown();
-		Mylog::log_server(LOG_INFO, "_stop = true");
+		//Mylog::log_server(LOG_INFO, "_stop = true");
 		_stop = true;
 	}
 }
@@ -208,7 +208,8 @@ bool DBServer::initDataFromDatabase(DBQuery* p, const void* data)
 
 	if (gDBWorldDatabase.initDatabase(db_world_config) == false)
 	{
-
+		Mylog::log_server(LOG_ERROR, "Init Server from world DataBase Error!");
+		return false;
 	}
 
 	return true;
