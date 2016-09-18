@@ -340,7 +340,7 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 						try_to_find_task_info = true;
 						task_gift_gold = info_task_config->gift_gold();
 						temp_repeated->erase(it);
-						return;
+						break;
 					}
 				}
 			}
