@@ -17,9 +17,10 @@ enum GameError
 	Error_UnlockChapterFailedYouNotHaveEnoughGold = 11;
 	Error_RefreshAdvertisementTaskFailedInCD = 12;
 	Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 13;
-	Error_BuyHeroFailedNotEnoughGold = 14;
-	Error_BuyHeroFailedThePriceIsOld = 15;
-	Error_BuyHeroFailedNotFoundGrid = 16;
+	Error_RefreshAdvertisementTaskFailedUnknow = 14;
+	Error_BuyHeroFailedNotEnoughGold = 15;
+	Error_BuyHeroFailedThePriceIsOld = 16;
+	Error_BuyHeroFailedNotFoundGrid = 17;
 	
 	
 }
@@ -54,6 +55,10 @@ message MsgS2CHeroesInit
 {
 	required MsgHeroData info = 1;
 	repeated MsgTaskConfigInfo task_config_infos = 2;
+	required int32 free_advertisement_config_count = 3;
+	required int32 current_advertisement_count = 4;
+	required int64 last_advertisement_time = 5;
+	required int32 advertisement_time_cd = 6;
 }
 
 message MsgC2SReqEnterGame

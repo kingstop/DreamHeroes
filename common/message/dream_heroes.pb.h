@@ -74,9 +74,10 @@ enum GameError {
   Error_UnlockChapterFailedYouNotHaveEnoughGold = 11,
   Error_RefreshAdvertisementTaskFailedInCD = 12,
   Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 13,
-  Error_BuyHeroFailedNotEnoughGold = 14,
-  Error_BuyHeroFailedThePriceIsOld = 15,
-  Error_BuyHeroFailedNotFoundGrid = 16
+  Error_RefreshAdvertisementTaskFailedUnknow = 14,
+  Error_BuyHeroFailedNotEnoughGold = 15,
+  Error_BuyHeroFailedThePriceIsOld = 16,
+  Error_BuyHeroFailedNotFoundGrid = 17
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
@@ -613,16 +614,59 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >*
       mutable_task_config_infos();
 
+  // required int32 free_advertisement_config_count = 3;
+  bool has_free_advertisement_config_count() const;
+  void clear_free_advertisement_config_count();
+  static const int kFreeAdvertisementConfigCountFieldNumber = 3;
+  ::google::protobuf::int32 free_advertisement_config_count() const;
+  void set_free_advertisement_config_count(::google::protobuf::int32 value);
+
+  // required int32 current_advertisement_count = 4;
+  bool has_current_advertisement_count() const;
+  void clear_current_advertisement_count();
+  static const int kCurrentAdvertisementCountFieldNumber = 4;
+  ::google::protobuf::int32 current_advertisement_count() const;
+  void set_current_advertisement_count(::google::protobuf::int32 value);
+
+  // required int64 last_advertisement_time = 5;
+  bool has_last_advertisement_time() const;
+  void clear_last_advertisement_time();
+  static const int kLastAdvertisementTimeFieldNumber = 5;
+  ::google::protobuf::int64 last_advertisement_time() const;
+  void set_last_advertisement_time(::google::protobuf::int64 value);
+
+  // required int32 advertisement_time_cd = 6;
+  bool has_advertisement_time_cd() const;
+  void clear_advertisement_time_cd();
+  static const int kAdvertisementTimeCdFieldNumber = 6;
+  ::google::protobuf::int32 advertisement_time_cd() const;
+  void set_advertisement_time_cd(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
   inline void set_has_info();
   inline void clear_has_info();
+  inline void set_has_free_advertisement_config_count();
+  inline void clear_has_free_advertisement_config_count();
+  inline void set_has_current_advertisement_count();
+  inline void clear_has_current_advertisement_count();
+  inline void set_has_last_advertisement_time();
+  inline void clear_has_last_advertisement_time();
+  inline void set_has_advertisement_time_cd();
+  inline void clear_has_advertisement_time_cd();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::message::MsgHeroData* info_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo > task_config_infos_;
+  ::google::protobuf::int32 free_advertisement_config_count_;
+  ::google::protobuf::int32 current_advertisement_count_;
+  ::google::protobuf::int64 last_advertisement_time_;
+  ::google::protobuf::int32 advertisement_time_cd_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -2343,6 +2387,102 @@ inline ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >*
 MsgS2CHeroesInit::mutable_task_config_infos() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgS2CHeroesInit.task_config_infos)
   return &task_config_infos_;
+}
+
+// required int32 free_advertisement_config_count = 3;
+inline bool MsgS2CHeroesInit::has_free_advertisement_config_count() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_free_advertisement_config_count() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CHeroesInit::clear_has_free_advertisement_config_count() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CHeroesInit::clear_free_advertisement_config_count() {
+  free_advertisement_config_count_ = 0;
+  clear_has_free_advertisement_config_count();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::free_advertisement_config_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.free_advertisement_config_count)
+  return free_advertisement_config_count_;
+}
+inline void MsgS2CHeroesInit::set_free_advertisement_config_count(::google::protobuf::int32 value) {
+  set_has_free_advertisement_config_count();
+  free_advertisement_config_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.free_advertisement_config_count)
+}
+
+// required int32 current_advertisement_count = 4;
+inline bool MsgS2CHeroesInit::has_current_advertisement_count() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_current_advertisement_count() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgS2CHeroesInit::clear_has_current_advertisement_count() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgS2CHeroesInit::clear_current_advertisement_count() {
+  current_advertisement_count_ = 0;
+  clear_has_current_advertisement_count();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::current_advertisement_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.current_advertisement_count)
+  return current_advertisement_count_;
+}
+inline void MsgS2CHeroesInit::set_current_advertisement_count(::google::protobuf::int32 value) {
+  set_has_current_advertisement_count();
+  current_advertisement_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.current_advertisement_count)
+}
+
+// required int64 last_advertisement_time = 5;
+inline bool MsgS2CHeroesInit::has_last_advertisement_time() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_last_advertisement_time() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgS2CHeroesInit::clear_has_last_advertisement_time() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgS2CHeroesInit::clear_last_advertisement_time() {
+  last_advertisement_time_ = GOOGLE_LONGLONG(0);
+  clear_has_last_advertisement_time();
+}
+inline ::google::protobuf::int64 MsgS2CHeroesInit::last_advertisement_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.last_advertisement_time)
+  return last_advertisement_time_;
+}
+inline void MsgS2CHeroesInit::set_last_advertisement_time(::google::protobuf::int64 value) {
+  set_has_last_advertisement_time();
+  last_advertisement_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_advertisement_time)
+}
+
+// required int32 advertisement_time_cd = 6;
+inline bool MsgS2CHeroesInit::has_advertisement_time_cd() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_advertisement_time_cd() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgS2CHeroesInit::clear_has_advertisement_time_cd() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MsgS2CHeroesInit::clear_advertisement_time_cd() {
+  advertisement_time_cd_ = 0;
+  clear_has_advertisement_time_cd();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::advertisement_time_cd() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.advertisement_time_cd)
+  return advertisement_time_cd_;
+}
+inline void MsgS2CHeroesInit::set_advertisement_time_cd(::google::protobuf::int32 value) {
+  set_has_advertisement_time_cd();
+  advertisement_time_cd_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.advertisement_time_cd)
 }
 
 // -------------------------------------------------------------------

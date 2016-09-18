@@ -402,7 +402,7 @@ void DreamHero::RefreshTask(int give_up_task_id)
 	
 	if (_current_free_task_count > gGameConfig.getGlobalConfig().day_free_task_count_)
 	{
-		u64 diff_time = g_server_start_time - _last_task_advertisement_time;
+		s64 diff_time = g_server_start_time - _last_task_advertisement_time;
 		if (diff_time < gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_)
 		{
 			msgError = message::Error_RefreshAdvertisementTaskFailedInCD;
@@ -411,10 +411,10 @@ void DreamHero::RefreshTask(int give_up_task_id)
 
 	google::protobuf::RepeatedPtrField< message::MsgTaskInfo >* repeated_tasks = _info.mutable_tasks();
 	if (msgError == message::Error_NO)
-	{
-		msgError = message::Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID;
+	{		
 		if (give_up_task_id != 0)
 		{
+			msgError = message::Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID;
 			google::protobuf::RepeatedPtrField< message::MsgTaskInfo >::iterator it = repeated_tasks->begin();
 			for (; it != repeated_tasks->end(); ++it)
 			{
@@ -426,41 +426,64 @@ void DreamHero::RefreshTask(int give_up_task_id)
 				}
 			}
 		}
-
+		
 		if (msgError == message::Error_NO)
 		{
 			if (repeated_tasks->size() <= gGameConfig.getGlobalConfig().hero_max_tasks_count_ - 1)
-			{
-				message::MsgTaskConfigInfo info_task_config = RadnomTaskInfo();
-				if (info_task_config.taskid() != 0)
-				{
-					message::MsgTaskInfo* entry = repeated_tasks->Add();
-					entry->set_taskid(info_task_config.taskid());
-					entry->set_argument_1(0);
-					entry->set_usetime(0);
-					if (give_up_task_id != 0)
-					{
-						message::MsgS2CAdvertisementRefreshTaskACK msgACK;
-						msgACK.set_give_up_task_id(give_up_task_id);											
-						message::MsgTaskConfigInfo* info = msgACK.add_infos();
-						info->CopyFrom(info_task_config);
-						msgACK.set_error(msgError);
-						sendPBMessage(&msgACK);
-					}
-					else
-					{
-						message::MsgS2CAdvertisementApplyTaskACK msgACK;
-						msgACK.set_error(msgError);
-						message::MsgTaskConfigInfo* info = msgACK.add_infos();
-						info->CopyFrom(info_task_config);
-						sendPBMessage(&msgACK);
-					}					
-				}
+			{			
 				_current_free_task_count++;
 				_last_task_advertisement_time = g_server_start_time;
 			}
+			else
+			{
+				msgError = message::Error_RefreshAdvertisementTaskFailedUnknow;
+			}
 		}
+		
+
 	}
+	message::MsgTaskConfigInfo info_task_config = RadnomTaskInfo();
+	bool have_task = false;
+	if (info_task_config.taskid() != 0 && msgError == message::Error_NO)
+	{
+		have_task = true;
+	}
+	
+
+	if (have_task)
+	{
+		message::MsgTaskInfo* entry = repeated_tasks->Add();
+		entry->set_taskid(info_task_config.taskid());
+		entry->set_argument_1(0);
+		entry->set_usetime(0);
+	}
+
+	
+	if (give_up_task_id != 0)
+	{
+		message::MsgS2CAdvertisementRefreshTaskACK msgACK;
+		msgACK.set_give_up_task_id(give_up_task_id);
+		if (have_task)
+		{
+			message::MsgTaskConfigInfo* info = msgACK.add_infos();
+			info->CopyFrom(info_task_config);
+		}
+
+		msgACK.set_error(msgError);
+		sendPBMessage(&msgACK);
+	}
+	else
+	{
+		message::MsgS2CAdvertisementApplyTaskACK msgACK;
+		msgACK.set_error(msgError);
+		if (have_task)
+		{
+			message::MsgTaskConfigInfo* info = msgACK.add_infos();
+			info->CopyFrom(info_task_config);
+		}
+		sendPBMessage(&msgACK);
+	}
+
 }
 
 void DreamHero::ReqAdvertisementApplyTask(const message::MsgC2SReqAdvertisementApplyTask* msg)
@@ -608,6 +631,11 @@ void DreamHero::SendClientInit()
 		}
 	}
 
+	msg.set_free_advertisement_config_count(gGameConfig.getGlobalConfig().day_free_task_count_);
+	msg.set_current_advertisement_count(_current_free_task_count);
+	msg.set_last_advertisement_time(_last_task_advertisement_time);
+	msg.set_advertisement_time_cd(gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_);
+	
 	sendPBMessage(&msg);
 	_online = true;
 }

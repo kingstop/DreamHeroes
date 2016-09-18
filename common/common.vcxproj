@@ -162,7 +162,6 @@
     <ClInclude Include="event_manager.h" />
     <ClInclude Include="event_table_object.h" />
     <ClInclude Include="exception.h" />
-    <ClInclude Include="HttpClient.h" />
     <ClInclude Include="io_service_pool.h" />
     <ClInclude Include="json_help.h" />
     <ClInclude Include="mapstorage.h" />
@@ -205,7 +204,6 @@
     <ClCompile Include="database.cpp" />
     <ClCompile Include="event_table_object.cpp" />
     <ClCompile Include="exception.cpp" />
-    <ClCompile Include="HttpClient.cpp" />
     <ClCompile Include="io_service_pool.cpp" />
     <ClCompile Include="json_help.cpp" />
     <ClCompile Include="md5.cpp" />
