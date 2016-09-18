@@ -202,13 +202,13 @@ bool DBServer::initDataFromDatabase(DBQuery* p, const void* data)
 
 	if (!Database::addBlockTask(db_world_config, this, &DBServer::initDataFromWorldDB, NULL))
 	{
-		Mylog::log_server( LOG_ERROR, "Init Server from character DataBase Error!");
+		Mylog::log_server( LOG_ERROR, "Init server from character DataBase Error!");
 		return false;
 	}
 
 	if (gDBWorldDatabase.initDatabase(db_world_config) == false)
 	{
-		Mylog::log_server(LOG_ERROR, "Init Server from world DataBase Error!");
+		Mylog::log_server(LOG_ERROR, "Init server from world DataBase Error!");
 		return false;
 	}
 
