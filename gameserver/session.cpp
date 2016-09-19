@@ -35,7 +35,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqAdvertisementApplyTask), &Session::parseReqAdvertisementApplyTask);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqAdvertisementRefreshTask), &Session::parseReqAdvertisementRefreshTask);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqGoldShopConfigs), &Session::parseReqGoldShopConfigs);
-
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuyHero), &Session::parseReqBuyHero);
 }
 
 void Session::parseReqShopConfig(google::protobuf::Message* p)
