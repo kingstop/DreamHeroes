@@ -509,13 +509,13 @@ void DreamHero::ReqModifyCurrentHero(int grid_id)
 		}
 		else
 		{
-			en = message::Error_CanNotEnterGameTheCharacterIsLock;
+			en = message::Error_ModifyCurrentFailedTheCharacterIsLock;
 		}
 
 	}
 	else
 	{
-		en = message::Error_CanNotEnterGameTheCharacterIsLock;
+		en = message::Error_ModifyCurrentFailedTheCharacterIsLock;
 	}
 	msg.set_error(en);
 	sendPBMessage(&msg);
