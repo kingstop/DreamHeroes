@@ -573,6 +573,7 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 			}
 		}
 	}
+	msgACK.set_current_gold(_info.gold());
 	msgACK.set_error(en);
 	sendPBMessage(&msgACK);
 }
