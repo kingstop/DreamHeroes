@@ -225,6 +225,7 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 		
 			pkParm->info.set_account(acc);
 			gDBGameManager.sendMessage(&pkParm->info, pkParm->tranid, pkParm->gsid);
+			need_create = false;
 		}
 	}
 
