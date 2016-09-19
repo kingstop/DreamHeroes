@@ -53,6 +53,8 @@ class MsgC2SReqAdvertisementApplyTask;
 class MsgS2CAdvertisementApplyTaskACK;
 class MsgC2SReqAdvertisementRefreshTask;
 class MsgS2CAdvertisementRefreshTaskACK;
+class MsgC2SReqModifyCurrentHero;
+class MsgS2CModifyCurrentHeroACK;
 class MsgS2CUnlockChapterACK;
 class MsgC2SReqBuyHero;
 class MsgS2CBuyHeroACK;
@@ -63,25 +65,27 @@ enum GameError {
   Error_NO = 0,
   Error_CanNotEnterGameTheInstanceIsLock = 1,
   Error_CanNotEnterGameTheCharacterIsLock = 2,
-  Error_CanNotBuyHeroNotEnoughgold = 3,
-  Error_CanNotPassGameTheInstanceNotHaveEnoughGold = 4,
-  Error_NotEnterTheExitGame = 5,
-  Error_NotFoundTheChapterWhenEnterGame = 6,
-  Error_TheChapterIsNotLock = 7,
-  Error_UnlockChapterFailedNotFoundTheUnlockChapter = 8,
-  Error_UnlockChapterFailedTheRequiredSectionNotPass = 9,
-  Error_UnlockChapterFailedYouHaveToCompleteEnoughTasks = 10,
-  Error_UnlockChapterFailedYouNotHaveEnoughGold = 11,
-  Error_RefreshAdvertisementTaskFailedInCD = 12,
-  Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 13,
-  Error_RefreshAdvertisementTaskFailedUnknow = 14,
-  Error_BuyHeroFailedNotEnoughGold = 15,
-  Error_BuyHeroFailedThePriceIsOld = 16,
-  Error_BuyHeroFailedNotFoundGrid = 17
+  Error_CanNotEnterGameTheSectionIsLock = 3,
+  Error_CanNotBuyHeroNotEnoughgold = 4,
+  Error_CanNotPassGameTheInstanceNotHaveEnoughGold = 5,
+  Error_NotEnterTheExitGame = 6,
+  Error_NotFoundTheChapterWhenEnterGame = 7,
+  Error_TheChapterIsNotLock = 8,
+  Error_UnlockChapterFailedNotFoundTheUnlockChapter = 9,
+  Error_UnlockChapterFailedTheRequiredSectionNotPass = 10,
+  Error_UnlockChapterFailedYouHaveToCompleteEnoughTasks = 11,
+  Error_UnlockChapterFailedYouNotHaveEnoughGold = 12,
+  Error_RefreshAdvertisementTaskFailedInCD = 13,
+  Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 14,
+  Error_RefreshAdvertisementTaskFailedUnknow = 15,
+  Error_BuyHeroFailedNotEnoughGold = 16,
+  Error_BuyHeroFailedThePriceIsOld = 17,
+  Error_BuyHeroFailedNotFoundGrid = 18,
+  Error_ModifyCurrentFailedTheCharacterIsLock = 19
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
-const GameError GameError_MAX = Error_BuyHeroFailedNotFoundGrid;
+const GameError GameError_MAX = Error_ModifyCurrentFailedTheCharacterIsLock;
 const int GameError_ARRAYSIZE = GameError_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* GameError_descriptor();
@@ -754,21 +758,12 @@ class MsgC2SReqEnterGame : public ::google::protobuf::Message {
   ::google::protobuf::int32 section_id() const;
   void set_section_id(::google::protobuf::int32 value);
 
-  // required int32 current_grid = 3;
-  bool has_current_grid() const;
-  void clear_current_grid();
-  static const int kCurrentGridFieldNumber = 3;
-  ::google::protobuf::int32 current_grid() const;
-  void set_current_grid(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:message.MsgC2SReqEnterGame)
  private:
   inline void set_has_chapter_id();
   inline void clear_has_chapter_id();
   inline void set_has_section_id();
   inline void clear_has_section_id();
-  inline void set_has_current_grid();
-  inline void clear_has_current_grid();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -778,7 +773,6 @@ class MsgC2SReqEnterGame : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 chapter_id_;
   ::google::protobuf::int32 section_id_;
-  ::google::protobuf::int32 current_grid_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -866,17 +860,10 @@ class MsgS2CEnterGameACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 section_id() const;
   void set_section_id(::google::protobuf::int32 value);
 
-  // required int32 current_grid = 3;
-  bool has_current_grid() const;
-  void clear_current_grid();
-  static const int kCurrentGridFieldNumber = 3;
-  ::google::protobuf::int32 current_grid() const;
-  void set_current_grid(::google::protobuf::int32 value);
-
-  // required .message.GameError error = 4 [default = Error_NO];
+  // required .message.GameError error = 3 [default = Error_NO];
   bool has_error() const;
   void clear_error();
-  static const int kErrorFieldNumber = 4;
+  static const int kErrorFieldNumber = 3;
   ::message::GameError error() const;
   void set_error(::message::GameError value);
 
@@ -886,8 +873,6 @@ class MsgS2CEnterGameACK : public ::google::protobuf::Message {
   inline void clear_has_chapter_id();
   inline void set_has_section_id();
   inline void clear_has_section_id();
-  inline void set_has_current_grid();
-  inline void clear_has_current_grid();
   inline void set_has_error();
   inline void clear_has_error();
 
@@ -899,7 +884,6 @@ class MsgS2CEnterGameACK : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 chapter_id_;
   ::google::protobuf::int32 section_id_;
-  ::google::protobuf::int32 current_grid_;
   int error_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
@@ -1687,6 +1671,197 @@ class MsgS2CAdvertisementRefreshTaskACK : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgS2CAdvertisementRefreshTaskACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqModifyCurrentHero : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqModifyCurrentHero();
+  virtual ~MsgC2SReqModifyCurrentHero();
+
+  MsgC2SReqModifyCurrentHero(const MsgC2SReqModifyCurrentHero& from);
+
+  inline MsgC2SReqModifyCurrentHero& operator=(const MsgC2SReqModifyCurrentHero& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqModifyCurrentHero& default_instance();
+
+  void Swap(MsgC2SReqModifyCurrentHero* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqModifyCurrentHero* New() const { return New(NULL); }
+
+  MsgC2SReqModifyCurrentHero* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqModifyCurrentHero& from);
+  void MergeFrom(const MsgC2SReqModifyCurrentHero& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqModifyCurrentHero* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 current_grid = 1;
+  bool has_current_grid() const;
+  void clear_current_grid();
+  static const int kCurrentGridFieldNumber = 1;
+  ::google::protobuf::int32 current_grid() const;
+  void set_current_grid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqModifyCurrentHero)
+ private:
+  inline void set_has_current_grid();
+  inline void clear_has_current_grid();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 current_grid_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqModifyCurrentHero* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CModifyCurrentHeroACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CModifyCurrentHeroACK();
+  virtual ~MsgS2CModifyCurrentHeroACK();
+
+  MsgS2CModifyCurrentHeroACK(const MsgS2CModifyCurrentHeroACK& from);
+
+  inline MsgS2CModifyCurrentHeroACK& operator=(const MsgS2CModifyCurrentHeroACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CModifyCurrentHeroACK& default_instance();
+
+  void Swap(MsgS2CModifyCurrentHeroACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CModifyCurrentHeroACK* New() const { return New(NULL); }
+
+  MsgS2CModifyCurrentHeroACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CModifyCurrentHeroACK& from);
+  void MergeFrom(const MsgS2CModifyCurrentHeroACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CModifyCurrentHeroACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 current_grid = 1;
+  bool has_current_grid() const;
+  void clear_current_grid();
+  static const int kCurrentGridFieldNumber = 1;
+  ::google::protobuf::int32 current_grid() const;
+  void set_current_grid(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 2 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CModifyCurrentHeroACK)
+ private:
+  inline void set_has_current_grid();
+  inline void clear_has_current_grid();
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 current_grid_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CModifyCurrentHeroACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -2537,30 +2712,6 @@ inline void MsgC2SReqEnterGame::set_section_id(::google::protobuf::int32 value) 
   // @@protoc_insertion_point(field_set:message.MsgC2SReqEnterGame.section_id)
 }
 
-// required int32 current_grid = 3;
-inline bool MsgC2SReqEnterGame::has_current_grid() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void MsgC2SReqEnterGame::set_has_current_grid() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void MsgC2SReqEnterGame::clear_has_current_grid() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void MsgC2SReqEnterGame::clear_current_grid() {
-  current_grid_ = 0;
-  clear_has_current_grid();
-}
-inline ::google::protobuf::int32 MsgC2SReqEnterGame::current_grid() const {
-  // @@protoc_insertion_point(field_get:message.MsgC2SReqEnterGame.current_grid)
-  return current_grid_;
-}
-inline void MsgC2SReqEnterGame::set_current_grid(::google::protobuf::int32 value) {
-  set_has_current_grid();
-  current_grid_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgC2SReqEnterGame.current_grid)
-}
-
 // -------------------------------------------------------------------
 
 // MsgS2CEnterGameACK
@@ -2613,39 +2764,15 @@ inline void MsgS2CEnterGameACK::set_section_id(::google::protobuf::int32 value) 
   // @@protoc_insertion_point(field_set:message.MsgS2CEnterGameACK.section_id)
 }
 
-// required int32 current_grid = 3;
-inline bool MsgS2CEnterGameACK::has_current_grid() const {
+// required .message.GameError error = 3 [default = Error_NO];
+inline bool MsgS2CEnterGameACK::has_error() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void MsgS2CEnterGameACK::set_has_current_grid() {
+inline void MsgS2CEnterGameACK::set_has_error() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void MsgS2CEnterGameACK::clear_has_current_grid() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void MsgS2CEnterGameACK::clear_current_grid() {
-  current_grid_ = 0;
-  clear_has_current_grid();
-}
-inline ::google::protobuf::int32 MsgS2CEnterGameACK::current_grid() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CEnterGameACK.current_grid)
-  return current_grid_;
-}
-inline void MsgS2CEnterGameACK::set_current_grid(::google::protobuf::int32 value) {
-  set_has_current_grid();
-  current_grid_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CEnterGameACK.current_grid)
-}
-
-// required .message.GameError error = 4 [default = Error_NO];
-inline bool MsgS2CEnterGameACK::has_error() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void MsgS2CEnterGameACK::set_has_error() {
-  _has_bits_[0] |= 0x00000008u;
-}
 inline void MsgS2CEnterGameACK::clear_has_error() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void MsgS2CEnterGameACK::clear_error() {
   error_ = 0;
@@ -3207,6 +3334,87 @@ inline ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >*
 MsgS2CAdvertisementRefreshTaskACK::mutable_infos() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgS2CAdvertisementRefreshTaskACK.infos)
   return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqModifyCurrentHero
+
+// required int32 current_grid = 1;
+inline bool MsgC2SReqModifyCurrentHero::has_current_grid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SReqModifyCurrentHero::set_has_current_grid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SReqModifyCurrentHero::clear_has_current_grid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SReqModifyCurrentHero::clear_current_grid() {
+  current_grid_ = 0;
+  clear_has_current_grid();
+}
+inline ::google::protobuf::int32 MsgC2SReqModifyCurrentHero::current_grid() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqModifyCurrentHero.current_grid)
+  return current_grid_;
+}
+inline void MsgC2SReqModifyCurrentHero::set_current_grid(::google::protobuf::int32 value) {
+  set_has_current_grid();
+  current_grid_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqModifyCurrentHero.current_grid)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CModifyCurrentHeroACK
+
+// required int32 current_grid = 1;
+inline bool MsgS2CModifyCurrentHeroACK::has_current_grid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CModifyCurrentHeroACK::set_has_current_grid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CModifyCurrentHeroACK::clear_has_current_grid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CModifyCurrentHeroACK::clear_current_grid() {
+  current_grid_ = 0;
+  clear_has_current_grid();
+}
+inline ::google::protobuf::int32 MsgS2CModifyCurrentHeroACK::current_grid() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CModifyCurrentHeroACK.current_grid)
+  return current_grid_;
+}
+inline void MsgS2CModifyCurrentHeroACK::set_current_grid(::google::protobuf::int32 value) {
+  set_has_current_grid();
+  current_grid_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CModifyCurrentHeroACK.current_grid)
+}
+
+// required .message.GameError error = 2 [default = Error_NO];
+inline bool MsgS2CModifyCurrentHeroACK::has_error() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CModifyCurrentHeroACK::set_has_error() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CModifyCurrentHeroACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CModifyCurrentHeroACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CModifyCurrentHeroACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CModifyCurrentHeroACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CModifyCurrentHeroACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CModifyCurrentHeroACK.error)
 }
 
 // -------------------------------------------------------------------

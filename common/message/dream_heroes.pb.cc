@@ -65,6 +65,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgS2CAdvertisementRefreshTaskACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CAdvertisementRefreshTaskACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SReqModifyCurrentHero_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgC2SReqModifyCurrentHero_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgS2CModifyCurrentHeroACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgS2CModifyCurrentHeroACK_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgS2CUnlockChapterACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CUnlockChapterACK_reflection_ = NULL;
@@ -185,10 +191,9 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, _internal_metadata_),
       -1);
   MsgC2SReqEnterGame_descriptor_ = file->message_type(6);
-  static const int MsgC2SReqEnterGame_offsets_[3] = {
+  static const int MsgC2SReqEnterGame_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, section_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, current_grid_),
   };
   MsgC2SReqEnterGame_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -202,10 +207,9 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, _internal_metadata_),
       -1);
   MsgS2CEnterGameACK_descriptor_ = file->message_type(7);
-  static const int MsgS2CEnterGameACK_offsets_[4] = {
+  static const int MsgS2CEnterGameACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, section_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, current_grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, error_),
   };
   MsgS2CEnterGameACK_reflection_ =
@@ -337,7 +341,38 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CAdvertisementRefreshTaskACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, _internal_metadata_),
       -1);
-  MsgS2CUnlockChapterACK_descriptor_ = file->message_type(15);
+  MsgC2SReqModifyCurrentHero_descriptor_ = file->message_type(15);
+  static const int MsgC2SReqModifyCurrentHero_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyCurrentHero, current_grid_),
+  };
+  MsgC2SReqModifyCurrentHero_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgC2SReqModifyCurrentHero_descriptor_,
+      MsgC2SReqModifyCurrentHero::default_instance_,
+      MsgC2SReqModifyCurrentHero_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyCurrentHero, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgC2SReqModifyCurrentHero),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyCurrentHero, _internal_metadata_),
+      -1);
+  MsgS2CModifyCurrentHeroACK_descriptor_ = file->message_type(16);
+  static const int MsgS2CModifyCurrentHeroACK_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, current_grid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, error_),
+  };
+  MsgS2CModifyCurrentHeroACK_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgS2CModifyCurrentHeroACK_descriptor_,
+      MsgS2CModifyCurrentHeroACK::default_instance_,
+      MsgS2CModifyCurrentHeroACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgS2CModifyCurrentHeroACK),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, _internal_metadata_),
+      -1);
+  MsgS2CUnlockChapterACK_descriptor_ = file->message_type(17);
   static const int MsgS2CUnlockChapterACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, current_gold_),
@@ -354,7 +389,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CUnlockChapterACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, _internal_metadata_),
       -1);
-  MsgC2SReqBuyHero_descriptor_ = file->message_type(16);
+  MsgC2SReqBuyHero_descriptor_ = file->message_type(18);
   static const int MsgC2SReqBuyHero_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, gold_),
@@ -370,7 +405,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqBuyHero),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, _internal_metadata_),
       -1);
-  MsgS2CBuyHeroACK_descriptor_ = file->message_type(17);
+  MsgS2CBuyHeroACK_descriptor_ = file->message_type(19);
   static const int MsgS2CBuyHeroACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, current_gold_),
@@ -387,7 +422,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CBuyHeroACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, _internal_metadata_),
       -1);
-  MsgC2SReqGoldShopConfigs_descriptor_ = file->message_type(18);
+  MsgC2SReqGoldShopConfigs_descriptor_ = file->message_type(20);
   static const int MsgC2SReqGoldShopConfigs_offsets_[1] = {
   };
   MsgC2SReqGoldShopConfigs_reflection_ =
@@ -401,7 +436,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqGoldShopConfigs),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqGoldShopConfigs, _internal_metadata_),
       -1);
-  MsgS2CGoldShopConfigsACK_descriptor_ = file->message_type(19);
+  MsgS2CGoldShopConfigsACK_descriptor_ = file->message_type(21);
   static const int MsgS2CGoldShopConfigsACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CGoldShopConfigsACK, infos_),
   };
@@ -460,6 +495,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CAdvertisementRefreshTaskACK_descriptor_, &MsgS2CAdvertisementRefreshTaskACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgC2SReqModifyCurrentHero_descriptor_, &MsgC2SReqModifyCurrentHero::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgS2CModifyCurrentHeroACK_descriptor_, &MsgS2CModifyCurrentHeroACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CUnlockChapterACK_descriptor_, &MsgS2CUnlockChapterACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgC2SReqBuyHero_descriptor_, &MsgC2SReqBuyHero::default_instance());
@@ -504,6 +543,10 @@ void protobuf_ShutdownFile_dream_5fheroes_2eproto() {
   delete MsgC2SReqAdvertisementRefreshTask_reflection_;
   delete MsgS2CAdvertisementRefreshTaskACK::default_instance_;
   delete MsgS2CAdvertisementRefreshTaskACK_reflection_;
+  delete MsgC2SReqModifyCurrentHero::default_instance_;
+  delete MsgC2SReqModifyCurrentHero_reflection_;
+  delete MsgS2CModifyCurrentHeroACK::default_instance_;
+  delete MsgS2CModifyCurrentHeroACK_reflection_;
   delete MsgS2CUnlockChapterACK::default_instance_;
   delete MsgS2CUnlockChapterACK_reflection_;
   delete MsgC2SReqBuyHero::default_instance_;
@@ -538,61 +581,66 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "rtisement_config_count\030\003 \002(\005\022#\n\033current_"
     "advertisement_count\030\004 \002(\005\022\037\n\027last_advert"
     "isement_time\030\005 \002(\003\022\035\n\025advertisement_time"
-    "_cd\030\006 \002(\005\"R\n\022MsgC2SReqEnterGame\022\022\n\nchapt"
-    "er_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022\024\n\014curre"
-    "nt_grid\030\003 \002(\005\"\177\n\022MsgS2CEnterGameACK\022\022\n\nc"
-    "hapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022\024\n\014c"
-    "urrent_grid\030\003 \002(\005\022+\n\005error\030\004 \002(\0162\022.messa"
-    "ge.GameError:\010Error_NO\"\234\001\n\021MsgC2SReqExit"
-    "Game\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002"
-    " \002(\005\022(\n\ntask_infos\030\003 \003(\0132\024.message.MsgTa"
-    "skInfo\022\014\n\004gold\030\004 \002(\005\022\017\n\007success\030\005 \002(\010\022\026\n"
-    "\016complete_tasks\030\006 \003(\005\"\341\001\n\021MsgS2CExitGame"
-    "ACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 "
-    "\002(\005\022(\n\ntask_infos\030\003 \003(\0132\024.message.MsgTas"
-    "kInfo\022\024\n\014current_gold\030\004 \002(\005\022&\n\ttask_gift"
-    "\030\005 \003(\0132\023.message.MsgIntPair\022\017\n\007success\030\006"
-    " \002(\010\022+\n\005error\030\007 \002(\0162\022.message.GameError:"
-    "\010Error_NO\",\n\026MsgC2SReqUnlockChapter\022\022\n\nc"
-    "hapter_id\030\001 \002(\005\"!\n\037MsgC2SReqAdvertisemen"
-    "tApplyTask\"y\n\037MsgS2CAdvertisementApplyTa"
-    "skACK\022+\n\005error\030\001 \002(\0162\022.message.GameError"
-    ":\010Error_NO\022)\n\005infos\030\002 \003(\0132\032.message.MsgT"
-    "askConfigInfo\"<\n!MsgC2SReqAdvertisementR"
-    "efreshTask\022\027\n\017give_up_task_id\030\001 \002(\005\"\224\001\n!"
-    "MsgS2CAdvertisementRefreshTaskACK\022\027\n\017giv"
-    "e_up_task_id\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.mess"
-    "age.GameError:\010Error_NO\022)\n\005infos\030\003 \003(\0132\032"
-    ".message.MsgTaskConfigInfo\"o\n\026MsgS2CUnlo"
-    "ckChapterACK\022\022\n\nchapter_id\030\001 \002(\005\022\024\n\014curr"
-    "ent_gold\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message."
-    "GameError:\010Error_NO\".\n\020MsgC2SReqBuyHero\022"
-    "\014\n\004grid\030\001 \002(\005\022\014\n\004gold\030\002 \002(\005\"c\n\020MsgS2CBuy"
-    "HeroACK\022\014\n\004grid\030\001 \002(\005\022\024\n\014current_gold\030\002 "
-    "\002(\005\022+\n\005error\030\003 \002(\0162\022.message.GameError:\010"
-    "Error_NO\"\032\n\030MsgC2SReqGoldShopConfigs\"I\n\030"
-    "MsgS2CGoldShopConfigsACK\022-\n\005infos\030\001 \003(\0132"
-    "\036.message.MsgGoldShopConfigInfo*\241\006\n\tGame"
-    "Error\022\014\n\010Error_NO\020\000\022*\n&Error_CanNotEnter"
-    "GameTheInstanceIsLock\020\001\022+\n\'Error_CanNotE"
-    "nterGameTheCharacterIsLock\020\002\022$\n Error_Ca"
-    "nNotBuyHeroNotEnoughgold\020\003\0224\n0Error_CanN"
-    "otPassGameTheInstanceNotHaveEnoughGold\020\004"
-    "\022\035\n\031Error_NotEnterTheExitGame\020\005\022)\n%Error"
-    "_NotFoundTheChapterWhenEnterGame\020\006\022\035\n\031Er"
-    "ror_TheChapterIsNotLock\020\007\0225\n1Error_Unloc"
-    "kChapterFailedNotFoundTheUnlockChapter\020\010"
-    "\0226\n2Error_UnlockChapterFailedTheRequired"
-    "SectionNotPass\020\t\0229\n5Error_UnlockChapterF"
-    "ailedYouHaveToCompleteEnoughTasks\020\n\0221\n-E"
-    "rror_UnlockChapterFailedYouNotHaveEnough"
-    "Gold\020\013\022,\n(Error_RefreshAdvertisementTask"
-    "FailedInCD\020\014\022<\n8Error_RefreshAdvertiseme"
-    "ntTaskFailedNotFoundGiveUpTaskID\020\r\022.\n*Er"
-    "ror_RefreshAdvertisementTaskFailedUnknow"
-    "\020\016\022$\n Error_BuyHeroFailedNotEnoughGold\020\017"
-    "\022$\n Error_BuyHeroFailedThePriceIsOld\020\020\022#"
-    "\n\037Error_BuyHeroFailedNotFoundGrid\020\021", 2755);
+    "_cd\030\006 \002(\005\"<\n\022MsgC2SReqEnterGame\022\022\n\nchapt"
+    "er_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"i\n\022MsgS2"
+    "CEnterGameACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsec"
+    "tion_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.G"
+    "ameError:\010Error_NO\"\234\001\n\021MsgC2SReqExitGame"
+    "\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005"
+    "\022(\n\ntask_infos\030\003 \003(\0132\024.message.MsgTaskIn"
+    "fo\022\014\n\004gold\030\004 \002(\005\022\017\n\007success\030\005 \002(\010\022\026\n\016com"
+    "plete_tasks\030\006 \003(\005\"\341\001\n\021MsgS2CExitGameACK\022"
+    "\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022"
+    "(\n\ntask_infos\030\003 \003(\0132\024.message.MsgTaskInf"
+    "o\022\024\n\014current_gold\030\004 \002(\005\022&\n\ttask_gift\030\005 \003"
+    "(\0132\023.message.MsgIntPair\022\017\n\007success\030\006 \002(\010"
+    "\022+\n\005error\030\007 \002(\0162\022.message.GameError:\010Err"
+    "or_NO\",\n\026MsgC2SReqUnlockChapter\022\022\n\nchapt"
+    "er_id\030\001 \002(\005\"!\n\037MsgC2SReqAdvertisementApp"
+    "lyTask\"y\n\037MsgS2CAdvertisementApplyTaskAC"
+    "K\022+\n\005error\030\001 \002(\0162\022.message.GameError:\010Er"
+    "ror_NO\022)\n\005infos\030\002 \003(\0132\032.message.MsgTaskC"
+    "onfigInfo\"<\n!MsgC2SReqAdvertisementRefre"
+    "shTask\022\027\n\017give_up_task_id\030\001 \002(\005\"\224\001\n!MsgS"
+    "2CAdvertisementRefreshTaskACK\022\027\n\017give_up"
+    "_task_id\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message."
+    "GameError:\010Error_NO\022)\n\005infos\030\003 \003(\0132\032.mes"
+    "sage.MsgTaskConfigInfo\"2\n\032MsgC2SReqModif"
+    "yCurrentHero\022\024\n\014current_grid\030\001 \002(\005\"_\n\032Ms"
+    "gS2CModifyCurrentHeroACK\022\024\n\014current_grid"
+    "\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameErro"
+    "r:\010Error_NO\"o\n\026MsgS2CUnlockChapterACK\022\022\n"
+    "\nchapter_id\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005\022"
+    "+\n\005error\030\003 \002(\0162\022.message.GameError:\010Erro"
+    "r_NO\".\n\020MsgC2SReqBuyHero\022\014\n\004grid\030\001 \002(\005\022\014"
+    "\n\004gold\030\002 \002(\005\"c\n\020MsgS2CBuyHeroACK\022\014\n\004grid"
+    "\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005\022+\n\005error\030\003 "
+    "\002(\0162\022.message.GameError:\010Error_NO\"\032\n\030Msg"
+    "C2SReqGoldShopConfigs\"I\n\030MsgS2CGoldShopC"
+    "onfigsACK\022-\n\005infos\030\001 \003(\0132\036.message.MsgGo"
+    "ldShopConfigInfo*\375\006\n\tGameError\022\014\n\010Error_"
+    "NO\020\000\022*\n&Error_CanNotEnterGameTheInstance"
+    "IsLock\020\001\022+\n\'Error_CanNotEnterGameTheChar"
+    "acterIsLock\020\002\022)\n%Error_CanNotEnterGameTh"
+    "eSectionIsLock\020\003\022$\n Error_CanNotBuyHeroN"
+    "otEnoughgold\020\004\0224\n0Error_CanNotPassGameTh"
+    "eInstanceNotHaveEnoughGold\020\005\022\035\n\031Error_No"
+    "tEnterTheExitGame\020\006\022)\n%Error_NotFoundThe"
+    "ChapterWhenEnterGame\020\007\022\035\n\031Error_TheChapt"
+    "erIsNotLock\020\010\0225\n1Error_UnlockChapterFail"
+    "edNotFoundTheUnlockChapter\020\t\0226\n2Error_Un"
+    "lockChapterFailedTheRequiredSectionNotPa"
+    "ss\020\n\0229\n5Error_UnlockChapterFailedYouHave"
+    "ToCompleteEnoughTasks\020\013\0221\n-Error_UnlockC"
+    "hapterFailedYouNotHaveEnoughGold\020\014\022,\n(Er"
+    "ror_RefreshAdvertisementTaskFailedInCD\020\r"
+    "\022<\n8Error_RefreshAdvertisementTaskFailed"
+    "NotFoundGiveUpTaskID\020\016\022.\n*Error_RefreshA"
+    "dvertisementTaskFailedUnknow\020\017\022$\n Error_"
+    "BuyHeroFailedNotEnoughGold\020\020\022$\n Error_Bu"
+    "yHeroFailedThePriceIsOld\020\021\022#\n\037Error_BuyH"
+    "eroFailedNotFoundGrid\020\022\022/\n+Error_ModifyC"
+    "urrentFailedTheCharacterIsLock\020\023", 2952);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgC2SReqShopConfig::default_instance_ = new MsgC2SReqShopConfig();
@@ -610,6 +658,8 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CAdvertisementApplyTaskACK::default_instance_ = new MsgS2CAdvertisementApplyTaskACK();
   MsgC2SReqAdvertisementRefreshTask::default_instance_ = new MsgC2SReqAdvertisementRefreshTask();
   MsgS2CAdvertisementRefreshTaskACK::default_instance_ = new MsgS2CAdvertisementRefreshTaskACK();
+  MsgC2SReqModifyCurrentHero::default_instance_ = new MsgC2SReqModifyCurrentHero();
+  MsgS2CModifyCurrentHeroACK::default_instance_ = new MsgS2CModifyCurrentHeroACK();
   MsgS2CUnlockChapterACK::default_instance_ = new MsgS2CUnlockChapterACK();
   MsgC2SReqBuyHero::default_instance_ = new MsgC2SReqBuyHero();
   MsgS2CBuyHeroACK::default_instance_ = new MsgS2CBuyHeroACK();
@@ -630,6 +680,8 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CAdvertisementApplyTaskACK::default_instance_->InitAsDefaultInstance();
   MsgC2SReqAdvertisementRefreshTask::default_instance_->InitAsDefaultInstance();
   MsgS2CAdvertisementRefreshTaskACK::default_instance_->InitAsDefaultInstance();
+  MsgC2SReqModifyCurrentHero::default_instance_->InitAsDefaultInstance();
+  MsgS2CModifyCurrentHeroACK::default_instance_->InitAsDefaultInstance();
   MsgS2CUnlockChapterACK::default_instance_->InitAsDefaultInstance();
   MsgC2SReqBuyHero::default_instance_->InitAsDefaultInstance();
   MsgS2CBuyHeroACK::default_instance_->InitAsDefaultInstance();
@@ -668,6 +720,8 @@ bool GameError_IsValid(int value) {
     case 15:
     case 16:
     case 17:
+    case 18:
+    case 19:
       return true;
     default:
       return false;
@@ -2538,7 +2592,6 @@ MsgS2CHeroesInit::mutable_task_config_infos() {
 #ifndef _MSC_VER
 const int MsgC2SReqEnterGame::kChapterIdFieldNumber;
 const int MsgC2SReqEnterGame::kSectionIdFieldNumber;
-const int MsgC2SReqEnterGame::kCurrentGridFieldNumber;
 #endif  // !_MSC_VER
 
 MsgC2SReqEnterGame::MsgC2SReqEnterGame()
@@ -2562,7 +2615,6 @@ void MsgC2SReqEnterGame::SharedCtor() {
   _cached_size_ = 0;
   chapter_id_ = 0;
   section_id_ = 0;
-  current_grid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2610,7 +2662,7 @@ void MsgC2SReqEnterGame::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(chapter_id_, current_grid_);
+  ZR_(chapter_id_, section_id_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -2656,21 +2708,6 @@ bool MsgC2SReqEnterGame::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_current_grid;
-        break;
-      }
-
-      // required int32 current_grid = 3;
-      case 3: {
-        if (tag == 24) {
-         parse_current_grid:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &current_grid_)));
-          set_has_current_grid();
-        } else {
-          goto handle_unusual;
-        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2710,11 +2747,6 @@ void MsgC2SReqEnterGame::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->section_id(), output);
   }
 
-  // required int32 current_grid = 3;
-  if (has_current_grid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->current_grid(), output);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2733,11 +2765,6 @@ void MsgC2SReqEnterGame::SerializeWithCachedSizes(
   // required int32 section_id = 2;
   if (has_section_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->section_id(), target);
-  }
-
-  // required int32 current_grid = 3;
-  if (has_current_grid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->current_grid(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2765,19 +2792,12 @@ int MsgC2SReqEnterGame::RequiredFieldsByteSizeFallback() const {
         this->section_id());
   }
 
-  if (has_current_grid()) {
-    // required int32 current_grid = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->current_grid());
-  }
-
   return total_size;
 }
 int MsgC2SReqEnterGame::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
     // required int32 chapter_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2787,11 +2807,6 @@ int MsgC2SReqEnterGame::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->section_id());
-
-    // required int32 current_grid = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->current_grid());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -2828,9 +2843,6 @@ void MsgC2SReqEnterGame::MergeFrom(const MsgC2SReqEnterGame& from) {
     if (from.has_section_id()) {
       set_section_id(from.section_id());
     }
-    if (from.has_current_grid()) {
-      set_current_grid(from.current_grid());
-    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -2850,7 +2862,7 @@ void MsgC2SReqEnterGame::CopyFrom(const MsgC2SReqEnterGame& from) {
 }
 
 bool MsgC2SReqEnterGame::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
@@ -2862,7 +2874,6 @@ void MsgC2SReqEnterGame::Swap(MsgC2SReqEnterGame* other) {
 void MsgC2SReqEnterGame::InternalSwap(MsgC2SReqEnterGame* other) {
   std::swap(chapter_id_, other->chapter_id_);
   std::swap(section_id_, other->section_id_);
-  std::swap(current_grid_, other->current_grid_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2927,30 +2938,6 @@ void MsgC2SReqEnterGame::InternalSwap(MsgC2SReqEnterGame* other) {
   // @@protoc_insertion_point(field_set:message.MsgC2SReqEnterGame.section_id)
 }
 
-// required int32 current_grid = 3;
- bool MsgC2SReqEnterGame::has_current_grid() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
- void MsgC2SReqEnterGame::set_has_current_grid() {
-  _has_bits_[0] |= 0x00000004u;
-}
- void MsgC2SReqEnterGame::clear_has_current_grid() {
-  _has_bits_[0] &= ~0x00000004u;
-}
- void MsgC2SReqEnterGame::clear_current_grid() {
-  current_grid_ = 0;
-  clear_has_current_grid();
-}
- ::google::protobuf::int32 MsgC2SReqEnterGame::current_grid() const {
-  // @@protoc_insertion_point(field_get:message.MsgC2SReqEnterGame.current_grid)
-  return current_grid_;
-}
- void MsgC2SReqEnterGame::set_current_grid(::google::protobuf::int32 value) {
-  set_has_current_grid();
-  current_grid_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgC2SReqEnterGame.current_grid)
-}
-
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -2958,7 +2945,6 @@ void MsgC2SReqEnterGame::InternalSwap(MsgC2SReqEnterGame* other) {
 #ifndef _MSC_VER
 const int MsgS2CEnterGameACK::kChapterIdFieldNumber;
 const int MsgS2CEnterGameACK::kSectionIdFieldNumber;
-const int MsgS2CEnterGameACK::kCurrentGridFieldNumber;
 const int MsgS2CEnterGameACK::kErrorFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2983,7 +2969,6 @@ void MsgS2CEnterGameACK::SharedCtor() {
   _cached_size_ = 0;
   chapter_id_ = 0;
   section_id_ = 0;
-  current_grid_ = 0;
   error_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -3078,28 +3063,13 @@ bool MsgS2CEnterGameACK::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_current_grid;
+        if (input->ExpectTag(24)) goto parse_error;
         break;
       }
 
-      // required int32 current_grid = 3;
+      // required .message.GameError error = 3 [default = Error_NO];
       case 3: {
         if (tag == 24) {
-         parse_current_grid:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &current_grid_)));
-          set_has_current_grid();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_error;
-        break;
-      }
-
-      // required .message.GameError error = 4 [default = Error_NO];
-      case 4: {
-        if (tag == 32) {
          parse_error:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -3108,7 +3078,7 @@ bool MsgS2CEnterGameACK::MergePartialFromCodedStream(
           if (::message::GameError_IsValid(value)) {
             set_error(static_cast< ::message::GameError >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(4, value);
+            mutable_unknown_fields()->AddVarint(3, value);
           }
         } else {
           goto handle_unusual;
@@ -3152,15 +3122,10 @@ void MsgS2CEnterGameACK::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->section_id(), output);
   }
 
-  // required int32 current_grid = 3;
-  if (has_current_grid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->current_grid(), output);
-  }
-
-  // required .message.GameError error = 4 [default = Error_NO];
+  // required .message.GameError error = 3 [default = Error_NO];
   if (has_error()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->error(), output);
+      3, this->error(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3183,15 +3148,10 @@ void MsgS2CEnterGameACK::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->section_id(), target);
   }
 
-  // required int32 current_grid = 3;
-  if (has_current_grid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->current_grid(), target);
-  }
-
-  // required .message.GameError error = 4 [default = Error_NO];
+  // required .message.GameError error = 3 [default = Error_NO];
   if (has_error()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->error(), target);
+      3, this->error(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3219,15 +3179,8 @@ int MsgS2CEnterGameACK::RequiredFieldsByteSizeFallback() const {
         this->section_id());
   }
 
-  if (has_current_grid()) {
-    // required int32 current_grid = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->current_grid());
-  }
-
   if (has_error()) {
-    // required .message.GameError error = 4 [default = Error_NO];
+    // required .message.GameError error = 3 [default = Error_NO];
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
   }
@@ -3237,7 +3190,7 @@ int MsgS2CEnterGameACK::RequiredFieldsByteSizeFallback() const {
 int MsgS2CEnterGameACK::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
     // required int32 chapter_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3248,12 +3201,7 @@ int MsgS2CEnterGameACK::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->section_id());
 
-    // required int32 current_grid = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->current_grid());
-
-    // required .message.GameError error = 4 [default = Error_NO];
+    // required .message.GameError error = 3 [default = Error_NO];
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
 
@@ -3292,9 +3240,6 @@ void MsgS2CEnterGameACK::MergeFrom(const MsgS2CEnterGameACK& from) {
     if (from.has_section_id()) {
       set_section_id(from.section_id());
     }
-    if (from.has_current_grid()) {
-      set_current_grid(from.current_grid());
-    }
     if (from.has_error()) {
       set_error(from.error());
     }
@@ -3317,7 +3262,7 @@ void MsgS2CEnterGameACK::CopyFrom(const MsgS2CEnterGameACK& from) {
 }
 
 bool MsgS2CEnterGameACK::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
@@ -3329,7 +3274,6 @@ void MsgS2CEnterGameACK::Swap(MsgS2CEnterGameACK* other) {
 void MsgS2CEnterGameACK::InternalSwap(MsgS2CEnterGameACK* other) {
   std::swap(chapter_id_, other->chapter_id_);
   std::swap(section_id_, other->section_id_);
-  std::swap(current_grid_, other->current_grid_);
   std::swap(error_, other->error_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -3395,39 +3339,15 @@ void MsgS2CEnterGameACK::InternalSwap(MsgS2CEnterGameACK* other) {
   // @@protoc_insertion_point(field_set:message.MsgS2CEnterGameACK.section_id)
 }
 
-// required int32 current_grid = 3;
- bool MsgS2CEnterGameACK::has_current_grid() const {
+// required .message.GameError error = 3 [default = Error_NO];
+ bool MsgS2CEnterGameACK::has_error() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
- void MsgS2CEnterGameACK::set_has_current_grid() {
+ void MsgS2CEnterGameACK::set_has_error() {
   _has_bits_[0] |= 0x00000004u;
 }
- void MsgS2CEnterGameACK::clear_has_current_grid() {
-  _has_bits_[0] &= ~0x00000004u;
-}
- void MsgS2CEnterGameACK::clear_current_grid() {
-  current_grid_ = 0;
-  clear_has_current_grid();
-}
- ::google::protobuf::int32 MsgS2CEnterGameACK::current_grid() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CEnterGameACK.current_grid)
-  return current_grid_;
-}
- void MsgS2CEnterGameACK::set_current_grid(::google::protobuf::int32 value) {
-  set_has_current_grid();
-  current_grid_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CEnterGameACK.current_grid)
-}
-
-// required .message.GameError error = 4 [default = Error_NO];
- bool MsgS2CEnterGameACK::has_error() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
- void MsgS2CEnterGameACK::set_has_error() {
-  _has_bits_[0] |= 0x00000008u;
-}
  void MsgS2CEnterGameACK::clear_has_error() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
  void MsgS2CEnterGameACK::clear_error() {
   error_ = 0;
@@ -6242,6 +6162,624 @@ MsgS2CAdvertisementRefreshTaskACK::infos() const {
 MsgS2CAdvertisementRefreshTaskACK::mutable_infos() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgS2CAdvertisementRefreshTaskACK.infos)
   return &infos_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgC2SReqModifyCurrentHero::kCurrentGridFieldNumber;
+#endif  // !_MSC_VER
+
+MsgC2SReqModifyCurrentHero::MsgC2SReqModifyCurrentHero()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgC2SReqModifyCurrentHero)
+}
+
+void MsgC2SReqModifyCurrentHero::InitAsDefaultInstance() {
+}
+
+MsgC2SReqModifyCurrentHero::MsgC2SReqModifyCurrentHero(const MsgC2SReqModifyCurrentHero& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgC2SReqModifyCurrentHero)
+}
+
+void MsgC2SReqModifyCurrentHero::SharedCtor() {
+  _cached_size_ = 0;
+  current_grid_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgC2SReqModifyCurrentHero::~MsgC2SReqModifyCurrentHero() {
+  // @@protoc_insertion_point(destructor:message.MsgC2SReqModifyCurrentHero)
+  SharedDtor();
+}
+
+void MsgC2SReqModifyCurrentHero::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgC2SReqModifyCurrentHero::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgC2SReqModifyCurrentHero::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgC2SReqModifyCurrentHero_descriptor_;
+}
+
+const MsgC2SReqModifyCurrentHero& MsgC2SReqModifyCurrentHero::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgC2SReqModifyCurrentHero* MsgC2SReqModifyCurrentHero::default_instance_ = NULL;
+
+MsgC2SReqModifyCurrentHero* MsgC2SReqModifyCurrentHero::New(::google::protobuf::Arena* arena) const {
+  MsgC2SReqModifyCurrentHero* n = new MsgC2SReqModifyCurrentHero;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgC2SReqModifyCurrentHero::Clear() {
+  current_grid_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgC2SReqModifyCurrentHero::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgC2SReqModifyCurrentHero)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 current_grid = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &current_grid_)));
+          set_has_current_grid();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgC2SReqModifyCurrentHero)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgC2SReqModifyCurrentHero)
+  return false;
+#undef DO_
+}
+
+void MsgC2SReqModifyCurrentHero::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgC2SReqModifyCurrentHero)
+  // required int32 current_grid = 1;
+  if (has_current_grid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->current_grid(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgC2SReqModifyCurrentHero)
+}
+
+::google::protobuf::uint8* MsgC2SReqModifyCurrentHero::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SReqModifyCurrentHero)
+  // required int32 current_grid = 1;
+  if (has_current_grid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->current_grid(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SReqModifyCurrentHero)
+  return target;
+}
+
+int MsgC2SReqModifyCurrentHero::ByteSize() const {
+  int total_size = 0;
+
+  // required int32 current_grid = 1;
+  if (has_current_grid()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->current_grid());
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgC2SReqModifyCurrentHero::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgC2SReqModifyCurrentHero* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SReqModifyCurrentHero*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgC2SReqModifyCurrentHero::MergeFrom(const MsgC2SReqModifyCurrentHero& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_current_grid()) {
+      set_current_grid(from.current_grid());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgC2SReqModifyCurrentHero::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgC2SReqModifyCurrentHero::CopyFrom(const MsgC2SReqModifyCurrentHero& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgC2SReqModifyCurrentHero::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void MsgC2SReqModifyCurrentHero::Swap(MsgC2SReqModifyCurrentHero* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgC2SReqModifyCurrentHero::InternalSwap(MsgC2SReqModifyCurrentHero* other) {
+  std::swap(current_grid_, other->current_grid_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgC2SReqModifyCurrentHero::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgC2SReqModifyCurrentHero_descriptor_;
+  metadata.reflection = MsgC2SReqModifyCurrentHero_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgC2SReqModifyCurrentHero
+
+// required int32 current_grid = 1;
+ bool MsgC2SReqModifyCurrentHero::has_current_grid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgC2SReqModifyCurrentHero::set_has_current_grid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgC2SReqModifyCurrentHero::clear_has_current_grid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgC2SReqModifyCurrentHero::clear_current_grid() {
+  current_grid_ = 0;
+  clear_has_current_grid();
+}
+ ::google::protobuf::int32 MsgC2SReqModifyCurrentHero::current_grid() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqModifyCurrentHero.current_grid)
+  return current_grid_;
+}
+ void MsgC2SReqModifyCurrentHero::set_current_grid(::google::protobuf::int32 value) {
+  set_has_current_grid();
+  current_grid_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqModifyCurrentHero.current_grid)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgS2CModifyCurrentHeroACK::kCurrentGridFieldNumber;
+const int MsgS2CModifyCurrentHeroACK::kErrorFieldNumber;
+#endif  // !_MSC_VER
+
+MsgS2CModifyCurrentHeroACK::MsgS2CModifyCurrentHeroACK()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgS2CModifyCurrentHeroACK)
+}
+
+void MsgS2CModifyCurrentHeroACK::InitAsDefaultInstance() {
+}
+
+MsgS2CModifyCurrentHeroACK::MsgS2CModifyCurrentHeroACK(const MsgS2CModifyCurrentHeroACK& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgS2CModifyCurrentHeroACK)
+}
+
+void MsgS2CModifyCurrentHeroACK::SharedCtor() {
+  _cached_size_ = 0;
+  current_grid_ = 0;
+  error_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgS2CModifyCurrentHeroACK::~MsgS2CModifyCurrentHeroACK() {
+  // @@protoc_insertion_point(destructor:message.MsgS2CModifyCurrentHeroACK)
+  SharedDtor();
+}
+
+void MsgS2CModifyCurrentHeroACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgS2CModifyCurrentHeroACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgS2CModifyCurrentHeroACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgS2CModifyCurrentHeroACK_descriptor_;
+}
+
+const MsgS2CModifyCurrentHeroACK& MsgS2CModifyCurrentHeroACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgS2CModifyCurrentHeroACK* MsgS2CModifyCurrentHeroACK::default_instance_ = NULL;
+
+MsgS2CModifyCurrentHeroACK* MsgS2CModifyCurrentHeroACK::New(::google::protobuf::Arena* arena) const {
+  MsgS2CModifyCurrentHeroACK* n = new MsgS2CModifyCurrentHeroACK;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgS2CModifyCurrentHeroACK::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgS2CModifyCurrentHeroACK*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(current_grid_, error_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgS2CModifyCurrentHeroACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgS2CModifyCurrentHeroACK)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 current_grid = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &current_grid_)));
+          set_has_current_grid();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_error;
+        break;
+      }
+
+      // required .message.GameError error = 2 [default = Error_NO];
+      case 2: {
+        if (tag == 16) {
+         parse_error:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::message::GameError_IsValid(value)) {
+            set_error(static_cast< ::message::GameError >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(2, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgS2CModifyCurrentHeroACK)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgS2CModifyCurrentHeroACK)
+  return false;
+#undef DO_
+}
+
+void MsgS2CModifyCurrentHeroACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgS2CModifyCurrentHeroACK)
+  // required int32 current_grid = 1;
+  if (has_current_grid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->current_grid(), output);
+  }
+
+  // required .message.GameError error = 2 [default = Error_NO];
+  if (has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->error(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgS2CModifyCurrentHeroACK)
+}
+
+::google::protobuf::uint8* MsgS2CModifyCurrentHeroACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CModifyCurrentHeroACK)
+  // required int32 current_grid = 1;
+  if (has_current_grid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->current_grid(), target);
+  }
+
+  // required .message.GameError error = 2 [default = Error_NO];
+  if (has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->error(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CModifyCurrentHeroACK)
+  return target;
+}
+
+int MsgS2CModifyCurrentHeroACK::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_current_grid()) {
+    // required int32 current_grid = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->current_grid());
+  }
+
+  if (has_error()) {
+    // required .message.GameError error = 2 [default = Error_NO];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
+  }
+
+  return total_size;
+}
+int MsgS2CModifyCurrentHeroACK::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required int32 current_grid = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->current_grid());
+
+    // required .message.GameError error = 2 [default = Error_NO];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgS2CModifyCurrentHeroACK::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgS2CModifyCurrentHeroACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CModifyCurrentHeroACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgS2CModifyCurrentHeroACK::MergeFrom(const MsgS2CModifyCurrentHeroACK& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_current_grid()) {
+      set_current_grid(from.current_grid());
+    }
+    if (from.has_error()) {
+      set_error(from.error());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgS2CModifyCurrentHeroACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgS2CModifyCurrentHeroACK::CopyFrom(const MsgS2CModifyCurrentHeroACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgS2CModifyCurrentHeroACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  return true;
+}
+
+void MsgS2CModifyCurrentHeroACK::Swap(MsgS2CModifyCurrentHeroACK* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgS2CModifyCurrentHeroACK::InternalSwap(MsgS2CModifyCurrentHeroACK* other) {
+  std::swap(current_grid_, other->current_grid_);
+  std::swap(error_, other->error_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgS2CModifyCurrentHeroACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgS2CModifyCurrentHeroACK_descriptor_;
+  metadata.reflection = MsgS2CModifyCurrentHeroACK_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgS2CModifyCurrentHeroACK
+
+// required int32 current_grid = 1;
+ bool MsgS2CModifyCurrentHeroACK::has_current_grid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgS2CModifyCurrentHeroACK::set_has_current_grid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgS2CModifyCurrentHeroACK::clear_has_current_grid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgS2CModifyCurrentHeroACK::clear_current_grid() {
+  current_grid_ = 0;
+  clear_has_current_grid();
+}
+ ::google::protobuf::int32 MsgS2CModifyCurrentHeroACK::current_grid() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CModifyCurrentHeroACK.current_grid)
+  return current_grid_;
+}
+ void MsgS2CModifyCurrentHeroACK::set_current_grid(::google::protobuf::int32 value) {
+  set_has_current_grid();
+  current_grid_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CModifyCurrentHeroACK.current_grid)
+}
+
+// required .message.GameError error = 2 [default = Error_NO];
+ bool MsgS2CModifyCurrentHeroACK::has_error() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgS2CModifyCurrentHeroACK::set_has_error() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgS2CModifyCurrentHeroACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgS2CModifyCurrentHeroACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+ ::message::GameError MsgS2CModifyCurrentHeroACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CModifyCurrentHeroACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+ void MsgS2CModifyCurrentHeroACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CModifyCurrentHeroACK.error)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

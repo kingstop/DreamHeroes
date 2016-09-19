@@ -6,23 +6,23 @@ enum GameError
 	Error_NO = 0;
 	Error_CanNotEnterGameTheInstanceIsLock = 1;
 	Error_CanNotEnterGameTheCharacterIsLock = 2;
-	Error_CanNotBuyHeroNotEnoughgold = 3;
-	Error_CanNotPassGameTheInstanceNotHaveEnoughGold = 4;
-	Error_NotEnterTheExitGame = 5;
-	Error_NotFoundTheChapterWhenEnterGame = 6;
-	Error_TheChapterIsNotLock = 7;
-	Error_UnlockChapterFailedNotFoundTheUnlockChapter = 8;
-	Error_UnlockChapterFailedTheRequiredSectionNotPass = 9;
-	Error_UnlockChapterFailedYouHaveToCompleteEnoughTasks = 10;
-	Error_UnlockChapterFailedYouNotHaveEnoughGold = 11;
-	Error_RefreshAdvertisementTaskFailedInCD = 12;
-	Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 13;
-	Error_RefreshAdvertisementTaskFailedUnknow = 14;
-	Error_BuyHeroFailedNotEnoughGold = 15;
-	Error_BuyHeroFailedThePriceIsOld = 16;
-	Error_BuyHeroFailedNotFoundGrid = 17;
-	
-	
+	Error_CanNotEnterGameTheSectionIsLock = 3;
+	Error_CanNotBuyHeroNotEnoughgold = 4;
+	Error_CanNotPassGameTheInstanceNotHaveEnoughGold = 5;
+	Error_NotEnterTheExitGame = 6;
+	Error_NotFoundTheChapterWhenEnterGame = 7;
+	Error_TheChapterIsNotLock = 8;
+	Error_UnlockChapterFailedNotFoundTheUnlockChapter = 9;
+	Error_UnlockChapterFailedTheRequiredSectionNotPass = 10;
+	Error_UnlockChapterFailedYouHaveToCompleteEnoughTasks = 11;
+	Error_UnlockChapterFailedYouNotHaveEnoughGold = 12;
+	Error_RefreshAdvertisementTaskFailedInCD = 13;
+	Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 14;
+	Error_RefreshAdvertisementTaskFailedUnknow = 15;
+	Error_BuyHeroFailedNotEnoughGold = 16;
+	Error_BuyHeroFailedThePriceIsOld = 17;
+	Error_BuyHeroFailedNotFoundGrid = 18;
+	Error_ModifyCurrentFailedTheCharacterIsLock = 19;
 }
 message MsgC2SReqShopConfig
 {
@@ -65,7 +65,6 @@ message MsgC2SReqEnterGame
 {
 	required int32 chapter_id = 1;
 	required int32 section_id = 2;
-	required int32 current_grid = 3;
 }
 
 
@@ -73,8 +72,7 @@ message MsgS2CEnterGameACK
 {
 	required int32 chapter_id = 1;
 	required int32 section_id = 2;
-	required int32 current_grid = 3;
-	required GameError error = 4 [default=Error_NO];
+	required GameError error = 3 [default=Error_NO];
 }
 
 
@@ -127,6 +125,16 @@ message MsgS2CAdvertisementRefreshTaskACK
 	repeated MsgTaskConfigInfo infos = 3;
 }
 
+message MsgC2SReqModifyCurrentHero
+{
+	required int32 current_grid = 1;
+}
+
+message MsgS2CModifyCurrentHeroACK
+{
+	required int32 current_grid = 1;
+	required GameError error = 2 [default=Error_NO];
+}
 
 message MsgS2CUnlockChapterACK
 {

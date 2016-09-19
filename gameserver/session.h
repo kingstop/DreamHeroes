@@ -60,6 +60,8 @@ public:
 	void parseReqAdvertisementRefreshTask(google::protobuf::Message* p);
 	void parseReqBuyHero(google::protobuf::Message* p);
 	void parseReqGoldShopConfigs(google::protobuf::Message* p);
+	void parseReqModifyCurrentHero(google::protobuf::Message* p);
+
 	//void parseModifySuitName(google::protobuf::Message* p);
 	//void parseModifySuit(google::protobuf::Message* p);
 	//void parseDelSuit(google::protobuf::Message* p);

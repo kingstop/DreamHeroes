@@ -492,6 +492,35 @@ void DreamHero::ReqAdvertisementApplyTask(const message::MsgC2SReqAdvertisementA
 }
 
 
+void DreamHero::ReqModifyCurrentHero(int grid_id)
+{
+	int current_grid_id = grid_id;
+	int heroes_length = _info.heroes_size();
+	message::GameError en = message::Error_NO;
+	message::MsgS2CModifyCurrentHeroACK msg;
+	msg.set_current_grid(_info.current_hero());
+
+	if (heroes_length < current_grid_id)
+	{
+		bool b_character = _info.heroes(current_grid_id);
+		if (b_character)
+		{
+			_info.set_current_hero(current_grid_id);
+		}
+		else
+		{
+			en = message::Error_CanNotEnterGameTheCharacterIsLock;
+		}
+
+	}
+	else
+	{
+		en = message::Error_CanNotEnterGameTheCharacterIsLock;
+	}
+	msg.set_error(en);
+	sendPBMessage(&msg);
+}
+
 void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 {
 	int buy_grid =  msg->grid();
@@ -557,13 +586,13 @@ void DreamHero::ReqEnterGame(const message::MsgC2SReqEnterGame* msg)
 {
 	int chapter_id_temp = msg->chapter_id();
 	int section_id_temp = msg->section_id();
-	int current_grid_id = msg->current_grid();
+	
 
 	int records_length = _info.records_size();
 	message::MsgS2CEnterGameACK msgACK;
 	msgACK.set_chapter_id(chapter_id_temp);
 	msgACK.set_section_id(section_id_temp);
-	msgACK.set_current_grid(current_grid_id);
+	
 	message::GameError en_error = message::Error_CanNotEnterGameTheInstanceIsLock;
 
 	for (int i = 0; i < records_length; i++)
@@ -576,30 +605,14 @@ void DreamHero::ReqEnterGame(const message::MsgC2SReqEnterGame* msg)
 			int section = section_config_id + 1;
 			if (section_id_temp <= section)
 			{
-				 int heroes_length = _info.heroes_size();
-				 if (heroes_length < current_grid_id)
-				 {
-					 bool b_character = _info.heroes(current_grid_id);
-					 if (b_character)
-					 {
-						 en_error = message::Error_NO;
-						 _current_chapter = chapter_id_temp;
-						 _current_section = section_id_temp;
-						 _current_gold = 0;
-					 }
-					 else
-					 {
-						 en_error = message::Error_CanNotEnterGameTheCharacterIsLock;
-					 }
-
-				 }
-				 else
-				 {
-					 en_error = message::Error_CanNotEnterGameTheCharacterIsLock;
-				 }
+				en_error = message::Error_NO;
+			}
+			else
+			{
+				en_error = message::Error_CanNotEnterGameTheSectionIsLock;
 			}
 
-			return;
+			break;
 		}
 	}
 

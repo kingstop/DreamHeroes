@@ -32,6 +32,7 @@ public:
 	void ReqAdvertisementApplyTask(const message::MsgC2SReqAdvertisementApplyTask* msg);
 	void ReqAdvertisementRefreshTask(const message::MsgC2SReqAdvertisementRefreshTask* msg);
 	void ReqBuyHero(const message::MsgC2SReqBuyHero* msg);
+	void ReqModifyCurrentHero(int grid_id);
 	void ReqGoldShopConfigs();
 protected:
 	message::MsgTaskConfigInfo RadnomTaskInfo();

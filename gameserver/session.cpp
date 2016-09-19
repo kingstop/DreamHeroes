@@ -36,6 +36,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqAdvertisementRefreshTask), &Session::parseReqAdvertisementRefreshTask);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqGoldShopConfigs), &Session::parseReqGoldShopConfigs);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuyHero), &Session::parseReqBuyHero);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyCurrentHero), &Session::parseReqModifyCurrentHero);
 }
 
 void Session::parseReqShopConfig(google::protobuf::Message* p)
@@ -97,6 +98,13 @@ void Session::parseReqBuyHero(google::protobuf::Message* p)
 void Session::parseReqGoldShopConfigs(google::protobuf::Message* p)
 {
 	_dream_hero->ReqGoldShopConfigs();
+}
+
+void Session::parseReqModifyCurrentHero(google::protobuf::Message* p)
+{
+	message::MsgC2SReqModifyCurrentHero* msg = (message::MsgC2SReqModifyCurrentHero*)p;
+	_dream_hero->ReqModifyCurrentHero(msg->current_grid());
+
 }
 
 void Session::parseReqGameGlobalConfig(google::protobuf::Message* p)
