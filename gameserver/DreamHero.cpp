@@ -500,7 +500,7 @@ void DreamHero::ReqModifyCurrentHero(int grid_id)
 	message::MsgS2CModifyCurrentHeroACK msg;
 	msg.set_current_grid(_info.current_hero());
 
-	if (heroes_length < current_grid_id)
+	if (heroes_length > current_grid_id)
 	{
 		bool b_character = _info.heroes(current_grid_id);
 		if (b_character)
@@ -573,6 +573,7 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 			}
 		}
 	}
+	msgACK.set_error(en);
 	sendPBMessage(&msgACK);
 }
 
