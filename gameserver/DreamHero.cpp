@@ -559,14 +559,16 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 			{
 				_info.set_gold(modify_gold);
 				int heroes_length = _info.heroes_size();
-				if (heroes_length <= buy_grid)
+				if (heroes_length <= buy_grid + 1)
 				{
-					for (size_t i = 0; i <= buy_grid - heroes_length; i++)
+					for (size_t i = 0; i <= buy_grid + 1 - heroes_length; i++)
 					{
 						_info.add_heroes(false);
 					}
 				}
+
 				_info.set_heroes(buy_grid, true);
+				heroes_length = _info.heroes_size();
 
 			}
 		}
