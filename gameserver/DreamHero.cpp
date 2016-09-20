@@ -402,7 +402,7 @@ void DreamHero::RefreshTask(int give_up_task_id)
 	
 	if (_current_free_task_count > gGameConfig.getGlobalConfig().day_free_task_count_)
 	{
-		s64 diff_time = g_server_start_time - _last_task_advertisement_time;
+		s64 diff_time = g_server_time - _last_task_advertisement_time;
 		if (diff_time < gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_)
 		{
 			msgError = message::Error_RefreshAdvertisementTaskFailedInCD;
@@ -432,7 +432,7 @@ void DreamHero::RefreshTask(int give_up_task_id)
 			if (repeated_tasks->size() <= gGameConfig.getGlobalConfig().hero_max_tasks_count_ - 1)
 			{			
 				_current_free_task_count++;
-				_last_task_advertisement_time = g_server_start_time;
+				_last_task_advertisement_time = g_server_time;
 			}
 			else
 			{
