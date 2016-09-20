@@ -117,7 +117,6 @@ void Session::parseReqGameGlobalConfig(google::protobuf::Message* p)
 		message::MsgChapterConfigInfo* ChapterInfo = msg.add_chapter_infos();
 		ChapterInfo->CopyFrom(it->second);
 	}
-
 	sendPBMessage(&msg);
 }
 
