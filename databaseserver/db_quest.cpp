@@ -188,7 +188,7 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			std::string heroesstate;
 			heroesstate = row["heroes_state"].c_str();
 			outVC.clear();
-			SplitStringA(heroesstate, ",", outVC);
+			SplitStringA(heroesstate, ";", outVC);
 			length_vc = outVC.size();
 			for (int i = 0; i < length_vc; i ++)
 			{

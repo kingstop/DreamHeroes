@@ -8,6 +8,12 @@ DreamHero::DreamHero()
 	_info.set_name("test");
 	_online = false;
 	_day_offset_time = gGameConfig.getGlobalConfig().day_Refresh_time_ * 60 * 60;
+	_current_chapter = 0;
+	_current_section = 0;
+	_current_gold = 0;
+	_current_free_task_count = 0;
+	_last_task_advertisement_time = 0;
+	_day_offset_time = 0;
 }
 
 
@@ -669,6 +675,7 @@ void DreamHero::LoadFromConfig()
 
 	_info.set_gold(gGameConfig.getGlobalConfig().config_gold_);
 	_info.set_complete_task_count(0);
+	
 	_info.set_current_hero(0);
 	_info.set_name("normal");
 	
