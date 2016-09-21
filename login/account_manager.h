@@ -36,7 +36,7 @@ struct CheckAcct
 };
 struct Account : PUBLIC_BASE_OBJECT(Account)
 {
-	REGISTER_POOL_INFO(Account, 200, 0)
+	REGISTER_POOL_INFO(Account, 2000, 0)
 	
 	Account()
 	{
@@ -53,7 +53,7 @@ struct Account : PUBLIC_BASE_OBJECT(Account)
 
 struct BanAndMute : PUBLIC_BASE_OBJECT(BanAndMute)
 {
-	REGISTER_POOL_INFO(BanAndMute, 50, 0)
+	REGISTER_POOL_INFO(BanAndMute, 500, 0)
 
     BanAndMute()
     {

@@ -304,6 +304,7 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 	msgACK.set_current_gold(0);
 	msgACK.set_success(msg->success());
 	msgACK.set_error(message::Error_NO);
+	int cur_complete_task_count = _info.complete_task_count();
 	if (chapter_id_temp != _current_chapter || section_id_temp != _current_section)
 	{
 		msgACK.set_error(message::Error_NotEnterTheExitGame);
@@ -345,6 +346,7 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 					{
 						try_to_find_task_info = true;
 						task_gift_gold = info_task_config->gift_gold();
+						cur_complete_task_count++;
 						temp_repeated->erase(it);
 						break;
 					}
@@ -398,7 +400,9 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 		}
 		msgACK.set_current_gold(gold_entry);
 		_info.set_gold(gold_entry);
+		_info.set_complete_task_count(cur_complete_task_count);
 	}
+	msgACK.set_complete_task_count(cur_complete_task_count);
 	sendPBMessage(&msgACK);	
 }
 

@@ -244,13 +244,14 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, _internal_metadata_),
       -1);
   MsgS2CExitGameACK_descriptor_ = file->message_type(9);
-  static const int MsgS2CExitGameACK_offsets_[7] = {
+  static const int MsgS2CExitGameACK_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, section_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, task_infos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, current_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, task_gift_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, success_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, complete_task_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, error_),
   };
   MsgS2CExitGameACK_reflection_ =
@@ -589,58 +590,59 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005"
     "\022(\n\ntask_infos\030\003 \003(\0132\024.message.MsgTaskIn"
     "fo\022\014\n\004gold\030\004 \002(\005\022\017\n\007success\030\005 \002(\010\022\026\n\016com"
-    "plete_tasks\030\006 \003(\005\"\341\001\n\021MsgS2CExitGameACK\022"
+    "plete_tasks\030\006 \003(\005\"\376\001\n\021MsgS2CExitGameACK\022"
     "\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022"
     "(\n\ntask_infos\030\003 \003(\0132\024.message.MsgTaskInf"
     "o\022\024\n\014current_gold\030\004 \002(\005\022&\n\ttask_gift\030\005 \003"
     "(\0132\023.message.MsgIntPair\022\017\n\007success\030\006 \002(\010"
-    "\022+\n\005error\030\007 \002(\0162\022.message.GameError:\010Err"
-    "or_NO\",\n\026MsgC2SReqUnlockChapter\022\022\n\nchapt"
-    "er_id\030\001 \002(\005\"!\n\037MsgC2SReqAdvertisementApp"
-    "lyTask\"y\n\037MsgS2CAdvertisementApplyTaskAC"
-    "K\022+\n\005error\030\001 \002(\0162\022.message.GameError:\010Er"
-    "ror_NO\022)\n\005infos\030\002 \003(\0132\032.message.MsgTaskC"
-    "onfigInfo\"<\n!MsgC2SReqAdvertisementRefre"
-    "shTask\022\027\n\017give_up_task_id\030\001 \002(\005\"\224\001\n!MsgS"
-    "2CAdvertisementRefreshTaskACK\022\027\n\017give_up"
-    "_task_id\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message."
-    "GameError:\010Error_NO\022)\n\005infos\030\003 \003(\0132\032.mes"
-    "sage.MsgTaskConfigInfo\"2\n\032MsgC2SReqModif"
-    "yCurrentHero\022\024\n\014current_grid\030\001 \002(\005\"_\n\032Ms"
-    "gS2CModifyCurrentHeroACK\022\024\n\014current_grid"
-    "\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameErro"
-    "r:\010Error_NO\"o\n\026MsgS2CUnlockChapterACK\022\022\n"
-    "\nchapter_id\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005\022"
-    "+\n\005error\030\003 \002(\0162\022.message.GameError:\010Erro"
-    "r_NO\".\n\020MsgC2SReqBuyHero\022\014\n\004grid\030\001 \002(\005\022\014"
-    "\n\004gold\030\002 \002(\005\"c\n\020MsgS2CBuyHeroACK\022\014\n\004grid"
+    "\022\033\n\023complete_task_count\030\007 \002(\005\022+\n\005error\030\010"
+    " \002(\0162\022.message.GameError:\010Error_NO\",\n\026Ms"
+    "gC2SReqUnlockChapter\022\022\n\nchapter_id\030\001 \002(\005"
+    "\"!\n\037MsgC2SReqAdvertisementApplyTask\"y\n\037M"
+    "sgS2CAdvertisementApplyTaskACK\022+\n\005error\030"
+    "\001 \002(\0162\022.message.GameError:\010Error_NO\022)\n\005i"
+    "nfos\030\002 \003(\0132\032.message.MsgTaskConfigInfo\"<"
+    "\n!MsgC2SReqAdvertisementRefreshTask\022\027\n\017g"
+    "ive_up_task_id\030\001 \002(\005\"\224\001\n!MsgS2CAdvertise"
+    "mentRefreshTaskACK\022\027\n\017give_up_task_id\030\001 "
+    "\002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameError:\010"
+    "Error_NO\022)\n\005infos\030\003 \003(\0132\032.message.MsgTas"
+    "kConfigInfo\"2\n\032MsgC2SReqModifyCurrentHer"
+    "o\022\024\n\014current_grid\030\001 \002(\005\"_\n\032MsgS2CModifyC"
+    "urrentHeroACK\022\024\n\014current_grid\030\001 \002(\005\022+\n\005e"
+    "rror\030\002 \002(\0162\022.message.GameError:\010Error_NO"
+    "\"o\n\026MsgS2CUnlockChapterACK\022\022\n\nchapter_id"
     "\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005\022+\n\005error\030\003 "
-    "\002(\0162\022.message.GameError:\010Error_NO\"\032\n\030Msg"
-    "C2SReqGoldShopConfigs\"I\n\030MsgS2CGoldShopC"
-    "onfigsACK\022-\n\005infos\030\001 \003(\0132\036.message.MsgGo"
-    "ldShopConfigInfo*\375\006\n\tGameError\022\014\n\010Error_"
-    "NO\020\000\022*\n&Error_CanNotEnterGameTheInstance"
-    "IsLock\020\001\022+\n\'Error_CanNotEnterGameTheChar"
-    "acterIsLock\020\002\022)\n%Error_CanNotEnterGameTh"
-    "eSectionIsLock\020\003\022$\n Error_CanNotBuyHeroN"
-    "otEnoughgold\020\004\0224\n0Error_CanNotPassGameTh"
-    "eInstanceNotHaveEnoughGold\020\005\022\035\n\031Error_No"
-    "tEnterTheExitGame\020\006\022)\n%Error_NotFoundThe"
-    "ChapterWhenEnterGame\020\007\022\035\n\031Error_TheChapt"
-    "erIsNotLock\020\010\0225\n1Error_UnlockChapterFail"
-    "edNotFoundTheUnlockChapter\020\t\0226\n2Error_Un"
-    "lockChapterFailedTheRequiredSectionNotPa"
-    "ss\020\n\0229\n5Error_UnlockChapterFailedYouHave"
-    "ToCompleteEnoughTasks\020\013\0221\n-Error_UnlockC"
-    "hapterFailedYouNotHaveEnoughGold\020\014\022,\n(Er"
-    "ror_RefreshAdvertisementTaskFailedInCD\020\r"
-    "\022<\n8Error_RefreshAdvertisementTaskFailed"
-    "NotFoundGiveUpTaskID\020\016\022.\n*Error_RefreshA"
-    "dvertisementTaskFailedUnknow\020\017\022$\n Error_"
-    "BuyHeroFailedNotEnoughGold\020\020\022$\n Error_Bu"
-    "yHeroFailedThePriceIsOld\020\021\022#\n\037Error_BuyH"
-    "eroFailedNotFoundGrid\020\022\022/\n+Error_ModifyC"
-    "urrentFailedTheCharacterIsLock\020\023", 2952);
+    "\002(\0162\022.message.GameError:\010Error_NO\".\n\020Msg"
+    "C2SReqBuyHero\022\014\n\004grid\030\001 \002(\005\022\014\n\004gold\030\002 \002("
+    "\005\"c\n\020MsgS2CBuyHeroACK\022\014\n\004grid\030\001 \002(\005\022\024\n\014c"
+    "urrent_gold\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.messa"
+    "ge.GameError:\010Error_NO\"\032\n\030MsgC2SReqGoldS"
+    "hopConfigs\"I\n\030MsgS2CGoldShopConfigsACK\022-"
+    "\n\005infos\030\001 \003(\0132\036.message.MsgGoldShopConfi"
+    "gInfo*\375\006\n\tGameError\022\014\n\010Error_NO\020\000\022*\n&Err"
+    "or_CanNotEnterGameTheInstanceIsLock\020\001\022+\n"
+    "\'Error_CanNotEnterGameTheCharacterIsLock"
+    "\020\002\022)\n%Error_CanNotEnterGameTheSectionIsL"
+    "ock\020\003\022$\n Error_CanNotBuyHeroNotEnoughgol"
+    "d\020\004\0224\n0Error_CanNotPassGameTheInstanceNo"
+    "tHaveEnoughGold\020\005\022\035\n\031Error_NotEnterTheEx"
+    "itGame\020\006\022)\n%Error_NotFoundTheChapterWhen"
+    "EnterGame\020\007\022\035\n\031Error_TheChapterIsNotLock"
+    "\020\010\0225\n1Error_UnlockChapterFailedNotFoundT"
+    "heUnlockChapter\020\t\0226\n2Error_UnlockChapter"
+    "FailedTheRequiredSectionNotPass\020\n\0229\n5Err"
+    "or_UnlockChapterFailedYouHaveToCompleteE"
+    "noughTasks\020\013\0221\n-Error_UnlockChapterFaile"
+    "dYouNotHaveEnoughGold\020\014\022,\n(Error_Refresh"
+    "AdvertisementTaskFailedInCD\020\r\022<\n8Error_R"
+    "efreshAdvertisementTaskFailedNotFoundGiv"
+    "eUpTaskID\020\016\022.\n*Error_RefreshAdvertisemen"
+    "tTaskFailedUnknow\020\017\022$\n Error_BuyHeroFail"
+    "edNotEnoughGold\020\020\022$\n Error_BuyHeroFailed"
+    "ThePriceIsOld\020\021\022#\n\037Error_BuyHeroFailedNo"
+    "tFoundGrid\020\022\022/\n+Error_ModifyCurrentFaile"
+    "dTheCharacterIsLock\020\023", 2981);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgC2SReqShopConfig::default_instance_ = new MsgC2SReqShopConfig();
@@ -4004,6 +4006,7 @@ const int MsgS2CExitGameACK::kTaskInfosFieldNumber;
 const int MsgS2CExitGameACK::kCurrentGoldFieldNumber;
 const int MsgS2CExitGameACK::kTaskGiftFieldNumber;
 const int MsgS2CExitGameACK::kSuccessFieldNumber;
+const int MsgS2CExitGameACK::kCompleteTaskCountFieldNumber;
 const int MsgS2CExitGameACK::kErrorFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4030,6 +4033,7 @@ void MsgS2CExitGameACK::SharedCtor() {
   section_id_ = 0;
   current_gold_ = 0;
   success_ = false;
+  complete_task_count_ = 0;
   error_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -4078,7 +4082,7 @@ void MsgS2CExitGameACK::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 107) {
+  if (_has_bits_[0 / 32] & 235) {
     ZR_(chapter_id_, section_id_);
     ZR_(current_gold_, error_);
   }
@@ -4187,13 +4191,28 @@ bool MsgS2CExitGameACK::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(56)) goto parse_error;
+        if (input->ExpectTag(56)) goto parse_complete_task_count;
         break;
       }
 
-      // required .message.GameError error = 7 [default = Error_NO];
+      // required int32 complete_task_count = 7;
       case 7: {
         if (tag == 56) {
+         parse_complete_task_count:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &complete_task_count_)));
+          set_has_complete_task_count();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(64)) goto parse_error;
+        break;
+      }
+
+      // required .message.GameError error = 8 [default = Error_NO];
+      case 8: {
+        if (tag == 64) {
          parse_error:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -4202,7 +4221,7 @@ bool MsgS2CExitGameACK::MergePartialFromCodedStream(
           if (::message::GameError_IsValid(value)) {
             set_error(static_cast< ::message::GameError >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(7, value);
+            mutable_unknown_fields()->AddVarint(8, value);
           }
         } else {
           goto handle_unusual;
@@ -4268,10 +4287,15 @@ void MsgS2CExitGameACK::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(6, this->success(), output);
   }
 
-  // required .message.GameError error = 7 [default = Error_NO];
+  // required int32 complete_task_count = 7;
+  if (has_complete_task_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->complete_task_count(), output);
+  }
+
+  // required .message.GameError error = 8 [default = Error_NO];
   if (has_error()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      7, this->error(), output);
+      8, this->error(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4318,10 +4342,15 @@ void MsgS2CExitGameACK::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, this->success(), target);
   }
 
-  // required .message.GameError error = 7 [default = Error_NO];
+  // required int32 complete_task_count = 7;
+  if (has_complete_task_count()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->complete_task_count(), target);
+  }
+
+  // required .message.GameError error = 8 [default = Error_NO];
   if (has_error()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      7, this->error(), target);
+      8, this->error(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4361,8 +4390,15 @@ int MsgS2CExitGameACK::RequiredFieldsByteSizeFallback() const {
     total_size += 1 + 1;
   }
 
+  if (has_complete_task_count()) {
+    // required int32 complete_task_count = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->complete_task_count());
+  }
+
   if (has_error()) {
-    // required .message.GameError error = 7 [default = Error_NO];
+    // required .message.GameError error = 8 [default = Error_NO];
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
   }
@@ -4372,7 +4408,7 @@ int MsgS2CExitGameACK::RequiredFieldsByteSizeFallback() const {
 int MsgS2CExitGameACK::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000006b) ^ 0x0000006b) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x000000eb) ^ 0x000000eb) == 0) {  // All required fields are present.
     // required int32 chapter_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4391,7 +4427,12 @@ int MsgS2CExitGameACK::ByteSize() const {
     // required bool success = 6;
     total_size += 1 + 1;
 
-    // required .message.GameError error = 7 [default = Error_NO];
+    // required int32 complete_task_count = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->complete_task_count());
+
+    // required .message.GameError error = 8 [default = Error_NO];
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
 
@@ -4454,6 +4495,9 @@ void MsgS2CExitGameACK::MergeFrom(const MsgS2CExitGameACK& from) {
     if (from.has_success()) {
       set_success(from.success());
     }
+    if (from.has_complete_task_count()) {
+      set_complete_task_count(from.complete_task_count());
+    }
     if (from.has_error()) {
       set_error(from.error());
     }
@@ -4476,7 +4520,7 @@ void MsgS2CExitGameACK::CopyFrom(const MsgS2CExitGameACK& from) {
 }
 
 bool MsgS2CExitGameACK::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000006b) != 0x0000006b) return false;
+  if ((_has_bits_[0] & 0x000000eb) != 0x000000eb) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->task_infos())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->task_gift())) return false;
@@ -4494,6 +4538,7 @@ void MsgS2CExitGameACK::InternalSwap(MsgS2CExitGameACK* other) {
   std::swap(current_gold_, other->current_gold_);
   task_gift_.UnsafeArenaSwap(&other->task_gift_);
   std::swap(success_, other->success_);
+  std::swap(complete_task_count_, other->complete_task_count_);
   std::swap(error_, other->error_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -4667,15 +4712,39 @@ MsgS2CExitGameACK::mutable_task_gift() {
   // @@protoc_insertion_point(field_set:message.MsgS2CExitGameACK.success)
 }
 
-// required .message.GameError error = 7 [default = Error_NO];
- bool MsgS2CExitGameACK::has_error() const {
+// required int32 complete_task_count = 7;
+ bool MsgS2CExitGameACK::has_complete_task_count() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
- void MsgS2CExitGameACK::set_has_error() {
+ void MsgS2CExitGameACK::set_has_complete_task_count() {
   _has_bits_[0] |= 0x00000040u;
 }
- void MsgS2CExitGameACK::clear_has_error() {
+ void MsgS2CExitGameACK::clear_has_complete_task_count() {
   _has_bits_[0] &= ~0x00000040u;
+}
+ void MsgS2CExitGameACK::clear_complete_task_count() {
+  complete_task_count_ = 0;
+  clear_has_complete_task_count();
+}
+ ::google::protobuf::int32 MsgS2CExitGameACK::complete_task_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CExitGameACK.complete_task_count)
+  return complete_task_count_;
+}
+ void MsgS2CExitGameACK::set_complete_task_count(::google::protobuf::int32 value) {
+  set_has_complete_task_count();
+  complete_task_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CExitGameACK.complete_task_count)
+}
+
+// required .message.GameError error = 8 [default = Error_NO];
+ bool MsgS2CExitGameACK::has_error() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+ void MsgS2CExitGameACK::set_has_error() {
+  _has_bits_[0] |= 0x00000080u;
+}
+ void MsgS2CExitGameACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000080u;
 }
  void MsgS2CExitGameACK::clear_error() {
   error_ = 0;

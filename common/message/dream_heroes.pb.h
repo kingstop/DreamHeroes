@@ -1158,10 +1158,17 @@ class MsgS2CExitGameACK : public ::google::protobuf::Message {
   bool success() const;
   void set_success(bool value);
 
-  // required .message.GameError error = 7 [default = Error_NO];
+  // required int32 complete_task_count = 7;
+  bool has_complete_task_count() const;
+  void clear_complete_task_count();
+  static const int kCompleteTaskCountFieldNumber = 7;
+  ::google::protobuf::int32 complete_task_count() const;
+  void set_complete_task_count(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 8 [default = Error_NO];
   bool has_error() const;
   void clear_error();
-  static const int kErrorFieldNumber = 7;
+  static const int kErrorFieldNumber = 8;
   ::message::GameError error() const;
   void set_error(::message::GameError value);
 
@@ -1175,6 +1182,8 @@ class MsgS2CExitGameACK : public ::google::protobuf::Message {
   inline void clear_has_current_gold();
   inline void set_has_success();
   inline void clear_has_success();
+  inline void set_has_complete_task_count();
+  inline void clear_has_complete_task_count();
   inline void set_has_error();
   inline void clear_has_error();
 
@@ -1190,6 +1199,7 @@ class MsgS2CExitGameACK : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > task_gift_;
   ::google::protobuf::int32 current_gold_;
   bool success_;
+  ::google::protobuf::int32 complete_task_count_;
   int error_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
@@ -3109,15 +3119,39 @@ inline void MsgS2CExitGameACK::set_success(bool value) {
   // @@protoc_insertion_point(field_set:message.MsgS2CExitGameACK.success)
 }
 
-// required .message.GameError error = 7 [default = Error_NO];
-inline bool MsgS2CExitGameACK::has_error() const {
+// required int32 complete_task_count = 7;
+inline bool MsgS2CExitGameACK::has_complete_task_count() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void MsgS2CExitGameACK::set_has_error() {
+inline void MsgS2CExitGameACK::set_has_complete_task_count() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void MsgS2CExitGameACK::clear_has_error() {
+inline void MsgS2CExitGameACK::clear_has_complete_task_count() {
   _has_bits_[0] &= ~0x00000040u;
+}
+inline void MsgS2CExitGameACK::clear_complete_task_count() {
+  complete_task_count_ = 0;
+  clear_has_complete_task_count();
+}
+inline ::google::protobuf::int32 MsgS2CExitGameACK::complete_task_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CExitGameACK.complete_task_count)
+  return complete_task_count_;
+}
+inline void MsgS2CExitGameACK::set_complete_task_count(::google::protobuf::int32 value) {
+  set_has_complete_task_count();
+  complete_task_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CExitGameACK.complete_task_count)
+}
+
+// required .message.GameError error = 8 [default = Error_NO];
+inline bool MsgS2CExitGameACK::has_error() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void MsgS2CExitGameACK::set_has_error() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void MsgS2CExitGameACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void MsgS2CExitGameACK::clear_error() {
   error_ = 0;

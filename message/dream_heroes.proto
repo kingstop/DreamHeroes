@@ -94,7 +94,8 @@ message MsgS2CExitGameACK
 	required int32 current_gold = 4;
 	repeated MsgIntPair task_gift = 5;
 	required bool success = 6;
-	required GameError error = 7 [default=Error_NO];
+	required int32 complete_task_count = 7;
+	required GameError error = 8 [default=Error_NO];
 }
 
 message MsgC2SReqUnlockChapter
