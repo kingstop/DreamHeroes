@@ -45,6 +45,21 @@ typedef std::map<int, message::MsgGoldShopConfigInfo> MAPGOLDSHOPCONFIGINFOS;
 typedef std::map<int, TimeShopSalesPromotionConfig> MAPTIMESHOPSALESPROMOTIONCONFIGS;
 
 
+enum obj_type
+{
+	obj_creature,
+	obj_item,
+};
+
+struct ObjDropBoxConfig
+{
+	int obj_id_;
+	obj_type type_;
+	int base_gold_;
+	int random_gold_;
+};
+
+
 class GameConfig
 {
 public:
