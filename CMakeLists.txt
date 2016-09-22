@@ -1,9 +1,13 @@
 PROJECT(project_dreamheroes)
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8) 
-INCLUDE(FindBoost)
-IF(LINUX)
-    MESSAGE("LINUX")
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+
+add_definitions(-DDEBUG -pthread -LINUX)
+add_definitions("-g")
+add_definitions(-DLOG4CXX_STATIC)
+IF(UNIX)
+    MESSAGE("UNIX")
 ELSEIF(WIN32)
     MESSAGE("WIN32")
 ELSE()
@@ -31,6 +35,11 @@ INCLUDE_DIRECTORIES(
 
 LINK_DIRECTORIES( 
     ${PROJECT_SOURCE_DIR}/lib 
+    ${PROJECT_SOURCE_DIR}/../../../external_lib/boost_1_60/
+    ${PROJECT_SOURCE_DIR}/../../../external_lib/google/
+    ${PROJECT_SOURCE_DIR}/../../../external_lib/json/
+    ${PROJECT_SOURCE_DIR}/../../../external_lib/log4cplus_1_2_0/	
+    ${PROJECT_SOURCE_DIR}/../../../external_lib/mysql/
     /usr/local/lib 
     /usr/lib 
 ) 
@@ -40,9 +49,9 @@ SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../bin/server/${PROJECT_NAME}/ 
 set(CMAKE_EXE_LINKER_FLAGS "-lpthread -lrt")
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../lib) 
 
-add_definitions(-DDEBUG -pthread)
-add_definitions("-g")
-add_definitions(-DLOG4CXX_STATIC)
+#add_definitions(-DDEBUG -pthread -LINUX)
+#add_definitions("-g")
+#add_definitions(-DLOG4CXX_STATIC)
 ADD_SUBDIRECTORY(common) 
 ADD_SUBDIRECTORY(databaseserver)
 ADD_SUBDIRECTORY(gameserver)
