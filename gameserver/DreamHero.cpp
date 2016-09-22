@@ -402,6 +402,8 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 		_info.set_gold(gold_entry);
 		_info.set_complete_task_count(cur_complete_task_count);
 	}
+	_current_chapter = -1;
+	_current_section = -1;
 	msgACK.set_complete_task_count(cur_complete_task_count);
 	sendPBMessage(&msgACK);	
 }
@@ -468,6 +470,8 @@ void DreamHero::RefreshTask(int give_up_task_id)
 		entry->set_usetime(0);
 	}
 
+	
+	
 	
 	if (give_up_task_id != 0)
 	{
