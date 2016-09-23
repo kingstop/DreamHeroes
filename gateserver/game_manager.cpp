@@ -11,17 +11,16 @@ GameManager::GameManager()
 GameManager::~GameManager()
 {
     for (u16 i = 0; i < MAX_GAME_ID; ++i)
-    {   m_activeGames[i]= NULL;}
-
+    {   
+		m_activeGames[i]= NULL;
+	}
     std::set<GateGameClient*>::iterator it = m_Games.begin();
     std::set<GateGameClient*>::iterator itend = m_Games.end();
-
     for (it; it!= itend; ++it)
     {
         (*it)->close();
         delete (*it);
     }
-
     m_Games.clear();
 }
 bool GameManager::addClientByConfig(const net_info& conf)

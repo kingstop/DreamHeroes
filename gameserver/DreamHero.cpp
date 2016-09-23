@@ -2,6 +2,7 @@
 #include "DreamHero.h"
 #include "session.h"
 #define _SAVE_PLAYER_TIME_  (10 * _TIME_SECOND_MSEL_)
+#define _REMOVE_PLAYER_TIME_  (20 * _TIME_SECOND_MSEL_)
 DreamHero::DreamHero()
 {
 	_info.set_gold(0);
@@ -97,10 +98,35 @@ void DreamHero::StopSave()
 	}
 }
 
+void DreamHero::StartDestroyTime()
+{
+	if (gEventMgr.hasEvent(this, EVENT_DESTROY_PLAYER_) == false)
+	{
+		gEventMgr.addEvent(this, &DreamHero::Destroy, EVENT_DESTROY_PLAYER_, _REMOVE_PLAYER_TIME_, -1, 0);
+	}
+	else
+	{
+		gEventMgr.modifyEventTime(this, EVENT_DESTROY_PLAYER_, _REMOVE_PLAYER_TIME_);
+	}
+}
 
+
+void DreamHero::Destroy()
+{
+	_parent->DestroyHero(this);
+}
+
+void DreamHero::set_parent(DreamHeroManager* p)
+{
+	_parent = p;
+}
 
 void DreamHero::set_online(bool online)
 {
+	if (gEventMgr.hasEvent(this, EVENT_DESTROY_PLAYER_) == false)
+	{
+		gEventMgr.removeEvents(this, EVENT_DESTROY_PLAYER_);
+	}
 	_online = online;
 }
 
@@ -450,9 +476,7 @@ void DreamHero::RefreshTask(int give_up_task_id)
 			{
 				msgError = message::Error_RefreshAdvertisementTaskFailedUnknow;
 			}
-		}
-		
-
+		}		
 	}
 	message::MsgTaskConfigInfo info_task_config = RadnomTaskInfo();
 	bool have_task = false;
@@ -460,7 +484,6 @@ void DreamHero::RefreshTask(int give_up_task_id)
 	{
 		have_task = true;
 	}
-	
 
 	if (have_task)
 	{
@@ -470,9 +493,6 @@ void DreamHero::RefreshTask(int give_up_task_id)
 		entry->set_usetime(0);
 	}
 
-	
-	
-	
 	if (give_up_task_id != 0)
 	{
 		message::MsgS2CAdvertisementRefreshTaskACK msgACK;
@@ -482,7 +502,6 @@ void DreamHero::RefreshTask(int give_up_task_id)
 			message::MsgTaskConfigInfo* info = msgACK.add_infos();
 			info->CopyFrom(info_task_config);
 		}
-
 		msgACK.set_error(msgError);
 		sendPBMessage(&msgACK);
 	}
@@ -603,9 +622,7 @@ void DreamHero::ReqAdvertisementRefreshTask(const message::MsgC2SReqAdvertisemen
 void DreamHero::ReqEnterGame(const message::MsgC2SReqEnterGame* msg)
 {
 	int chapter_id_temp = msg->chapter_id();
-	int section_id_temp = msg->section_id();
-	
-
+	int section_id_temp = msg->section_id();	
 	int records_length = _info.records_size();
 	message::MsgS2CEnterGameACK msgACK;
 	msgACK.set_chapter_id(chapter_id_temp);

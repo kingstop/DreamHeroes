@@ -13,6 +13,7 @@ public:
 	void set_info(const message::MsgHeroDataDB2GS* info);
 	void set_session(Session* session);
 	void set_name(const char* name);
+	void set_parent(DreamHeroManager* p);
 	const char* get_name();
 	Session* get_session();
 	void SaveHero();
@@ -22,6 +23,8 @@ public:
 	void SendClientInit();
 	void set_online(bool online);
 	bool is_online();
+	void StartDestroyTime();
+	
 public:
 	void dayRefresh(bool need_send_msg = true);
 
@@ -37,6 +40,7 @@ public:
 protected:
 	message::MsgTaskConfigInfo RadnomTaskInfo();
 	void RefreshTask(int give_up_task_id = 0);
+	void Destroy();
 protected:
 
 	void sendPBMessage(google::protobuf::Message* p);
@@ -51,5 +55,6 @@ protected:
 	account_type _account;
 	Session* _session;
 	bool _online;
+	DreamHeroManager* _parent;
 };
 

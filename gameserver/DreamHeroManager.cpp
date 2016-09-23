@@ -63,6 +63,7 @@ DreamHero* DreamHeroManager::GetHero(account_type account)
 	{
 		hero = it->second;
 	}
+	hero->set_parent(this);
 	return hero;
 }
 
@@ -78,6 +79,7 @@ DreamHero* DreamHeroManager::CreateHero(message::MsgHeroDataDB2GS* HeroDataMsg, 
 		_heroes.insert(MAPHEROS::value_type(hero->get_account(), hero));
 	}	
 	hero->set_session(session);
+	hero->set_parent(this);
 	return hero;
 }
 
@@ -91,6 +93,7 @@ DreamHero* DreamHeroManager::CreateHero(account_type acc, Session* session)
 	}
 	hero->set_session(session);
 	hero->set_account(acc);
+	hero->set_parent(this);
 	_heroes.insert(MAPHEROS::value_type(hero->get_account(), hero));
 	return hero;
 }
@@ -110,6 +113,28 @@ void DreamHeroManager::SaveDreamHeroes()
 	gGSDBClient.sendPBMessage(&msg, 0);	
 }
 
+
+void DreamHeroManager::DestroyHero(DreamHero* p)
+{
+	MAPHEROS::iterator it = _heroes.find(p->get_account());
+	if (it != _heroes.end())
+	{
+		DreamHero* p_temp = it->second;
+		if (p_temp == p)
+		{
+			delete p_temp;
+			_heroes.erase(it);
+		}
+		else
+		{
+			//need log;
+		}
+	}
+	else
+	{
+		//need log;
+	}
+}
 
 void DreamHeroManager::CollectInfo()
 {
