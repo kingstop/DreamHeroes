@@ -62,8 +62,10 @@ DreamHero* DreamHeroManager::GetHero(account_type account)
 	if (it != _heroes.end())
 	{
 		hero = it->second;
+		hero->set_parent(this);
 	}
-	hero->set_parent(this);
+	
+	
 	return hero;
 }
 

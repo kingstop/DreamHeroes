@@ -113,7 +113,7 @@ void DreamHero::StartDestroyTime()
 
 void DreamHero::Destroy()
 {
-	//_parent->DestroyHero(this);
+	_parent->DestroyHero(this);
 }
 
 void DreamHero::set_parent(DreamHeroManager* p)

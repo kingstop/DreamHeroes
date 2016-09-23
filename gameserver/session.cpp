@@ -149,10 +149,10 @@ void Session::parsePBMessage(google::protobuf::Message* p)
 Session::Session(tran_id_type t, account_type a, u16 gate)
     :m_tranid(t), m_account(a), m_gate(gate),m_state(_session_online_), _dream_hero(NULL)
 {
-	DreamHero* heros = gDreamHeroManager.GetHero(m_account);
-	if (heros != NULL)
+	DreamHero* hero = gDreamHeroManager.GetHero(m_account);
+	if (hero != NULL)
 	{
-		_dream_hero = heros;
+		_dream_hero = hero;
 		_dream_hero->set_session(this);
 		_dream_hero->SendClientInit();
 		
