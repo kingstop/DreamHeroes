@@ -9,8 +9,8 @@ DreamHero::DreamHero()
 	_info.set_name("test");
 	_online = false;
 	_day_offset_time = gGameConfig.getGlobalConfig().day_Refresh_time_ * 60 * 60;
-	_current_chapter = 0;
-	_current_section = 0;
+	_current_chapter = -1;
+	_current_section = -1;
 	_current_gold = 0;
 	_current_free_task_count = 0;
 	_last_task_advertisement_time = 0;
