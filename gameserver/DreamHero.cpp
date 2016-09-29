@@ -784,7 +784,7 @@ void DreamHero::SendClientInit()
 	msg.set_current_advertisement_count(_current_free_task_count);
 	msg.set_last_advertisement_time(_last_task_advertisement_time);
 	msg.set_advertisement_time_cd(gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_);
-	
+	msg.set_gm_level(getGMLevel());
 	sendPBMessage(&msg);
 	_online = true;
 }
