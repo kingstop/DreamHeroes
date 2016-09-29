@@ -741,20 +741,23 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 		}
 
 		const MAPTYPEDROPBOXCONFIGS* type_map_dropboxs = gGameConfig.getMapDropBox(chapter_id_temp, section_id_temp);
-		MAPTYPEDROPBOXCONFIGS::const_iterator it_type_drop = type_map_dropboxs->begin();
-		for (; it_type_drop != type_map_dropboxs->end(); ++ it_type_drop)
+		if (type_map_dropboxs != NULL)
 		{
-			MAPDROPBOXCONFIGS::const_iterator it_map_drop =  it_type_drop->second.begin();
-			for (; it_map_drop != it_type_drop->second.end(); ++ it_map_drop)
+			MAPTYPEDROPBOXCONFIGS::const_iterator it_type_drop = type_map_dropboxs->begin();
+			for (; it_type_drop != type_map_dropboxs->end(); ++it_type_drop)
 			{
-				message::MsgDropBoxConfig* drop_box_entry =  msgACK.add_drop_box_configs();
-				ObjDropBoxConfig box_entry = it_map_drop->second;
-				drop_box_entry->set_base_gold(box_entry.base_gold_);
-				drop_box_entry->set_random_gold(box_entry.random_gold_);
-				drop_box_entry->mutable_obj()->set_id(box_entry.obj_id_);
-				drop_box_entry->mutable_obj()->set_type(box_entry.type_);
+				MAPDROPBOXCONFIGS::const_iterator it_map_drop = it_type_drop->second.begin();
+				for (; it_map_drop != it_type_drop->second.end(); ++it_map_drop)
+				{
+					message::MsgDropBoxConfig* drop_box_entry = msgACK.add_drop_box_configs();
+					ObjDropBoxConfig box_entry = it_map_drop->second;
+					drop_box_entry->set_base_gold(box_entry.base_gold_);
+					drop_box_entry->set_random_gold(box_entry.random_gold_);
+					drop_box_entry->mutable_obj()->set_id(box_entry.obj_id_);
+					drop_box_entry->mutable_obj()->set_type(box_entry.type_);
+				}
 			}
-		}		 
+		}
 	}
 	msgACK.set_error(en_error);
 	sendPBMessage(&msgACK);
