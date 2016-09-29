@@ -453,7 +453,36 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 		msgACK.set_current_gold(gold_entry);
 		_info.set_gold(gold_entry);
 		_info.set_complete_task_count(cur_complete_task_count);
+		std::pair<int, int> pair_entry;
+		pair_entry.first = _current_chapter;
+		pair_entry.second = _current_section;
+		SPECIALKILLS::iterator it_special_kill = _special_kills.find(pair_entry);
+		if (it_special_kill == _special_kills.end())
+		{
+			std::vector<message::MsgObjConfig> vc_temp;
+			_special_kills.insert(SPECIALKILLS::value_type(pair_entry, vc_temp));
+		}
+		int special_kill_size = msg->special_kill_list_size();
+		for (int i = 0; i < special_kill_size; i ++)
+		{
+			const message::MsgObjConfig obj_config_entry = msg->special_kill_list(i);
+			bool need_add = true;
+			std::vector<message::MsgObjConfig>::iterator it_special_temp = _special_kills[pair_entry].begin();
+			for (; it_special_temp != _special_kills[pair_entry].end(); ++ it_special_temp)
+			{
+				if (it_special_temp->id() == obj_config_entry.id() && it_special_temp->type() == obj_config_entry.type())
+				{
+					need_add = false;
+					break;
+				}
+			}
+			if (need_add)
+			{
+				_special_kills[pair_entry].push_back(obj_config_entry);
+			}
+		}
 	}
+
 	_current_chapter = -1;
 	_current_section = -1;
 	msgACK.set_complete_task_count(cur_complete_task_count);
