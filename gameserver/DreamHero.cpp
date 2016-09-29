@@ -357,7 +357,7 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 	msgACK.set_success(msg->success());
 	msgACK.set_error(message::Error_NO);
 	int cur_complete_task_count = _info.complete_task_count();
-	if (chapter_id_temp != _current_chapter || section_id_temp != _current_section)
+	if (chapter_id_temp == -1&& section_id_temp == -1 || chapter_id_temp != _current_chapter || section_id_temp != _current_section)
 	{
 		msgACK.set_error(message::Error_NotEnterTheExitGame);
 	}
@@ -442,10 +442,10 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 			message::MsgIntPair* pair_entry = _info.mutable_records(i);
 			if (pair_entry->number_1() == chapter_id_temp)
 			{
-				int modify_section = section_id_temp + 1;
-				if (modify_section == pair_entry->number_2())
+				
+				if (section_id_temp == pair_entry->number_2() + 1)
 				{
-					pair_entry->set_number_2(modify_section);
+					pair_entry->set_number_2(section_id_temp);
 					find_chapter = true;
 				}
 			}
@@ -704,23 +704,30 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 	else
 	{
 		en_error = message::Error_CanNotEnterGameTheInstanceIsLock;
-		for (int i = 0; i < records_length; i++)
+		if (chapter_id_temp == -1 && section_id_temp == -1)
 		{
-			const message::MsgIntPair record_entry = _info.records(i);
-			int chapter_config_id = record_entry.number_1();
-			int section_config_id = record_entry.number_2();
-			if (chapter_config_id == chapter_id_temp)
+
+		}
+		else
+		{
+			for (int i = 0; i < records_length; i++)
 			{
-				int section = section_config_id + 1;
-				if (section_id_temp <= section)
+				const message::MsgIntPair record_entry = _info.records(i);
+				int chapter_config_id = record_entry.number_1();
+				int section_config_id = record_entry.number_2();
+				if (chapter_config_id == chapter_id_temp)
 				{
-					en_error = message::Error_NO;
+					int section = section_config_id + 1;
+					if (section_id_temp <= section)
+					{
+						en_error = message::Error_NO;
+					}
+					else
+					{
+						en_error = message::Error_CanNotEnterGameTheSectionIsLock;
+					}
+					break;
 				}
-				else
-				{
-					en_error = message::Error_CanNotEnterGameTheSectionIsLock;
-				}
-				break;
 			}
 		}
 	}

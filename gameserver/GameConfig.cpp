@@ -325,9 +325,7 @@ void GameConfig::Load(DBQuery* p)
 			{
 				MAPDROPBOXCONFIGS::iterator it_temp_id_config = _drop_box_configs[entry.type_].find(entry.obj_id_);
 				if (it_temp_id_config != _drop_box_configs[entry.type_].end())
-				{
-
-					
+				{					
 					MAPRANDOMOBJCONFIGS::iterator it_configs = _map_random_obj_configs[entry_pair].find(behavior_id);
 					if (it_configs == _map_random_obj_configs[entry_pair].end())
 					{
