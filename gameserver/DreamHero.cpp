@@ -12,7 +12,7 @@ DreamHero::DreamHero()
 	_current_chapter = -1;
 	_current_section = -1;
 	_current_gold = 0;
-	_current_free_task_count = 0;
+	_current_task_count = 0;
 	_last_task_advertisement_time = 0;
 	_day_offset_time = 0;
 	_gm_level = 0;
@@ -49,7 +49,7 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	_current_section = info->current_section();
 	_current_gold = info->current_gold();
 	_last_task_advertisement_time = info->last_task_advertisement_time();
-	_current_free_task_count = info->free_task_count();
+	_current_task_count = info->free_task_count();
 	int size_special_kills =  info->special_kills_size();
 	_special_kills.clear();
 	for (int i = 0; i < size_special_kills; i ++)
@@ -181,7 +181,7 @@ void DreamHero::dayRefresh(bool need_send_msg)
 
 	if (can_Refresh_task)
 	{
-		_current_free_task_count = 0;
+		_current_task_count = 0;
 		if (_info.tasks_size() < gGameConfig.getGlobalConfig().hero_max_tasks_count_)
 		{
 			message::MsgTaskConfigInfo task_config_entry = RadnomTaskInfo();
@@ -491,7 +491,7 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 void DreamHero::RefreshTask(int give_up_task_id)
 {
 	message::GameError msgError = message::Error_NO;	
-	if (_current_free_task_count > gGameConfig.getGlobalConfig().day_free_task_count_)
+	if (_current_task_count > gGameConfig.getGlobalConfig().day_free_task_count_)
 	{
 		s64 diff_time = g_server_time - _last_task_advertisement_time;
 		if (diff_time < gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_)
@@ -522,7 +522,7 @@ void DreamHero::RefreshTask(int give_up_task_id)
 		{
 			if (repeated_tasks->size() <= gGameConfig.getGlobalConfig().hero_max_tasks_count_ - 1)
 			{			
-				_current_free_task_count++;
+				_current_task_count++;
 				_last_task_advertisement_time = g_server_time;
 			}
 			else
@@ -777,7 +777,7 @@ void DreamHero::SendResetGameACK(message::GameError en)
 	message::MsgS2CCmdResetGameACK msg;
 	msg.mutable_info()->CopyFrom(_info);
 	msg.set_error(en);
-	msg.set_current_advertisement_count(_current_free_task_count);
+	msg.set_current_advertisement_count(_current_task_count);
 	msg.set_last_advertisement_time(_last_task_advertisement_time);
 	sendPBMessage(&msg);
 }
@@ -821,7 +821,7 @@ void DreamHero::SendClientInit()
 	}
 
 	msg.set_free_advertisement_config_count(gGameConfig.getGlobalConfig().day_free_task_count_);
-	msg.set_current_advertisement_count(_current_free_task_count);
+	msg.set_current_advertisement_count(_current_task_count);
 	msg.set_last_advertisement_time(_last_task_advertisement_time);
 	msg.set_advertisement_time_cd(gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_);
 	msg.set_gm_level(getGMLevel());
@@ -835,7 +835,7 @@ void DreamHero::LoadFromConfig()
 
 	_current_chapter = 0;
 	_current_section = 0;
-	_current_free_task_count = 0;
+	_current_task_count = 0;
 	_last_task_advertisement_time = 0;
 	_info.mutable_tasks()->Clear();
 	_info.mutable_records()->Clear();
@@ -939,16 +939,16 @@ void DreamHero::SaveHero()
 	build_unix_time_to_string(_last_task_advertisement_time, last_task_advertisement_time_temp);
 //#ifdef WIN32
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,`special_kill`,\
-		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`,`gm_level`) values \
-		(%llu, 'normal', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s', %d);",
+		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`) values \
+		(%llu, 'normal', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s', %d, %d);",
 		_account, _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
-		_current_section, _info.gold(), _info.complete_task_count(), _current_free_task_count, last_task_advertisement_time_temp.c_str(), _gm_level);
+		_current_section, _info.gold(), _info.complete_task_count(), _current_task_count, last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count);
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
 //		(%llu, 'normal', %d, '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s');",
 //		_account, _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), _info.current_hero(), _current_chapter,
-//		_current_section, _info.gold(), _info.complete_task_count(), _current_free_task_count, last_task_advertisement_time_temp.c_str());
+//		_current_section, _info.gold(), _info.complete_task_count(), _current_task_count, last_task_advertisement_time_temp.c_str());
 //#endif
 
 

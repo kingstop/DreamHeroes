@@ -47,7 +47,7 @@ public:
 	void ResetGame();
 	void SendResetGameACK(message::GameError en);
 protected:
-	message::MsgTaskConfigInfo RadnomTaskInfo(int give_up_task = 0);
+	message::MsgTaskConfigInfo RadnomTaskInfo(int give_up_task);
 	void RefreshTask(int give_up_task_id = 0);
 	
 	void Destroy();
@@ -60,7 +60,7 @@ protected:
 	int _current_chapter;
 	int _current_section;
 	int _current_gold;
-	int _current_free_task_count;
+	int _current_task_count;
 	u32 _last_task_advertisement_time;
 	int _day_offset_time;
 	account_type _account;
