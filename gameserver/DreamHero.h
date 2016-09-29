@@ -4,6 +4,7 @@ class DreamHero : public EventableObject
 public:
 	//typedef std::map<u64, message::MsgEquipData> HEROEQUIPS;
 	//typedef std::map<std::string, message::MsgToyData> HEROTOYS;
+	typedef std::map<std::pair<int, int>, std::vector<message::MsgObjConfig>> SPECIALKILLS;
 public:
 	DreamHero();
 	virtual ~DreamHero();
@@ -27,7 +28,8 @@ public:
 	
 public:
 	void dayRefresh(bool need_send_msg = true);
-
+	int getGMLevel();
+	void SetGMLevel(int level);
 public:
 	void ReqEnterGame(const message::MsgC2SReqEnterGame* msg);
 	void ReqExitGame(const message::MsgC2SReqExitGame* msg);
@@ -35,16 +37,25 @@ public:
 	void ReqAdvertisementApplyTask(const message::MsgC2SReqAdvertisementApplyTask* msg);
 	void ReqAdvertisementRefreshTask(const message::MsgC2SReqAdvertisementRefreshTask* msg);
 	void ReqBuyHero(const message::MsgC2SReqBuyHero* msg);
+	void ReqResetMap(const message::MsgC2SCmdReqResetMap* msg);
+	void ReqModifyGold(const message::MsgC2SCmdReqModifyGold* msg);
+
+
 	void ReqModifyCurrentHero(int grid_id);
 	void ReqGoldShopConfigs();
+	void EnterGame(int chapter_id, int section_id, bool admin = false);
+	void ResetGame();
+	void SendResetGameACK(message::GameError en);
 protected:
 	message::MsgTaskConfigInfo RadnomTaskInfo();
 	void RefreshTask(int give_up_task_id = 0);
+	
 	void Destroy();
 protected:
 
 	void sendPBMessage(google::protobuf::Message* p);
 protected:
+	SPECIALKILLS _special_kills;
 	message::MsgHeroData _info;
 	int _current_chapter;
 	int _current_section;
@@ -56,5 +67,6 @@ protected:
 	Session* _session;
 	bool _online;
 	DreamHeroManager* _parent;
+	int _gm_level;
 };
 

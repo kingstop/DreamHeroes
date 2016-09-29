@@ -1,5 +1,25 @@
 package message;
 
+enum SubType
+{
+	DEFAULT = 0;
+	MONSTER = 1;
+	INTERACTIVE = 2;
+}
+
+message MsgObjConfig
+{
+	required SubType type = 1[default=DEFAULT];
+	required int32 id = 2;
+
+}
+
+message MsgDropBoxConfig
+{
+	required MsgObjConfig obj = 1;	
+	required int32 base_gold = 2;
+	required int32 random_gold = 3;	
+}
 
 
 message MsgIntPair
@@ -26,7 +46,7 @@ enum TaskType
 	TaskType_NULL = 0;
 	TaskType_KillMonster = 1;
 	TaskType_PassGame = 2;
-	TaskType_LimitTime = 3;
+	TaskType_UnKnown = 3;
 	TaskType_LimitLevel = 4;
 	TaskType_LimitRevive = 5;
 	TaskType_LimitTime_KillMonster = 6;

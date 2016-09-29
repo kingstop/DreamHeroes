@@ -37,6 +37,8 @@ void protobuf_AddDesc_common_2eproto();
 void protobuf_AssignDesc_common_2eproto();
 void protobuf_ShutdownFile_common_2eproto();
 
+class MsgObjConfig;
+class MsgDropBoxConfig;
 class MsgIntPair;
 class MsgHeroData;
 class MsgTaskConditionInfo;
@@ -46,11 +48,31 @@ class MsgTaskInfo;
 class MsgChapterConfigInfo;
 class MsgGoldShopConfigInfo;
 
+enum SubType {
+  DEFAULT = 0,
+  MONSTER = 1,
+  INTERACTIVE = 2
+};
+bool SubType_IsValid(int value);
+const SubType SubType_MIN = DEFAULT;
+const SubType SubType_MAX = INTERACTIVE;
+const int SubType_ARRAYSIZE = SubType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* SubType_descriptor();
+inline const ::std::string& SubType_Name(SubType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    SubType_descriptor(), value);
+}
+inline bool SubType_Parse(
+    const ::std::string& name, SubType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SubType>(
+    SubType_descriptor(), name, value);
+}
 enum TaskType {
   TaskType_NULL = 0,
   TaskType_KillMonster = 1,
   TaskType_PassGame = 2,
-  TaskType_LimitTime = 3,
+  TaskType_UnKnown = 3,
   TaskType_LimitLevel = 4,
   TaskType_LimitRevive = 5,
   TaskType_LimitTime_KillMonster = 6,
@@ -72,6 +94,222 @@ inline bool TaskType_Parse(
     TaskType_descriptor(), name, value);
 }
 // ===================================================================
+
+class MsgObjConfig : public ::google::protobuf::Message {
+ public:
+  MsgObjConfig();
+  virtual ~MsgObjConfig();
+
+  MsgObjConfig(const MsgObjConfig& from);
+
+  inline MsgObjConfig& operator=(const MsgObjConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgObjConfig& default_instance();
+
+  void Swap(MsgObjConfig* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgObjConfig* New() const { return New(NULL); }
+
+  MsgObjConfig* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgObjConfig& from);
+  void MergeFrom(const MsgObjConfig& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgObjConfig* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .message.SubType type = 1 [default = DEFAULT];
+  bool has_type() const;
+  void clear_type();
+  static const int kTypeFieldNumber = 1;
+  ::message::SubType type() const;
+  void set_type(::message::SubType value);
+
+  // required int32 id = 2;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 2;
+  ::google::protobuf::int32 id() const;
+  void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgObjConfig)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  int type_;
+  ::google::protobuf::int32 id_;
+  friend void  protobuf_AddDesc_common_2eproto();
+  friend void protobuf_AssignDesc_common_2eproto();
+  friend void protobuf_ShutdownFile_common_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgObjConfig* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgDropBoxConfig : public ::google::protobuf::Message {
+ public:
+  MsgDropBoxConfig();
+  virtual ~MsgDropBoxConfig();
+
+  MsgDropBoxConfig(const MsgDropBoxConfig& from);
+
+  inline MsgDropBoxConfig& operator=(const MsgDropBoxConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgDropBoxConfig& default_instance();
+
+  void Swap(MsgDropBoxConfig* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgDropBoxConfig* New() const { return New(NULL); }
+
+  MsgDropBoxConfig* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgDropBoxConfig& from);
+  void MergeFrom(const MsgDropBoxConfig& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgDropBoxConfig* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .message.MsgObjConfig obj = 1;
+  bool has_obj() const;
+  void clear_obj();
+  static const int kObjFieldNumber = 1;
+  const ::message::MsgObjConfig& obj() const;
+  ::message::MsgObjConfig* mutable_obj();
+  ::message::MsgObjConfig* release_obj();
+  void set_allocated_obj(::message::MsgObjConfig* obj);
+
+  // required int32 base_gold = 2;
+  bool has_base_gold() const;
+  void clear_base_gold();
+  static const int kBaseGoldFieldNumber = 2;
+  ::google::protobuf::int32 base_gold() const;
+  void set_base_gold(::google::protobuf::int32 value);
+
+  // required int32 random_gold = 3;
+  bool has_random_gold() const;
+  void clear_random_gold();
+  static const int kRandomGoldFieldNumber = 3;
+  ::google::protobuf::int32 random_gold() const;
+  void set_random_gold(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgDropBoxConfig)
+ private:
+  inline void set_has_obj();
+  inline void clear_has_obj();
+  inline void set_has_base_gold();
+  inline void clear_has_base_gold();
+  inline void set_has_random_gold();
+  inline void clear_has_random_gold();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::message::MsgObjConfig* obj_;
+  ::google::protobuf::int32 base_gold_;
+  ::google::protobuf::int32 random_gold_;
+  friend void  protobuf_AddDesc_common_2eproto();
+  friend void protobuf_AssignDesc_common_2eproto();
+  friend void protobuf_ShutdownFile_common_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgDropBoxConfig* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class MsgIntPair : public ::google::protobuf::Message {
  public:
@@ -1140,6 +1378,154 @@ class MsgGoldShopConfigInfo : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgObjConfig
+
+// required .message.SubType type = 1 [default = DEFAULT];
+inline bool MsgObjConfig::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgObjConfig::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgObjConfig::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgObjConfig::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::message::SubType MsgObjConfig::type() const {
+  // @@protoc_insertion_point(field_get:message.MsgObjConfig.type)
+  return static_cast< ::message::SubType >(type_);
+}
+inline void MsgObjConfig::set_type(::message::SubType value) {
+  assert(::message::SubType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgObjConfig.type)
+}
+
+// required int32 id = 2;
+inline bool MsgObjConfig::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgObjConfig::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgObjConfig::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgObjConfig::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 MsgObjConfig::id() const {
+  // @@protoc_insertion_point(field_get:message.MsgObjConfig.id)
+  return id_;
+}
+inline void MsgObjConfig::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgObjConfig.id)
+}
+
+// -------------------------------------------------------------------
+
+// MsgDropBoxConfig
+
+// required .message.MsgObjConfig obj = 1;
+inline bool MsgDropBoxConfig::has_obj() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgDropBoxConfig::set_has_obj() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgDropBoxConfig::clear_has_obj() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgDropBoxConfig::clear_obj() {
+  if (obj_ != NULL) obj_->::message::MsgObjConfig::Clear();
+  clear_has_obj();
+}
+inline const ::message::MsgObjConfig& MsgDropBoxConfig::obj() const {
+  // @@protoc_insertion_point(field_get:message.MsgDropBoxConfig.obj)
+  return obj_ != NULL ? *obj_ : *default_instance_->obj_;
+}
+inline ::message::MsgObjConfig* MsgDropBoxConfig::mutable_obj() {
+  set_has_obj();
+  if (obj_ == NULL) {
+    obj_ = new ::message::MsgObjConfig;
+  }
+  // @@protoc_insertion_point(field_mutable:message.MsgDropBoxConfig.obj)
+  return obj_;
+}
+inline ::message::MsgObjConfig* MsgDropBoxConfig::release_obj() {
+  clear_has_obj();
+  ::message::MsgObjConfig* temp = obj_;
+  obj_ = NULL;
+  return temp;
+}
+inline void MsgDropBoxConfig::set_allocated_obj(::message::MsgObjConfig* obj) {
+  delete obj_;
+  obj_ = obj;
+  if (obj) {
+    set_has_obj();
+  } else {
+    clear_has_obj();
+  }
+  // @@protoc_insertion_point(field_set_allocated:message.MsgDropBoxConfig.obj)
+}
+
+// required int32 base_gold = 2;
+inline bool MsgDropBoxConfig::has_base_gold() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgDropBoxConfig::set_has_base_gold() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgDropBoxConfig::clear_has_base_gold() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgDropBoxConfig::clear_base_gold() {
+  base_gold_ = 0;
+  clear_has_base_gold();
+}
+inline ::google::protobuf::int32 MsgDropBoxConfig::base_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgDropBoxConfig.base_gold)
+  return base_gold_;
+}
+inline void MsgDropBoxConfig::set_base_gold(::google::protobuf::int32 value) {
+  set_has_base_gold();
+  base_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDropBoxConfig.base_gold)
+}
+
+// required int32 random_gold = 3;
+inline bool MsgDropBoxConfig::has_random_gold() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgDropBoxConfig::set_has_random_gold() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgDropBoxConfig::clear_has_random_gold() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgDropBoxConfig::clear_random_gold() {
+  random_gold_ = 0;
+  clear_has_random_gold();
+}
+inline ::google::protobuf::int32 MsgDropBoxConfig::random_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgDropBoxConfig.random_gold)
+  return random_gold_;
+}
+inline void MsgDropBoxConfig::set_random_gold(::google::protobuf::int32 value) {
+  set_has_random_gold();
+  random_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDropBoxConfig.random_gold)
+}
+
+// -------------------------------------------------------------------
+
 // MsgIntPair
 
 // required int32 number_1 = 1;
@@ -2204,6 +2590,11 @@ inline void MsgGoldShopConfigInfo::set_allocated_describe(::std::string* describ
 namespace google {
 namespace protobuf {
 
+template <> struct is_proto_enum< ::message::SubType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::message::SubType>() {
+  return ::message::SubType_descriptor();
+}
 template <> struct is_proto_enum< ::message::TaskType> : ::google::protobuf::internal::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::message::TaskType>() {

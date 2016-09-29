@@ -20,6 +20,12 @@ namespace message {
 
 namespace {
 
+const ::google::protobuf::Descriptor* MsgObjConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgObjConfig_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgDropBoxConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgDropBoxConfig_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgIntPair_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgIntPair_reflection_ = NULL;
@@ -44,6 +50,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgGoldShopConfigInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgGoldShopConfigInfo_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* SubType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* TaskType_descriptor_ = NULL;
 
 }  // namespace
@@ -55,7 +62,40 @@ void protobuf_AssignDesc_common_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "common.proto");
   GOOGLE_CHECK(file != NULL);
-  MsgIntPair_descriptor_ = file->message_type(0);
+  MsgObjConfig_descriptor_ = file->message_type(0);
+  static const int MsgObjConfig_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgObjConfig, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgObjConfig, id_),
+  };
+  MsgObjConfig_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgObjConfig_descriptor_,
+      MsgObjConfig::default_instance_,
+      MsgObjConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgObjConfig, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgObjConfig),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgObjConfig, _internal_metadata_),
+      -1);
+  MsgDropBoxConfig_descriptor_ = file->message_type(1);
+  static const int MsgDropBoxConfig_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDropBoxConfig, obj_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDropBoxConfig, base_gold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDropBoxConfig, random_gold_),
+  };
+  MsgDropBoxConfig_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgDropBoxConfig_descriptor_,
+      MsgDropBoxConfig::default_instance_,
+      MsgDropBoxConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDropBoxConfig, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgDropBoxConfig),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDropBoxConfig, _internal_metadata_),
+      -1);
+  MsgIntPair_descriptor_ = file->message_type(2);
   static const int MsgIntPair_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgIntPair, number_1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgIntPair, number_2_),
@@ -71,7 +111,7 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgIntPair),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgIntPair, _internal_metadata_),
       -1);
-  MsgHeroData_descriptor_ = file->message_type(1);
+  MsgHeroData_descriptor_ = file->message_type(3);
   static const int MsgHeroData_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, gold_),
@@ -92,7 +132,7 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgHeroData),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, _internal_metadata_),
       -1);
-  MsgTaskConditionInfo_descriptor_ = file->message_type(2);
+  MsgTaskConditionInfo_descriptor_ = file->message_type(4);
   static const int MsgTaskConditionInfo_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConditionInfo, tasktype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConditionInfo, argument_1_),
@@ -109,7 +149,7 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgTaskConditionInfo),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConditionInfo, _internal_metadata_),
       -1);
-  MsgTaskConfigInfo_descriptor_ = file->message_type(3);
+  MsgTaskConfigInfo_descriptor_ = file->message_type(5);
   static const int MsgTaskConfigInfo_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, task_condition_),
@@ -131,7 +171,7 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgTaskConfigInfo),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, _internal_metadata_),
       -1);
-  MsgShopConfigInfo_descriptor_ = file->message_type(4);
+  MsgShopConfigInfo_descriptor_ = file->message_type(6);
   static const int MsgShopConfigInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, grid_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, hero_id_),
@@ -149,7 +189,7 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgShopConfigInfo),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, _internal_metadata_),
       -1);
-  MsgTaskInfo_descriptor_ = file->message_type(5);
+  MsgTaskInfo_descriptor_ = file->message_type(7);
   static const int MsgTaskInfo_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskInfo, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskInfo, argument_1_),
@@ -166,7 +206,7 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgTaskInfo),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskInfo, _internal_metadata_),
       -1);
-  MsgChapterConfigInfo_descriptor_ = file->message_type(6);
+  MsgChapterConfigInfo_descriptor_ = file->message_type(8);
   static const int MsgChapterConfigInfo_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, required_chapter_id_),
@@ -186,7 +226,7 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgChapterConfigInfo),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, _internal_metadata_),
       -1);
-  MsgGoldShopConfigInfo_descriptor_ = file->message_type(7);
+  MsgGoldShopConfigInfo_descriptor_ = file->message_type(9);
   static const int MsgGoldShopConfigInfo_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, resource_id_),
@@ -205,7 +245,8 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgGoldShopConfigInfo),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, _internal_metadata_),
       -1);
-  TaskType_descriptor_ = file->enum_type(0);
+  SubType_descriptor_ = file->enum_type(0);
+  TaskType_descriptor_ = file->enum_type(1);
 }
 
 namespace {
@@ -218,6 +259,10 @@ inline void protobuf_AssignDescriptorsOnce() {
 
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgObjConfig_descriptor_, &MsgObjConfig::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgDropBoxConfig_descriptor_, &MsgDropBoxConfig::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgIntPair_descriptor_, &MsgIntPair::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -239,6 +284,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_common_2eproto() {
+  delete MsgObjConfig::default_instance_;
+  delete MsgObjConfig_reflection_;
+  delete MsgDropBoxConfig::default_instance_;
+  delete MsgDropBoxConfig_reflection_;
   delete MsgIntPair::default_instance_;
   delete MsgIntPair_reflection_;
   delete MsgHeroData::default_instance_;
@@ -264,42 +313,49 @@ void protobuf_AddDesc_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014common.proto\022\007message\"0\n\nMsgIntPair\022\020\n"
-    "\010number_1\030\001 \002(\005\022\020\n\010number_2\030\002 \002(\005\"\267\001\n\013Ms"
-    "gHeroData\022\014\n\004name\030\001 \002(\t\022\014\n\004gold\030\002 \002(\005\022$\n"
-    "\007records\030\003 \003(\0132\023.message.MsgIntPair\022\016\n\006h"
-    "eroes\030\004 \003(\010\022#\n\005tasks\030\005 \003(\0132\024.message.Msg"
-    "TaskInfo\022\024\n\014current_hero\030\006 \002(\005\022\033\n\023comple"
-    "te_task_count\030\007 \002(\005\"r\n\024MsgTaskConditionI"
-    "nfo\0222\n\010taskType\030\001 \002(\0162\021.message.TaskType"
-    ":\rTaskType_NULL\022\022\n\nargument_1\030\002 \002(\005\022\022\n\na"
-    "rgument_2\030\003 \002(\005\"\201\002\n\021MsgTaskConfigInfo\022\016\n"
-    "\006taskID\030\001 \002(\005\0225\n\016task_condition\030\002 \003(\0132\035."
-    "message.MsgTaskConditionInfo\022\024\n\014require_"
-    "time\030\003 \002(\005\022\036\n\026require_unlock_chapter\030\004 \002"
-    "(\005\022\036\n\026require_unlock_section\030\005 \002(\005\022*\n\"re"
-    "quire_unlock_complete_task_count\030\006 \002(\005\022\021"
-    "\n\tgift_gold\030\007 \002(\005\022\020\n\010describe\030\010 \002(\t\"`\n\021M"
-    "sgShopConfigInfo\022\017\n\007grid_id\030\001 \002(\005\022\017\n\007her"
-    "o_id\030\002 \002(\005\022\024\n\014require_gold\030\003 \002(\005\022\023\n\013chea"
-    "pe_gold\030\004 \002(\005\"B\n\013MsgTaskInfo\022\016\n\006TaskID\030\001"
-    " \002(\005\022\022\n\nargument_1\030\002 \002(\005\022\017\n\007useTime\030\003 \002("
-    "\005\"\273\001\n\024MsgChapterConfigInfo\022\022\n\nchapter_id"
-    "\030\001 \002(\005\022\033\n\023required_chapter_id\030\002 \002(\005\022\033\n\023r"
-    "equired_section_id\030\003 \002(\005\022$\n\034required_tas"
-    "k_complete_count\030\004 \002(\005\022\024\n\014require_gold\030\005"
-    " \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"g\n\025MsgGo"
-    "ldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013resource"
-    "_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 \002(\002\022\020"
-    "\n\010describe\030\005 \002(\t*\342\001\n\010TaskType\022\021\n\rTaskTyp"
-    "e_NULL\020\000\022\030\n\024TaskType_KillMonster\020\001\022\025\n\021Ta"
-    "skType_PassGame\020\002\022\026\n\022TaskType_LimitTime\020"
-    "\003\022\027\n\023TaskType_LimitLevel\020\004\022\030\n\024TaskType_L"
-    "imitRevive\020\005\022\"\n\036TaskType_LimitTime_KillM"
-    "onster\020\006\022#\n\037TaskType_Accumulate_KillMons"
-    "ter\020\007", 1325);
+    "\n\014common.proto\022\007message\"C\n\014MsgObjConfig\022"
+    "\'\n\004type\030\001 \002(\0162\020.message.SubType:\007DEFAULT"
+    "\022\n\n\002id\030\002 \002(\005\"^\n\020MsgDropBoxConfig\022\"\n\003obj\030"
+    "\001 \002(\0132\025.message.MsgObjConfig\022\021\n\tbase_gol"
+    "d\030\002 \002(\005\022\023\n\013random_gold\030\003 \002(\005\"0\n\nMsgIntPa"
+    "ir\022\020\n\010number_1\030\001 \002(\005\022\020\n\010number_2\030\002 \002(\005\"\267"
+    "\001\n\013MsgHeroData\022\014\n\004name\030\001 \002(\t\022\014\n\004gold\030\002 \002"
+    "(\005\022$\n\007records\030\003 \003(\0132\023.message.MsgIntPair"
+    "\022\016\n\006heroes\030\004 \003(\010\022#\n\005tasks\030\005 \003(\0132\024.messag"
+    "e.MsgTaskInfo\022\024\n\014current_hero\030\006 \002(\005\022\033\n\023c"
+    "omplete_task_count\030\007 \002(\005\"r\n\024MsgTaskCondi"
+    "tionInfo\0222\n\010taskType\030\001 \002(\0162\021.message.Tas"
+    "kType:\rTaskType_NULL\022\022\n\nargument_1\030\002 \002(\005"
+    "\022\022\n\nargument_2\030\003 \002(\005\"\201\002\n\021MsgTaskConfigIn"
+    "fo\022\016\n\006taskID\030\001 \002(\005\0225\n\016task_condition\030\002 \003"
+    "(\0132\035.message.MsgTaskConditionInfo\022\024\n\014req"
+    "uire_time\030\003 \002(\005\022\036\n\026require_unlock_chapte"
+    "r\030\004 \002(\005\022\036\n\026require_unlock_section\030\005 \002(\005\022"
+    "*\n\"require_unlock_complete_task_count\030\006 "
+    "\002(\005\022\021\n\tgift_gold\030\007 \002(\005\022\020\n\010describe\030\010 \002(\t"
+    "\"`\n\021MsgShopConfigInfo\022\017\n\007grid_id\030\001 \002(\005\022\017"
+    "\n\007hero_id\030\002 \002(\005\022\024\n\014require_gold\030\003 \002(\005\022\023\n"
+    "\013cheape_gold\030\004 \002(\005\"B\n\013MsgTaskInfo\022\016\n\006Tas"
+    "kID\030\001 \002(\005\022\022\n\nargument_1\030\002 \002(\005\022\017\n\007useTime"
+    "\030\003 \002(\005\"\273\001\n\024MsgChapterConfigInfo\022\022\n\nchapt"
+    "er_id\030\001 \002(\005\022\033\n\023required_chapter_id\030\002 \002(\005"
+    "\022\033\n\023required_section_id\030\003 \002(\005\022$\n\034require"
+    "d_task_complete_count\030\004 \002(\005\022\024\n\014require_g"
+    "old\030\005 \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"g\n\025"
+    "MsgGoldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013res"
+    "ource_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 "
+    "\002(\002\022\020\n\010describe\030\005 \002(\t*4\n\007SubType\022\013\n\007DEFA"
+    "ULT\020\000\022\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010"
+    "TaskType\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_"
+    "KillMonster\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020"
+    "TaskType_UnKnown\020\003\022\027\n\023TaskType_LimitLeve"
+    "l\020\004\022\030\n\024TaskType_LimitRevive\020\005\022\"\n\036TaskTyp"
+    "e_LimitTime_KillMonster\020\006\022#\n\037TaskType_Ac"
+    "cumulate_KillMonster\020\007", 1542);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
+  MsgObjConfig::default_instance_ = new MsgObjConfig();
+  MsgDropBoxConfig::default_instance_ = new MsgDropBoxConfig();
   MsgIntPair::default_instance_ = new MsgIntPair();
   MsgHeroData::default_instance_ = new MsgHeroData();
   MsgTaskConditionInfo::default_instance_ = new MsgTaskConditionInfo();
@@ -308,6 +364,8 @@ void protobuf_AddDesc_common_2eproto() {
   MsgTaskInfo::default_instance_ = new MsgTaskInfo();
   MsgChapterConfigInfo::default_instance_ = new MsgChapterConfigInfo();
   MsgGoldShopConfigInfo::default_instance_ = new MsgGoldShopConfigInfo();
+  MsgObjConfig::default_instance_->InitAsDefaultInstance();
+  MsgDropBoxConfig::default_instance_->InitAsDefaultInstance();
   MsgIntPair::default_instance_->InitAsDefaultInstance();
   MsgHeroData::default_instance_->InitAsDefaultInstance();
   MsgTaskConditionInfo::default_instance_->InitAsDefaultInstance();
@@ -325,6 +383,21 @@ struct StaticDescriptorInitializer_common_2eproto {
     protobuf_AddDesc_common_2eproto();
   }
 } static_descriptor_initializer_common_2eproto_;
+const ::google::protobuf::EnumDescriptor* SubType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SubType_descriptor_;
+}
+bool SubType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
 const ::google::protobuf::EnumDescriptor* TaskType_descriptor() {
   protobuf_AssignDescriptorsOnce();
   return TaskType_descriptor_;
@@ -355,6 +428,815 @@ static void MergeFromFail(int line) {
 
 }  // namespace
 
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgObjConfig::kTypeFieldNumber;
+const int MsgObjConfig::kIdFieldNumber;
+#endif  // !_MSC_VER
+
+MsgObjConfig::MsgObjConfig()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgObjConfig)
+}
+
+void MsgObjConfig::InitAsDefaultInstance() {
+}
+
+MsgObjConfig::MsgObjConfig(const MsgObjConfig& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgObjConfig)
+}
+
+void MsgObjConfig::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0;
+  id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgObjConfig::~MsgObjConfig() {
+  // @@protoc_insertion_point(destructor:message.MsgObjConfig)
+  SharedDtor();
+}
+
+void MsgObjConfig::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgObjConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgObjConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgObjConfig_descriptor_;
+}
+
+const MsgObjConfig& MsgObjConfig::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
+  return *default_instance_;
+}
+
+MsgObjConfig* MsgObjConfig::default_instance_ = NULL;
+
+MsgObjConfig* MsgObjConfig::New(::google::protobuf::Arena* arena) const {
+  MsgObjConfig* n = new MsgObjConfig;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgObjConfig::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgObjConfig*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(type_, id_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgObjConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgObjConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .message.SubType type = 1 [default = DEFAULT];
+      case 1: {
+        if (tag == 8) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::message::SubType_IsValid(value)) {
+            set_type(static_cast< ::message::SubType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_id;
+        break;
+      }
+
+      // required int32 id = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgObjConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgObjConfig)
+  return false;
+#undef DO_
+}
+
+void MsgObjConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgObjConfig)
+  // required .message.SubType type = 1 [default = DEFAULT];
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->type(), output);
+  }
+
+  // required int32 id = 2;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgObjConfig)
+}
+
+::google::protobuf::uint8* MsgObjConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgObjConfig)
+  // required .message.SubType type = 1 [default = DEFAULT];
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->type(), target);
+  }
+
+  // required int32 id = 2;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgObjConfig)
+  return target;
+}
+
+int MsgObjConfig::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_type()) {
+    // required .message.SubType type = 1 [default = DEFAULT];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
+  if (has_id()) {
+    // required int32 id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->id());
+  }
+
+  return total_size;
+}
+int MsgObjConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required .message.SubType type = 1 [default = DEFAULT];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+
+    // required int32 id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgObjConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgObjConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgObjConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgObjConfig::MergeFrom(const MsgObjConfig& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgObjConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgObjConfig::CopyFrom(const MsgObjConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgObjConfig::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  return true;
+}
+
+void MsgObjConfig::Swap(MsgObjConfig* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgObjConfig::InternalSwap(MsgObjConfig* other) {
+  std::swap(type_, other->type_);
+  std::swap(id_, other->id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgObjConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgObjConfig_descriptor_;
+  metadata.reflection = MsgObjConfig_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgObjConfig
+
+// required .message.SubType type = 1 [default = DEFAULT];
+ bool MsgObjConfig::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgObjConfig::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgObjConfig::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgObjConfig::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+ ::message::SubType MsgObjConfig::type() const {
+  // @@protoc_insertion_point(field_get:message.MsgObjConfig.type)
+  return static_cast< ::message::SubType >(type_);
+}
+ void MsgObjConfig::set_type(::message::SubType value) {
+  assert(::message::SubType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgObjConfig.type)
+}
+
+// required int32 id = 2;
+ bool MsgObjConfig::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgObjConfig::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgObjConfig::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgObjConfig::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+ ::google::protobuf::int32 MsgObjConfig::id() const {
+  // @@protoc_insertion_point(field_get:message.MsgObjConfig.id)
+  return id_;
+}
+ void MsgObjConfig::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgObjConfig.id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgDropBoxConfig::kObjFieldNumber;
+const int MsgDropBoxConfig::kBaseGoldFieldNumber;
+const int MsgDropBoxConfig::kRandomGoldFieldNumber;
+#endif  // !_MSC_VER
+
+MsgDropBoxConfig::MsgDropBoxConfig()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgDropBoxConfig)
+}
+
+void MsgDropBoxConfig::InitAsDefaultInstance() {
+  obj_ = const_cast< ::message::MsgObjConfig*>(&::message::MsgObjConfig::default_instance());
+}
+
+MsgDropBoxConfig::MsgDropBoxConfig(const MsgDropBoxConfig& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgDropBoxConfig)
+}
+
+void MsgDropBoxConfig::SharedCtor() {
+  _cached_size_ = 0;
+  obj_ = NULL;
+  base_gold_ = 0;
+  random_gold_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgDropBoxConfig::~MsgDropBoxConfig() {
+  // @@protoc_insertion_point(destructor:message.MsgDropBoxConfig)
+  SharedDtor();
+}
+
+void MsgDropBoxConfig::SharedDtor() {
+  if (this != default_instance_) {
+    delete obj_;
+  }
+}
+
+void MsgDropBoxConfig::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgDropBoxConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgDropBoxConfig_descriptor_;
+}
+
+const MsgDropBoxConfig& MsgDropBoxConfig::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
+  return *default_instance_;
+}
+
+MsgDropBoxConfig* MsgDropBoxConfig::default_instance_ = NULL;
+
+MsgDropBoxConfig* MsgDropBoxConfig::New(::google::protobuf::Arena* arena) const {
+  MsgDropBoxConfig* n = new MsgDropBoxConfig;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgDropBoxConfig::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgDropBoxConfig*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  if (_has_bits_[0 / 32] & 7) {
+    ZR_(base_gold_, random_gold_);
+    if (has_obj()) {
+      if (obj_ != NULL) obj_->::message::MsgObjConfig::Clear();
+    }
+  }
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgDropBoxConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgDropBoxConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .message.MsgObjConfig obj = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_obj()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_base_gold;
+        break;
+      }
+
+      // required int32 base_gold = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_base_gold:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &base_gold_)));
+          set_has_base_gold();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_random_gold;
+        break;
+      }
+
+      // required int32 random_gold = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_random_gold:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &random_gold_)));
+          set_has_random_gold();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgDropBoxConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgDropBoxConfig)
+  return false;
+#undef DO_
+}
+
+void MsgDropBoxConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgDropBoxConfig)
+  // required .message.MsgObjConfig obj = 1;
+  if (has_obj()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->obj_, output);
+  }
+
+  // required int32 base_gold = 2;
+  if (has_base_gold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->base_gold(), output);
+  }
+
+  // required int32 random_gold = 3;
+  if (has_random_gold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->random_gold(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgDropBoxConfig)
+}
+
+::google::protobuf::uint8* MsgDropBoxConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgDropBoxConfig)
+  // required .message.MsgObjConfig obj = 1;
+  if (has_obj()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, *this->obj_, target);
+  }
+
+  // required int32 base_gold = 2;
+  if (has_base_gold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->base_gold(), target);
+  }
+
+  // required int32 random_gold = 3;
+  if (has_random_gold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->random_gold(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgDropBoxConfig)
+  return target;
+}
+
+int MsgDropBoxConfig::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_obj()) {
+    // required .message.MsgObjConfig obj = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->obj_);
+  }
+
+  if (has_base_gold()) {
+    // required int32 base_gold = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->base_gold());
+  }
+
+  if (has_random_gold()) {
+    // required int32 random_gold = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->random_gold());
+  }
+
+  return total_size;
+}
+int MsgDropBoxConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required .message.MsgObjConfig obj = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->obj_);
+
+    // required int32 base_gold = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->base_gold());
+
+    // required int32 random_gold = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->random_gold());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgDropBoxConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgDropBoxConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgDropBoxConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgDropBoxConfig::MergeFrom(const MsgDropBoxConfig& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_obj()) {
+      mutable_obj()->::message::MsgObjConfig::MergeFrom(from.obj());
+    }
+    if (from.has_base_gold()) {
+      set_base_gold(from.base_gold());
+    }
+    if (from.has_random_gold()) {
+      set_random_gold(from.random_gold());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgDropBoxConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgDropBoxConfig::CopyFrom(const MsgDropBoxConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgDropBoxConfig::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  if (has_obj()) {
+    if (!this->obj_->IsInitialized()) return false;
+  }
+  return true;
+}
+
+void MsgDropBoxConfig::Swap(MsgDropBoxConfig* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgDropBoxConfig::InternalSwap(MsgDropBoxConfig* other) {
+  std::swap(obj_, other->obj_);
+  std::swap(base_gold_, other->base_gold_);
+  std::swap(random_gold_, other->random_gold_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgDropBoxConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgDropBoxConfig_descriptor_;
+  metadata.reflection = MsgDropBoxConfig_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgDropBoxConfig
+
+// required .message.MsgObjConfig obj = 1;
+ bool MsgDropBoxConfig::has_obj() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgDropBoxConfig::set_has_obj() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgDropBoxConfig::clear_has_obj() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgDropBoxConfig::clear_obj() {
+  if (obj_ != NULL) obj_->::message::MsgObjConfig::Clear();
+  clear_has_obj();
+}
+ const ::message::MsgObjConfig& MsgDropBoxConfig::obj() const {
+  // @@protoc_insertion_point(field_get:message.MsgDropBoxConfig.obj)
+  return obj_ != NULL ? *obj_ : *default_instance_->obj_;
+}
+ ::message::MsgObjConfig* MsgDropBoxConfig::mutable_obj() {
+  set_has_obj();
+  if (obj_ == NULL) {
+    obj_ = new ::message::MsgObjConfig;
+  }
+  // @@protoc_insertion_point(field_mutable:message.MsgDropBoxConfig.obj)
+  return obj_;
+}
+ ::message::MsgObjConfig* MsgDropBoxConfig::release_obj() {
+  clear_has_obj();
+  ::message::MsgObjConfig* temp = obj_;
+  obj_ = NULL;
+  return temp;
+}
+ void MsgDropBoxConfig::set_allocated_obj(::message::MsgObjConfig* obj) {
+  delete obj_;
+  obj_ = obj;
+  if (obj) {
+    set_has_obj();
+  } else {
+    clear_has_obj();
+  }
+  // @@protoc_insertion_point(field_set_allocated:message.MsgDropBoxConfig.obj)
+}
+
+// required int32 base_gold = 2;
+ bool MsgDropBoxConfig::has_base_gold() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgDropBoxConfig::set_has_base_gold() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgDropBoxConfig::clear_has_base_gold() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgDropBoxConfig::clear_base_gold() {
+  base_gold_ = 0;
+  clear_has_base_gold();
+}
+ ::google::protobuf::int32 MsgDropBoxConfig::base_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgDropBoxConfig.base_gold)
+  return base_gold_;
+}
+ void MsgDropBoxConfig::set_base_gold(::google::protobuf::int32 value) {
+  set_has_base_gold();
+  base_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDropBoxConfig.base_gold)
+}
+
+// required int32 random_gold = 3;
+ bool MsgDropBoxConfig::has_random_gold() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgDropBoxConfig::set_has_random_gold() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgDropBoxConfig::clear_has_random_gold() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgDropBoxConfig::clear_random_gold() {
+  random_gold_ = 0;
+  clear_has_random_gold();
+}
+ ::google::protobuf::int32 MsgDropBoxConfig::random_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgDropBoxConfig.random_gold)
+  return random_gold_;
+}
+ void MsgDropBoxConfig::set_random_gold(::google::protobuf::int32 value) {
+  set_has_random_gold();
+  random_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDropBoxConfig.random_gold)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 

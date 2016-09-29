@@ -61,6 +61,13 @@ public:
 	void parseReqBuyHero(google::protobuf::Message* p);
 	void parseReqGoldShopConfigs(google::protobuf::Message* p);
 	void parseReqModifyCurrentHero(google::protobuf::Message* p);
+public:
+	void parseCmdReqMdodifyGMLevel(google::protobuf::Message* p);
+	void parseCmdReqEnterGame(google::protobuf::Message* p);
+	void parseCmdReqResetMap(google::protobuf::Message* p);
+	void parseCmdReqResetGame(google::protobuf::Message* p);
+	void parseCmdReqModifyGold(google::protobuf::Message* p);
+
 
 	//void parseModifySuitName(google::protobuf::Message* p);
 	//void parseModifySuit(google::protobuf::Message* p);

@@ -23,6 +23,9 @@ namespace {
 const ::google::protobuf::Descriptor* MsgReqHeroDataGS2DB_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgReqHeroDataGS2DB_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgMapSpecialKill_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgMapSpecialKill_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgHeroDataDB2GS_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgHeroDataDB2GS_reflection_ = NULL;
@@ -66,8 +69,25 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgReqHeroDataGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgReqHeroDataGS2DB, _internal_metadata_),
       -1);
-  MsgHeroDataDB2GS_descriptor_ = file->message_type(1);
-  static const int MsgHeroDataDB2GS_offsets_[7] = {
+  MsgMapSpecialKill_descriptor_ = file->message_type(1);
+  static const int MsgMapSpecialKill_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMapSpecialKill, chapter_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMapSpecialKill, section_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMapSpecialKill, kills_),
+  };
+  MsgMapSpecialKill_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgMapSpecialKill_descriptor_,
+      MsgMapSpecialKill::default_instance_,
+      MsgMapSpecialKill_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMapSpecialKill, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgMapSpecialKill),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMapSpecialKill, _internal_metadata_),
+      -1);
+  MsgHeroDataDB2GS_descriptor_ = file->message_type(2);
+  static const int MsgHeroDataDB2GS_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, current_chapter_),
@@ -75,6 +95,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, current_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, free_task_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, last_task_advertisement_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, special_kills_),
   };
   MsgHeroDataDB2GS_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -87,7 +108,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgHeroDataDB2GS),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, _internal_metadata_),
       -1);
-  MsgNeedCreateHeroDB2GS_descriptor_ = file->message_type(2);
+  MsgNeedCreateHeroDB2GS_descriptor_ = file->message_type(3);
   static const int MsgNeedCreateHeroDB2GS_offsets_[1] = {
   };
   MsgNeedCreateHeroDB2GS_reflection_ =
@@ -101,7 +122,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgNeedCreateHeroDB2GS),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgNeedCreateHeroDB2GS, _internal_metadata_),
       -1);
-  MsgSaveHeroDataGS2DB_descriptor_ = file->message_type(3);
+  MsgSaveHeroDataGS2DB_descriptor_ = file->message_type(4);
   static const int MsgSaveHeroDataGS2DB_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveHeroDataGS2DB, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveHeroDataGS2DB, data_),
@@ -117,7 +138,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgSaveHeroDataGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveHeroDataGS2DB, _internal_metadata_),
       -1);
-  MsgSaveDataGS2DB_descriptor_ = file->message_type(4);
+  MsgSaveDataGS2DB_descriptor_ = file->message_type(5);
   static const int MsgSaveDataGS2DB_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveDataGS2DB, sql_),
   };
@@ -132,7 +153,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgSaveDataGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveDataGS2DB, _internal_metadata_),
       -1);
-  MsgSaveAllHeroesGS2DB_descriptor_ = file->message_type(5);
+  MsgSaveAllHeroesGS2DB_descriptor_ = file->message_type(6);
   static const int MsgSaveAllHeroesGS2DB_offsets_[1] = {
   };
   MsgSaveAllHeroesGS2DB_reflection_ =
@@ -146,7 +167,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgSaveAllHeroesGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveAllHeroesGS2DB, _internal_metadata_),
       -1);
-  MsgSaveAllHeroesDB2GS_descriptor_ = file->message_type(6);
+  MsgSaveAllHeroesDB2GS_descriptor_ = file->message_type(7);
   static const int MsgSaveAllHeroesDB2GS_offsets_[1] = {
   };
   MsgSaveAllHeroesDB2GS_reflection_ =
@@ -175,6 +196,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgReqHeroDataGS2DB_descriptor_, &MsgReqHeroDataGS2DB::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgMapSpecialKill_descriptor_, &MsgMapSpecialKill::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgHeroDataDB2GS_descriptor_, &MsgHeroDataDB2GS::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgNeedCreateHeroDB2GS_descriptor_, &MsgNeedCreateHeroDB2GS::default_instance());
@@ -193,6 +216,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto() {
   delete MsgReqHeroDataGS2DB::default_instance_;
   delete MsgReqHeroDataGS2DB_reflection_;
+  delete MsgMapSpecialKill::default_instance_;
+  delete MsgMapSpecialKill_reflection_;
   delete MsgHeroDataDB2GS::default_instance_;
   delete MsgHeroDataDB2GS_reflection_;
   delete MsgNeedCreateHeroDB2GS::default_instance_;
@@ -217,19 +242,24 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021msg_game_db.proto\022\007message\032\014common.pro"
     "to\"&\n\023MsgReqHeroDataGS2DB\022\017\n\007account\030\001 \002"
-    "(\004\"\316\001\n\020MsgHeroDataDB2GS\022\017\n\007account\030\001 \002(\004"
-    "\022\"\n\004Data\030\002 \002(\0132\024.message.MsgHeroData\022\027\n\017"
-    "current_chapter\030\003 \002(\005\022\027\n\017current_section"
-    "\030\004 \002(\005\022\024\n\014current_gold\030\005 \002(\005\022\027\n\017free_tas"
-    "k_count\030\006 \002(\005\022$\n\034last_task_advertisement"
-    "_time\030\007 \002(\005\"\030\n\026MsgNeedCreateHeroDB2GS\"K\n"
-    "\024MsgSaveHeroDataGS2DB\022\017\n\007account\030\001 \002(\004\022\""
-    "\n\004Data\030\002 \002(\0132\024.message.MsgHeroData\"\037\n\020Ms"
-    "gSaveDataGS2DB\022\013\n\003sql\030\001 \002(\014\"\027\n\025MsgSaveAl"
-    "lHeroesGS2DB\"\027\n\025MsgSaveAllHeroesDB2GS", 477);
+    "(\004\"a\n\021MsgMapSpecialKill\022\022\n\nchapter_id\030\001 "
+    "\002(\005\022\022\n\nsection_id\030\002 \002(\005\022$\n\005kills\030\003 \003(\0132\025"
+    ".message.MsgObjConfig\"\201\002\n\020MsgHeroDataDB2"
+    "GS\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024.mess"
+    "age.MsgHeroData\022\027\n\017current_chapter\030\003 \002(\005"
+    "\022\027\n\017current_section\030\004 \002(\005\022\024\n\014current_gol"
+    "d\030\005 \002(\005\022\027\n\017free_task_count\030\006 \002(\005\022$\n\034last"
+    "_task_advertisement_time\030\007 \002(\005\0221\n\rspecia"
+    "l_kills\030\010 \003(\0132\032.message.MsgMapSpecialKil"
+    "l\"\030\n\026MsgNeedCreateHeroDB2GS\"K\n\024MsgSaveHe"
+    "roDataGS2DB\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002"
+    "(\0132\024.message.MsgHeroData\"\037\n\020MsgSaveDataG"
+    "S2DB\022\013\n\003sql\030\001 \002(\014\"\027\n\025MsgSaveAllHeroesGS2"
+    "DB\"\027\n\025MsgSaveAllHeroesDB2GS", 627);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_db.proto", &protobuf_RegisterTypes);
   MsgReqHeroDataGS2DB::default_instance_ = new MsgReqHeroDataGS2DB();
+  MsgMapSpecialKill::default_instance_ = new MsgMapSpecialKill();
   MsgHeroDataDB2GS::default_instance_ = new MsgHeroDataDB2GS();
   MsgNeedCreateHeroDB2GS::default_instance_ = new MsgNeedCreateHeroDB2GS();
   MsgSaveHeroDataGS2DB::default_instance_ = new MsgSaveHeroDataGS2DB();
@@ -237,6 +267,7 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
   MsgSaveAllHeroesGS2DB::default_instance_ = new MsgSaveAllHeroesGS2DB();
   MsgSaveAllHeroesDB2GS::default_instance_ = new MsgSaveAllHeroesDB2GS();
   MsgReqHeroDataGS2DB::default_instance_->InitAsDefaultInstance();
+  MsgMapSpecialKill::default_instance_->InitAsDefaultInstance();
   MsgHeroDataDB2GS::default_instance_->InitAsDefaultInstance();
   MsgNeedCreateHeroDB2GS::default_instance_->InitAsDefaultInstance();
   MsgSaveHeroDataGS2DB::default_instance_->InitAsDefaultInstance();
@@ -525,6 +556,429 @@ void MsgReqHeroDataGS2DB::InternalSwap(MsgReqHeroDataGS2DB* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int MsgMapSpecialKill::kChapterIdFieldNumber;
+const int MsgMapSpecialKill::kSectionIdFieldNumber;
+const int MsgMapSpecialKill::kKillsFieldNumber;
+#endif  // !_MSC_VER
+
+MsgMapSpecialKill::MsgMapSpecialKill()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgMapSpecialKill)
+}
+
+void MsgMapSpecialKill::InitAsDefaultInstance() {
+}
+
+MsgMapSpecialKill::MsgMapSpecialKill(const MsgMapSpecialKill& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgMapSpecialKill)
+}
+
+void MsgMapSpecialKill::SharedCtor() {
+  _cached_size_ = 0;
+  chapter_id_ = 0;
+  section_id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgMapSpecialKill::~MsgMapSpecialKill() {
+  // @@protoc_insertion_point(destructor:message.MsgMapSpecialKill)
+  SharedDtor();
+}
+
+void MsgMapSpecialKill::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgMapSpecialKill::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgMapSpecialKill::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgMapSpecialKill_descriptor_;
+}
+
+const MsgMapSpecialKill& MsgMapSpecialKill::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
+  return *default_instance_;
+}
+
+MsgMapSpecialKill* MsgMapSpecialKill::default_instance_ = NULL;
+
+MsgMapSpecialKill* MsgMapSpecialKill::New(::google::protobuf::Arena* arena) const {
+  MsgMapSpecialKill* n = new MsgMapSpecialKill;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgMapSpecialKill::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgMapSpecialKill*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(chapter_id_, section_id_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  kills_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgMapSpecialKill::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgMapSpecialKill)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 chapter_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &chapter_id_)));
+          set_has_chapter_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_section_id;
+        break;
+      }
+
+      // required int32 section_id = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_section_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &section_id_)));
+          set_has_section_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_kills;
+        break;
+      }
+
+      // repeated .message.MsgObjConfig kills = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_kills:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_kills()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_kills;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgMapSpecialKill)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgMapSpecialKill)
+  return false;
+#undef DO_
+}
+
+void MsgMapSpecialKill::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgMapSpecialKill)
+  // required int32 chapter_id = 1;
+  if (has_chapter_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->chapter_id(), output);
+  }
+
+  // required int32 section_id = 2;
+  if (has_section_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->section_id(), output);
+  }
+
+  // repeated .message.MsgObjConfig kills = 3;
+  for (unsigned int i = 0, n = this->kills_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->kills(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgMapSpecialKill)
+}
+
+::google::protobuf::uint8* MsgMapSpecialKill::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgMapSpecialKill)
+  // required int32 chapter_id = 1;
+  if (has_chapter_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->chapter_id(), target);
+  }
+
+  // required int32 section_id = 2;
+  if (has_section_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->section_id(), target);
+  }
+
+  // repeated .message.MsgObjConfig kills = 3;
+  for (unsigned int i = 0, n = this->kills_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->kills(i), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgMapSpecialKill)
+  return target;
+}
+
+int MsgMapSpecialKill::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_chapter_id()) {
+    // required int32 chapter_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->chapter_id());
+  }
+
+  if (has_section_id()) {
+    // required int32 section_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->section_id());
+  }
+
+  return total_size;
+}
+int MsgMapSpecialKill::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required int32 chapter_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->chapter_id());
+
+    // required int32 section_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->section_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // repeated .message.MsgObjConfig kills = 3;
+  total_size += 1 * this->kills_size();
+  for (int i = 0; i < this->kills_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->kills(i));
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgMapSpecialKill::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgMapSpecialKill* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgMapSpecialKill*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgMapSpecialKill::MergeFrom(const MsgMapSpecialKill& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  kills_.MergeFrom(from.kills_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_chapter_id()) {
+      set_chapter_id(from.chapter_id());
+    }
+    if (from.has_section_id()) {
+      set_section_id(from.section_id());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgMapSpecialKill::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgMapSpecialKill::CopyFrom(const MsgMapSpecialKill& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgMapSpecialKill::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->kills())) return false;
+  return true;
+}
+
+void MsgMapSpecialKill::Swap(MsgMapSpecialKill* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgMapSpecialKill::InternalSwap(MsgMapSpecialKill* other) {
+  std::swap(chapter_id_, other->chapter_id_);
+  std::swap(section_id_, other->section_id_);
+  kills_.UnsafeArenaSwap(&other->kills_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgMapSpecialKill::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgMapSpecialKill_descriptor_;
+  metadata.reflection = MsgMapSpecialKill_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgMapSpecialKill
+
+// required int32 chapter_id = 1;
+ bool MsgMapSpecialKill::has_chapter_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgMapSpecialKill::set_has_chapter_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgMapSpecialKill::clear_has_chapter_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgMapSpecialKill::clear_chapter_id() {
+  chapter_id_ = 0;
+  clear_has_chapter_id();
+}
+ ::google::protobuf::int32 MsgMapSpecialKill::chapter_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgMapSpecialKill.chapter_id)
+  return chapter_id_;
+}
+ void MsgMapSpecialKill::set_chapter_id(::google::protobuf::int32 value) {
+  set_has_chapter_id();
+  chapter_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgMapSpecialKill.chapter_id)
+}
+
+// required int32 section_id = 2;
+ bool MsgMapSpecialKill::has_section_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgMapSpecialKill::set_has_section_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgMapSpecialKill::clear_has_section_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgMapSpecialKill::clear_section_id() {
+  section_id_ = 0;
+  clear_has_section_id();
+}
+ ::google::protobuf::int32 MsgMapSpecialKill::section_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgMapSpecialKill.section_id)
+  return section_id_;
+}
+ void MsgMapSpecialKill::set_section_id(::google::protobuf::int32 value) {
+  set_has_section_id();
+  section_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgMapSpecialKill.section_id)
+}
+
+// repeated .message.MsgObjConfig kills = 3;
+ int MsgMapSpecialKill::kills_size() const {
+  return kills_.size();
+}
+ void MsgMapSpecialKill::clear_kills() {
+  kills_.Clear();
+}
+ const ::message::MsgObjConfig& MsgMapSpecialKill::kills(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgMapSpecialKill.kills)
+  return kills_.Get(index);
+}
+ ::message::MsgObjConfig* MsgMapSpecialKill::mutable_kills(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgMapSpecialKill.kills)
+  return kills_.Mutable(index);
+}
+ ::message::MsgObjConfig* MsgMapSpecialKill::add_kills() {
+  // @@protoc_insertion_point(field_add:message.MsgMapSpecialKill.kills)
+  return kills_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::message::MsgObjConfig >&
+MsgMapSpecialKill::kills() const {
+  // @@protoc_insertion_point(field_list:message.MsgMapSpecialKill.kills)
+  return kills_;
+}
+ ::google::protobuf::RepeatedPtrField< ::message::MsgObjConfig >*
+MsgMapSpecialKill::mutable_kills() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgMapSpecialKill.kills)
+  return &kills_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int MsgHeroDataDB2GS::kAccountFieldNumber;
 const int MsgHeroDataDB2GS::kDataFieldNumber;
 const int MsgHeroDataDB2GS::kCurrentChapterFieldNumber;
@@ -532,6 +986,7 @@ const int MsgHeroDataDB2GS::kCurrentSectionFieldNumber;
 const int MsgHeroDataDB2GS::kCurrentGoldFieldNumber;
 const int MsgHeroDataDB2GS::kFreeTaskCountFieldNumber;
 const int MsgHeroDataDB2GS::kLastTaskAdvertisementTimeFieldNumber;
+const int MsgHeroDataDB2GS::kSpecialKillsFieldNumber;
 #endif  // !_MSC_VER
 
 MsgHeroDataDB2GS::MsgHeroDataDB2GS()
@@ -610,16 +1065,18 @@ void MsgHeroDataDB2GS::Clear() {
 } while (0)
 
   if (_has_bits_[0 / 32] & 127) {
-    ZR_(current_chapter_, last_task_advertisement_time_);
+    ZR_(current_chapter_, free_task_count_);
     account_ = GOOGLE_ULONGLONG(0);
     if (has_data()) {
       if (data_ != NULL) data_->::message::MsgHeroData::Clear();
     }
+    last_task_advertisement_time_ = 0;
   }
 
 #undef ZR_HELPER_
 #undef ZR_
 
+  special_kills_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -734,6 +1191,20 @@ bool MsgHeroDataDB2GS::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(66)) goto parse_special_kills;
+        break;
+      }
+
+      // repeated .message.MsgMapSpecialKill special_kills = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_special_kills:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_special_kills()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_special_kills;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -799,6 +1270,12 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->last_task_advertisement_time(), output);
   }
 
+  // repeated .message.MsgMapSpecialKill special_kills = 8;
+  for (unsigned int i = 0, n = this->special_kills_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, this->special_kills(i), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -844,6 +1321,13 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
   // required int32 last_task_advertisement_time = 7;
   if (has_last_task_advertisement_time()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->last_task_advertisement_time(), target);
+  }
+
+  // repeated .message.MsgMapSpecialKill special_kills = 8;
+  for (unsigned int i = 0, n = this->special_kills_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        8, this->special_kills(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -950,6 +1434,14 @@ int MsgHeroDataDB2GS::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
+  // repeated .message.MsgMapSpecialKill special_kills = 8;
+  total_size += 1 * this->special_kills_size();
+  for (int i = 0; i < this->special_kills_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->special_kills(i));
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -975,6 +1467,7 @@ void MsgHeroDataDB2GS::MergeFrom(const ::google::protobuf::Message& from) {
 
 void MsgHeroDataDB2GS::MergeFrom(const MsgHeroDataDB2GS& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  special_kills_.MergeFrom(from.special_kills_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_account()) {
       set_account(from.account());
@@ -1021,6 +1514,7 @@ bool MsgHeroDataDB2GS::IsInitialized() const {
   if (has_data()) {
     if (!this->data_->IsInitialized()) return false;
   }
+  if (!::google::protobuf::internal::AllAreInitialized(this->special_kills())) return false;
   return true;
 }
 
@@ -1036,6 +1530,7 @@ void MsgHeroDataDB2GS::InternalSwap(MsgHeroDataDB2GS* other) {
   std::swap(current_gold_, other->current_gold_);
   std::swap(free_task_count_, other->free_task_count_);
   std::swap(last_task_advertisement_time_, other->last_task_advertisement_time_);
+  special_kills_.UnsafeArenaSwap(&other->special_kills_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1237,6 +1732,36 @@ void MsgHeroDataDB2GS::InternalSwap(MsgHeroDataDB2GS* other) {
   set_has_last_task_advertisement_time();
   last_task_advertisement_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_task_advertisement_time)
+}
+
+// repeated .message.MsgMapSpecialKill special_kills = 8;
+ int MsgHeroDataDB2GS::special_kills_size() const {
+  return special_kills_.size();
+}
+ void MsgHeroDataDB2GS::clear_special_kills() {
+  special_kills_.Clear();
+}
+ const ::message::MsgMapSpecialKill& MsgHeroDataDB2GS::special_kills(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.special_kills)
+  return special_kills_.Get(index);
+}
+ ::message::MsgMapSpecialKill* MsgHeroDataDB2GS::mutable_special_kills(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDataDB2GS.special_kills)
+  return special_kills_.Mutable(index);
+}
+ ::message::MsgMapSpecialKill* MsgHeroDataDB2GS::add_special_kills() {
+  // @@protoc_insertion_point(field_add:message.MsgHeroDataDB2GS.special_kills)
+  return special_kills_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill >&
+MsgHeroDataDB2GS::special_kills() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroDataDB2GS.special_kills)
+  return special_kills_;
+}
+ ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill >*
+MsgHeroDataDB2GS::mutable_special_kills() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.special_kills)
+  return &special_kills_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

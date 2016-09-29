@@ -15,6 +15,7 @@ DreamHero::DreamHero()
 	_current_free_task_count = 0;
 	_last_task_advertisement_time = 0;
 	_day_offset_time = 0;
+	_gm_level = 0;
 }
 
 
@@ -49,6 +50,22 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	_current_gold = info->current_gold();
 	_last_task_advertisement_time = info->last_task_advertisement_time();
 	_current_free_task_count = info->free_task_count();
+	int size_special_kills =  info->special_kills_size();
+	_special_kills.clear();
+	for (int i = 0; i < size_special_kills; i ++)
+	{
+		const message::MsgMapSpecialKill& entry = info->special_kills(i);
+		std::pair<int, int> pair_entry;
+		pair_entry.first = entry.chapter_id();
+		pair_entry.second = entry.section_id();
+		int kills_length = entry.kills_size();
+		for (size_t j = 0; j < kills_length; j++)
+		{
+			const message::MsgObjConfig entry_config = entry.kills(j);
+			_special_kills[pair_entry].push_back(entry_config);
+		}		
+	}
+
 }
 
 
@@ -84,8 +101,6 @@ std::vector<int> MapVersionFormat(std::string cur_version)
 
 void DreamHero::StartSave()
 {
-
-
 	if (gEventMgr.hasEvent(this, EVENT_SAVE_PLAYER_DATA_) == false)
 	{
 		gEventMgr.addEvent(this, &DreamHero::SaveHero, EVENT_SAVE_PLAYER_DATA_, _SAVE_PLAYER_TIME_, -1, 0);
@@ -135,6 +150,17 @@ void DreamHero::set_online(bool online)
 bool DreamHero::is_online()
 {
 	return _online;
+}
+
+int DreamHero::getGMLevel()
+{
+	return _gm_level;
+}
+
+
+void DreamHero::SetGMLevel(int level)
+{
+	_gm_level = level;
 }
 
 void DreamHero::dayRefresh(bool need_send_msg)
@@ -210,8 +236,6 @@ message::MsgTaskConfigInfo DreamHero::RadnomTaskInfo()
 		{
 			continue;
 		}
-		
-
 		require_chapter = config_entry.require_unlock_chapter();
 		require_section = config_entry.require_unlock_chapter();
 		if (require_chapter != 0)
@@ -438,8 +462,7 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 
 void DreamHero::RefreshTask(int give_up_task_id)
 {
-	message::GameError msgError = message::Error_NO;
-	
+	message::GameError msgError = message::Error_NO;	
 	if (_current_free_task_count > gGameConfig.getGlobalConfig().day_free_task_count_)
 	{
 		s64 diff_time = g_server_time - _last_task_advertisement_time;
@@ -556,6 +579,23 @@ void DreamHero::ReqModifyCurrentHero(int grid_id)
 	sendPBMessage(&msg);
 }
 
+void DreamHero::ReqResetMap(const message::MsgC2SCmdReqResetMap* msg)
+{
+
+}
+
+void DreamHero::ReqModifyGold(const message::MsgC2SCmdReqModifyGold* msg)
+{
+	if (msg->gold() > 0)
+	{
+		int current_gold = _info.gold();
+		message::MsgS2CCmdModifyGoldACK msgACK;
+		current_gold += msg->gold();
+		msgACK.set_gold(current_gold);
+		sendPBMessage(&msgACK);
+	}
+}
+
 void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 {
 	int buy_grid =  msg->grid();
@@ -573,7 +613,6 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 	{
 		int cheap_gold =  gShopSalesPromotionManager.getCheapGold(buy_grid);
 		int current_require_gold = buy_grid_config->require_gold() - cheap_gold;
-
 		if (current_require_gold < 0)
 		{
 			current_require_gold = 0;
@@ -601,10 +640,8 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 						_info.add_heroes(false);
 					}
 				}
-
 				_info.set_heroes(buy_grid, true);
 				heroes_length = _info.heroes_size();
-
 			}
 		}
 	}
@@ -621,40 +658,101 @@ void DreamHero::ReqAdvertisementRefreshTask(const message::MsgC2SReqAdvertisemen
 	RefreshTask(give_up_task_id_temp);
 }
 
-void DreamHero::ReqEnterGame(const message::MsgC2SReqEnterGame* msg)
+
+void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 {
-	int chapter_id_temp = msg->chapter_id();
-	int section_id_temp = msg->section_id();	
+	int chapter_id_temp = chapter_id;
+	int section_id_temp = section_id;
 	int records_length = _info.records_size();
 	message::MsgS2CEnterGameACK msgACK;
 	msgACK.set_chapter_id(chapter_id_temp);
 	msgACK.set_section_id(section_id_temp);
-	
 	message::GameError en_error = message::Error_CanNotEnterGameTheInstanceIsLock;
-
-	for (int i = 0; i < records_length; i++)
+	if (admin)
 	{
-		const message::MsgIntPair record_entry = _info.records(i);
-		int chapter_config_id = record_entry.number_1();
-		int section_config_id = record_entry.number_2();
-		if (chapter_config_id == chapter_id_temp)
+		en_error = message::Error_NO;
+	}
+	else
+	{
+		en_error = message::Error_CanNotEnterGameTheInstanceIsLock;
+		for (int i = 0; i < records_length; i++)
 		{
-			int section = section_config_id + 1;
-			if (section_id_temp <= section)
+			const message::MsgIntPair record_entry = _info.records(i);
+			int chapter_config_id = record_entry.number_1();
+			int section_config_id = record_entry.number_2();
+			if (chapter_config_id == chapter_id_temp)
 			{
-				en_error = message::Error_NO;
+				int section = section_config_id + 1;
+				if (section_id_temp <= section)
+				{
+					en_error = message::Error_NO;
+				}
+				else
+				{
+					en_error = message::Error_CanNotEnterGameTheSectionIsLock;
+				}
+				break;
 			}
-			else
-			{
-				en_error = message::Error_CanNotEnterGameTheSectionIsLock;
-			}
-
-			break;
 		}
 	}
+	if (en_error == message::Error_NO)
+	{
+		std::pair<int, int> pair_entry;
+		pair_entry.first = chapter_id_temp;
+		pair_entry.second = section_id_temp;
+		SPECIALKILLS::iterator it = _special_kills.find(pair_entry);
+		if (it != _special_kills.end())
+		{
+			std::vector<message::MsgObjConfig>::iterator it_obj_config = it->second.begin();
+			for (; it_obj_config != it->second.end(); ++ it_obj_config)
+			{				
+				message::MsgObjConfig* temp_entry = msgACK.add_kill_list();
+				temp_entry->CopyFrom((*it_obj_config));
+			}
+		}
 
+		const MAPTYPEDROPBOXCONFIGS* type_map_dropboxs = gGameConfig.getMapDropBox(chapter_id_temp, section_id_temp);
+		MAPTYPEDROPBOXCONFIGS::const_iterator it_type_drop = type_map_dropboxs->begin();
+		for (; it_type_drop != type_map_dropboxs->end(); ++ it_type_drop)
+		{
+			MAPDROPBOXCONFIGS::const_iterator it_map_drop =  it_type_drop->second.begin();
+			for (; it_map_drop != it_type_drop->second.end(); ++ it_map_drop)
+			{
+				message::MsgDropBoxConfig* drop_box_entry =  msgACK.add_drop_box_configs();
+				ObjDropBoxConfig box_entry = it_map_drop->second;
+				drop_box_entry->set_base_gold(box_entry.base_gold_);
+				drop_box_entry->set_random_gold(box_entry.random_gold_);
+				drop_box_entry->mutable_obj()->set_id(box_entry.obj_id_);
+				drop_box_entry->mutable_obj()->set_type(box_entry.type_);
+			}
+		}		 
+	}
 	msgACK.set_error(en_error);
 	sendPBMessage(&msgACK);
+}
+
+
+void DreamHero::SendResetGameACK(message::GameError en)
+{
+	message::MsgS2CCmdResetGameACK msg;
+	msg.mutable_info()->CopyFrom(_info);
+	msg.set_error(en);
+	msg.set_current_advertisement_count(_current_free_task_count);
+	msg.set_last_advertisement_time(_last_task_advertisement_time);
+	sendPBMessage(&msg);
+}
+
+void DreamHero::ResetGame()
+{
+	LoadFromConfig();
+	SendResetGameACK(message::Error_NO);
+}
+
+void DreamHero::ReqEnterGame(const message::MsgC2SReqEnterGame* msg)
+{
+	int chapter_id_temp = msg->chapter_id();
+	int section_id_temp = msg->section_id();	
+	EnterGame(chapter_id_temp, section_id_temp, false);
 }
 
 void DreamHero::SendClientInit()
@@ -694,12 +792,22 @@ void DreamHero::SendClientInit()
 
 void DreamHero::LoadFromConfig()
 {
+
+	_current_chapter = 0;
+	_current_section = 0;
+	_current_free_task_count = 0;
+	_last_task_advertisement_time = 0;
+	_info.mutable_tasks()->Clear();
+	_info.mutable_records()->Clear();
 	int length = gGameConfig.getGlobalConfig().hero_unlock_count_;
 	_info.clear_heroes();
 	for (size_t i = 0; i < length; i++)
 	{
 		_info.add_heroes(true);
 	}
+	message::MsgIntPair* pair_entry = _info.mutable_records()->Add();
+	pair_entry->set_number_1(1);
+	pair_entry->set_number_2(-1);
 
 	_info.set_gold(gGameConfig.getGlobalConfig().config_gold_);
 	_info.set_complete_task_count(0);
@@ -716,7 +824,9 @@ void DreamHero::SaveHero()
 	std::string record_temp;
 	std::string heroes_temp;
 	std::string tasks_temp;
+	std::string special_kill_temp;
 	char sz_temp[256];
+	char sz_temp_1[128];
 	for (size_t i = 0; i < length; i++)
 	{
 		if (i != 0)
@@ -757,17 +867,42 @@ void DreamHero::SaveHero()
 		sprintf(sz_temp, "%d,%d,%d", info_entry.taskid(), info_entry.argument_1(), info_entry.usetime());
 		tasks_temp += sz_temp;
 	}
+
+	SPECIALKILLS::iterator it = _special_kills.begin();
+	special_kill_temp.clear();
+	for (; it != _special_kills.end(); ++ it)
+	{
+		std::string temp_str;
+		std::vector<message::MsgObjConfig>::iterator it_config = it->second.begin();
+		for (; it_config != it->second.end(); ++ it_config)
+		{
+			temp_str += ":";			
+			sprintf(sz_temp_1, "%d,%d", (*it_config).id(), (int)(*it_config).type());
+			temp_str += sz_temp_1;
+		}
+
+		if (temp_str.empty() == false)
+		{
+			if (special_kill_temp.empty() == false)
+			{
+				special_kill_temp += ";";
+			}
+			sprintf(sz_temp, "%d,%d", it->first.first, it->first.second);
+			special_kill_temp += sz_temp;
+			special_kill_temp += temp_str;
+		}
+	}
 	char temp[4096];
 	std::string last_task_advertisement_time_temp;
 
 
 	build_unix_time_to_string(_last_task_advertisement_time, last_task_advertisement_time_temp);
 //#ifdef WIN32
-	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
-		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
-		(%llu, 'normal', %d, '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s');",
-		_account, _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), _info.current_hero(), _current_chapter,
-		_current_section, _info.gold(), _info.complete_task_count(), _current_free_task_count, last_task_advertisement_time_temp.c_str());
+	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,`special_kill`,\
+		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`,`gm_level`) values \
+		(%llu, 'normal', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, %d, %d, '%s', %d);",
+		_account, _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
+		_current_section, _info.gold(), _info.complete_task_count(), _current_free_task_count, last_task_advertisement_time_temp.c_str(), _gm_level);
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
@@ -801,17 +936,11 @@ void DreamHero::ReqGoldShopConfigs()
 	}
 	sendPBMessage(&msg);
 }
-//int DreamHero::get_level()
-//{
-//	return _info.level();
-//}
+
 const char* DreamHero::get_name()
 {
 	return _info.name().c_str();
 }
-
-
-
 
 void DreamHero::sendPBMessage(google::protobuf::Message* p)
 {

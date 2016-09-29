@@ -95,6 +95,21 @@ const TimeShopSalesPromotionConfig* GameConfig::getTimeShopSalesPromotionConfig(
 	return config;
 }
 
+
+const MAPTYPEDROPBOXCONFIGS* GameConfig::getMapDropBox(int chapter_id, int section_id)
+{
+	MAPTYPEDROPBOXCONFIGS* ret = NULL;
+	std::pair<int, int> entry_pair;
+	entry_pair.first = chapter_id;
+	entry_pair.second = section_id;
+	MAPMAPDROPBOXCONFIGS::iterator it = _map_drop_box_configs.find(entry_pair);
+	if (it != _map_drop_box_configs.end())
+	{
+		ret = &it->second;
+	}
+	return ret;
+}
+
 const globalConfig& GameConfig::getGlobalConfig()
 {
 	return _global_config;
@@ -225,6 +240,123 @@ void GameConfig::Load(DBQuery* p)
 			entry.set_resource_id(row["resource_id"]);
 			entry.set_money(row["money"]);
 			_gold_shop_config_infos[entry.id()] = entry;
+		}
+
+		query.reset();
+		sResult.clear();
+		query << "select * from drop_box;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			DBRow& row = sResult[i];
+			ObjDropBoxConfig entry;
+			entry.obj_id_ = row["obj_id"];
+			int temp = row["obj_type"];
+			entry.type_ = (message::SubType)temp;
+			entry.base_gold_ = row["base_gold"];
+			entry.random_gold_ = row["random_gold"];
+
+			MAPTYPEDROPBOXCONFIGS::iterator it = _drop_box_configs.find(entry.type_);
+			if (it == _drop_box_configs.end())
+			{
+				MAPDROPBOXCONFIGS entry_map;
+				_drop_box_configs.insert(MAPTYPEDROPBOXCONFIGS::value_type(entry.type_, entry_map));
+			}
+			_drop_box_configs[entry.type_][entry.obj_id_] = entry;
+
+		}
+
+		query.reset();
+		sResult.clear();
+		query << "select * from map_obj_count;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			DBRow& row = sResult[i];
+			MapBehaviorConfig entry;
+			entry.key_.first = row["chapter_id"];
+			entry.key_.second = row["section_id"];
+			entry.obj_behavior_id_ = row["obj_behavior_id"];
+			entry.obj_count_ = row["obj_count"];
+			entry.max_pos_count_ = row["max_pos_count"];
+			
+			MAPALLBEHAVIORCONFIGS::iterator it = _map_behavior_config.find(entry.key_);
+			if (it == _map_behavior_config.end())
+			{
+				MAPBEHAVIORCONFIGS map_entry;
+				_map_behavior_config.insert(MAPALLBEHAVIORCONFIGS::value_type(entry.key_, map_entry));
+			}
+			_map_behavior_config[entry.key_][entry.obj_behavior_id_] = entry;
+			
+		}
+
+
+		query.reset();
+		sResult.clear();
+		query << "select * from random_object;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			DBRow& row = sResult[i];
+			std::pair<int, int> entry_pair;
+			int behavior_id = row["behavior_id"];
+			entry_pair.first = row["chapter_id"];
+			entry_pair.second = row["section_id"];
+			MapRandomObjConfig entry;
+			entry.obj_id_ = row["obj_id"];
+			int temp = row["obj_type"];
+			entry.type_ = (message::SubType)temp;
+			
+			MAPALLRANDOMOBJCONFIGS::iterator it = _map_random_obj_configs.find(entry_pair);
+			if (it == _map_random_obj_configs.end())
+			{
+				MAPRANDOMOBJCONFIGS map_entry;
+				_map_random_obj_configs.insert(MAPALLRANDOMOBJCONFIGS::value_type(entry_pair, map_entry));
+			}
+
+
+
+			//// drop config
+			MAPTYPEDROPBOXCONFIGS::iterator it_temp = _drop_box_configs.find(entry.type_);
+			if (it_temp != _drop_box_configs.end())
+			{
+				MAPDROPBOXCONFIGS::iterator it_temp_id_config = _drop_box_configs[entry.type_].find(entry.obj_id_);
+				if (it_temp_id_config != _drop_box_configs[entry.type_].end())
+				{
+
+					
+					MAPRANDOMOBJCONFIGS::iterator it_configs = _map_random_obj_configs[entry_pair].find(behavior_id);
+					if (it_configs == _map_random_obj_configs[entry_pair].end())
+					{
+						MapRandomObjsConfig entry;
+						entry.key_ = entry_pair;
+						entry.obj_behavior_id_ = behavior_id;
+						_map_random_obj_configs[entry_pair].insert(MAPRANDOMOBJCONFIGS::value_type(entry.obj_behavior_id_, entry));
+					}
+					_map_random_obj_configs[entry_pair][behavior_id].objs_.push_back(entry);
+
+					MAPMAPDROPBOXCONFIGS::iterator it_drop_box_config = _map_drop_box_configs.find(entry_pair);
+					if (it_drop_box_config == _map_drop_box_configs.end())
+					{
+						MAPTYPEDROPBOXCONFIGS map_entry;
+						_map_drop_box_configs.insert(MAPMAPDROPBOXCONFIGS::value_type(entry_pair, map_entry));
+					}
+
+					MAPTYPEDROPBOXCONFIGS::iterator it_type_drop_box_config = _map_drop_box_configs[entry_pair].find(entry.type_);
+					if (it_type_drop_box_config == _map_drop_box_configs[entry_pair].end())
+					{
+						MAPDROPBOXCONFIGS map_entry;
+						_map_drop_box_configs[entry_pair].insert(MAPTYPEDROPBOXCONFIGS::value_type(entry.type_, map_entry));
+					}
+					_map_drop_box_configs[entry_pair][entry.type_][entry.obj_id_] = it_temp_id_config->second;
+					
+				}
+				
+			}
+			
 		}
 	}	
 }

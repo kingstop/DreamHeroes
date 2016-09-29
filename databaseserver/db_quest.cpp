@@ -167,6 +167,7 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			records_str = row["record_his"].c_str();
 			std::vector<std::string> outVC;
 			std::vector<std::string> outVC1;
+			std::vector<std::string> outVC2;
 			SplitStringA(records_str, ";", outVC);
 			int length_vc = outVC.size();
 			std::string strTemp;
@@ -222,6 +223,45 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 					msg->set_usetime(atoi(outVC1[2].c_str()));					
 				}
 			}
+
+			std::string herospecialkills;
+			outVC.clear();
+			SplitStringA(heroestasks, ";", outVC);
+			length_vc = outVC.size();
+			for (int i = 0; i < length_vc; i++)
+			{
+				strTemp = outVC[i];
+				outVC1.clear();
+				SplitStringA(strTemp, ":", outVC1);
+				if (outVC1.size() >= 2)
+				{
+					SplitStringA(outVC1[0], ",", outVC2);
+					if (outVC2.size() == 2)
+					{
+						
+						int chapter_id = atoi(outVC2[0].c_str());
+						int section_id = atoi(outVC2[1].c_str());
+						message::MsgMapSpecialKill* map_kill_entry = pkParm->info.add_special_kills();
+						map_kill_entry->set_chapter_id(chapter_id);
+						map_kill_entry->set_section_id(section_id);
+						for (int i = 1; i < outVC1.size(); i++)
+						{
+							outVC2.clear();
+							SplitStringA(outVC1[i], ",", outVC2);
+							if (outVC2.size() == 2)
+							{
+								message::MsgObjConfig* obj_config_entry = map_kill_entry->add_kills();
+								int id_temp = atoi(outVC2[0].c_str());
+								int type_temp = atoi(outVC2[1].c_str());
+								obj_config_entry->set_id(id_temp);
+								obj_config_entry->set_type((message::SubType)type_temp);
+							}							
+						}
+					}
+				}
+
+			}
+
 		
 			pkParm->info.set_account(acc);
 			gDBGameManager.sendMessage(&pkParm->info, pkParm->tranid, pkParm->gsid);

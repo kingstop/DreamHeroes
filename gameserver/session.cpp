@@ -37,6 +37,12 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqGoldShopConfigs), &Session::parseReqGoldShopConfigs);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuyHero), &Session::parseReqBuyHero);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyCurrentHero), &Session::parseReqModifyCurrentHero);
+
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqMdodifyGMLevel), &Session::parseCmdReqMdodifyGMLevel);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqEnterGame), &Session::parseCmdReqEnterGame);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetMap), &Session::parseCmdReqResetMap);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetGame), &Session::parseCmdReqResetGame);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGold), &Session::parseCmdReqModifyGold);
 }
 
 void Session::parseReqShopConfig(google::protobuf::Message* p)
@@ -230,4 +236,101 @@ DreamHero* Session::get_dream_hero()
 {
 	return _dream_hero;
 }
+
+void Session::parseCmdReqMdodifyGMLevel(google::protobuf::Message* p)
+{
+	message::MsgC2SCmdReqMdodifyGMLevel* msg = (message::MsgC2SCmdReqMdodifyGMLevel*)p;
+	message::MsgS2CCmdMdodifyGMLevelACK msgACK;
+	msgACK.set_level(msg->level());
+	msgACK.set_name(msg->name().c_str());
+	message::GameError error = message::Error_NO;
+	
+	if (_dream_hero->getGMLevel() < 3)
+	{
+		error = message::Error_CmdFailedRequiredGMLevel;
+	}
+	else
+	{
+		int level_temp = msg->level();
+		std::string name = msg->name();
+		DreamHero* hero =gDreamHeroManager.GetHeroByName(name.c_str());
+		if (hero)
+		{
+			hero->SetGMLevel(level_temp);
+		}
+		else
+		{
+			char szTemp[512];
+			sprintf(szTemp, "update character set `gm_level` = %d where `name` = '%s'", level_temp, name.c_str());
+			message::MsgSaveDataGS2DB msg_db;
+			msg_db.set_sql(szTemp);
+			gGSDBClient.sendPBMessage(&msg_db, getTranId());
+		}
+	}
+	msgACK.set_error(error);
+	sendPBMessage(&msgACK);
+}
+
+void Session::parseCmdReqEnterGame(google::protobuf::Message* p)
+{
+	message::MsgC2SCmdReqEnterGame* msg = (message::MsgC2SCmdReqEnterGame*)p;
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		_dream_hero->EnterGame(msg->chapter_id(), msg->section_id(), true);
+	}
+	else
+	{
+		message::MsgS2CNotifyError msgError;
+		msgError.set_error(message::Error_CmdFailedRequiredGMLevel);
+		sendPBMessage(&msgError);
+	}
+}
+
+void Session::parseCmdReqResetMap(google::protobuf::Message* p)
+{
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		message::MsgC2SCmdReqResetMap* msg = (message::MsgC2SCmdReqResetMap*)p;
+		_dream_hero->ReqResetMap(msg);
+	}
+	else
+	{
+		message::MsgS2CNotifyError msgError;
+		msgError.set_error(message::Error_CmdFailedRequiredGMLevel);
+		sendPBMessage(&msgError);
+	}
+}
+
+void Session::parseCmdReqResetGame(google::protobuf::Message* p)
+{
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		_dream_hero->ResetGame();
+	}
+	else
+	{
+		message::MsgS2CNotifyError msgError;
+		msgError.set_error(message::Error_CmdFailedRequiredGMLevel);
+		sendPBMessage(&msgError);
+	}
+}
+
+
+void Session::parseCmdReqModifyGold(google::protobuf::Message* p)
+{
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		message::MsgC2SCmdReqModifyGold* msg = (message::MsgC2SCmdReqModifyGold*) p;
+		_dream_hero->ReqModifyGold(msg);
+	}
+	else
+	{
+		message::MsgS2CNotifyError msgError;
+		msgError.set_error(message::Error_CmdFailedRequiredGMLevel);
+		sendPBMessage(&msgError);
+	}
+
+	
+}
+
 

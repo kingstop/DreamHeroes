@@ -38,26 +38,56 @@ struct TimeShopSalesPromotionConfig : public ShopSalesPromotionConfig
 	s64 end_time_;
 };
 
+
+
+struct ObjDropBoxConfig
+{
+	int obj_id_;
+	message::SubType type_;
+	int base_gold_;
+	int random_gold_;
+};
+
+struct IntPair
+{
+	int number_1_;
+	int number_2_;
+};
+struct MapBehaviorConfig
+{
+	std::pair<int, int> key_;
+	int obj_behavior_id_;
+	int obj_count_;
+	int max_pos_count_;
+
+};
+
+
+struct MapRandomObjConfig
+{
+	message::SubType type_;
+	int obj_id_;
+};
+
+struct MapRandomObjsConfig
+{
+	std::pair<int, int> key_;
+	int obj_behavior_id_;
+	std::vector<MapRandomObjConfig> objs_;
+};
+
 typedef std::map<int, message::MsgTaskConfigInfo> MAPTASKS;
 typedef std::map<int, message::MsgShopConfigInfo> MAPSHOPHEROCONFIGS;
 typedef std::map<int, message::MsgChapterConfigInfo> MAPCHAPTERCONFIGINFOS;
 typedef std::map<int, message::MsgGoldShopConfigInfo> MAPGOLDSHOPCONFIGINFOS;
 typedef std::map<int, TimeShopSalesPromotionConfig> MAPTIMESHOPSALESPROMOTIONCONFIGS;
-
-
-enum obj_type
-{
-	obj_creature,
-	obj_item,
-};
-
-struct ObjDropBoxConfig
-{
-	int obj_id_;
-	obj_type type_;
-	int base_gold_;
-	int random_gold_;
-};
+typedef std::map<int, ObjDropBoxConfig> MAPDROPBOXCONFIGS;
+typedef std::map<message::SubType, MAPDROPBOXCONFIGS> MAPTYPEDROPBOXCONFIGS;
+typedef std::map<int, MapBehaviorConfig> MAPBEHAVIORCONFIGS;
+typedef std::map<std::pair<int, int>, MAPBEHAVIORCONFIGS> MAPALLBEHAVIORCONFIGS;
+typedef std::map<int, MapRandomObjsConfig> MAPRANDOMOBJCONFIGS;
+typedef std::map<std::pair<int, int>, MAPRANDOMOBJCONFIGS> MAPALLRANDOMOBJCONFIGS;
+typedef std::map<std::pair<int, int>, MAPTYPEDROPBOXCONFIGS> MAPMAPDROPBOXCONFIGS;
 
 
 class GameConfig
@@ -77,15 +107,20 @@ public:
 	const MAPGOLDSHOPCONFIGINFOS* getGoldShopConfigInfos();
 	const message::MsgGoldShopConfigInfo* getGoldShopConfigInfo(int id);
 
+
 	const globalConfig& getGlobalConfig();
-	
+	const MAPTYPEDROPBOXCONFIGS* getMapDropBox(int chapter_id, int section_id);
 protected:
 	MAPTASKS _tasks;
 	MAPSHOPHEROCONFIGS _shop_heroes;
 	MAPTIMESHOPSALESPROMOTIONCONFIGS _shop_time_sales_promotion;
 	MAPCHAPTERCONFIGINFOS _chapter_config_infos;
 	MAPGOLDSHOPCONFIGINFOS _gold_shop_config_infos;
-	
+	MAPTYPEDROPBOXCONFIGS _drop_box_configs;
+	MAPALLBEHAVIORCONFIGS _map_behavior_config;
+	MAPALLRANDOMOBJCONFIGS _map_random_obj_configs;
+
+	MAPMAPDROPBOXCONFIGS _map_drop_box_configs;
 	globalConfig _global_config;
 };
 

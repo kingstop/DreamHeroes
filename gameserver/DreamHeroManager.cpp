@@ -163,6 +163,21 @@ void DreamHeroManager::CollectInfo()
 	//Mylog::log_server(LOG_INFO, "current player count[%d], online player count[%d], offline player count[%d]", current_player, online_count, offline_count);
 }
 
+DreamHero* DreamHeroManager::GetHeroByName(const char* name)
+{
+	DreamHero* hero = NULL;
+	MAPHEROS::iterator it = _heroes.begin();
+	for (; it != _heroes.end(); ++ it)
+	{
+		DreamHero* temp_hero = it->second;
+		if (temp_hero->get_name() == name)
+		{
+			hero = temp_hero;
+			break;
+		}
+	}
+	return hero;
+}
 
 bool DreamHeroManager::is_save_all_heroes_ok()
 {
