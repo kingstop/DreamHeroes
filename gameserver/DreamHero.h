@@ -47,7 +47,7 @@ public:
 	void ResetGame();
 	void SendResetGameACK(message::GameError en);
 protected:
-	message::MsgTaskConfigInfo RadnomTaskInfo();
+	message::MsgTaskConfigInfo RadnomTaskInfo(int give_up_task = 0);
 	void RefreshTask(int give_up_task_id = 0);
 	
 	void Destroy();

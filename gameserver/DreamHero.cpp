@@ -203,9 +203,8 @@ void DreamHero::dayRefresh(bool need_send_msg)
 }
 
 
-message::MsgTaskConfigInfo DreamHero::RadnomTaskInfo()
-{
-	
+message::MsgTaskConfigInfo DreamHero::RadnomTaskInfo(int give_up_task)
+{	
 	std::vector<int> vcTemp;
 	const MAPTASKS* map_tasks = gGameConfig.getMapTasks();
 	MAPTASKS::const_iterator it = map_tasks->begin();
@@ -219,7 +218,7 @@ message::MsgTaskConfigInfo DreamHero::RadnomTaskInfo()
 		bool need_continue = false;
 		for (int i = 0; i < tasks_length; i ++)
 		{
-			if (_info.tasks(i).taskid() == config_entry.taskid())
+			if (_info.tasks(i).taskid() == config_entry.taskid() || give_up_task == _info.tasks(i).taskid())
 			{
 				need_continue = true;
 				break;
@@ -532,7 +531,7 @@ void DreamHero::RefreshTask(int give_up_task_id)
 			}
 		}		
 	}
-	message::MsgTaskConfigInfo info_task_config = RadnomTaskInfo();
+	message::MsgTaskConfigInfo info_task_config = RadnomTaskInfo(give_up_task_id);
 	bool have_task = false;
 	if (info_task_config.taskid() != 0 && msgError == message::Error_NO)
 	{
