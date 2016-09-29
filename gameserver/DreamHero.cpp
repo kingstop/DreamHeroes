@@ -758,6 +758,8 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 				}
 			}
 		}
+		_current_chapter = chapter_id_temp;
+		_current_section = section_id_temp;
 	}
 	msgACK.set_error(en_error);
 	sendPBMessage(&msgACK);
