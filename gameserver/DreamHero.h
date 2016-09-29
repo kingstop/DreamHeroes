@@ -4,7 +4,7 @@ class DreamHero : public EventableObject
 public:
 	//typedef std::map<u64, message::MsgEquipData> HEROEQUIPS;
 	//typedef std::map<std::string, message::MsgToyData> HEROTOYS;
-	typedef std::map<std::pair<int, int>, std::vector<message::MsgObjConfig>> SPECIALKILLS;
+	typedef std::map<std::pair<int, int>, std::vector<message::MsgObjConfig> > SPECIALKILLS;
 public:
 	DreamHero();
 	virtual ~DreamHero();
