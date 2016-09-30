@@ -169,7 +169,7 @@ void DreamHero::dayRefresh(bool need_send_msg)
 	if (_last_task_advertisement_time != 0)
 	{
 		u64 temp_time = g_server_time - _day_offset_time;
-		if (same_day(temp_time, _last_task_advertisement_time))
+		if (same_day(temp_time, _last_task_advertisement_time) == false)
 		{			
 			can_Refresh_task = true;
 		}		 
