@@ -433,19 +433,20 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 			message::MsgTaskInfo* info_entry = msgACK.add_task_infos();
 			info_entry->CopyFrom(*it);
 		}
-		
-		bool find_chapter = false;
-		int record_size = _info.records_size();
-		for (int i = 0; i < record_size; i ++)
+		if (msg->success())
 		{
-			message::MsgIntPair* pair_entry = _info.mutable_records(i);
-			if (pair_entry->number_1() == chapter_id_temp)
+			bool find_chapter = false;
+			int record_size = _info.records_size();
+			for (int i = 0; i < record_size; i++)
 			{
-				
-				if (section_id_temp == pair_entry->number_2() + 1)
+				message::MsgIntPair* pair_entry = _info.mutable_records(i);
+				if (pair_entry->number_1() == chapter_id_temp)
 				{
-					pair_entry->set_number_2(section_id_temp);
-					find_chapter = true;
+					if (section_id_temp == pair_entry->number_2() + 1)
+					{
+						pair_entry->set_number_2(section_id_temp);
+						find_chapter = true;
+					}
 				}
 			}
 		}
