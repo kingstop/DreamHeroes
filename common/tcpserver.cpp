@@ -302,12 +302,25 @@ void tcp_server::stop()
 	m_acceptor->close();
 	m_ttp->shutdown();
 
-	if( m_acceptor )
+	if (m_acceptor)
+	{
 		delete m_acceptor;
+		m_acceptor = NULL;
+	}
+		
 
-	delete m_ttp;
+	if (m_ttp)
+	{
+		delete m_ttp;
+		m_ttp = NULL;
+	}
+	
 	if( m_thread_buffer )
+	{
 		delete[] m_thread_buffer;
+		m_thread_buffer = NULL;
+	}
+		
 }
 
 void tcp_server::_real_run( bool is_wait )
