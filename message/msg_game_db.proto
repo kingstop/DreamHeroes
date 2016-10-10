@@ -22,6 +22,7 @@ message MsgHeroDataDB2GS
 	required int32 free_task_count = 5;
 	required int32 last_task_advertisement_time = 6;
 	repeated MsgMapSpecialKill special_kills = 7;
+	required int32 gm_level = 8;
 }
 
 message MsgNeedCreateHeroDB2GS

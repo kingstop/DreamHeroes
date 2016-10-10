@@ -161,6 +161,7 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			pkParm->info.set_current_chapter(row["current_chapter"]);
 			pkParm->info.set_free_task_count(row["free_task_count"]);
 			pkParm->info.set_last_task_advertisement_time(row["UNIX_TIMESTAMP(`last_task_advertisement_time`)"]);
+			pkParm->info.set_gm_level(row["gm_level"]);
 			
 			std::string records_str;
 			records_str = row["record_his"].c_str();
@@ -258,7 +259,6 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 						}
 					}
 				}
-
 			}
 
 		

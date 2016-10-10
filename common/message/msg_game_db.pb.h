@@ -372,6 +372,13 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill >*
       mutable_special_kills();
 
+  // required int32 gm_level = 8;
+  bool has_gm_level() const;
+  void clear_gm_level();
+  static const int kGmLevelFieldNumber = 8;
+  ::google::protobuf::int32 gm_level() const;
+  void set_gm_level(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroDataDB2GS)
  private:
   inline void set_has_account();
@@ -386,6 +393,8 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   inline void clear_has_free_task_count();
   inline void set_has_last_task_advertisement_time();
   inline void clear_has_last_task_advertisement_time();
+  inline void set_has_gm_level();
+  inline void clear_has_gm_level();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -400,6 +409,7 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::int32 free_task_count_;
   ::google::protobuf::int32 last_task_advertisement_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill > special_kills_;
+  ::google::protobuf::int32 gm_level_;
   friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto();
@@ -1151,6 +1161,30 @@ inline ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill >*
 MsgHeroDataDB2GS::mutable_special_kills() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.special_kills)
   return &special_kills_;
+}
+
+// required int32 gm_level = 8;
+inline bool MsgHeroDataDB2GS::has_gm_level() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void MsgHeroDataDB2GS::set_has_gm_level() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void MsgHeroDataDB2GS::clear_has_gm_level() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void MsgHeroDataDB2GS::clear_gm_level() {
+  gm_level_ = 0;
+  clear_has_gm_level();
+}
+inline ::google::protobuf::int32 MsgHeroDataDB2GS::gm_level() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.gm_level)
+  return gm_level_;
+}
+inline void MsgHeroDataDB2GS::set_gm_level(::google::protobuf::int32 value) {
+  set_has_gm_level();
+  gm_level_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.gm_level)
 }
 
 // -------------------------------------------------------------------

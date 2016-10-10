@@ -87,7 +87,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMapSpecialKill, _internal_metadata_),
       -1);
   MsgHeroDataDB2GS_descriptor_ = file->message_type(2);
-  static const int MsgHeroDataDB2GS_offsets_[7] = {
+  static const int MsgHeroDataDB2GS_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, current_chapter_),
@@ -95,6 +95,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, free_task_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, last_task_advertisement_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, special_kills_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, gm_level_),
   };
   MsgHeroDataDB2GS_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -243,18 +244,18 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
     "to\"&\n\023MsgReqHeroDataGS2DB\022\017\n\007account\030\001 \002"
     "(\004\"a\n\021MsgMapSpecialKill\022\022\n\nchapter_id\030\001 "
     "\002(\005\022\022\n\nsection_id\030\002 \002(\005\022$\n\005kills\030\003 \003(\0132\025"
-    ".message.MsgObjConfig\"\353\001\n\020MsgHeroDataDB2"
+    ".message.MsgObjConfig\"\375\001\n\020MsgHeroDataDB2"
     "GS\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024.mess"
     "age.MsgHeroData\022\027\n\017current_chapter\030\003 \002(\005"
     "\022\027\n\017current_section\030\004 \002(\005\022\027\n\017free_task_c"
     "ount\030\005 \002(\005\022$\n\034last_task_advertisement_ti"
     "me\030\006 \002(\005\0221\n\rspecial_kills\030\007 \003(\0132\032.messag"
-    "e.MsgMapSpecialKill\"\030\n\026MsgNeedCreateHero"
-    "DB2GS\"K\n\024MsgSaveHeroDataGS2DB\022\017\n\007account"
-    "\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024.message.MsgHeroDa"
-    "ta\"\037\n\020MsgSaveDataGS2DB\022\013\n\003sql\030\001 \002(\014\"\027\n\025M"
-    "sgSaveAllHeroesGS2DB\"\027\n\025MsgSaveAllHeroes"
-    "DB2GS", 605);
+    "e.MsgMapSpecialKill\022\020\n\010gm_level\030\010 \002(\005\"\030\n"
+    "\026MsgNeedCreateHeroDB2GS\"K\n\024MsgSaveHeroDa"
+    "taGS2DB\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024"
+    ".message.MsgHeroData\"\037\n\020MsgSaveDataGS2DB"
+    "\022\013\n\003sql\030\001 \002(\014\"\027\n\025MsgSaveAllHeroesGS2DB\"\027"
+    "\n\025MsgSaveAllHeroesDB2GS", 623);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_db.proto", &protobuf_RegisterTypes);
   MsgReqHeroDataGS2DB::default_instance_ = new MsgReqHeroDataGS2DB();
@@ -985,6 +986,7 @@ const int MsgHeroDataDB2GS::kCurrentSectionFieldNumber;
 const int MsgHeroDataDB2GS::kFreeTaskCountFieldNumber;
 const int MsgHeroDataDB2GS::kLastTaskAdvertisementTimeFieldNumber;
 const int MsgHeroDataDB2GS::kSpecialKillsFieldNumber;
+const int MsgHeroDataDB2GS::kGmLevelFieldNumber;
 #endif  // !_MSC_VER
 
 MsgHeroDataDB2GS::MsgHeroDataDB2GS()
@@ -1013,6 +1015,7 @@ void MsgHeroDataDB2GS::SharedCtor() {
   current_section_ = 0;
   free_task_count_ = 0;
   last_task_advertisement_time_ = 0;
+  gm_level_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1061,12 +1064,13 @@ void MsgHeroDataDB2GS::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 63) {
+  if (_has_bits_[0 / 32] & 191) {
     ZR_(current_chapter_, last_task_advertisement_time_);
     account_ = GOOGLE_ULONGLONG(0);
     if (has_data()) {
       if (data_ != NULL) data_->::message::MsgHeroData::Clear();
     }
+    gm_level_ = 0;
   }
 
 #undef ZR_HELPER_
@@ -1186,6 +1190,21 @@ bool MsgHeroDataDB2GS::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(58)) goto parse_special_kills;
+        if (input->ExpectTag(64)) goto parse_gm_level;
+        break;
+      }
+
+      // required int32 gm_level = 8;
+      case 8: {
+        if (tag == 64) {
+         parse_gm_level:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &gm_level_)));
+          set_has_gm_level();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1252,6 +1271,11 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
       7, this->special_kills(i), output);
   }
 
+  // required int32 gm_level = 8;
+  if (has_gm_level()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->gm_level(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1299,6 +1323,11 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         7, this->special_kills(i), target);
+  }
+
+  // required int32 gm_level = 8;
+  if (has_gm_level()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->gm_level(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1354,12 +1383,19 @@ int MsgHeroDataDB2GS::RequiredFieldsByteSizeFallback() const {
         this->last_task_advertisement_time());
   }
 
+  if (has_gm_level()) {
+    // required int32 gm_level = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->gm_level());
+  }
+
   return total_size;
 }
 int MsgHeroDataDB2GS::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x000000bf) ^ 0x000000bf) == 0) {  // All required fields are present.
     // required uint64 account = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
@@ -1389,6 +1425,11 @@ int MsgHeroDataDB2GS::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->last_task_advertisement_time());
+
+    // required int32 gm_level = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->gm_level());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -1446,6 +1487,9 @@ void MsgHeroDataDB2GS::MergeFrom(const MsgHeroDataDB2GS& from) {
     if (from.has_last_task_advertisement_time()) {
       set_last_task_advertisement_time(from.last_task_advertisement_time());
     }
+    if (from.has_gm_level()) {
+      set_gm_level(from.gm_level());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1465,7 +1509,7 @@ void MsgHeroDataDB2GS::CopyFrom(const MsgHeroDataDB2GS& from) {
 }
 
 bool MsgHeroDataDB2GS::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  if ((_has_bits_[0] & 0x000000bf) != 0x000000bf) return false;
 
   if (has_data()) {
     if (!this->data_->IsInitialized()) return false;
@@ -1486,6 +1530,7 @@ void MsgHeroDataDB2GS::InternalSwap(MsgHeroDataDB2GS* other) {
   std::swap(free_task_count_, other->free_task_count_);
   std::swap(last_task_advertisement_time_, other->last_task_advertisement_time_);
   special_kills_.UnsafeArenaSwap(&other->special_kills_);
+  std::swap(gm_level_, other->gm_level_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1693,6 +1738,30 @@ MsgHeroDataDB2GS::special_kills() const {
 MsgHeroDataDB2GS::mutable_special_kills() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.special_kills)
   return &special_kills_;
+}
+
+// required int32 gm_level = 8;
+ bool MsgHeroDataDB2GS::has_gm_level() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+ void MsgHeroDataDB2GS::set_has_gm_level() {
+  _has_bits_[0] |= 0x00000080u;
+}
+ void MsgHeroDataDB2GS::clear_has_gm_level() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+ void MsgHeroDataDB2GS::clear_gm_level() {
+  gm_level_ = 0;
+  clear_has_gm_level();
+}
+ ::google::protobuf::int32 MsgHeroDataDB2GS::gm_level() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.gm_level)
+  return gm_level_;
+}
+ void MsgHeroDataDB2GS::set_gm_level(::google::protobuf::int32 value) {
+  set_has_gm_level();
+  gm_level_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.gm_level)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

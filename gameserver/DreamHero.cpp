@@ -50,6 +50,7 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	_last_task_advertisement_time = info->last_task_advertisement_time();
 	_current_task_count = info->free_task_count();
 	int size_special_kills =  info->special_kills_size();
+	_gm_level = info->gm_level();
 	_special_kills.clear();
 	for (int i = 0; i < size_special_kills; i ++)
 	{
