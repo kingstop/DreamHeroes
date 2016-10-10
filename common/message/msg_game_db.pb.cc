@@ -87,12 +87,11 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMapSpecialKill, _internal_metadata_),
       -1);
   MsgHeroDataDB2GS_descriptor_ = file->message_type(2);
-  static const int MsgHeroDataDB2GS_offsets_[8] = {
+  static const int MsgHeroDataDB2GS_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, current_chapter_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, current_section_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, current_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, free_task_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, last_task_advertisement_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, special_kills_),
@@ -244,18 +243,18 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
     "to\"&\n\023MsgReqHeroDataGS2DB\022\017\n\007account\030\001 \002"
     "(\004\"a\n\021MsgMapSpecialKill\022\022\n\nchapter_id\030\001 "
     "\002(\005\022\022\n\nsection_id\030\002 \002(\005\022$\n\005kills\030\003 \003(\0132\025"
-    ".message.MsgObjConfig\"\201\002\n\020MsgHeroDataDB2"
+    ".message.MsgObjConfig\"\353\001\n\020MsgHeroDataDB2"
     "GS\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024.mess"
     "age.MsgHeroData\022\027\n\017current_chapter\030\003 \002(\005"
-    "\022\027\n\017current_section\030\004 \002(\005\022\024\n\014current_gol"
-    "d\030\005 \002(\005\022\027\n\017free_task_count\030\006 \002(\005\022$\n\034last"
-    "_task_advertisement_time\030\007 \002(\005\0221\n\rspecia"
-    "l_kills\030\010 \003(\0132\032.message.MsgMapSpecialKil"
-    "l\"\030\n\026MsgNeedCreateHeroDB2GS\"K\n\024MsgSaveHe"
-    "roDataGS2DB\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002"
-    "(\0132\024.message.MsgHeroData\"\037\n\020MsgSaveDataG"
-    "S2DB\022\013\n\003sql\030\001 \002(\014\"\027\n\025MsgSaveAllHeroesGS2"
-    "DB\"\027\n\025MsgSaveAllHeroesDB2GS", 627);
+    "\022\027\n\017current_section\030\004 \002(\005\022\027\n\017free_task_c"
+    "ount\030\005 \002(\005\022$\n\034last_task_advertisement_ti"
+    "me\030\006 \002(\005\0221\n\rspecial_kills\030\007 \003(\0132\032.messag"
+    "e.MsgMapSpecialKill\"\030\n\026MsgNeedCreateHero"
+    "DB2GS\"K\n\024MsgSaveHeroDataGS2DB\022\017\n\007account"
+    "\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024.message.MsgHeroDa"
+    "ta\"\037\n\020MsgSaveDataGS2DB\022\013\n\003sql\030\001 \002(\014\"\027\n\025M"
+    "sgSaveAllHeroesGS2DB\"\027\n\025MsgSaveAllHeroes"
+    "DB2GS", 605);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_db.proto", &protobuf_RegisterTypes);
   MsgReqHeroDataGS2DB::default_instance_ = new MsgReqHeroDataGS2DB();
@@ -983,7 +982,6 @@ const int MsgHeroDataDB2GS::kAccountFieldNumber;
 const int MsgHeroDataDB2GS::kDataFieldNumber;
 const int MsgHeroDataDB2GS::kCurrentChapterFieldNumber;
 const int MsgHeroDataDB2GS::kCurrentSectionFieldNumber;
-const int MsgHeroDataDB2GS::kCurrentGoldFieldNumber;
 const int MsgHeroDataDB2GS::kFreeTaskCountFieldNumber;
 const int MsgHeroDataDB2GS::kLastTaskAdvertisementTimeFieldNumber;
 const int MsgHeroDataDB2GS::kSpecialKillsFieldNumber;
@@ -1013,7 +1011,6 @@ void MsgHeroDataDB2GS::SharedCtor() {
   data_ = NULL;
   current_chapter_ = 0;
   current_section_ = 0;
-  current_gold_ = 0;
   free_task_count_ = 0;
   last_task_advertisement_time_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1064,13 +1061,12 @@ void MsgHeroDataDB2GS::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 127) {
-    ZR_(current_chapter_, free_task_count_);
+  if (_has_bits_[0 / 32] & 63) {
+    ZR_(current_chapter_, last_task_advertisement_time_);
     account_ = GOOGLE_ULONGLONG(0);
     if (has_data()) {
       if (data_ != NULL) data_->::message::MsgHeroData::Clear();
     }
-    last_task_advertisement_time_ = 0;
   }
 
 #undef ZR_HELPER_
@@ -1146,28 +1142,13 @@ bool MsgHeroDataDB2GS::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_current_gold;
+        if (input->ExpectTag(40)) goto parse_free_task_count;
         break;
       }
 
-      // required int32 current_gold = 5;
+      // required int32 free_task_count = 5;
       case 5: {
         if (tag == 40) {
-         parse_current_gold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &current_gold_)));
-          set_has_current_gold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(48)) goto parse_free_task_count;
-        break;
-      }
-
-      // required int32 free_task_count = 6;
-      case 6: {
-        if (tag == 48) {
          parse_free_task_count:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -1176,13 +1157,13 @@ bool MsgHeroDataDB2GS::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(56)) goto parse_last_task_advertisement_time;
+        if (input->ExpectTag(48)) goto parse_last_task_advertisement_time;
         break;
       }
 
-      // required int32 last_task_advertisement_time = 7;
-      case 7: {
-        if (tag == 56) {
+      // required int32 last_task_advertisement_time = 6;
+      case 6: {
+        if (tag == 48) {
          parse_last_task_advertisement_time:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -1191,20 +1172,20 @@ bool MsgHeroDataDB2GS::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(66)) goto parse_special_kills;
+        if (input->ExpectTag(58)) goto parse_special_kills;
         break;
       }
 
-      // repeated .message.MsgMapSpecialKill special_kills = 8;
-      case 8: {
-        if (tag == 66) {
+      // repeated .message.MsgMapSpecialKill special_kills = 7;
+      case 7: {
+        if (tag == 58) {
          parse_special_kills:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_special_kills()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(66)) goto parse_special_kills;
+        if (input->ExpectTag(58)) goto parse_special_kills;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1255,25 +1236,20 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->current_section(), output);
   }
 
-  // required int32 current_gold = 5;
-  if (has_current_gold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->current_gold(), output);
-  }
-
-  // required int32 free_task_count = 6;
+  // required int32 free_task_count = 5;
   if (has_free_task_count()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->free_task_count(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->free_task_count(), output);
   }
 
-  // required int32 last_task_advertisement_time = 7;
+  // required int32 last_task_advertisement_time = 6;
   if (has_last_task_advertisement_time()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->last_task_advertisement_time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->last_task_advertisement_time(), output);
   }
 
-  // repeated .message.MsgMapSpecialKill special_kills = 8;
+  // repeated .message.MsgMapSpecialKill special_kills = 7;
   for (unsigned int i = 0, n = this->special_kills_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, this->special_kills(i), output);
+      7, this->special_kills(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1308,26 +1284,21 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->current_section(), target);
   }
 
-  // required int32 current_gold = 5;
-  if (has_current_gold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->current_gold(), target);
-  }
-
-  // required int32 free_task_count = 6;
+  // required int32 free_task_count = 5;
   if (has_free_task_count()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->free_task_count(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->free_task_count(), target);
   }
 
-  // required int32 last_task_advertisement_time = 7;
+  // required int32 last_task_advertisement_time = 6;
   if (has_last_task_advertisement_time()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->last_task_advertisement_time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->last_task_advertisement_time(), target);
   }
 
-  // repeated .message.MsgMapSpecialKill special_kills = 8;
+  // repeated .message.MsgMapSpecialKill special_kills = 7;
   for (unsigned int i = 0, n = this->special_kills_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        8, this->special_kills(i), target);
+        7, this->special_kills(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1369,22 +1340,15 @@ int MsgHeroDataDB2GS::RequiredFieldsByteSizeFallback() const {
         this->current_section());
   }
 
-  if (has_current_gold()) {
-    // required int32 current_gold = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->current_gold());
-  }
-
   if (has_free_task_count()) {
-    // required int32 free_task_count = 6;
+    // required int32 free_task_count = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->free_task_count());
   }
 
   if (has_last_task_advertisement_time()) {
-    // required int32 last_task_advertisement_time = 7;
+    // required int32 last_task_advertisement_time = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->last_task_advertisement_time());
@@ -1395,7 +1359,7 @@ int MsgHeroDataDB2GS::RequiredFieldsByteSizeFallback() const {
 int MsgHeroDataDB2GS::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000007f) ^ 0x0000007f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
     // required uint64 account = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
@@ -1416,17 +1380,12 @@ int MsgHeroDataDB2GS::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->current_section());
 
-    // required int32 current_gold = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->current_gold());
-
-    // required int32 free_task_count = 6;
+    // required int32 free_task_count = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->free_task_count());
 
-    // required int32 last_task_advertisement_time = 7;
+    // required int32 last_task_advertisement_time = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->last_task_advertisement_time());
@@ -1434,7 +1393,7 @@ int MsgHeroDataDB2GS::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // repeated .message.MsgMapSpecialKill special_kills = 8;
+  // repeated .message.MsgMapSpecialKill special_kills = 7;
   total_size += 1 * this->special_kills_size();
   for (int i = 0; i < this->special_kills_size(); i++) {
     total_size +=
@@ -1481,9 +1440,6 @@ void MsgHeroDataDB2GS::MergeFrom(const MsgHeroDataDB2GS& from) {
     if (from.has_current_section()) {
       set_current_section(from.current_section());
     }
-    if (from.has_current_gold()) {
-      set_current_gold(from.current_gold());
-    }
     if (from.has_free_task_count()) {
       set_free_task_count(from.free_task_count());
     }
@@ -1509,7 +1465,7 @@ void MsgHeroDataDB2GS::CopyFrom(const MsgHeroDataDB2GS& from) {
 }
 
 bool MsgHeroDataDB2GS::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
+  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
 
   if (has_data()) {
     if (!this->data_->IsInitialized()) return false;
@@ -1527,7 +1483,6 @@ void MsgHeroDataDB2GS::InternalSwap(MsgHeroDataDB2GS* other) {
   std::swap(data_, other->data_);
   std::swap(current_chapter_, other->current_chapter_);
   std::swap(current_section_, other->current_section_);
-  std::swap(current_gold_, other->current_gold_);
   std::swap(free_task_count_, other->free_task_count_);
   std::swap(last_task_advertisement_time_, other->last_task_advertisement_time_);
   special_kills_.UnsafeArenaSwap(&other->special_kills_);
@@ -1662,39 +1617,15 @@ void MsgHeroDataDB2GS::InternalSwap(MsgHeroDataDB2GS* other) {
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.current_section)
 }
 
-// required int32 current_gold = 5;
- bool MsgHeroDataDB2GS::has_current_gold() const {
+// required int32 free_task_count = 5;
+ bool MsgHeroDataDB2GS::has_free_task_count() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
- void MsgHeroDataDB2GS::set_has_current_gold() {
+ void MsgHeroDataDB2GS::set_has_free_task_count() {
   _has_bits_[0] |= 0x00000010u;
 }
- void MsgHeroDataDB2GS::clear_has_current_gold() {
-  _has_bits_[0] &= ~0x00000010u;
-}
- void MsgHeroDataDB2GS::clear_current_gold() {
-  current_gold_ = 0;
-  clear_has_current_gold();
-}
- ::google::protobuf::int32 MsgHeroDataDB2GS::current_gold() const {
-  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.current_gold)
-  return current_gold_;
-}
- void MsgHeroDataDB2GS::set_current_gold(::google::protobuf::int32 value) {
-  set_has_current_gold();
-  current_gold_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.current_gold)
-}
-
-// required int32 free_task_count = 6;
- bool MsgHeroDataDB2GS::has_free_task_count() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
- void MsgHeroDataDB2GS::set_has_free_task_count() {
-  _has_bits_[0] |= 0x00000020u;
-}
  void MsgHeroDataDB2GS::clear_has_free_task_count() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
  void MsgHeroDataDB2GS::clear_free_task_count() {
   free_task_count_ = 0;
@@ -1710,15 +1641,15 @@ void MsgHeroDataDB2GS::InternalSwap(MsgHeroDataDB2GS* other) {
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.free_task_count)
 }
 
-// required int32 last_task_advertisement_time = 7;
+// required int32 last_task_advertisement_time = 6;
  bool MsgHeroDataDB2GS::has_last_task_advertisement_time() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
  void MsgHeroDataDB2GS::set_has_last_task_advertisement_time() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
 }
  void MsgHeroDataDB2GS::clear_has_last_task_advertisement_time() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
  void MsgHeroDataDB2GS::clear_last_task_advertisement_time() {
   last_task_advertisement_time_ = 0;
@@ -1734,7 +1665,7 @@ void MsgHeroDataDB2GS::InternalSwap(MsgHeroDataDB2GS* other) {
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_task_advertisement_time)
 }
 
-// repeated .message.MsgMapSpecialKill special_kills = 8;
+// repeated .message.MsgMapSpecialKill special_kills = 7;
  int MsgHeroDataDB2GS::special_kills_size() const {
   return special_kills_.size();
 }

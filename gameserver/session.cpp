@@ -38,11 +38,12 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuyHero), &Session::parseReqBuyHero);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyCurrentHero), &Session::parseReqModifyCurrentHero);
 
-	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqMdodifyGMLevel), &Session::parseCmdReqMdodifyGMLevel);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGMLevel), &Session::parseCmdReqMdodifyGMLevel);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqEnterGame), &Session::parseCmdReqEnterGame);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetMap), &Session::parseCmdReqResetMap);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetGame), &Session::parseCmdReqResetGame);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGold), &Session::parseCmdReqModifyGold);
+	registerCBFun(PROTOCO_NAME(message::MsgS2CCmdReqReplaceTask), &Session::parseCmdReqReplaceTask);
 }
 
 void Session::parseReqShopConfig(google::protobuf::Message* p)
@@ -239,8 +240,8 @@ DreamHero* Session::get_dream_hero()
 
 void Session::parseCmdReqMdodifyGMLevel(google::protobuf::Message* p)
 {
-	message::MsgC2SCmdReqMdodifyGMLevel* msg = (message::MsgC2SCmdReqMdodifyGMLevel*)p;
-	message::MsgS2CCmdMdodifyGMLevelACK msgACK;
+	message::MsgC2SCmdReqModifyGMLevel* msg = (message::MsgC2SCmdReqModifyGMLevel*)p;
+	message::MsgS2CCmdModifyGMLevelACK msgACK;
 	msgACK.set_level(msg->level());
 	msgACK.set_name(msg->name().c_str());
 	message::GameError error = message::Error_NO;
@@ -328,9 +329,20 @@ void Session::parseCmdReqModifyGold(google::protobuf::Message* p)
 		message::MsgS2CNotifyError msgError;
 		msgError.set_error(message::Error_CmdFailedRequiredGMLevel);
 		sendPBMessage(&msgError);
-	}
-
-	
+	}	
 }
 
+void Session::parseCmdReqReplaceTask(google::protobuf::Message* p)
+{
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		message::MsgS2CCmdReqReplaceTask* msg = (message::MsgS2CCmdReqReplaceTask*) p;
 
+	}
+	else
+	{
+		message::MsgS2CNotifyError msgError;
+		msgError.set_error(message::Error_CmdFailedRequiredGMLevel);
+		sendPBMessage(&msgError);
+	}
+}

@@ -67,6 +67,8 @@ public:
 	void parseCmdReqResetMap(google::protobuf::Message* p);
 	void parseCmdReqResetGame(google::protobuf::Message* p);
 	void parseCmdReqModifyGold(google::protobuf::Message* p);
+	void parseCmdReqReplaceTask(google::protobuf::Message* p);
+	
 
 
 	//void parseModifySuitName(google::protobuf::Message* p);

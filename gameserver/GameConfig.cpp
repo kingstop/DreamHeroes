@@ -357,8 +357,5 @@ void GameConfig::Load(DBQuery* p)
 
 			
 		}
-
-		int c = 0;
-		c++;
 	}	
 }

@@ -346,31 +346,24 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::int32 current_section() const;
   void set_current_section(::google::protobuf::int32 value);
 
-  // required int32 current_gold = 5;
-  bool has_current_gold() const;
-  void clear_current_gold();
-  static const int kCurrentGoldFieldNumber = 5;
-  ::google::protobuf::int32 current_gold() const;
-  void set_current_gold(::google::protobuf::int32 value);
-
-  // required int32 free_task_count = 6;
+  // required int32 free_task_count = 5;
   bool has_free_task_count() const;
   void clear_free_task_count();
-  static const int kFreeTaskCountFieldNumber = 6;
+  static const int kFreeTaskCountFieldNumber = 5;
   ::google::protobuf::int32 free_task_count() const;
   void set_free_task_count(::google::protobuf::int32 value);
 
-  // required int32 last_task_advertisement_time = 7;
+  // required int32 last_task_advertisement_time = 6;
   bool has_last_task_advertisement_time() const;
   void clear_last_task_advertisement_time();
-  static const int kLastTaskAdvertisementTimeFieldNumber = 7;
+  static const int kLastTaskAdvertisementTimeFieldNumber = 6;
   ::google::protobuf::int32 last_task_advertisement_time() const;
   void set_last_task_advertisement_time(::google::protobuf::int32 value);
 
-  // repeated .message.MsgMapSpecialKill special_kills = 8;
+  // repeated .message.MsgMapSpecialKill special_kills = 7;
   int special_kills_size() const;
   void clear_special_kills();
-  static const int kSpecialKillsFieldNumber = 8;
+  static const int kSpecialKillsFieldNumber = 7;
   const ::message::MsgMapSpecialKill& special_kills(int index) const;
   ::message::MsgMapSpecialKill* mutable_special_kills(int index);
   ::message::MsgMapSpecialKill* add_special_kills();
@@ -389,8 +382,6 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   inline void clear_has_current_chapter();
   inline void set_has_current_section();
   inline void clear_has_current_section();
-  inline void set_has_current_gold();
-  inline void clear_has_current_gold();
   inline void set_has_free_task_count();
   inline void clear_has_free_task_count();
   inline void set_has_last_task_advertisement_time();
@@ -406,10 +397,9 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::message::MsgHeroData* data_;
   ::google::protobuf::int32 current_chapter_;
   ::google::protobuf::int32 current_section_;
-  ::google::protobuf::int32 current_gold_;
   ::google::protobuf::int32 free_task_count_;
-  ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill > special_kills_;
   ::google::protobuf::int32 last_task_advertisement_time_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill > special_kills_;
   friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto();
@@ -1085,39 +1075,15 @@ inline void MsgHeroDataDB2GS::set_current_section(::google::protobuf::int32 valu
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.current_section)
 }
 
-// required int32 current_gold = 5;
-inline bool MsgHeroDataDB2GS::has_current_gold() const {
+// required int32 free_task_count = 5;
+inline bool MsgHeroDataDB2GS::has_free_task_count() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void MsgHeroDataDB2GS::set_has_current_gold() {
+inline void MsgHeroDataDB2GS::set_has_free_task_count() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void MsgHeroDataDB2GS::clear_has_current_gold() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void MsgHeroDataDB2GS::clear_current_gold() {
-  current_gold_ = 0;
-  clear_has_current_gold();
-}
-inline ::google::protobuf::int32 MsgHeroDataDB2GS::current_gold() const {
-  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.current_gold)
-  return current_gold_;
-}
-inline void MsgHeroDataDB2GS::set_current_gold(::google::protobuf::int32 value) {
-  set_has_current_gold();
-  current_gold_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.current_gold)
-}
-
-// required int32 free_task_count = 6;
-inline bool MsgHeroDataDB2GS::has_free_task_count() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void MsgHeroDataDB2GS::set_has_free_task_count() {
-  _has_bits_[0] |= 0x00000020u;
-}
 inline void MsgHeroDataDB2GS::clear_has_free_task_count() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void MsgHeroDataDB2GS::clear_free_task_count() {
   free_task_count_ = 0;
@@ -1133,15 +1099,15 @@ inline void MsgHeroDataDB2GS::set_free_task_count(::google::protobuf::int32 valu
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.free_task_count)
 }
 
-// required int32 last_task_advertisement_time = 7;
+// required int32 last_task_advertisement_time = 6;
 inline bool MsgHeroDataDB2GS::has_last_task_advertisement_time() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void MsgHeroDataDB2GS::set_has_last_task_advertisement_time() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void MsgHeroDataDB2GS::clear_has_last_task_advertisement_time() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void MsgHeroDataDB2GS::clear_last_task_advertisement_time() {
   last_task_advertisement_time_ = 0;
@@ -1157,7 +1123,7 @@ inline void MsgHeroDataDB2GS::set_last_task_advertisement_time(::google::protobu
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_task_advertisement_time)
 }
 
-// repeated .message.MsgMapSpecialKill special_kills = 8;
+// repeated .message.MsgMapSpecialKill special_kills = 7;
 inline int MsgHeroDataDB2GS::special_kills_size() const {
   return special_kills_.size();
 }

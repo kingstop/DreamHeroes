@@ -98,12 +98,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgS2CCmdShowGMLevelACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CCmdShowGMLevelACK_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgC2SCmdReqMdodifyGMLevel_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SCmdReqModifyGMLevel_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgC2SCmdReqMdodifyGMLevel_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgS2CCmdMdodifyGMLevelACK_descriptor_ = NULL;
+  MsgC2SCmdReqModifyGMLevel_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgS2CCmdModifyGMLevelACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgS2CCmdMdodifyGMLevelACK_reflection_ = NULL;
+  MsgS2CCmdModifyGMLevelACK_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgC2SCmdReqEnterGame_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgC2SCmdReqEnterGame_reflection_ = NULL;
@@ -125,12 +125,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgS2CCmdModifyGoldACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CCmdModifyGoldACK_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgC2SCmdReqNewTask_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgC2SCmdReqNewTask_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgS2CCmdReqReplaceTask_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CCmdReqReplaceTask_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgS2CCmdReplaceTaskACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgS2CCmdReplaceTaskACK_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* GameError_descriptor_ = NULL;
 
 }  // namespace
@@ -563,38 +563,38 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdShowGMLevelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqMdodifyGMLevel_descriptor_ = file->message_type(26);
-  static const int MsgC2SCmdReqMdodifyGMLevel_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqMdodifyGMLevel, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqMdodifyGMLevel, level_),
+  MsgC2SCmdReqModifyGMLevel_descriptor_ = file->message_type(26);
+  static const int MsgC2SCmdReqModifyGMLevel_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, level_),
   };
-  MsgC2SCmdReqMdodifyGMLevel_reflection_ =
+  MsgC2SCmdReqModifyGMLevel_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgC2SCmdReqMdodifyGMLevel_descriptor_,
-      MsgC2SCmdReqMdodifyGMLevel::default_instance_,
-      MsgC2SCmdReqMdodifyGMLevel_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqMdodifyGMLevel, _has_bits_[0]),
+      MsgC2SCmdReqModifyGMLevel_descriptor_,
+      MsgC2SCmdReqModifyGMLevel::default_instance_,
+      MsgC2SCmdReqModifyGMLevel_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, _has_bits_[0]),
       -1,
       -1,
-      sizeof(MsgC2SCmdReqMdodifyGMLevel),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqMdodifyGMLevel, _internal_metadata_),
+      sizeof(MsgC2SCmdReqModifyGMLevel),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, _internal_metadata_),
       -1);
-  MsgS2CCmdMdodifyGMLevelACK_descriptor_ = file->message_type(27);
-  static const int MsgS2CCmdMdodifyGMLevelACK_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdMdodifyGMLevelACK, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdMdodifyGMLevelACK, level_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdMdodifyGMLevelACK, error_),
+  MsgS2CCmdModifyGMLevelACK_descriptor_ = file->message_type(27);
+  static const int MsgS2CCmdModifyGMLevelACK_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, error_),
   };
-  MsgS2CCmdMdodifyGMLevelACK_reflection_ =
+  MsgS2CCmdModifyGMLevelACK_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgS2CCmdMdodifyGMLevelACK_descriptor_,
-      MsgS2CCmdMdodifyGMLevelACK::default_instance_,
-      MsgS2CCmdMdodifyGMLevelACK_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdMdodifyGMLevelACK, _has_bits_[0]),
+      MsgS2CCmdModifyGMLevelACK_descriptor_,
+      MsgS2CCmdModifyGMLevelACK::default_instance_,
+      MsgS2CCmdModifyGMLevelACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, _has_bits_[0]),
       -1,
       -1,
-      sizeof(MsgS2CCmdMdodifyGMLevelACK),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdMdodifyGMLevelACK, _internal_metadata_),
+      sizeof(MsgS2CCmdModifyGMLevelACK),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, _internal_metadata_),
       -1);
   MsgC2SCmdReqEnterGame_descriptor_ = file->message_type(28);
   static const int MsgC2SCmdReqEnterGame_offsets_[2] = {
@@ -707,24 +707,9 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyGoldACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGoldACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqNewTask_descriptor_ = file->message_type(35);
-  static const int MsgC2SCmdReqNewTask_offsets_[1] = {
-  };
-  MsgC2SCmdReqNewTask_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgC2SCmdReqNewTask_descriptor_,
-      MsgC2SCmdReqNewTask::default_instance_,
-      MsgC2SCmdReqNewTask_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqNewTask, _has_bits_[0]),
-      -1,
-      -1,
-      sizeof(MsgC2SCmdReqNewTask),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqNewTask, _internal_metadata_),
-      -1);
-  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(36);
-  static const int MsgS2CCmdReqReplaceTask_offsets_[2] = {
+  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(35);
+  static const int MsgS2CCmdReqReplaceTask_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, task_count_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, error_),
   };
   MsgS2CCmdReqReplaceTask_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -736,6 +721,22 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       -1,
       sizeof(MsgS2CCmdReqReplaceTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, _internal_metadata_),
+      -1);
+  MsgS2CCmdReplaceTaskACK_descriptor_ = file->message_type(36);
+  static const int MsgS2CCmdReplaceTaskACK_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, error_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, infos_),
+  };
+  MsgS2CCmdReplaceTaskACK_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgS2CCmdReplaceTaskACK_descriptor_,
+      MsgS2CCmdReplaceTaskACK::default_instance_,
+      MsgS2CCmdReplaceTaskACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgS2CCmdReplaceTaskACK),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, _internal_metadata_),
       -1);
   GameError_descriptor_ = file->enum_type(0);
 }
@@ -803,9 +804,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CCmdShowGMLevelACK_descriptor_, &MsgS2CCmdShowGMLevelACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgC2SCmdReqMdodifyGMLevel_descriptor_, &MsgC2SCmdReqMdodifyGMLevel::default_instance());
+      MsgC2SCmdReqModifyGMLevel_descriptor_, &MsgC2SCmdReqModifyGMLevel::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgS2CCmdMdodifyGMLevelACK_descriptor_, &MsgS2CCmdMdodifyGMLevelACK::default_instance());
+      MsgS2CCmdModifyGMLevelACK_descriptor_, &MsgS2CCmdModifyGMLevelACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgC2SCmdReqEnterGame_descriptor_, &MsgC2SCmdReqEnterGame::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -821,9 +822,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CCmdModifyGoldACK_descriptor_, &MsgS2CCmdModifyGoldACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgC2SCmdReqNewTask_descriptor_, &MsgC2SCmdReqNewTask::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CCmdReqReplaceTask_descriptor_, &MsgS2CCmdReqReplaceTask::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgS2CCmdReplaceTaskACK_descriptor_, &MsgS2CCmdReplaceTaskACK::default_instance());
 }
 
 }  // namespace
@@ -881,10 +882,10 @@ void protobuf_ShutdownFile_dream_5fheroes_2eproto() {
   delete MsgC2SCmdReqShowGMLevel_reflection_;
   delete MsgS2CCmdShowGMLevelACK::default_instance_;
   delete MsgS2CCmdShowGMLevelACK_reflection_;
-  delete MsgC2SCmdReqMdodifyGMLevel::default_instance_;
-  delete MsgC2SCmdReqMdodifyGMLevel_reflection_;
-  delete MsgS2CCmdMdodifyGMLevelACK::default_instance_;
-  delete MsgS2CCmdMdodifyGMLevelACK_reflection_;
+  delete MsgC2SCmdReqModifyGMLevel::default_instance_;
+  delete MsgC2SCmdReqModifyGMLevel_reflection_;
+  delete MsgS2CCmdModifyGMLevelACK::default_instance_;
+  delete MsgS2CCmdModifyGMLevelACK_reflection_;
   delete MsgC2SCmdReqEnterGame::default_instance_;
   delete MsgC2SCmdReqEnterGame_reflection_;
   delete MsgC2SCmdReqResetMap::default_instance_;
@@ -899,10 +900,10 @@ void protobuf_ShutdownFile_dream_5fheroes_2eproto() {
   delete MsgC2SCmdReqModifyGold_reflection_;
   delete MsgS2CCmdModifyGoldACK::default_instance_;
   delete MsgS2CCmdModifyGoldACK_reflection_;
-  delete MsgC2SCmdReqNewTask::default_instance_;
-  delete MsgC2SCmdReqNewTask_reflection_;
   delete MsgS2CCmdReqReplaceTask::default_instance_;
   delete MsgS2CCmdReqReplaceTask_reflection_;
+  delete MsgS2CCmdReplaceTaskACK::default_instance_;
+  delete MsgS2CCmdReplaceTaskACK_reflection_;
 }
 
 void protobuf_AddDesc_dream_5fheroes_2eproto() {
@@ -976,50 +977,51 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "essage.MsgGoldShopConfigInfo\"\031\n\027MsgC2SCm"
     "dReqShowGMLevel\"X\n\027MsgS2CCmdShowGMLevelA"
     "CK\022\020\n\010gm_level\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.me"
-    "ssage.GameError:\010Error_NO\"9\n\032MsgC2SCmdRe"
-    "qMdodifyGMLevel\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002"
-    " \002(\005\"f\n\032MsgS2CCmdMdodifyGMLevelACK\022\014\n\004na"
-    "me\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022"
-    ".message.GameError:\010Error_NO\"\?\n\025MsgC2SCm"
-    "dReqEnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsec"
-    "tion_id\030\002 \002(\005\">\n\024MsgC2SCmdReqResetMap\022\022\n"
-    "\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"k\n"
-    "\024MsgS2CCmdResetMapACK\022\022\n\nchapter_id\030\001 \002("
-    "\005\022\022\n\nsection_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.m"
-    "essage.GameError:\010Error_NO\"\027\n\025MsgC2SCmdR"
-    "eqResetGame\"\256\001\n\025MsgS2CCmdResetGameACK\022\"\n"
-    "\004info\030\001 \002(\0132\024.message.MsgHeroData\022#\n\033cur"
-    "rent_advertisement_count\030\002 \002(\005\022\037\n\027last_a"
-    "dvertisement_time\030\003 \002(\003\022+\n\005error\030\004 \002(\0162\022"
-    ".message.GameError:\010Error_NO\"&\n\026MsgC2SCm"
-    "dReqModifyGold\022\014\n\004gold\030\001 \002(\005\"&\n\026MsgS2CCm"
-    "dModifyGoldACK\022\014\n\004gold\030\001 \002(\005\"\025\n\023MsgC2SCm"
-    "dReqNewTask\"Z\n\027MsgS2CCmdReqReplaceTask\022\022"
-    "\n\ntask_count\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.mess"
-    "age.GameError:\010Error_NO*\241\007\n\tGameError\022\014\n"
-    "\010Error_NO\020\000\022*\n&Error_CanNotEnterGameTheI"
-    "nstanceIsLock\020\001\022+\n\'Error_CanNotEnterGame"
-    "TheCharacterIsLock\020\002\022)\n%Error_CanNotEnte"
-    "rGameTheSectionIsLock\020\003\022$\n Error_CanNotB"
-    "uyHeroNotEnoughgold\020\004\0224\n0Error_CanNotPas"
-    "sGameTheInstanceNotHaveEnoughGold\020\005\022\035\n\031E"
-    "rror_NotEnterTheExitGame\020\006\022)\n%Error_NotF"
-    "oundTheChapterWhenEnterGame\020\007\022\035\n\031Error_T"
-    "heChapterIsNotLock\020\010\0225\n1Error_UnlockChap"
-    "terFailedNotFoundTheUnlockChapter\020\t\0226\n2E"
-    "rror_UnlockChapterFailedTheRequiredSecti"
-    "onNotPass\020\n\0229\n5Error_UnlockChapterFailed"
-    "YouHaveToCompleteEnoughTasks\020\013\0221\n-Error_"
-    "UnlockChapterFailedYouNotHaveEnoughGold\020"
-    "\014\022,\n(Error_RefreshAdvertisementTaskFaile"
-    "dInCD\020\r\022<\n8Error_RefreshAdvertisementTas"
-    "kFailedNotFoundGiveUpTaskID\020\016\022.\n*Error_R"
-    "efreshAdvertisementTaskFailedUnknow\020\017\022$\n"
-    " Error_BuyHeroFailedNotEnoughGold\020\020\022$\n E"
-    "rror_BuyHeroFailedThePriceIsOld\020\021\022#\n\037Err"
-    "or_BuyHeroFailedNotFoundGrid\020\022\022/\n+Error_"
-    "ModifyCurrentFailedTheCharacterIsLock\020\023\022"
-    "\"\n\036Error_CmdFailedRequiredGMLevel\020\024", 4275);
+    "ssage.GameError:\010Error_NO\"8\n\031MsgC2SCmdRe"
+    "qModifyGMLevel\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 "
+    "\002(\005\"e\n\031MsgS2CCmdModifyGMLevelACK\022\014\n\004name"
+    "\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.m"
+    "essage.GameError:\010Error_NO\"\?\n\025MsgC2SCmdR"
+    "eqEnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsecti"
+    "on_id\030\002 \002(\005\">\n\024MsgC2SCmdReqResetMap\022\022\n\nc"
+    "hapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"k\n\024M"
+    "sgS2CCmdResetMapACK\022\022\n\nchapter_id\030\001 \002(\005\022"
+    "\022\n\nsection_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.mes"
+    "sage.GameError:\010Error_NO\"\027\n\025MsgC2SCmdReq"
+    "ResetGame\"\256\001\n\025MsgS2CCmdResetGameACK\022\"\n\004i"
+    "nfo\030\001 \002(\0132\024.message.MsgHeroData\022#\n\033curre"
+    "nt_advertisement_count\030\002 \002(\005\022\037\n\027last_adv"
+    "ertisement_time\030\003 \002(\003\022+\n\005error\030\004 \002(\0162\022.m"
+    "essage.GameError:\010Error_NO\"&\n\026MsgC2SCmdR"
+    "eqModifyGold\022\014\n\004gold\030\001 \002(\005\"&\n\026MsgS2CCmdM"
+    "odifyGoldACK\022\014\n\004gold\030\001 \002(\005\"-\n\027MsgS2CCmdR"
+    "eqReplaceTask\022\022\n\ntask_count\030\001 \002(\005\"q\n\027Msg"
+    "S2CCmdReplaceTaskACK\022+\n\005error\030\001 \002(\0162\022.me"
+    "ssage.GameError:\010Error_NO\022)\n\005infos\030\002 \003(\013"
+    "2\032.message.MsgTaskConfigInfo*\241\007\n\tGameErr"
+    "or\022\014\n\010Error_NO\020\000\022*\n&Error_CanNotEnterGam"
+    "eTheInstanceIsLock\020\001\022+\n\'Error_CanNotEnte"
+    "rGameTheCharacterIsLock\020\002\022)\n%Error_CanNo"
+    "tEnterGameTheSectionIsLock\020\003\022$\n Error_Ca"
+    "nNotBuyHeroNotEnoughgold\020\004\0224\n0Error_CanN"
+    "otPassGameTheInstanceNotHaveEnoughGold\020\005"
+    "\022\035\n\031Error_NotEnterTheExitGame\020\006\022)\n%Error"
+    "_NotFoundTheChapterWhenEnterGame\020\007\022\035\n\031Er"
+    "ror_TheChapterIsNotLock\020\010\0225\n1Error_Unloc"
+    "kChapterFailedNotFoundTheUnlockChapter\020\t"
+    "\0226\n2Error_UnlockChapterFailedTheRequired"
+    "SectionNotPass\020\n\0229\n5Error_UnlockChapterF"
+    "ailedYouHaveToCompleteEnoughTasks\020\013\0221\n-E"
+    "rror_UnlockChapterFailedYouNotHaveEnough"
+    "Gold\020\014\022,\n(Error_RefreshAdvertisementTask"
+    "FailedInCD\020\r\022<\n8Error_RefreshAdvertiseme"
+    "ntTaskFailedNotFoundGiveUpTaskID\020\016\022.\n*Er"
+    "ror_RefreshAdvertisementTaskFailedUnknow"
+    "\020\017\022$\n Error_BuyHeroFailedNotEnoughGold\020\020"
+    "\022$\n Error_BuyHeroFailedThePriceIsOld\020\021\022#"
+    "\n\037Error_BuyHeroFailedNotFoundGrid\020\022\022/\n+E"
+    "rror_ModifyCurrentFailedTheCharacterIsLo"
+    "ck\020\023\022\"\n\036Error_CmdFailedRequiredGMLevel\020\024", 4320);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgS2CNotifyError::default_instance_ = new MsgS2CNotifyError();
@@ -1048,8 +1050,8 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CGoldShopConfigsACK::default_instance_ = new MsgS2CGoldShopConfigsACK();
   MsgC2SCmdReqShowGMLevel::default_instance_ = new MsgC2SCmdReqShowGMLevel();
   MsgS2CCmdShowGMLevelACK::default_instance_ = new MsgS2CCmdShowGMLevelACK();
-  MsgC2SCmdReqMdodifyGMLevel::default_instance_ = new MsgC2SCmdReqMdodifyGMLevel();
-  MsgS2CCmdMdodifyGMLevelACK::default_instance_ = new MsgS2CCmdMdodifyGMLevelACK();
+  MsgC2SCmdReqModifyGMLevel::default_instance_ = new MsgC2SCmdReqModifyGMLevel();
+  MsgS2CCmdModifyGMLevelACK::default_instance_ = new MsgS2CCmdModifyGMLevelACK();
   MsgC2SCmdReqEnterGame::default_instance_ = new MsgC2SCmdReqEnterGame();
   MsgC2SCmdReqResetMap::default_instance_ = new MsgC2SCmdReqResetMap();
   MsgS2CCmdResetMapACK::default_instance_ = new MsgS2CCmdResetMapACK();
@@ -1057,8 +1059,8 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CCmdResetGameACK::default_instance_ = new MsgS2CCmdResetGameACK();
   MsgC2SCmdReqModifyGold::default_instance_ = new MsgC2SCmdReqModifyGold();
   MsgS2CCmdModifyGoldACK::default_instance_ = new MsgS2CCmdModifyGoldACK();
-  MsgC2SCmdReqNewTask::default_instance_ = new MsgC2SCmdReqNewTask();
   MsgS2CCmdReqReplaceTask::default_instance_ = new MsgS2CCmdReqReplaceTask();
+  MsgS2CCmdReplaceTaskACK::default_instance_ = new MsgS2CCmdReplaceTaskACK();
   MsgS2CNotifyError::default_instance_->InitAsDefaultInstance();
   MsgC2SReqShopConfig::default_instance_->InitAsDefaultInstance();
   MsgS2CShopConfigACK::default_instance_->InitAsDefaultInstance();
@@ -1085,8 +1087,8 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CGoldShopConfigsACK::default_instance_->InitAsDefaultInstance();
   MsgC2SCmdReqShowGMLevel::default_instance_->InitAsDefaultInstance();
   MsgS2CCmdShowGMLevelACK::default_instance_->InitAsDefaultInstance();
-  MsgC2SCmdReqMdodifyGMLevel::default_instance_->InitAsDefaultInstance();
-  MsgS2CCmdMdodifyGMLevelACK::default_instance_->InitAsDefaultInstance();
+  MsgC2SCmdReqModifyGMLevel::default_instance_->InitAsDefaultInstance();
+  MsgS2CCmdModifyGMLevelACK::default_instance_->InitAsDefaultInstance();
   MsgC2SCmdReqEnterGame::default_instance_->InitAsDefaultInstance();
   MsgC2SCmdReqResetMap::default_instance_->InitAsDefaultInstance();
   MsgS2CCmdResetMapACK::default_instance_->InitAsDefaultInstance();
@@ -1094,8 +1096,8 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CCmdResetGameACK::default_instance_->InitAsDefaultInstance();
   MsgC2SCmdReqModifyGold::default_instance_->InitAsDefaultInstance();
   MsgS2CCmdModifyGoldACK::default_instance_->InitAsDefaultInstance();
-  MsgC2SCmdReqNewTask::default_instance_->InitAsDefaultInstance();
   MsgS2CCmdReqReplaceTask::default_instance_->InitAsDefaultInstance();
+  MsgS2CCmdReplaceTaskACK::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_dream_5fheroes_2eproto);
 }
 
@@ -10458,28 +10460,28 @@ void MsgS2CCmdShowGMLevelACK::InternalSwap(MsgS2CCmdShowGMLevelACK* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgC2SCmdReqMdodifyGMLevel::kNameFieldNumber;
-const int MsgC2SCmdReqMdodifyGMLevel::kLevelFieldNumber;
+const int MsgC2SCmdReqModifyGMLevel::kNameFieldNumber;
+const int MsgC2SCmdReqModifyGMLevel::kLevelFieldNumber;
 #endif  // !_MSC_VER
 
-MsgC2SCmdReqMdodifyGMLevel::MsgC2SCmdReqMdodifyGMLevel()
+MsgC2SCmdReqModifyGMLevel::MsgC2SCmdReqModifyGMLevel()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgC2SCmdReqMdodifyGMLevel)
+  // @@protoc_insertion_point(constructor:message.MsgC2SCmdReqModifyGMLevel)
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::InitAsDefaultInstance() {
+void MsgC2SCmdReqModifyGMLevel::InitAsDefaultInstance() {
 }
 
-MsgC2SCmdReqMdodifyGMLevel::MsgC2SCmdReqMdodifyGMLevel(const MsgC2SCmdReqMdodifyGMLevel& from)
+MsgC2SCmdReqModifyGMLevel::MsgC2SCmdReqModifyGMLevel(const MsgC2SCmdReqModifyGMLevel& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgC2SCmdReqMdodifyGMLevel)
+  // @@protoc_insertion_point(copy_constructor:message.MsgC2SCmdReqModifyGMLevel)
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::SharedCtor() {
+void MsgC2SCmdReqModifyGMLevel::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -10487,43 +10489,43 @@ void MsgC2SCmdReqMdodifyGMLevel::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgC2SCmdReqMdodifyGMLevel::~MsgC2SCmdReqMdodifyGMLevel() {
-  // @@protoc_insertion_point(destructor:message.MsgC2SCmdReqMdodifyGMLevel)
+MsgC2SCmdReqModifyGMLevel::~MsgC2SCmdReqModifyGMLevel() {
+  // @@protoc_insertion_point(destructor:message.MsgC2SCmdReqModifyGMLevel)
   SharedDtor();
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::SharedDtor() {
+void MsgC2SCmdReqModifyGMLevel::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::SetCachedSize(int size) const {
+void MsgC2SCmdReqModifyGMLevel::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgC2SCmdReqMdodifyGMLevel::descriptor() {
+const ::google::protobuf::Descriptor* MsgC2SCmdReqModifyGMLevel::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgC2SCmdReqMdodifyGMLevel_descriptor_;
+  return MsgC2SCmdReqModifyGMLevel_descriptor_;
 }
 
-const MsgC2SCmdReqMdodifyGMLevel& MsgC2SCmdReqMdodifyGMLevel::default_instance() {
+const MsgC2SCmdReqModifyGMLevel& MsgC2SCmdReqModifyGMLevel::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
   return *default_instance_;
 }
 
-MsgC2SCmdReqMdodifyGMLevel* MsgC2SCmdReqMdodifyGMLevel::default_instance_ = NULL;
+MsgC2SCmdReqModifyGMLevel* MsgC2SCmdReqModifyGMLevel::default_instance_ = NULL;
 
-MsgC2SCmdReqMdodifyGMLevel* MsgC2SCmdReqMdodifyGMLevel::New(::google::protobuf::Arena* arena) const {
-  MsgC2SCmdReqMdodifyGMLevel* n = new MsgC2SCmdReqMdodifyGMLevel;
+MsgC2SCmdReqModifyGMLevel* MsgC2SCmdReqModifyGMLevel::New(::google::protobuf::Arena* arena) const {
+  MsgC2SCmdReqModifyGMLevel* n = new MsgC2SCmdReqModifyGMLevel;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::Clear() {
+void MsgC2SCmdReqModifyGMLevel::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     if (has_name()) {
       name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -10536,11 +10538,11 @@ void MsgC2SCmdReqMdodifyGMLevel::Clear() {
   }
 }
 
-bool MsgC2SCmdReqMdodifyGMLevel::MergePartialFromCodedStream(
+bool MsgC2SCmdReqModifyGMLevel::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgC2SCmdReqMdodifyGMLevel)
+  // @@protoc_insertion_point(parse_start:message.MsgC2SCmdReqModifyGMLevel)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -10554,7 +10556,7 @@ bool MsgC2SCmdReqMdodifyGMLevel::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "message.MsgC2SCmdReqMdodifyGMLevel.name");
+            "message.MsgC2SCmdReqModifyGMLevel.name");
         } else {
           goto handle_unusual;
         }
@@ -10591,23 +10593,23 @@ bool MsgC2SCmdReqMdodifyGMLevel::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:message.MsgC2SCmdReqMdodifyGMLevel)
+  // @@protoc_insertion_point(parse_success:message.MsgC2SCmdReqModifyGMLevel)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgC2SCmdReqMdodifyGMLevel)
+  // @@protoc_insertion_point(parse_failure:message.MsgC2SCmdReqModifyGMLevel)
   return false;
 #undef DO_
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::SerializeWithCachedSizes(
+void MsgC2SCmdReqModifyGMLevel::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgC2SCmdReqMdodifyGMLevel)
+  // @@protoc_insertion_point(serialize_start:message.MsgC2SCmdReqModifyGMLevel)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgC2SCmdReqMdodifyGMLevel.name");
+      "message.MsgC2SCmdReqModifyGMLevel.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -10621,18 +10623,18 @@ void MsgC2SCmdReqMdodifyGMLevel::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:message.MsgC2SCmdReqMdodifyGMLevel)
+  // @@protoc_insertion_point(serialize_end:message.MsgC2SCmdReqModifyGMLevel)
 }
 
-::google::protobuf::uint8* MsgC2SCmdReqMdodifyGMLevel::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgC2SCmdReqModifyGMLevel::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SCmdReqMdodifyGMLevel)
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SCmdReqModifyGMLevel)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgC2SCmdReqMdodifyGMLevel.name");
+      "message.MsgC2SCmdReqModifyGMLevel.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -10647,11 +10649,11 @@ void MsgC2SCmdReqMdodifyGMLevel::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SCmdReqMdodifyGMLevel)
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SCmdReqModifyGMLevel)
   return target;
 }
 
-int MsgC2SCmdReqMdodifyGMLevel::RequiredFieldsByteSizeFallback() const {
+int MsgC2SCmdReqModifyGMLevel::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_name()) {
@@ -10670,7 +10672,7 @@ int MsgC2SCmdReqMdodifyGMLevel::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-int MsgC2SCmdReqMdodifyGMLevel::ByteSize() const {
+int MsgC2SCmdReqModifyGMLevel::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
@@ -10698,10 +10700,10 @@ int MsgC2SCmdReqMdodifyGMLevel::ByteSize() const {
   return total_size;
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgC2SCmdReqModifyGMLevel::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgC2SCmdReqMdodifyGMLevel* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SCmdReqMdodifyGMLevel*>(
+  const MsgC2SCmdReqModifyGMLevel* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SCmdReqModifyGMLevel*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -10710,7 +10712,7 @@ void MsgC2SCmdReqMdodifyGMLevel::MergeFrom(const ::google::protobuf::Message& fr
   }
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::MergeFrom(const MsgC2SCmdReqMdodifyGMLevel& from) {
+void MsgC2SCmdReqModifyGMLevel::MergeFrom(const MsgC2SCmdReqModifyGMLevel& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
@@ -10726,29 +10728,29 @@ void MsgC2SCmdReqMdodifyGMLevel::MergeFrom(const MsgC2SCmdReqMdodifyGMLevel& fro
   }
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgC2SCmdReqModifyGMLevel::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::CopyFrom(const MsgC2SCmdReqMdodifyGMLevel& from) {
+void MsgC2SCmdReqModifyGMLevel::CopyFrom(const MsgC2SCmdReqModifyGMLevel& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgC2SCmdReqMdodifyGMLevel::IsInitialized() const {
+bool MsgC2SCmdReqModifyGMLevel::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
-void MsgC2SCmdReqMdodifyGMLevel::Swap(MsgC2SCmdReqMdodifyGMLevel* other) {
+void MsgC2SCmdReqModifyGMLevel::Swap(MsgC2SCmdReqModifyGMLevel* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgC2SCmdReqMdodifyGMLevel::InternalSwap(MsgC2SCmdReqMdodifyGMLevel* other) {
+void MsgC2SCmdReqModifyGMLevel::InternalSwap(MsgC2SCmdReqModifyGMLevel* other) {
   name_.Swap(&other->name_);
   std::swap(level_, other->level_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -10756,92 +10758,92 @@ void MsgC2SCmdReqMdodifyGMLevel::InternalSwap(MsgC2SCmdReqMdodifyGMLevel* other)
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata MsgC2SCmdReqMdodifyGMLevel::GetMetadata() const {
+::google::protobuf::Metadata MsgC2SCmdReqModifyGMLevel::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgC2SCmdReqMdodifyGMLevel_descriptor_;
-  metadata.reflection = MsgC2SCmdReqMdodifyGMLevel_reflection_;
+  metadata.descriptor = MsgC2SCmdReqModifyGMLevel_descriptor_;
+  metadata.reflection = MsgC2SCmdReqModifyGMLevel_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgC2SCmdReqMdodifyGMLevel
+// MsgC2SCmdReqModifyGMLevel
 
 // required string name = 1;
- bool MsgC2SCmdReqMdodifyGMLevel::has_name() const {
+ bool MsgC2SCmdReqModifyGMLevel::has_name() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgC2SCmdReqMdodifyGMLevel::set_has_name() {
+ void MsgC2SCmdReqModifyGMLevel::set_has_name() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgC2SCmdReqMdodifyGMLevel::clear_has_name() {
+ void MsgC2SCmdReqModifyGMLevel::clear_has_name() {
   _has_bits_[0] &= ~0x00000001u;
 }
- void MsgC2SCmdReqMdodifyGMLevel::clear_name() {
+ void MsgC2SCmdReqModifyGMLevel::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_name();
 }
- const ::std::string& MsgC2SCmdReqMdodifyGMLevel::name() const {
-  // @@protoc_insertion_point(field_get:message.MsgC2SCmdReqMdodifyGMLevel.name)
+ const ::std::string& MsgC2SCmdReqModifyGMLevel::name() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SCmdReqModifyGMLevel.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgC2SCmdReqMdodifyGMLevel::set_name(const ::std::string& value) {
+ void MsgC2SCmdReqModifyGMLevel::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgC2SCmdReqMdodifyGMLevel.name)
+  // @@protoc_insertion_point(field_set:message.MsgC2SCmdReqModifyGMLevel.name)
 }
- void MsgC2SCmdReqMdodifyGMLevel::set_name(const char* value) {
+ void MsgC2SCmdReqModifyGMLevel::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgC2SCmdReqMdodifyGMLevel.name)
+  // @@protoc_insertion_point(field_set_char:message.MsgC2SCmdReqModifyGMLevel.name)
 }
- void MsgC2SCmdReqMdodifyGMLevel::set_name(const char* value, size_t size) {
+ void MsgC2SCmdReqModifyGMLevel::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgC2SCmdReqMdodifyGMLevel.name)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgC2SCmdReqModifyGMLevel.name)
 }
- ::std::string* MsgC2SCmdReqMdodifyGMLevel::mutable_name() {
+ ::std::string* MsgC2SCmdReqModifyGMLevel::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:message.MsgC2SCmdReqMdodifyGMLevel.name)
+  // @@protoc_insertion_point(field_mutable:message.MsgC2SCmdReqModifyGMLevel.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* MsgC2SCmdReqMdodifyGMLevel::release_name() {
+ ::std::string* MsgC2SCmdReqModifyGMLevel::release_name() {
   clear_has_name();
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgC2SCmdReqMdodifyGMLevel::set_allocated_name(::std::string* name) {
+ void MsgC2SCmdReqModifyGMLevel::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     set_has_name();
   } else {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgC2SCmdReqMdodifyGMLevel.name)
+  // @@protoc_insertion_point(field_set_allocated:message.MsgC2SCmdReqModifyGMLevel.name)
 }
 
 // required int32 level = 2;
- bool MsgC2SCmdReqMdodifyGMLevel::has_level() const {
+ bool MsgC2SCmdReqModifyGMLevel::has_level() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
- void MsgC2SCmdReqMdodifyGMLevel::set_has_level() {
+ void MsgC2SCmdReqModifyGMLevel::set_has_level() {
   _has_bits_[0] |= 0x00000002u;
 }
- void MsgC2SCmdReqMdodifyGMLevel::clear_has_level() {
+ void MsgC2SCmdReqModifyGMLevel::clear_has_level() {
   _has_bits_[0] &= ~0x00000002u;
 }
- void MsgC2SCmdReqMdodifyGMLevel::clear_level() {
+ void MsgC2SCmdReqModifyGMLevel::clear_level() {
   level_ = 0;
   clear_has_level();
 }
- ::google::protobuf::int32 MsgC2SCmdReqMdodifyGMLevel::level() const {
-  // @@protoc_insertion_point(field_get:message.MsgC2SCmdReqMdodifyGMLevel.level)
+ ::google::protobuf::int32 MsgC2SCmdReqModifyGMLevel::level() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SCmdReqModifyGMLevel.level)
   return level_;
 }
- void MsgC2SCmdReqMdodifyGMLevel::set_level(::google::protobuf::int32 value) {
+ void MsgC2SCmdReqModifyGMLevel::set_level(::google::protobuf::int32 value) {
   set_has_level();
   level_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgC2SCmdReqMdodifyGMLevel.level)
+  // @@protoc_insertion_point(field_set:message.MsgC2SCmdReqModifyGMLevel.level)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -10849,29 +10851,29 @@ void MsgC2SCmdReqMdodifyGMLevel::InternalSwap(MsgC2SCmdReqMdodifyGMLevel* other)
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgS2CCmdMdodifyGMLevelACK::kNameFieldNumber;
-const int MsgS2CCmdMdodifyGMLevelACK::kLevelFieldNumber;
-const int MsgS2CCmdMdodifyGMLevelACK::kErrorFieldNumber;
+const int MsgS2CCmdModifyGMLevelACK::kNameFieldNumber;
+const int MsgS2CCmdModifyGMLevelACK::kLevelFieldNumber;
+const int MsgS2CCmdModifyGMLevelACK::kErrorFieldNumber;
 #endif  // !_MSC_VER
 
-MsgS2CCmdMdodifyGMLevelACK::MsgS2CCmdMdodifyGMLevelACK()
+MsgS2CCmdModifyGMLevelACK::MsgS2CCmdModifyGMLevelACK()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgS2CCmdMdodifyGMLevelACK)
+  // @@protoc_insertion_point(constructor:message.MsgS2CCmdModifyGMLevelACK)
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::InitAsDefaultInstance() {
+void MsgS2CCmdModifyGMLevelACK::InitAsDefaultInstance() {
 }
 
-MsgS2CCmdMdodifyGMLevelACK::MsgS2CCmdMdodifyGMLevelACK(const MsgS2CCmdMdodifyGMLevelACK& from)
+MsgS2CCmdModifyGMLevelACK::MsgS2CCmdModifyGMLevelACK(const MsgS2CCmdModifyGMLevelACK& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgS2CCmdMdodifyGMLevelACK)
+  // @@protoc_insertion_point(copy_constructor:message.MsgS2CCmdModifyGMLevelACK)
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::SharedCtor() {
+void MsgS2CCmdModifyGMLevelACK::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -10880,45 +10882,45 @@ void MsgS2CCmdMdodifyGMLevelACK::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgS2CCmdMdodifyGMLevelACK::~MsgS2CCmdMdodifyGMLevelACK() {
-  // @@protoc_insertion_point(destructor:message.MsgS2CCmdMdodifyGMLevelACK)
+MsgS2CCmdModifyGMLevelACK::~MsgS2CCmdModifyGMLevelACK() {
+  // @@protoc_insertion_point(destructor:message.MsgS2CCmdModifyGMLevelACK)
   SharedDtor();
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::SharedDtor() {
+void MsgS2CCmdModifyGMLevelACK::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::SetCachedSize(int size) const {
+void MsgS2CCmdModifyGMLevelACK::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgS2CCmdMdodifyGMLevelACK::descriptor() {
+const ::google::protobuf::Descriptor* MsgS2CCmdModifyGMLevelACK::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgS2CCmdMdodifyGMLevelACK_descriptor_;
+  return MsgS2CCmdModifyGMLevelACK_descriptor_;
 }
 
-const MsgS2CCmdMdodifyGMLevelACK& MsgS2CCmdMdodifyGMLevelACK::default_instance() {
+const MsgS2CCmdModifyGMLevelACK& MsgS2CCmdModifyGMLevelACK::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
   return *default_instance_;
 }
 
-MsgS2CCmdMdodifyGMLevelACK* MsgS2CCmdMdodifyGMLevelACK::default_instance_ = NULL;
+MsgS2CCmdModifyGMLevelACK* MsgS2CCmdModifyGMLevelACK::default_instance_ = NULL;
 
-MsgS2CCmdMdodifyGMLevelACK* MsgS2CCmdMdodifyGMLevelACK::New(::google::protobuf::Arena* arena) const {
-  MsgS2CCmdMdodifyGMLevelACK* n = new MsgS2CCmdMdodifyGMLevelACK;
+MsgS2CCmdModifyGMLevelACK* MsgS2CCmdModifyGMLevelACK::New(::google::protobuf::Arena* arena) const {
+  MsgS2CCmdModifyGMLevelACK* n = new MsgS2CCmdModifyGMLevelACK;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::Clear() {
+void MsgS2CCmdModifyGMLevelACK::Clear() {
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<MsgS2CCmdMdodifyGMLevelACK*>(16)->f)
+  &reinterpret_cast<MsgS2CCmdModifyGMLevelACK*>(16)->f)
 
 #define ZR_(first, last) do {\
   ::memset(&first, 0,\
@@ -10941,11 +10943,11 @@ void MsgS2CCmdMdodifyGMLevelACK::Clear() {
   }
 }
 
-bool MsgS2CCmdMdodifyGMLevelACK::MergePartialFromCodedStream(
+bool MsgS2CCmdModifyGMLevelACK::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgS2CCmdMdodifyGMLevelACK)
+  // @@protoc_insertion_point(parse_start:message.MsgS2CCmdModifyGMLevelACK)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -10959,7 +10961,7 @@ bool MsgS2CCmdMdodifyGMLevelACK::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "message.MsgS2CCmdMdodifyGMLevelACK.name");
+            "message.MsgS2CCmdModifyGMLevelACK.name");
         } else {
           goto handle_unusual;
         }
@@ -11016,23 +11018,23 @@ bool MsgS2CCmdMdodifyGMLevelACK::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:message.MsgS2CCmdMdodifyGMLevelACK)
+  // @@protoc_insertion_point(parse_success:message.MsgS2CCmdModifyGMLevelACK)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgS2CCmdMdodifyGMLevelACK)
+  // @@protoc_insertion_point(parse_failure:message.MsgS2CCmdModifyGMLevelACK)
   return false;
 #undef DO_
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::SerializeWithCachedSizes(
+void MsgS2CCmdModifyGMLevelACK::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgS2CCmdMdodifyGMLevelACK)
+  // @@protoc_insertion_point(serialize_start:message.MsgS2CCmdModifyGMLevelACK)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgS2CCmdMdodifyGMLevelACK.name");
+      "message.MsgS2CCmdModifyGMLevelACK.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -11052,18 +11054,18 @@ void MsgS2CCmdMdodifyGMLevelACK::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:message.MsgS2CCmdMdodifyGMLevelACK)
+  // @@protoc_insertion_point(serialize_end:message.MsgS2CCmdModifyGMLevelACK)
 }
 
-::google::protobuf::uint8* MsgS2CCmdMdodifyGMLevelACK::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgS2CCmdModifyGMLevelACK::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CCmdMdodifyGMLevelACK)
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CCmdModifyGMLevelACK)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgS2CCmdMdodifyGMLevelACK.name");
+      "message.MsgS2CCmdModifyGMLevelACK.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -11084,11 +11086,11 @@ void MsgS2CCmdMdodifyGMLevelACK::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CCmdMdodifyGMLevelACK)
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CCmdModifyGMLevelACK)
   return target;
 }
 
-int MsgS2CCmdMdodifyGMLevelACK::RequiredFieldsByteSizeFallback() const {
+int MsgS2CCmdModifyGMLevelACK::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_name()) {
@@ -11113,7 +11115,7 @@ int MsgS2CCmdMdodifyGMLevelACK::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-int MsgS2CCmdMdodifyGMLevelACK::ByteSize() const {
+int MsgS2CCmdModifyGMLevelACK::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
@@ -11145,10 +11147,10 @@ int MsgS2CCmdMdodifyGMLevelACK::ByteSize() const {
   return total_size;
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgS2CCmdModifyGMLevelACK::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgS2CCmdMdodifyGMLevelACK* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CCmdMdodifyGMLevelACK*>(
+  const MsgS2CCmdModifyGMLevelACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CCmdModifyGMLevelACK*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -11157,7 +11159,7 @@ void MsgS2CCmdMdodifyGMLevelACK::MergeFrom(const ::google::protobuf::Message& fr
   }
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::MergeFrom(const MsgS2CCmdMdodifyGMLevelACK& from) {
+void MsgS2CCmdModifyGMLevelACK::MergeFrom(const MsgS2CCmdModifyGMLevelACK& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
@@ -11176,29 +11178,29 @@ void MsgS2CCmdMdodifyGMLevelACK::MergeFrom(const MsgS2CCmdMdodifyGMLevelACK& fro
   }
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgS2CCmdModifyGMLevelACK::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::CopyFrom(const MsgS2CCmdMdodifyGMLevelACK& from) {
+void MsgS2CCmdModifyGMLevelACK::CopyFrom(const MsgS2CCmdModifyGMLevelACK& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgS2CCmdMdodifyGMLevelACK::IsInitialized() const {
+bool MsgS2CCmdModifyGMLevelACK::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
 
-void MsgS2CCmdMdodifyGMLevelACK::Swap(MsgS2CCmdMdodifyGMLevelACK* other) {
+void MsgS2CCmdModifyGMLevelACK::Swap(MsgS2CCmdModifyGMLevelACK* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgS2CCmdMdodifyGMLevelACK::InternalSwap(MsgS2CCmdMdodifyGMLevelACK* other) {
+void MsgS2CCmdModifyGMLevelACK::InternalSwap(MsgS2CCmdModifyGMLevelACK* other) {
   name_.Swap(&other->name_);
   std::swap(level_, other->level_);
   std::swap(error_, other->error_);
@@ -11207,117 +11209,117 @@ void MsgS2CCmdMdodifyGMLevelACK::InternalSwap(MsgS2CCmdMdodifyGMLevelACK* other)
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata MsgS2CCmdMdodifyGMLevelACK::GetMetadata() const {
+::google::protobuf::Metadata MsgS2CCmdModifyGMLevelACK::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgS2CCmdMdodifyGMLevelACK_descriptor_;
-  metadata.reflection = MsgS2CCmdMdodifyGMLevelACK_reflection_;
+  metadata.descriptor = MsgS2CCmdModifyGMLevelACK_descriptor_;
+  metadata.reflection = MsgS2CCmdModifyGMLevelACK_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgS2CCmdMdodifyGMLevelACK
+// MsgS2CCmdModifyGMLevelACK
 
 // required string name = 1;
- bool MsgS2CCmdMdodifyGMLevelACK::has_name() const {
+ bool MsgS2CCmdModifyGMLevelACK::has_name() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgS2CCmdMdodifyGMLevelACK::set_has_name() {
+ void MsgS2CCmdModifyGMLevelACK::set_has_name() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgS2CCmdMdodifyGMLevelACK::clear_has_name() {
+ void MsgS2CCmdModifyGMLevelACK::clear_has_name() {
   _has_bits_[0] &= ~0x00000001u;
 }
- void MsgS2CCmdMdodifyGMLevelACK::clear_name() {
+ void MsgS2CCmdModifyGMLevelACK::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_name();
 }
- const ::std::string& MsgS2CCmdMdodifyGMLevelACK::name() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CCmdMdodifyGMLevelACK.name)
+ const ::std::string& MsgS2CCmdModifyGMLevelACK::name() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdModifyGMLevelACK.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgS2CCmdMdodifyGMLevelACK::set_name(const ::std::string& value) {
+ void MsgS2CCmdModifyGMLevelACK::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgS2CCmdMdodifyGMLevelACK.name)
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdModifyGMLevelACK.name)
 }
- void MsgS2CCmdMdodifyGMLevelACK::set_name(const char* value) {
+ void MsgS2CCmdModifyGMLevelACK::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgS2CCmdMdodifyGMLevelACK.name)
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CCmdModifyGMLevelACK.name)
 }
- void MsgS2CCmdMdodifyGMLevelACK::set_name(const char* value, size_t size) {
+ void MsgS2CCmdModifyGMLevelACK::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CCmdMdodifyGMLevelACK.name)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CCmdModifyGMLevelACK.name)
 }
- ::std::string* MsgS2CCmdMdodifyGMLevelACK::mutable_name() {
+ ::std::string* MsgS2CCmdModifyGMLevelACK::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:message.MsgS2CCmdMdodifyGMLevelACK.name)
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CCmdModifyGMLevelACK.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* MsgS2CCmdMdodifyGMLevelACK::release_name() {
+ ::std::string* MsgS2CCmdModifyGMLevelACK::release_name() {
   clear_has_name();
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgS2CCmdMdodifyGMLevelACK::set_allocated_name(::std::string* name) {
+ void MsgS2CCmdModifyGMLevelACK::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     set_has_name();
   } else {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CCmdMdodifyGMLevelACK.name)
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CCmdModifyGMLevelACK.name)
 }
 
 // required int32 level = 2;
- bool MsgS2CCmdMdodifyGMLevelACK::has_level() const {
+ bool MsgS2CCmdModifyGMLevelACK::has_level() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
- void MsgS2CCmdMdodifyGMLevelACK::set_has_level() {
+ void MsgS2CCmdModifyGMLevelACK::set_has_level() {
   _has_bits_[0] |= 0x00000002u;
 }
- void MsgS2CCmdMdodifyGMLevelACK::clear_has_level() {
+ void MsgS2CCmdModifyGMLevelACK::clear_has_level() {
   _has_bits_[0] &= ~0x00000002u;
 }
- void MsgS2CCmdMdodifyGMLevelACK::clear_level() {
+ void MsgS2CCmdModifyGMLevelACK::clear_level() {
   level_ = 0;
   clear_has_level();
 }
- ::google::protobuf::int32 MsgS2CCmdMdodifyGMLevelACK::level() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CCmdMdodifyGMLevelACK.level)
+ ::google::protobuf::int32 MsgS2CCmdModifyGMLevelACK::level() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdModifyGMLevelACK.level)
   return level_;
 }
- void MsgS2CCmdMdodifyGMLevelACK::set_level(::google::protobuf::int32 value) {
+ void MsgS2CCmdModifyGMLevelACK::set_level(::google::protobuf::int32 value) {
   set_has_level();
   level_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CCmdMdodifyGMLevelACK.level)
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdModifyGMLevelACK.level)
 }
 
 // required .message.GameError error = 3 [default = Error_NO];
- bool MsgS2CCmdMdodifyGMLevelACK::has_error() const {
+ bool MsgS2CCmdModifyGMLevelACK::has_error() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
- void MsgS2CCmdMdodifyGMLevelACK::set_has_error() {
+ void MsgS2CCmdModifyGMLevelACK::set_has_error() {
   _has_bits_[0] |= 0x00000004u;
 }
- void MsgS2CCmdMdodifyGMLevelACK::clear_has_error() {
+ void MsgS2CCmdModifyGMLevelACK::clear_has_error() {
   _has_bits_[0] &= ~0x00000004u;
 }
- void MsgS2CCmdMdodifyGMLevelACK::clear_error() {
+ void MsgS2CCmdModifyGMLevelACK::clear_error() {
   error_ = 0;
   clear_has_error();
 }
- ::message::GameError MsgS2CCmdMdodifyGMLevelACK::error() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CCmdMdodifyGMLevelACK.error)
+ ::message::GameError MsgS2CCmdModifyGMLevelACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdModifyGMLevelACK.error)
   return static_cast< ::message::GameError >(error_);
 }
- void MsgS2CCmdMdodifyGMLevelACK::set_error(::message::GameError value) {
+ void MsgS2CCmdModifyGMLevelACK::set_error(::message::GameError value) {
   assert(::message::GameError_IsValid(value));
   set_has_error();
   error_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CCmdMdodifyGMLevelACK.error)
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdModifyGMLevelACK.error)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -13687,197 +13689,7 @@ void MsgS2CCmdModifyGoldACK::InternalSwap(MsgS2CCmdModifyGoldACK* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-#endif  // !_MSC_VER
-
-MsgC2SCmdReqNewTask::MsgC2SCmdReqNewTask()
-  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgC2SCmdReqNewTask)
-}
-
-void MsgC2SCmdReqNewTask::InitAsDefaultInstance() {
-}
-
-MsgC2SCmdReqNewTask::MsgC2SCmdReqNewTask(const MsgC2SCmdReqNewTask& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgC2SCmdReqNewTask)
-}
-
-void MsgC2SCmdReqNewTask::SharedCtor() {
-  _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-MsgC2SCmdReqNewTask::~MsgC2SCmdReqNewTask() {
-  // @@protoc_insertion_point(destructor:message.MsgC2SCmdReqNewTask)
-  SharedDtor();
-}
-
-void MsgC2SCmdReqNewTask::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void MsgC2SCmdReqNewTask::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* MsgC2SCmdReqNewTask::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return MsgC2SCmdReqNewTask_descriptor_;
-}
-
-const MsgC2SCmdReqNewTask& MsgC2SCmdReqNewTask::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
-  return *default_instance_;
-}
-
-MsgC2SCmdReqNewTask* MsgC2SCmdReqNewTask::default_instance_ = NULL;
-
-MsgC2SCmdReqNewTask* MsgC2SCmdReqNewTask::New(::google::protobuf::Arena* arena) const {
-  MsgC2SCmdReqNewTask* n = new MsgC2SCmdReqNewTask;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void MsgC2SCmdReqNewTask::Clear() {
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
-}
-
-bool MsgC2SCmdReqNewTask::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgC2SCmdReqNewTask)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0 ||
-        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-      goto success;
-    }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, mutable_unknown_fields()));
-  }
-success:
-  // @@protoc_insertion_point(parse_success:message.MsgC2SCmdReqNewTask)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgC2SCmdReqNewTask)
-  return false;
-#undef DO_
-}
-
-void MsgC2SCmdReqNewTask::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgC2SCmdReqNewTask)
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:message.MsgC2SCmdReqNewTask)
-}
-
-::google::protobuf::uint8* MsgC2SCmdReqNewTask::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SCmdReqNewTask)
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SCmdReqNewTask)
-  return target;
-}
-
-int MsgC2SCmdReqNewTask::ByteSize() const {
-  int total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void MsgC2SCmdReqNewTask::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgC2SCmdReqNewTask* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SCmdReqNewTask*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void MsgC2SCmdReqNewTask::MergeFrom(const MsgC2SCmdReqNewTask& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-  }
-}
-
-void MsgC2SCmdReqNewTask::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void MsgC2SCmdReqNewTask::CopyFrom(const MsgC2SCmdReqNewTask& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool MsgC2SCmdReqNewTask::IsInitialized() const {
-
-  return true;
-}
-
-void MsgC2SCmdReqNewTask::Swap(MsgC2SCmdReqNewTask* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void MsgC2SCmdReqNewTask::InternalSwap(MsgC2SCmdReqNewTask* other) {
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata MsgC2SCmdReqNewTask::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgC2SCmdReqNewTask_descriptor_;
-  metadata.reflection = MsgC2SCmdReqNewTask_reflection_;
-  return metadata;
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgC2SCmdReqNewTask
-
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
-
-// ===================================================================
-
-#ifndef _MSC_VER
 const int MsgS2CCmdReqReplaceTask::kTaskCountFieldNumber;
-const int MsgS2CCmdReqReplaceTask::kErrorFieldNumber;
 #endif  // !_MSC_VER
 
 MsgS2CCmdReqReplaceTask::MsgS2CCmdReqReplaceTask()
@@ -13900,7 +13712,6 @@ MsgS2CCmdReqReplaceTask::MsgS2CCmdReqReplaceTask(const MsgS2CCmdReqReplaceTask& 
 void MsgS2CCmdReqReplaceTask::SharedCtor() {
   _cached_size_ = 0;
   task_count_ = 0;
-  error_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -13940,19 +13751,7 @@ MsgS2CCmdReqReplaceTask* MsgS2CCmdReqReplaceTask::New(::google::protobuf::Arena*
 }
 
 void MsgS2CCmdReqReplaceTask::Clear() {
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<MsgS2CCmdReqReplaceTask*>(16)->f)
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(task_count_, error_);
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  task_count_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -13976,26 +13775,6 @@ bool MsgS2CCmdReqReplaceTask::MergePartialFromCodedStream(
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &task_count_)));
           set_has_task_count();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(16)) goto parse_error;
-        break;
-      }
-
-      // required .message.GameError error = 2 [default = Error_NO];
-      case 2: {
-        if (tag == 16) {
-         parse_error:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::message::GameError_IsValid(value)) {
-            set_error(static_cast< ::message::GameError >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(2, value);
-          }
         } else {
           goto handle_unusual;
         }
@@ -14033,12 +13812,6 @@ void MsgS2CCmdReqReplaceTask::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->task_count(), output);
   }
 
-  // required .message.GameError error = 2 [default = Error_NO];
-  if (has_error()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      2, this->error(), output);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -14054,12 +13827,6 @@ void MsgS2CCmdReqReplaceTask::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->task_count(), target);
   }
 
-  // required .message.GameError error = 2 [default = Error_NO];
-  if (has_error()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      2, this->error(), target);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -14068,39 +13835,14 @@ void MsgS2CCmdReqReplaceTask::SerializeWithCachedSizes(
   return target;
 }
 
-int MsgS2CCmdReqReplaceTask::RequiredFieldsByteSizeFallback() const {
-  int total_size = 0;
-
-  if (has_task_count()) {
-    // required int32 task_count = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->task_count());
-  }
-
-  if (has_error()) {
-    // required .message.GameError error = 2 [default = Error_NO];
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
-  }
-
-  return total_size;
-}
 int MsgS2CCmdReqReplaceTask::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required int32 task_count = 1;
+  // required int32 task_count = 1;
+  if (has_task_count()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->task_count());
-
-    // required .message.GameError error = 2 [default = Error_NO];
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -14131,9 +13873,6 @@ void MsgS2CCmdReqReplaceTask::MergeFrom(const MsgS2CCmdReqReplaceTask& from) {
     if (from.has_task_count()) {
       set_task_count(from.task_count());
     }
-    if (from.has_error()) {
-      set_error(from.error());
-    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -14153,7 +13892,7 @@ void MsgS2CCmdReqReplaceTask::CopyFrom(const MsgS2CCmdReqReplaceTask& from) {
 }
 
 bool MsgS2CCmdReqReplaceTask::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
@@ -14164,7 +13903,6 @@ void MsgS2CCmdReqReplaceTask::Swap(MsgS2CCmdReqReplaceTask* other) {
 }
 void MsgS2CCmdReqReplaceTask::InternalSwap(MsgS2CCmdReqReplaceTask* other) {
   std::swap(task_count_, other->task_count_);
-  std::swap(error_, other->error_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -14205,29 +13943,340 @@ void MsgS2CCmdReqReplaceTask::InternalSwap(MsgS2CCmdReqReplaceTask* other) {
   // @@protoc_insertion_point(field_set:message.MsgS2CCmdReqReplaceTask.task_count)
 }
 
-// required .message.GameError error = 2 [default = Error_NO];
- bool MsgS2CCmdReqReplaceTask::has_error() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgS2CCmdReplaceTaskACK::kErrorFieldNumber;
+const int MsgS2CCmdReplaceTaskACK::kInfosFieldNumber;
+#endif  // !_MSC_VER
+
+MsgS2CCmdReplaceTaskACK::MsgS2CCmdReplaceTaskACK()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgS2CCmdReplaceTaskACK)
 }
- void MsgS2CCmdReqReplaceTask::set_has_error() {
-  _has_bits_[0] |= 0x00000002u;
+
+void MsgS2CCmdReplaceTaskACK::InitAsDefaultInstance() {
 }
- void MsgS2CCmdReqReplaceTask::clear_has_error() {
-  _has_bits_[0] &= ~0x00000002u;
+
+MsgS2CCmdReplaceTaskACK::MsgS2CCmdReplaceTaskACK(const MsgS2CCmdReplaceTaskACK& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgS2CCmdReplaceTaskACK)
 }
- void MsgS2CCmdReqReplaceTask::clear_error() {
+
+void MsgS2CCmdReplaceTaskACK::SharedCtor() {
+  _cached_size_ = 0;
+  error_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgS2CCmdReplaceTaskACK::~MsgS2CCmdReplaceTaskACK() {
+  // @@protoc_insertion_point(destructor:message.MsgS2CCmdReplaceTaskACK)
+  SharedDtor();
+}
+
+void MsgS2CCmdReplaceTaskACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgS2CCmdReplaceTaskACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgS2CCmdReplaceTaskACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgS2CCmdReplaceTaskACK_descriptor_;
+}
+
+const MsgS2CCmdReplaceTaskACK& MsgS2CCmdReplaceTaskACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgS2CCmdReplaceTaskACK* MsgS2CCmdReplaceTaskACK::default_instance_ = NULL;
+
+MsgS2CCmdReplaceTaskACK* MsgS2CCmdReplaceTaskACK::New(::google::protobuf::Arena* arena) const {
+  MsgS2CCmdReplaceTaskACK* n = new MsgS2CCmdReplaceTaskACK;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgS2CCmdReplaceTaskACK::Clear() {
+  error_ = 0;
+  infos_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgS2CCmdReplaceTaskACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgS2CCmdReplaceTaskACK)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .message.GameError error = 1 [default = Error_NO];
+      case 1: {
+        if (tag == 8) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::message::GameError_IsValid(value)) {
+            set_error(static_cast< ::message::GameError >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_infos;
+        break;
+      }
+
+      // repeated .message.MsgTaskConfigInfo infos = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_infos:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_infos()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_infos;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgS2CCmdReplaceTaskACK)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgS2CCmdReplaceTaskACK)
+  return false;
+#undef DO_
+}
+
+void MsgS2CCmdReplaceTaskACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgS2CCmdReplaceTaskACK)
+  // required .message.GameError error = 1 [default = Error_NO];
+  if (has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->error(), output);
+  }
+
+  // repeated .message.MsgTaskConfigInfo infos = 2;
+  for (unsigned int i = 0, n = this->infos_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->infos(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgS2CCmdReplaceTaskACK)
+}
+
+::google::protobuf::uint8* MsgS2CCmdReplaceTaskACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CCmdReplaceTaskACK)
+  // required .message.GameError error = 1 [default = Error_NO];
+  if (has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->error(), target);
+  }
+
+  // repeated .message.MsgTaskConfigInfo infos = 2;
+  for (unsigned int i = 0, n = this->infos_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->infos(i), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CCmdReplaceTaskACK)
+  return target;
+}
+
+int MsgS2CCmdReplaceTaskACK::ByteSize() const {
+  int total_size = 0;
+
+  // required .message.GameError error = 1 [default = Error_NO];
+  if (has_error()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
+  }
+  // repeated .message.MsgTaskConfigInfo infos = 2;
+  total_size += 1 * this->infos_size();
+  for (int i = 0; i < this->infos_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->infos(i));
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgS2CCmdReplaceTaskACK::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgS2CCmdReplaceTaskACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CCmdReplaceTaskACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgS2CCmdReplaceTaskACK::MergeFrom(const MsgS2CCmdReplaceTaskACK& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  infos_.MergeFrom(from.infos_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_error()) {
+      set_error(from.error());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgS2CCmdReplaceTaskACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgS2CCmdReplaceTaskACK::CopyFrom(const MsgS2CCmdReplaceTaskACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgS2CCmdReplaceTaskACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->infos())) return false;
+  return true;
+}
+
+void MsgS2CCmdReplaceTaskACK::Swap(MsgS2CCmdReplaceTaskACK* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgS2CCmdReplaceTaskACK::InternalSwap(MsgS2CCmdReplaceTaskACK* other) {
+  std::swap(error_, other->error_);
+  infos_.UnsafeArenaSwap(&other->infos_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgS2CCmdReplaceTaskACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgS2CCmdReplaceTaskACK_descriptor_;
+  metadata.reflection = MsgS2CCmdReplaceTaskACK_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgS2CCmdReplaceTaskACK
+
+// required .message.GameError error = 1 [default = Error_NO];
+ bool MsgS2CCmdReplaceTaskACK::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgS2CCmdReplaceTaskACK::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgS2CCmdReplaceTaskACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgS2CCmdReplaceTaskACK::clear_error() {
   error_ = 0;
   clear_has_error();
 }
- ::message::GameError MsgS2CCmdReqReplaceTask::error() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CCmdReqReplaceTask.error)
+ ::message::GameError MsgS2CCmdReplaceTaskACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdReplaceTaskACK.error)
   return static_cast< ::message::GameError >(error_);
 }
- void MsgS2CCmdReqReplaceTask::set_error(::message::GameError value) {
+ void MsgS2CCmdReplaceTaskACK::set_error(::message::GameError value) {
   assert(::message::GameError_IsValid(value));
   set_has_error();
   error_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CCmdReqReplaceTask.error)
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdReplaceTaskACK.error)
+}
+
+// repeated .message.MsgTaskConfigInfo infos = 2;
+ int MsgS2CCmdReplaceTaskACK::infos_size() const {
+  return infos_.size();
+}
+ void MsgS2CCmdReplaceTaskACK::clear_infos() {
+  infos_.Clear();
+}
+ const ::message::MsgTaskConfigInfo& MsgS2CCmdReplaceTaskACK::infos(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdReplaceTaskACK.infos)
+  return infos_.Get(index);
+}
+ ::message::MsgTaskConfigInfo* MsgS2CCmdReplaceTaskACK::mutable_infos(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CCmdReplaceTaskACK.infos)
+  return infos_.Mutable(index);
+}
+ ::message::MsgTaskConfigInfo* MsgS2CCmdReplaceTaskACK::add_infos() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CCmdReplaceTaskACK.infos)
+  return infos_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >&
+MsgS2CCmdReplaceTaskACK::infos() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CCmdReplaceTaskACK.infos)
+  return infos_;
+}
+ ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >*
+MsgS2CCmdReplaceTaskACK::mutable_infos() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CCmdReplaceTaskACK.infos)
+  return &infos_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

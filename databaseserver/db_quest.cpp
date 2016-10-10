@@ -159,7 +159,6 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			data->set_complete_task_count(row["complete_task_count"]);
 			pkParm->info.set_current_section(row["current_section"]);
 			pkParm->info.set_current_chapter(row["current_chapter"]);
-			pkParm->info.set_current_gold(row["current_gold"]);
 			pkParm->info.set_free_task_count(row["free_task_count"]);
 			pkParm->info.set_last_task_advertisement_time(row["UNIX_TIMESTAMP(`last_task_advertisement_time`)"]);
 			

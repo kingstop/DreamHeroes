@@ -19,10 +19,9 @@ message MsgHeroDataDB2GS
 	required MsgHeroData Data = 2; 
 	required int32 current_chapter = 3;
 	required int32 current_section = 4;
-	required int32 current_gold = 5;
-	required int32 free_task_count = 6;
-	required int32 last_task_advertisement_time = 7;
-	repeated MsgMapSpecialKill special_kills = 8;
+	required int32 free_task_count = 5;
+	required int32 last_task_advertisement_time = 6;
+	repeated MsgMapSpecialKill special_kills = 7;
 }
 
 message MsgNeedCreateHeroDB2GS

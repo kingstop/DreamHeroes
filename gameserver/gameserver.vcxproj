@@ -167,6 +167,7 @@
     <ClInclude Include="gate_session.h" />
     <ClInclude Include="gate_tcp_server.h" />
     <ClInclude Include="LocationVector.h" />
+    <ClInclude Include="RecordManager.h" />
     <ClInclude Include="server.h" />
     <ClInclude Include="session.h" />
     <ClInclude Include="ShopSalesPromotionManager.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="gate_session.cpp" />
     <ClCompile Include="gate_tcp_server.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RecordManager.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="session.cpp" />
     <ClCompile Include="ShopSalesPromotionManager.cpp" />

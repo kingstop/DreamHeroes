@@ -205,7 +205,7 @@ message MsgS2CCmdShowGMLevelACK
 	required GameError error = 2 [default=Error_NO];
 }
 
-message MsgC2SCmdReqMdodifyGMLevel
+message MsgC2SCmdReqModifyGMLevel
 {
 	required string name = 1;
 	required int32 level = 2;
@@ -213,7 +213,7 @@ message MsgC2SCmdReqMdodifyGMLevel
 }
 
 
-message MsgS2CCmdMdodifyGMLevelACK
+message MsgS2CCmdModifyGMLevelACK
 {
 	required string name = 1;
 	required int32 level = 2;
@@ -262,14 +262,15 @@ message MsgS2CCmdModifyGoldACK
 	required int32 gold = 1;
 }
 
-message MsgC2SCmdReqNewTask
-{
-
-}
 
 message MsgS2CCmdReqReplaceTask
 {
 	required int32 task_count = 1;
-	required GameError error = 2 [default=Error_NO];
+	
+}
+message MsgS2CCmdReplaceTaskACK
+{
+	required GameError error = 1 [default=Error_NO];
+	repeated MsgTaskConfigInfo infos = 2;
 }
 //////////////////////////////////////////////////////////////////////////////////////////

@@ -39,8 +39,7 @@ public:
 	void ReqBuyHero(const message::MsgC2SReqBuyHero* msg);
 	void ReqResetMap(const message::MsgC2SCmdReqResetMap* msg);
 	void ReqModifyGold(const message::MsgC2SCmdReqModifyGold* msg);
-
-
+	void ReqReplaceTask(const message::MsgS2CCmdReqReplaceTask* msg);
 	void ReqModifyCurrentHero(int grid_id);
 	void ReqGoldShopConfigs();
 	void EnterGame(int chapter_id, int section_id, bool admin = false);
@@ -48,8 +47,7 @@ public:
 	void SendResetGameACK(message::GameError en);
 protected:
 	message::MsgTaskConfigInfo RadnomTaskInfo(int give_up_task = 0);
-	void RefreshTask(int give_up_task_id = 0);
-	
+	void RefreshTask(int give_up_task_id = 0);	
 	void Destroy();
 protected:
 
@@ -59,7 +57,6 @@ protected:
 	message::MsgHeroData _info;
 	int _current_chapter;
 	int _current_section;
-	int _current_gold;
 	int _current_task_count;
 	u32 _last_task_advertisement_time;
 	int _day_offset_time;

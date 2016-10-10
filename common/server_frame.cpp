@@ -16,7 +16,6 @@ bool ServerFrame::loadNetConfig(net_info& _config, const char* strfile)
 	_config._time_out = 3000;
 	_config._max_connect = 2000;
 	_config._thread_count = 1;
-
 	JsonHelper help(strfile);
 	if (!help.loadJson())
 	{   return false;}
@@ -26,7 +25,6 @@ bool ServerFrame::loadNetConfig(net_info& _config, const char* strfile)
 	LAZY_JSON_GET_UINT(_config._time_out,			"time_out",			Root);
 	LAZY_JSON_GET_UINT(_config._max_connect	,		"max_connect",		Root);
 	LAZY_JSON_GET_UINT(_config._thread_count,		"thread_count",		Root);
-
 	getIpByname(_config._ip.c_str(), _config._ip);
 	return true ;
 }
@@ -49,7 +47,6 @@ bool ServerFrame::init()
 
 void ServerFrame::run()
 {
-
 	boost::posix_time::millisec_posix_time_system_config::time_duration_type time_elapse;
 	boost::posix_time::ptime nLastTime = boost::posix_time::microsec_clock::universal_time();  
 	boost::posix_time::ptime nStartTime = nLastTime ;
