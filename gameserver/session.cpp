@@ -194,6 +194,7 @@ Session::Session(tran_id_type t, account_type a, u16 gate)
     :m_tranid(t), m_account(a), m_gate(gate),m_state(_session_online_), _dream_hero(NULL)
 {
 	DreamHero* hero = gDreamHeroManager.GetHero(m_account);
+	hero->StopDestroyClock();
 	if (hero != NULL)
 	{
 		_dream_hero = hero;
