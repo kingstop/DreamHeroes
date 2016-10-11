@@ -63,6 +63,7 @@ DreamHero* DreamHeroManager::GetHero(account_type account)
 	{
 		hero = it->second;
 		hero->set_parent(this);
+		//hero->StopDestroyClock();
 	}
 	
 	
@@ -82,6 +83,7 @@ DreamHero* DreamHeroManager::CreateHero(message::MsgHeroDataDB2GS* HeroDataMsg, 
 	}	
 	hero->set_session(session);
 	hero->set_parent(this);
+	hero->StopDestroyClock();
 	return hero;
 }
 
@@ -96,6 +98,7 @@ DreamHero* DreamHeroManager::CreateHero(account_type acc, Session* session)
 	hero->set_session(session);
 	hero->set_account(acc);
 	hero->set_parent(this);
+	hero->StopDestroyClock();
 	_heroes.insert(MAPHEROS::value_type(hero->get_account(), hero));
 	return hero;
 }
@@ -176,6 +179,7 @@ DreamHero* DreamHeroManager::GetHeroByName(const char* name)
 			break;
 		}
 	}
+	//hero->StopDestroyClock();
 	return hero;
 }
 

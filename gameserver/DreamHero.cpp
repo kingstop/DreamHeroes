@@ -127,6 +127,13 @@ void DreamHero::StartDestroyTime()
 	}
 }
 
+void DreamHero::StopDestroyClock()
+{
+	if (gEventMgr.hasEvent(this, EVENT_DESTROY_PLAYER_)== true)
+	{
+		gEventMgr.removeEvents(this, EVENT_DESTROY_PLAYER_);
+	}
+}
 
 void DreamHero::Destroy()
 {
@@ -779,6 +786,7 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 			}
 		}
 	}
+
 	if (en_error == message::Error_NO)
 	{
 		std::pair<int, int> pair_entry;
