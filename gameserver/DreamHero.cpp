@@ -676,6 +676,7 @@ void DreamHero::ReqModifyGold(const message::MsgC2SCmdReqModifyGold* msg)
 	{
 		current_gold = 0;
 	}
+	_info.set_gold(current_gold);
 	msgACK.set_gold(current_gold);
 	sendPBMessage(&msgACK);
 }
