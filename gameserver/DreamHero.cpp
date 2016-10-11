@@ -130,6 +130,11 @@ void DreamHero::StartDestroyTime()
 
 void DreamHero::Destroy()
 {
+	if (_session)
+	{
+		_session->setDreamHero(NULL);
+
+	}
 	_parent->DestroyHero(this);
 }
 
