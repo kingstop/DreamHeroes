@@ -854,6 +854,7 @@ void DreamHero::ReqEnterGame(const message::MsgC2SReqEnterGame* msg)
 
 void DreamHero::SendClientInit()
 {
+	StopDestroyClock();
 	dayRefresh(false);
 	StartSave();
 	message::MsgS2CHeroesInit msg;
