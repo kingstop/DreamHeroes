@@ -272,14 +272,14 @@ void Session::parseDBQueryNeedCreateHero()
 
 void Session::praseDBQueryHeroInfo(message::MsgHeroDataDB2GS* HeroDataMsg)
 {
-	if (_dream_hero == NULL)
-	{
-		return;
-	}
 
 	if (HeroDataMsg)
 	{
-		_dream_hero = gDreamHeroManager.CreateHero(HeroDataMsg, m_account, this);
+		if (_dream_hero == NULL)
+		{
+			_dream_hero = gDreamHeroManager.CreateHero(HeroDataMsg, m_account, this);
+		}
+
 		if (_dream_hero)
 		{
 			_dream_hero->SendClientInit();
