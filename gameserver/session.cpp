@@ -64,6 +64,10 @@ void Session::parseReqShopConfig(google::protobuf::Message* p)
 
 void Session::parseReqEnterGame(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
 	message::MsgC2SReqEnterGame* msg = (message::MsgC2SReqEnterGame*)p;
 	_dream_hero->ReqEnterGame(msg);
 }
@@ -71,18 +75,32 @@ void Session::parseReqEnterGame(google::protobuf::Message* p)
 
 void Session::parseReqExitGame(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	message::MsgC2SReqExitGame* msg = (message::MsgC2SReqExitGame*)p;
 	_dream_hero->ReqExitGame(msg);
 }
 
 void Session::parseReqUnlockChapter(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	message::MsgC2SReqUnlockChapter* msg = (message::MsgC2SReqUnlockChapter*)p;
 	_dream_hero->ReqUnlockChapter(msg);
 }
 
 void Session::parseReqAdvertisementApplyTask(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
 	message::MsgC2SReqAdvertisementApplyTask* msg = (message::MsgC2SReqAdvertisementApplyTask*)p;
 	_dream_hero->ReqAdvertisementApplyTask(msg);
 
@@ -90,6 +108,11 @@ void Session::parseReqAdvertisementApplyTask(google::protobuf::Message* p)
 
 void Session::parseReqAdvertisementRefreshTask(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	message::MsgC2SReqAdvertisementRefreshTask* msg = (message::MsgC2SReqAdvertisementRefreshTask*)p;
 	_dream_hero->ReqAdvertisementRefreshTask(msg);
 }
@@ -97,6 +120,10 @@ void Session::parseReqAdvertisementRefreshTask(google::protobuf::Message* p)
 
 void Session::parseReqBuyHero(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
 	message::MsgC2SReqBuyHero* msg = (message::MsgC2SReqBuyHero*)p;
 	_dream_hero->ReqBuyHero(msg);
 
@@ -104,11 +131,21 @@ void Session::parseReqBuyHero(google::protobuf::Message* p)
 
 void Session::parseReqGoldShopConfigs(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	_dream_hero->ReqGoldShopConfigs();
 }
 
 void Session::parseReqModifyCurrentHero(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	message::MsgC2SReqModifyCurrentHero* msg = (message::MsgC2SReqModifyCurrentHero*)p;
 	_dream_hero->ReqModifyCurrentHero(msg->current_grid());
 
@@ -175,12 +212,12 @@ Session::Session(tran_id_type t, account_type a, u16 gate)
 
 Session::~Session()
 {
-
+	_dream_hero = NULL;
 }
 
 void Session::close()
 {
-
+	_dream_hero->StartDestroyTime();
 }
 
 void Session::setReconnet()
@@ -192,10 +229,18 @@ void Session::setReconnet()
 	}
 }
 
+void Session::setDreamHero(DreamHero* p)
+{
+	_dream_hero = p;
+}
+
 void Session::setWaitReconnet()
 {
     m_state = _session_offline_;
-	_dream_hero->set_online(false);
+	if (_dream_hero)
+	{
+		_dream_hero->set_online(false);
+	}	
 }
 
 void Session::sendPBMessage(google::protobuf::Message* p)
@@ -223,6 +268,11 @@ void Session::parseDBQueryNeedCreateHero()
 
 void Session::praseDBQueryHeroInfo(message::MsgHeroDataDB2GS* HeroDataMsg)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	if (HeroDataMsg)
 	{
 		_dream_hero = gDreamHeroManager.CreateHero(HeroDataMsg, m_account, this);
@@ -240,6 +290,11 @@ DreamHero* Session::get_dream_hero()
 
 void Session::parseCmdReqMdodifyGMLevel(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	message::MsgC2SCmdReqModifyGMLevel* msg = (message::MsgC2SCmdReqModifyGMLevel*)p;
 	message::MsgS2CCmdModifyGMLevelACK msgACK;
 	msgACK.set_level(msg->level());
@@ -274,6 +329,11 @@ void Session::parseCmdReqMdodifyGMLevel(google::protobuf::Message* p)
 
 void Session::parseCmdReqEnterGame(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	message::MsgC2SCmdReqEnterGame* msg = (message::MsgC2SCmdReqEnterGame*)p;
 	if (_dream_hero->getGMLevel() > 0)
 	{
@@ -289,6 +349,11 @@ void Session::parseCmdReqEnterGame(google::protobuf::Message* p)
 
 void Session::parseCmdReqResetMap(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	if (_dream_hero->getGMLevel() > 0)
 	{
 		message::MsgC2SCmdReqResetMap* msg = (message::MsgC2SCmdReqResetMap*)p;
@@ -304,6 +369,11 @@ void Session::parseCmdReqResetMap(google::protobuf::Message* p)
 
 void Session::parseCmdReqResetGame(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	if (_dream_hero->getGMLevel() > 0)
 	{
 		_dream_hero->ResetGame();
@@ -319,6 +389,11 @@ void Session::parseCmdReqResetGame(google::protobuf::Message* p)
 
 void Session::parseCmdReqModifyGold(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
 	if (_dream_hero->getGMLevel() > 0)
 	{
 		message::MsgC2SCmdReqModifyGold* msg = (message::MsgC2SCmdReqModifyGold*) p;
@@ -334,6 +409,10 @@ void Session::parseCmdReqModifyGold(google::protobuf::Message* p)
 
 void Session::parseCmdReqReplaceTask(google::protobuf::Message* p)
 {
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
 	if (_dream_hero->getGMLevel() > 0)
 	{
 		message::MsgS2CCmdReqReplaceTask* msg = (message::MsgS2CCmdReqReplaceTask*) p;
