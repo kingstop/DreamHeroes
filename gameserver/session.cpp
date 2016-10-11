@@ -217,7 +217,11 @@ Session::~Session()
 
 void Session::close()
 {
-	_dream_hero->StartDestroyTime();
+	if (_dream_hero != NULL)
+	{
+		_dream_hero->StartDestroyTime();
+	}
+	
 }
 
 void Session::setReconnet()
