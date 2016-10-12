@@ -230,7 +230,7 @@ message::MsgTaskConfigInfo DreamHero::RadnomTaskInfo(int give_up_task)
 		bool need_continue = false;
 		for (int i = 0; i < tasks_length; i ++)
 		{
-			if (_info.tasks(i).taskid() == config_entry.taskid() || give_up_task == _info.tasks(i).taskid())
+			if (_info.tasks(i).taskid() == config_entry.taskid() || give_up_task == config_entry.taskid())
 			{
 				need_continue = true;
 				break;
@@ -248,7 +248,7 @@ message::MsgTaskConfigInfo DreamHero::RadnomTaskInfo(int give_up_task)
 			continue;
 		}
 		require_chapter = config_entry.require_unlock_chapter();
-		require_section = config_entry.require_unlock_chapter();
+		require_section = config_entry.require_unlock_section();
 		if (require_chapter != 0)
 		{
 			need_continue = true;
@@ -258,7 +258,7 @@ message::MsgTaskConfigInfo DreamHero::RadnomTaskInfo(int give_up_task)
 				message::MsgIntPair pair_entry = _info.records(i);
 				if (pair_entry.number_1() ==  require_chapter)
 				{
-					if (pair_entry.number_2() < require_section)
+					if (require_section <= pair_entry.number_2())
 					{
 						need_continue = false;
 					}					
