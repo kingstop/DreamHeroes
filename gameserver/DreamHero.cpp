@@ -623,9 +623,7 @@ void DreamHero::ReqModifyCurrentHero(int grid_id)
 	int current_grid_id = grid_id;
 	int heroes_length = _info.heroes_size();
 	message::GameError en = message::Error_NO;
-	message::MsgS2CModifyCurrentHeroACK msg;
-	msg.set_current_grid(_info.current_hero());
-
+	message::MsgS2CModifyCurrentHeroACK msg;	
 	if (heroes_length > current_grid_id)
 	{
 		bool b_character = _info.heroes(current_grid_id);
@@ -643,6 +641,7 @@ void DreamHero::ReqModifyCurrentHero(int grid_id)
 	{
 		en = message::Error_ModifyCurrentFailedTheCharacterIsLock;
 	}
+	msg.set_current_grid(_info.current_hero());
 	msg.set_error(en);
 	sendPBMessage(&msg);
 }
