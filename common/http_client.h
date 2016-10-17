@@ -1,9 +1,9 @@
-//
+ï»¿//
 //  Client.h
 //  WebSocketChatRoom
 //
 //  Created by Leonard on 14-7-16.
-//  Copyright (c) 2014Äê Leonard. All rights reserved.
+//  Copyright (c) 2014å¹´ Leonard. All rights reserved.
 //
 
 #ifndef __WebSocketChatRoom__Client__
@@ -16,7 +16,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/bind.hpp>
 #include <string>
-
+# pragma warning (disable:4819)
 class HttpClient
 	:public boost::enable_shared_from_this<HttpClient>
 {

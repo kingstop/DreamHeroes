@@ -87,7 +87,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../../../../../../external/boost/boost_1_60_0/;../../../../../../external/protobuf/protobuf-3.0.0/src/;../../../../../../external/mysql/mysql-5.7.10-win32/include/;../../../../../../external/jsoncpp/jsoncpp-src-0.5.0/include/;../../../../../../external/log4cplus/log4cplus-1.2.0/include/;../../../../../../external/mysql++/mysql++-3.1.0/lib/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../../../../external/boost/boost_1_60_0/;../../../../../../external/protobuf/protobuf-3.0.0/src/;../../../../../../external/mysql/mysql-5.7.10-win32/include/;../../../../../../external/jsoncpp/jsoncpp-src-0.5.0/include/;../../../../../../external/log4cplus/log4cplus-1.2.0/include/;../../../../../../external/mysql++/mysql++-3.1.0/lib/;../../../../../../external/curl/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -157,6 +157,7 @@
     <ClInclude Include="common_template.h" />
     <ClInclude Include="common_type.h" />
     <ClInclude Include="crypt.h" />
+    <ClInclude Include="cur_http_client.h" />
     <ClInclude Include="database.h" />
     <ClInclude Include="event_call_back.h" />
     <ClInclude Include="event_manager.h" />
@@ -203,6 +204,7 @@
   <ItemGroup>
     <ClCompile Include="call_back.cpp" />
     <ClCompile Include="crypt.cpp" />
+    <ClCompile Include="cur_http_client.cpp" />
     <ClCompile Include="database.cpp" />
     <ClCompile Include="event_table_object.cpp" />
     <ClCompile Include="exception.cpp" />

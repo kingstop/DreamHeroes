@@ -299,9 +299,16 @@ void tcp_server::run_no_wait()
 void tcp_server::stop()
 {
 	m_sessions.clear();
-	m_acceptor->close();
-	m_ttp->shutdown();
-
+	if (m_acceptor != NULL)
+	{
+		m_acceptor->close();
+	}
+	
+	if (m_ttp != NULL)
+	{
+		m_ttp->shutdown();
+	}
+	
 	if (m_acceptor)
 	{
 		delete m_acceptor;
