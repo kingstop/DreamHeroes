@@ -417,6 +417,7 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 					message::MsgTaskInfo task_entry = (*it);
 					if (task_entry.taskid() == task_id)
 					{
+						gRecordManager.taskCompleteRecord(_account, _info.name().c_str(), _current_chapter, _current_section, task_id, task_gift_gold);
 						try_to_find_task_info = true;
 						task_gift_gold = info_task_config->gift_gold();
 						cur_complete_task_count++;

@@ -6,7 +6,7 @@ RecordManager::RecordManager()
 {
 	
 	_sql_head[RecordTypeEnterGame] = "insert into `enter_game_record`(`account_id`, `nick_name`, `chapter_id`, `section_id`, `record_time`) values ";
-	_sql_head[RecordTypeLeaveGame] = "insert into `leave_game_record`(`account_id`, `nick_name`, `chapter_id`, `section_id`, `sucess`, `gold`, `record_time`) values";
+	_sql_head[RecordTypeLeaveGame] = "insert into `leave_game_record`(`account_id`, `nick_name`, `chapter_id`, `section_id`, `success`, `gold`, `record_time`) values";
 	_sql_head[RecordTypeTaskComplete] = "insert into `task_complete_record`(`account_id`, `nick_name`, `chapter_id`, `section_id`, `task_id`, `gold`, `record_time`) values";
 	_sql_head[RecordTypeTaskAccepte] = "insert into `task_accepte_record`(`account_id`, `nick_name`, `task_id`, `record_time`) values";
 	_sql_head[RecordTypeTaskGiveUp] = "insert into `task_give_up_record`(`account_id`, `nick_name`, `task_id`, `record_time`) values";
