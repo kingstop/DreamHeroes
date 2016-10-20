@@ -107,5 +107,6 @@ void RecordManager::update()
 			gGSDBClient.sendPBMessage(&msg, 0);
 			sql_record.clear();
 		}
+		_record[i].clear();
 	}
 }

@@ -182,6 +182,11 @@ bool DBServer::initDataFromDatabase(DBQuery* p, const void* data)
 	parms << _FU_RECORD_DATABASE_;
 	query << "SELECT * FROM `database_config` WHERE `Category` = %0";
 	query.parse();
+	if (!ServerFrame::getDatabaseConfig(db_record, query.store(parms)))
+	{
+		Mylog::log_server(LOG_ERROR, "load character db config failed !");
+		return false;
+	}
 	if (!gDBRecordDatabase.initDatabase(db_record))
 	{
 		Mylog::log_server(LOG_ERROR, "start record db service failed!");
