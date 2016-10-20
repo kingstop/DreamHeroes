@@ -45,6 +45,7 @@ void GameSession::initPBModule()
 	ProtocMsgBase<GameSession>::registerCBFun(PROTOCO_NAME(message::MsgReqHeroDataGS2DB), &GameSession::parseMsgReqHeroDataGS2DB);
 	ProtocMsgBase<GameSession>::registerCBFun(PROTOCO_NAME(message::MsgSaveDataGS2DB), &GameSession::parseMsgSaveHeroData);
 	ProtocMsgBase<GameSession>::registerCBFun(PROTOCO_NAME(message::MsgSaveAllHeroesGS2DB), &GameSession::parseMsgSaveAllHeroesGS2DB);
+	ProtocMsgBase<GameSession>::registerCBFun(PROTOCO_NAME(message::MsgRecordSqlGS2DB), &GameSession::parseMsgSaveRecordGS2DB);
 	//ProtocMsgBase<GameSession>::registerCBFun(PROTOCO_NAME(message::MsgVerifyToyGS2DB), &GameSession::parseMsgVerifyToy);
 }
 
@@ -83,4 +84,11 @@ void GameSession::on_close( const boost::system::error_code& error )
 void GameSession::parseMsgSaveAllHeroesGS2DB(google::protobuf::Message* p, pb_flag_type flag)
 {
 	gDBQuestMgr.saveToClose(m_game_id);
+}
+
+
+void GameSession::parseMsgSaveRecordGS2DB(google::protobuf::Message* p, pb_flag_type flag)
+{
+	message::MsgRecordSqlGS2DB* msg = (message::MsgRecordSqlGS2DB*)p;
+	gDBQuestMgr.saveSqlRecord(msg->sql().c_str());
 }

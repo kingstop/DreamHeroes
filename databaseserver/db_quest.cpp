@@ -25,6 +25,7 @@ enum
 	_QUERY_HERO_INFO_ = _NORMAL_THREAD + 1,
 	_QUERY_HERO_MAP_INFO_,
 	_SAVE_HERO_INFO_,
+	_SAVE_RECORD_,
 	_QUERRY_VERIFY_TOY_CDKEY_
 
 };
@@ -93,7 +94,8 @@ void DBQuestManager::queryHeroInfo(account_type a, tran_id_type t, u16 gs)
 void DBQuestManager::onSaveToClose()
 {
 	gDBCharDatabase.setObjState(RunObject::_wait_stop_);
-	Mylog::log_server(LOG_INFO, "close character mysql!");
+	gDBRecordDatabase.setObjState(RunObject::_wait_stop_);
+	Mylog::log_server(LOG_INFO, "close character mysql and record mysql!");
 }
 
 //void DBQuestManager::verifyToyCDKey(tran_id_type t, u16 gs, account_type acc, const char* cdkey)
@@ -128,7 +130,11 @@ void DBQuestManager::saveSqlData(const char* sql)
 	gDBCharDatabase.addSQueryTask(this, &DBQuestManager::dbCallNothing, str_excute.c_str(), 0, NULL, _SAVE_HERO_INFO_);
 }
 
-
+void DBQuestManager::saveSqlRecord(const char* sql)
+{
+	std::string str_excute = sql;
+	gDBRecordDatabase.addSQueryTask(this, &DBQuestManager::dbCallNothing, str_excute.c_str(), 0, NULL, _SAVE_RECORD_);
+}
 
 
 

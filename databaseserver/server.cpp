@@ -47,6 +47,7 @@ void DBServer::runOnce(u32 nDiff)
 void DBServer::shutDown()
 {
 	gDBCharDatabase.shutDown();
+	gDBRecordDatabase.shutDown();
 	gDBGameServer.stop();
 }
 
@@ -62,7 +63,7 @@ void DBServer::setStop()
 
 void DBServer::checkStop()
 {
-	if (gDBCharDatabase.isObjStop())
+	if (gDBCharDatabase.isObjStop()&&gDBRecordDatabase.isObjStop())
 	{
 		shutDown();
 		//Mylog::log_server(LOG_INFO, "_stop = true");
@@ -129,6 +130,7 @@ bool DBServer::initDataFromDatabase(DBQuery* p, const void* data)
 	net_info user_net;
 	DataBaseConfig db_config;
 	DataBaseConfig db_world_config;
+	DataBaseConfig db_record;
 	DBQuery& query = *p;
 	DBQParms parms;
 
@@ -171,6 +173,15 @@ bool DBServer::initDataFromDatabase(DBQuery* p, const void* data)
 		Mylog::log_server(LOG_ERROR, "start character db service failed!");
 	}    
 
+	query.reset();
+	parms.clear();
+	parms << _FU_RECORD_DATABASE_;
+	query << "SELECT * FROM `database_config` WHERE `Category` = %0";
+	query.parse();
+	if (!gDBRecordDatabase.initDatabase(db_record))
+	{
+		Mylog::log_server(LOG_ERROR, "start record db service failed!");
+	}
 	//parms.clear();
 	//query.reset();
 	//query << "SELECT * FROM `server_city_config`";

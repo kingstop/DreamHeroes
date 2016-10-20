@@ -11,6 +11,7 @@ public:
 	void parseMsgReqHeroDataGS2DB(google::protobuf::Message* p, pb_flag_type flag);
 	void parseMsgSaveHeroData(google::protobuf::Message* p, pb_flag_type flag);
 	void parseMsgSaveAllHeroesGS2DB(google::protobuf::Message* p, pb_flag_type flag);
+	void parseMsgSaveRecordGS2DB(google::protobuf::Message* p, pb_flag_type flag);
 	//void parseMsgVerifyToy(google::protobuf::Message* p, pb_flag_type flag);
 	u16  getGameId() const{return m_game_id;}
 public:

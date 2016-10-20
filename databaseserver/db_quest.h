@@ -11,6 +11,7 @@ public:
 	void queryHeroInfo(account_type a, tran_id_type t, u16 gs);
 	void saveHeroMap(message::MsgSaveHeroDataGS2DB* msg);
 	void saveSqlData(const char* sql);
+	void saveSqlRecord(const char* sql);
 	void saveToClose(u16 gsid);
 	//void verifyToyCDKey(tran_id_type t, u16 gs, account_type acc, const char* cdkey);
 private:

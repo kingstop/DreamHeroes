@@ -28,6 +28,7 @@ public:
     {
         _FU_CHARACTER_DATABASE_,  //角色数据服
         _FU_WORLD_DATABASE_,      //游戏数据配置服
+		_FU_RECORD_DATABASE_      //游戏统计服务器
     };
 	
 	virtual bool init();					// init server service
