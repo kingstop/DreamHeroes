@@ -62,6 +62,7 @@ void GameServer::runOnce(u32 nDiff)
         curtime = 0;
     }
 	gShopSalesPromotionManager.update();
+	gRecordManager.update();
     if (nDiff > 800)
     {
         Mylog::log_server(LOG_WARNING, "server delay [%u]", nDiff);
