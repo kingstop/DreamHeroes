@@ -64,7 +64,7 @@ void DBServer::setStop()
 
 void DBServer::checkStop()
 {
-	Mylog::log_server(LOG_INFO, "DB Check Stop");
+	//Mylog::log_server(LOG_INFO, "DB Check Stop");
 	bool b_char = gDBCharDatabase.isObjStop();
 	bool b_record = gDBRecordDatabase.isObjStop();
 	if (b_char&&b_record)
