@@ -98,6 +98,7 @@ void RecordManager::update()
 			{
 				sql_record += ",";
 			}
+			sql_record += (*it);
 		}
 
 		if (sql_record.empty() == false)
