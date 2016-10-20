@@ -36,6 +36,7 @@ void DBServer::runOnce(u32 nDiff)
 	net_global::update_net_service();
 	gDBServerTime = time(NULL);
 	gDBCharDatabase.run(nDiff);
+	gDBRecordDatabase.run(nDiff);
 	gDBGameServer.run_no_wait();
 	m_EventHold.update(nDiff);
 	if (nDiff > 800)
