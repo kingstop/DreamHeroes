@@ -43,6 +43,7 @@ class MsgHeroDataDB2GS;
 class MsgNeedCreateHeroDB2GS;
 class MsgSaveHeroDataGS2DB;
 class MsgSaveDataGS2DB;
+class MsgRecordSqlGS2DB;
 class MsgSaveAllHeroesGS2DB;
 class MsgSaveAllHeroesDB2GS;
 
@@ -696,6 +697,100 @@ class MsgSaveDataGS2DB : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MsgRecordSqlGS2DB : public ::google::protobuf::Message {
+ public:
+  MsgRecordSqlGS2DB();
+  virtual ~MsgRecordSqlGS2DB();
+
+  MsgRecordSqlGS2DB(const MsgRecordSqlGS2DB& from);
+
+  inline MsgRecordSqlGS2DB& operator=(const MsgRecordSqlGS2DB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgRecordSqlGS2DB& default_instance();
+
+  void Swap(MsgRecordSqlGS2DB* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgRecordSqlGS2DB* New() const { return New(NULL); }
+
+  MsgRecordSqlGS2DB* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgRecordSqlGS2DB& from);
+  void MergeFrom(const MsgRecordSqlGS2DB& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgRecordSqlGS2DB* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required bytes sql = 1;
+  bool has_sql() const;
+  void clear_sql();
+  static const int kSqlFieldNumber = 1;
+  const ::std::string& sql() const;
+  void set_sql(const ::std::string& value);
+  void set_sql(const char* value);
+  void set_sql(const void* value, size_t size);
+  ::std::string* mutable_sql();
+  ::std::string* release_sql();
+  void set_allocated_sql(::std::string* sql);
+
+  // @@protoc_insertion_point(class_scope:message.MsgRecordSqlGS2DB)
+ private:
+  inline void set_has_sql();
+  inline void clear_has_sql();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr sql_;
+  friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
+  friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
+  friend void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgRecordSqlGS2DB* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MsgSaveAllHeroesGS2DB : public ::google::protobuf::Message {
  public:
   MsgSaveAllHeroesGS2DB();
@@ -1317,6 +1412,63 @@ inline void MsgSaveDataGS2DB::set_allocated_sql(::std::string* sql) {
   }
   sql_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sql);
   // @@protoc_insertion_point(field_set_allocated:message.MsgSaveDataGS2DB.sql)
+}
+
+// -------------------------------------------------------------------
+
+// MsgRecordSqlGS2DB
+
+// required bytes sql = 1;
+inline bool MsgRecordSqlGS2DB::has_sql() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgRecordSqlGS2DB::set_has_sql() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgRecordSqlGS2DB::clear_has_sql() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgRecordSqlGS2DB::clear_sql() {
+  sql_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_sql();
+}
+inline const ::std::string& MsgRecordSqlGS2DB::sql() const {
+  // @@protoc_insertion_point(field_get:message.MsgRecordSqlGS2DB.sql)
+  return sql_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgRecordSqlGS2DB::set_sql(const ::std::string& value) {
+  set_has_sql();
+  sql_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgRecordSqlGS2DB.sql)
+}
+inline void MsgRecordSqlGS2DB::set_sql(const char* value) {
+  set_has_sql();
+  sql_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgRecordSqlGS2DB.sql)
+}
+inline void MsgRecordSqlGS2DB::set_sql(const void* value, size_t size) {
+  set_has_sql();
+  sql_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgRecordSqlGS2DB.sql)
+}
+inline ::std::string* MsgRecordSqlGS2DB::mutable_sql() {
+  set_has_sql();
+  // @@protoc_insertion_point(field_mutable:message.MsgRecordSqlGS2DB.sql)
+  return sql_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgRecordSqlGS2DB::release_sql() {
+  clear_has_sql();
+  return sql_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgRecordSqlGS2DB::set_allocated_sql(::std::string* sql) {
+  if (sql != NULL) {
+    set_has_sql();
+  } else {
+    clear_has_sql();
+  }
+  sql_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sql);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgRecordSqlGS2DB.sql)
 }
 
 // -------------------------------------------------------------------

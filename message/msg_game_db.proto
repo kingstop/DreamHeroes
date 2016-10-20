@@ -41,6 +41,11 @@ message MsgSaveDataGS2DB
 	required bytes sql = 1;
 }
 
+message MsgRecordSqlGS2DB
+{
+	required bytes sql = 1;
+}
+
 message MsgSaveAllHeroesGS2DB
 {
 

@@ -29,6 +29,7 @@
 #include "DreamHeroManager.h"
 #include "ShopSalesPromotionManager.h"
 #include "GameConfig.h"
+#include "RecordManager.h"
 /*#include "ObjectManager.h"
 #include "FRWorld.h*"
 */
@@ -67,6 +68,8 @@ struct FuGameFather
 	DreamHeroManager sDreamHeroManager;
 	GameConfig       sGameConfig;
 	ShopSalesPromotionManager sShopSalesPromotionManager;
+	RecordManager sRecordManager;
+	
 };
 
 extern FuGameFather* gFuGameFather;
@@ -82,6 +85,7 @@ extern FuGameFather* gFuGameFather;
 #define gDreamHeroManager   gFuGameFather->sDreamHeroManager
 #define gGameConfig			gFuGameFather->sGameConfig
 #define gShopSalesPromotionManager gFuGameFather->sShopSalesPromotionManager
+#define gRecordManager      gFuGameFather->sRecordManager
 enum
 {
 	_SAVE_GIRL_ = _NORMAL_THREAD + 1,

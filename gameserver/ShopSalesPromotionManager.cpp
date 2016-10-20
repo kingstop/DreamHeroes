@@ -49,7 +49,7 @@ void ShopSalesPromotionManager::update()
 
 void ShopSalesPromotionManager::modifyCheapGold(int grid, int cheap_gold)
 {
-	std::map<int, int>::iterator it =  _cheap_gold.find(grid);
+	std::map<int, int>::iterator it = _cheap_gold.find(grid);
 	if (it == _cheap_gold.end())
 	{
 		_cheap_gold.insert(std::map<int, int>::value_type(grid,0));

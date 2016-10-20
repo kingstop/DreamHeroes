@@ -28,58 +28,84 @@ const char* RecordManager::getCurTime()
 
 void RecordManager::enterGameRecord(account_type acc, const char* nick_name, int chapter_id, int section_id)
 {
-	sprintf(_szTemp, "(%lu, '%s', %d, %d, '%s')", acc, nick_name, chapter_id, section_id, getCurTime());
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, '%s')", acc, nick_name, chapter_id, section_id, getCurTime());
 	_record[RecordTypeEnterGame].push_back(_szTemp);
 }
 
 void RecordManager::leaveGameRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, bool success, int gold)
 {
-	sprintf(_szTemp, "(%lu, '%s', %d, %d, %d, %d,'%s')", acc, nick_name, chapter_id, section_id,success , gold, getCurTime());
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, %d, %d,'%s')", acc, nick_name, chapter_id, section_id,success , gold, getCurTime());
 	_record[RecordTypeLeaveGame].push_back(_szTemp);
 }
 
 void RecordManager::taskCompleteRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, int task_id, int gold)
 {
-	sprintf(_szTemp, "(%lu, '%s', %d, %d, %d, %d, '%s')", acc, nick_name, chapter_id, section_id, task_id, gold, getCurTime());
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, %d, %d, '%s')", acc, nick_name, chapter_id, section_id, task_id, gold, getCurTime());
 	_record[RecordTypeTaskComplete].push_back(_szTemp);
 }
 
 void RecordManager::taskAccepteRecordRecord(account_type acc, const char* nick_name, int task_id)
 {
-	sprintf(_szTemp, "(%lu, '%s', %d, '%s')", acc, nick_name, task_id, getCurTime());
+	sprintf(_szTemp, "(%llu, '%s', %d, '%s')", acc, nick_name, task_id, getCurTime());
 	_record[RecordTypeTaskAccepte].push_back(_szTemp);
 }
 
 void RecordManager::taskGiveUpRecord(account_type acc, const char* nick_name, int task_id)
 {
-	sprintf(_szTemp, "(%lu, '%s', %d, '%s')", acc, nick_name, task_id, getCurTime());
+	sprintf(_szTemp, "(%llu, '%s', %d, '%s')", acc, nick_name, task_id, getCurTime());
 	_record[RecordTypeTaskGiveUp].push_back(_szTemp);
 }
 void RecordManager::chapterUnlockRecord(account_type acc, const char* nick_name, int chapter_id, int gold)
 {
-	sprintf(_szTemp, "(%lu, '%s', %d, %d, '%s')", acc, nick_name, chapter_id, gold, getCurTime());
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, '%s')", acc, nick_name, chapter_id, gold, getCurTime());
 	_record[RecordTypeChapterUnlock].push_back(_szTemp);
 }
 void RecordManager::buyHeroRecord(account_type acc, const char* nick_name, int grid, int gold)
 {
-	sprintf(_szTemp, "(%lu, '%s', %d, %d, '%s')", acc, nick_name, grid, gold, getCurTime());
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, '%s')", acc, nick_name, grid, gold, getCurTime());
 	_record[RecordTypeBuyHero].push_back(_szTemp);
 }
 void RecordManager::goldModifyRecord(account_type acc, const char* nick_name, int gold, GoldModifyType en)
 {
-	sprintf(_szTemp, "(%lu, '%s', %d, %d, '%s')", acc, nick_name, gold, (int)en, getCurTime());
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, '%s')", acc, nick_name, gold, (int)en, getCurTime());
 	_record[RecordTypeGoldModify].push_back(_szTemp);
 }
 
 void RecordManager::update()
 {
 	int max_count = 10;
+	std::string sql_record;
 	for (size_t i = RecordTypeEnterGame; i < RecordTypeMax; i++)
 	{		
 		RECORDS::iterator it = _record[i].begin();
+
 		for (int j = 0; it != _record[i].end(); ++ it, j ++)
 		{
+			if (j >= max_count)
+			{
+				message::MsgRecordSqlGS2DB msg;
+				msg.set_sql(sql_record.c_str());
+				gGSDBClient.sendPBMessage(&msg, 0);				
+				sql_record.clear();
+				j = 0;
+			}
 
+			if (j == 0)
+			{
+				sql_record += _sql_head[i];
+			}
+			else
+			{
+				sql_record += ",";
+			}
+		}
+
+		if (sql_record.empty() == false)
+		{
+			message::MsgRecordSqlGS2DB msg;
+			msg.set_sql(sql_record.c_str());
+			gGSDBClient.sendPBMessage(&msg, 0);
+			sql_record.clear();
 		}
 	}
 }

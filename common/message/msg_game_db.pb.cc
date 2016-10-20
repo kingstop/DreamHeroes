@@ -38,6 +38,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgSaveDataGS2DB_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgSaveDataGS2DB_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgRecordSqlGS2DB_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgRecordSqlGS2DB_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgSaveAllHeroesGS2DB_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgSaveAllHeroesGS2DB_reflection_ = NULL;
@@ -153,7 +156,22 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgSaveDataGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveDataGS2DB, _internal_metadata_),
       -1);
-  MsgSaveAllHeroesGS2DB_descriptor_ = file->message_type(6);
+  MsgRecordSqlGS2DB_descriptor_ = file->message_type(6);
+  static const int MsgRecordSqlGS2DB_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgRecordSqlGS2DB, sql_),
+  };
+  MsgRecordSqlGS2DB_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgRecordSqlGS2DB_descriptor_,
+      MsgRecordSqlGS2DB::default_instance_,
+      MsgRecordSqlGS2DB_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgRecordSqlGS2DB, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgRecordSqlGS2DB),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgRecordSqlGS2DB, _internal_metadata_),
+      -1);
+  MsgSaveAllHeroesGS2DB_descriptor_ = file->message_type(7);
   static const int MsgSaveAllHeroesGS2DB_offsets_[1] = {
   };
   MsgSaveAllHeroesGS2DB_reflection_ =
@@ -167,7 +185,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgSaveAllHeroesGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveAllHeroesGS2DB, _internal_metadata_),
       -1);
-  MsgSaveAllHeroesDB2GS_descriptor_ = file->message_type(7);
+  MsgSaveAllHeroesDB2GS_descriptor_ = file->message_type(8);
   static const int MsgSaveAllHeroesDB2GS_offsets_[1] = {
   };
   MsgSaveAllHeroesDB2GS_reflection_ =
@@ -206,6 +224,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgSaveDataGS2DB_descriptor_, &MsgSaveDataGS2DB::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgRecordSqlGS2DB_descriptor_, &MsgRecordSqlGS2DB::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgSaveAllHeroesGS2DB_descriptor_, &MsgSaveAllHeroesGS2DB::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgSaveAllHeroesDB2GS_descriptor_, &MsgSaveAllHeroesDB2GS::default_instance());
@@ -226,6 +246,8 @@ void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto() {
   delete MsgSaveHeroDataGS2DB_reflection_;
   delete MsgSaveDataGS2DB::default_instance_;
   delete MsgSaveDataGS2DB_reflection_;
+  delete MsgRecordSqlGS2DB::default_instance_;
+  delete MsgRecordSqlGS2DB_reflection_;
   delete MsgSaveAllHeroesGS2DB::default_instance_;
   delete MsgSaveAllHeroesGS2DB_reflection_;
   delete MsgSaveAllHeroesDB2GS::default_instance_;
@@ -254,8 +276,9 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
     "\026MsgNeedCreateHeroDB2GS\"K\n\024MsgSaveHeroDa"
     "taGS2DB\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024"
     ".message.MsgHeroData\"\037\n\020MsgSaveDataGS2DB"
-    "\022\013\n\003sql\030\001 \002(\014\"\027\n\025MsgSaveAllHeroesGS2DB\"\027"
-    "\n\025MsgSaveAllHeroesDB2GS", 623);
+    "\022\013\n\003sql\030\001 \002(\014\" \n\021MsgRecordSqlGS2DB\022\013\n\003sq"
+    "l\030\001 \002(\014\"\027\n\025MsgSaveAllHeroesGS2DB\"\027\n\025MsgS"
+    "aveAllHeroesDB2GS", 657);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_db.proto", &protobuf_RegisterTypes);
   MsgReqHeroDataGS2DB::default_instance_ = new MsgReqHeroDataGS2DB();
@@ -264,6 +287,7 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
   MsgNeedCreateHeroDB2GS::default_instance_ = new MsgNeedCreateHeroDB2GS();
   MsgSaveHeroDataGS2DB::default_instance_ = new MsgSaveHeroDataGS2DB();
   MsgSaveDataGS2DB::default_instance_ = new MsgSaveDataGS2DB();
+  MsgRecordSqlGS2DB::default_instance_ = new MsgRecordSqlGS2DB();
   MsgSaveAllHeroesGS2DB::default_instance_ = new MsgSaveAllHeroesGS2DB();
   MsgSaveAllHeroesDB2GS::default_instance_ = new MsgSaveAllHeroesDB2GS();
   MsgReqHeroDataGS2DB::default_instance_->InitAsDefaultInstance();
@@ -272,6 +296,7 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
   MsgNeedCreateHeroDB2GS::default_instance_->InitAsDefaultInstance();
   MsgSaveHeroDataGS2DB::default_instance_->InitAsDefaultInstance();
   MsgSaveDataGS2DB::default_instance_->InitAsDefaultInstance();
+  MsgRecordSqlGS2DB::default_instance_->InitAsDefaultInstance();
   MsgSaveAllHeroesGS2DB::default_instance_->InitAsDefaultInstance();
   MsgSaveAllHeroesDB2GS::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto);
@@ -2616,6 +2641,300 @@ void MsgSaveDataGS2DB::InternalSwap(MsgSaveDataGS2DB* other) {
   }
   sql_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sql);
   // @@protoc_insertion_point(field_set_allocated:message.MsgSaveDataGS2DB.sql)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgRecordSqlGS2DB::kSqlFieldNumber;
+#endif  // !_MSC_VER
+
+MsgRecordSqlGS2DB::MsgRecordSqlGS2DB()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgRecordSqlGS2DB)
+}
+
+void MsgRecordSqlGS2DB::InitAsDefaultInstance() {
+}
+
+MsgRecordSqlGS2DB::MsgRecordSqlGS2DB(const MsgRecordSqlGS2DB& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgRecordSqlGS2DB)
+}
+
+void MsgRecordSqlGS2DB::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  sql_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgRecordSqlGS2DB::~MsgRecordSqlGS2DB() {
+  // @@protoc_insertion_point(destructor:message.MsgRecordSqlGS2DB)
+  SharedDtor();
+}
+
+void MsgRecordSqlGS2DB::SharedDtor() {
+  sql_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void MsgRecordSqlGS2DB::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgRecordSqlGS2DB::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgRecordSqlGS2DB_descriptor_;
+}
+
+const MsgRecordSqlGS2DB& MsgRecordSqlGS2DB::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
+  return *default_instance_;
+}
+
+MsgRecordSqlGS2DB* MsgRecordSqlGS2DB::default_instance_ = NULL;
+
+MsgRecordSqlGS2DB* MsgRecordSqlGS2DB::New(::google::protobuf::Arena* arena) const {
+  MsgRecordSqlGS2DB* n = new MsgRecordSqlGS2DB;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgRecordSqlGS2DB::Clear() {
+  if (has_sql()) {
+    sql_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgRecordSqlGS2DB::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgRecordSqlGS2DB)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required bytes sql = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_sql()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgRecordSqlGS2DB)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgRecordSqlGS2DB)
+  return false;
+#undef DO_
+}
+
+void MsgRecordSqlGS2DB::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgRecordSqlGS2DB)
+  // required bytes sql = 1;
+  if (has_sql()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->sql(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgRecordSqlGS2DB)
+}
+
+::google::protobuf::uint8* MsgRecordSqlGS2DB::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgRecordSqlGS2DB)
+  // required bytes sql = 1;
+  if (has_sql()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->sql(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgRecordSqlGS2DB)
+  return target;
+}
+
+int MsgRecordSqlGS2DB::ByteSize() const {
+  int total_size = 0;
+
+  // required bytes sql = 1;
+  if (has_sql()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->sql());
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgRecordSqlGS2DB::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgRecordSqlGS2DB* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgRecordSqlGS2DB*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgRecordSqlGS2DB::MergeFrom(const MsgRecordSqlGS2DB& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_sql()) {
+      set_has_sql();
+      sql_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sql_);
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgRecordSqlGS2DB::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgRecordSqlGS2DB::CopyFrom(const MsgRecordSqlGS2DB& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgRecordSqlGS2DB::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void MsgRecordSqlGS2DB::Swap(MsgRecordSqlGS2DB* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgRecordSqlGS2DB::InternalSwap(MsgRecordSqlGS2DB* other) {
+  sql_.Swap(&other->sql_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgRecordSqlGS2DB::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgRecordSqlGS2DB_descriptor_;
+  metadata.reflection = MsgRecordSqlGS2DB_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgRecordSqlGS2DB
+
+// required bytes sql = 1;
+ bool MsgRecordSqlGS2DB::has_sql() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgRecordSqlGS2DB::set_has_sql() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgRecordSqlGS2DB::clear_has_sql() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgRecordSqlGS2DB::clear_sql() {
+  sql_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_sql();
+}
+ const ::std::string& MsgRecordSqlGS2DB::sql() const {
+  // @@protoc_insertion_point(field_get:message.MsgRecordSqlGS2DB.sql)
+  return sql_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgRecordSqlGS2DB::set_sql(const ::std::string& value) {
+  set_has_sql();
+  sql_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgRecordSqlGS2DB.sql)
+}
+ void MsgRecordSqlGS2DB::set_sql(const char* value) {
+  set_has_sql();
+  sql_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgRecordSqlGS2DB.sql)
+}
+ void MsgRecordSqlGS2DB::set_sql(const void* value, size_t size) {
+  set_has_sql();
+  sql_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgRecordSqlGS2DB.sql)
+}
+ ::std::string* MsgRecordSqlGS2DB::mutable_sql() {
+  set_has_sql();
+  // @@protoc_insertion_point(field_mutable:message.MsgRecordSqlGS2DB.sql)
+  return sql_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgRecordSqlGS2DB::release_sql() {
+  clear_has_sql();
+  return sql_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgRecordSqlGS2DB::set_allocated_sql(::std::string* sql) {
+  if (sql != NULL) {
+    set_has_sql();
+  } else {
+    clear_has_sql();
+  }
+  sql_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sql);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgRecordSqlGS2DB.sql)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
