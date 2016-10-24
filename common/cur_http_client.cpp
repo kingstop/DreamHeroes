@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "curl/curl.h"
+#include "curl/easy.h"
 #include "cur_http_client.h"
 CurlHttpClient::CurlHttpClient(void):
 	_debug(false)
