@@ -24,7 +24,8 @@ INCLUDE_DIRECTORIES(
     ./../../../external/json/include/
     ./../../../external/log4cplus/log4cplus-1.2.0/include/
     ./../../../external/mysql-5.7.10/build/include/
-    ./../../../external/mysql-5.7.10/include/
+    ./../../../external/mysql-5.7.10/include/ 
+    ./../../../external/curl/curl/include/
     ./common/
     /usr/local/mysql/include/
     /usr/include/mysql/
@@ -40,6 +41,7 @@ LINK_DIRECTORIES(
     ${PROJECT_SOURCE_DIR}/../../../external_lib/json/
     ${PROJECT_SOURCE_DIR}/../../../external_lib/log4cplus_1_2_0/	
     ${PROJECT_SOURCE_DIR}/../../../external_lib/mysql/
+    ${PROJECT_SOURCE_DIR}/../../../external_lib/curl/ 
     /usr/local/lib 
     /usr/lib 
 ) 
