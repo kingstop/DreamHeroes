@@ -115,7 +115,7 @@ void DreamHeroManager::save()
 	build_unix_time_to_string(_last_save_time, last_time_temp);
 	char server_id = gGameConfig.getServerID();
 	sprintf(sz_sql, "replace into `heroes_statu`(`server_id`, `day_create_heroes_count`, `day_number`, `heroes_online_count`, `save_time`)\
-	 values ('%s', %d, `%s`, %d, '%s');",(char*)&server_id, _day_create_heroes_count, number_str.c_str(),
+	 values ('%s', %d, '%s', %d, '%s');",(char*)&server_id, _day_create_heroes_count, number_str.c_str(),
 		count, last_time_temp.c_str());
 	message::MsgSaveDataGS2DB msg_db;
 	msg_db.set_sql(sz_sql);
