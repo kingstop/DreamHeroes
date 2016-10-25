@@ -4,6 +4,7 @@
 
 GameConfig::GameConfig()
 {
+
 	
 }
 
@@ -60,6 +61,25 @@ const  message::MsgChapterConfigInfo* GameConfig::getChapterConfigInfo(int id)
 	}
 	return info_config;
 }
+
+void GameConfig::setServerOpenTime(u64 time_open)
+{
+	_server_open_time = time_open;
+}
+void GameConfig::setServerID(char server_id)
+{
+	_server_char = server_id;
+}
+
+u64 GameConfig::getServerOpenTime()
+{
+	return _server_open_time;
+}
+char GameConfig::getServerID()
+{
+	return _server_char;
+}
+
 
 const message::MsgTaskConfigInfo* GameConfig::getMapTask(int id)
 {

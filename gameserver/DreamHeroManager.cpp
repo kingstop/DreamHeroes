@@ -4,12 +4,54 @@
 #define _SAVE_COLLECT_TIME_  (10 * _TIME_SECOND_MSEL_)
 DreamHeroManager::DreamHeroManager()
 {
-
+	char a = 'a';
+	for (char a = 'a'; a < ('a' + 26); a++)
+	{
+		_char_configs.push_back(a);
+	}
+	_last_save_time = 0;
+	_save_all_heroes_ok = false;
+	_day_create_heroes_count = 0;;
 }
 
 
 DreamHeroManager::~DreamHeroManager()
 {
+}
+
+void DreamHeroManager::Load(DBQuery* p)
+{
+	if (p)
+	{
+		DBQuery& query = *p;
+		query << "select *  ,UNIX_TIMESTAMP(`save_time`) from `heroes_statu`;";
+		SDBResult sResult = query.store();
+		int rows_length = sResult.num_rows();
+		if (sResult.size() > 0)
+		{
+			DBRow& row = sResult[0];
+			_day_create_heroes_count = row["day_create_heroes_count"];
+			std::string str_number = row["day_number"].c_str();
+			std::vector<std::string> outVC;
+			std::vector<std::string> outVC1;
+			std::vector<std::string> outVC2;
+			SplitStringA(str_number, ";", outVC);
+			int length = outVC.size();
+			for (size_t i = 0; i < length; i++)
+			{
+				std::string numbers_str = outVC[i];
+				SplitStringA(numbers_str, ",", outVC1);
+				int length_1 = outVC1.size();
+				for (size_t j = 0; j < length_1; j++)
+				{
+					_day_number[i][j] = atoi(outVC1[j].c_str());
+				}
+			}
+			_last_save_time = row["UNIX_TIMESTAMP(`save_time`)"];
+			
+		}
+
+	}
 }
 
 void DreamHeroManager::init()
@@ -27,9 +69,58 @@ void DreamHeroManager::init()
 		tm* p1 = localtime(&server_time);
 		int next_hour_second = p1->tm_min * 60 + p1->tm_sec;
 		gEventMgr.addEvent(this, &DreamHeroManager::eventPerHour, EVENT_PER_HOUR, next_hour_second, -1, 0);
-
-
 	}
+
+	if (gEventMgr.hasEvent(this, EVENT_SAVE_HEROES_STATU) == false)
+	{
+		gEventMgr.addEvent(this, &DreamHeroManager::save, EVENT_SAVE_HEROES_STATU, 360, -1, 0);
+	}
+
+	if (same_day(_last_save_time, g_server_time) == false)
+	{
+		refreshDayNumber();
+	}
+	
+
+}
+
+void DreamHeroManager::save()
+{
+	std::string number_str;
+	std::string number_temp;
+	char sz_temp[64];
+	for (size_t i = 0; i < 6; i++)
+	{
+		if (number_str.empty() == false)
+		{
+			number_str += ";";
+		}
+		for (size_t j = 0; j < 10; j++)
+		{
+			if (number_temp.empty() == false)
+			{
+				number_temp += ',';
+				
+			}
+			sprintf(sz_temp, "%d", _day_number[i][j]);
+			number_temp += sz_temp;			
+		}
+		number_str += number_temp;
+		number_temp.clear();
+	}
+	char sz_sql[1024];
+	int count = _heroes.size();
+	_last_save_time = g_server_time;
+	std::string last_time_temp;
+	build_unix_time_to_string(_last_save_time, last_time_temp);
+	char server_id = gGameConfig.getServerID();
+	sprintf(sz_sql, "replace into `heroes_statu`(`server_id`, `day_create_heroes_count`, `day_number`, `heroes_online_count`, `save_time`)\
+	 values ('%s', %d, `%s`, %d, '%s');",(char*)&server_id, _day_create_heroes_count, number_str.c_str(),
+		count, last_time_temp.c_str());
+	message::MsgSaveDataGS2DB msg_db;
+	msg_db.set_sql(sz_sql);
+	
+	gGSDBClient.sendPBMessage(&msg_db, 0);
 }
 
 void DreamHeroManager::eventPerHour()
@@ -43,11 +134,71 @@ void DreamHeroManager::eventPerHour()
 	{
 		dayRefresh();
 	}
+
+	if (p1->tm_hour == 0)
+	{
+		refreshDayNumber();
+	}
 }
 
+std::string DreamHeroManager::generateName()
+{
+	_day_create_heroes_count++;
+	int number_entry;
+	int number_temp = 1;
+	std::string str_name = _hero_day_title + gGameConfig.getServerID();
+	int numbers[6];
+	for (size_t i = 0; i < 6; i++)
+	{
+		int cur_number = (_day_create_heroes_count / number_temp) % 10;
+		numbers[i] = _day_number[i][cur_number];
+		number_temp *= 10;
+	}
+	char sz_name[256];
+	sprintf(sz_name, "%s%d%d%d%d%d%d", str_name.c_str(), numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]);
+
+	return sz_name;
+}
+
+void DreamHeroManager::refreshDayNumber()
+{
+	std::vector<int> vc_number;
+	for (size_t i = 0; i <= 9; i++)
+	{
+		vc_number.push_back(i);
+	}
+
+	for (size_t i = 0; i < 6; i++)
+	{
+		std::random_shuffle(vc_number.begin(), vc_number.end());
+		for (size_t j = 0; j < 10; j++)
+		{
+			_day_number[i][j] = vc_number[j];
+		}
+	}
+
+	time_t server_open_time = gGameConfig.getServerOpenTime();
+	tm* p_open_time = localtime(&server_open_time);
+	_hero_day_title = "aaa";
+	if (g_server_time > server_open_time)
+	{
+		s64 time_spwan = g_server_time - server_open_time;
+		s64 number = time_spwan / (60 * 60 * 24);
+		int number_char_1 = number % 26;
+		int number_char_2 = (number / 26) % 26;
+		int number_char_3 = (number / (26 * 26)) % 26;
+		_hero_day_title.clear();
+		_hero_day_title.push_back(_char_configs[number_char_1]);
+		_hero_day_title.push_back(_char_configs[number_char_2]);
+		_hero_day_title.push_back(_char_configs[number_char_3]);
+		_hero_day_title.push_back('\0');
+		_day_create_heroes_count = 0;
+	}
+	save();
+}
 
 void DreamHeroManager::dayRefresh()
-{
+{			
 	MAPHEROS::iterator it = _heroes.begin();
 	for (; it != _heroes.end() ; ++ it)
 	{
@@ -93,11 +244,16 @@ DreamHero* DreamHeroManager::CreateHero(account_type acc, Session* session)
 	if (hero == NULL)
 	{
 		hero = new DreamHero();
+		hero->set_parent(this);
 		hero->LoadFromConfig();
+	}
+	else
+	{
+		hero->set_parent(this);
 	}
 	hero->set_session(session);
 	hero->set_account(acc);
-	hero->set_parent(this);
+	
 	hero->StopDestroyClock();
 	_heroes.insert(MAPHEROS::value_type(hero->get_account(), hero));
 	return hero;
@@ -107,6 +263,7 @@ DreamHero* DreamHeroManager::CreateHero(account_type acc, Session* session)
 
 void DreamHeroManager::SaveDreamHeroes()
 {
+	save();
 	MAPHEROS::iterator it = _heroes.begin();
 	for (; it != _heroes.end(); ++ it)
 	{

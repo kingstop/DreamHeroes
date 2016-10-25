@@ -185,7 +185,32 @@ bool GameServer::initDataFromDatabase(DBQuery* p, const void* data)
 	if (!gDBCharDatabase.initDatabase(m_character_conf))
 	{
 		Mylog::log_server(LOG_ERROR, "start character db service failed!");
+		return false;
 	}    
+
+
+	parms.clear();
+	query.reset();
+	
+	query << "SELECT * , UNIX_TIMESTAMP(`server_open_time`) FROM `server_config`";
+	query.parse();
+	const SDBResult& r = query.store();
+	if (r.num_rows() > 0)
+	{
+		DBRow row = r[0];
+		std::string server_temp = row["server_id"].c_str();
+		char s_temp = 'a';
+		if (server_temp.empty() == false)
+		{
+			s_temp = server_temp[0];
+		}
+		gGameConfig.setServerID(s_temp);
+		u64 open_time = row["UNIX_TIMESTAMP(`server_open_time`)"];
+		gGameConfig.setServerOpenTime(open_time);
+		
+
+
+	}
     return true;
 }
 
@@ -195,6 +220,7 @@ bool GameServer::initDataFromCharacterDB(DBQuery* p, const void* data)
 	{
 		return false;
 	}
+	gDreamHeroManager.Load(p);
 
 	return true;
 }

@@ -106,10 +106,13 @@ public:
 	const  message::MsgChapterConfigInfo* getChapterConfigInfo(int id);
 	const MAPGOLDSHOPCONFIGINFOS* getGoldShopConfigInfos();
 	const message::MsgGoldShopConfigInfo* getGoldShopConfigInfo(int id);
-
-
 	const globalConfig& getGlobalConfig();
 	const MAPTYPEDROPBOXCONFIGS* getMapDropBox(int chapter_id, int section_id);
+
+	void setServerOpenTime(u64 time_open);
+	void setServerID(char server_id);
+	u64 getServerOpenTime();
+	char getServerID();
 protected:
 	MAPTASKS _tasks;
 	MAPSHOPHEROCONFIGS _shop_heroes;
@@ -119,8 +122,9 @@ protected:
 	MAPTYPEDROPBOXCONFIGS _drop_box_configs;
 	MAPALLBEHAVIORCONFIGS _map_behavior_config;
 	MAPALLRANDOMOBJCONFIGS _map_random_obj_configs;
-
 	MAPMAPDROPBOXCONFIGS _map_drop_box_configs;
 	globalConfig _global_config;
+	u64 _server_open_time;
+	char _server_char;
 };
 

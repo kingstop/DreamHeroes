@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 class DreamHero;
 class DreamHeroManager : public EventableObject
@@ -9,6 +10,7 @@ public:
 public:
 	DreamHeroManager();
 	virtual ~DreamHeroManager();
+	void Load(DBQuery* p);
 	void init();	
 	DreamHero* CreateHero(message::MsgHeroDataDB2GS* HeroDataMsg, account_type acc, Session* session);
 	DreamHero* CreateHero(account_type acc, Session* session);
@@ -19,13 +21,20 @@ public:
 	bool is_save_all_heroes_ok();
 	void save_all_heroes_ok();
 	void CollectInfo();
+	std::string generateName();
 protected:
-	
 	void eventPerHour();
+	void save();
 	void dayRefresh();
+	void refreshDayNumber();
 protected:
 	MAPHEROS _heroes;
-
+	u8 _day_number[6][10];
 	bool _save_all_heroes_ok;
+	int _day_create_heroes_count;
+	std::string _hero_day_title;
+	std::vector<char> _char_configs;
+	u64 _last_save_time;
+
 };
 

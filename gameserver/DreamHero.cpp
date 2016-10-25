@@ -625,7 +625,7 @@ void DreamHero::ReqModifyTaskCompleteCount(const message::MsgC2SCmdReqModifyTask
 	{
 		count = 0;
 	}
-	_info.set_complete_task_count(msg->task_complete_count());
+	_info.set_complete_task_count(count);
 	message::MsgS2CCmdModifyTaskCompleteCountACK msgACK;
 	msgACK.set_current_task_count(_info.complete_task_count());
 	sendPBMessage(&msgACK);
@@ -963,7 +963,8 @@ void DreamHero::LoadFromConfig()
 	_info.set_complete_task_count(0);
 	
 	_info.set_current_hero(0);
-	_info.set_name("normal");
+	std::string name = _parent->generateName();
+	_info.set_name(name.c_str());
 	
 }
 

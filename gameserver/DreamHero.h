@@ -25,9 +25,7 @@ public:
 	void set_online(bool online);
 	bool is_online();
 	void StartDestroyTime();
-	void StopDestroyClock();
-
-	
+	void StopDestroyClock();	
 public:
 	void dayRefresh(bool need_send_msg = true);
 	int getGMLevel();
