@@ -445,6 +445,7 @@ void Session::parseCmdReqModifyTaskCompleteCount(google::protobuf::Message* p)
 	if (_dream_hero->getGMLevel() > 0)
 	{
 		message::MsgC2SCmdReqModifyTaskCompleteCount* msg = (message::MsgC2SCmdReqModifyTaskCompleteCount*) p;
+		_dream_hero->ReqModifyTaskCompleteCount(msg);
 
 	}
 	else

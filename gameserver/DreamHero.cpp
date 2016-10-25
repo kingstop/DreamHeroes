@@ -620,6 +620,11 @@ void DreamHero::ReqAdvertisementApplyTask(const message::MsgC2SReqAdvertisementA
 
 void DreamHero::ReqModifyTaskCompleteCount(const message::MsgC2SCmdReqModifyTaskCompleteCount* msg)
 {
+	int count = msg->task_complete_count();
+	if (count < 0)
+	{
+		count = 0;
+	}
 	_info.set_complete_task_count(msg->task_complete_count());
 	message::MsgS2CCmdModifyTaskCompleteCountACK msgACK;
 	msgACK.set_current_task_count(_info.complete_task_count());
