@@ -4,7 +4,9 @@
 #include "stdafx.h"
 
 #include <iostream>
-#include "../common/cur_http_client.h"
+#include "cur_http_client.h"
+#include "curl/curl.h"
+#include "curl/easy.h"
 
 int main()
 {
