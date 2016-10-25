@@ -69,6 +69,7 @@ public:
 	void parseCmdReqResetGame(google::protobuf::Message* p);
 	void parseCmdReqModifyGold(google::protobuf::Message* p);
 	void parseCmdReqReplaceTask(google::protobuf::Message* p);
+	void parseCmdReqModifyTaskCompleteCount(google::protobuf::Message* p);
 	int getState();
 
 protected:

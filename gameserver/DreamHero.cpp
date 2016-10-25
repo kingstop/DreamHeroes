@@ -617,6 +617,15 @@ void DreamHero::ReqAdvertisementApplyTask(const message::MsgC2SReqAdvertisementA
 	RefreshTask(0);
 }
 
+
+void DreamHero::ReqModifyTaskCompleteCount(const message::MsgC2SCmdReqModifyTaskCompleteCount* msg)
+{
+	_info.set_complete_task_count(msg->task_complete_count());
+	message::MsgS2CCmdModifyTaskCompleteCountACK msgACK;
+	msgACK.set_current_task_count(_info.complete_task_count());
+	sendPBMessage(&msgACK);
+}
+
 void DreamHero::ReqReplaceTask(const message::MsgS2CCmdReqReplaceTask* msg)
 {
 	int task_count = msg->task_count();

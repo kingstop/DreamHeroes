@@ -44,6 +44,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetGame), &Session::parseCmdReqResetGame);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGold), &Session::parseCmdReqModifyGold);
 	registerCBFun(PROTOCO_NAME(message::MsgS2CCmdReqReplaceTask), &Session::parseCmdReqReplaceTask);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyTaskCompleteCount), &Session::parseCmdReqModifyTaskCompleteCount);
 }
 
 void Session::parseReqShopConfig(google::protobuf::Message* p)
@@ -425,6 +426,25 @@ void Session::parseCmdReqReplaceTask(google::protobuf::Message* p)
 	if (_dream_hero->getGMLevel() > 0)
 	{
 		message::MsgS2CCmdReqReplaceTask* msg = (message::MsgS2CCmdReqReplaceTask*) p;
+
+	}
+	else
+	{
+		message::MsgS2CNotifyError msgError;
+		msgError.set_error(message::Error_CmdFailedRequiredGMLevel);
+		sendPBMessage(&msgError);
+	}
+}
+
+void Session::parseCmdReqModifyTaskCompleteCount(google::protobuf::Message* p)
+{
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		message::MsgC2SCmdReqModifyTaskCompleteCount* msg = (message::MsgC2SCmdReqModifyTaskCompleteCount*) p;
 
 	}
 	else

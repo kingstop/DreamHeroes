@@ -92,6 +92,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgS2CGoldShopConfigsACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CGoldShopConfigsACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SCmdReqModifyTaskCompleteCount_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgC2SCmdReqModifyTaskCompleteCount_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgS2CCmdModifyTaskCompleteCountACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgS2CCmdModifyTaskCompleteCountACK_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgC2SCmdReqShowGMLevel_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgC2SCmdReqShowGMLevel_reflection_ = NULL;
@@ -533,7 +539,37 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CGoldShopConfigsACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CGoldShopConfigsACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqShowGMLevel_descriptor_ = file->message_type(24);
+  MsgC2SCmdReqModifyTaskCompleteCount_descriptor_ = file->message_type(24);
+  static const int MsgC2SCmdReqModifyTaskCompleteCount_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyTaskCompleteCount, task_complete_count_),
+  };
+  MsgC2SCmdReqModifyTaskCompleteCount_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgC2SCmdReqModifyTaskCompleteCount_descriptor_,
+      MsgC2SCmdReqModifyTaskCompleteCount::default_instance_,
+      MsgC2SCmdReqModifyTaskCompleteCount_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyTaskCompleteCount, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgC2SCmdReqModifyTaskCompleteCount),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyTaskCompleteCount, _internal_metadata_),
+      -1);
+  MsgS2CCmdModifyTaskCompleteCountACK_descriptor_ = file->message_type(25);
+  static const int MsgS2CCmdModifyTaskCompleteCountACK_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyTaskCompleteCountACK, current_task_count_),
+  };
+  MsgS2CCmdModifyTaskCompleteCountACK_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgS2CCmdModifyTaskCompleteCountACK_descriptor_,
+      MsgS2CCmdModifyTaskCompleteCountACK::default_instance_,
+      MsgS2CCmdModifyTaskCompleteCountACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyTaskCompleteCountACK, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgS2CCmdModifyTaskCompleteCountACK),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyTaskCompleteCountACK, _internal_metadata_),
+      -1);
+  MsgC2SCmdReqShowGMLevel_descriptor_ = file->message_type(26);
   static const int MsgC2SCmdReqShowGMLevel_offsets_[1] = {
   };
   MsgC2SCmdReqShowGMLevel_reflection_ =
@@ -547,7 +583,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqShowGMLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqShowGMLevel, _internal_metadata_),
       -1);
-  MsgS2CCmdShowGMLevelACK_descriptor_ = file->message_type(25);
+  MsgS2CCmdShowGMLevelACK_descriptor_ = file->message_type(27);
   static const int MsgS2CCmdShowGMLevelACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, gm_level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, error_),
@@ -563,7 +599,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdShowGMLevelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyGMLevel_descriptor_ = file->message_type(26);
+  MsgC2SCmdReqModifyGMLevel_descriptor_ = file->message_type(28);
   static const int MsgC2SCmdReqModifyGMLevel_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, level_),
@@ -579,7 +615,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyGMLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyGMLevelACK_descriptor_ = file->message_type(27);
+  MsgS2CCmdModifyGMLevelACK_descriptor_ = file->message_type(29);
   static const int MsgS2CCmdModifyGMLevelACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, level_),
@@ -596,7 +632,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyGMLevelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqEnterGame_descriptor_ = file->message_type(28);
+  MsgC2SCmdReqEnterGame_descriptor_ = file->message_type(30);
   static const int MsgC2SCmdReqEnterGame_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, section_id_),
@@ -612,7 +648,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqEnterGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetMap_descriptor_ = file->message_type(29);
+  MsgC2SCmdReqResetMap_descriptor_ = file->message_type(31);
   static const int MsgC2SCmdReqResetMap_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, section_id_),
@@ -628,7 +664,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetMap),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, _internal_metadata_),
       -1);
-  MsgS2CCmdResetMapACK_descriptor_ = file->message_type(30);
+  MsgS2CCmdResetMapACK_descriptor_ = file->message_type(32);
   static const int MsgS2CCmdResetMapACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, section_id_),
@@ -645,7 +681,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdResetMapACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetGame_descriptor_ = file->message_type(31);
+  MsgC2SCmdReqResetGame_descriptor_ = file->message_type(33);
   static const int MsgC2SCmdReqResetGame_offsets_[1] = {
   };
   MsgC2SCmdReqResetGame_reflection_ =
@@ -659,7 +695,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetGame, _internal_metadata_),
       -1);
-  MsgS2CCmdResetGameACK_descriptor_ = file->message_type(32);
+  MsgS2CCmdResetGameACK_descriptor_ = file->message_type(34);
   static const int MsgS2CCmdResetGameACK_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, current_advertisement_count_),
@@ -677,7 +713,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdResetGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyGold_descriptor_ = file->message_type(33);
+  MsgC2SCmdReqModifyGold_descriptor_ = file->message_type(35);
   static const int MsgC2SCmdReqModifyGold_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGold, gold_),
   };
@@ -692,7 +728,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyGold),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGold, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyGoldACK_descriptor_ = file->message_type(34);
+  MsgS2CCmdModifyGoldACK_descriptor_ = file->message_type(36);
   static const int MsgS2CCmdModifyGoldACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGoldACK, gold_),
   };
@@ -707,7 +743,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyGoldACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGoldACK, _internal_metadata_),
       -1);
-  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(35);
+  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(37);
   static const int MsgS2CCmdReqReplaceTask_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, task_count_),
   };
@@ -722,7 +758,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdReqReplaceTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, _internal_metadata_),
       -1);
-  MsgS2CCmdReplaceTaskACK_descriptor_ = file->message_type(36);
+  MsgS2CCmdReplaceTaskACK_descriptor_ = file->message_type(38);
   static const int MsgS2CCmdReplaceTaskACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, error_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, infos_),
@@ -799,6 +835,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
       MsgC2SReqGoldShopConfigs_descriptor_, &MsgC2SReqGoldShopConfigs::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CGoldShopConfigsACK_descriptor_, &MsgS2CGoldShopConfigsACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgC2SCmdReqModifyTaskCompleteCount_descriptor_, &MsgC2SCmdReqModifyTaskCompleteCount::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgS2CCmdModifyTaskCompleteCountACK_descriptor_, &MsgS2CCmdModifyTaskCompleteCountACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgC2SCmdReqShowGMLevel_descriptor_, &MsgC2SCmdReqShowGMLevel::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -878,6 +918,10 @@ void protobuf_ShutdownFile_dream_5fheroes_2eproto() {
   delete MsgC2SReqGoldShopConfigs_reflection_;
   delete MsgS2CGoldShopConfigsACK::default_instance_;
   delete MsgS2CGoldShopConfigsACK_reflection_;
+  delete MsgC2SCmdReqModifyTaskCompleteCount::default_instance_;
+  delete MsgC2SCmdReqModifyTaskCompleteCount_reflection_;
+  delete MsgS2CCmdModifyTaskCompleteCountACK::default_instance_;
+  delete MsgS2CCmdModifyTaskCompleteCountACK_reflection_;
   delete MsgC2SCmdReqShowGMLevel::default_instance_;
   delete MsgC2SCmdReqShowGMLevel_reflection_;
   delete MsgS2CCmdShowGMLevelACK::default_instance_;
@@ -974,54 +1018,58 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "\022+\n\005error\030\003 \002(\0162\022.message.GameError:\010Err"
     "or_NO\"\032\n\030MsgC2SReqGoldShopConfigs\"I\n\030Msg"
     "S2CGoldShopConfigsACK\022-\n\005infos\030\001 \003(\0132\036.m"
-    "essage.MsgGoldShopConfigInfo\"\031\n\027MsgC2SCm"
-    "dReqShowGMLevel\"X\n\027MsgS2CCmdShowGMLevelA"
-    "CK\022\020\n\010gm_level\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.me"
-    "ssage.GameError:\010Error_NO\"8\n\031MsgC2SCmdRe"
-    "qModifyGMLevel\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 "
-    "\002(\005\"e\n\031MsgS2CCmdModifyGMLevelACK\022\014\n\004name"
-    "\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.m"
-    "essage.GameError:\010Error_NO\"\?\n\025MsgC2SCmdR"
-    "eqEnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsecti"
-    "on_id\030\002 \002(\005\">\n\024MsgC2SCmdReqResetMap\022\022\n\nc"
-    "hapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"k\n\024M"
-    "sgS2CCmdResetMapACK\022\022\n\nchapter_id\030\001 \002(\005\022"
-    "\022\n\nsection_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.mes"
-    "sage.GameError:\010Error_NO\"\027\n\025MsgC2SCmdReq"
-    "ResetGame\"\256\001\n\025MsgS2CCmdResetGameACK\022\"\n\004i"
-    "nfo\030\001 \002(\0132\024.message.MsgHeroData\022#\n\033curre"
-    "nt_advertisement_count\030\002 \002(\005\022\037\n\027last_adv"
-    "ertisement_time\030\003 \002(\003\022+\n\005error\030\004 \002(\0162\022.m"
-    "essage.GameError:\010Error_NO\"&\n\026MsgC2SCmdR"
-    "eqModifyGold\022\014\n\004gold\030\001 \002(\005\"&\n\026MsgS2CCmdM"
-    "odifyGoldACK\022\014\n\004gold\030\001 \002(\005\"-\n\027MsgS2CCmdR"
-    "eqReplaceTask\022\022\n\ntask_count\030\001 \002(\005\"q\n\027Msg"
-    "S2CCmdReplaceTaskACK\022+\n\005error\030\001 \002(\0162\022.me"
-    "ssage.GameError:\010Error_NO\022)\n\005infos\030\002 \003(\013"
-    "2\032.message.MsgTaskConfigInfo*\241\007\n\tGameErr"
-    "or\022\014\n\010Error_NO\020\000\022*\n&Error_CanNotEnterGam"
-    "eTheInstanceIsLock\020\001\022+\n\'Error_CanNotEnte"
-    "rGameTheCharacterIsLock\020\002\022)\n%Error_CanNo"
-    "tEnterGameTheSectionIsLock\020\003\022$\n Error_Ca"
-    "nNotBuyHeroNotEnoughgold\020\004\0224\n0Error_CanN"
-    "otPassGameTheInstanceNotHaveEnoughGold\020\005"
-    "\022\035\n\031Error_NotEnterTheExitGame\020\006\022)\n%Error"
-    "_NotFoundTheChapterWhenEnterGame\020\007\022\035\n\031Er"
-    "ror_TheChapterIsNotLock\020\010\0225\n1Error_Unloc"
-    "kChapterFailedNotFoundTheUnlockChapter\020\t"
-    "\0226\n2Error_UnlockChapterFailedTheRequired"
-    "SectionNotPass\020\n\0229\n5Error_UnlockChapterF"
-    "ailedYouHaveToCompleteEnoughTasks\020\013\0221\n-E"
-    "rror_UnlockChapterFailedYouNotHaveEnough"
-    "Gold\020\014\022,\n(Error_RefreshAdvertisementTask"
-    "FailedInCD\020\r\022<\n8Error_RefreshAdvertiseme"
-    "ntTaskFailedNotFoundGiveUpTaskID\020\016\022.\n*Er"
-    "ror_RefreshAdvertisementTaskFailedUnknow"
-    "\020\017\022$\n Error_BuyHeroFailedNotEnoughGold\020\020"
-    "\022$\n Error_BuyHeroFailedThePriceIsOld\020\021\022#"
-    "\n\037Error_BuyHeroFailedNotFoundGrid\020\022\022/\n+E"
-    "rror_ModifyCurrentFailedTheCharacterIsLo"
-    "ck\020\023\022\"\n\036Error_CmdFailedRequiredGMLevel\020\024", 4320);
+    "essage.MsgGoldShopConfigInfo\"B\n#MsgC2SCm"
+    "dReqModifyTaskCompleteCount\022\033\n\023task_comp"
+    "lete_count\030\001 \002(\005\"A\n#MsgS2CCmdModifyTaskC"
+    "ompleteCountACK\022\032\n\022current_task_count\030\001 "
+    "\002(\005\"\031\n\027MsgC2SCmdReqShowGMLevel\"X\n\027MsgS2C"
+    "CmdShowGMLevelACK\022\020\n\010gm_level\030\001 \002(\005\022+\n\005e"
+    "rror\030\002 \002(\0162\022.message.GameError:\010Error_NO"
+    "\"8\n\031MsgC2SCmdReqModifyGMLevel\022\014\n\004name\030\001 "
+    "\002(\t\022\r\n\005level\030\002 \002(\005\"e\n\031MsgS2CCmdModifyGML"
+    "evelACK\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\022+\n\005"
+    "error\030\003 \002(\0162\022.message.GameError:\010Error_N"
+    "O\"\?\n\025MsgC2SCmdReqEnterGame\022\022\n\nchapter_id"
+    "\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\">\n\024MsgC2SCmdR"
+    "eqResetMap\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsectio"
+    "n_id\030\002 \002(\005\"k\n\024MsgS2CCmdResetMapACK\022\022\n\nch"
+    "apter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022+\n\005er"
+    "ror\030\003 \002(\0162\022.message.GameError:\010Error_NO\""
+    "\027\n\025MsgC2SCmdReqResetGame\"\256\001\n\025MsgS2CCmdRe"
+    "setGameACK\022\"\n\004info\030\001 \002(\0132\024.message.MsgHe"
+    "roData\022#\n\033current_advertisement_count\030\002 "
+    "\002(\005\022\037\n\027last_advertisement_time\030\003 \002(\003\022+\n\005"
+    "error\030\004 \002(\0162\022.message.GameError:\010Error_N"
+    "O\"&\n\026MsgC2SCmdReqModifyGold\022\014\n\004gold\030\001 \002("
+    "\005\"&\n\026MsgS2CCmdModifyGoldACK\022\014\n\004gold\030\001 \002("
+    "\005\"-\n\027MsgS2CCmdReqReplaceTask\022\022\n\ntask_cou"
+    "nt\030\001 \002(\005\"q\n\027MsgS2CCmdReplaceTaskACK\022+\n\005e"
+    "rror\030\001 \002(\0162\022.message.GameError:\010Error_NO"
+    "\022)\n\005infos\030\002 \003(\0132\032.message.MsgTaskConfigI"
+    "nfo*\241\007\n\tGameError\022\014\n\010Error_NO\020\000\022*\n&Error"
+    "_CanNotEnterGameTheInstanceIsLock\020\001\022+\n\'E"
+    "rror_CanNotEnterGameTheCharacterIsLock\020\002"
+    "\022)\n%Error_CanNotEnterGameTheSectionIsLoc"
+    "k\020\003\022$\n Error_CanNotBuyHeroNotEnoughgold\020"
+    "\004\0224\n0Error_CanNotPassGameTheInstanceNotH"
+    "aveEnoughGold\020\005\022\035\n\031Error_NotEnterTheExit"
+    "Game\020\006\022)\n%Error_NotFoundTheChapterWhenEn"
+    "terGame\020\007\022\035\n\031Error_TheChapterIsNotLock\020\010"
+    "\0225\n1Error_UnlockChapterFailedNotFoundThe"
+    "UnlockChapter\020\t\0226\n2Error_UnlockChapterFa"
+    "iledTheRequiredSectionNotPass\020\n\0229\n5Error"
+    "_UnlockChapterFailedYouHaveToCompleteEno"
+    "ughTasks\020\013\0221\n-Error_UnlockChapterFailedY"
+    "ouNotHaveEnoughGold\020\014\022,\n(Error_RefreshAd"
+    "vertisementTaskFailedInCD\020\r\022<\n8Error_Ref"
+    "reshAdvertisementTaskFailedNotFoundGiveU"
+    "pTaskID\020\016\022.\n*Error_RefreshAdvertisementT"
+    "askFailedUnknow\020\017\022$\n Error_BuyHeroFailed"
+    "NotEnoughGold\020\020\022$\n Error_BuyHeroFailedTh"
+    "ePriceIsOld\020\021\022#\n\037Error_BuyHeroFailedNotF"
+    "oundGrid\020\022\022/\n+Error_ModifyCurrentFailedT"
+    "heCharacterIsLock\020\023\022\"\n\036Error_CmdFailedRe"
+    "quiredGMLevel\020\024", 4455);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgS2CNotifyError::default_instance_ = new MsgS2CNotifyError();
@@ -1048,6 +1096,8 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CBuyHeroACK::default_instance_ = new MsgS2CBuyHeroACK();
   MsgC2SReqGoldShopConfigs::default_instance_ = new MsgC2SReqGoldShopConfigs();
   MsgS2CGoldShopConfigsACK::default_instance_ = new MsgS2CGoldShopConfigsACK();
+  MsgC2SCmdReqModifyTaskCompleteCount::default_instance_ = new MsgC2SCmdReqModifyTaskCompleteCount();
+  MsgS2CCmdModifyTaskCompleteCountACK::default_instance_ = new MsgS2CCmdModifyTaskCompleteCountACK();
   MsgC2SCmdReqShowGMLevel::default_instance_ = new MsgC2SCmdReqShowGMLevel();
   MsgS2CCmdShowGMLevelACK::default_instance_ = new MsgS2CCmdShowGMLevelACK();
   MsgC2SCmdReqModifyGMLevel::default_instance_ = new MsgC2SCmdReqModifyGMLevel();
@@ -1085,6 +1135,8 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CBuyHeroACK::default_instance_->InitAsDefaultInstance();
   MsgC2SReqGoldShopConfigs::default_instance_->InitAsDefaultInstance();
   MsgS2CGoldShopConfigsACK::default_instance_->InitAsDefaultInstance();
+  MsgC2SCmdReqModifyTaskCompleteCount::default_instance_->InitAsDefaultInstance();
+  MsgS2CCmdModifyTaskCompleteCountACK::default_instance_->InitAsDefaultInstance();
   MsgC2SCmdReqShowGMLevel::default_instance_->InitAsDefaultInstance();
   MsgS2CCmdShowGMLevelACK::default_instance_->InitAsDefaultInstance();
   MsgC2SCmdReqModifyGMLevel::default_instance_->InitAsDefaultInstance();
@@ -9905,6 +9957,524 @@ MsgS2CGoldShopConfigsACK::infos() const {
 MsgS2CGoldShopConfigsACK::mutable_infos() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgS2CGoldShopConfigsACK.infos)
   return &infos_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgC2SCmdReqModifyTaskCompleteCount::kTaskCompleteCountFieldNumber;
+#endif  // !_MSC_VER
+
+MsgC2SCmdReqModifyTaskCompleteCount::MsgC2SCmdReqModifyTaskCompleteCount()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgC2SCmdReqModifyTaskCompleteCount)
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::InitAsDefaultInstance() {
+}
+
+MsgC2SCmdReqModifyTaskCompleteCount::MsgC2SCmdReqModifyTaskCompleteCount(const MsgC2SCmdReqModifyTaskCompleteCount& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgC2SCmdReqModifyTaskCompleteCount)
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::SharedCtor() {
+  _cached_size_ = 0;
+  task_complete_count_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgC2SCmdReqModifyTaskCompleteCount::~MsgC2SCmdReqModifyTaskCompleteCount() {
+  // @@protoc_insertion_point(destructor:message.MsgC2SCmdReqModifyTaskCompleteCount)
+  SharedDtor();
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgC2SCmdReqModifyTaskCompleteCount::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgC2SCmdReqModifyTaskCompleteCount_descriptor_;
+}
+
+const MsgC2SCmdReqModifyTaskCompleteCount& MsgC2SCmdReqModifyTaskCompleteCount::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgC2SCmdReqModifyTaskCompleteCount* MsgC2SCmdReqModifyTaskCompleteCount::default_instance_ = NULL;
+
+MsgC2SCmdReqModifyTaskCompleteCount* MsgC2SCmdReqModifyTaskCompleteCount::New(::google::protobuf::Arena* arena) const {
+  MsgC2SCmdReqModifyTaskCompleteCount* n = new MsgC2SCmdReqModifyTaskCompleteCount;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::Clear() {
+  task_complete_count_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgC2SCmdReqModifyTaskCompleteCount::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgC2SCmdReqModifyTaskCompleteCount)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 task_complete_count = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &task_complete_count_)));
+          set_has_task_complete_count();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgC2SCmdReqModifyTaskCompleteCount)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgC2SCmdReqModifyTaskCompleteCount)
+  return false;
+#undef DO_
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgC2SCmdReqModifyTaskCompleteCount)
+  // required int32 task_complete_count = 1;
+  if (has_task_complete_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->task_complete_count(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgC2SCmdReqModifyTaskCompleteCount)
+}
+
+::google::protobuf::uint8* MsgC2SCmdReqModifyTaskCompleteCount::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SCmdReqModifyTaskCompleteCount)
+  // required int32 task_complete_count = 1;
+  if (has_task_complete_count()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->task_complete_count(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SCmdReqModifyTaskCompleteCount)
+  return target;
+}
+
+int MsgC2SCmdReqModifyTaskCompleteCount::ByteSize() const {
+  int total_size = 0;
+
+  // required int32 task_complete_count = 1;
+  if (has_task_complete_count()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->task_complete_count());
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgC2SCmdReqModifyTaskCompleteCount* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SCmdReqModifyTaskCompleteCount*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::MergeFrom(const MsgC2SCmdReqModifyTaskCompleteCount& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_task_complete_count()) {
+      set_task_complete_count(from.task_complete_count());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::CopyFrom(const MsgC2SCmdReqModifyTaskCompleteCount& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgC2SCmdReqModifyTaskCompleteCount::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void MsgC2SCmdReqModifyTaskCompleteCount::Swap(MsgC2SCmdReqModifyTaskCompleteCount* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgC2SCmdReqModifyTaskCompleteCount::InternalSwap(MsgC2SCmdReqModifyTaskCompleteCount* other) {
+  std::swap(task_complete_count_, other->task_complete_count_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgC2SCmdReqModifyTaskCompleteCount::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgC2SCmdReqModifyTaskCompleteCount_descriptor_;
+  metadata.reflection = MsgC2SCmdReqModifyTaskCompleteCount_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgC2SCmdReqModifyTaskCompleteCount
+
+// required int32 task_complete_count = 1;
+ bool MsgC2SCmdReqModifyTaskCompleteCount::has_task_complete_count() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgC2SCmdReqModifyTaskCompleteCount::set_has_task_complete_count() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgC2SCmdReqModifyTaskCompleteCount::clear_has_task_complete_count() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgC2SCmdReqModifyTaskCompleteCount::clear_task_complete_count() {
+  task_complete_count_ = 0;
+  clear_has_task_complete_count();
+}
+ ::google::protobuf::int32 MsgC2SCmdReqModifyTaskCompleteCount::task_complete_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SCmdReqModifyTaskCompleteCount.task_complete_count)
+  return task_complete_count_;
+}
+ void MsgC2SCmdReqModifyTaskCompleteCount::set_task_complete_count(::google::protobuf::int32 value) {
+  set_has_task_complete_count();
+  task_complete_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SCmdReqModifyTaskCompleteCount.task_complete_count)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgS2CCmdModifyTaskCompleteCountACK::kCurrentTaskCountFieldNumber;
+#endif  // !_MSC_VER
+
+MsgS2CCmdModifyTaskCompleteCountACK::MsgS2CCmdModifyTaskCompleteCountACK()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgS2CCmdModifyTaskCompleteCountACK)
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::InitAsDefaultInstance() {
+}
+
+MsgS2CCmdModifyTaskCompleteCountACK::MsgS2CCmdModifyTaskCompleteCountACK(const MsgS2CCmdModifyTaskCompleteCountACK& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgS2CCmdModifyTaskCompleteCountACK)
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::SharedCtor() {
+  _cached_size_ = 0;
+  current_task_count_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgS2CCmdModifyTaskCompleteCountACK::~MsgS2CCmdModifyTaskCompleteCountACK() {
+  // @@protoc_insertion_point(destructor:message.MsgS2CCmdModifyTaskCompleteCountACK)
+  SharedDtor();
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgS2CCmdModifyTaskCompleteCountACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgS2CCmdModifyTaskCompleteCountACK_descriptor_;
+}
+
+const MsgS2CCmdModifyTaskCompleteCountACK& MsgS2CCmdModifyTaskCompleteCountACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgS2CCmdModifyTaskCompleteCountACK* MsgS2CCmdModifyTaskCompleteCountACK::default_instance_ = NULL;
+
+MsgS2CCmdModifyTaskCompleteCountACK* MsgS2CCmdModifyTaskCompleteCountACK::New(::google::protobuf::Arena* arena) const {
+  MsgS2CCmdModifyTaskCompleteCountACK* n = new MsgS2CCmdModifyTaskCompleteCountACK;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::Clear() {
+  current_task_count_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgS2CCmdModifyTaskCompleteCountACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgS2CCmdModifyTaskCompleteCountACK)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 current_task_count = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &current_task_count_)));
+          set_has_current_task_count();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgS2CCmdModifyTaskCompleteCountACK)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgS2CCmdModifyTaskCompleteCountACK)
+  return false;
+#undef DO_
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgS2CCmdModifyTaskCompleteCountACK)
+  // required int32 current_task_count = 1;
+  if (has_current_task_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->current_task_count(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgS2CCmdModifyTaskCompleteCountACK)
+}
+
+::google::protobuf::uint8* MsgS2CCmdModifyTaskCompleteCountACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CCmdModifyTaskCompleteCountACK)
+  // required int32 current_task_count = 1;
+  if (has_current_task_count()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->current_task_count(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CCmdModifyTaskCompleteCountACK)
+  return target;
+}
+
+int MsgS2CCmdModifyTaskCompleteCountACK::ByteSize() const {
+  int total_size = 0;
+
+  // required int32 current_task_count = 1;
+  if (has_current_task_count()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->current_task_count());
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgS2CCmdModifyTaskCompleteCountACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CCmdModifyTaskCompleteCountACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::MergeFrom(const MsgS2CCmdModifyTaskCompleteCountACK& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_current_task_count()) {
+      set_current_task_count(from.current_task_count());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::CopyFrom(const MsgS2CCmdModifyTaskCompleteCountACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgS2CCmdModifyTaskCompleteCountACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void MsgS2CCmdModifyTaskCompleteCountACK::Swap(MsgS2CCmdModifyTaskCompleteCountACK* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgS2CCmdModifyTaskCompleteCountACK::InternalSwap(MsgS2CCmdModifyTaskCompleteCountACK* other) {
+  std::swap(current_task_count_, other->current_task_count_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgS2CCmdModifyTaskCompleteCountACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgS2CCmdModifyTaskCompleteCountACK_descriptor_;
+  metadata.reflection = MsgS2CCmdModifyTaskCompleteCountACK_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgS2CCmdModifyTaskCompleteCountACK
+
+// required int32 current_task_count = 1;
+ bool MsgS2CCmdModifyTaskCompleteCountACK::has_current_task_count() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgS2CCmdModifyTaskCompleteCountACK::set_has_current_task_count() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgS2CCmdModifyTaskCompleteCountACK::clear_has_current_task_count() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgS2CCmdModifyTaskCompleteCountACK::clear_current_task_count() {
+  current_task_count_ = 0;
+  clear_has_current_task_count();
+}
+ ::google::protobuf::int32 MsgS2CCmdModifyTaskCompleteCountACK::current_task_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdModifyTaskCompleteCountACK.current_task_count)
+  return current_task_count_;
+}
+ void MsgS2CCmdModifyTaskCompleteCountACK::set_current_task_count(::google::protobuf::int32 value) {
+  set_has_current_task_count();
+  current_task_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdModifyTaskCompleteCountACK.current_task_count)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

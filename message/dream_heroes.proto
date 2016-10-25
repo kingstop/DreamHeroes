@@ -194,6 +194,16 @@ message MsgS2CGoldShopConfigsACK
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
+message MsgC2SCmdReqModifyTaskCompleteCount
+{
+	required int32 task_complete_count = 1;
+}
+
+message MsgS2CCmdModifyTaskCompleteCountACK
+{
+	required int32 current_task_count = 1;
+}
+
 message MsgC2SCmdReqShowGMLevel
 {
 	

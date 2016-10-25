@@ -42,6 +42,7 @@ public:
 	void ReqResetMap(const message::MsgC2SCmdReqResetMap* msg);
 	void ReqModifyGold(const message::MsgC2SCmdReqModifyGold* msg);
 	void ReqReplaceTask(const message::MsgS2CCmdReqReplaceTask* msg);
+	void ReqModifyTaskCompleteCount(const message::MsgC2SCmdReqModifyTaskCompleteCount* msg);
 	void ReqModifyCurrentHero(int grid_id);
 	void ReqGoldShopConfigs();
 	void EnterGame(int chapter_id, int section_id, bool admin = false);
