@@ -67,13 +67,13 @@ void DreamHeroManager::init()
 		time_t server_time = g_server_start_time;
 		
 		tm* p1 = localtime(&server_time);
-		int next_hour_second = p1->tm_min * 60 + p1->tm_sec;
+		int next_hour_second = p1->tm_min * 60 + p1->tm_sec * _TIME_SECOND_MSEL_;
 		gEventMgr.addEvent(this, &DreamHeroManager::eventPerHour, EVENT_PER_HOUR, next_hour_second, -1, 0);
 	}
 
 	if (gEventMgr.hasEvent(this, EVENT_SAVE_HEROES_STATU) == false)
 	{
-		gEventMgr.addEvent(this, &DreamHeroManager::save, EVENT_SAVE_HEROES_STATU, 360, -1, 0);
+		gEventMgr.addEvent(this, &DreamHeroManager::save, EVENT_SAVE_HEROES_STATU, 60 * _TIME_SECOND_MSEL_, -1, 0);
 	}
 
 	if (same_day(_last_save_time, g_server_time) == false)
