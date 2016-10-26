@@ -151,6 +151,7 @@ std::string DreamHeroManager::generateName()
 	//int number_entry;
 	int number_temp = 1;
 	char current_server_char = gGameConfig.getServerID();
+	std::string str_name = current_server_char + _hero_day_title ;
 	int numbers[6];
 	for (size_t i = 0; i < 6; i++)
 	{
