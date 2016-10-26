@@ -168,11 +168,12 @@ std::string DreamHeroManager::generateName()
 void DreamHeroManager::refrashHeroTitle()
 {
 	time_t server_open_time = gGameConfig.getServerOpenTime();
-	//tm* p_open_time = localtime(&server_open_time);
+	tm* p_open_time = localtime(&server_open_time);
 	_hero_day_title = "aaa";
 	if (g_server_time > server_open_time)
 	{
-		s64 time_spwan = g_server_time - server_open_time;
+		s64 day_spawn = p_open_time->tm_hour * 60 * 60 + p_open_time->tm_min * 60 + p_open_time->tm_sec;
+		s64 time_spwan = g_server_time - (server_open_time - day_spawn);		
 		s64 number = time_spwan / (60 * 60 * 24);
 		int number_char_1 = number % 26;
 		int number_char_2 = (number / 26) % 26;
