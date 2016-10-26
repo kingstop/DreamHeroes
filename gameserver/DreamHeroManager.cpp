@@ -115,8 +115,11 @@ void DreamHeroManager::save()
 	std::string last_time_temp;
 	build_unix_time_to_string(_last_save_time, last_time_temp);
 	char server_id = gGameConfig.getServerID();
-	sprintf(sz_sql, "replace into `heroes_statu`(`server_id`, `day_create_heroes_count`, `day_number`, `heroes_online_count`, `save_time`)\
-	 values ('%s', %d, '%s', %d, '%s');",(char*)&server_id, _day_create_heroes_count, number_str.c_str(),
+	std::string str_server_id;
+	str_server_id.push_back(server_id);
+	str_server_id.push_back('\0');
+	sprintf(sz_sql, "replace into `heroes_statu`(`sid`, `server_id`, `day_create_heroes_count`, `day_number`, `heroes_online_count`, `save_time`)\
+	 values (%d, '%s', %d, '%s', %d, '%s');",0, str_server_id.c_str() , _day_create_heroes_count, number_str.c_str(),
 		count, last_time_temp.c_str());
 	message::MsgSaveDataGS2DB msg_db;
 	msg_db.set_sql(sz_sql);
@@ -145,9 +148,9 @@ void DreamHeroManager::eventPerHour()
 std::string DreamHeroManager::generateName()
 {
 	_day_create_heroes_count++;
-	int number_entry;
+	//int number_entry;
 	int number_temp = 1;
-	std::string str_name = _hero_day_title + gGameConfig.getServerID();
+	char current_server_char = gGameConfig.getServerID();
 	int numbers[6];
 	for (size_t i = 0; i < 6; i++)
 	{
