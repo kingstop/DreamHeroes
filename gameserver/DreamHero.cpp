@@ -1052,8 +1052,8 @@ void DreamHero::SaveHero()
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,`special_kill`,\
 		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`,\
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`) values \
-		(%llu, 'normal', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, %d, '%s', %d, %d);",
-		_account, _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
+		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, %d, '%s', %d, %d);",
+		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), _current_task_count,
 		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count);
