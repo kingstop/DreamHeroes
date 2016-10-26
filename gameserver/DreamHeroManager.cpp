@@ -76,9 +76,10 @@ void DreamHeroManager::init()
 		gEventMgr.addEvent(this, &DreamHeroManager::save, EVENT_SAVE_HEROES_STATU, 60 * _TIME_SECOND_MSEL_, -1, 0);
 	}
 
+	refrashHeroTitle();
 	if (same_day(_last_save_time, g_server_time) == false)
 	{
-		refreshDayNumber();
+		refrashDayNumber();
 	}
 	
 
@@ -137,7 +138,7 @@ void DreamHeroManager::eventPerHour()
 
 	if (p1->tm_hour == 0)
 	{
-		refreshDayNumber();
+		refrashDayNumber();
 	}
 }
 
@@ -160,7 +161,28 @@ std::string DreamHeroManager::generateName()
 	return sz_name;
 }
 
-void DreamHeroManager::refreshDayNumber()
+void DreamHeroManager::refrashHeroTitle()
+{
+	time_t server_open_time = gGameConfig.getServerOpenTime();
+	//tm* p_open_time = localtime(&server_open_time);
+	_hero_day_title = "aaa";
+	if (g_server_time > server_open_time)
+	{
+		s64 time_spwan = g_server_time - server_open_time;
+		s64 number = time_spwan / (60 * 60 * 24);
+		int number_char_1 = number % 26;
+		int number_char_2 = (number / 26) % 26;
+		int number_char_3 = (number / (26 * 26)) % 26;
+		_hero_day_title.clear();
+		_hero_day_title.push_back(_char_configs[number_char_1]);
+		_hero_day_title.push_back(_char_configs[number_char_2]);
+		_hero_day_title.push_back(_char_configs[number_char_3]);
+		_hero_day_title.push_back('\0');
+		_day_create_heroes_count = 0;
+	}
+}
+
+void DreamHeroManager::refrashDayNumber()
 {
 	std::vector<int> vc_number;
 	for (size_t i = 0; i <= 9; i++)
@@ -177,23 +199,7 @@ void DreamHeroManager::refreshDayNumber()
 		}
 	}
 
-	time_t server_open_time = gGameConfig.getServerOpenTime();
-	tm* p_open_time = localtime(&server_open_time);
-	_hero_day_title = "aaa";
-	if (g_server_time > server_open_time)
-	{
-		s64 time_spwan = g_server_time - server_open_time;
-		s64 number = time_spwan / (60 * 60 * 24);
-		int number_char_1 = number % 26;
-		int number_char_2 = (number / 26) % 26;
-		int number_char_3 = (number / (26 * 26)) % 26;
-		_hero_day_title.clear();
-		_hero_day_title.push_back(_char_configs[number_char_1]);
-		_hero_day_title.push_back(_char_configs[number_char_2]);
-		_hero_day_title.push_back(_char_configs[number_char_3]);
-		_hero_day_title.push_back('\0');
-		_day_create_heroes_count = 0;
-	}
+	refrashHeroTitle();
 	save();
 }
 

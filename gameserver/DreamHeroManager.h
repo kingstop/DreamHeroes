@@ -26,7 +26,8 @@ protected:
 	void eventPerHour();
 	void save();
 	void dayRefresh();
-	void refreshDayNumber();
+	void refrashDayNumber();
+	void refrashHeroTitle();
 protected:
 	MAPHEROS _heroes;
 	u8 _day_number[6][10];
