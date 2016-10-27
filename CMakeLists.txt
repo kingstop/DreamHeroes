@@ -48,7 +48,7 @@ LINK_DIRECTORIES(
 
  
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../bin/server/${PROJECT_NAME}/ ) 
-set(CMAKE_EXE_LINKER_FLAGS "-lpthread -lrt")
+set(CMAKE_EXE_LINKER_FLAGS "-lpthread -lrt -lrt -lidn -Wall -lssl")
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../lib) 
 
 #add_definitions(-DDEBUG -pthread -LINUX)
@@ -59,4 +59,4 @@ ADD_SUBDIRECTORY(databaseserver)
 ADD_SUBDIRECTORY(gameserver)
 ADD_SUBDIRECTORY(gateserver)
 ADD_SUBDIRECTORY(login)
-#ADD_SUBDIRECTORY(CurlTest)
+ADD_SUBDIRECTORY(CurlTest)
