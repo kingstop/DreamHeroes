@@ -1086,7 +1086,7 @@ void DreamHero::ReqGoldShopConfigs()
 	for (; it != infos->end(); ++ it)
 	{
 		message::MsgGoldShopConfigInfo* entry_info = msg.add_infos();
-		entry_info->CopyFrom(it->second);
+		entry_info->CopyFrom(it->second.info_);
 	}
 	sendPBMessage(&msg);
 }

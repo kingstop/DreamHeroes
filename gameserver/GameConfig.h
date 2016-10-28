@@ -76,10 +76,16 @@ struct MapRandomObjsConfig
 	std::vector<MapRandomObjConfig> objs_;
 };
 
+struct GoldShopConfigInfo
+{
+	std::string appstore_product_id_;
+	message::MsgGoldShopConfigInfo info_;
+};
+
 typedef std::map<int, message::MsgTaskConfigInfo> MAPTASKS;
 typedef std::map<int, message::MsgShopConfigInfo> MAPSHOPHEROCONFIGS;
 typedef std::map<int, message::MsgChapterConfigInfo> MAPCHAPTERCONFIGINFOS;
-typedef std::map<int, message::MsgGoldShopConfigInfo> MAPGOLDSHOPCONFIGINFOS;
+typedef std::map<int, GoldShopConfigInfo> MAPGOLDSHOPCONFIGINFOS;
 typedef std::map<int, TimeShopSalesPromotionConfig> MAPTIMESHOPSALESPROMOTIONCONFIGS;
 typedef std::map<int, ObjDropBoxConfig> MAPDROPBOXCONFIGS;
 typedef std::map<message::SubType, MAPDROPBOXCONFIGS> MAPTYPEDROPBOXCONFIGS;
@@ -105,7 +111,7 @@ public:
 	const TimeShopSalesPromotionConfig* getTimeShopSalesPromotionConfig(int id);
 	const  message::MsgChapterConfigInfo* getChapterConfigInfo(int id);
 	const MAPGOLDSHOPCONFIGINFOS* getGoldShopConfigInfos();
-	const message::MsgGoldShopConfigInfo* getGoldShopConfigInfo(int id);
+	const GoldShopConfigInfo* getGoldShopConfigInfo(int id);
 	const globalConfig& getGlobalConfig();
 	const MAPTYPEDROPBOXCONFIGS* getMapDropBox(int chapter_id, int section_id);
 

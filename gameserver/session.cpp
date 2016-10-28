@@ -426,6 +426,7 @@ void Session::parseCmdReqReplaceTask(google::protobuf::Message* p)
 	if (_dream_hero->getGMLevel() > 0)
 	{
 		message::MsgS2CCmdReqReplaceTask* msg = (message::MsgS2CCmdReqReplaceTask*) p;
+		_dream_hero->ReqReplaceTask(msg);
 
 	}
 	else
