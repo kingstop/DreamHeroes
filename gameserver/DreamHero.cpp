@@ -918,9 +918,12 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 {
 	message::MsgS2CVerifyDealIOSACK msg;
 	//message::GameError error = message::Error_NO;
+	int add_gold = 0;
+	int current_gold = _info.gold();
 	if (error == message::Error_NO)
 	{
 		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(key_code.c_str());
+		
 		if (entry_config)
 		{
 			DEALSWAITTOPAY::iterator it = _deals_wait_to_pay.find(order_id);
@@ -929,10 +932,9 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 				if (_deals_wait_to_pay[order_id].type_ == DealStatusType_WaitToPay || _deals_wait_to_pay[order_id].type_ == DealStatusType_WaitPrepareToPay)
 				{
 					_deals_wait_to_pay[order_id].type_ = DealStatusType_Complete;
-					int current_gold = _info.gold();
-
-					int gold = entry_config->info_.gold();
-					int gold_entry = current_gold + gold;
+					
+					int add_gold = entry_config->info_.gold();
+					int gold_entry = current_gold + add_gold;
 					_info.set_gold(gold_entry);
 					error = message::Error_NO;
 				}
@@ -951,8 +953,8 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 		{
 			error = message::Error_BuyGoldFailedNotFoundConfig;
 		}
-
 	}
+
 	if (send_msg)
 	{
 		msg.set_error(error);
@@ -963,6 +965,10 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 		msg.set_error(error);
 		sendPBMessage(&msg);
 	}	
+	if (error == message::Error_NO)
+	{
+		gRecordManager.dealPayRecord(_account, key_code.c_str(), status, order_id, add_gold, _info.gold());
+	}
 }
 
 void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, int order_id, message::GameError error)
@@ -986,6 +992,7 @@ void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, in
 
 		}
 	}
+	
 	message::MsgS2CCrearteIOSDealACK msg;
 	msg.set_key_code(key_code.c_str());
 	msg.set_status(status);
@@ -993,6 +1000,10 @@ void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, in
 	msg.set_order_id(order_id);
 	msg.set_error(error);
 	sendPBMessage(&msg);
+	if (error == message::Error_NO)
+	{
+		gRecordManager.dealWaitToPayRecord(_account, key_code.c_str(), status, price, order_id);
+	}
 
 }
 
