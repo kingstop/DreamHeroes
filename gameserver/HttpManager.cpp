@@ -8,7 +8,11 @@ void HttpProcess()
 	while (gHttpManager.isStop() == false)
 	{
 		gHttpManager.update();
+#ifdef WIN32
 		Sleep(2);
+#else
+		usleep(2);
+#endif
 	}
 
 }
