@@ -309,6 +309,12 @@ void DreamHeroManager::DestroyHero(DreamHero* p)
 	}
 }
 
+
+void DreamHeroManager::addSql(const char* sql)
+{
+	_vc_sql.push_back(sql);
+}
+
 void DreamHeroManager::CollectInfo()
 {
 	int offline_count = 0;

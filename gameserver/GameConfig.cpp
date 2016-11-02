@@ -39,6 +39,22 @@ const MAPGOLDSHOPCONFIGINFOS* GameConfig::getGoldShopConfigInfos()
 	return &_gold_shop_config_infos;
 }
 
+
+const GoldShopConfigInfo* GameConfig::getGoldShopConfigInfo(const char* appstore_product_id)
+{
+	GoldShopConfigInfo* entry = NULL;
+	MAPGOLDSHOPCONFIGINFOS::iterator it = _gold_shop_config_infos.begin();
+	for (; it != _gold_shop_config_infos.end(); ++ it)
+	{
+		if (it->second.appstore_product_id_ == appstore_product_id)
+		{
+			entry = &it->second;
+			break;
+		}
+	}
+	return entry;
+}
+
 const GoldShopConfigInfo* GameConfig::getGoldShopConfigInfo(int id)
 {
 	GoldShopConfigInfo* entry = NULL;
@@ -225,6 +241,8 @@ void GameConfig::Load(DBQuery* p)
 			_global_config.day_free_task_count_ = row["day_free_task_count"];
 			_global_config.day_task_advertisement_task_cd_ = row["day_task_advertisement_task_cd"];
 			_global_config.hero_max_tasks_count_ =  row["hero_max_tasks_count"];
+			_global_config.channel_id_ = row["channel_id"];
+			_global_config.game_id_ = row["game_id"];
 		}
 
 		query.reset();
@@ -376,9 +394,9 @@ void GameConfig::Load(DBQuery* p)
 					
 				}
 				
-			}
-
-			
+			}			
 		}
+		gHttpManager.setChannel(_global_config.channel_id_);
+		gHttpManager.setGameID(_global_config.game_id_);
 	}	
 }

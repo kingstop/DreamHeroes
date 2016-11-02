@@ -39,6 +39,7 @@ void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto();
 
 class MsgReqHeroDataGS2DB;
 class MsgMapSpecialKill;
+class MsgDealInfo;
 class MsgHeroDataDB2GS;
 class MsgNeedCreateHeroDB2GS;
 class MsgSaveHeroDataGS2DB;
@@ -253,6 +254,133 @@ class MsgMapSpecialKill : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MsgDealInfo : public ::google::protobuf::Message {
+ public:
+  MsgDealInfo();
+  virtual ~MsgDealInfo();
+
+  MsgDealInfo(const MsgDealInfo& from);
+
+  inline MsgDealInfo& operator=(const MsgDealInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgDealInfo& default_instance();
+
+  void Swap(MsgDealInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgDealInfo* New() const { return New(NULL); }
+
+  MsgDealInfo* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgDealInfo& from);
+  void MergeFrom(const MsgDealInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgDealInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 order = 1;
+  bool has_order() const;
+  void clear_order();
+  static const int kOrderFieldNumber = 1;
+  ::google::protobuf::int32 order() const;
+  void set_order(::google::protobuf::int32 value);
+
+  // required string product_id = 2;
+  bool has_product_id() const;
+  void clear_product_id();
+  static const int kProductIdFieldNumber = 2;
+  const ::std::string& product_id() const;
+  void set_product_id(const ::std::string& value);
+  void set_product_id(const char* value);
+  void set_product_id(const char* value, size_t size);
+  ::std::string* mutable_product_id();
+  ::std::string* release_product_id();
+  void set_allocated_product_id(::std::string* product_id);
+
+  // required int32 status = 3;
+  bool has_status() const;
+  void clear_status();
+  static const int kStatusFieldNumber = 3;
+  ::google::protobuf::int32 status() const;
+  void set_status(::google::protobuf::int32 value);
+
+  // required int32 complete_status = 4;
+  bool has_complete_status() const;
+  void clear_complete_status();
+  static const int kCompleteStatusFieldNumber = 4;
+  ::google::protobuf::int32 complete_status() const;
+  void set_complete_status(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgDealInfo)
+ private:
+  inline void set_has_order();
+  inline void clear_has_order();
+  inline void set_has_product_id();
+  inline void clear_has_product_id();
+  inline void set_has_status();
+  inline void clear_has_status();
+  inline void set_has_complete_status();
+  inline void clear_has_complete_status();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr product_id_;
+  ::google::protobuf::int32 order_;
+  ::google::protobuf::int32 status_;
+  ::google::protobuf::int32 complete_status_;
+  friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
+  friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
+  friend void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgDealInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MsgHeroDataDB2GS : public ::google::protobuf::Message {
  public:
   MsgHeroDataDB2GS();
@@ -380,6 +508,18 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::int32 gm_level() const;
   void set_gm_level(::google::protobuf::int32 value);
 
+  // repeated .message.MsgDealInfo deals = 9;
+  int deals_size() const;
+  void clear_deals();
+  static const int kDealsFieldNumber = 9;
+  const ::message::MsgDealInfo& deals(int index) const;
+  ::message::MsgDealInfo* mutable_deals(int index);
+  ::message::MsgDealInfo* add_deals();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo >&
+      deals() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo >*
+      mutable_deals();
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroDataDB2GS)
  private:
   inline void set_has_account();
@@ -410,6 +550,7 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::int32 free_task_count_;
   ::google::protobuf::int32 last_task_advertisement_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill > special_kills_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo > deals_;
   ::google::protobuf::int32 gm_level_;
   friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
@@ -1063,6 +1204,135 @@ MsgMapSpecialKill::mutable_kills() {
 
 // -------------------------------------------------------------------
 
+// MsgDealInfo
+
+// required int32 order = 1;
+inline bool MsgDealInfo::has_order() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgDealInfo::set_has_order() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgDealInfo::clear_has_order() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgDealInfo::clear_order() {
+  order_ = 0;
+  clear_has_order();
+}
+inline ::google::protobuf::int32 MsgDealInfo::order() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.order)
+  return order_;
+}
+inline void MsgDealInfo::set_order(::google::protobuf::int32 value) {
+  set_has_order();
+  order_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.order)
+}
+
+// required string product_id = 2;
+inline bool MsgDealInfo::has_product_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgDealInfo::set_has_product_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgDealInfo::clear_has_product_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgDealInfo::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_id();
+}
+inline const ::std::string& MsgDealInfo::product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgDealInfo::set_product_id(const ::std::string& value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.product_id)
+}
+inline void MsgDealInfo::set_product_id(const char* value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgDealInfo.product_id)
+}
+inline void MsgDealInfo::set_product_id(const char* value, size_t size) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgDealInfo.product_id)
+}
+inline ::std::string* MsgDealInfo::mutable_product_id() {
+  set_has_product_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgDealInfo.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgDealInfo::release_product_id() {
+  clear_has_product_id();
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgDealInfo::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    set_has_product_id();
+  } else {
+    clear_has_product_id();
+  }
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgDealInfo.product_id)
+}
+
+// required int32 status = 3;
+inline bool MsgDealInfo::has_status() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgDealInfo::set_has_status() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgDealInfo::clear_has_status() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgDealInfo::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+inline ::google::protobuf::int32 MsgDealInfo::status() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.status)
+  return status_;
+}
+inline void MsgDealInfo::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.status)
+}
+
+// required int32 complete_status = 4;
+inline bool MsgDealInfo::has_complete_status() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgDealInfo::set_has_complete_status() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgDealInfo::clear_has_complete_status() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgDealInfo::clear_complete_status() {
+  complete_status_ = 0;
+  clear_has_complete_status();
+}
+inline ::google::protobuf::int32 MsgDealInfo::complete_status() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.complete_status)
+  return complete_status_;
+}
+inline void MsgDealInfo::set_complete_status(::google::protobuf::int32 value) {
+  set_has_complete_status();
+  complete_status_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.complete_status)
+}
+
+// -------------------------------------------------------------------
+
 // MsgHeroDataDB2GS
 
 // required uint64 account = 1;
@@ -1280,6 +1550,36 @@ inline void MsgHeroDataDB2GS::set_gm_level(::google::protobuf::int32 value) {
   set_has_gm_level();
   gm_level_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.gm_level)
+}
+
+// repeated .message.MsgDealInfo deals = 9;
+inline int MsgHeroDataDB2GS::deals_size() const {
+  return deals_.size();
+}
+inline void MsgHeroDataDB2GS::clear_deals() {
+  deals_.Clear();
+}
+inline const ::message::MsgDealInfo& MsgHeroDataDB2GS::deals(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.deals)
+  return deals_.Get(index);
+}
+inline ::message::MsgDealInfo* MsgHeroDataDB2GS::mutable_deals(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDataDB2GS.deals)
+  return deals_.Mutable(index);
+}
+inline ::message::MsgDealInfo* MsgHeroDataDB2GS::add_deals() {
+  // @@protoc_insertion_point(field_add:message.MsgHeroDataDB2GS.deals)
+  return deals_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo >&
+MsgHeroDataDB2GS::deals() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroDataDB2GS.deals)
+  return deals_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo >*
+MsgHeroDataDB2GS::mutable_deals() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.deals)
+  return &deals_;
 }
 
 // -------------------------------------------------------------------

@@ -22,6 +22,7 @@ public:
 	void save_all_heroes_ok();
 	void CollectInfo();
 	std::string generateName();
+	void addSql(const char* sql);
 protected:
 	void eventPerHour();
 	void save();
@@ -36,6 +37,6 @@ protected:
 	std::string _hero_day_title;
 	std::vector<char> _char_configs;
 	u64 _last_save_time;
-
+	std::vector<std::string> _vc_sql;
 };
 

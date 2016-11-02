@@ -26,6 +26,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgMapSpecialKill_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgMapSpecialKill_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgDealInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgDealInfo_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgHeroDataDB2GS_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgHeroDataDB2GS_reflection_ = NULL;
@@ -89,8 +92,26 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgMapSpecialKill),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMapSpecialKill, _internal_metadata_),
       -1);
-  MsgHeroDataDB2GS_descriptor_ = file->message_type(2);
-  static const int MsgHeroDataDB2GS_offsets_[8] = {
+  MsgDealInfo_descriptor_ = file->message_type(2);
+  static const int MsgDealInfo_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, order_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, product_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, status_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, complete_status_),
+  };
+  MsgDealInfo_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgDealInfo_descriptor_,
+      MsgDealInfo::default_instance_,
+      MsgDealInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgDealInfo),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, _internal_metadata_),
+      -1);
+  MsgHeroDataDB2GS_descriptor_ = file->message_type(3);
+  static const int MsgHeroDataDB2GS_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, current_chapter_),
@@ -99,6 +120,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, last_task_advertisement_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, special_kills_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, gm_level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, deals_),
   };
   MsgHeroDataDB2GS_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -111,7 +133,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgHeroDataDB2GS),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, _internal_metadata_),
       -1);
-  MsgNeedCreateHeroDB2GS_descriptor_ = file->message_type(3);
+  MsgNeedCreateHeroDB2GS_descriptor_ = file->message_type(4);
   static const int MsgNeedCreateHeroDB2GS_offsets_[1] = {
   };
   MsgNeedCreateHeroDB2GS_reflection_ =
@@ -125,7 +147,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgNeedCreateHeroDB2GS),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgNeedCreateHeroDB2GS, _internal_metadata_),
       -1);
-  MsgSaveHeroDataGS2DB_descriptor_ = file->message_type(4);
+  MsgSaveHeroDataGS2DB_descriptor_ = file->message_type(5);
   static const int MsgSaveHeroDataGS2DB_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveHeroDataGS2DB, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveHeroDataGS2DB, data_),
@@ -141,7 +163,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgSaveHeroDataGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveHeroDataGS2DB, _internal_metadata_),
       -1);
-  MsgSaveDataGS2DB_descriptor_ = file->message_type(5);
+  MsgSaveDataGS2DB_descriptor_ = file->message_type(6);
   static const int MsgSaveDataGS2DB_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveDataGS2DB, sql_),
   };
@@ -156,7 +178,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgSaveDataGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveDataGS2DB, _internal_metadata_),
       -1);
-  MsgRecordSqlGS2DB_descriptor_ = file->message_type(6);
+  MsgRecordSqlGS2DB_descriptor_ = file->message_type(7);
   static const int MsgRecordSqlGS2DB_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgRecordSqlGS2DB, sql_),
   };
@@ -171,7 +193,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgRecordSqlGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgRecordSqlGS2DB, _internal_metadata_),
       -1);
-  MsgSaveAllHeroesGS2DB_descriptor_ = file->message_type(7);
+  MsgSaveAllHeroesGS2DB_descriptor_ = file->message_type(8);
   static const int MsgSaveAllHeroesGS2DB_offsets_[1] = {
   };
   MsgSaveAllHeroesGS2DB_reflection_ =
@@ -185,7 +207,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       sizeof(MsgSaveAllHeroesGS2DB),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSaveAllHeroesGS2DB, _internal_metadata_),
       -1);
-  MsgSaveAllHeroesDB2GS_descriptor_ = file->message_type(8);
+  MsgSaveAllHeroesDB2GS_descriptor_ = file->message_type(9);
   static const int MsgSaveAllHeroesDB2GS_offsets_[1] = {
   };
   MsgSaveAllHeroesDB2GS_reflection_ =
@@ -216,6 +238,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgMapSpecialKill_descriptor_, &MsgMapSpecialKill::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgDealInfo_descriptor_, &MsgDealInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgHeroDataDB2GS_descriptor_, &MsgHeroDataDB2GS::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgNeedCreateHeroDB2GS_descriptor_, &MsgNeedCreateHeroDB2GS::default_instance());
@@ -238,6 +262,8 @@ void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto() {
   delete MsgReqHeroDataGS2DB_reflection_;
   delete MsgMapSpecialKill::default_instance_;
   delete MsgMapSpecialKill_reflection_;
+  delete MsgDealInfo::default_instance_;
+  delete MsgDealInfo_reflection_;
   delete MsgHeroDataDB2GS::default_instance_;
   delete MsgHeroDataDB2GS_reflection_;
   delete MsgNeedCreateHeroDB2GS::default_instance_;
@@ -266,23 +292,27 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
     "to\"&\n\023MsgReqHeroDataGS2DB\022\017\n\007account\030\001 \002"
     "(\004\"a\n\021MsgMapSpecialKill\022\022\n\nchapter_id\030\001 "
     "\002(\005\022\022\n\nsection_id\030\002 \002(\005\022$\n\005kills\030\003 \003(\0132\025"
-    ".message.MsgObjConfig\"\375\001\n\020MsgHeroDataDB2"
-    "GS\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024.mess"
-    "age.MsgHeroData\022\027\n\017current_chapter\030\003 \002(\005"
-    "\022\027\n\017current_section\030\004 \002(\005\022\027\n\017free_task_c"
-    "ount\030\005 \002(\005\022$\n\034last_task_advertisement_ti"
-    "me\030\006 \002(\005\0221\n\rspecial_kills\030\007 \003(\0132\032.messag"
-    "e.MsgMapSpecialKill\022\020\n\010gm_level\030\010 \002(\005\"\030\n"
-    "\026MsgNeedCreateHeroDB2GS\"K\n\024MsgSaveHeroDa"
-    "taGS2DB\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024"
-    ".message.MsgHeroData\"\037\n\020MsgSaveDataGS2DB"
-    "\022\013\n\003sql\030\001 \002(\014\" \n\021MsgRecordSqlGS2DB\022\013\n\003sq"
-    "l\030\001 \002(\014\"\027\n\025MsgSaveAllHeroesGS2DB\"\027\n\025MsgS"
-    "aveAllHeroesDB2GS", 657);
+    ".message.MsgObjConfig\"Y\n\013MsgDealInfo\022\r\n\005"
+    "order\030\001 \002(\005\022\022\n\nproduct_id\030\002 \002(\t\022\016\n\006statu"
+    "s\030\003 \002(\005\022\027\n\017complete_status\030\004 \002(\005\"\242\002\n\020Msg"
+    "HeroDataDB2GS\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002"
+    " \002(\0132\024.message.MsgHeroData\022\027\n\017current_ch"
+    "apter\030\003 \002(\005\022\027\n\017current_section\030\004 \002(\005\022\027\n\017"
+    "free_task_count\030\005 \002(\005\022$\n\034last_task_adver"
+    "tisement_time\030\006 \002(\005\0221\n\rspecial_kills\030\007 \003"
+    "(\0132\032.message.MsgMapSpecialKill\022\020\n\010gm_lev"
+    "el\030\010 \002(\005\022#\n\005deals\030\t \003(\0132\024.message.MsgDea"
+    "lInfo\"\030\n\026MsgNeedCreateHeroDB2GS\"K\n\024MsgSa"
+    "veHeroDataGS2DB\022\017\n\007account\030\001 \002(\004\022\"\n\004Data"
+    "\030\002 \002(\0132\024.message.MsgHeroData\"\037\n\020MsgSaveD"
+    "ataGS2DB\022\013\n\003sql\030\001 \002(\014\" \n\021MsgRecordSqlGS2"
+    "DB\022\013\n\003sql\030\001 \002(\014\"\027\n\025MsgSaveAllHeroesGS2DB"
+    "\"\027\n\025MsgSaveAllHeroesDB2GS", 785);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_db.proto", &protobuf_RegisterTypes);
   MsgReqHeroDataGS2DB::default_instance_ = new MsgReqHeroDataGS2DB();
   MsgMapSpecialKill::default_instance_ = new MsgMapSpecialKill();
+  MsgDealInfo::default_instance_ = new MsgDealInfo();
   MsgHeroDataDB2GS::default_instance_ = new MsgHeroDataDB2GS();
   MsgNeedCreateHeroDB2GS::default_instance_ = new MsgNeedCreateHeroDB2GS();
   MsgSaveHeroDataGS2DB::default_instance_ = new MsgSaveHeroDataGS2DB();
@@ -292,6 +322,7 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
   MsgSaveAllHeroesDB2GS::default_instance_ = new MsgSaveAllHeroesDB2GS();
   MsgReqHeroDataGS2DB::default_instance_->InitAsDefaultInstance();
   MsgMapSpecialKill::default_instance_->InitAsDefaultInstance();
+  MsgDealInfo::default_instance_->InitAsDefaultInstance();
   MsgHeroDataDB2GS::default_instance_->InitAsDefaultInstance();
   MsgNeedCreateHeroDB2GS::default_instance_->InitAsDefaultInstance();
   MsgSaveHeroDataGS2DB::default_instance_->InitAsDefaultInstance();
@@ -1004,6 +1035,543 @@ MsgMapSpecialKill::mutable_kills() {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int MsgDealInfo::kOrderFieldNumber;
+const int MsgDealInfo::kProductIdFieldNumber;
+const int MsgDealInfo::kStatusFieldNumber;
+const int MsgDealInfo::kCompleteStatusFieldNumber;
+#endif  // !_MSC_VER
+
+MsgDealInfo::MsgDealInfo()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgDealInfo)
+}
+
+void MsgDealInfo::InitAsDefaultInstance() {
+}
+
+MsgDealInfo::MsgDealInfo(const MsgDealInfo& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgDealInfo)
+}
+
+void MsgDealInfo::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  order_ = 0;
+  product_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  status_ = 0;
+  complete_status_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgDealInfo::~MsgDealInfo() {
+  // @@protoc_insertion_point(destructor:message.MsgDealInfo)
+  SharedDtor();
+}
+
+void MsgDealInfo::SharedDtor() {
+  product_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void MsgDealInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgDealInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgDealInfo_descriptor_;
+}
+
+const MsgDealInfo& MsgDealInfo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
+  return *default_instance_;
+}
+
+MsgDealInfo* MsgDealInfo::default_instance_ = NULL;
+
+MsgDealInfo* MsgDealInfo::New(::google::protobuf::Arena* arena) const {
+  MsgDealInfo* n = new MsgDealInfo;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgDealInfo::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgDealInfo*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  if (_has_bits_[0 / 32] & 15) {
+    ZR_(order_, complete_status_);
+    if (has_product_id()) {
+      product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+  }
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgDealInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgDealInfo)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 order = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &order_)));
+          set_has_order();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_product_id;
+        break;
+      }
+
+      // required string product_id = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_product_id:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_product_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->product_id().data(), this->product_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgDealInfo.product_id");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_status;
+        break;
+      }
+
+      // required int32 status = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_status:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &status_)));
+          set_has_status();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_complete_status;
+        break;
+      }
+
+      // required int32 complete_status = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_complete_status:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &complete_status_)));
+          set_has_complete_status();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgDealInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgDealInfo)
+  return false;
+#undef DO_
+}
+
+void MsgDealInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgDealInfo)
+  // required int32 order = 1;
+  if (has_order()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->order(), output);
+  }
+
+  // required string product_id = 2;
+  if (has_product_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->product_id().data(), this->product_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgDealInfo.product_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->product_id(), output);
+  }
+
+  // required int32 status = 3;
+  if (has_status()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->status(), output);
+  }
+
+  // required int32 complete_status = 4;
+  if (has_complete_status()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->complete_status(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgDealInfo)
+}
+
+::google::protobuf::uint8* MsgDealInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgDealInfo)
+  // required int32 order = 1;
+  if (has_order()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->order(), target);
+  }
+
+  // required string product_id = 2;
+  if (has_product_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->product_id().data(), this->product_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgDealInfo.product_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->product_id(), target);
+  }
+
+  // required int32 status = 3;
+  if (has_status()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->status(), target);
+  }
+
+  // required int32 complete_status = 4;
+  if (has_complete_status()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->complete_status(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgDealInfo)
+  return target;
+}
+
+int MsgDealInfo::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_order()) {
+    // required int32 order = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->order());
+  }
+
+  if (has_product_id()) {
+    // required string product_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->product_id());
+  }
+
+  if (has_status()) {
+    // required int32 status = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->status());
+  }
+
+  if (has_complete_status()) {
+    // required int32 complete_status = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->complete_status());
+  }
+
+  return total_size;
+}
+int MsgDealInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+    // required int32 order = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->order());
+
+    // required string product_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->product_id());
+
+    // required int32 status = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->status());
+
+    // required int32 complete_status = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->complete_status());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgDealInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgDealInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgDealInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgDealInfo::MergeFrom(const MsgDealInfo& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_order()) {
+      set_order(from.order());
+    }
+    if (from.has_product_id()) {
+      set_has_product_id();
+      product_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.product_id_);
+    }
+    if (from.has_status()) {
+      set_status(from.status());
+    }
+    if (from.has_complete_status()) {
+      set_complete_status(from.complete_status());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgDealInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgDealInfo::CopyFrom(const MsgDealInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgDealInfo::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+
+  return true;
+}
+
+void MsgDealInfo::Swap(MsgDealInfo* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgDealInfo::InternalSwap(MsgDealInfo* other) {
+  std::swap(order_, other->order_);
+  product_id_.Swap(&other->product_id_);
+  std::swap(status_, other->status_);
+  std::swap(complete_status_, other->complete_status_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgDealInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgDealInfo_descriptor_;
+  metadata.reflection = MsgDealInfo_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgDealInfo
+
+// required int32 order = 1;
+ bool MsgDealInfo::has_order() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgDealInfo::set_has_order() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgDealInfo::clear_has_order() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgDealInfo::clear_order() {
+  order_ = 0;
+  clear_has_order();
+}
+ ::google::protobuf::int32 MsgDealInfo::order() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.order)
+  return order_;
+}
+ void MsgDealInfo::set_order(::google::protobuf::int32 value) {
+  set_has_order();
+  order_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.order)
+}
+
+// required string product_id = 2;
+ bool MsgDealInfo::has_product_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgDealInfo::set_has_product_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgDealInfo::clear_has_product_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgDealInfo::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_id();
+}
+ const ::std::string& MsgDealInfo::product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgDealInfo::set_product_id(const ::std::string& value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.product_id)
+}
+ void MsgDealInfo::set_product_id(const char* value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgDealInfo.product_id)
+}
+ void MsgDealInfo::set_product_id(const char* value, size_t size) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgDealInfo.product_id)
+}
+ ::std::string* MsgDealInfo::mutable_product_id() {
+  set_has_product_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgDealInfo.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgDealInfo::release_product_id() {
+  clear_has_product_id();
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgDealInfo::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    set_has_product_id();
+  } else {
+    clear_has_product_id();
+  }
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgDealInfo.product_id)
+}
+
+// required int32 status = 3;
+ bool MsgDealInfo::has_status() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgDealInfo::set_has_status() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgDealInfo::clear_has_status() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgDealInfo::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+ ::google::protobuf::int32 MsgDealInfo::status() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.status)
+  return status_;
+}
+ void MsgDealInfo::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.status)
+}
+
+// required int32 complete_status = 4;
+ bool MsgDealInfo::has_complete_status() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void MsgDealInfo::set_has_complete_status() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void MsgDealInfo::clear_has_complete_status() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+ void MsgDealInfo::clear_complete_status() {
+  complete_status_ = 0;
+  clear_has_complete_status();
+}
+ ::google::protobuf::int32 MsgDealInfo::complete_status() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.complete_status)
+  return complete_status_;
+}
+ void MsgDealInfo::set_complete_status(::google::protobuf::int32 value) {
+  set_has_complete_status();
+  complete_status_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.complete_status)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int MsgHeroDataDB2GS::kAccountFieldNumber;
 const int MsgHeroDataDB2GS::kDataFieldNumber;
 const int MsgHeroDataDB2GS::kCurrentChapterFieldNumber;
@@ -1012,6 +1580,7 @@ const int MsgHeroDataDB2GS::kFreeTaskCountFieldNumber;
 const int MsgHeroDataDB2GS::kLastTaskAdvertisementTimeFieldNumber;
 const int MsgHeroDataDB2GS::kSpecialKillsFieldNumber;
 const int MsgHeroDataDB2GS::kGmLevelFieldNumber;
+const int MsgHeroDataDB2GS::kDealsFieldNumber;
 #endif  // !_MSC_VER
 
 MsgHeroDataDB2GS::MsgHeroDataDB2GS()
@@ -1102,6 +1671,7 @@ void MsgHeroDataDB2GS::Clear() {
 #undef ZR_
 
   special_kills_.Clear();
+  deals_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -1230,6 +1800,20 @@ bool MsgHeroDataDB2GS::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(74)) goto parse_deals;
+        break;
+      }
+
+      // repeated .message.MsgDealInfo deals = 9;
+      case 9: {
+        if (tag == 74) {
+         parse_deals:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_deals()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(74)) goto parse_deals;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1301,6 +1885,12 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->gm_level(), output);
   }
 
+  // repeated .message.MsgDealInfo deals = 9;
+  for (unsigned int i = 0, n = this->deals_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, this->deals(i), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1353,6 +1943,13 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
   // required int32 gm_level = 8;
   if (has_gm_level()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->gm_level(), target);
+  }
+
+  // repeated .message.MsgDealInfo deals = 9;
+  for (unsigned int i = 0, n = this->deals_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        9, this->deals(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1467,6 +2064,14 @@ int MsgHeroDataDB2GS::ByteSize() const {
         this->special_kills(i));
   }
 
+  // repeated .message.MsgDealInfo deals = 9;
+  total_size += 1 * this->deals_size();
+  for (int i = 0; i < this->deals_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->deals(i));
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1493,6 +2098,7 @@ void MsgHeroDataDB2GS::MergeFrom(const ::google::protobuf::Message& from) {
 void MsgHeroDataDB2GS::MergeFrom(const MsgHeroDataDB2GS& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   special_kills_.MergeFrom(from.special_kills_);
+  deals_.MergeFrom(from.deals_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_account()) {
       set_account(from.account());
@@ -1540,6 +2146,7 @@ bool MsgHeroDataDB2GS::IsInitialized() const {
     if (!this->data_->IsInitialized()) return false;
   }
   if (!::google::protobuf::internal::AllAreInitialized(this->special_kills())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->deals())) return false;
   return true;
 }
 
@@ -1556,6 +2163,7 @@ void MsgHeroDataDB2GS::InternalSwap(MsgHeroDataDB2GS* other) {
   std::swap(last_task_advertisement_time_, other->last_task_advertisement_time_);
   special_kills_.UnsafeArenaSwap(&other->special_kills_);
   std::swap(gm_level_, other->gm_level_);
+  deals_.UnsafeArenaSwap(&other->deals_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1787,6 +2395,36 @@ MsgHeroDataDB2GS::mutable_special_kills() {
   set_has_gm_level();
   gm_level_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.gm_level)
+}
+
+// repeated .message.MsgDealInfo deals = 9;
+ int MsgHeroDataDB2GS::deals_size() const {
+  return deals_.size();
+}
+ void MsgHeroDataDB2GS::clear_deals() {
+  deals_.Clear();
+}
+ const ::message::MsgDealInfo& MsgHeroDataDB2GS::deals(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.deals)
+  return deals_.Get(index);
+}
+ ::message::MsgDealInfo* MsgHeroDataDB2GS::mutable_deals(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDataDB2GS.deals)
+  return deals_.Mutable(index);
+}
+ ::message::MsgDealInfo* MsgHeroDataDB2GS::add_deals() {
+  // @@protoc_insertion_point(field_add:message.MsgHeroDataDB2GS.deals)
+  return deals_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo >&
+MsgHeroDataDB2GS::deals() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroDataDB2GS.deals)
+  return deals_;
+}
+ ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo >*
+MsgHeroDataDB2GS::mutable_deals() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.deals)
+  return &deals_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -1,9 +1,11 @@
 #ifndef __server_h__
 #define __server_h__
+#include "utilities.h"
 class GameServer : public ServerFrame
 {
 public:
 	GameServer();
+	virtual ~GameServer();
 	virtual bool init();
 	virtual bool onKey();
 	virtual void runOnce(u32 nDiff);
@@ -23,6 +25,7 @@ private:
 	DataBaseConfig m_character_conf;
 	EventableObjectHolder m_EventHold;
 protected:
+	boost::thread* _http_thread;
 private:
 };
 #endif

@@ -1,10 +1,20 @@
 #include "stdafx.h"
 
 GameServer::GameServer()
-    :m_EventHold(WORLD_INSTANCE)
+    :m_EventHold(WORLD_INSTANCE),
+	_http_thread(NULL)
+
 {
 }
 
+GameServer::~GameServer()
+{
+	if (_http_thread != NULL)
+	{
+		delete _http_thread;
+		_http_thread = NULL;
+	}
+}
 bool GameServer::init()
 {
     ServerFrame::init();
@@ -35,6 +45,7 @@ bool GameServer::init()
 
 	gDreamHeroManager.init();
 	gShopSalesPromotionManager.init();
+	_http_thread = new boost::thread(HttpProcess);
     return true;
 }
 
@@ -62,6 +73,7 @@ void GameServer::runOnce(u32 nDiff)
         curtime = 0;
     }
 	gShopSalesPromotionManager.update();
+	gHttpManager.logicUpdate();
 	gRecordManager.update();
     if (nDiff > 800)
     {
@@ -73,6 +85,8 @@ void GameServer::shutDown()
 {
     gGSDBClient.close();
     gGSGateServer.stop();
+	gHttpManager.setStop(true);
+	_http_thread->join();
 }
 
 

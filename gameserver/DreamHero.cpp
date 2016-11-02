@@ -66,6 +66,29 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 			_special_kills[pair_entry].push_back(entry_config);
 		}		
 	}
+	int deal_length = info->deals_size();
+	for (size_t i = 0; i < deal_length; i++)
+	{
+		const message::MsgDealInfo DealInfoEntry = info->deals(i);
+		std::string key_code_;
+		int status_;
+		int price_;
+		int order_id_;
+		DealStatusType type_;
+		DealWaitToPay pay_entry;
+		pay_entry.key_code_ = DealInfoEntry.product_id().c_str();
+		pay_entry.order_id_ = DealInfoEntry.order();
+		pay_entry.price_ = 0;
+		pay_entry.status_ = DealInfoEntry.status();
+		pay_entry.type_ = (DealStatusType)DealInfoEntry.complete_status();
+		_deals_wait_to_pay.insert(DEALSWAITTOPAY::value_type(pay_entry.order_id_, pay_entry));
+	}
+
+	DEALSWAITTOPAY::iterator it_deal = _deals_wait_to_pay.begin();
+	for (; it_deal != _deals_wait_to_pay.end(); ++ it_deal)
+	{
+		addDealPay(it_deal->second.key_code_.c_str(), it_deal->second.status_, it_deal->second.order_id_, message::Error_NO, false);
+	}
 
 }
 
@@ -891,6 +914,88 @@ void DreamHero::SendResetGameACK(message::GameError en)
 	sendPBMessage(&msg);
 }
 
+void DreamHero::addDealPay(std::string key_code, int status, int order_id, message::GameError error,bool send_msg)
+{
+	message::MsgS2CVerifyDealIOSACK msg;
+	//message::GameError error = message::Error_NO;
+	if (error == message::Error_NO)
+	{
+		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(key_code.c_str());
+		if (entry_config)
+		{
+			DEALSWAITTOPAY::iterator it = _deals_wait_to_pay.find(order_id);
+			if (it != _deals_wait_to_pay.end())
+			{
+				if (_deals_wait_to_pay[order_id].type_ == DealStatusType_WaitToPay || _deals_wait_to_pay[order_id].type_ == DealStatusType_WaitPrepareToPay)
+				{
+					_deals_wait_to_pay[order_id].type_ = DealStatusType_Complete;
+					int current_gold = _info.gold();
+
+					int gold = entry_config->info_.gold();
+					int gold_entry = current_gold + gold;
+					_info.set_gold(gold_entry);
+					error = message::Error_NO;
+				}
+				else
+				{
+					error = message::Error_BuyGoldFailedTheOrderHaveBeenCompleted;
+
+				}
+			}
+			else
+			{
+				error = message::Error_BuyGoldFailedNotFoundOrder;
+			}
+		}
+		else
+		{
+			error = message::Error_BuyGoldFailedNotFoundConfig;
+		}
+
+	}
+	if (send_msg)
+	{
+		msg.set_error(error);
+		msg.set_order_id(order_id);
+		msg.set_current_gold(_info.gold());
+		msg.set_product_id(key_code.c_str());
+		msg.set_status(status);
+		msg.set_error(error);
+		sendPBMessage(&msg);
+	}	
+}
+
+void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, int order_id, message::GameError error)
+{
+	if (error == message::Error_NO)
+	{
+		DEALSWAITTOPAY::iterator it = _deals_wait_to_pay.find(order_id);
+		if (it != _deals_wait_to_pay.end())
+		{
+
+		}
+		else
+		{
+			DealWaitToPay entry;
+			entry.key_code_ = key_code;
+			entry.status_ = status;
+			entry.price_ = price;
+			entry.order_id_ = order_id;
+			entry.type_ = DealStatusType_WaitToPay;
+			_deals_wait_to_pay.insert(DEALSWAITTOPAY::value_type(entry.order_id_, entry));
+
+		}
+	}
+	message::MsgS2CCrearteIOSDealACK msg;
+	msg.set_key_code(key_code.c_str());
+	msg.set_status(status);
+	msg.set_price(price);
+	msg.set_order_id(order_id);
+	msg.set_error(error);
+	sendPBMessage(&msg);
+
+}
+
 void DreamHero::ResetGame()
 {
 	LoadFromConfig();
@@ -902,6 +1007,21 @@ void DreamHero::ReqEnterGame(const message::MsgC2SReqEnterGame* msg)
 	int chapter_id_temp = msg->chapter_id();
 	int section_id_temp = msg->section_id();	
 	EnterGame(chapter_id_temp, section_id_temp, false);
+}
+
+void DreamHero::ReqCrearteIOSDeal(const message::MsgC2SReqCrearteIOSDeal* msg)
+{
+	std::string key_code = msg->key_code();
+	CreateDealHttpTaskIOS* entry = new CreateDealHttpTaskIOS();
+	entry->init(_account, _info.name().c_str(), key_code.c_str());
+	gHttpManager.addHttpTask(entry);
+}
+void DreamHero::ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg)
+{
+	std::string receipt = msg->receipt().c_str();
+	VerifyDealHttpTaskIOS* entry = new VerifyDealHttpTaskIOS();
+	entry->init(_account, _info.name().c_str(), receipt.c_str());
+	gHttpManager.addHttpTask(entry);
 }
 
 void DreamHero::SendClientInit()
@@ -929,7 +1049,6 @@ void DreamHero::SendClientInit()
 			}
 		}
 	}
-
 	msg.set_free_advertisement_config_count(gGameConfig.getGlobalConfig().day_free_task_count_);
 	msg.set_current_advertisement_count(_current_task_count);
 	msg.set_last_advertisement_time(_last_task_advertisement_time);
@@ -1069,6 +1188,45 @@ void DreamHero::SaveHero()
 	message::MsgSaveDataGS2DB msg_db;
 	msg_db.set_sql(temp);
 	gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
+
+	DEALSWAITTOPAY::iterator it_deal = _deals_wait_to_pay.begin();
+	std::string sql_head_deal = "replace into deal_wait_to_pay(`order_id`, `account_id`, `key_code`, `status`, `price`, `deal_time`,`complete_status`) \
+				values(%d, %llu, '%s', %d, %d, '%s', %d) ";
+	sql_temp.clear();
+	std::string cur_time_entry;
+	build_unix_time_to_string(g_server_time, cur_time_entry);
+	for (int i = 0; it_deal != _deals_wait_to_pay.end(); ++it_deal, i ++)
+	{
+		if (i == 0)
+		{
+			sql_temp = sql_head_deal;
+		}
+		else
+		{
+			sql_temp += ",";
+		}
+		sprintf(sz_temp, "(%d, %llu, '%s', %d, %d, '%s', %d)",
+			it_deal->second.order_id_, _account, it_deal->second.key_code_.c_str(),
+			it_deal->second.status_, it_deal->second.price_, cur_time_entry.c_str(), it_deal->second.type_);
+		sql_temp += sz_temp;
+	}
+	it_deal != _deals_wait_to_pay.begin();
+	while (it_deal != _deals_wait_to_pay.end())
+	{
+		if (it_deal->second.type_ == DealStatusType_Complete)
+		{
+#ifdef WIN32
+			it_deal = _deals_wait_to_pay.erase(it_deal);
+#else
+			_deals_wait_to_pay.erase(it_deal);
+			++it_deal;
+#endif
+		}
+		else
+		{
+			++it_deal;
+		}
+	}
 
 }
 

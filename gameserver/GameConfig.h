@@ -24,6 +24,8 @@ struct globalConfig
 	int day_free_task_count_;
 	int day_task_advertisement_task_cd_;
 	int hero_max_tasks_count_;
+	int channel_id_;
+	int game_id_;
 };
 struct ShopSalesPromotionConfig
 {
@@ -112,6 +114,7 @@ public:
 	const  message::MsgChapterConfigInfo* getChapterConfigInfo(int id);
 	const MAPGOLDSHOPCONFIGINFOS* getGoldShopConfigInfos();
 	const GoldShopConfigInfo* getGoldShopConfigInfo(int id);
+	const GoldShopConfigInfo* getGoldShopConfigInfo(const char* appstore_product_id);
 	const globalConfig& getGlobalConfig();
 	const MAPTYPEDROPBOXCONFIGS* getMapDropBox(int chapter_id, int section_id);
 

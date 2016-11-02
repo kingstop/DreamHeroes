@@ -13,6 +13,15 @@ message MsgMapSpecialKill
 	repeated MsgObjConfig kills = 3;
 }
 
+message MsgDealInfo
+{
+	required int32 order = 1;
+	required string product_id = 2;
+	required int32 status = 3;
+	required int32 complete_status = 4;
+	
+}
+
 message MsgHeroDataDB2GS
 {
 	required uint64 account = 1;
@@ -23,6 +32,8 @@ message MsgHeroDataDB2GS
 	required int32 last_task_advertisement_time = 6;
 	repeated MsgMapSpecialKill special_kills = 7;
 	required int32 gm_level = 8;
+	repeated MsgDealInfo deals = 9;
+	
 }
 
 message MsgNeedCreateHeroDB2GS

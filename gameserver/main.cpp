@@ -73,12 +73,6 @@ void shutdown()
 
 int main()
 {
-	CreateDealHttpTaskIOS HtppIOS;
-	HtppIOS.excute();
-
-	VerifyDealHttpTaskIOS VerifyDeal;
-	VerifyDeal.excute();
-	/*
 #ifdef WIN32
 	MiniDumper dump("game",Version::toString().c_str(),"game server error");
 #endif
@@ -92,7 +86,6 @@ int main()
 	{
 		printf("init server failed \n" );
 	}
-	*/
 	return safe_return(1);
 }
 

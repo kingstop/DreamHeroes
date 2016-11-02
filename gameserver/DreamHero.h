@@ -1,9 +1,19 @@
 #pragma once
+
+struct DealWaitToPay
+{
+	std::string key_code_;
+	int status_;
+	int price_;
+	int order_id_;
+	DealStatusType type_;
+};
 class DreamHero : public EventableObject
 {
 public:
 	//typedef std::map<u64, message::MsgEquipData> HEROEQUIPS;
 	//typedef std::map<std::string, message::MsgToyData> HEROTOYS;
+	typedef std::map<int, DealWaitToPay> DEALSWAITTOPAY;
 	typedef std::map<std::pair<int, int>, std::vector<message::MsgObjConfig> > SPECIALKILLS;
 public:
 	DreamHero();
@@ -41,11 +51,16 @@ public:
 	void ReqModifyGold(const message::MsgC2SCmdReqModifyGold* msg);
 	void ReqReplaceTask(const message::MsgS2CCmdReqReplaceTask* msg);
 	void ReqModifyTaskCompleteCount(const message::MsgC2SCmdReqModifyTaskCompleteCount* msg);
+	void ReqCrearteIOSDeal(const message::MsgC2SReqCrearteIOSDeal* msg);
+	void ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg);
 	void ReqModifyCurrentHero(int grid_id);
 	void ReqGoldShopConfigs();
 	void EnterGame(int chapter_id, int section_id, bool admin = false);
 	void ResetGame();
 	void SendResetGameACK(message::GameError en);
+public:
+	void addDealWaitToPay(std::string key_code, int status, int price, int order_id, message::GameError error);
+	void addDealPay(std::string key_code, int status, int order_id, message::GameError error, bool send_msg = true);
 protected:
 	message::MsgTaskConfigInfo RadnomTaskInfo(int give_up_task = 0);
 	void RefreshTask(int give_up_task_id = 0);	
@@ -65,6 +80,8 @@ protected:
 	Session* _session;
 	bool _online;
 	DreamHeroManager* _parent;
+	DEALSWAITTOPAY _deals_wait_to_pay;
 	int _gm_level;
+	
 };
 

@@ -62,6 +62,10 @@ class MsgC2SReqBuyHero;
 class MsgS2CBuyHeroACK;
 class MsgC2SReqGoldShopConfigs;
 class MsgS2CGoldShopConfigsACK;
+class MsgC2SReqCrearteIOSDeal;
+class MsgS2CCrearteIOSDealACK;
+class MsgC2SReqVerifyDealIOS;
+class MsgS2CVerifyDealIOSACK;
 class MsgC2SCmdReqModifyTaskCompleteCount;
 class MsgS2CCmdModifyTaskCompleteCountACK;
 class MsgC2SCmdReqShowGMLevel;
@@ -99,11 +103,20 @@ enum GameError {
   Error_BuyHeroFailedThePriceIsOld = 17,
   Error_BuyHeroFailedNotFoundGrid = 18,
   Error_ModifyCurrentFailedTheCharacterIsLock = 19,
-  Error_CmdFailedRequiredGMLevel = 20
+  Error_BuyGoldFailedNotFoundConfig = 20,
+  Error_BuyGoldFailedNotFoundOrder = 21,
+  Error_BuyGoldFailedTheOrderHaveBeenCompleted = 22,
+  Error_CreateDealFailedTheHttpErrorRespone = 23,
+  Error_CreateDealFailedTheHttpResponeFailed = 24,
+  Error_CreateDealDailedTheHttpResponeErrorProduct_id = 25,
+  Error_VerifyDealFailedTheHttpErrorRespone = 26,
+  Error_VerifyDealFailedTheHttpResponeFailed = 27,
+  Error_CmdFailedRequiredGMLevel = 28,
+  Error_Unknow = 29
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
-const GameError GameError_MAX = Error_CmdFailedRequiredGMLevel;
+const GameError GameError_MAX = Error_Unknow;
 const int GameError_ARRAYSIZE = GameError_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* GameError_descriptor();
@@ -2642,6 +2655,468 @@ class MsgS2CGoldShopConfigsACK : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgS2CGoldShopConfigsACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqCrearteIOSDeal : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqCrearteIOSDeal();
+  virtual ~MsgC2SReqCrearteIOSDeal();
+
+  MsgC2SReqCrearteIOSDeal(const MsgC2SReqCrearteIOSDeal& from);
+
+  inline MsgC2SReqCrearteIOSDeal& operator=(const MsgC2SReqCrearteIOSDeal& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqCrearteIOSDeal& default_instance();
+
+  void Swap(MsgC2SReqCrearteIOSDeal* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqCrearteIOSDeal* New() const { return New(NULL); }
+
+  MsgC2SReqCrearteIOSDeal* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqCrearteIOSDeal& from);
+  void MergeFrom(const MsgC2SReqCrearteIOSDeal& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqCrearteIOSDeal* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string key_code = 1;
+  bool has_key_code() const;
+  void clear_key_code();
+  static const int kKeyCodeFieldNumber = 1;
+  const ::std::string& key_code() const;
+  void set_key_code(const ::std::string& value);
+  void set_key_code(const char* value);
+  void set_key_code(const char* value, size_t size);
+  ::std::string* mutable_key_code();
+  ::std::string* release_key_code();
+  void set_allocated_key_code(::std::string* key_code);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqCrearteIOSDeal)
+ private:
+  inline void set_has_key_code();
+  inline void clear_has_key_code();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr key_code_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqCrearteIOSDeal* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CCrearteIOSDealACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CCrearteIOSDealACK();
+  virtual ~MsgS2CCrearteIOSDealACK();
+
+  MsgS2CCrearteIOSDealACK(const MsgS2CCrearteIOSDealACK& from);
+
+  inline MsgS2CCrearteIOSDealACK& operator=(const MsgS2CCrearteIOSDealACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CCrearteIOSDealACK& default_instance();
+
+  void Swap(MsgS2CCrearteIOSDealACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CCrearteIOSDealACK* New() const { return New(NULL); }
+
+  MsgS2CCrearteIOSDealACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CCrearteIOSDealACK& from);
+  void MergeFrom(const MsgS2CCrearteIOSDealACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CCrearteIOSDealACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string key_code = 1;
+  bool has_key_code() const;
+  void clear_key_code();
+  static const int kKeyCodeFieldNumber = 1;
+  const ::std::string& key_code() const;
+  void set_key_code(const ::std::string& value);
+  void set_key_code(const char* value);
+  void set_key_code(const char* value, size_t size);
+  ::std::string* mutable_key_code();
+  ::std::string* release_key_code();
+  void set_allocated_key_code(::std::string* key_code);
+
+  // required int32 status = 2;
+  bool has_status() const;
+  void clear_status();
+  static const int kStatusFieldNumber = 2;
+  ::google::protobuf::int32 status() const;
+  void set_status(::google::protobuf::int32 value);
+
+  // required int32 price = 3;
+  bool has_price() const;
+  void clear_price();
+  static const int kPriceFieldNumber = 3;
+  ::google::protobuf::int32 price() const;
+  void set_price(::google::protobuf::int32 value);
+
+  // required int32 order_id = 4;
+  bool has_order_id() const;
+  void clear_order_id();
+  static const int kOrderIdFieldNumber = 4;
+  ::google::protobuf::int32 order_id() const;
+  void set_order_id(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 5 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 5;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CCrearteIOSDealACK)
+ private:
+  inline void set_has_key_code();
+  inline void clear_has_key_code();
+  inline void set_has_status();
+  inline void clear_has_status();
+  inline void set_has_price();
+  inline void clear_has_price();
+  inline void set_has_order_id();
+  inline void clear_has_order_id();
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr key_code_;
+  ::google::protobuf::int32 status_;
+  ::google::protobuf::int32 price_;
+  ::google::protobuf::int32 order_id_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CCrearteIOSDealACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqVerifyDealIOS : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqVerifyDealIOS();
+  virtual ~MsgC2SReqVerifyDealIOS();
+
+  MsgC2SReqVerifyDealIOS(const MsgC2SReqVerifyDealIOS& from);
+
+  inline MsgC2SReqVerifyDealIOS& operator=(const MsgC2SReqVerifyDealIOS& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqVerifyDealIOS& default_instance();
+
+  void Swap(MsgC2SReqVerifyDealIOS* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqVerifyDealIOS* New() const { return New(NULL); }
+
+  MsgC2SReqVerifyDealIOS* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqVerifyDealIOS& from);
+  void MergeFrom(const MsgC2SReqVerifyDealIOS& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqVerifyDealIOS* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string receipt = 1;
+  bool has_receipt() const;
+  void clear_receipt();
+  static const int kReceiptFieldNumber = 1;
+  const ::std::string& receipt() const;
+  void set_receipt(const ::std::string& value);
+  void set_receipt(const char* value);
+  void set_receipt(const char* value, size_t size);
+  ::std::string* mutable_receipt();
+  ::std::string* release_receipt();
+  void set_allocated_receipt(::std::string* receipt);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqVerifyDealIOS)
+ private:
+  inline void set_has_receipt();
+  inline void clear_has_receipt();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr receipt_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqVerifyDealIOS* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CVerifyDealIOSACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CVerifyDealIOSACK();
+  virtual ~MsgS2CVerifyDealIOSACK();
+
+  MsgS2CVerifyDealIOSACK(const MsgS2CVerifyDealIOSACK& from);
+
+  inline MsgS2CVerifyDealIOSACK& operator=(const MsgS2CVerifyDealIOSACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CVerifyDealIOSACK& default_instance();
+
+  void Swap(MsgS2CVerifyDealIOSACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CVerifyDealIOSACK* New() const { return New(NULL); }
+
+  MsgS2CVerifyDealIOSACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CVerifyDealIOSACK& from);
+  void MergeFrom(const MsgS2CVerifyDealIOSACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CVerifyDealIOSACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string product_id = 1;
+  bool has_product_id() const;
+  void clear_product_id();
+  static const int kProductIdFieldNumber = 1;
+  const ::std::string& product_id() const;
+  void set_product_id(const ::std::string& value);
+  void set_product_id(const char* value);
+  void set_product_id(const char* value, size_t size);
+  ::std::string* mutable_product_id();
+  ::std::string* release_product_id();
+  void set_allocated_product_id(::std::string* product_id);
+
+  // required int32 status = 2;
+  bool has_status() const;
+  void clear_status();
+  static const int kStatusFieldNumber = 2;
+  ::google::protobuf::int32 status() const;
+  void set_status(::google::protobuf::int32 value);
+
+  // required int32 order_id = 3;
+  bool has_order_id() const;
+  void clear_order_id();
+  static const int kOrderIdFieldNumber = 3;
+  ::google::protobuf::int32 order_id() const;
+  void set_order_id(::google::protobuf::int32 value);
+
+  // required int32 current_gold = 4;
+  bool has_current_gold() const;
+  void clear_current_gold();
+  static const int kCurrentGoldFieldNumber = 4;
+  ::google::protobuf::int32 current_gold() const;
+  void set_current_gold(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 5 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 5;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CVerifyDealIOSACK)
+ private:
+  inline void set_has_product_id();
+  inline void clear_has_product_id();
+  inline void set_has_status();
+  inline void clear_has_status();
+  inline void set_has_order_id();
+  inline void clear_has_order_id();
+  inline void set_has_current_gold();
+  inline void clear_has_current_gold();
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr product_id_;
+  ::google::protobuf::int32 status_;
+  ::google::protobuf::int32 order_id_;
+  ::google::protobuf::int32 current_gold_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CVerifyDealIOSACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -5681,6 +6156,428 @@ inline ::google::protobuf::RepeatedPtrField< ::message::MsgGoldShopConfigInfo >*
 MsgS2CGoldShopConfigsACK::mutable_infos() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgS2CGoldShopConfigsACK.infos)
   return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqCrearteIOSDeal
+
+// required string key_code = 1;
+inline bool MsgC2SReqCrearteIOSDeal::has_key_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SReqCrearteIOSDeal::set_has_key_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SReqCrearteIOSDeal::clear_has_key_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SReqCrearteIOSDeal::clear_key_code() {
+  key_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_key_code();
+}
+inline const ::std::string& MsgC2SReqCrearteIOSDeal::key_code() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqCrearteIOSDeal.key_code)
+  return key_code_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgC2SReqCrearteIOSDeal::set_key_code(const ::std::string& value) {
+  set_has_key_code();
+  key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqCrearteIOSDeal.key_code)
+}
+inline void MsgC2SReqCrearteIOSDeal::set_key_code(const char* value) {
+  set_has_key_code();
+  key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgC2SReqCrearteIOSDeal.key_code)
+}
+inline void MsgC2SReqCrearteIOSDeal::set_key_code(const char* value, size_t size) {
+  set_has_key_code();
+  key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgC2SReqCrearteIOSDeal.key_code)
+}
+inline ::std::string* MsgC2SReqCrearteIOSDeal::mutable_key_code() {
+  set_has_key_code();
+  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqCrearteIOSDeal.key_code)
+  return key_code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgC2SReqCrearteIOSDeal::release_key_code() {
+  clear_has_key_code();
+  return key_code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgC2SReqCrearteIOSDeal::set_allocated_key_code(::std::string* key_code) {
+  if (key_code != NULL) {
+    set_has_key_code();
+  } else {
+    clear_has_key_code();
+  }
+  key_code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key_code);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgC2SReqCrearteIOSDeal.key_code)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CCrearteIOSDealACK
+
+// required string key_code = 1;
+inline bool MsgS2CCrearteIOSDealACK::has_key_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CCrearteIOSDealACK::set_has_key_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_has_key_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_key_code() {
+  key_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_key_code();
+}
+inline const ::std::string& MsgS2CCrearteIOSDealACK::key_code() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.key_code)
+  return key_code_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CCrearteIOSDealACK::set_key_code(const ::std::string& value) {
+  set_has_key_code();
+  key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.key_code)
+}
+inline void MsgS2CCrearteIOSDealACK::set_key_code(const char* value) {
+  set_has_key_code();
+  key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CCrearteIOSDealACK.key_code)
+}
+inline void MsgS2CCrearteIOSDealACK::set_key_code(const char* value, size_t size) {
+  set_has_key_code();
+  key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CCrearteIOSDealACK.key_code)
+}
+inline ::std::string* MsgS2CCrearteIOSDealACK::mutable_key_code() {
+  set_has_key_code();
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CCrearteIOSDealACK.key_code)
+  return key_code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgS2CCrearteIOSDealACK::release_key_code() {
+  clear_has_key_code();
+  return key_code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CCrearteIOSDealACK::set_allocated_key_code(::std::string* key_code) {
+  if (key_code != NULL) {
+    set_has_key_code();
+  } else {
+    clear_has_key_code();
+  }
+  key_code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key_code);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CCrearteIOSDealACK.key_code)
+}
+
+// required int32 status = 2;
+inline bool MsgS2CCrearteIOSDealACK::has_status() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CCrearteIOSDealACK::set_has_status() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_has_status() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+inline ::google::protobuf::int32 MsgS2CCrearteIOSDealACK::status() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.status)
+  return status_;
+}
+inline void MsgS2CCrearteIOSDealACK::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.status)
+}
+
+// required int32 price = 3;
+inline bool MsgS2CCrearteIOSDealACK::has_price() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CCrearteIOSDealACK::set_has_price() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_has_price() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_price() {
+  price_ = 0;
+  clear_has_price();
+}
+inline ::google::protobuf::int32 MsgS2CCrearteIOSDealACK::price() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.price)
+  return price_;
+}
+inline void MsgS2CCrearteIOSDealACK::set_price(::google::protobuf::int32 value) {
+  set_has_price();
+  price_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.price)
+}
+
+// required int32 order_id = 4;
+inline bool MsgS2CCrearteIOSDealACK::has_order_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgS2CCrearteIOSDealACK::set_has_order_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_has_order_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_order_id() {
+  order_id_ = 0;
+  clear_has_order_id();
+}
+inline ::google::protobuf::int32 MsgS2CCrearteIOSDealACK::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.order_id)
+  return order_id_;
+}
+inline void MsgS2CCrearteIOSDealACK::set_order_id(::google::protobuf::int32 value) {
+  set_has_order_id();
+  order_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.order_id)
+}
+
+// required .message.GameError error = 5 [default = Error_NO];
+inline bool MsgS2CCrearteIOSDealACK::has_error() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgS2CCrearteIOSDealACK::set_has_error() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgS2CCrearteIOSDealACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CCrearteIOSDealACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CCrearteIOSDealACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqVerifyDealIOS
+
+// required string receipt = 1;
+inline bool MsgC2SReqVerifyDealIOS::has_receipt() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SReqVerifyDealIOS::set_has_receipt() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SReqVerifyDealIOS::clear_has_receipt() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SReqVerifyDealIOS::clear_receipt() {
+  receipt_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_receipt();
+}
+inline const ::std::string& MsgC2SReqVerifyDealIOS::receipt() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqVerifyDealIOS.receipt)
+  return receipt_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgC2SReqVerifyDealIOS::set_receipt(const ::std::string& value) {
+  set_has_receipt();
+  receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqVerifyDealIOS.receipt)
+}
+inline void MsgC2SReqVerifyDealIOS::set_receipt(const char* value) {
+  set_has_receipt();
+  receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgC2SReqVerifyDealIOS.receipt)
+}
+inline void MsgC2SReqVerifyDealIOS::set_receipt(const char* value, size_t size) {
+  set_has_receipt();
+  receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgC2SReqVerifyDealIOS.receipt)
+}
+inline ::std::string* MsgC2SReqVerifyDealIOS::mutable_receipt() {
+  set_has_receipt();
+  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqVerifyDealIOS.receipt)
+  return receipt_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgC2SReqVerifyDealIOS::release_receipt() {
+  clear_has_receipt();
+  return receipt_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgC2SReqVerifyDealIOS::set_allocated_receipt(::std::string* receipt) {
+  if (receipt != NULL) {
+    set_has_receipt();
+  } else {
+    clear_has_receipt();
+  }
+  receipt_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), receipt);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgC2SReqVerifyDealIOS.receipt)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CVerifyDealIOSACK
+
+// required string product_id = 1;
+inline bool MsgS2CVerifyDealIOSACK::has_product_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CVerifyDealIOSACK::set_has_product_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_has_product_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_id();
+}
+inline const ::std::string& MsgS2CVerifyDealIOSACK::product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CVerifyDealIOSACK::set_product_id(const ::std::string& value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.product_id)
+}
+inline void MsgS2CVerifyDealIOSACK::set_product_id(const char* value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CVerifyDealIOSACK.product_id)
+}
+inline void MsgS2CVerifyDealIOSACK::set_product_id(const char* value, size_t size) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CVerifyDealIOSACK.product_id)
+}
+inline ::std::string* MsgS2CVerifyDealIOSACK::mutable_product_id() {
+  set_has_product_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CVerifyDealIOSACK.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgS2CVerifyDealIOSACK::release_product_id() {
+  clear_has_product_id();
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CVerifyDealIOSACK::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    set_has_product_id();
+  } else {
+    clear_has_product_id();
+  }
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CVerifyDealIOSACK.product_id)
+}
+
+// required int32 status = 2;
+inline bool MsgS2CVerifyDealIOSACK::has_status() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CVerifyDealIOSACK::set_has_status() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_has_status() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+inline ::google::protobuf::int32 MsgS2CVerifyDealIOSACK::status() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.status)
+  return status_;
+}
+inline void MsgS2CVerifyDealIOSACK::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.status)
+}
+
+// required int32 order_id = 3;
+inline bool MsgS2CVerifyDealIOSACK::has_order_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CVerifyDealIOSACK::set_has_order_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_has_order_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_order_id() {
+  order_id_ = 0;
+  clear_has_order_id();
+}
+inline ::google::protobuf::int32 MsgS2CVerifyDealIOSACK::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.order_id)
+  return order_id_;
+}
+inline void MsgS2CVerifyDealIOSACK::set_order_id(::google::protobuf::int32 value) {
+  set_has_order_id();
+  order_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.order_id)
+}
+
+// required int32 current_gold = 4;
+inline bool MsgS2CVerifyDealIOSACK::has_current_gold() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgS2CVerifyDealIOSACK::set_has_current_gold() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_has_current_gold() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_current_gold() {
+  current_gold_ = 0;
+  clear_has_current_gold();
+}
+inline ::google::protobuf::int32 MsgS2CVerifyDealIOSACK::current_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.current_gold)
+  return current_gold_;
+}
+inline void MsgS2CVerifyDealIOSACK::set_current_gold(::google::protobuf::int32 value) {
+  set_has_current_gold();
+  current_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.current_gold)
+}
+
+// required .message.GameError error = 5 [default = Error_NO];
+inline bool MsgS2CVerifyDealIOSACK::has_error() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgS2CVerifyDealIOSACK::set_has_error() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgS2CVerifyDealIOSACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CVerifyDealIOSACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CVerifyDealIOSACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.error)
 }
 
 // -------------------------------------------------------------------

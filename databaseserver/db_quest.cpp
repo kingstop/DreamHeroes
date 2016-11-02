@@ -137,10 +137,35 @@ void DBQuestManager::saveSqlRecord(const char* sql)
 }
 
 
+void DBQuestManager::dbDoQueryHeroDeals(const SDBResult* r, const void* d, bool s)
+{
+	tgHeroData* pkParm = static_cast<tgHeroData*>(const_cast<void*>(d));
+	if (!pkParm)
+	{
+		return;
+	}
 
+	if (r != NULL)
+	{
+		const SDBResult& result = *r;
+		int row_count = result.num_rows();
+		for (int i = 0; i < row_count; i ++)
+		{
+			const mysqlpp::Row row = result[i];
+			message::MsgDealInfo msgDeal;
+			message::MsgDealInfo* deal_info = pkParm->info.add_deals();
+			account_type acc = row["account_id"];
+			deal_info->set_order(row["order"]);
+			deal_info->set_product_id(row["product_id"].c_str());
+			deal_info->set_status(row["status"]);
+			deal_info->set_complete_status(row["complete_status"]);									
+		}
+
+	}
+	gDBGameManager.sendMessage(&pkParm->info, pkParm->tranid, pkParm->gsid);
+}
 
 void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s)
-
 {
 	tgHeroData* pkParm = static_cast<tgHeroData*>(const_cast<void*>(d));
 	if (!pkParm)
@@ -269,8 +294,11 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 
 		
 			pkParm->info.set_account(acc);
-			gDBGameManager.sendMessage(&pkParm->info, pkParm->tranid, pkParm->gsid);
 			need_create = false;
+			char sz_sql[256];
+			sprintf(sz_sql, "select * from `deal_wait_to_pay` where `account_id`=%llu and complete_status!=2", acc);
+			gDBCharDatabase.addSQueryTask(this, &DBQuestManager::dbDoQueryHeroDeals, sz_sql, 0, new tgHeroData(pkParm), _QUERY_HERO_INFO_);
+
 		}
 	}
 

@@ -23,7 +23,16 @@ enum GameError
 	Error_BuyHeroFailedThePriceIsOld = 17;
 	Error_BuyHeroFailedNotFoundGrid = 18;
 	Error_ModifyCurrentFailedTheCharacterIsLock = 19;
-	Error_CmdFailedRequiredGMLevel = 20;
+	Error_BuyGoldFailedNotFoundConfig = 20;
+	Error_BuyGoldFailedNotFoundOrder = 21;
+	Error_BuyGoldFailedTheOrderHaveBeenCompleted = 22;
+	Error_CreateDealFailedTheHttpErrorRespone = 23;
+	Error_CreateDealFailedTheHttpResponeFailed = 24;
+	Error_CreateDealDailedTheHttpResponeErrorProduct_id = 25;
+	Error_VerifyDealFailedTheHttpErrorRespone = 26;
+	Error_VerifyDealFailedTheHttpResponeFailed = 27;
+	Error_CmdFailedRequiredGMLevel = 28;
+	Error_Unknow = 29;
 }
 
 
@@ -193,6 +202,33 @@ message MsgS2CGoldShopConfigsACK
 }
 
 
+message MsgC2SReqCrearteIOSDeal
+{
+	required string key_code = 1;
+}
+
+message MsgS2CCrearteIOSDealACK
+{
+	required string key_code = 1;
+	required int32 status = 2;
+	required int32 price = 3;
+	required int32 order_id = 4;
+	required GameError error = 5 [default=Error_NO];
+}
+
+message MsgC2SReqVerifyDealIOS
+{
+	required string receipt = 1;
+}
+
+message MsgS2CVerifyDealIOSACK
+{	
+	required string product_id = 1;
+	required int32 status = 2;
+	required int32 order_id = 3;
+	required int32 current_gold = 4;
+	required GameError error = 5 [default=Error_NO];
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 message MsgC2SCmdReqModifyTaskCompleteCount
 {
