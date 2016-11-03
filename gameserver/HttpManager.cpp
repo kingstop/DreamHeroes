@@ -213,11 +213,14 @@ bool VerifyDealHttpTaskIOS::excute()
 	{
 		std::string post_url;
 		std::string respone_url;
-		char sz_temp[10240];
-		sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt={%s}",
+		unsigned char sz_temp[10240];
+		unsigned char sz_temp_target[10240];
+		sprintf((char*)sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt={%s}",
 			channel_id, game_id, _acc, _order_id, _receipt.c_str());
+		urlencode(sz_temp, sz_temp_target);
 		Mylog::log_server(LOG_INFO, "http verify [%s] ", sz_temp);
-		gHttpManager.Posts(sz_temp, post_url, respone_url);
+		Mylog::log_server(LOG_INFO, "http encode verify [%s] ", sz_temp_target);
+		gHttpManager.Posts((char*)sz_temp_target, post_url, respone_url);
 		try
 		{
 			bool bret = false;
@@ -238,10 +241,10 @@ bool VerifyDealHttpTaskIOS::excute()
 				{
 					_product_id = value["product_id"].asString();
 					_order_id = value["order_id"].asInt();
-					sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=order_finish&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d",
+					sprintf((char*)sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=order_finish&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d",
 						channel_id, game_id, _acc, _order_id);
 					value.clear();
-					gHttpManager.Posts(sz_temp, post_url, respone_url);
+					gHttpManager.Posts((char*)sz_temp, post_url, respone_url);
 					bret = reader.parse(respone_url.c_str(), value);
 					bool bret_status = value["status"].empty();
 					if (bret_status == false)

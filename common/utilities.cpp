@@ -928,3 +928,66 @@ unsigned int data_stream_verifier::get_magic_number( unsigned int key )
 	return *(unsigned int*)(&char_table[key % (char_table_size - 4)]);
 }
 
+
+void urlencode(unsigned char * src, unsigned char * dest)
+{
+	assert(src);
+	assert(dest);
+	unsigned char ch;
+	int len = 0;
+
+	//while (len < (dest_len - 4) && *src) 
+	while (*src)
+	{
+		ch = (unsigned char)*src;
+		if (*src == ' ')
+		{
+			*dest++ = '+';
+		}
+		else if (is_alpha_number_char(ch) || strchr("-_.!~*'()", ch))
+		{
+			*dest++ = *src;
+		}
+		else
+		{
+			*dest++ = '%';
+			*dest++ = char_to_hex((unsigned char)(ch >> 4));
+			*dest++ = char_to_hex((unsigned char)(ch % 16));
+		}
+		++src;
+		++len;
+	}
+	*dest = 0;
+	return;
+}
+char* urldecode(char* encd, char* decd)
+{
+	assert(encd);
+	assert(decd);
+	int i, j;
+	char *cd = encd;
+	char p[2];
+	unsigned int num;
+	j = 0;
+
+	for (i = 0; i < strlen(cd); i++)
+	{
+		memset(p, '\0', 2);
+		if (cd[i] != '%')
+		{
+			decd[j++] = cd[i];
+			continue;
+		}
+
+		p[0] = cd[++i];
+		p[1] = cd[++i];
+
+		p[0] = p[0] - 48 - ((p[0] >= 'A') ? 7 : 0) - ((p[0] >= 'a') ? 32 : 0);
+		p[1] = p[1] - 48 - ((p[1] >= 'A') ? 7 : 0) - ((p[1] >= 'a') ? 32 : 0);
+		decd[j++] = (char)(p[0] * 16 + p[1]);
+
+	}
+	decd[j] = '\0';
+
+	return decd;
+}

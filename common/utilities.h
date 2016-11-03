@@ -241,6 +241,30 @@ int SplitStringA(const std::string& strIn, const std::string& strDelimiter, std:
 bool isIntger(std::string str);
 bool is_valid_string( const std::string& str );
 char* get_and_create_static_buffer( std::size_t size );
+static unsigned char char_to_hex(unsigned char x)
+{
+	return (unsigned char)(x > 9 ? x + 55 : x + 48);
+}
+
+static int is_alpha_number_char(unsigned char c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
+		return 1;
+	return 0;
+}
+
+//url编码实现 
+
+void urlencode(unsigned char * src, unsigned char * dest);
+
+
+
+//解url编码实现 
+char* urldecode(char* encd, char* decd);
+
+
+
+
 std::string get_time(time_t cur_time);
 
 struct memory_leak_monitor
