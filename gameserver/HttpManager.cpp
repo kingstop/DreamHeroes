@@ -345,7 +345,7 @@ void HttpManager::logicUpdate()
 	{
 		BaseHttpTask* http_client = _complete_task.front();
 		queue_temp.push(http_client);
-		_execute_https.pop();
+		_complete_task.pop();
 	}
 	_http_complete_mutex.unlock();
 
