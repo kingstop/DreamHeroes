@@ -586,8 +586,9 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, _internal_metadata_),
       -1);
   MsgC2SReqVerifyDealIOS_descriptor_ = file->message_type(26);
-  static const int MsgC2SReqVerifyDealIOS_offsets_[1] = {
+  static const int MsgC2SReqVerifyDealIOS_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, receipt_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, order_id_),
   };
   MsgC2SReqVerifyDealIOS_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -1119,73 +1120,74 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "gS2CCrearteIOSDealACK\022\020\n\010key_code\030\001 \002(\t\022"
     "\016\n\006status\030\002 \002(\005\022\r\n\005price\030\003 \002(\005\022\020\n\010order_"
     "id\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.message.GameEr"
-    "ror:\010Error_NO\")\n\026MsgC2SReqVerifyDealIOS\022"
-    "\017\n\007receipt\030\001 \002(\t\"\221\001\n\026MsgS2CVerifyDealIOS"
-    "ACK\022\022\n\nproduct_id\030\001 \002(\t\022\016\n\006status\030\002 \002(\005\022"
-    "\020\n\010order_id\030\003 \002(\005\022\024\n\014current_gold\030\004 \002(\005\022"
-    "+\n\005error\030\005 \002(\0162\022.message.GameError:\010Erro"
-    "r_NO\"B\n#MsgC2SCmdReqModifyTaskCompleteCo"
-    "unt\022\033\n\023task_complete_count\030\001 \002(\005\"A\n#MsgS"
-    "2CCmdModifyTaskCompleteCountACK\022\032\n\022curre"
-    "nt_task_count\030\001 \002(\005\"\031\n\027MsgC2SCmdReqShowG"
-    "MLevel\"X\n\027MsgS2CCmdShowGMLevelACK\022\020\n\010gm_"
-    "level\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.Gam"
-    "eError:\010Error_NO\"8\n\031MsgC2SCmdReqModifyGM"
-    "Level\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\"e\n\031Ms"
-    "gS2CCmdModifyGMLevelACK\022\014\n\004name\030\001 \002(\t\022\r\n"
-    "\005level\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.Ga"
-    "meError:\010Error_NO\"\?\n\025MsgC2SCmdReqEnterGa"
-    "me\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002"
-    "(\005\">\n\024MsgC2SCmdReqResetMap\022\022\n\nchapter_id"
-    "\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"k\n\024MsgS2CCmdR"
-    "esetMapACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsectio"
-    "n_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.Game"
-    "Error:\010Error_NO\"\027\n\025MsgC2SCmdReqResetGame"
-    "\"\256\001\n\025MsgS2CCmdResetGameACK\022\"\n\004info\030\001 \002(\013"
-    "2\024.message.MsgHeroData\022#\n\033current_advert"
-    "isement_count\030\002 \002(\005\022\037\n\027last_advertisemen"
-    "t_time\030\003 \002(\003\022+\n\005error\030\004 \002(\0162\022.message.Ga"
-    "meError:\010Error_NO\"&\n\026MsgC2SCmdReqModifyG"
-    "old\022\014\n\004gold\030\001 \002(\005\"&\n\026MsgS2CCmdModifyGold"
-    "ACK\022\014\n\004gold\030\001 \002(\005\"-\n\027MsgS2CCmdReqReplace"
-    "Task\022\022\n\ntask_count\030\001 \002(\005\"q\n\027MsgS2CCmdRep"
-    "laceTaskACK\022+\n\005error\030\001 \002(\0162\022.message.Gam"
-    "eError:\010Error_NO\022)\n\005infos\030\002 \003(\0132\032.messag"
-    "e.MsgTaskConfigInfo*\330\n\n\tGameError\022\014\n\010Err"
-    "or_NO\020\000\022*\n&Error_CanNotEnterGameTheInsta"
-    "nceIsLock\020\001\022+\n\'Error_CanNotEnterGameTheC"
-    "haracterIsLock\020\002\022)\n%Error_CanNotEnterGam"
-    "eTheSectionIsLock\020\003\022$\n Error_CanNotBuyHe"
-    "roNotEnoughgold\020\004\0224\n0Error_CanNotPassGam"
-    "eTheInstanceNotHaveEnoughGold\020\005\022\035\n\031Error"
-    "_NotEnterTheExitGame\020\006\022)\n%Error_NotFound"
-    "TheChapterWhenEnterGame\020\007\022\035\n\031Error_TheCh"
-    "apterIsNotLock\020\010\0225\n1Error_UnlockChapterF"
-    "ailedNotFoundTheUnlockChapter\020\t\0226\n2Error"
-    "_UnlockChapterFailedTheRequiredSectionNo"
-    "tPass\020\n\0229\n5Error_UnlockChapterFailedYouH"
-    "aveToCompleteEnoughTasks\020\013\0221\n-Error_Unlo"
-    "ckChapterFailedYouNotHaveEnoughGold\020\014\022,\n"
-    "(Error_RefreshAdvertisementTaskFailedInC"
-    "D\020\r\022<\n8Error_RefreshAdvertisementTaskFai"
-    "ledNotFoundGiveUpTaskID\020\016\022.\n*Error_Refre"
-    "shAdvertisementTaskFailedUnknow\020\017\022$\n Err"
-    "or_BuyHeroFailedNotEnoughGold\020\020\022$\n Error"
-    "_BuyHeroFailedThePriceIsOld\020\021\022#\n\037Error_B"
-    "uyHeroFailedNotFoundGrid\020\022\022-\n)Error_BuyH"
-    "eroFailedNotPassRequiredSection\020\023\022/\n+Err"
-    "or_ModifyCurrentFailedTheCharacterIsLock"
-    "\020\024\022%\n!Error_BuyGoldFailedNotFoundConfig\020"
-    "\025\022$\n Error_BuyGoldFailedNotFoundOrder\020\026\022"
-    "0\n,Error_BuyGoldFailedTheOrderHaveBeenCo"
-    "mpleted\020\027\022-\n)Error_CreateDealFailedTheHt"
-    "tpErrorRespone\020\030\022.\n*Error_CreateDealFail"
-    "edTheHttpResponeFailed\020\031\0227\n3Error_Create"
-    "DealDailedTheHttpResponeErrorProduct_id\020"
-    "\032\022-\n)Error_VerifyDealFailedTheHttpErrorR"
-    "espone\020\033\022.\n*Error_VerifyDealFailedTheHtt"
-    "pResponeFailed\020\034\022\"\n\036Error_CmdFailedRequi"
-    "redGMLevel\020\035\022\020\n\014Error_Unknow\020\036", 5270);
+    "ror:\010Error_NO\";\n\026MsgC2SReqVerifyDealIOS\022"
+    "\017\n\007receipt\030\001 \002(\t\022\020\n\010order_id\030\002 \002(\005\"\221\001\n\026M"
+    "sgS2CVerifyDealIOSACK\022\022\n\nproduct_id\030\001 \002("
+    "\t\022\016\n\006status\030\002 \002(\005\022\020\n\010order_id\030\003 \002(\005\022\024\n\014c"
+    "urrent_gold\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.messa"
+    "ge.GameError:\010Error_NO\"B\n#MsgC2SCmdReqMo"
+    "difyTaskCompleteCount\022\033\n\023task_complete_c"
+    "ount\030\001 \002(\005\"A\n#MsgS2CCmdModifyTaskComplet"
+    "eCountACK\022\032\n\022current_task_count\030\001 \002(\005\"\031\n"
+    "\027MsgC2SCmdReqShowGMLevel\"X\n\027MsgS2CCmdSho"
+    "wGMLevelACK\022\020\n\010gm_level\030\001 \002(\005\022+\n\005error\030\002"
+    " \002(\0162\022.message.GameError:\010Error_NO\"8\n\031Ms"
+    "gC2SCmdReqModifyGMLevel\022\014\n\004name\030\001 \002(\t\022\r\n"
+    "\005level\030\002 \002(\005\"e\n\031MsgS2CCmdModifyGMLevelAC"
+    "K\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\022+\n\005error\030"
+    "\003 \002(\0162\022.message.GameError:\010Error_NO\"\?\n\025M"
+    "sgC2SCmdReqEnterGame\022\022\n\nchapter_id\030\001 \002(\005"
+    "\022\022\n\nsection_id\030\002 \002(\005\">\n\024MsgC2SCmdReqRese"
+    "tMap\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002"
+    " \002(\005\"k\n\024MsgS2CCmdResetMapACK\022\022\n\nchapter_"
+    "id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022+\n\005error\030\003 "
+    "\002(\0162\022.message.GameError:\010Error_NO\"\027\n\025Msg"
+    "C2SCmdReqResetGame\"\256\001\n\025MsgS2CCmdResetGam"
+    "eACK\022\"\n\004info\030\001 \002(\0132\024.message.MsgHeroData"
+    "\022#\n\033current_advertisement_count\030\002 \002(\005\022\037\n"
+    "\027last_advertisement_time\030\003 \002(\003\022+\n\005error\030"
+    "\004 \002(\0162\022.message.GameError:\010Error_NO\"&\n\026M"
+    "sgC2SCmdReqModifyGold\022\014\n\004gold\030\001 \002(\005\"&\n\026M"
+    "sgS2CCmdModifyGoldACK\022\014\n\004gold\030\001 \002(\005\"-\n\027M"
+    "sgS2CCmdReqReplaceTask\022\022\n\ntask_count\030\001 \002"
+    "(\005\"q\n\027MsgS2CCmdReplaceTaskACK\022+\n\005error\030\001"
+    " \002(\0162\022.message.GameError:\010Error_NO\022)\n\005in"
+    "fos\030\002 \003(\0132\032.message.MsgTaskConfigInfo*\330\n"
+    "\n\tGameError\022\014\n\010Error_NO\020\000\022*\n&Error_CanNo"
+    "tEnterGameTheInstanceIsLock\020\001\022+\n\'Error_C"
+    "anNotEnterGameTheCharacterIsLock\020\002\022)\n%Er"
+    "ror_CanNotEnterGameTheSectionIsLock\020\003\022$\n"
+    " Error_CanNotBuyHeroNotEnoughgold\020\004\0224\n0E"
+    "rror_CanNotPassGameTheInstanceNotHaveEno"
+    "ughGold\020\005\022\035\n\031Error_NotEnterTheExitGame\020\006"
+    "\022)\n%Error_NotFoundTheChapterWhenEnterGam"
+    "e\020\007\022\035\n\031Error_TheChapterIsNotLock\020\010\0225\n1Er"
+    "ror_UnlockChapterFailedNotFoundTheUnlock"
+    "Chapter\020\t\0226\n2Error_UnlockChapterFailedTh"
+    "eRequiredSectionNotPass\020\n\0229\n5Error_Unloc"
+    "kChapterFailedYouHaveToCompleteEnoughTas"
+    "ks\020\013\0221\n-Error_UnlockChapterFailedYouNotH"
+    "aveEnoughGold\020\014\022,\n(Error_RefreshAdvertis"
+    "ementTaskFailedInCD\020\r\022<\n8Error_RefreshAd"
+    "vertisementTaskFailedNotFoundGiveUpTaskI"
+    "D\020\016\022.\n*Error_RefreshAdvertisementTaskFai"
+    "ledUnknow\020\017\022$\n Error_BuyHeroFailedNotEno"
+    "ughGold\020\020\022$\n Error_BuyHeroFailedThePrice"
+    "IsOld\020\021\022#\n\037Error_BuyHeroFailedNotFoundGr"
+    "id\020\022\022-\n)Error_BuyHeroFailedNotPassRequir"
+    "edSection\020\023\022/\n+Error_ModifyCurrentFailed"
+    "TheCharacterIsLock\020\024\022%\n!Error_BuyGoldFai"
+    "ledNotFoundConfig\020\025\022$\n Error_BuyGoldFail"
+    "edNotFoundOrder\020\026\0220\n,Error_BuyGoldFailed"
+    "TheOrderHaveBeenCompleted\020\027\022-\n)Error_Cre"
+    "ateDealFailedTheHttpErrorRespone\020\030\022.\n*Er"
+    "ror_CreateDealFailedTheHttpResponeFailed"
+    "\020\031\0227\n3Error_CreateDealDailedTheHttpRespo"
+    "neErrorProduct_id\020\032\022-\n)Error_VerifyDealF"
+    "ailedTheHttpErrorRespone\020\033\022.\n*Error_Veri"
+    "fyDealFailedTheHttpResponeFailed\020\034\022\"\n\036Er"
+    "ror_CmdFailedRequiredGMLevel\020\035\022\020\n\014Error_"
+    "Unknow\020\036", 5288);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgS2CNotifyError::default_instance_ = new MsgS2CNotifyError();
@@ -11015,6 +11017,7 @@ void MsgS2CCrearteIOSDealACK::InternalSwap(MsgS2CCrearteIOSDealACK* other) {
 
 #ifndef _MSC_VER
 const int MsgC2SReqVerifyDealIOS::kReceiptFieldNumber;
+const int MsgC2SReqVerifyDealIOS::kOrderIdFieldNumber;
 #endif  // !_MSC_VER
 
 MsgC2SReqVerifyDealIOS::MsgC2SReqVerifyDealIOS()
@@ -11038,6 +11041,7 @@ void MsgC2SReqVerifyDealIOS::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   receipt_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  order_id_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -11078,8 +11082,11 @@ MsgC2SReqVerifyDealIOS* MsgC2SReqVerifyDealIOS::New(::google::protobuf::Arena* a
 }
 
 void MsgC2SReqVerifyDealIOS::Clear() {
-  if (has_receipt()) {
-    receipt_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (_has_bits_[0 / 32] & 3) {
+    if (has_receipt()) {
+      receipt_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    order_id_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -11106,6 +11113,21 @@ bool MsgC2SReqVerifyDealIOS::MergePartialFromCodedStream(
             this->receipt().data(), this->receipt().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "message.MsgC2SReqVerifyDealIOS.receipt");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_order_id;
+        break;
+      }
+
+      // required int32 order_id = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_order_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &order_id_)));
+          set_has_order_id();
         } else {
           goto handle_unusual;
         }
@@ -11148,6 +11170,11 @@ void MsgC2SReqVerifyDealIOS::SerializeWithCachedSizes(
       1, this->receipt(), output);
   }
 
+  // required int32 order_id = 2;
+  if (has_order_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->order_id(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -11169,6 +11196,11 @@ void MsgC2SReqVerifyDealIOS::SerializeWithCachedSizes(
         1, this->receipt(), target);
   }
 
+  // required int32 order_id = 2;
+  if (has_order_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->order_id(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -11177,14 +11209,41 @@ void MsgC2SReqVerifyDealIOS::SerializeWithCachedSizes(
   return target;
 }
 
-int MsgC2SReqVerifyDealIOS::ByteSize() const {
+int MsgC2SReqVerifyDealIOS::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
-  // required string receipt = 1;
   if (has_receipt()) {
+    // required string receipt = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->receipt());
+  }
+
+  if (has_order_id()) {
+    // required int32 order_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->order_id());
+  }
+
+  return total_size;
+}
+int MsgC2SReqVerifyDealIOS::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required string receipt = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->receipt());
+
+    // required int32 order_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->order_id());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -11216,6 +11275,9 @@ void MsgC2SReqVerifyDealIOS::MergeFrom(const MsgC2SReqVerifyDealIOS& from) {
       set_has_receipt();
       receipt_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.receipt_);
     }
+    if (from.has_order_id()) {
+      set_order_id(from.order_id());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -11235,7 +11297,7 @@ void MsgC2SReqVerifyDealIOS::CopyFrom(const MsgC2SReqVerifyDealIOS& from) {
 }
 
 bool MsgC2SReqVerifyDealIOS::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
@@ -11246,6 +11308,7 @@ void MsgC2SReqVerifyDealIOS::Swap(MsgC2SReqVerifyDealIOS* other) {
 }
 void MsgC2SReqVerifyDealIOS::InternalSwap(MsgC2SReqVerifyDealIOS* other) {
   receipt_.Swap(&other->receipt_);
+  std::swap(order_id_, other->order_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -11313,6 +11376,30 @@ void MsgC2SReqVerifyDealIOS::InternalSwap(MsgC2SReqVerifyDealIOS* other) {
   }
   receipt_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), receipt);
   // @@protoc_insertion_point(field_set_allocated:message.MsgC2SReqVerifyDealIOS.receipt)
+}
+
+// required int32 order_id = 2;
+ bool MsgC2SReqVerifyDealIOS::has_order_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgC2SReqVerifyDealIOS::set_has_order_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgC2SReqVerifyDealIOS::clear_has_order_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgC2SReqVerifyDealIOS::clear_order_id() {
+  order_id_ = 0;
+  clear_has_order_id();
+}
+ ::google::protobuf::int32 MsgC2SReqVerifyDealIOS::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqVerifyDealIOS.order_id)
+  return order_id_;
+}
+ void MsgC2SReqVerifyDealIOS::set_order_id(::google::protobuf::int32 value) {
+  set_has_order_id();
+  order_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqVerifyDealIOS.order_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

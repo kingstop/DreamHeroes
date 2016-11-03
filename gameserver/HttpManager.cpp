@@ -191,11 +191,12 @@ bool VerifyDealHttpTaskIOS::logicExcute()
 }
 
 
-void VerifyDealHttpTaskIOS::init(account_type acc, const char* name, const char* receipt)
+void VerifyDealHttpTaskIOS::init(account_type acc, const char* name, const char* receipt, int order_id)
 {
 	_acc = acc;
 	_name = name;
 	_receipt = receipt;
+	_order_id = order_id;
 }
 
 bool VerifyDealHttpTaskIOS::excute()
@@ -205,8 +206,8 @@ bool VerifyDealHttpTaskIOS::excute()
 	
 	std::string post_url;
 	std::string respone_url;
-	sprintf(_Http, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&receipt={%s}", 
-		channel_id, game_id, _acc, _receipt.c_str());
+	sprintf(_Http, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt={%s}", 
+		channel_id, game_id, _acc, _order_id,_receipt.c_str());
 	gHttpManager.Posts(_Http, post_url, respone_url);
 	try
 	{

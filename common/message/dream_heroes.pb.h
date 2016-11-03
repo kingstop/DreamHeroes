@@ -2966,15 +2966,28 @@ class MsgC2SReqVerifyDealIOS : public ::google::protobuf::Message {
   ::std::string* release_receipt();
   void set_allocated_receipt(::std::string* receipt);
 
+  // required int32 order_id = 2;
+  bool has_order_id() const;
+  void clear_order_id();
+  static const int kOrderIdFieldNumber = 2;
+  ::google::protobuf::int32 order_id() const;
+  void set_order_id(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgC2SReqVerifyDealIOS)
  private:
   inline void set_has_receipt();
   inline void clear_has_receipt();
+  inline void set_has_order_id();
+  inline void clear_has_order_id();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr receipt_;
+  ::google::protobuf::int32 order_id_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -6425,6 +6438,30 @@ inline void MsgC2SReqVerifyDealIOS::set_allocated_receipt(::std::string* receipt
   }
   receipt_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), receipt);
   // @@protoc_insertion_point(field_set_allocated:message.MsgC2SReqVerifyDealIOS.receipt)
+}
+
+// required int32 order_id = 2;
+inline bool MsgC2SReqVerifyDealIOS::has_order_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgC2SReqVerifyDealIOS::set_has_order_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgC2SReqVerifyDealIOS::clear_has_order_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgC2SReqVerifyDealIOS::clear_order_id() {
+  order_id_ = 0;
+  clear_has_order_id();
+}
+inline ::google::protobuf::int32 MsgC2SReqVerifyDealIOS::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqVerifyDealIOS.order_id)
+  return order_id_;
+}
+inline void MsgC2SReqVerifyDealIOS::set_order_id(::google::protobuf::int32 value) {
+  set_has_order_id();
+  order_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqVerifyDealIOS.order_id)
 }
 
 // -------------------------------------------------------------------

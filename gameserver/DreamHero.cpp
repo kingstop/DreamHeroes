@@ -765,7 +765,7 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 		int require_section_id = buy_grid_config->require_section_id();
 		if (require_chapter_id != 0 && require_section_id != 0)
 		{
-			en == message::Error_BuyHeroFailedNotPassRequiredSection;
+			en = message::Error_BuyHeroFailedNotPassRequiredSection;
 			int record_size = _info.records_size();
 			for (int i = 0; i < record_size; i ++)
 			{
@@ -1073,7 +1073,7 @@ void DreamHero::ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg)
 {
 	std::string receipt = msg->receipt().c_str();
 	VerifyDealHttpTaskIOS* entry = new VerifyDealHttpTaskIOS();
-	entry->init(_account, _info.name().c_str(), receipt.c_str());
+	entry->init(_account, _info.name().c_str(), receipt.c_str(), msg->order_id());
 	gHttpManager.addHttpTask(entry);
 }
 

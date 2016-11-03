@@ -220,6 +220,7 @@ message MsgS2CCrearteIOSDealACK
 message MsgC2SReqVerifyDealIOS
 {
 	required string receipt = 1;
+	required int32 order_id = 2;
 }
 
 message MsgS2CVerifyDealIOSACK

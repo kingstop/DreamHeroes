@@ -56,12 +56,12 @@ class VerifyDealHttpTaskIOS : public BaseHttpTask
 public:
 	VerifyDealHttpTaskIOS();
 	virtual ~VerifyDealHttpTaskIOS();
-	void init(account_type acc, const char* name, const char* receipt);
+	void init(account_type acc, const char* name, const char* receipt, int order_id);
 	virtual bool excute();
 	virtual bool logicExcute();
 private:
 	std::string _receipt;
-	std::string _product_id;
+	std::string _product_id;	
 	int _status;
 	int _order_id;
 	account_type _acc;
