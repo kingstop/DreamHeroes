@@ -91,10 +91,11 @@ bool CreateDealHttpTaskIOS::excute()
 	
 	std::string post_url;
 	std::string respone_url;
-	sprintf(_Http, "http://121.43.187.139:8080/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%s",
+	char sz_temp[1024];
+	sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%s",
 		channel_id, game_id, _acc, _name.c_str(), _key_code.c_str());
 	
-	gHttpManager.Posts(_Http, post_url, respone_url);
+	gHttpManager.Posts(sz_temp, post_url, respone_url);
 	try
 	{
 		bool bret = false;
@@ -206,9 +207,10 @@ bool VerifyDealHttpTaskIOS::excute()
 	
 	std::string post_url;
 	std::string respone_url;
-	sprintf(_Http, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt={%s}", 
+	char sz_temp[1024];
+	sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt={%s}",
 		channel_id, game_id, _acc, _order_id,_receipt.c_str());
-	gHttpManager.Posts(_Http, post_url, respone_url);
+	gHttpManager.Posts(sz_temp, post_url, respone_url);
 	try
 	{
 		bool bret = false;
@@ -229,10 +231,10 @@ bool VerifyDealHttpTaskIOS::excute()
 			{
 				_product_id = value["product_id"].asString();
 				_order_id = value["order_id"].asInt();
-				sprintf(_Http, "http://121.43.187.139:8080/paygateway/index.php?action=order_finish&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d",
+				sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=order_finish&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d",
 					channel_id, game_id, _acc, _order_id);
 				value.clear();
-				gHttpManager.Posts(_Http, post_url, respone_url);
+				gHttpManager.Posts(sz_temp, post_url, respone_url);
 				bret = reader.parse(respone_url.c_str(), value);
 				bool bret_status = value["status"].empty();
 				if (bret_status == false)
