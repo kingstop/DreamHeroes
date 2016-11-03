@@ -149,8 +149,8 @@ int CurlHttpClient::Posts(const std::string & strUrl, const std::string & strPos
 		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, true);
 		curl_easy_setopt(curl, CURLOPT_CAINFO, pCaPath);
 	}
-	curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 3);
-	curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3);
+	curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 20);
+	curl_easy_setopt(curl, CURLOPT_TIMEOUT, 20);
 	res = curl_easy_perform(curl);
 	curl_easy_cleanup(curl);
 	return res;
