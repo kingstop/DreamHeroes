@@ -326,16 +326,11 @@ void HttpManager::update()
 	}
 	_http_mutex.unlock();
 
-	while (_execute_https.size() != 0)
-	{
-		BaseHttpTask* http_client = _execute_https.front();
-		http_client->excute();
-	}
-
 	_http_complete_mutex.lock();
 	while (_execute_https.size() != 0)
 	{
 		BaseHttpTask* http_client = _execute_https.front();
+		http_client->excute();
 		_complete_task.push(http_client);
 		_execute_https.pop();
 	}
