@@ -205,67 +205,74 @@ bool VerifyDealHttpTaskIOS::excute()
 	int channel_id = gHttpManager.getChannel();
 	int game_id = gHttpManager.getGameID();
 	
-	std::string post_url;
-	std::string respone_url;
-	char sz_temp[1024];
-	sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt={%s}",
-		channel_id, game_id, _acc, _order_id,_receipt.c_str());
-	gHttpManager.Posts(sz_temp, post_url, respone_url);
-	try
+	if (_receipt.size() > 10000)
 	{
-		bool bret = false;
-		std::string strTemp;
-		Json::Reader reader;
-		Json::Value value;
-		Json::Value arrayObj;
-		Json::Value item;
-		bret = reader.parse(respone_url.c_str(), value);
-		bool bret_status = value["status"].empty();		
-		bool bret_product_id = value["product_id"].empty();
-		bool bret_order_id = value["order_id"].empty();
-
-		if (bret_status == false && bret_product_id == false && bret_order_id == false)
+		_error = message::Error_Unknow;
+	}
+	else
+	{
+		std::string post_url;
+		std::string respone_url;
+		char sz_temp[10240];
+		sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt={%s}",
+			channel_id, game_id, _acc, _order_id, _receipt.c_str());
+		gHttpManager.Posts(sz_temp, post_url, respone_url);
+		try
 		{
-			_status = value["status"].asInt();
-			if (_status == 0)
+			bool bret = false;
+			std::string strTemp;
+			Json::Reader reader;
+			Json::Value value;
+			Json::Value arrayObj;
+			Json::Value item;
+			bret = reader.parse(respone_url.c_str(), value);
+			bool bret_status = value["status"].empty();
+			bool bret_product_id = value["product_id"].empty();
+			bool bret_order_id = value["order_id"].empty();
+
+			if (bret_status == false && bret_product_id == false && bret_order_id == false)
 			{
-				_product_id = value["product_id"].asString();
-				_order_id = value["order_id"].asInt();
-				sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=order_finish&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d",
-					channel_id, game_id, _acc, _order_id);
-				value.clear();
-				gHttpManager.Posts(sz_temp, post_url, respone_url);
-				bret = reader.parse(respone_url.c_str(), value);
-				bool bret_status = value["status"].empty();
-				if (bret_status == false)
+				_status = value["status"].asInt();
+				if (_status == 0)
 				{
-					int status_entry = value["status"].asInt();
-					if (status_entry == 0)
+					_product_id = value["product_id"].asString();
+					_order_id = value["order_id"].asInt();
+					sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=order_finish&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d",
+						channel_id, game_id, _acc, _order_id);
+					value.clear();
+					gHttpManager.Posts(sz_temp, post_url, respone_url);
+					bret = reader.parse(respone_url.c_str(), value);
+					bool bret_status = value["status"].empty();
+					if (bret_status == false)
 					{
-						
+						int status_entry = value["status"].asInt();
+						if (status_entry == 0)
+						{
+
+						}
+						else
+						{
+							_error = message::Error_VerifyDealFailedTheHttpResponeFailed;
+							//need log
+						}
 					}
 					else
 					{
-						_error = message::Error_VerifyDealFailedTheHttpResponeFailed;
+						_error = message::Error_VerifyDealFailedTheHttpErrorRespone;
 						//need log
 					}
 				}
-				else
-				{
-					_error = message::Error_VerifyDealFailedTheHttpErrorRespone;
-					//need log
-				}
+			}
+			else
+			{
+				_error = message::Error_VerifyDealFailedTheHttpResponeFailed;
+				//need log
 			}
 		}
-		else
+		catch (const std::exception& ex)
 		{
-			_error = message::Error_VerifyDealFailedTheHttpResponeFailed;
-			//need log
+			_error = message::Error_Unknow;
 		}
-	}
-	catch (const std::exception& ex)
-	{
-		_error = message::Error_Unknow;
 	}
 	return true;
 }
