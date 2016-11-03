@@ -172,11 +172,14 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, _internal_metadata_),
       -1);
   MsgShopConfigInfo_descriptor_ = file->message_type(6);
-  static const int MsgShopConfigInfo_offsets_[4] = {
+  static const int MsgShopConfigInfo_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, grid_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, hero_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, require_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, cheape_gold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, require_chapter_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, require_section_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgShopConfigInfo, describe_),
   };
   MsgShopConfigInfo_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -333,25 +336,27 @@ void protobuf_AddDesc_common_2eproto() {
     "r\030\004 \002(\005\022\036\n\026require_unlock_section\030\005 \002(\005\022"
     "*\n\"require_unlock_complete_task_count\030\006 "
     "\002(\005\022\021\n\tgift_gold\030\007 \002(\005\022\020\n\010describe\030\010 \002(\t"
-    "\"`\n\021MsgShopConfigInfo\022\017\n\007grid_id\030\001 \002(\005\022\017"
-    "\n\007hero_id\030\002 \002(\005\022\024\n\014require_gold\030\003 \002(\005\022\023\n"
-    "\013cheape_gold\030\004 \002(\005\"B\n\013MsgTaskInfo\022\016\n\006Tas"
-    "kID\030\001 \002(\005\022\022\n\nargument_1\030\002 \002(\005\022\017\n\007useTime"
-    "\030\003 \002(\005\"\273\001\n\024MsgChapterConfigInfo\022\022\n\nchapt"
-    "er_id\030\001 \002(\005\022\033\n\023required_chapter_id\030\002 \002(\005"
-    "\022\033\n\023required_section_id\030\003 \002(\005\022$\n\034require"
-    "d_task_complete_count\030\004 \002(\005\022\024\n\014require_g"
-    "old\030\005 \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"g\n\025"
-    "MsgGoldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013res"
-    "ource_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 "
-    "\002(\002\022\020\n\010describe\030\005 \002(\t*4\n\007SubType\022\013\n\007DEFA"
-    "ULT\020\000\022\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010"
-    "TaskType\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_"
-    "KillMonster\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020"
-    "TaskType_UnKnown\020\003\022\027\n\023TaskType_LimitLeve"
-    "l\020\004\022\030\n\024TaskType_LimitRevive\020\005\022\"\n\036TaskTyp"
-    "e_LimitTime_KillMonster\020\006\022#\n\037TaskType_Ac"
-    "cumulate_KillMonster\020\007", 1542);
+    "\"\252\001\n\021MsgShopConfigInfo\022\017\n\007grid_id\030\001 \002(\005\022"
+    "\017\n\007hero_id\030\002 \002(\005\022\024\n\014require_gold\030\003 \002(\005\022\023"
+    "\n\013cheape_gold\030\004 \002(\005\022\032\n\022require_chapter_i"
+    "d\030\005 \002(\005\022\032\n\022require_section_id\030\006 \002(\005\022\020\n\010d"
+    "escribe\030\007 \002(\t\"B\n\013MsgTaskInfo\022\016\n\006TaskID\030\001"
+    " \002(\005\022\022\n\nargument_1\030\002 \002(\005\022\017\n\007useTime\030\003 \002("
+    "\005\"\273\001\n\024MsgChapterConfigInfo\022\022\n\nchapter_id"
+    "\030\001 \002(\005\022\033\n\023required_chapter_id\030\002 \002(\005\022\033\n\023r"
+    "equired_section_id\030\003 \002(\005\022$\n\034required_tas"
+    "k_complete_count\030\004 \002(\005\022\024\n\014require_gold\030\005"
+    " \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"g\n\025MsgGo"
+    "ldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013resource"
+    "_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 \002(\002\022\020"
+    "\n\010describe\030\005 \002(\t*4\n\007SubType\022\013\n\007DEFAULT\020\000"
+    "\022\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010TaskT"
+    "ype\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_KillM"
+    "onster\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020TaskT"
+    "ype_UnKnown\020\003\022\027\n\023TaskType_LimitLevel\020\004\022\030"
+    "\n\024TaskType_LimitRevive\020\005\022\"\n\036TaskType_Lim"
+    "itTime_KillMonster\020\006\022#\n\037TaskType_Accumul"
+    "ate_KillMonster\020\007", 1617);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   MsgObjConfig::default_instance_ = new MsgObjConfig();
@@ -3582,6 +3587,9 @@ const int MsgShopConfigInfo::kGridIdFieldNumber;
 const int MsgShopConfigInfo::kHeroIdFieldNumber;
 const int MsgShopConfigInfo::kRequireGoldFieldNumber;
 const int MsgShopConfigInfo::kCheapeGoldFieldNumber;
+const int MsgShopConfigInfo::kRequireChapterIdFieldNumber;
+const int MsgShopConfigInfo::kRequireSectionIdFieldNumber;
+const int MsgShopConfigInfo::kDescribeFieldNumber;
 #endif  // !_MSC_VER
 
 MsgShopConfigInfo::MsgShopConfigInfo()
@@ -3602,11 +3610,15 @@ MsgShopConfigInfo::MsgShopConfigInfo(const MsgShopConfigInfo& from)
 }
 
 void MsgShopConfigInfo::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   grid_id_ = 0;
   hero_id_ = 0;
   require_gold_ = 0;
   cheape_gold_ = 0;
+  require_chapter_id_ = 0;
+  require_section_id_ = 0;
+  describe_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3616,6 +3628,7 @@ MsgShopConfigInfo::~MsgShopConfigInfo() {
 }
 
 void MsgShopConfigInfo::SharedDtor() {
+  describe_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -3654,7 +3667,12 @@ void MsgShopConfigInfo::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(grid_id_, cheape_gold_);
+  if (_has_bits_[0 / 32] & 127) {
+    ZR_(grid_id_, require_section_id_);
+    if (has_describe()) {
+      describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+  }
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -3730,6 +3748,53 @@ bool MsgShopConfigInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(40)) goto parse_require_chapter_id;
+        break;
+      }
+
+      // required int32 require_chapter_id = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_require_chapter_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &require_chapter_id_)));
+          set_has_require_chapter_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(48)) goto parse_require_section_id;
+        break;
+      }
+
+      // required int32 require_section_id = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_require_section_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &require_section_id_)));
+          set_has_require_section_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(58)) goto parse_describe;
+        break;
+      }
+
+      // required string describe = 7;
+      case 7: {
+        if (tag == 58) {
+         parse_describe:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_describe()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->describe().data(), this->describe().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgShopConfigInfo.describe");
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -3779,6 +3844,26 @@ void MsgShopConfigInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->cheape_gold(), output);
   }
 
+  // required int32 require_chapter_id = 5;
+  if (has_require_chapter_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->require_chapter_id(), output);
+  }
+
+  // required int32 require_section_id = 6;
+  if (has_require_section_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->require_section_id(), output);
+  }
+
+  // required string describe = 7;
+  if (has_describe()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->describe().data(), this->describe().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgShopConfigInfo.describe");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      7, this->describe(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3807,6 +3892,27 @@ void MsgShopConfigInfo::SerializeWithCachedSizes(
   // required int32 cheape_gold = 4;
   if (has_cheape_gold()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->cheape_gold(), target);
+  }
+
+  // required int32 require_chapter_id = 5;
+  if (has_require_chapter_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->require_chapter_id(), target);
+  }
+
+  // required int32 require_section_id = 6;
+  if (has_require_section_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->require_section_id(), target);
+  }
+
+  // required string describe = 7;
+  if (has_describe()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->describe().data(), this->describe().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgShopConfigInfo.describe");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        7, this->describe(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3848,12 +3954,33 @@ int MsgShopConfigInfo::RequiredFieldsByteSizeFallback() const {
         this->cheape_gold());
   }
 
+  if (has_require_chapter_id()) {
+    // required int32 require_chapter_id = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->require_chapter_id());
+  }
+
+  if (has_require_section_id()) {
+    // required int32 require_section_id = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->require_section_id());
+  }
+
+  if (has_describe()) {
+    // required string describe = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->describe());
+  }
+
   return total_size;
 }
 int MsgShopConfigInfo::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000007f) ^ 0x0000007f) == 0) {  // All required fields are present.
     // required int32 grid_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3873,6 +4000,21 @@ int MsgShopConfigInfo::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->cheape_gold());
+
+    // required int32 require_chapter_id = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->require_chapter_id());
+
+    // required int32 require_section_id = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->require_section_id());
+
+    // required string describe = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->describe());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -3915,6 +4057,16 @@ void MsgShopConfigInfo::MergeFrom(const MsgShopConfigInfo& from) {
     if (from.has_cheape_gold()) {
       set_cheape_gold(from.cheape_gold());
     }
+    if (from.has_require_chapter_id()) {
+      set_require_chapter_id(from.require_chapter_id());
+    }
+    if (from.has_require_section_id()) {
+      set_require_section_id(from.require_section_id());
+    }
+    if (from.has_describe()) {
+      set_has_describe();
+      describe_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.describe_);
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3934,7 +4086,7 @@ void MsgShopConfigInfo::CopyFrom(const MsgShopConfigInfo& from) {
 }
 
 bool MsgShopConfigInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
 
   return true;
 }
@@ -3948,6 +4100,9 @@ void MsgShopConfigInfo::InternalSwap(MsgShopConfigInfo* other) {
   std::swap(hero_id_, other->hero_id_);
   std::swap(require_gold_, other->require_gold_);
   std::swap(cheape_gold_, other->cheape_gold_);
+  std::swap(require_chapter_id_, other->require_chapter_id_);
+  std::swap(require_section_id_, other->require_section_id_);
+  describe_.Swap(&other->describe_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -4058,6 +4213,107 @@ void MsgShopConfigInfo::InternalSwap(MsgShopConfigInfo* other) {
   set_has_cheape_gold();
   cheape_gold_ = value;
   // @@protoc_insertion_point(field_set:message.MsgShopConfigInfo.cheape_gold)
+}
+
+// required int32 require_chapter_id = 5;
+ bool MsgShopConfigInfo::has_require_chapter_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+ void MsgShopConfigInfo::set_has_require_chapter_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+ void MsgShopConfigInfo::clear_has_require_chapter_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+ void MsgShopConfigInfo::clear_require_chapter_id() {
+  require_chapter_id_ = 0;
+  clear_has_require_chapter_id();
+}
+ ::google::protobuf::int32 MsgShopConfigInfo::require_chapter_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgShopConfigInfo.require_chapter_id)
+  return require_chapter_id_;
+}
+ void MsgShopConfigInfo::set_require_chapter_id(::google::protobuf::int32 value) {
+  set_has_require_chapter_id();
+  require_chapter_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgShopConfigInfo.require_chapter_id)
+}
+
+// required int32 require_section_id = 6;
+ bool MsgShopConfigInfo::has_require_section_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+ void MsgShopConfigInfo::set_has_require_section_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+ void MsgShopConfigInfo::clear_has_require_section_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+ void MsgShopConfigInfo::clear_require_section_id() {
+  require_section_id_ = 0;
+  clear_has_require_section_id();
+}
+ ::google::protobuf::int32 MsgShopConfigInfo::require_section_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgShopConfigInfo.require_section_id)
+  return require_section_id_;
+}
+ void MsgShopConfigInfo::set_require_section_id(::google::protobuf::int32 value) {
+  set_has_require_section_id();
+  require_section_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgShopConfigInfo.require_section_id)
+}
+
+// required string describe = 7;
+ bool MsgShopConfigInfo::has_describe() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+ void MsgShopConfigInfo::set_has_describe() {
+  _has_bits_[0] |= 0x00000040u;
+}
+ void MsgShopConfigInfo::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+ void MsgShopConfigInfo::clear_describe() {
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_describe();
+}
+ const ::std::string& MsgShopConfigInfo::describe() const {
+  // @@protoc_insertion_point(field_get:message.MsgShopConfigInfo.describe)
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgShopConfigInfo::set_describe(const ::std::string& value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgShopConfigInfo.describe)
+}
+ void MsgShopConfigInfo::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgShopConfigInfo.describe)
+}
+ void MsgShopConfigInfo::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgShopConfigInfo.describe)
+}
+ ::std::string* MsgShopConfigInfo::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgShopConfigInfo.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgShopConfigInfo::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgShopConfigInfo::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
+  } else {
+    clear_has_describe();
+  }
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgShopConfigInfo.describe)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

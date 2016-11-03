@@ -1151,7 +1151,7 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "Task\022\022\n\ntask_count\030\001 \002(\005\"q\n\027MsgS2CCmdRep"
     "laceTaskACK\022+\n\005error\030\001 \002(\0162\022.message.Gam"
     "eError:\010Error_NO\022)\n\005infos\030\002 \003(\0132\032.messag"
-    "e.MsgTaskConfigInfo*\251\n\n\tGameError\022\014\n\010Err"
+    "e.MsgTaskConfigInfo*\330\n\n\tGameError\022\014\n\010Err"
     "or_NO\020\000\022*\n&Error_CanNotEnterGameTheInsta"
     "nceIsLock\020\001\022+\n\'Error_CanNotEnterGameTheC"
     "haracterIsLock\020\002\022)\n%Error_CanNotEnterGam"
@@ -1172,19 +1172,20 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "shAdvertisementTaskFailedUnknow\020\017\022$\n Err"
     "or_BuyHeroFailedNotEnoughGold\020\020\022$\n Error"
     "_BuyHeroFailedThePriceIsOld\020\021\022#\n\037Error_B"
-    "uyHeroFailedNotFoundGrid\020\022\022/\n+Error_Modi"
-    "fyCurrentFailedTheCharacterIsLock\020\023\022%\n!E"
-    "rror_BuyGoldFailedNotFoundConfig\020\024\022$\n Er"
-    "ror_BuyGoldFailedNotFoundOrder\020\025\0220\n,Erro"
-    "r_BuyGoldFailedTheOrderHaveBeenCompleted"
-    "\020\026\022-\n)Error_CreateDealFailedTheHttpError"
-    "Respone\020\027\022.\n*Error_CreateDealFailedTheHt"
-    "tpResponeFailed\020\030\0227\n3Error_CreateDealDai"
-    "ledTheHttpResponeErrorProduct_id\020\031\022-\n)Er"
-    "ror_VerifyDealFailedTheHttpErrorRespone\020"
-    "\032\022.\n*Error_VerifyDealFailedTheHttpRespon"
-    "eFailed\020\033\022\"\n\036Error_CmdFailedRequiredGMLe"
-    "vel\020\034\022\020\n\014Error_Unknow\020\035", 5223);
+    "uyHeroFailedNotFoundGrid\020\022\022-\n)Error_BuyH"
+    "eroFailedNotPassRequiredSection\020\023\022/\n+Err"
+    "or_ModifyCurrentFailedTheCharacterIsLock"
+    "\020\024\022%\n!Error_BuyGoldFailedNotFoundConfig\020"
+    "\025\022$\n Error_BuyGoldFailedNotFoundOrder\020\026\022"
+    "0\n,Error_BuyGoldFailedTheOrderHaveBeenCo"
+    "mpleted\020\027\022-\n)Error_CreateDealFailedTheHt"
+    "tpErrorRespone\020\030\022.\n*Error_CreateDealFail"
+    "edTheHttpResponeFailed\020\031\0227\n3Error_Create"
+    "DealDailedTheHttpResponeErrorProduct_id\020"
+    "\032\022-\n)Error_VerifyDealFailedTheHttpErrorR"
+    "espone\020\033\022.\n*Error_VerifyDealFailedTheHtt"
+    "pResponeFailed\020\034\022\"\n\036Error_CmdFailedRequi"
+    "redGMLevel\020\035\022\020\n\014Error_Unknow\020\036", 5270);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgS2CNotifyError::default_instance_ = new MsgS2CNotifyError();
@@ -1318,6 +1319,7 @@ bool GameError_IsValid(int value) {
     case 27:
     case 28:
     case 29:
+    case 30:
       return true;
     default:
       return false;

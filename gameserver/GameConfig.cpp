@@ -206,6 +206,10 @@ void GameConfig::Load(DBQuery* p)
 			ShopConfig.set_hero_id(row["hero_id"]);
 			ShopConfig.set_require_gold(row["require_gold"]);
 			ShopConfig.set_cheape_gold(0);
+			ShopConfig.set_require_chapter_id(row["require_chapter_id"]);
+			ShopConfig.set_require_section_id(row["require_section_id"]);
+			ShopConfig.set_describe(row["describe"].c_str());
+			
 			_shop_heroes.insert(MAPSHOPHEROCONFIGS::value_type(ShopConfig.grid_id(), ShopConfig));
 		}
 		query.reset();

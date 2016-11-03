@@ -22,17 +22,18 @@ enum GameError
 	Error_BuyHeroFailedNotEnoughGold = 16;
 	Error_BuyHeroFailedThePriceIsOld = 17;
 	Error_BuyHeroFailedNotFoundGrid = 18;
-	Error_ModifyCurrentFailedTheCharacterIsLock = 19;
-	Error_BuyGoldFailedNotFoundConfig = 20;
-	Error_BuyGoldFailedNotFoundOrder = 21;
-	Error_BuyGoldFailedTheOrderHaveBeenCompleted = 22;
-	Error_CreateDealFailedTheHttpErrorRespone = 23;
-	Error_CreateDealFailedTheHttpResponeFailed = 24;
-	Error_CreateDealDailedTheHttpResponeErrorProduct_id = 25;
-	Error_VerifyDealFailedTheHttpErrorRespone = 26;
-	Error_VerifyDealFailedTheHttpResponeFailed = 27;
-	Error_CmdFailedRequiredGMLevel = 28;
-	Error_Unknow = 29;
+	Error_BuyHeroFailedNotPassRequiredSection = 19;
+	Error_ModifyCurrentFailedTheCharacterIsLock = 20;
+	Error_BuyGoldFailedNotFoundConfig = 21;
+	Error_BuyGoldFailedNotFoundOrder = 22;
+	Error_BuyGoldFailedTheOrderHaveBeenCompleted = 23;
+	Error_CreateDealFailedTheHttpErrorRespone = 24;
+	Error_CreateDealFailedTheHttpResponeFailed = 25;
+	Error_CreateDealDailedTheHttpResponeErrorProduct_id = 26;
+	Error_VerifyDealFailedTheHttpErrorRespone = 27;
+	Error_VerifyDealFailedTheHttpResponeFailed = 28;
+	Error_CmdFailedRequiredGMLevel = 29;
+	Error_Unknow = 30;
 }
 
 

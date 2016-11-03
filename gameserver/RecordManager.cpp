@@ -15,7 +15,7 @@ RecordManager::RecordManager()
 	_sql_head[RecordTypeBuyHero] = "insert into `buy_hero_record`(`account_id`, `nick_name`, `grid_hero`, `gold`, `record_time`) values";
 	_sql_head[RecordTypeDealWaitToPay] = "insert into `deal_wait_to_pay`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
 	_sql_head[RecordTypeDealToPay] = "insert into `deal_to_pay`(`account_id`, `status`, `order_id`, `modify_gold`, `current_gold`, `product_id`, `record_time`) values";
-
+	_sql_head[RecotdTypeGiveUpDeal] = "insert into `give_up_deal`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
 }
 
 
@@ -87,6 +87,12 @@ void RecordManager::dealPayRecord(account_type acc, const char* key_code, int st
 	sprintf(_szTemp, "(%llu, %d, %d, %d, %d, '%s', '%s')", acc, status, order_id, modify_gold, current_gold, key_code, getCurTime());
 	_record[RecordTypeDealToPay].push_back(_szTemp);
 
+}
+
+void RecordManager::giveUpDealRecord(account_type acc, const char* key_code, int status, int price, int order_id)
+{
+	sprintf(_szTemp, "(%llu, %d, %d, %d, '%s', '%s')", acc, status, price, order_id, key_code, getCurTime());
+	_record[RecotdTypeGiveUpDeal].push_back(_szTemp);
 }
 
 void RecordManager::update()

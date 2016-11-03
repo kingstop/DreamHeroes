@@ -953,6 +953,32 @@ class MsgShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 cheape_gold() const;
   void set_cheape_gold(::google::protobuf::int32 value);
 
+  // required int32 require_chapter_id = 5;
+  bool has_require_chapter_id() const;
+  void clear_require_chapter_id();
+  static const int kRequireChapterIdFieldNumber = 5;
+  ::google::protobuf::int32 require_chapter_id() const;
+  void set_require_chapter_id(::google::protobuf::int32 value);
+
+  // required int32 require_section_id = 6;
+  bool has_require_section_id() const;
+  void clear_require_section_id();
+  static const int kRequireSectionIdFieldNumber = 6;
+  ::google::protobuf::int32 require_section_id() const;
+  void set_require_section_id(::google::protobuf::int32 value);
+
+  // required string describe = 7;
+  bool has_describe() const;
+  void clear_describe();
+  static const int kDescribeFieldNumber = 7;
+  const ::std::string& describe() const;
+  void set_describe(const ::std::string& value);
+  void set_describe(const char* value);
+  void set_describe(const char* value, size_t size);
+  ::std::string* mutable_describe();
+  ::std::string* release_describe();
+  void set_allocated_describe(::std::string* describe);
+
   // @@protoc_insertion_point(class_scope:message.MsgShopConfigInfo)
  private:
   inline void set_has_grid_id();
@@ -963,6 +989,12 @@ class MsgShopConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_require_gold();
   inline void set_has_cheape_gold();
   inline void clear_has_cheape_gold();
+  inline void set_has_require_chapter_id();
+  inline void clear_has_require_chapter_id();
+  inline void set_has_require_section_id();
+  inline void clear_has_require_section_id();
+  inline void set_has_describe();
+  inline void clear_has_describe();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -974,6 +1006,9 @@ class MsgShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 hero_id_;
   ::google::protobuf::int32 require_gold_;
   ::google::protobuf::int32 cheape_gold_;
+  ::google::protobuf::int32 require_chapter_id_;
+  ::google::protobuf::int32 require_section_id_;
+  ::google::protobuf::internal::ArenaStringPtr describe_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2201,6 +2236,107 @@ inline void MsgShopConfigInfo::set_cheape_gold(::google::protobuf::int32 value) 
   set_has_cheape_gold();
   cheape_gold_ = value;
   // @@protoc_insertion_point(field_set:message.MsgShopConfigInfo.cheape_gold)
+}
+
+// required int32 require_chapter_id = 5;
+inline bool MsgShopConfigInfo::has_require_chapter_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgShopConfigInfo::set_has_require_chapter_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgShopConfigInfo::clear_has_require_chapter_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgShopConfigInfo::clear_require_chapter_id() {
+  require_chapter_id_ = 0;
+  clear_has_require_chapter_id();
+}
+inline ::google::protobuf::int32 MsgShopConfigInfo::require_chapter_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgShopConfigInfo.require_chapter_id)
+  return require_chapter_id_;
+}
+inline void MsgShopConfigInfo::set_require_chapter_id(::google::protobuf::int32 value) {
+  set_has_require_chapter_id();
+  require_chapter_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgShopConfigInfo.require_chapter_id)
+}
+
+// required int32 require_section_id = 6;
+inline bool MsgShopConfigInfo::has_require_section_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgShopConfigInfo::set_has_require_section_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgShopConfigInfo::clear_has_require_section_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MsgShopConfigInfo::clear_require_section_id() {
+  require_section_id_ = 0;
+  clear_has_require_section_id();
+}
+inline ::google::protobuf::int32 MsgShopConfigInfo::require_section_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgShopConfigInfo.require_section_id)
+  return require_section_id_;
+}
+inline void MsgShopConfigInfo::set_require_section_id(::google::protobuf::int32 value) {
+  set_has_require_section_id();
+  require_section_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgShopConfigInfo.require_section_id)
+}
+
+// required string describe = 7;
+inline bool MsgShopConfigInfo::has_describe() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MsgShopConfigInfo::set_has_describe() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MsgShopConfigInfo::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MsgShopConfigInfo::clear_describe() {
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_describe();
+}
+inline const ::std::string& MsgShopConfigInfo::describe() const {
+  // @@protoc_insertion_point(field_get:message.MsgShopConfigInfo.describe)
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgShopConfigInfo::set_describe(const ::std::string& value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgShopConfigInfo.describe)
+}
+inline void MsgShopConfigInfo::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgShopConfigInfo.describe)
+}
+inline void MsgShopConfigInfo::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgShopConfigInfo.describe)
+}
+inline ::std::string* MsgShopConfigInfo::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgShopConfigInfo.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgShopConfigInfo::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgShopConfigInfo::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
+  } else {
+    clear_has_describe();
+  }
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgShopConfigInfo.describe)
 }
 
 // -------------------------------------------------------------------

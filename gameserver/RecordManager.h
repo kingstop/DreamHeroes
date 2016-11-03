@@ -11,6 +11,7 @@ enum RecordType
 	RecordTypeBuyHero,
 	RecordTypeDealWaitToPay,
 	RecordTypeDealToPay,
+	RecotdTypeGiveUpDeal,
 	RecordTypeMax
 };
 
@@ -40,6 +41,7 @@ public:
 	void goldModifyRecord(account_type acc, const char* nick_name, int gold, GoldModifyType en);
 	void dealWaitToPayRecord(account_type acc, const char* key_code, int status, int price, int order_id);
 	void dealPayRecord(account_type acc, const char* key_code, int status, int order_id, int modify_gold, int current_gold);
+	void giveUpDealRecord(account_type acc, const char* key_code, int status, int price, int order_id);
 	const char* getCurTime();
 	void update();
 public:

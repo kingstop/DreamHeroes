@@ -78,6 +78,9 @@ message MsgShopConfigInfo
 	required int32 hero_id = 2;
 	required int32 require_gold = 3;
 	required int32 cheape_gold = 4;
+	required int32 require_chapter_id = 5;
+	required int32 require_section_id = 6;
+	required string describe = 7;
 }
 
 message MsgTaskInfo

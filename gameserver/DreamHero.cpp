@@ -760,37 +760,58 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 	}
 	else
 	{
-		int cheap_gold =  gShopSalesPromotionManager.getCheapGold(buy_grid);
-		int current_require_gold = buy_grid_config->require_gold() - cheap_gold;
-		if (current_require_gold < 0)
+		
+		int require_chapter_id = buy_grid_config->require_chapter_id();
+		int require_section_id = buy_grid_config->require_section_id();
+		if (require_chapter_id != 0 && require_section_id != 0)
 		{
-			current_require_gold = 0;
-		}
-		if (current_require_gold != msg->gold())
-		{
-			en = message::Error_BuyHeroFailedThePriceIsOld;
-		}
-		else
-		{
-			int current_gold = _info.gold();
-			int modify_gold = current_gold - current_require_gold;
-			if (modify_gold < 0)
+			en == message::Error_BuyHeroFailedNotPassRequiredSection;
+			int record_size = _info.records_size();
+			for (int i = 0; i < record_size; i ++)
 			{
-				en = message::Error_BuyHeroFailedNotEnoughGold;
+				if (_info.records(i).number_1() == require_chapter_id && require_section_id < _info.records(i).number_2())
+				{
+					en = message::Error_NO;
+					break;
+				}
+				
+			}
+		}
+
+		if (en == message::Error_NO)
+		{
+			int cheap_gold = gShopSalesPromotionManager.getCheapGold(buy_grid);
+			int current_require_gold = buy_grid_config->require_gold() - cheap_gold;
+			if (current_require_gold < 0)
+			{
+				current_require_gold = 0;
+			}
+			if (current_require_gold != msg->gold())
+			{
+				en = message::Error_BuyHeroFailedThePriceIsOld;
 			}
 			else
 			{
-				_info.set_gold(modify_gold);
-				int heroes_length = _info.heroes_size();
-				if (heroes_length <= buy_grid + 1)
+				int current_gold = _info.gold();
+				int modify_gold = current_gold - current_require_gold;
+				if (modify_gold < 0)
 				{
-					for (size_t i = 0; i <= buy_grid + 1 - heroes_length; i++)
-					{
-						_info.add_heroes(false);
-					}
+					en = message::Error_BuyHeroFailedNotEnoughGold;
 				}
-				_info.set_heroes(buy_grid, true);
-				heroes_length = _info.heroes_size();
+				else
+				{
+					_info.set_gold(modify_gold);
+					int heroes_length = _info.heroes_size();
+					if (heroes_length <= buy_grid + 1)
+					{
+						for (size_t i = 0; i <= buy_grid + 1 - heroes_length; i++)
+						{
+							_info.add_heroes(false);
+						}
+					}
+					_info.set_heroes(buy_grid, true);
+					heroes_length = _info.heroes_size();
+				}
 			}
 		}
 	}
@@ -1022,6 +1043,27 @@ void DreamHero::ReqEnterGame(const message::MsgC2SReqEnterGame* msg)
 
 void DreamHero::ReqCrearteIOSDeal(const message::MsgC2SReqCrearteIOSDeal* msg)
 {
+	DEALSWAITTOPAY::iterator it_deal = _deals_wait_to_pay.begin();
+	while (it_deal != _deals_wait_to_pay.end())
+	{
+		if (it_deal->second.type_ == DealStatusType_WaitToPay)
+		{
+			gRecordManager.giveUpDealRecord(_account, it_deal->second.key_code_.c_str(), it_deal->second.status_, 
+				it_deal->second.price_, it_deal->second.order_id_);
+#ifdef WIN32
+			it_deal = _deals_wait_to_pay.erase(it_deal);
+#else
+			_deals_wait_to_pay.erase(it_deal);
+			++it_deal;
+#endif
+		}
+		else
+		{
+			++it_deal;
+		}
+		
+
+	}
 	std::string key_code = msg->key_code();
 	CreateDealHttpTaskIOS* entry = new CreateDealHttpTaskIOS();
 	entry->init(_account, _info.name().c_str(), key_code.c_str());
