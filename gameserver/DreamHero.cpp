@@ -954,7 +954,7 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 				{
 					_deals_wait_to_pay[order_id].type_ = DealStatusType_Complete;
 					
-					int add_gold = entry_config->info_.gold();
+					add_gold = entry_config->info_.gold();
 					int gold_entry = current_gold + add_gold;
 					_info.set_gold(gold_entry);
 					error = message::Error_NO;
