@@ -809,10 +809,17 @@ class MsgTaskConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 gift_gold() const;
   void set_gift_gold(::google::protobuf::int32 value);
 
-  // required string describe = 8;
+  // required int32 difficulty = 8;
+  bool has_difficulty() const;
+  void clear_difficulty();
+  static const int kDifficultyFieldNumber = 8;
+  ::google::protobuf::int32 difficulty() const;
+  void set_difficulty(::google::protobuf::int32 value);
+
+  // required string describe = 9;
   bool has_describe() const;
   void clear_describe();
-  static const int kDescribeFieldNumber = 8;
+  static const int kDescribeFieldNumber = 9;
   const ::std::string& describe() const;
   void set_describe(const ::std::string& value);
   void set_describe(const char* value);
@@ -835,6 +842,8 @@ class MsgTaskConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_require_unlock_complete_task_count();
   inline void set_has_gift_gold();
   inline void clear_has_gift_gold();
+  inline void set_has_difficulty();
+  inline void clear_has_difficulty();
   inline void set_has_describe();
   inline void clear_has_describe();
 
@@ -852,6 +861,7 @@ class MsgTaskConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 require_unlock_complete_task_count_;
   ::google::protobuf::int32 gift_gold_;
   ::google::protobuf::internal::ArenaStringPtr describe_;
+  ::google::protobuf::int32 difficulty_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2085,15 +2095,39 @@ inline void MsgTaskConfigInfo::set_gift_gold(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:message.MsgTaskConfigInfo.gift_gold)
 }
 
-// required string describe = 8;
-inline bool MsgTaskConfigInfo::has_describe() const {
+// required int32 difficulty = 8;
+inline bool MsgTaskConfigInfo::has_difficulty() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void MsgTaskConfigInfo::set_has_describe() {
+inline void MsgTaskConfigInfo::set_has_difficulty() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void MsgTaskConfigInfo::clear_has_describe() {
+inline void MsgTaskConfigInfo::clear_has_difficulty() {
   _has_bits_[0] &= ~0x00000080u;
+}
+inline void MsgTaskConfigInfo::clear_difficulty() {
+  difficulty_ = 0;
+  clear_has_difficulty();
+}
+inline ::google::protobuf::int32 MsgTaskConfigInfo::difficulty() const {
+  // @@protoc_insertion_point(field_get:message.MsgTaskConfigInfo.difficulty)
+  return difficulty_;
+}
+inline void MsgTaskConfigInfo::set_difficulty(::google::protobuf::int32 value) {
+  set_has_difficulty();
+  difficulty_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgTaskConfigInfo.difficulty)
+}
+
+// required string describe = 9;
+inline bool MsgTaskConfigInfo::has_describe() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void MsgTaskConfigInfo::set_has_describe() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void MsgTaskConfigInfo::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void MsgTaskConfigInfo::clear_describe() {
   describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());

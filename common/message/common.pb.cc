@@ -150,7 +150,7 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConditionInfo, _internal_metadata_),
       -1);
   MsgTaskConfigInfo_descriptor_ = file->message_type(5);
-  static const int MsgTaskConfigInfo_offsets_[8] = {
+  static const int MsgTaskConfigInfo_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, task_condition_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, require_time_),
@@ -158,6 +158,7 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, require_unlock_section_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, require_unlock_complete_task_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, gift_gold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, difficulty_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskConfigInfo, describe_),
   };
   MsgTaskConfigInfo_reflection_ =
@@ -329,34 +330,34 @@ void protobuf_AddDesc_common_2eproto() {
     "omplete_task_count\030\007 \002(\005\"r\n\024MsgTaskCondi"
     "tionInfo\0222\n\010taskType\030\001 \002(\0162\021.message.Tas"
     "kType:\rTaskType_NULL\022\022\n\nargument_1\030\002 \002(\005"
-    "\022\022\n\nargument_2\030\003 \002(\005\"\201\002\n\021MsgTaskConfigIn"
+    "\022\022\n\nargument_2\030\003 \002(\005\"\225\002\n\021MsgTaskConfigIn"
     "fo\022\016\n\006taskID\030\001 \002(\005\0225\n\016task_condition\030\002 \003"
     "(\0132\035.message.MsgTaskConditionInfo\022\024\n\014req"
     "uire_time\030\003 \002(\005\022\036\n\026require_unlock_chapte"
     "r\030\004 \002(\005\022\036\n\026require_unlock_section\030\005 \002(\005\022"
     "*\n\"require_unlock_complete_task_count\030\006 "
-    "\002(\005\022\021\n\tgift_gold\030\007 \002(\005\022\020\n\010describe\030\010 \002(\t"
-    "\"\252\001\n\021MsgShopConfigInfo\022\017\n\007grid_id\030\001 \002(\005\022"
-    "\017\n\007hero_id\030\002 \002(\005\022\024\n\014require_gold\030\003 \002(\005\022\023"
-    "\n\013cheape_gold\030\004 \002(\005\022\032\n\022require_chapter_i"
-    "d\030\005 \002(\005\022\032\n\022require_section_id\030\006 \002(\005\022\020\n\010d"
-    "escribe\030\007 \002(\t\"B\n\013MsgTaskInfo\022\016\n\006TaskID\030\001"
-    " \002(\005\022\022\n\nargument_1\030\002 \002(\005\022\017\n\007useTime\030\003 \002("
-    "\005\"\273\001\n\024MsgChapterConfigInfo\022\022\n\nchapter_id"
-    "\030\001 \002(\005\022\033\n\023required_chapter_id\030\002 \002(\005\022\033\n\023r"
-    "equired_section_id\030\003 \002(\005\022$\n\034required_tas"
-    "k_complete_count\030\004 \002(\005\022\024\n\014require_gold\030\005"
-    " \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"g\n\025MsgGo"
-    "ldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013resource"
-    "_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 \002(\002\022\020"
-    "\n\010describe\030\005 \002(\t*4\n\007SubType\022\013\n\007DEFAULT\020\000"
-    "\022\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010TaskT"
-    "ype\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_KillM"
-    "onster\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020TaskT"
-    "ype_UnKnown\020\003\022\027\n\023TaskType_LimitLevel\020\004\022\030"
-    "\n\024TaskType_LimitRevive\020\005\022\"\n\036TaskType_Lim"
-    "itTime_KillMonster\020\006\022#\n\037TaskType_Accumul"
-    "ate_KillMonster\020\007", 1617);
+    "\002(\005\022\021\n\tgift_gold\030\007 \002(\005\022\022\n\ndifficulty\030\010 \002"
+    "(\005\022\020\n\010describe\030\t \002(\t\"\252\001\n\021MsgShopConfigIn"
+    "fo\022\017\n\007grid_id\030\001 \002(\005\022\017\n\007hero_id\030\002 \002(\005\022\024\n\014"
+    "require_gold\030\003 \002(\005\022\023\n\013cheape_gold\030\004 \002(\005\022"
+    "\032\n\022require_chapter_id\030\005 \002(\005\022\032\n\022require_s"
+    "ection_id\030\006 \002(\005\022\020\n\010describe\030\007 \002(\t\"B\n\013Msg"
+    "TaskInfo\022\016\n\006TaskID\030\001 \002(\005\022\022\n\nargument_1\030\002"
+    " \002(\005\022\017\n\007useTime\030\003 \002(\005\"\273\001\n\024MsgChapterConf"
+    "igInfo\022\022\n\nchapter_id\030\001 \002(\005\022\033\n\023required_c"
+    "hapter_id\030\002 \002(\005\022\033\n\023required_section_id\030\003"
+    " \002(\005\022$\n\034required_task_complete_count\030\004 \002"
+    "(\005\022\024\n\014require_gold\030\005 \002(\005\022\031\n\021max_section_"
+    "count\030\006 \002(\005\"g\n\025MsgGoldShopConfigInfo\022\n\n\002"
+    "id\030\001 \002(\005\022\023\n\013resource_id\030\002 \002(\005\022\014\n\004gold\030\003 "
+    "\002(\005\022\r\n\005money\030\004 \002(\002\022\020\n\010describe\030\005 \002(\t*4\n\007"
+    "SubType\022\013\n\007DEFAULT\020\000\022\013\n\007MONSTER\020\001\022\017\n\013INT"
+    "ERACTIVE\020\002*\340\001\n\010TaskType\022\021\n\rTaskType_NULL"
+    "\020\000\022\030\n\024TaskType_KillMonster\020\001\022\025\n\021TaskType"
+    "_PassGame\020\002\022\024\n\020TaskType_UnKnown\020\003\022\027\n\023Tas"
+    "kType_LimitLevel\020\004\022\030\n\024TaskType_LimitRevi"
+    "ve\020\005\022\"\n\036TaskType_LimitTime_KillMonster\020\006"
+    "\022#\n\037TaskType_Accumulate_KillMonster\020\007", 1637);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   MsgObjConfig::default_instance_ = new MsgObjConfig();
@@ -2782,6 +2783,7 @@ const int MsgTaskConfigInfo::kRequireUnlockChapterFieldNumber;
 const int MsgTaskConfigInfo::kRequireUnlockSectionFieldNumber;
 const int MsgTaskConfigInfo::kRequireUnlockCompleteTaskCountFieldNumber;
 const int MsgTaskConfigInfo::kGiftGoldFieldNumber;
+const int MsgTaskConfigInfo::kDifficultyFieldNumber;
 const int MsgTaskConfigInfo::kDescribeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2811,6 +2813,7 @@ void MsgTaskConfigInfo::SharedCtor() {
   require_unlock_section_ = 0;
   require_unlock_complete_task_count_ = 0;
   gift_gold_ = 0;
+  difficulty_ = 0;
   describe_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -2862,9 +2865,10 @@ void MsgTaskConfigInfo::Clear() {
 
   if (_has_bits_[0 / 32] & 253) {
     ZR_(taskid_, gift_gold_);
-    if (has_describe()) {
-      describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
+    difficulty_ = 0;
+  }
+  if (has_describe()) {
+    describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
 
 #undef ZR_HELPER_
@@ -2986,13 +2990,28 @@ bool MsgTaskConfigInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(66)) goto parse_describe;
+        if (input->ExpectTag(64)) goto parse_difficulty;
         break;
       }
 
-      // required string describe = 8;
+      // required int32 difficulty = 8;
       case 8: {
-        if (tag == 66) {
+        if (tag == 64) {
+         parse_difficulty:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &difficulty_)));
+          set_has_difficulty();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(74)) goto parse_describe;
+        break;
+      }
+
+      // required string describe = 9;
+      case 9: {
+        if (tag == 74) {
          parse_describe:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_describe()));
@@ -3068,14 +3087,19 @@ void MsgTaskConfigInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->gift_gold(), output);
   }
 
-  // required string describe = 8;
+  // required int32 difficulty = 8;
+  if (has_difficulty()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->difficulty(), output);
+  }
+
+  // required string describe = 9;
   if (has_describe()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->describe().data(), this->describe().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "message.MsgTaskConfigInfo.describe");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      8, this->describe(), output);
+      9, this->describe(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3125,7 +3149,12 @@ void MsgTaskConfigInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->gift_gold(), target);
   }
 
-  // required string describe = 8;
+  // required int32 difficulty = 8;
+  if (has_difficulty()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->difficulty(), target);
+  }
+
+  // required string describe = 9;
   if (has_describe()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->describe().data(), this->describe().length(),
@@ -3133,7 +3162,7 @@ void MsgTaskConfigInfo::SerializeWithCachedSizes(
       "message.MsgTaskConfigInfo.describe");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        8, this->describe(), target);
+        9, this->describe(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3189,8 +3218,15 @@ int MsgTaskConfigInfo::RequiredFieldsByteSizeFallback() const {
         this->gift_gold());
   }
 
+  if (has_difficulty()) {
+    // required int32 difficulty = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->difficulty());
+  }
+
   if (has_describe()) {
-    // required string describe = 8;
+    // required string describe = 9;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->describe());
@@ -3201,7 +3237,7 @@ int MsgTaskConfigInfo::RequiredFieldsByteSizeFallback() const {
 int MsgTaskConfigInfo::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x000000fd) ^ 0x000000fd) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x000001fd) ^ 0x000001fd) == 0) {  // All required fields are present.
     // required int32 taskID = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3232,7 +3268,12 @@ int MsgTaskConfigInfo::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->gift_gold());
 
-    // required string describe = 8;
+    // required int32 difficulty = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->difficulty());
+
+    // required string describe = 9;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->describe());
@@ -3293,6 +3334,11 @@ void MsgTaskConfigInfo::MergeFrom(const MsgTaskConfigInfo& from) {
     if (from.has_gift_gold()) {
       set_gift_gold(from.gift_gold());
     }
+    if (from.has_difficulty()) {
+      set_difficulty(from.difficulty());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_describe()) {
       set_has_describe();
       describe_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.describe_);
@@ -3316,7 +3362,7 @@ void MsgTaskConfigInfo::CopyFrom(const MsgTaskConfigInfo& from) {
 }
 
 bool MsgTaskConfigInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000000fd) != 0x000000fd) return false;
+  if ((_has_bits_[0] & 0x000001fd) != 0x000001fd) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->task_condition())) return false;
   return true;
@@ -3334,6 +3380,7 @@ void MsgTaskConfigInfo::InternalSwap(MsgTaskConfigInfo* other) {
   std::swap(require_unlock_section_, other->require_unlock_section_);
   std::swap(require_unlock_complete_task_count_, other->require_unlock_complete_task_count_);
   std::swap(gift_gold_, other->gift_gold_);
+  std::swap(difficulty_, other->difficulty_);
   describe_.Swap(&other->describe_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -3525,15 +3572,39 @@ MsgTaskConfigInfo::mutable_task_condition() {
   // @@protoc_insertion_point(field_set:message.MsgTaskConfigInfo.gift_gold)
 }
 
-// required string describe = 8;
- bool MsgTaskConfigInfo::has_describe() const {
+// required int32 difficulty = 8;
+ bool MsgTaskConfigInfo::has_difficulty() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
- void MsgTaskConfigInfo::set_has_describe() {
+ void MsgTaskConfigInfo::set_has_difficulty() {
   _has_bits_[0] |= 0x00000080u;
 }
- void MsgTaskConfigInfo::clear_has_describe() {
+ void MsgTaskConfigInfo::clear_has_difficulty() {
   _has_bits_[0] &= ~0x00000080u;
+}
+ void MsgTaskConfigInfo::clear_difficulty() {
+  difficulty_ = 0;
+  clear_has_difficulty();
+}
+ ::google::protobuf::int32 MsgTaskConfigInfo::difficulty() const {
+  // @@protoc_insertion_point(field_get:message.MsgTaskConfigInfo.difficulty)
+  return difficulty_;
+}
+ void MsgTaskConfigInfo::set_difficulty(::google::protobuf::int32 value) {
+  set_has_difficulty();
+  difficulty_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgTaskConfigInfo.difficulty)
+}
+
+// required string describe = 9;
+ bool MsgTaskConfigInfo::has_describe() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+ void MsgTaskConfigInfo::set_has_describe() {
+  _has_bits_[0] |= 0x00000100u;
+}
+ void MsgTaskConfigInfo::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000100u;
 }
  void MsgTaskConfigInfo::clear_describe() {
   describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
