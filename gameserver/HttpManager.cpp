@@ -216,7 +216,7 @@ bool VerifyDealHttpTaskIOS::excute()
 		unsigned char sz_temp[10240];
 		unsigned char sz_temp_target[10240];
 		urlencode((unsigned char*)_receipt.c_str(), sz_temp_target);
-		sprintf((char*)sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt={%s}",
+		sprintf((char*)sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt=%s",
 			channel_id, game_id, _acc, _order_id, sz_temp_target);		
 		Mylog::log_server(LOG_INFO, "http verify [%s] ", sz_temp);
 		Mylog::log_server(LOG_INFO, "http encode verify [%s] ", sz_temp_target);

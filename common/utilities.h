@@ -258,13 +258,8 @@ static int is_alpha_number_char(unsigned char c)
 void urlencode(unsigned char * src, unsigned char * dest);
 
 
-
 //Ω‚url±‡¬Î µœ÷ 
 char* urldecode(char* encd, char* decd);
-
-
-
-
 std::string get_time(time_t cur_time);
 
 struct memory_leak_monitor
@@ -286,6 +281,9 @@ private:
 	unsigned int send_index;
 	unsigned int recv_index;
 };
+
+bool base64_encode(std::string &input, std::string &output);
+bool Base64_decode(const std::string& input, std::string& output);
 
 #endif // _NEW_COMMON_UTILITIES_HEAD
 
