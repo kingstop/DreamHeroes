@@ -381,7 +381,8 @@ void DreamHero::ReqUnlockChapter(const message::MsgC2SReqUnlockChapter* msg)
 	if (en_error == message::Error_NO)
 	{
 		int unlock_gold_record = current_gold - _info.gold();
-		gRecordManager.chapterUnlockRecord(_account, _info.name().c_str(), chapter_id_temp, unlock_gold_record);
+		gRecordManager.chapterUnlockRecord(_account, _info.name().c_str(), chapter_id_temp, unlock_gold_record, _info.gold());
+		
 	}
 	msgACK.set_error(en_error);
 	sendPBMessage(&msgACK);
@@ -400,6 +401,7 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 	msgACK.set_success(msg->success());
 	msgACK.set_error(message::Error_NO);
 	int current_gold = _info.gold();
+	int all_task_gold = 0;
 	int cur_complete_task_count = _info.complete_task_count();
 	if (chapter_id_temp == -1&& section_id_temp == -1 || chapter_id_temp != _current_chapter || section_id_temp != _current_section)
 	{
@@ -440,11 +442,15 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 					message::MsgTaskInfo task_entry = (*it);
 					if (task_entry.taskid() == task_id)
 					{
-						gRecordManager.taskCompleteRecord(_account, _info.name().c_str(), _current_chapter, _current_section, task_id, task_gift_gold);
+
+						
 						try_to_find_task_info = true;
 						task_gift_gold = info_task_config->gift_gold();
 						cur_complete_task_count++;
 						temp_repeated->erase(it);
+						all_task_gold += task_gift_gold;
+						
+						gRecordManager.taskCompleteRecord(_account, _info.name().c_str(), _current_chapter, _current_section, task_id, task_gift_gold, all_task_gold + _info.gold());
 						break;
 					}
 				}
@@ -530,9 +536,14 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 	}
 	if (msgACK.error() == message::Error_NO)
 	{
-		int gold_modify_leave_record = current_gold - _info.gold();
+		int gold_modify_leave_record = _info.gold() - current_gold;
+		int monster_gold = gold_modify_leave_record - all_task_gold;
+		
 		gRecordManager.leaveGameRecord(_account, _info.name().c_str(), _current_chapter,
-			_current_section, msg->success(), gold_modify_leave_record);
+			_current_section, msg->success(), gold_modify_leave_record, _info.gold());
+		gRecordManager.goldModifyRecord(_account, _info.name().c_str(), monster_gold, _info.gold() - all_task_gold, RecordManager::GoldModify_KillMonster);
+		gRecordManager.goldModifyRecord(_account, _info.name().c_str(), all_task_gold, _info.gold(), RecordManager::GoldModify_CompleteTask);
+		gRecordManager.goldModifyRecord(_account, _info.name().c_str(), gold_modify_leave_record, _info.gold(), RecordManager::GoldModify_LeaveGame);
 	}
 	_current_chapter = -1;
 	_current_section = -1;
@@ -818,7 +829,8 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 	if (en == message::Error_NO)
 	{
 		int buy_hero_gold_record = current_gold - _info.gold();
-		gRecordManager.buyHeroRecord(_account, _info.name().c_str(), buy_grid, buy_hero_gold_record);
+		gRecordManager.buyHeroRecord(_account, _info.name().c_str(), buy_grid, buy_hero_gold_record, _info.gold());
+		
 
 	}
 	msgACK.set_current_gold(_info.gold());
@@ -918,7 +930,7 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 	}
 	if (en_error == message::Error_NO)
 	{
-		gRecordManager.enterGameRecord(_account, _info.name().c_str(), chapter_id_temp, section_id_temp);
+		gRecordManager.enterGameRecord(_account, _info.name().c_str(), chapter_id_temp, section_id_temp, _info.gold());
 	}
 	msgACK.set_error(en_error);
 	sendPBMessage(&msgACK);
@@ -988,6 +1000,7 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 	}	
 	if (error == message::Error_NO)
 	{
+		gRecordManager.goldModifyRecord(_account, _info.name().c_str(), add_gold, _info.gold(), RecordManager::GoldModify_BuyHero);
 		gRecordManager.dealPayRecord(_account, key_code.c_str(), status, order_id, add_gold, _info.gold());
 	}
 }

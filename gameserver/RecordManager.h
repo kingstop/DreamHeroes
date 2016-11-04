@@ -23,22 +23,24 @@ public:
 	enum GoldModifyType
 	{
 		GoldModify_LeaveGame,
+		GoldModify_KillMonster,
 		GoldModify_CompleteTask,
 		GoldModify_UnlockChapter,
 		GoldModify_BuyHero,
+		GoldModify_BuyGold
 	};
 public:
 	RecordManager();
 	virtual ~RecordManager();
 public:
-	void enterGameRecord(account_type acc, const char* nick_name, int chapter_id, int section_id);
-	void leaveGameRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, bool success, int gold);
-	void taskCompleteRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, int task_id, int gold);
+	void enterGameRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, int current_gold);
+	void leaveGameRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, bool success, int gold, int current_gold);
+	void taskCompleteRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, int task_id, int gold, int current_gold);
 	void taskAccepteRecordRecord(account_type acc, const char* nick_name, int task_id);
 	void taskGiveUpRecord(account_type acc, const char* nick_name, int task_id);
-	void chapterUnlockRecord(account_type acc, const char* nick_name, int chapter_id, int gold);
-	void buyHeroRecord(account_type acc, const char* nick_name, int grid, int gold);
-	void goldModifyRecord(account_type acc, const char* nick_name, int gold, GoldModifyType en);
+	void chapterUnlockRecord(account_type acc, const char* nick_name, int chapter_id, int gold, int current_gold);
+	void buyHeroRecord(account_type acc, const char* nick_name, int grid, int gold, int current_gold);
+	void goldModifyRecord(account_type acc, const char* nick_name, int gold, int current_gold, GoldModifyType en);
 	void dealWaitToPayRecord(account_type acc, const char* key_code, int status, int price, int order_id);
 	void dealPayRecord(account_type acc, const char* key_code, int status, int order_id, int modify_gold, int current_gold);
 	void giveUpDealRecord(account_type acc, const char* key_code, int status, int price, int order_id);
