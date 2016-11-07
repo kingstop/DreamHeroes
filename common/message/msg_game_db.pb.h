@@ -520,6 +520,18 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo >*
       mutable_deals();
 
+  // repeated .message.MsgIntPair special_creatures = 10;
+  int special_creatures_size() const;
+  void clear_special_creatures();
+  static const int kSpecialCreaturesFieldNumber = 10;
+  const ::message::MsgIntPair& special_creatures(int index) const;
+  ::message::MsgIntPair* mutable_special_creatures(int index);
+  ::message::MsgIntPair* add_special_creatures();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+      special_creatures() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+      mutable_special_creatures();
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroDataDB2GS)
  private:
   inline void set_has_account();
@@ -551,6 +563,7 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::int32 last_task_advertisement_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill > special_kills_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo > deals_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
   ::google::protobuf::int32 gm_level_;
   friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
@@ -1580,6 +1593,36 @@ inline ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo >*
 MsgHeroDataDB2GS::mutable_deals() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.deals)
   return &deals_;
+}
+
+// repeated .message.MsgIntPair special_creatures = 10;
+inline int MsgHeroDataDB2GS::special_creatures_size() const {
+  return special_creatures_.size();
+}
+inline void MsgHeroDataDB2GS::clear_special_creatures() {
+  special_creatures_.Clear();
+}
+inline const ::message::MsgIntPair& MsgHeroDataDB2GS::special_creatures(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.special_creatures)
+  return special_creatures_.Get(index);
+}
+inline ::message::MsgIntPair* MsgHeroDataDB2GS::mutable_special_creatures(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDataDB2GS.special_creatures)
+  return special_creatures_.Mutable(index);
+}
+inline ::message::MsgIntPair* MsgHeroDataDB2GS::add_special_creatures() {
+  // @@protoc_insertion_point(field_add:message.MsgHeroDataDB2GS.special_creatures)
+  return special_creatures_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+MsgHeroDataDB2GS::special_creatures() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroDataDB2GS.special_creatures)
+  return special_creatures_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+MsgHeroDataDB2GS::mutable_special_creatures() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.special_creatures)
+  return &special_creatures_;
 }
 
 // -------------------------------------------------------------------

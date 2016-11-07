@@ -78,12 +78,8 @@ message MsgS2CHeroesInit
 	required int64 last_advertisement_time = 5;
 	required int32 advertisement_time_cd = 6;
 	required int32 gm_level = 7;
+	repeated MsgIntPair special_creatures = 8;
 }
-
-
-
-
-
 
 message MsgC2SReqEnterGame
 {
@@ -119,6 +115,7 @@ message MsgC2SReqExitGame
 	repeated int32 complete_tasks = 6;
 	repeated MsgObjConfig special_kill_list = 7;
 	repeated MsgKillHistroy kill_list = 8;
+	repeated MsgIntPair special_creatures = 9;
 }
 
 message MsgS2CExitGameACK
@@ -131,6 +128,7 @@ message MsgS2CExitGameACK
 	required bool success = 6;
 	required int32 complete_task_count = 7;
 	required GameError error = 8 [default=Error_NO];
+	repeated MsgIntPair special_creatures = 9;
 }
 
 message MsgC2SReqUnlockChapter
@@ -232,6 +230,26 @@ message MsgS2CVerifyDealIOSACK
 	required GameError error = 5 [default=Error_NO];
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+message MsgC2SCmdReqRemoveSpecialCreatureListHis
+{
+
+}
+
+
+
+message MsgC2SCmdReqSetSpecialCreatureHis
+{
+	required int32 creature_id = 1;
+	required int32 status = 2; //0 删除
+
+}
+
+message MsgS2CCmdNotifySpecialCreatureHisModify
+{
+	repeated MsgIntPair special_creatures = 1;
+}
+
+
 message MsgC2SCmdReqModifyTaskCompleteCount
 {
 	required int32 task_complete_count = 1;

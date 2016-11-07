@@ -84,6 +84,14 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 		_deals_wait_to_pay.insert(DEALSWAITTOPAY::value_type(pay_entry.order_id_, pay_entry));
 	}
 
+	_special_creatures.clear();
+	int special_creatures_size =  info->special_creatures_size();
+	for (int i = 0; i < special_creatures_size; i ++)
+	{
+		const message::MsgIntPair entry = info->special_creatures(i);
+		_special_creatures[entry.number_1()] = entry.number_2();
+	}
+
 	DEALSWAITTOPAY::iterator it_deal = _deals_wait_to_pay.begin();
 	for (; it_deal != _deals_wait_to_pay.end(); ++ it_deal)
 	{
@@ -533,6 +541,13 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 				_special_kills[pair_entry].push_back(obj_config_entry);
 			}
 		}
+		int special_creatures_size = msg->special_creatures_size();
+		for (int i = 0; i < special_creatures_size; i ++)
+		{
+			const message::MsgIntPair entry_pair = msg->special_creatures(i);
+			_special_creatures[entry_pair.number_1()] = entry_pair.number_2();
+		}
+
 	}
 	if (msgACK.error() == message::Error_NO)
 	{
@@ -547,10 +562,21 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 	}
 	_current_chapter = -1;
 	_current_section = -1;
-	msgACK.set_complete_task_count(cur_complete_task_count);
-
 	
+	msgACK.set_complete_task_count(cur_complete_task_count);
+	fillSpecialCreatureList(msgACK.mutable_special_creatures());	
 	sendPBMessage(&msgACK);	
+}
+
+void DreamHero::fillSpecialCreatureList(::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >* list)
+{
+	SPECIALCREATURES::iterator it_special_creatures = _special_creatures.begin();
+	for (; it_special_creatures != _special_creatures.end(); ++it_special_creatures)
+	{
+		message::MsgIntPair* entry_pair = list->Add();
+		entry_pair->set_number_1(it_special_creatures->first);
+		entry_pair->set_number_2(it_special_creatures->second);
+	}
 }
 
 void DreamHero::RefreshTask(int give_up_task_id)
@@ -1120,6 +1146,7 @@ void DreamHero::SendClientInit()
 	msg.set_last_advertisement_time(_last_task_advertisement_time);
 	msg.set_advertisement_time_cd(gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_);
 	msg.set_gm_level(getGMLevel());
+	fillSpecialCreatureList(msg.mutable_special_creatures());	
 	sendPBMessage(&msg);
 	_online = true;
 }
@@ -1161,6 +1188,7 @@ void DreamHero::SaveHero()
 	std::string heroes_temp;
 	std::string tasks_temp;
 	std::string special_kill_temp;
+	std::string special_creatures;
 	char sz_temp[256];
 	char sz_temp_1[128];
 	for (size_t i = 0; i < length; i++)
@@ -1231,16 +1259,27 @@ void DreamHero::SaveHero()
 	char temp[4096];
 	std::string last_task_advertisement_time_temp;
 
+	SPECIALCREATURES::iterator it_special_creatures = _special_creatures.begin();
+	for (int i = 0; it_special_creatures != _special_creatures.end(); ++ it_special_creatures, i ++)
+	{
+		if (i != 0)
+		{
+			special_creatures += ";";
+		}
+		sprintf(sz_temp_1, "%d,%d", it_special_creatures->first, it_special_creatures->second);
+		special_creatures += sz_temp_1;
+	}
+
 
 	build_unix_time_to_string(_last_task_advertisement_time, last_task_advertisement_time_temp);
 //#ifdef WIN32
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,`special_kill`,\
-		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`,\
+		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`, `special_creatures`, \
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`) values \
-		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, %d, '%s', %d, %d);",
+		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d);",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
-		_current_section, _info.complete_task_count(), _current_task_count,
+		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
 		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count);
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
@@ -1299,6 +1338,23 @@ void DreamHero::SaveHero()
 void DreamHero::set_name(const char* name)
 {
 	_info.set_name(name);
+}
+
+void DreamHero::ReqRemoveAllSpecialCreatureList()
+{
+	_special_creatures.clear();
+	message::MsgS2CCmdNotifySpecialCreatureHisModify msg;
+	sendPBMessage(&msg);
+
+}
+
+void DreamHero::ReqSetSpecialCreatureList(int creature_id, int status)
+{
+	_special_creatures[creature_id] = status;
+	message::MsgS2CCmdNotifySpecialCreatureHisModify msg;
+	fillSpecialCreatureList(msg.mutable_special_creatures());
+	sendPBMessage(&msg);
+	
 }
 
 

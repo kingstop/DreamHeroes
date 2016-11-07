@@ -66,6 +66,9 @@ class MsgC2SReqCrearteIOSDeal;
 class MsgS2CCrearteIOSDealACK;
 class MsgC2SReqVerifyDealIOS;
 class MsgS2CVerifyDealIOSACK;
+class MsgC2SCmdReqRemoveSpecialCreatureListHis;
+class MsgC2SCmdReqSetSpecialCreatureHis;
+class MsgS2CCmdNotifySpecialCreatureHisModify;
 class MsgC2SCmdReqModifyTaskCompleteCount;
 class MsgS2CCmdModifyTaskCompleteCountACK;
 class MsgC2SCmdReqShowGMLevel;
@@ -774,6 +777,18 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int32 gm_level() const;
   void set_gm_level(::google::protobuf::int32 value);
 
+  // repeated .message.MsgIntPair special_creatures = 8;
+  int special_creatures_size() const;
+  void clear_special_creatures();
+  static const int kSpecialCreaturesFieldNumber = 8;
+  const ::message::MsgIntPair& special_creatures(int index) const;
+  ::message::MsgIntPair* mutable_special_creatures(int index);
+  ::message::MsgIntPair* add_special_creatures();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+      special_creatures() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+      mutable_special_creatures();
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
   inline void set_has_info();
@@ -802,6 +817,7 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int64 last_advertisement_time_;
   ::google::protobuf::int32 advertisement_time_cd_;
   ::google::protobuf::int32 gm_level_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -1295,6 +1311,18 @@ class MsgC2SReqExitGame : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgKillHistroy >*
       mutable_kill_list();
 
+  // repeated .message.MsgIntPair special_creatures = 9;
+  int special_creatures_size() const;
+  void clear_special_creatures();
+  static const int kSpecialCreaturesFieldNumber = 9;
+  const ::message::MsgIntPair& special_creatures(int index) const;
+  ::message::MsgIntPair* mutable_special_creatures(int index);
+  ::message::MsgIntPair* add_special_creatures();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+      special_creatures() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+      mutable_special_creatures();
+
   // @@protoc_insertion_point(class_scope:message.MsgC2SReqExitGame)
  private:
   inline void set_has_chapter_id();
@@ -1320,6 +1348,7 @@ class MsgC2SReqExitGame : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > complete_tasks_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgObjConfig > special_kill_list_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgKillHistroy > kill_list_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -1459,6 +1488,18 @@ class MsgS2CExitGameACK : public ::google::protobuf::Message {
   ::message::GameError error() const;
   void set_error(::message::GameError value);
 
+  // repeated .message.MsgIntPair special_creatures = 9;
+  int special_creatures_size() const;
+  void clear_special_creatures();
+  static const int kSpecialCreaturesFieldNumber = 9;
+  const ::message::MsgIntPair& special_creatures(int index) const;
+  ::message::MsgIntPair* mutable_special_creatures(int index);
+  ::message::MsgIntPair* add_special_creatures();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+      special_creatures() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+      mutable_special_creatures();
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CExitGameACK)
  private:
   inline void set_has_chapter_id();
@@ -1488,6 +1529,7 @@ class MsgS2CExitGameACK : public ::google::protobuf::Message {
   bool success_;
   ::google::protobuf::int32 complete_task_count_;
   int error_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -3131,6 +3173,279 @@ class MsgS2CVerifyDealIOSACK : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgS2CVerifyDealIOSACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SCmdReqRemoveSpecialCreatureListHis : public ::google::protobuf::Message {
+ public:
+  MsgC2SCmdReqRemoveSpecialCreatureListHis();
+  virtual ~MsgC2SCmdReqRemoveSpecialCreatureListHis();
+
+  MsgC2SCmdReqRemoveSpecialCreatureListHis(const MsgC2SCmdReqRemoveSpecialCreatureListHis& from);
+
+  inline MsgC2SCmdReqRemoveSpecialCreatureListHis& operator=(const MsgC2SCmdReqRemoveSpecialCreatureListHis& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SCmdReqRemoveSpecialCreatureListHis& default_instance();
+
+  void Swap(MsgC2SCmdReqRemoveSpecialCreatureListHis* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SCmdReqRemoveSpecialCreatureListHis* New() const { return New(NULL); }
+
+  MsgC2SCmdReqRemoveSpecialCreatureListHis* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SCmdReqRemoveSpecialCreatureListHis& from);
+  void MergeFrom(const MsgC2SCmdReqRemoveSpecialCreatureListHis& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SCmdReqRemoveSpecialCreatureListHis* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SCmdReqRemoveSpecialCreatureListHis)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SCmdReqRemoveSpecialCreatureListHis* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SCmdReqSetSpecialCreatureHis : public ::google::protobuf::Message {
+ public:
+  MsgC2SCmdReqSetSpecialCreatureHis();
+  virtual ~MsgC2SCmdReqSetSpecialCreatureHis();
+
+  MsgC2SCmdReqSetSpecialCreatureHis(const MsgC2SCmdReqSetSpecialCreatureHis& from);
+
+  inline MsgC2SCmdReqSetSpecialCreatureHis& operator=(const MsgC2SCmdReqSetSpecialCreatureHis& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SCmdReqSetSpecialCreatureHis& default_instance();
+
+  void Swap(MsgC2SCmdReqSetSpecialCreatureHis* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SCmdReqSetSpecialCreatureHis* New() const { return New(NULL); }
+
+  MsgC2SCmdReqSetSpecialCreatureHis* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SCmdReqSetSpecialCreatureHis& from);
+  void MergeFrom(const MsgC2SCmdReqSetSpecialCreatureHis& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SCmdReqSetSpecialCreatureHis* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 creature_id = 1;
+  bool has_creature_id() const;
+  void clear_creature_id();
+  static const int kCreatureIdFieldNumber = 1;
+  ::google::protobuf::int32 creature_id() const;
+  void set_creature_id(::google::protobuf::int32 value);
+
+  // required int32 status = 2;
+  bool has_status() const;
+  void clear_status();
+  static const int kStatusFieldNumber = 2;
+  ::google::protobuf::int32 status() const;
+  void set_status(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SCmdReqSetSpecialCreatureHis)
+ private:
+  inline void set_has_creature_id();
+  inline void clear_has_creature_id();
+  inline void set_has_status();
+  inline void clear_has_status();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 creature_id_;
+  ::google::protobuf::int32 status_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SCmdReqSetSpecialCreatureHis* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CCmdNotifySpecialCreatureHisModify : public ::google::protobuf::Message {
+ public:
+  MsgS2CCmdNotifySpecialCreatureHisModify();
+  virtual ~MsgS2CCmdNotifySpecialCreatureHisModify();
+
+  MsgS2CCmdNotifySpecialCreatureHisModify(const MsgS2CCmdNotifySpecialCreatureHisModify& from);
+
+  inline MsgS2CCmdNotifySpecialCreatureHisModify& operator=(const MsgS2CCmdNotifySpecialCreatureHisModify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CCmdNotifySpecialCreatureHisModify& default_instance();
+
+  void Swap(MsgS2CCmdNotifySpecialCreatureHisModify* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CCmdNotifySpecialCreatureHisModify* New() const { return New(NULL); }
+
+  MsgS2CCmdNotifySpecialCreatureHisModify* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CCmdNotifySpecialCreatureHisModify& from);
+  void MergeFrom(const MsgS2CCmdNotifySpecialCreatureHisModify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CCmdNotifySpecialCreatureHisModify* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .message.MsgIntPair special_creatures = 1;
+  int special_creatures_size() const;
+  void clear_special_creatures();
+  static const int kSpecialCreaturesFieldNumber = 1;
+  const ::message::MsgIntPair& special_creatures(int index) const;
+  ::message::MsgIntPair* mutable_special_creatures(int index);
+  ::message::MsgIntPair* add_special_creatures();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+      special_creatures() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+      mutable_special_creatures();
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CCmdNotifySpecialCreatureHisModify)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CCmdNotifySpecialCreatureHisModify* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -4956,6 +5271,36 @@ inline void MsgS2CHeroesInit::set_gm_level(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.gm_level)
 }
 
+// repeated .message.MsgIntPair special_creatures = 8;
+inline int MsgS2CHeroesInit::special_creatures_size() const {
+  return special_creatures_.size();
+}
+inline void MsgS2CHeroesInit::clear_special_creatures() {
+  special_creatures_.Clear();
+}
+inline const ::message::MsgIntPair& MsgS2CHeroesInit::special_creatures(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.special_creatures)
+  return special_creatures_.Get(index);
+}
+inline ::message::MsgIntPair* MsgS2CHeroesInit::mutable_special_creatures(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CHeroesInit.special_creatures)
+  return special_creatures_.Mutable(index);
+}
+inline ::message::MsgIntPair* MsgS2CHeroesInit::add_special_creatures() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CHeroesInit.special_creatures)
+  return special_creatures_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+MsgS2CHeroesInit::special_creatures() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CHeroesInit.special_creatures)
+  return special_creatures_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+MsgS2CHeroesInit::mutable_special_creatures() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CHeroesInit.special_creatures)
+  return &special_creatures_;
+}
+
 // -------------------------------------------------------------------
 
 // MsgC2SReqEnterGame
@@ -5436,6 +5781,36 @@ MsgC2SReqExitGame::mutable_kill_list() {
   return &kill_list_;
 }
 
+// repeated .message.MsgIntPair special_creatures = 9;
+inline int MsgC2SReqExitGame::special_creatures_size() const {
+  return special_creatures_.size();
+}
+inline void MsgC2SReqExitGame::clear_special_creatures() {
+  special_creatures_.Clear();
+}
+inline const ::message::MsgIntPair& MsgC2SReqExitGame::special_creatures(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqExitGame.special_creatures)
+  return special_creatures_.Get(index);
+}
+inline ::message::MsgIntPair* MsgC2SReqExitGame::mutable_special_creatures(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqExitGame.special_creatures)
+  return special_creatures_.Mutable(index);
+}
+inline ::message::MsgIntPair* MsgC2SReqExitGame::add_special_creatures() {
+  // @@protoc_insertion_point(field_add:message.MsgC2SReqExitGame.special_creatures)
+  return special_creatures_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+MsgC2SReqExitGame::special_creatures() const {
+  // @@protoc_insertion_point(field_list:message.MsgC2SReqExitGame.special_creatures)
+  return special_creatures_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+MsgC2SReqExitGame::mutable_special_creatures() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgC2SReqExitGame.special_creatures)
+  return &special_creatures_;
+}
+
 // -------------------------------------------------------------------
 
 // MsgS2CExitGameACK
@@ -5643,6 +6018,36 @@ inline void MsgS2CExitGameACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CExitGameACK.error)
+}
+
+// repeated .message.MsgIntPair special_creatures = 9;
+inline int MsgS2CExitGameACK::special_creatures_size() const {
+  return special_creatures_.size();
+}
+inline void MsgS2CExitGameACK::clear_special_creatures() {
+  special_creatures_.Clear();
+}
+inline const ::message::MsgIntPair& MsgS2CExitGameACK::special_creatures(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CExitGameACK.special_creatures)
+  return special_creatures_.Get(index);
+}
+inline ::message::MsgIntPair* MsgS2CExitGameACK::mutable_special_creatures(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CExitGameACK.special_creatures)
+  return special_creatures_.Mutable(index);
+}
+inline ::message::MsgIntPair* MsgS2CExitGameACK::add_special_creatures() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CExitGameACK.special_creatures)
+  return special_creatures_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+MsgS2CExitGameACK::special_creatures() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CExitGameACK.special_creatures)
+  return special_creatures_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+MsgS2CExitGameACK::mutable_special_creatures() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CExitGameACK.special_creatures)
+  return &special_creatures_;
 }
 
 // -------------------------------------------------------------------
@@ -6616,6 +7021,96 @@ inline void MsgS2CVerifyDealIOSACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SCmdReqRemoveSpecialCreatureListHis
+
+// -------------------------------------------------------------------
+
+// MsgC2SCmdReqSetSpecialCreatureHis
+
+// required int32 creature_id = 1;
+inline bool MsgC2SCmdReqSetSpecialCreatureHis::has_creature_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SCmdReqSetSpecialCreatureHis::set_has_creature_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SCmdReqSetSpecialCreatureHis::clear_has_creature_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SCmdReqSetSpecialCreatureHis::clear_creature_id() {
+  creature_id_ = 0;
+  clear_has_creature_id();
+}
+inline ::google::protobuf::int32 MsgC2SCmdReqSetSpecialCreatureHis::creature_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SCmdReqSetSpecialCreatureHis.creature_id)
+  return creature_id_;
+}
+inline void MsgC2SCmdReqSetSpecialCreatureHis::set_creature_id(::google::protobuf::int32 value) {
+  set_has_creature_id();
+  creature_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SCmdReqSetSpecialCreatureHis.creature_id)
+}
+
+// required int32 status = 2;
+inline bool MsgC2SCmdReqSetSpecialCreatureHis::has_status() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgC2SCmdReqSetSpecialCreatureHis::set_has_status() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgC2SCmdReqSetSpecialCreatureHis::clear_has_status() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgC2SCmdReqSetSpecialCreatureHis::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+inline ::google::protobuf::int32 MsgC2SCmdReqSetSpecialCreatureHis::status() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SCmdReqSetSpecialCreatureHis.status)
+  return status_;
+}
+inline void MsgC2SCmdReqSetSpecialCreatureHis::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SCmdReqSetSpecialCreatureHis.status)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CCmdNotifySpecialCreatureHisModify
+
+// repeated .message.MsgIntPair special_creatures = 1;
+inline int MsgS2CCmdNotifySpecialCreatureHisModify::special_creatures_size() const {
+  return special_creatures_.size();
+}
+inline void MsgS2CCmdNotifySpecialCreatureHisModify::clear_special_creatures() {
+  special_creatures_.Clear();
+}
+inline const ::message::MsgIntPair& MsgS2CCmdNotifySpecialCreatureHisModify::special_creatures(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdNotifySpecialCreatureHisModify.special_creatures)
+  return special_creatures_.Get(index);
+}
+inline ::message::MsgIntPair* MsgS2CCmdNotifySpecialCreatureHisModify::mutable_special_creatures(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CCmdNotifySpecialCreatureHisModify.special_creatures)
+  return special_creatures_.Mutable(index);
+}
+inline ::message::MsgIntPair* MsgS2CCmdNotifySpecialCreatureHisModify::add_special_creatures() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CCmdNotifySpecialCreatureHisModify.special_creatures)
+  return special_creatures_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >&
+MsgS2CCmdNotifySpecialCreatureHisModify::special_creatures() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CCmdNotifySpecialCreatureHisModify.special_creatures)
+  return special_creatures_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
+MsgS2CCmdNotifySpecialCreatureHisModify::mutable_special_creatures() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CCmdNotifySpecialCreatureHisModify.special_creatures)
+  return &special_creatures_;
 }
 
 // -------------------------------------------------------------------

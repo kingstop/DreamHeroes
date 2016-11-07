@@ -33,6 +33,7 @@ message MsgHeroDataDB2GS
 	repeated MsgMapSpecialKill special_kills = 7;
 	required int32 gm_level = 8;
 	repeated MsgDealInfo deals = 9;
+	repeated MsgIntPair special_creatures = 10;
 	
 }
 

@@ -15,6 +15,7 @@ public:
 	//typedef std::map<std::string, message::MsgToyData> HEROTOYS;
 	typedef std::map<int, DealWaitToPay> DEALSWAITTOPAY;
 	typedef std::map<std::pair<int, int>, std::vector<message::MsgObjConfig> > SPECIALKILLS;
+	typedef std::map<int, int> SPECIALCREATURES;
 public:
 	DreamHero();
 	virtual ~DreamHero();
@@ -53,6 +54,8 @@ public:
 	void ReqModifyTaskCompleteCount(const message::MsgC2SCmdReqModifyTaskCompleteCount* msg);
 	void ReqCrearteIOSDeal(const message::MsgC2SReqCrearteIOSDeal* msg);
 	void ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg);
+	void ReqRemoveAllSpecialCreatureList();
+	void ReqSetSpecialCreatureList(int creature_id, int status);
 	void ReqModifyCurrentHero(int grid_id);
 	void ReqGoldShopConfigs();
 	void EnterGame(int chapter_id, int section_id, bool admin = false);
@@ -66,10 +69,11 @@ protected:
 	void RefreshTask(int give_up_task_id = 0);	
 	void Destroy();
 protected:
-
+	void fillSpecialCreatureList(::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >* list);
 	void sendPBMessage(google::protobuf::Message* p);
 protected:
 	SPECIALKILLS _special_kills;
+	SPECIALCREATURES _special_creatures;
 	message::MsgHeroData _info;
 	int _current_chapter;
 	int _current_section;

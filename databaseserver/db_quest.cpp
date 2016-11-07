@@ -254,10 +254,11 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 					msg->set_usetime(atoi(outVC1[2].c_str()));					
 				}
 			}
-
+			
 			std::string herospecialkills;
+			herospecialkills = row["special_kill"].c_str();
 			outVC.clear();
-			SplitStringA(heroestasks, ";", outVC);
+			SplitStringA(herospecialkills, ";", outVC);
 			length_vc = outVC.size();
 			for (int i = 0; i < length_vc; i++)
 			{
@@ -291,7 +292,25 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 					}
 				}
 			}
-
+			
+			std::string special_creatures = row["special_creatures"].c_str();
+			outVC.clear();
+			SplitStringA(special_creatures, ";", outVC);
+			length_vc = outVC.size();
+			for (int i = 0; i < length_vc; i++)
+			{
+				strTemp = outVC[i];
+				outVC1.clear();
+				SplitStringA(strTemp, ",", outVC1);
+				if (outVC1.size() >= 2)
+				{
+					int creatures_id = atoi(outVC1[0].c_str());
+					int creature_status = atoi(outVC1[1].c_str());
+					message::MsgIntPair* entry = pkParm->info.add_special_creatures();
+					entry->set_number_1(creatures_id);
+					entry->set_number_2(creature_status);		
+				}
+			}
 		
 			pkParm->info.set_account(acc);
 			need_create = false;
