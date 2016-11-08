@@ -1154,7 +1154,8 @@ void DreamHero::SendClientInit()
 
 void DreamHero::LoadFromConfig()
 {
-
+	_special_kills.clear();
+	_special_creatures.clear();
 	_current_chapter = 0;
 	_current_section = 0;
 	_current_task_count = 0;
