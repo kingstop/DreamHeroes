@@ -155,8 +155,8 @@ void DBQuestManager::dbDoQueryHeroDeals(const SDBResult* r, const void* d, bool 
 			message::MsgDealInfo msgDeal;
 			message::MsgDealInfo* deal_info = pkParm->info.add_deals();
 			account_type acc = row["account_id"];
-			deal_info->set_order(row["order"]);
-			deal_info->set_product_id(row["product_id"].c_str());
+			deal_info->set_order(row["order_id"]);
+			deal_info->set_product_id(row["key_code"].c_str());
 			deal_info->set_status(row["status"]);
 			deal_info->set_complete_status(row["complete_status"]);									
 		}
