@@ -1301,42 +1301,44 @@ void DreamHero::SaveHero()
 	sql_temp.clear();
 	std::string cur_time_entry;
 	build_unix_time_to_string(g_server_time, cur_time_entry);
-	for (int i = 0; it_deal != _deals_wait_to_pay.end(); ++it_deal, i ++)
+	if (_deals_wait_to_pay.size() != 0)
 	{
-		if (i == 0)
+		for (int i = 0; it_deal != _deals_wait_to_pay.end(); ++it_deal, i++)
 		{
-			sql_temp = sql_head_deal;
+			if (i == 0)
+			{
+				sql_temp = sql_head_deal;
+			}
+			else
+			{
+				sql_temp += ",";
+			}
+			sprintf(sz_temp, "(%d, %llu, '%s', %d, %d, '%s', %d)",
+				it_deal->second.order_id_, _account, it_deal->second.key_code_.c_str(),
+				it_deal->second.status_, it_deal->second.price_, cur_time_entry.c_str(), it_deal->second.type_);
+			sql_temp += sz_temp;
 		}
-		else
+		msg_db.set_sql(sql_temp.c_str());
+		gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
+		it_deal != _deals_wait_to_pay.begin();
+		while (it_deal != _deals_wait_to_pay.end())
 		{
-			sql_temp += ",";
-		}
-		sprintf(sz_temp, "(%d, %llu, '%s', %d, %d, '%s', %d)",
-			it_deal->second.order_id_, _account, it_deal->second.key_code_.c_str(),
-			it_deal->second.status_, it_deal->second.price_, cur_time_entry.c_str(), it_deal->second.type_);
-		sql_temp += sz_temp;
-	}
-	msg_db.set_sql(sql_temp.c_str());
-	gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
-	it_deal != _deals_wait_to_pay.begin();
-	while (it_deal != _deals_wait_to_pay.end())
-	{
-		if (it_deal->second.type_ == DealStatusType_Complete)
-		{
+			if (it_deal->second.type_ == DealStatusType_Complete)
+			{
 #ifdef WIN32
-			it_deal = _deals_wait_to_pay.erase(it_deal);
+				it_deal = _deals_wait_to_pay.erase(it_deal);
 #else
-			_deals_wait_to_pay.erase(it_deal);
-			++it_deal;
+				_deals_wait_to_pay.erase(it_deal);
+				++it_deal;
 #endif
 		}
-		else
-		{
-			++it_deal;
-		}
+			else
+			{
+				++it_deal;
+			}
 	}
 
-
+	}
 }
 
 void DreamHero::set_name(const char* name)
