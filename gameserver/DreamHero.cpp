@@ -1297,7 +1297,7 @@ void DreamHero::SaveHero()
 
 	DEALSWAITTOPAY::iterator it_deal = _deals_wait_to_pay.begin();
 	std::string sql_head_deal = "replace into deal_wait_to_pay(`order_id`, `account_id`, `key_code`, `status`, `price`, `deal_time`,`complete_status`) \
-				values(%d, %llu, '%s', %d, %d, '%s', %d) ";
+				values";
 	sql_temp.clear();
 	std::string cur_time_entry;
 	build_unix_time_to_string(g_server_time, cur_time_entry);
@@ -1316,6 +1316,8 @@ void DreamHero::SaveHero()
 			it_deal->second.status_, it_deal->second.price_, cur_time_entry.c_str(), it_deal->second.type_);
 		sql_temp += sz_temp;
 	}
+	msg_db.set_sql(sql_temp.c_str());
+	gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
 	it_deal != _deals_wait_to_pay.begin();
 	while (it_deal != _deals_wait_to_pay.end())
 	{
@@ -1333,6 +1335,7 @@ void DreamHero::SaveHero()
 			++it_deal;
 		}
 	}
+
 
 }
 
