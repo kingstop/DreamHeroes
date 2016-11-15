@@ -1246,7 +1246,7 @@ BYTE LMoveBit(int base, int MoveNum)
 	result = base << (MoveNum - 1);
 	return result;
 }
-int Base64Decode(const char *base64code, DWORD base64length, unsigned char* outbin)
+int Base64Decode(const char *base64code, long base64length, unsigned char* outbin)
 {
 	char base64_alphabet[] =
 	{ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P',
