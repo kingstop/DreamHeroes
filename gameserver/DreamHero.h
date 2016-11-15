@@ -36,7 +36,8 @@ public:
 	void set_online(bool online);
 	bool is_online();
 	void StartDestroyTime();
-	void StopDestroyClock();	
+	void StopDestroyClock();
+	void StartPing();
 public:
 	void dayRefresh(bool need_send_msg = true);
 	int getGMLevel();
@@ -71,6 +72,7 @@ protected:
 protected:
 	void fillSpecialCreatureList(::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >* list);
 	void sendPBMessage(google::protobuf::Message* p);
+	void pingNotify();
 protected:
 	SPECIALKILLS _special_kills;
 	SPECIALCREATURES _special_creatures;
@@ -86,6 +88,7 @@ protected:
 	DreamHeroManager* _parent;
 	DEALSWAITTOPAY _deals_wait_to_pay;
 	int _gm_level;
+	int _ping_count;
 	
 };
 

@@ -66,6 +66,7 @@ class MsgC2SReqCrearteIOSDeal;
 class MsgS2CCrearteIOSDealACK;
 class MsgC2SReqVerifyDealIOS;
 class MsgS2CVerifyDealIOSACK;
+class MsgS2CPingNotify;
 class MsgC2SCmdReqRemoveSpecialCreatureListHis;
 class MsgC2SCmdReqSetSpecialCreatureHis;
 class MsgS2CCmdNotifySpecialCreatureHisModify;
@@ -3173,6 +3174,108 @@ class MsgS2CVerifyDealIOSACK : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgS2CVerifyDealIOSACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CPingNotify : public ::google::protobuf::Message {
+ public:
+  MsgS2CPingNotify();
+  virtual ~MsgS2CPingNotify();
+
+  MsgS2CPingNotify(const MsgS2CPingNotify& from);
+
+  inline MsgS2CPingNotify& operator=(const MsgS2CPingNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CPingNotify& default_instance();
+
+  void Swap(MsgS2CPingNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CPingNotify* New() const { return New(NULL); }
+
+  MsgS2CPingNotify* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CPingNotify& from);
+  void MergeFrom(const MsgS2CPingNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CPingNotify* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ping_count = 1;
+  bool has_ping_count() const;
+  void clear_ping_count();
+  static const int kPingCountFieldNumber = 1;
+  ::google::protobuf::int32 ping_count() const;
+  void set_ping_count(::google::protobuf::int32 value);
+
+  // required uint64 time = 2;
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 2;
+  ::google::protobuf::uint64 time() const;
+  void set_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CPingNotify)
+ private:
+  inline void set_has_ping_count();
+  inline void clear_has_ping_count();
+  inline void set_has_time();
+  inline void clear_has_time();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int32 ping_count_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CPingNotify* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -7021,6 +7124,58 @@ inline void MsgS2CVerifyDealIOSACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CPingNotify
+
+// required int32 ping_count = 1;
+inline bool MsgS2CPingNotify::has_ping_count() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CPingNotify::set_has_ping_count() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CPingNotify::clear_has_ping_count() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CPingNotify::clear_ping_count() {
+  ping_count_ = 0;
+  clear_has_ping_count();
+}
+inline ::google::protobuf::int32 MsgS2CPingNotify::ping_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CPingNotify.ping_count)
+  return ping_count_;
+}
+inline void MsgS2CPingNotify::set_ping_count(::google::protobuf::int32 value) {
+  set_has_ping_count();
+  ping_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CPingNotify.ping_count)
+}
+
+// required uint64 time = 2;
+inline bool MsgS2CPingNotify::has_time() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CPingNotify::set_has_time() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CPingNotify::clear_has_time() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CPingNotify::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::uint64 MsgS2CPingNotify::time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CPingNotify.time)
+  return time_;
+}
+inline void MsgS2CPingNotify::set_time(::google::protobuf::uint64 value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CPingNotify.time)
 }
 
 // -------------------------------------------------------------------

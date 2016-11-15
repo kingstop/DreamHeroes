@@ -21,7 +21,7 @@ struct net_global
 	static void init_net_service( int thread_count, int proc_interval, compress_strategy* cs_imp, bool need_max_speed, int msg_pool_size );
 	static void free_net_service();
 	static void stop_net_service();
-	static message_t* get_message( message_len size, tcp_session* from );
+	static message_t* get_message( message_len size, tcp_session* from, bool base64);
 	static void free_message( message_t* p );
 	static long get_asio_thread_alive_count();
 	static void write_close_log( const char* txt, ... );

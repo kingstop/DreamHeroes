@@ -32,7 +32,7 @@ public:
 	unsigned short get_remote_port() const;
 
 
-	void send_message( const void* data,const unsigned int len );
+	void send_message( const void* data, const unsigned int len, bool base64 = false );
 	void close();
 	void close_and_ban();
 public:
@@ -50,8 +50,8 @@ protected:
 	void _send_message( message_t* msg );
 	void begin_read_message();
 	bool _uncompress_message( char* data );
-	message_t* _compress_message( const void* data, message_len len, int t_idx );
-	message_t* _make_message( const void* data, message_len len );
+	message_t* _compress_message( const void* data, message_len len, int t_idx, bool base64);
+	message_t* _make_message( const void* data, message_len len, bool base64 );
 	void _clear_recv_msg();
 	void _clear_send_msg();
 	void _on_close( const boost::system::error_code& error );

@@ -130,7 +130,7 @@ void UserLoginSession::on_close( const boost::system::error_code& error )
 
 void UserLoginSession::proc_message( const message_t& msg )
 {
-	parsePBMessage(msg.data, msg.len);
+	parsePBMessage(msg.data, msg.len, msg.base64);
 }
 
 void UserLoginSession::reset()

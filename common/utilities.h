@@ -282,8 +282,16 @@ private:
 	unsigned int recv_index;
 };
 
-bool base64_encode(std::string &input, std::string &output);
-bool Base64_decode(const std::string& input, std::string& output);
+//bool base64_encode(std::string &input, std::string &output);
+//bool Base64_decode(const std::string& input, std::string& output);
 
+
+
+char * base64_encode(const unsigned char * bindata, char * base64, int binlength);
+
+int base64_decode(const char * base64, unsigned char * bindata);
+
+//std::string base64_encode(unsigned char const*, unsigned int len);
+//std::string base64_decode(std::string const& s);
 #endif // _NEW_COMMON_UTILITIES_HEAD
 

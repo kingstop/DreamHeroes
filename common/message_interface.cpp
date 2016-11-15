@@ -9,9 +9,9 @@ void message_interface::messageInit( compress_strategy* cs )
 	message_interface::s_compress_interface = cs;
 }
 
-message_t* message_interface::createMessage(tcp_session* from, message_len len)
+message_t* message_interface::createMessage(tcp_session* from, message_len len, bool base64)
 {
-	message_t* p = new message_t( len, from );
+	message_t* p = new message_t( len, from, base64);
 	return p;
 }
 void message_interface::releaseMessage( message_t* p)
@@ -44,12 +44,13 @@ message_t* message_interface::uncompress(tcp_session* from, char* data, unsigned
   
     
 	//是否压缩
-	if( ( type & COMPRESS_MASK ) && message_interface::s_compress_interface != NULL)
+	bool base64 = (type & BASE64_MASK_TYPE);
+	if( ( type & COMPRESS_MASK_TYPE) && message_interface::s_compress_interface != NULL)
 	{
 		//解压缩
 		if( message_interface::s_compress_interface->uncompress(buffptr , &size, data + MESSAGE_HEAD_LEN, datalen - MESSAGE_HEAD_LEN ) )
 		{
-			message_t* msg = createMessage(from, size);
+			message_t* msg = createMessage(from, size, base64);
 			memcpy( msg->data, buffptr, size );
 			return msg;
 		}else
@@ -59,14 +60,14 @@ message_t* message_interface::uncompress(tcp_session* from, char* data, unsigned
 	}
 	else
 	{
-		message_t* msg = createMessage(from, datalen - MESSAGE_HEAD_LEN  );
+		message_t* msg = createMessage(from, datalen - MESSAGE_HEAD_LEN, base64);
 		memcpy( msg->data, data + MESSAGE_HEAD_LEN, datalen - MESSAGE_HEAD_LEN );
 		return msg;
 	}
 }
 
 
-message_t* message_interface::compress(tcp_session* from, const char* data, message_len len, char* buffptr, message_len& size, unsigned char* p_send_key)
+message_t* message_interface::compress(tcp_session* from, const char* data, message_len len, char* buffptr, message_len& size, unsigned char* p_send_key, bool base64)
 {
 	if (len > MESSAGE_COMPRESS_LEN && message_interface::s_compress_interface != NULL)
 	{
@@ -74,29 +75,37 @@ message_t* message_interface::compress(tcp_session* from, const char* data, mess
 		{
 			if (size < len)
 			{
-				return makeMessage(from, buffptr, size, p_send_key, true);
+				return makeMessage(from, buffptr, size, p_send_key, true, base64);
 			}
 		}
 	}
-	return makeMessage(from, data, len, p_send_key, false);
+	return makeMessage(from, data, len, p_send_key, false, base64);
 }
 
-message_t* message_interface::makeMessage(tcp_session* from, const char* data, message_len len,unsigned char* p_send_key, bool _compress)
+message_t* message_interface::makeMessage(tcp_session* from, const char* data, message_len len,unsigned char* p_send_key, bool _compress, bool base64)
 {
 	message_len lenMax = len + MESSAGE_HEAD_LEN  ;
-	message_t* p = createMessage(from, lenMax);
+	message_t* p = createMessage(from, lenMax, base64);
 	if (!p)
-	{ return NULL;}
+	{ 
+		return NULL;
+	}
 	memcpy( p->data + MESSAGE_HEAD_LEN , data, len);
 
 	if (len  > 1)
 	{
 		*(message_crc32*)(p->data + MESSAGE_HEAD_BASIC_BEGIN) = 0;
 		*(message_crc32*)(p->data + MESSAGE_HEAD_BASIC_BEGIN) = ssl::sslCrc32( p->data + MESSAGE_HEAD_LEN, len );  // check code
+		*(message_mask*)(p->data + MESSAGE_HEAD_MASK_BEGIN) = 0;
 
 		if (_compress) // 如果是压缩的数据,加入压缩标示
 		{
-			*(message_mask*)( p->data + MESSAGE_HEAD_MASK_BEGIN ) |= ::COMPRESS_MASK;
+			*(message_mask*)( p->data + MESSAGE_HEAD_MASK_BEGIN ) |= ::COMPRESS_MASK_TYPE;
+		}
+
+		if (base64)
+		{
+			*(message_mask*)(p->data + MESSAGE_HEAD_MASK_BEGIN) |= ::BASE64_MASK_TYPE;
 		}
 		//加密
 		unsigned char* _encrypt_buff = (unsigned char*)(p->data +MESSAGE_HEAD_MASK_BEGIN);

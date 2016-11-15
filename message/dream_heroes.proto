@@ -229,6 +229,13 @@ message MsgS2CVerifyDealIOSACK
 	required int32 current_gold = 4;
 	required GameError error = 5 [default=Error_NO];
 }
+
+message MsgS2CPingNotify
+{
+	required int32 ping_count = 1;
+	required uint64 time = 2;
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////
 message MsgC2SCmdReqRemoveSpecialCreatureListHis
 {
@@ -334,9 +341,12 @@ message MsgS2CCmdReqReplaceTask
 	required int32 task_count = 1;
 	
 }
+
 message MsgS2CCmdReplaceTaskACK
 {
 	required GameError error = 1 [default=Error_NO];
 	repeated MsgTaskConfigInfo infos = 2;
 }
+
+
 //////////////////////////////////////////////////////////////////////////////////////////

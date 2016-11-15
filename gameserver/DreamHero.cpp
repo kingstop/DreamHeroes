@@ -4,6 +4,7 @@
 #include "RecordManager.h"
 #define _SAVE_PLAYER_TIME_  (10 * _TIME_SECOND_MSEL_)
 #define _REMOVE_PLAYER_TIME_  (20 * _TIME_SECOND_MSEL_)
+#define _HERO_PING_NOTIFY_ (1 * _TIME_SECOND_MSEL_)
 DreamHero::DreamHero()
 {
 	_info.set_gold(0);
@@ -144,6 +145,16 @@ void DreamHero::StopSave()
 	if (gEventMgr.hasEvent(this, EVENT_SAVE_PLAYER_DATA_) == true)
 	{
 		gEventMgr.removeEvents(this, EVENT_SAVE_PLAYER_DATA_);
+	}
+}
+
+
+void DreamHero::StartPing()
+{
+	_ping_count = 0;
+	if (gEventMgr.hasEvent(this, EVENT_PALYER_PING_) == false)
+	{
+		gEventMgr.addEvent(this, &DreamHero::pingNotify, EVENT_PALYER_PING_, _HERO_PING_NOTIFY_, -1, 0);
 	}
 }
 
@@ -1149,6 +1160,7 @@ void DreamHero::SendClientInit()
 	fillSpecialCreatureList(msg.mutable_special_creatures());	
 	sendPBMessage(&msg);
 	_online = true;
+	StartPing();
 }
 
 
@@ -1178,6 +1190,7 @@ void DreamHero::LoadFromConfig()
 	_info.set_current_hero(0);
 	std::string name = _parent->generateName();
 	_info.set_name(name.c_str());
+	_ping_count = 0;
 	
 }
 
@@ -1389,4 +1402,13 @@ void DreamHero::sendPBMessage(google::protobuf::Message* p)
 		_session->sendPBMessage(p);
 	}
 	
+}
+
+void DreamHero::pingNotify()
+{
+	message::MsgS2CPingNotify msg;
+	msg.set_ping_count(_ping_count);
+	_ping_count++;
+	msg.set_time(g_server_time);
+	sendPBMessage(&msg);
 }

@@ -1,6 +1,7 @@
 #ifndef __thread_buffer_h__
 #define __thread_buffer_h__
 #include "common_header.h"
+#include "utilities.h"
 #ifdef _WIN32
 #include <Windows.h>
 #else
@@ -11,6 +12,7 @@
 
 
 
+
 struct thread_packet_buffer
 {
     enum
@@ -18,9 +20,11 @@ struct thread_packet_buffer
         _packet_send_buffer_,
         _packet_recv_buffer_,
         _packet_compress_buffer_,
+		_packet_base64_decode_buffer_,
+		_packet_base64_encode_buffer_,
         _packet_buffer_max_,
 
-        _buffer_default_length = 65000,
+        _buffer_default_length = 262144,
     };
 
     thread_packet_buffer(unsigned int id) :_thread_id(id)
@@ -117,6 +121,15 @@ struct thread_buffer_manager
     {
         return getThreadBuffer(thread_packet_buffer::_packet_compress_buffer_, maxlen);
     }
+	static char* getThreadBase64EncodeBuffer(unsigned int& maxlen)
+	{
+		return getThreadBuffer(thread_packet_buffer::_packet_base64_encode_buffer_, maxlen);
+	}
+
+	static char* getThreadBase64DecodeBuffer(unsigned int& maxlen)
+	{
+		return getThreadBuffer(thread_packet_buffer::_packet_base64_decode_buffer_, maxlen);
+	}
 
 private:
     static char* getThreadBuffer(unsigned int ntype, unsigned int& maxlen)
@@ -150,9 +163,10 @@ private:
 
 struct thread_send_buffer
 {
-    explicit thread_send_buffer( const unsigned int maxlen) : _max_length(maxlen), _buff_pos(0)
+    explicit thread_send_buffer( const unsigned int maxlen, bool base64) : _max_length(maxlen), _buff_pos(0), _base64(base64)
     {
         _buff = thread_buffer_manager::getThreadSendBuffer(_max_length);
+		_finally_buff = NULL;
     }
     bool write( const char* nItem, unsigned int len)
     {
@@ -169,6 +183,48 @@ struct thread_send_buffer
     }
 
     char* getBuff()const {return _buff;}
+	void prepare()
+	{
+		if (_base64)
+		{
+			if (_finally_buff == NULL)
+			{
+				unsigned int max_length = _max_length * 2;
+				_finally_buff = thread_buffer_manager::getThreadBase64EncodeBuffer(max_length);
+				base64_encode((unsigned char*)_buff, _finally_buff, _buff_pos);
+			}
+		}
+	}
+	const char* getFinallyBuff()
+	{
+		prepare();
+		char* buff = NULL;
+		if (_base64)
+		{
+			buff = _finally_buff;
+		}
+		else
+		{
+			buff = _buff;
+		}
+		return buff;
+	}
+
+	unsigned int getFinallyBuffLen()
+	{
+		prepare();
+		unsigned int len = 0;
+		if (_base64)
+		{
+			len = strlen(_finally_buff);
+		}
+		else
+		{
+			len = _buff_pos;
+		}
+		return len;
+	}
+	
     unsigned int getLen() const {return _buff_pos;}
     void addWriteLen(unsigned int add){ _buff_pos += add; assert(_buff_pos < _max_length) ;}
 
@@ -176,17 +232,30 @@ struct thread_send_buffer
     char* getBegin() const {return _buff + _buff_pos ;}
 private:
     char* _buff;
+	char* _finally_buff;
     unsigned int _buff_pos;
     unsigned int _max_length;
+	bool _base64;
 };
 struct thread_recv_buffer
 {
-    explicit thread_recv_buffer(const char* data, unsigned int len):_buff_len(len), _buff_pos(0), _max_length(len + 1)
+    explicit thread_recv_buffer(const char* data, unsigned int len, bool base64):_buff_len(len), _buff_pos(0), _max_length(len + 1), _base64(base64)
     {
-     	_buff = thread_buffer_manager::getThreadRecvBuffer(_max_length);
-     	_buff_pos = 0;
-     	memcpy(_buff, data, len);
+		_buff = thread_buffer_manager::getThreadRecvBuffer(_max_length);
+		if (_base64)
+		{						
+			_buff_len = base64_decode(data, (unsigned char*)_buff);
+		}
+		else
+		{
+			memcpy(_buff, data, len);
+		}
+     	
+     	_buff_pos = 0;		
+     	//memcpy(_buff, data, len);
     }
+
+
      
     char* getBuff()const {return _buff;}
     unsigned int getLen() const {return _buff_len;}
@@ -220,6 +289,7 @@ private:
     char* _buff;
     unsigned int _buff_pos;
     unsigned int _max_length;
-    const unsigned int _buff_len;
+    unsigned int _buff_len;
+	bool _base64;
 };
 #endif

@@ -38,9 +38,9 @@ void net_global::init_net_service( int thread_count, int proc_interval, compress
 }
 
 
-message_t* net_global::get_message(message_len size, tcp_session* from )
+message_t* net_global::get_message(message_len size, tcp_session* from, bool base64)
 {
-	return message_interface::createMessage(from, size);
+	return message_interface::createMessage(from, size, base64);
 }
 
 void net_global::free_message( message_t* p )

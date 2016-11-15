@@ -69,5 +69,5 @@ void GateLoginClient::on_connect_failed( boost::system::error_code error )
 }
 void GateLoginClient::proc_message( const message_t& msg )
 {
-	parsePBMessage(msg.data, msg.len);
+	parsePBMessage(msg.data, msg.len, msg.base64);
 }
