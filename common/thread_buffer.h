@@ -10,9 +10,6 @@
 #include "boost/thread/mutex.hpp"
 #include "exception.h"
 
-
-
-
 struct thread_packet_buffer
 {
     enum
@@ -244,7 +241,8 @@ struct thread_recv_buffer
 		_buff = thread_buffer_manager::getThreadRecvBuffer(_max_length);
 		if (_base64)
 		{						
-			_buff_len = base64_decode(data, (unsigned char*)_buff);
+			_buff_len = Base64Decode(data, _buff_len, (unsigned char*)_buff);
+			//_buff_len = base64_decode(data, (unsigned char*)_buff);
 		}
 		else
 		{

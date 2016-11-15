@@ -1205,3 +1205,91 @@ int base64_decode(const char * base64, unsigned char * bindata)
 //
 //	return ret;
 //}
+//base64±àÂë 
+int Base64Encode(unsigned char *out, const unsigned char *in, int inlen)
+{
+	const char base64digits[] =
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	int outlen = 0;
+	for (; inlen >= 3; inlen -= 3)
+	{
+		*out++ = base64digits[in[0] >> 2];
+		*out++ = base64digits[((in[0] << 4) & 0x30) | (in[1] >> 4)];
+		*out++ = base64digits[((in[1] << 2) & 0x3c) | (in[2] >> 6)];
+		*out++ = base64digits[in[2] & 0x3f];
+		in += 3;
+		outlen += 4;
+	}
+	if (inlen > 0)
+	{
+		unsigned char fragment;
+
+		*out++ = base64digits[in[0] >> 2];
+		fragment = (in[0] << 4) & 0x30;
+		if (inlen > 1)
+			fragment |= in[1] >> 4;
+		*out++ = base64digits[fragment];
+		*out++ = (inlen < 2) ? '=' : base64digits[(in[1] << 2) & 0x3c];
+		*out++ = '=';
+		outlen += 4;
+	}
+	*out = '\0';
+
+	return outlen;
+}
+
+BYTE LMoveBit(int base, int MoveNum)
+{
+	BYTE result = base;
+	if (MoveNum == 0)return 1;
+	if (MoveNum == 1)return MoveNum;
+	result = base << (MoveNum - 1);
+	return result;
+}
+int Base64Decode(const char *base64code, DWORD base64length, unsigned char* outbin)
+{
+	char base64_alphabet[] =
+	{ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P',
+		'Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f',
+		'g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v',
+		'w','x','y','z','0','1','2','3','4','5','6','7','8','9','+','/','=' };
+	char buf[4];
+	int i, j;
+	int k;
+	int l = 0;
+	BYTE temp1[4], temp2;
+	BYTE *Buffer = outbin;
+	int outlen = 0;
+	memset(Buffer, 0, base64length * 3 / 4);
+	DWORD base64a = (base64length / 4) - 1;
+	DWORD base64b = 0;
+	int m_padnum = 0;
+	for (; base64b<base64a + 1; base64b++)
+	{
+		for (i = 0; i<4; i++)
+		{
+			buf[i] = *(base64code + (base64b * 4) + i);
+			for (j = 0; j<65; j++)
+			{
+				if (buf[i] == base64_alphabet[j])
+				{
+					temp1[i] = j;
+					break;
+				}
+			}
+		}
+		i--;
+		for (k = 1; k<4; k++)
+		{
+			if (temp1[i - (k - 1)] == 64) { m_padnum++; continue; }
+			temp1[i - (k - 1)] = temp1[i - (k - 1)] / LMoveBit(2, (k - 1) * 2);
+			temp2 = temp1[i - k];
+			temp2 = temp2&(LMoveBit(2, k * 2) - 1);
+			temp2 *= LMoveBit(2, 8 - (2 * k));//move 4 
+			temp1[i - (k - 1)] = temp1[i - (k - 1)] + temp2;
+			Buffer[base64b * 3 + (3 - k)] = temp1[i - (k - 1)];
+			outlen++;
+		}
+	}
+	return outlen;
+}
