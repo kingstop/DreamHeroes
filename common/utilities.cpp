@@ -1238,9 +1238,9 @@ int Base64Encode(unsigned char *out, const unsigned char *in, int inlen)
 	return outlen;
 }
 
-BYTE LMoveBit(int base, int MoveNum)
+unsigned char LMoveBit(int base, int MoveNum)
 {
-	BYTE result = base;
+	unsigned char result = base;
 	if (MoveNum == 0)return 1;
 	if (MoveNum == 1)return MoveNum;
 	result = base << (MoveNum - 1);
@@ -1257,12 +1257,12 @@ int Base64Decode(const char *base64code, long base64length, unsigned char* outbi
 	int i, j;
 	int k;
 	int l = 0;
-	BYTE temp1[4], temp2;
-	BYTE *Buffer = outbin;
+	unsigned char temp1[4], temp2;
+	unsigned char *Buffer = outbin;
 	int outlen = 0;
 	memset(Buffer, 0, base64length * 3 / 4);
-	DWORD base64a = (base64length / 4) - 1;
-	DWORD base64b = 0;
+	unsigned long base64a = (base64length / 4) - 1;
+	unsigned long base64b = 0;
 	int m_padnum = 0;
 	for (; base64b<base64a + 1; base64b++)
 	{
