@@ -91,6 +91,7 @@ UserSession::UserSession(void) : tcp_session( *net_global::get_io_service() )
     m_state = _disable_;
     m_gs_id = INVALID_GAME_ID;
 	_proto_user_ptr = this;
+	_base64 = true;
 }
 
 UserSession::~UserSession(void)

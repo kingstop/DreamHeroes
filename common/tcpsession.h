@@ -18,6 +18,7 @@ public:
 	virtual void push_message( message_t* msg );
 	virtual void reset();
 	virtual void run();
+	void set_base64(bool b);
 
 public:
 	bool is_valid();
@@ -30,9 +31,10 @@ public:
 	std::string get_remote_address_string() const;
 	unsigned int get_remote_address_ui() const;
 	unsigned short get_remote_port() const;
+	bool get_base64() { return _base64; }
 
 
-	void send_message( const void* data, const unsigned int len, bool base64 = false );
+	void send_message( const void* data, const unsigned int len, bool base64);
 	void close();
 	void close_and_ban();
 public:
@@ -77,6 +79,7 @@ protected:
 	volatile long m_not_sent_size;
 	unsigned char m_send_crypt_key;
 	unsigned char m_recv_crypt_key;
+	bool _base64;
 
 };
 

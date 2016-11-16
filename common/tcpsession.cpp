@@ -45,11 +45,16 @@ private:
 
 tcp_session::tcp_session( boost::asio::io_service& is )
 : m_socket( NULL ), m_io_service( is ), m_isvalid( false ), m_iscompress( false ), m_thread_index( 0 ), m_isclosing( false ), m_recive_buffer_pos( 0 ),
-	m_remote_ip_ui( 0 ), m_not_sent_size( 0 ), m_send_crypt_key( 0 ), m_recv_crypt_key( 0 ), m_is_sending_data( false )
+	m_remote_ip_ui( 0 ), m_not_sent_size( 0 ), m_send_crypt_key( 0 ), m_recv_crypt_key( 0 ), m_is_sending_data( false ), _base64(false)
 {
 	memset(m_sending_data, 0, sizeof(m_sending_data));
 	memset(m_recv_buffer, 0, sizeof(m_recv_buffer));
 	memset(buffer_, 0, sizeof(buffer_));
+}
+
+void tcp_session::set_base64(bool b)
+{
+	_base64 = b;
 }
 
 tcp_session::~tcp_session()
@@ -153,7 +158,7 @@ void tcp_session::send_message( const void* data, const unsigned int len, bool b
 				ti = get_thread_index();
 
 			task* t = NULL;
-			t = new compress_send_task( data, len, this, ti, base64 );
+			t = new compress_send_task( data, len, this, ti, base64);
 			m_father->push_task( t );
 		}
 		else

@@ -38,9 +38,11 @@ message_t* message_interface::uncompress(tcp_session* from, char* data, unsigned
 	// crc32 验证
 	message_crc32 checksum = *(message_crc32*)( data + MESSAGE_HEAD_BASIC_BEGIN );
 	
-    //暂时不启动CRC32验证
-	//if( !ssl::sslChecksum(data + MESSAGE_HEAD_LEN, datalen - MESSAGE_HEAD_LEN, checksum) )
-	//{ return NULL;}
+   // 暂时不启动CRC32验证
+	if( !ssl::sslChecksum(data + MESSAGE_HEAD_LEN, datalen - MESSAGE_HEAD_LEN, checksum) )
+	{ 
+		return NULL;
+	}
   
     
 	//是否压缩

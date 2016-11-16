@@ -23,7 +23,7 @@ public:
     }
 
     template<class T>
-    static bool pushProtocMessage(google::protobuf::Message* msg, pb_flag_type flag, T* p, bool base64 ,void(T::*methond)(const void*data, const unsigned int len, bool base64))
+    static bool pushProtocMessage(google::protobuf::Message* msg, pb_flag_type flag, T* p, bool base64 ,void(T::*methond)(const void*data, const unsigned int len))
     {
        if (NULL == msg || NULL == p || NULL == methond)
        {
@@ -45,7 +45,7 @@ public:
 		   return false;
 	   }
 	   packet.addWriteLen(msg->ByteSize());
-	   (p->*methond)(packet.getFinallyBuff(), packet.getFinallyBuffLen(), base64);
+	   (p->*methond)(packet.getFinallyBuff(), packet.getFinallyBuffLen());
 
        return true;
     }
@@ -139,9 +139,9 @@ public:
     {
 
     }
-    bool sendPBMessage(google::protobuf::Message* msg, pb_flag_type flag = 0, bool base64 = false)
+    bool sendPBMessage(google::protobuf::Message* msg, pb_flag_type flag = 0)
     {
-        return ProtocBufferCommon::pushProtocMessage< ProtocMsgBase<T> >(msg, flag, this, base64, &ProtocMsgBase<T>::sendPBBuffer);
+        return ProtocBufferCommon::pushProtocMessage< ProtocMsgBase<T> >(msg, flag, this, _proto_user_ptr->get_base64(), &ProtocMsgBase<T>::sendPBBuffer);
     }
 
     bool parsePBMessage(const char* buff, const unsigned long len, bool base64)
@@ -173,11 +173,11 @@ public:
             (_proto_user_ptr->*static_default_pb_function)(msg, flag);
         }
     }
-    void sendPBBuffer(const void*data, const unsigned int len, bool base64)
+    void sendPBBuffer(const void*data, const unsigned int len)
     {
         if (NULL !=  _proto_user_ptr && NULL != ProtocMsgBase<T>::static_send_function)
         {   
-			(_proto_user_ptr->*static_send_function)( data, len,base64);
+			(_proto_user_ptr->*static_send_function)( data, len, _proto_user_ptr->get_base64());
 		}
     }
 

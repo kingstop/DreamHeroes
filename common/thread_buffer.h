@@ -188,7 +188,7 @@ struct thread_send_buffer
 			{
 				unsigned int max_length = _max_length * 2;
 				_finally_buff = thread_buffer_manager::getThreadBase64EncodeBuffer(max_length);
-				base64_encode((unsigned char*)_buff, _finally_buff, _buff_pos);
+				Base64Encode((unsigned char*)_finally_buff, (unsigned char*)_buff, _buff_pos);
 			}
 		}
 	}

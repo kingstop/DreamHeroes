@@ -124,7 +124,8 @@ int ssl::sslDecrypt( unsigned char* key, const unsigned char* in_data, int in_le
 	return in_len - 1;
 }
 
-#define DO1 crc = Crypto::crc_table[((int)crc ^ (*data++)) & 0xff] ^ (crc >> 8)
+//#define DO1 crc = Crypto::crc_table[((int)crc ^ (*data++)) & 0xff] ^ (crc >> 8)
+#define DO1 crc = Crypto::crc_table[(crc ^ (*data++)) & 0xFF] ^ (crc >> 8)
 #define DO8 DO1; DO1; DO1; DO1; DO1; DO1; DO1; DO1
 
  unsigned int ssl::sslCrc32(const char* data, unsigned int len)
@@ -149,9 +150,16 @@ int ssl::sslDecrypt( unsigned char* key, const unsigned char* in_data, int in_le
 		 DO8;
 		 len -= 8;
 	 }
+	 //for (int i = 0; i < len; i ++)
+	 //{
+		// crc = Crypto::crc_table[(crc ^ *(data + i)) & 0xFF] ^ (crc >> 8);
+	 //}
+	 
 	 if (len) do {
-		 DO1;
+		 crc = Crypto::crc_table[((int)crc ^ (*data++)) & 0xff] ^ (crc >> 8);
+		 //DO1;
 	 } while (--len);
+	 
 	 return crc ^ 0xffffffffUL;
  }
  std::string ssl::ssl_md5(const char* in, size_t len)
