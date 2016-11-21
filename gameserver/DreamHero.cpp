@@ -875,6 +875,13 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 	sendPBMessage(&msgACK);
 }
 
+void DreamHero::ReqModifyTutorialFlag(const message::MsgC2SReqModifyNewTutorial* msg)
+{
+	_info.set_new_tutorial(msg->flag());
+	message::MsgS2CModifyNewTutorialACK msgACK;
+	msgACK.set_flag(_info.new_tutorial());
+	sendPBMessage(&msgACK);
+}
 
 void DreamHero::ReqAdvertisementRefreshTask(const message::MsgC2SReqAdvertisementRefreshTask* msg)
 {
@@ -1190,6 +1197,7 @@ void DreamHero::LoadFromConfig()
 	_info.set_current_hero(0);
 	std::string name = _parent->generateName();
 	_info.set_name(name.c_str());
+	_info.set_new_tutorial(0);
 	_ping_count = 0;
 	
 }
@@ -1289,12 +1297,12 @@ void DreamHero::SaveHero()
 //#ifdef WIN32
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,`special_kill`,\
 		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`, `special_creatures`, \
-		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`) values \
-		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d);",
+		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`) values \
+		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d);",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
-		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count);
+		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count, _info.new_tutorial());
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \

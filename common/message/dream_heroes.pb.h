@@ -67,6 +67,8 @@ class MsgS2CCrearteIOSDealACK;
 class MsgC2SReqVerifyDealIOS;
 class MsgS2CVerifyDealIOSACK;
 class MsgS2CPingNotify;
+class MsgC2SReqModifyNewTutorial;
+class MsgS2CModifyNewTutorialACK;
 class MsgC2SCmdReqRemoveSpecialCreatureListHis;
 class MsgC2SCmdReqSetSpecialCreatureHis;
 class MsgS2CCmdNotifySpecialCreatureHisModify;
@@ -3276,6 +3278,184 @@ class MsgS2CPingNotify : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgS2CPingNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqModifyNewTutorial : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqModifyNewTutorial();
+  virtual ~MsgC2SReqModifyNewTutorial();
+
+  MsgC2SReqModifyNewTutorial(const MsgC2SReqModifyNewTutorial& from);
+
+  inline MsgC2SReqModifyNewTutorial& operator=(const MsgC2SReqModifyNewTutorial& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqModifyNewTutorial& default_instance();
+
+  void Swap(MsgC2SReqModifyNewTutorial* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqModifyNewTutorial* New() const { return New(NULL); }
+
+  MsgC2SReqModifyNewTutorial* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqModifyNewTutorial& from);
+  void MergeFrom(const MsgC2SReqModifyNewTutorial& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqModifyNewTutorial* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 flag = 1;
+  bool has_flag() const;
+  void clear_flag();
+  static const int kFlagFieldNumber = 1;
+  ::google::protobuf::int32 flag() const;
+  void set_flag(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqModifyNewTutorial)
+ private:
+  inline void set_has_flag();
+  inline void clear_has_flag();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 flag_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqModifyNewTutorial* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CModifyNewTutorialACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CModifyNewTutorialACK();
+  virtual ~MsgS2CModifyNewTutorialACK();
+
+  MsgS2CModifyNewTutorialACK(const MsgS2CModifyNewTutorialACK& from);
+
+  inline MsgS2CModifyNewTutorialACK& operator=(const MsgS2CModifyNewTutorialACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CModifyNewTutorialACK& default_instance();
+
+  void Swap(MsgS2CModifyNewTutorialACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CModifyNewTutorialACK* New() const { return New(NULL); }
+
+  MsgS2CModifyNewTutorialACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CModifyNewTutorialACK& from);
+  void MergeFrom(const MsgS2CModifyNewTutorialACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CModifyNewTutorialACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 flag = 1;
+  bool has_flag() const;
+  void clear_flag();
+  static const int kFlagFieldNumber = 1;
+  ::google::protobuf::int32 flag() const;
+  void set_flag(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CModifyNewTutorialACK)
+ private:
+  inline void set_has_flag();
+  inline void clear_has_flag();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 flag_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CModifyNewTutorialACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -7176,6 +7356,62 @@ inline void MsgS2CPingNotify::set_time(::google::protobuf::uint64 value) {
   set_has_time();
   time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CPingNotify.time)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqModifyNewTutorial
+
+// required int32 flag = 1;
+inline bool MsgC2SReqModifyNewTutorial::has_flag() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SReqModifyNewTutorial::set_has_flag() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SReqModifyNewTutorial::clear_has_flag() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SReqModifyNewTutorial::clear_flag() {
+  flag_ = 0;
+  clear_has_flag();
+}
+inline ::google::protobuf::int32 MsgC2SReqModifyNewTutorial::flag() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqModifyNewTutorial.flag)
+  return flag_;
+}
+inline void MsgC2SReqModifyNewTutorial::set_flag(::google::protobuf::int32 value) {
+  set_has_flag();
+  flag_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqModifyNewTutorial.flag)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CModifyNewTutorialACK
+
+// required int32 flag = 1;
+inline bool MsgS2CModifyNewTutorialACK::has_flag() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CModifyNewTutorialACK::set_has_flag() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CModifyNewTutorialACK::clear_has_flag() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CModifyNewTutorialACK::clear_flag() {
+  flag_ = 0;
+  clear_has_flag();
+}
+inline ::google::protobuf::int32 MsgS2CModifyNewTutorialACK::flag() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CModifyNewTutorialACK.flag)
+  return flag_;
+}
+inline void MsgS2CModifyNewTutorialACK::set_flag(::google::protobuf::int32 value) {
+  set_has_flag();
+  flag_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CModifyNewTutorialACK.flag)
 }
 
 // -------------------------------------------------------------------

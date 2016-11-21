@@ -236,6 +236,16 @@ message MsgS2CPingNotify
 	required uint64 time = 2;
 }
 
+message MsgC2SReqModifyNewTutorial
+{
+	required int32 flag = 1;
+}
+
+message MsgS2CModifyNewTutorialACK
+{
+	required int32 flag = 1;
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////
 message MsgC2SCmdReqRemoveSpecialCreatureListHis
 {

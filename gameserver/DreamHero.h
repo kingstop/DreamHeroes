@@ -55,6 +55,7 @@ public:
 	void ReqModifyTaskCompleteCount(const message::MsgC2SCmdReqModifyTaskCompleteCount* msg);
 	void ReqCrearteIOSDeal(const message::MsgC2SReqCrearteIOSDeal* msg);
 	void ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg);
+	void ReqModifyTutorialFlag(const message::MsgC2SReqModifyNewTutorial* msg);
 	void ReqRemoveAllSpecialCreatureList();
 	void ReqSetSpecialCreatureList(int creature_id, int status);
 	void ReqModifyCurrentHero(int grid_id);

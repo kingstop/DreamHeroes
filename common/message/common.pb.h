@@ -546,6 +546,13 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 complete_task_count() const;
   void set_complete_task_count(::google::protobuf::int32 value);
 
+  // required int32 new_tutorial = 8;
+  bool has_new_tutorial() const;
+  void clear_new_tutorial();
+  static const int kNewTutorialFieldNumber = 8;
+  ::google::protobuf::int32 new_tutorial() const;
+  void set_new_tutorial(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -556,6 +563,8 @@ class MsgHeroData : public ::google::protobuf::Message {
   inline void clear_has_current_hero();
   inline void set_has_complete_task_count();
   inline void clear_has_complete_task_count();
+  inline void set_has_new_tutorial();
+  inline void clear_has_new_tutorial();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -570,6 +579,7 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 current_hero_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgTaskInfo > tasks_;
   ::google::protobuf::int32 complete_task_count_;
+  ::google::protobuf::int32 new_tutorial_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1838,6 +1848,30 @@ inline void MsgHeroData::set_complete_task_count(::google::protobuf::int32 value
   set_has_complete_task_count();
   complete_task_count_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.complete_task_count)
+}
+
+// required int32 new_tutorial = 8;
+inline bool MsgHeroData::has_new_tutorial() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void MsgHeroData::set_has_new_tutorial() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void MsgHeroData::clear_has_new_tutorial() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void MsgHeroData::clear_new_tutorial() {
+  new_tutorial_ = 0;
+  clear_has_new_tutorial();
+}
+inline ::google::protobuf::int32 MsgHeroData::new_tutorial() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.new_tutorial)
+  return new_tutorial_;
+}
+inline void MsgHeroData::set_new_tutorial(::google::protobuf::int32 value) {
+  set_has_new_tutorial();
+  new_tutorial_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.new_tutorial)
 }
 
 // -------------------------------------------------------------------

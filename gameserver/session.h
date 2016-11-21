@@ -64,7 +64,7 @@ public:
 	void parseReqModifyCurrentHero(google::protobuf::Message* p);
 	void parseReqCrearteIOSDeal(google::protobuf::Message* p);
 	void parseReqVerifyDealIOS(google::protobuf::Message* p);
-
+	void parseReqModifyTutorial(google::protobuf::Message* p);
 public:
 	void parseCmdReqMdodifyGMLevel(google::protobuf::Message* p);
 	void parseCmdReqEnterGame(google::protobuf::Message* p);

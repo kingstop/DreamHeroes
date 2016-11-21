@@ -37,7 +37,7 @@ message MsgHeroData
 	repeated MsgTaskInfo tasks = 5;
 	required int32 current_hero = 6;
 	required int32 complete_task_count = 7;
-	
+	required int32 new_tutorial = 8;	
 }
 
 
@@ -109,4 +109,5 @@ message MsgGoldShopConfigInfo
 	required float money = 4;
 	required string describe = 5;
 }
+
 

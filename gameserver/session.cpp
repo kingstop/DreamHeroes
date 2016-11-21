@@ -100,6 +100,19 @@ void Session::parseReqUnlockChapter(google::protobuf::Message* p)
 	_dream_hero->ReqUnlockChapter(msg);
 }
 
+void Session::parseReqModifyTutorial(google::protobuf::Message* p)
+{
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+	
+	message::MsgC2SReqModifyNewTutorial* msg = (message::MsgC2SReqModifyNewTutorial*) p;
+	_dream_hero->ReqModifyTutorialFlag(msg);
+
+}
+
+
 void Session::parseReqAdvertisementApplyTask(google::protobuf::Message* p)
 {
 	if (_dream_hero == NULL)
@@ -179,7 +192,6 @@ void Session::parseReqVerifyDealIOS(google::protobuf::Message* p)
 {
 	message::MsgC2SReqVerifyDealIOS* msg = (message::MsgC2SReqVerifyDealIOS*)p;
 	_dream_hero->ReqVerifyDealIOS(msg);
-
 }
 
 
