@@ -39,6 +39,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyCurrentHero), &Session::parseReqModifyCurrentHero);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqCrearteIOSDeal), &Session::parseReqCrearteIOSDeal);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqVerifyDealIOS), &Session::parseReqVerifyDealIOS);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyNewTutorial), &Session::parseReqModifyTutorial);
 
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGMLevel), &Session::parseCmdReqMdodifyGMLevel);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqEnterGame), &Session::parseCmdReqEnterGame);
@@ -49,6 +50,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyTaskCompleteCount), &Session::parseCmdReqModifyTaskCompleteCount);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqSetSpecialCreatureHis), &Session::parseCmdReqSetSpecialCreatureHis);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqRemoveSpecialCreatureListHis), &Session::parseCmdReqRemoveSpecialCreatureListHis);
+
 }
 
 void Session::parseReqShopConfig(google::protobuf::Message* p)
@@ -105,11 +107,9 @@ void Session::parseReqModifyTutorial(google::protobuf::Message* p)
 	if (_dream_hero == NULL)
 	{
 		return;
-	}
-	
+	}	
 	message::MsgC2SReqModifyNewTutorial* msg = (message::MsgC2SReqModifyNewTutorial*) p;
 	_dream_hero->ReqModifyTutorialFlag(msg);
-
 }
 
 
