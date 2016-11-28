@@ -347,11 +347,17 @@ DreamHero* DreamHeroManager::GetHeroByName(const char* name)
 	for (; it != _heroes.end(); ++ it)
 	{
 		DreamHero* temp_hero = it->second;
-		if (temp_hero->get_name() == name)
+		if (temp_hero != NULL)
 		{
-			hero = temp_hero;
-			break;
+			std::string hero_name = temp_hero->get_name();
+			if (temp_hero->get_name() == name)
+			{
+				hero = temp_hero;
+				break;
+			}
 		}
+
+
 	}
 	//hero->StopDestroyClock();
 	return hero;
