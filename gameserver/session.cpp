@@ -355,7 +355,7 @@ void Session::parseCmdReqMdodifyGMLevel(google::protobuf::Message* p)
 		else
 		{
 			char szTemp[512];
-			sprintf(szTemp, "update character set `gm_level` = %d where `name` = '%s'", level_temp, name.c_str());
+			sprintf(szTemp, "update `character` set `gm_level` = %d where `name` = '%s'", level_temp, name.c_str());
 			message::MsgSaveDataGS2DB msg_db;
 			msg_db.set_sql(szTemp);
 			gGSDBClient.sendPBMessage(&msg_db, getTranId());
