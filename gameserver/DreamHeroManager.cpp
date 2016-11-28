@@ -350,11 +350,17 @@ DreamHero* DreamHeroManager::GetHeroByName(const char* name)
 		if (temp_hero != NULL)
 		{
 			std::string hero_name = temp_hero->get_name();
-			if (temp_hero->get_name() == name)
+			int length = strlen(name);
+			if (strcmp(temp_hero->get_name(), name) == 0)
 			{
 				hero = temp_hero;
 				break;
+
 			}
+			//
+			//if (temp_hero->get_name() == name)
+			//{
+			//}
 		}
 
 
