@@ -1199,7 +1199,7 @@ void DreamHero::LoadFromConfig()
 	_info.set_name(name.c_str());
 	_info.set_new_tutorial(0);
 	_ping_count = 0;
-	
+	SetGMLevel(1);
 }
 
 void DreamHero::SaveHero()
