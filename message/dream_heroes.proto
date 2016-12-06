@@ -19,21 +19,23 @@ enum GameError
 	Error_RefreshAdvertisementTaskFailedInCD = 13;
 	Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 14;
 	Error_RefreshAdvertisementTaskFailedUnknow = 15;
-	Error_BuyHeroFailedNotEnoughGold = 16;
-	Error_BuyHeroFailedThePriceIsOld = 17;
-	Error_BuyHeroFailedNotFoundGrid = 18;
-	Error_BuyHeroFailedNotPassRequiredSection = 19;
-	Error_ModifyCurrentFailedTheCharacterIsLock = 20;
-	Error_BuyGoldFailedNotFoundConfig = 21;
-	Error_BuyGoldFailedNotFoundOrder = 22;
-	Error_BuyGoldFailedTheOrderHaveBeenCompleted = 23;
-	Error_CreateDealFailedTheHttpErrorRespone = 24;
-	Error_CreateDealFailedTheHttpResponeFailed = 25;
-	Error_CreateDealDailedTheHttpResponeErrorProduct_id = 26;
-	Error_VerifyDealFailedTheHttpErrorRespone = 27;
-	Error_VerifyDealFailedTheHttpResponeFailed = 28;
-	Error_CmdFailedRequiredGMLevel = 29;
-	Error_Unknow = 30;
+	Error_RefreshAdvertisementTaskFailedNotEnoughGold = 16;
+	Error_BuyHeroFailedNotEnoughGold = 17;
+	Error_BuyHeroFailedThePriceIsOld = 18;
+	Error_BuyHeroFailedNotFoundGrid = 19;
+	Error_BuyHeroFailedNotPassRequiredSection = 20;
+	Error_ModifyCurrentFailedTheCharacterIsLock = 21;
+	Error_BuyGoldFailedNotFoundConfig = 22;
+	Error_BuyGoldFailedNotFoundOrder = 23;
+	Error_BuyGoldFailedTheOrderHaveBeenCompleted = 24;
+	Error_CreateDealFailedTheHttpErrorRespone = 25;
+	Error_CreateDealFailedTheHttpResponeFailed = 26;
+	Error_CreateDealDailedTheHttpResponeErrorProduct_id = 27;
+	Error_VerifyDealFailedTheHttpErrorRespone = 28;
+	Error_VerifyDealFailedTheHttpResponeFailed = 29;
+	Error_CmdFailedRequiredGMLevel = 30;
+	Error_ReliveFailedNotEnoughGod = 31;
+	Error_Unknow = 32;
 }
 
 
@@ -79,6 +81,8 @@ message MsgS2CHeroesInit
 	required int32 advertisement_time_cd = 6;
 	required int32 gm_level = 7;
 	repeated MsgIntPair special_creatures = 8;
+	required int32 relive_gold = 9;
+	required int32 refresh_task_gold = 10;
 }
 
 message MsgC2SReqEnterGame
@@ -138,18 +142,20 @@ message MsgC2SReqUnlockChapter
 
 message MsgC2SReqAdvertisementApplyTask
 {
-
+	required bool gold = 1;
 }
 
 message MsgS2CAdvertisementApplyTaskACK
 {
 	required GameError error = 1 [default=Error_NO];
 	repeated MsgTaskConfigInfo infos = 2;
+	required int32 current_gold = 3;
 }
 
 message MsgC2SReqAdvertisementRefreshTask
 {
 	required int32 give_up_task_id = 1;
+	required bool gold = 2;
 }
 
 message MsgS2CAdvertisementRefreshTaskACK
@@ -157,6 +163,7 @@ message MsgS2CAdvertisementRefreshTaskACK
 	required int32 give_up_task_id = 1;
 	required GameError error = 2 [default=Error_NO];
 	repeated MsgTaskConfigInfo infos = 3;
+	required int32 current_gold = 4;
 }
 
 message MsgC2SReqModifyCurrentHero
@@ -244,6 +251,17 @@ message MsgC2SReqModifyNewTutorial
 message MsgS2CModifyNewTutorialACK
 {
 	required int32 flag = 1;
+}
+
+message MsgC2SReliveReq
+{
+
+}
+
+message MsgS2CReliveACK
+{
+	required int32 current_gold = 1;
+	required GameError error = 2 [default=Error_NO];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////

@@ -56,6 +56,7 @@ public:
 	void ReqCrearteIOSDeal(const message::MsgC2SReqCrearteIOSDeal* msg);
 	void ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg);
 	void ReqModifyTutorialFlag(const message::MsgC2SReqModifyNewTutorial* msg);
+	void ReqReliveReq(const message::MsgC2SReliveReq* msg);
 	void ReqRemoveAllSpecialCreatureList();
 	void ReqSetSpecialCreatureList(int creature_id, int status);
 	void ReqModifyCurrentHero(int grid_id);
@@ -68,7 +69,7 @@ public:
 	void addDealPay(std::string key_code, int status, int order_id, message::GameError error, bool send_msg = true);
 protected:
 	message::MsgTaskConfigInfo RadnomTaskInfo(int give_up_task = 0);
-	void RefreshTask(int give_up_task_id = 0);	
+	void RefreshTask(int give_up_task_id, bool gold);	
 	void Destroy();
 protected:
 	void fillSpecialCreatureList(::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >* list);

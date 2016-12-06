@@ -590,10 +590,16 @@ void DreamHero::fillSpecialCreatureList(::google::protobuf::RepeatedPtrField< ::
 	}
 }
 
-void DreamHero::RefreshTask(int give_up_task_id)
+void DreamHero::RefreshTask(int give_up_task_id, bool gold)
 {
-	message::GameError msgError = message::Error_NO;	
-	if (_current_task_count > gGameConfig.getGlobalConfig().day_free_task_count_)
+
+	message::GameError msgError = message::Error_NO;
+	int current_gold = _info.gold();
+	if (current_gold < gGameConfig.getGlobalConfig().refresh_task_gold_ && gold == true)
+	{
+		msgError = message::Error_RefreshAdvertisementTaskFailedNotEnoughGold;
+	}
+	else if (_current_task_count > gGameConfig.getGlobalConfig().day_free_task_count_)
 	{
 		s64 diff_time = g_server_time - _last_task_advertisement_time;
 		if (diff_time < gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_)
@@ -653,6 +659,8 @@ void DreamHero::RefreshTask(int give_up_task_id)
 		if (info_task_config.taskid() != 0)
 		{
 			gRecordManager.taskAccepteRecordRecord(_account, _info.name().c_str(), info_task_config.taskid());
+			current_gold = current_gold - gGameConfig.getGlobalConfig().refresh_task_gold_;
+			_info.set_gold(current_gold);
 		}		
 	}
 
@@ -666,6 +674,8 @@ void DreamHero::RefreshTask(int give_up_task_id)
 			message::MsgTaskConfigInfo* info = msgACK.add_infos();
 			info->CopyFrom(info_task_config);
 		}
+		
+		msgACK.set_current_gold(current_gold);
 		msgACK.set_error(msgError);
 		sendPBMessage(&msgACK);
 	}
@@ -678,14 +688,35 @@ void DreamHero::RefreshTask(int give_up_task_id)
 			message::MsgTaskConfigInfo* info = msgACK.add_infos();
 			info->CopyFrom(info_task_config);
 		}
+		msgACK.set_current_gold(current_gold);
 		sendPBMessage(&msgACK);
 	}
 
 }
 
+void DreamHero::ReqReliveReq(const message::MsgC2SReliveReq* msg)
+{
+	message::GameError error = message::Error_NO;
+	int current_gold = _info.gold();
+	if (current_gold >= gGameConfig.getGlobalConfig().relive_gold_)
+	{
+		current_gold = current_gold - gGameConfig.getGlobalConfig().relive_gold_;
+		_info.set_gold(current_gold);
+	}
+	else
+	{
+		error = message::Error_ReliveFailedNotEnoughGod;
+	}
+	
+	message::MsgS2CReliveACK msgACK;
+	msgACK.set_current_gold(_info.gold());
+	msgACK.set_error(error);
+	sendPBMessage(&msgACK);
+}
+
 void DreamHero::ReqAdvertisementApplyTask(const message::MsgC2SReqAdvertisementApplyTask* msg)
 {
-	RefreshTask(0);
+	RefreshTask(0, msg->gold());
 }
 
 
@@ -887,7 +918,7 @@ void DreamHero::ReqAdvertisementRefreshTask(const message::MsgC2SReqAdvertisemen
 {
 
 	int give_up_task_id_temp = msg->give_up_task_id();
-	RefreshTask(give_up_task_id_temp);
+	RefreshTask(give_up_task_id_temp, msg->gold());
 }
 
 
@@ -1164,6 +1195,8 @@ void DreamHero::SendClientInit()
 	msg.set_last_advertisement_time(_last_task_advertisement_time);
 	msg.set_advertisement_time_cd(gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_);
 	msg.set_gm_level(getGMLevel());
+	msg.set_refresh_task_gold(gGameConfig.getGlobalConfig().refresh_task_gold_);
+	msg.set_relive_gold(gGameConfig.getGlobalConfig().relive_gold_);
 	fillSpecialCreatureList(msg.mutable_special_creatures());	
 	sendPBMessage(&msg);
 	_online = true;

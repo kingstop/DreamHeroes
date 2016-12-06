@@ -248,6 +248,8 @@ void GameConfig::Load(DBQuery* p)
 			_global_config.hero_max_tasks_count_ =  row["hero_max_tasks_count"];
 			_global_config.channel_id_ = row["channel_id"];
 			_global_config.game_id_ = row["game_id"];
+			_global_config.refresh_task_gold_ = row["refresh_task_gold"];
+			_global_config.relive_gold_ = row["relive_gold"];
 		}
 
 		query.reset();

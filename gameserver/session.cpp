@@ -40,6 +40,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqCrearteIOSDeal), &Session::parseReqCrearteIOSDeal);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqVerifyDealIOS), &Session::parseReqVerifyDealIOS);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyNewTutorial), &Session::parseReqModifyTutorial);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReliveReq), &Session::parseReqRelive);
 
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGMLevel), &Session::parseCmdReqMdodifyGMLevel);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqEnterGame), &Session::parseCmdReqEnterGame);
@@ -100,6 +101,17 @@ void Session::parseReqUnlockChapter(google::protobuf::Message* p)
 
 	message::MsgC2SReqUnlockChapter* msg = (message::MsgC2SReqUnlockChapter*)p;
 	_dream_hero->ReqUnlockChapter(msg);
+}
+
+void Session::parseReqRelive(google::protobuf::Message* p)
+{
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+
+	message::MsgC2SReliveReq* msg = (message::MsgC2SReliveReq*)p;
+	_dream_hero->ReqReliveReq(msg);
 }
 
 void Session::parseReqModifyTutorial(google::protobuf::Message* p)

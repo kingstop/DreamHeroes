@@ -26,6 +26,8 @@ struct globalConfig
 	int hero_max_tasks_count_;
 	int channel_id_;
 	int game_id_;
+	int refresh_task_gold_;
+	int relive_gold_;
 };
 struct ShopSalesPromotionConfig
 {
