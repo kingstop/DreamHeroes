@@ -848,7 +848,7 @@ void DreamHero::ReqBuyHero(const message::MsgC2SReqBuyHero* msg)
 			int record_size = _info.records_size();
 			for (int i = 0; i < record_size; i ++)
 			{
-				if (_info.records(i).number_1() == require_chapter_id && require_section_id < _info.records(i).number_2())
+				if (_info.records(i).number_1() == require_chapter_id && require_section_id <= _info.records(i).number_2())
 				{
 					en = message::Error_NO;
 					break;
