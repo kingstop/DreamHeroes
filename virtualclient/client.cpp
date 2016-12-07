@@ -25,19 +25,19 @@ void Client::initPBModule()
 {
     ProtocMsgBase<Client>::registerSDFun(&Client::send_message, NULL);
     ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::LoginResponse), &Client::parseLoginResult);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgHeroInit), &Client::parseMsgHeroInit);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgHeroEquip), &Client::parseMsgHeroEquip);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgToyInit), &Client::parseMsgToyInit);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgEquipInit), &Client::parseMsgEquipInit);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CModifySuitNameACK), &Client::parseModifySuitNameACK);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CModifySuitErrorACK), &Client::parseModifySuitErrorACK);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CModifySuitACK), &Client::parseModifySuitACK);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CDelSuitACK), &Client::parseDelSuitACK);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CVerifyToyCDKeyErrorACK), &Client::parseVerifyToyCDKeyErrorACK);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CVerifyToyCDKeyACK), &Client::parseVerifyToyCDKeyACK);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CEquipLevelUpReq), &Client::parseEquipLevelUpReq);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CEquipLevelUpACK), &Client::parseEquipLevelUpACK);
-	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CEquipLevelUpErrorACK), &Client::parseEquipLevelUpErrorACK);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgHeroInit), &Client::parseMsgHeroInit);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgHeroEquip), &Client::parseMsgHeroEquip);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgToyInit), &Client::parseMsgToyInit);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgEquipInit), &Client::parseMsgEquipInit);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CModifySuitNameACK), &Client::parseModifySuitNameACK);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CModifySuitErrorACK), &Client::parseModifySuitErrorACK);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CModifySuitACK), &Client::parseModifySuitACK);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CDelSuitACK), &Client::parseDelSuitACK);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CVerifyToyCDKeyErrorACK), &Client::parseVerifyToyCDKeyErrorACK);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CVerifyToyCDKeyACK), &Client::parseVerifyToyCDKeyACK);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CEquipLevelUpReq), &Client::parseEquipLevelUpReq);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CEquipLevelUpACK), &Client::parseEquipLevelUpACK);
+	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CEquipLevelUpErrorACK), &Client::parseEquipLevelUpErrorACK);
 }
 void Client::parseClientChar(google::protobuf::Message* p, pb_flag_type flag)
 {
@@ -82,6 +82,8 @@ void Client::parseLoginResult(google::protobuf::Message* p, pb_flag_type flag)
 }
 void Client::parseClientInit(google::protobuf::Message* p, pb_flag_type flag)
 {
+	message::MsgS2CHeroesInit* msg = (message::MsgS2CHeroesInit*)p;
+	Instance.client_manage_.addOnlineClient(this);
 
 }
 void Client::update(u32 nDiff)
@@ -183,77 +185,76 @@ void Client::on_connect_failed( boost::system::error_code error )
 }
 void Client::proc_message( const message_t& msg )
 {
-    parsePBMessage(msg.data, msg.len);
+    parsePBMessage(msg.data, msg.len, msg.base64);
 }
 
 
 void Client::parseMsgHeroInit(google::protobuf::Message* p, pb_flag_type flag)
 {
-	message::S2CMsgHeroInit* msg = (message::S2CMsgHeroInit*)p;
-	Instance.client_manage_.addOnlineClient(this);
-	
+	//message::S2CMsgHeroInit* msg = (message::S2CMsgHeroInit*)p;
+	//Instance.client_manage_.addOnlineClient(this);
 }
-
-void Client::parseMsgHeroEquip(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CMsgHeroEquip* msg = (message::S2CMsgHeroEquip*)p;
-}
-
-void Client::parseMsgToyInit(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CMsgToyInit* msg = (message::S2CMsgToyInit*)p;
-}
-
-void Client::parseMsgEquipInit(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CMsgEquipInit* msg = (message::S2CMsgEquipInit*)p;
-}
-
-void Client::parseModifySuitNameACK(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CModifySuitNameACK* msg = (message::S2CModifySuitNameACK*)p;
-}
-
-void Client::parseModifySuitErrorACK(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CVerifyToyCDKeyErrorACK* msg = (message::S2CVerifyToyCDKeyErrorACK*)p;
-}
-
-void Client::parseModifySuitACK(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CModifySuitACK* msg = (message::S2CModifySuitACK*)p;
-}
-
-void Client::parseDelSuitACK(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CDelSuitACK* msg = (message::S2CDelSuitACK*)p;
-}
-
-
-void Client::parseVerifyToyCDKeyErrorACK(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CVerifyToyCDKeyErrorACK* msg = (message::S2CVerifyToyCDKeyErrorACK*)p;
-}
-
-void Client::parseVerifyToyCDKeyACK(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CVerifyToyCDKeyACK* msg = (message::S2CVerifyToyCDKeyACK*)p;
-}
-
-void Client::parseEquipLevelUpReq(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CEquipLevelUpReq* msg = (message::S2CEquipLevelUpReq*)p;
-}
-
-void Client::parseEquipLevelUpACK(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CEquipLevelUpACK* msg = (message::S2CEquipLevelUpACK*)p;
-}
-
-void Client::parseEquipLevelUpErrorACK(google::protobuf::Message* p, pb_flag_type flag)
-{
-	message::S2CEquipLevelUpErrorACK* msg = (message::S2CEquipLevelUpErrorACK*)p;
-}
+//
+//void Client::parseMsgHeroEquip(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CMsgHeroEquip* msg = (message::S2CMsgHeroEquip*)p;
+//}
+//
+//void Client::parseMsgToyInit(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CMsgToyInit* msg = (message::S2CMsgToyInit*)p;
+//}
+//
+//void Client::parseMsgEquipInit(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CMsgEquipInit* msg = (message::S2CMsgEquipInit*)p;
+//}
+//
+//void Client::parseModifySuitNameACK(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CModifySuitNameACK* msg = (message::S2CModifySuitNameACK*)p;
+//}
+//
+//void Client::parseModifySuitErrorACK(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CVerifyToyCDKeyErrorACK* msg = (message::S2CVerifyToyCDKeyErrorACK*)p;
+//}
+//
+//void Client::parseModifySuitACK(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CModifySuitACK* msg = (message::S2CModifySuitACK*)p;
+//}
+//
+//void Client::parseDelSuitACK(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CDelSuitACK* msg = (message::S2CDelSuitACK*)p;
+//}
+//
+//
+//void Client::parseVerifyToyCDKeyErrorACK(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CVerifyToyCDKeyErrorACK* msg = (message::S2CVerifyToyCDKeyErrorACK*)p;
+//}
+//
+//void Client::parseVerifyToyCDKeyACK(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CVerifyToyCDKeyACK* msg = (message::S2CVerifyToyCDKeyACK*)p;
+//}
+//
+//void Client::parseEquipLevelUpReq(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CEquipLevelUpReq* msg = (message::S2CEquipLevelUpReq*)p;
+//}
+//
+//void Client::parseEquipLevelUpACK(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CEquipLevelUpACK* msg = (message::S2CEquipLevelUpACK*)p;
+//}
+//
+//void Client::parseEquipLevelUpErrorACK(google::protobuf::Message* p, pb_flag_type flag)
+//{
+//	message::S2CEquipLevelUpErrorACK* msg = (message::S2CEquipLevelUpErrorACK*)p;
+//}
 
 void Client::SetTestIndex(int index)
 {
