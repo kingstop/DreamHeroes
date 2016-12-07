@@ -38,6 +38,7 @@ void protobuf_AddDesc_login_2eproto();
 void protobuf_AssignDesc_login_2eproto();
 void protobuf_ShutdownFile_login_2eproto();
 
+class VersionTg;
 class LoginRequest;
 class RegisterAccountRequest;
 class RegisterAccountFaildACK;
@@ -50,11 +51,13 @@ enum enumLoginResult {
   enumLoginResult_Fail = 1,
   enumLoginResult_NameFail = 2,
   enumLoginResult_PwdFail = 3,
-  enumLoginResult_HaveLogin = 4
+  enumLoginResult_HaveLogin = 4,
+  enumLoginResult_ErrorVersion = 5,
+  enumLoginResult_ErrorChannel = 6
 };
 bool enumLoginResult_IsValid(int value);
 const enumLoginResult enumLoginResult_MIN = enumLoginResult_Success;
-const enumLoginResult enumLoginResult_MAX = enumLoginResult_HaveLogin;
+const enumLoginResult enumLoginResult_MAX = enumLoginResult_ErrorChannel;
 const int enumLoginResult_ARRAYSIZE = enumLoginResult_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* enumLoginResult_descriptor();
@@ -68,6 +71,118 @@ inline bool enumLoginResult_Parse(
     enumLoginResult_descriptor(), name, value);
 }
 // ===================================================================
+
+class VersionTg : public ::google::protobuf::Message {
+ public:
+  VersionTg();
+  virtual ~VersionTg();
+
+  VersionTg(const VersionTg& from);
+
+  inline VersionTg& operator=(const VersionTg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const VersionTg& default_instance();
+
+  void Swap(VersionTg* other);
+
+  // implements Message ----------------------------------------------
+
+  inline VersionTg* New() const { return New(NULL); }
+
+  VersionTg* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const VersionTg& from);
+  void MergeFrom(const VersionTg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(VersionTg* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 number_1 = 1;
+  bool has_number_1() const;
+  void clear_number_1();
+  static const int kNumber1FieldNumber = 1;
+  ::google::protobuf::int32 number_1() const;
+  void set_number_1(::google::protobuf::int32 value);
+
+  // required int32 number_2 = 2;
+  bool has_number_2() const;
+  void clear_number_2();
+  static const int kNumber2FieldNumber = 2;
+  ::google::protobuf::int32 number_2() const;
+  void set_number_2(::google::protobuf::int32 value);
+
+  // required int32 number_3 = 3;
+  bool has_number_3() const;
+  void clear_number_3();
+  static const int kNumber3FieldNumber = 3;
+  ::google::protobuf::int32 number_3() const;
+  void set_number_3(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.VersionTg)
+ private:
+  inline void set_has_number_1();
+  inline void clear_has_number_1();
+  inline void set_has_number_2();
+  inline void clear_has_number_2();
+  inline void set_has_number_3();
+  inline void clear_has_number_3();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 number_1_;
+  ::google::protobuf::int32 number_2_;
+  ::google::protobuf::int32 number_3_;
+  friend void  protobuf_AddDesc_login_2eproto();
+  friend void protobuf_AssignDesc_login_2eproto();
+  friend void protobuf_ShutdownFile_login_2eproto();
+
+  void InitAsDefaultInstance();
+  static VersionTg* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class LoginRequest : public ::google::protobuf::Message {
  public:
@@ -157,18 +272,40 @@ class LoginRequest : public ::google::protobuf::Message {
   ::std::string* release_pwd();
   void set_allocated_pwd(::std::string* pwd);
 
+  // optional .message.VersionTg version = 3;
+  bool has_version() const;
+  void clear_version();
+  static const int kVersionFieldNumber = 3;
+  const ::message::VersionTg& version() const;
+  ::message::VersionTg* mutable_version();
+  ::message::VersionTg* release_version();
+  void set_allocated_version(::message::VersionTg* version);
+
+  // optional int32 channel = 4;
+  bool has_channel() const;
+  void clear_channel();
+  static const int kChannelFieldNumber = 4;
+  ::google::protobuf::int32 channel() const;
+  void set_channel(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.LoginRequest)
  private:
   inline void set_has_name();
   inline void clear_has_name();
   inline void set_has_pwd();
   inline void clear_has_pwd();
+  inline void set_has_version();
+  inline void clear_has_version();
+  inline void set_has_channel();
+  inline void clear_has_channel();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr pwd_;
+  ::message::VersionTg* version_;
+  ::google::protobuf::int32 channel_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -466,12 +603,14 @@ class LoginResponse : public ::google::protobuf::Message {
   ::message::enumLoginResult result() const;
   void set_result(::message::enumLoginResult value);
 
-  // optional uint32 chartype = 5;
-  bool has_chartype() const;
-  void clear_chartype();
-  static const int kChartypeFieldNumber = 5;
-  ::google::protobuf::uint32 chartype() const;
-  void set_chartype(::google::protobuf::uint32 value);
+  // optional .message.VersionTg version = 6;
+  bool has_version() const;
+  void clear_version();
+  static const int kVersionFieldNumber = 6;
+  const ::message::VersionTg& version() const;
+  ::message::VersionTg* mutable_version();
+  ::message::VersionTg* release_version();
+  void set_allocated_version(::message::VersionTg* version);
 
   // @@protoc_insertion_point(class_scope:message.LoginResponse)
  private:
@@ -483,8 +622,8 @@ class LoginResponse : public ::google::protobuf::Message {
   inline void clear_has_user_account();
   inline void set_has_result();
   inline void clear_has_result();
-  inline void set_has_chartype();
-  inline void clear_has_chartype();
+  inline void set_has_version();
+  inline void clear_has_version();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
@@ -492,8 +631,8 @@ class LoginResponse : public ::google::protobuf::Message {
   ::google::protobuf::internal::ArenaStringPtr gate_ip_;
   ::google::protobuf::uint32 gate_port_;
   ::google::protobuf::uint32 user_account_;
+  ::message::VersionTg* version_;
   int result_;
-  ::google::protobuf::uint32 chartype_;
   friend void  protobuf_AddDesc_login_2eproto();
   friend void protobuf_AssignDesc_login_2eproto();
   friend void protobuf_ShutdownFile_login_2eproto();
@@ -695,6 +834,82 @@ class ClientExit : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
+// VersionTg
+
+// required int32 number_1 = 1;
+inline bool VersionTg::has_number_1() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void VersionTg::set_has_number_1() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void VersionTg::clear_has_number_1() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void VersionTg::clear_number_1() {
+  number_1_ = 0;
+  clear_has_number_1();
+}
+inline ::google::protobuf::int32 VersionTg::number_1() const {
+  // @@protoc_insertion_point(field_get:message.VersionTg.number_1)
+  return number_1_;
+}
+inline void VersionTg::set_number_1(::google::protobuf::int32 value) {
+  set_has_number_1();
+  number_1_ = value;
+  // @@protoc_insertion_point(field_set:message.VersionTg.number_1)
+}
+
+// required int32 number_2 = 2;
+inline bool VersionTg::has_number_2() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void VersionTg::set_has_number_2() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void VersionTg::clear_has_number_2() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void VersionTg::clear_number_2() {
+  number_2_ = 0;
+  clear_has_number_2();
+}
+inline ::google::protobuf::int32 VersionTg::number_2() const {
+  // @@protoc_insertion_point(field_get:message.VersionTg.number_2)
+  return number_2_;
+}
+inline void VersionTg::set_number_2(::google::protobuf::int32 value) {
+  set_has_number_2();
+  number_2_ = value;
+  // @@protoc_insertion_point(field_set:message.VersionTg.number_2)
+}
+
+// required int32 number_3 = 3;
+inline bool VersionTg::has_number_3() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void VersionTg::set_has_number_3() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void VersionTg::clear_has_number_3() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void VersionTg::clear_number_3() {
+  number_3_ = 0;
+  clear_has_number_3();
+}
+inline ::google::protobuf::int32 VersionTg::number_3() const {
+  // @@protoc_insertion_point(field_get:message.VersionTg.number_3)
+  return number_3_;
+}
+inline void VersionTg::set_number_3(::google::protobuf::int32 value) {
+  set_has_number_3();
+  number_3_ = value;
+  // @@protoc_insertion_point(field_set:message.VersionTg.number_3)
+}
+
+// -------------------------------------------------------------------
+
 // LoginRequest
 
 // optional string name = 1;
@@ -801,6 +1016,73 @@ inline void LoginRequest::set_allocated_pwd(::std::string* pwd) {
   }
   pwd_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), pwd);
   // @@protoc_insertion_point(field_set_allocated:message.LoginRequest.pwd)
+}
+
+// optional .message.VersionTg version = 3;
+inline bool LoginRequest::has_version() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LoginRequest::set_has_version() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LoginRequest::clear_has_version() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LoginRequest::clear_version() {
+  if (version_ != NULL) version_->::message::VersionTg::Clear();
+  clear_has_version();
+}
+inline const ::message::VersionTg& LoginRequest::version() const {
+  // @@protoc_insertion_point(field_get:message.LoginRequest.version)
+  return version_ != NULL ? *version_ : *default_instance_->version_;
+}
+inline ::message::VersionTg* LoginRequest::mutable_version() {
+  set_has_version();
+  if (version_ == NULL) {
+    version_ = new ::message::VersionTg;
+  }
+  // @@protoc_insertion_point(field_mutable:message.LoginRequest.version)
+  return version_;
+}
+inline ::message::VersionTg* LoginRequest::release_version() {
+  clear_has_version();
+  ::message::VersionTg* temp = version_;
+  version_ = NULL;
+  return temp;
+}
+inline void LoginRequest::set_allocated_version(::message::VersionTg* version) {
+  delete version_;
+  version_ = version;
+  if (version) {
+    set_has_version();
+  } else {
+    clear_has_version();
+  }
+  // @@protoc_insertion_point(field_set_allocated:message.LoginRequest.version)
+}
+
+// optional int32 channel = 4;
+inline bool LoginRequest::has_channel() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void LoginRequest::set_has_channel() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void LoginRequest::clear_has_channel() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void LoginRequest::clear_channel() {
+  channel_ = 0;
+  clear_has_channel();
+}
+inline ::google::protobuf::int32 LoginRequest::channel() const {
+  // @@protoc_insertion_point(field_get:message.LoginRequest.channel)
+  return channel_;
+}
+inline void LoginRequest::set_channel(::google::protobuf::int32 value) {
+  set_has_channel();
+  channel_ = value;
+  // @@protoc_insertion_point(field_set:message.LoginRequest.channel)
 }
 
 // -------------------------------------------------------------------
@@ -1047,28 +1329,47 @@ inline void LoginResponse::set_result(::message::enumLoginResult value) {
   // @@protoc_insertion_point(field_set:message.LoginResponse.result)
 }
 
-// optional uint32 chartype = 5;
-inline bool LoginResponse::has_chartype() const {
+// optional .message.VersionTg version = 6;
+inline bool LoginResponse::has_version() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void LoginResponse::set_has_chartype() {
+inline void LoginResponse::set_has_version() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void LoginResponse::clear_has_chartype() {
+inline void LoginResponse::clear_has_version() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void LoginResponse::clear_chartype() {
-  chartype_ = 0u;
-  clear_has_chartype();
+inline void LoginResponse::clear_version() {
+  if (version_ != NULL) version_->::message::VersionTg::Clear();
+  clear_has_version();
 }
-inline ::google::protobuf::uint32 LoginResponse::chartype() const {
-  // @@protoc_insertion_point(field_get:message.LoginResponse.chartype)
-  return chartype_;
+inline const ::message::VersionTg& LoginResponse::version() const {
+  // @@protoc_insertion_point(field_get:message.LoginResponse.version)
+  return version_ != NULL ? *version_ : *default_instance_->version_;
 }
-inline void LoginResponse::set_chartype(::google::protobuf::uint32 value) {
-  set_has_chartype();
-  chartype_ = value;
-  // @@protoc_insertion_point(field_set:message.LoginResponse.chartype)
+inline ::message::VersionTg* LoginResponse::mutable_version() {
+  set_has_version();
+  if (version_ == NULL) {
+    version_ = new ::message::VersionTg;
+  }
+  // @@protoc_insertion_point(field_mutable:message.LoginResponse.version)
+  return version_;
+}
+inline ::message::VersionTg* LoginResponse::release_version() {
+  clear_has_version();
+  ::message::VersionTg* temp = version_;
+  version_ = NULL;
+  return temp;
+}
+inline void LoginResponse::set_allocated_version(::message::VersionTg* version) {
+  delete version_;
+  version_ = version;
+  if (version) {
+    set_has_version();
+  } else {
+    clear_has_version();
+  }
+  // @@protoc_insertion_point(field_set_allocated:message.LoginResponse.version)
 }
 
 // -------------------------------------------------------------------

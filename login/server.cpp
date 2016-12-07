@@ -85,6 +85,29 @@ bool LoginServer::initDataFromDatabase(DBQuery* p, const void* data)
 	DBQuery& query = *p;
 	DBQParms parms;
 
+
+	parms << _LOGIN_LISTEN_USER_;
+	query << "SELECT * FROM `server_config`";
+	query.parse();
+	const SDBResult& r = query.store();
+	int rows_length = r.num_rows();
+	if (rows_length != 0)
+	{
+		const mysqlpp::Row& row = r[0];
+		int verstion_number_1 = row["version_number_1"];
+		int verstion_number_2 = row["version_number_2"];
+		int verstion_number_3 = row["version_number_3"];
+		gLoginConfig.SetVersion(verstion_number_1, verstion_number_2, verstion_number_3);
+		std::string channels  = row["channel_id"];
+		gLoginConfig.SetChannels(channels.c_str());
+
+	}
+	
+
+
+
+	parms.clear();
+	query.reset();
 	parms << _LOGIN_LISTEN_USER_;
 	query << "SELECT * FROM `net_config` WHERE `Category` = %0";
 	query.parse();

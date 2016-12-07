@@ -1,9 +1,20 @@
 package message;
 import "common.proto";
+
+message VersionTg
+{
+	required int32 number_1 = 1;
+	required int32 number_2 = 2;
+	required int32 number_3 = 3;
+}
+
+
 message LoginRequest
 {
 	optional string name = 1;
 	optional string pwd = 2;
+	optional VersionTg version = 3;
+	optional int32 channel = 4;
 }
 
 
@@ -25,6 +36,8 @@ enum enumLoginResult
 	enumLoginResult_NameFail = 2;
 	enumLoginResult_PwdFail = 3;
 	enumLoginResult_HaveLogin = 4;	//已经登录
+	enumLoginResult_ErrorVersion = 5;	//已经登录
+	enumLoginResult_ErrorChannel = 6;	//已经登录
 };
 
 
@@ -34,7 +47,7 @@ message LoginResponse
 	optional uint32 gate_port = 2;
 	optional uint32 user_account = 3;		//账号ID
 	optional enumLoginResult result = 4;	//登录结果
-	optional uint32 chartype = 5;
+	optional VersionTg version = 5;	
 };
 
 //登录Gate

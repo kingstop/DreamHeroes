@@ -20,6 +20,9 @@ namespace message {
 
 namespace {
 
+const ::google::protobuf::Descriptor* VersionTg_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  VersionTg_reflection_ = NULL;
 const ::google::protobuf::Descriptor* LoginRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   LoginRequest_reflection_ = NULL;
@@ -49,10 +52,29 @@ void protobuf_AssignDesc_login_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "login.proto");
   GOOGLE_CHECK(file != NULL);
-  LoginRequest_descriptor_ = file->message_type(0);
-  static const int LoginRequest_offsets_[2] = {
+  VersionTg_descriptor_ = file->message_type(0);
+  static const int VersionTg_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionTg, number_1_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionTg, number_2_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionTg, number_3_),
+  };
+  VersionTg_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      VersionTg_descriptor_,
+      VersionTg::default_instance_,
+      VersionTg_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionTg, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(VersionTg),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VersionTg, _internal_metadata_),
+      -1);
+  LoginRequest_descriptor_ = file->message_type(1);
+  static const int LoginRequest_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, pwd_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, channel_),
   };
   LoginRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -65,7 +87,7 @@ void protobuf_AssignDesc_login_2eproto() {
       sizeof(LoginRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, _internal_metadata_),
       -1);
-  RegisterAccountRequest_descriptor_ = file->message_type(1);
+  RegisterAccountRequest_descriptor_ = file->message_type(2);
   static const int RegisterAccountRequest_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegisterAccountRequest, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegisterAccountRequest, pwd_),
@@ -81,7 +103,7 @@ void protobuf_AssignDesc_login_2eproto() {
       sizeof(RegisterAccountRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegisterAccountRequest, _internal_metadata_),
       -1);
-  RegisterAccountFaildACK_descriptor_ = file->message_type(2);
+  RegisterAccountFaildACK_descriptor_ = file->message_type(3);
   static const int RegisterAccountFaildACK_offsets_[1] = {
   };
   RegisterAccountFaildACK_reflection_ =
@@ -95,13 +117,13 @@ void protobuf_AssignDesc_login_2eproto() {
       sizeof(RegisterAccountFaildACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegisterAccountFaildACK, _internal_metadata_),
       -1);
-  LoginResponse_descriptor_ = file->message_type(3);
+  LoginResponse_descriptor_ = file->message_type(4);
   static const int LoginResponse_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, gate_ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, gate_port_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, user_account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, result_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, chartype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, version_),
   };
   LoginResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -114,7 +136,7 @@ void protobuf_AssignDesc_login_2eproto() {
       sizeof(LoginResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, _internal_metadata_),
       -1);
-  LoginGame_descriptor_ = file->message_type(4);
+  LoginGame_descriptor_ = file->message_type(5);
   static const int LoginGame_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginGame, user_account_),
   };
@@ -129,7 +151,7 @@ void protobuf_AssignDesc_login_2eproto() {
       sizeof(LoginGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginGame, _internal_metadata_),
       -1);
-  ClientExit_descriptor_ = file->message_type(5);
+  ClientExit_descriptor_ = file->message_type(6);
   static const int ClientExit_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClientExit, charid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClientExit, user_account_),
@@ -159,6 +181,8 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      VersionTg_descriptor_, &VersionTg::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       LoginRequest_descriptor_, &LoginRequest::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       RegisterAccountRequest_descriptor_, &RegisterAccountRequest::default_instance());
@@ -175,6 +199,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_login_2eproto() {
+  delete VersionTg::default_instance_;
+  delete VersionTg_reflection_;
   delete LoginRequest::default_instance_;
   delete LoginRequest_reflection_;
   delete RegisterAccountRequest::default_instance_;
@@ -197,28 +223,35 @@ void protobuf_AddDesc_login_2eproto() {
 
   ::message::protobuf_AddDesc_common_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013login.proto\022\007message\032\014common.proto\")\n\014"
-    "LoginRequest\022\014\n\004name\030\001 \001(\t\022\013\n\003pwd\030\002 \001(\t\""
-    "3\n\026RegisterAccountRequest\022\014\n\004name\030\001 \002(\t\022"
-    "\013\n\003pwd\030\002 \002(\t\"\031\n\027RegisterAccountFaildACK\""
-    "\205\001\n\rLoginResponse\022\017\n\007gate_ip\030\001 \001(\t\022\021\n\tga"
-    "te_port\030\002 \001(\r\022\024\n\014user_account\030\003 \001(\r\022(\n\006r"
-    "esult\030\004 \001(\0162\030.message.enumLoginResult\022\020\n"
-    "\010chartype\030\005 \001(\r\"!\n\tLoginGame\022\024\n\014user_acc"
-    "ount\030\001 \002(\r\"2\n\nClientExit\022\016\n\006charid\030\001 \001(\r"
-    "\022\024\n\014user_account\030\002 \001(\004*\242\001\n\017enumLoginResu"
-    "lt\022\033\n\027enumLoginResult_Success\020\000\022\030\n\024enumL"
-    "oginResult_Fail\020\001\022\034\n\030enumLoginResult_Nam"
-    "eFail\020\002\022\033\n\027enumLoginResult_PwdFail\020\003\022\035\n\031"
-    "enumLoginResult_HaveLogin\020\004", 547);
+    "\n\013login.proto\022\007message\032\014common.proto\"A\n\t"
+    "VersionTg\022\020\n\010number_1\030\001 \002(\005\022\020\n\010number_2\030"
+    "\002 \002(\005\022\020\n\010number_3\030\003 \002(\005\"_\n\014LoginRequest\022"
+    "\014\n\004name\030\001 \001(\t\022\013\n\003pwd\030\002 \001(\t\022#\n\007version\030\003 "
+    "\001(\0132\022.message.VersionTg\022\017\n\007channel\030\004 \001(\005"
+    "\"3\n\026RegisterAccountRequest\022\014\n\004name\030\001 \002(\t"
+    "\022\013\n\003pwd\030\002 \002(\t\"\031\n\027RegisterAccountFaildACK"
+    "\"\230\001\n\rLoginResponse\022\017\n\007gate_ip\030\001 \001(\t\022\021\n\tg"
+    "ate_port\030\002 \001(\r\022\024\n\014user_account\030\003 \001(\r\022(\n\006"
+    "result\030\004 \001(\0162\030.message.enumLoginResult\022#"
+    "\n\007version\030\006 \001(\0132\022.message.VersionTg\"!\n\tL"
+    "oginGame\022\024\n\014user_account\030\001 \002(\r\"2\n\nClient"
+    "Exit\022\016\n\006charid\030\001 \001(\r\022\024\n\014user_account\030\002 \001"
+    "(\004*\346\001\n\017enumLoginResult\022\033\n\027enumLoginResul"
+    "t_Success\020\000\022\030\n\024enumLoginResult_Fail\020\001\022\034\n"
+    "\030enumLoginResult_NameFail\020\002\022\033\n\027enumLogin"
+    "Result_PwdFail\020\003\022\035\n\031enumLoginResult_Have"
+    "Login\020\004\022 \n\034enumLoginResult_ErrorVersion\020"
+    "\005\022 \n\034enumLoginResult_ErrorChannel\020\006", 755);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "login.proto", &protobuf_RegisterTypes);
+  VersionTg::default_instance_ = new VersionTg();
   LoginRequest::default_instance_ = new LoginRequest();
   RegisterAccountRequest::default_instance_ = new RegisterAccountRequest();
   RegisterAccountFaildACK::default_instance_ = new RegisterAccountFaildACK();
   LoginResponse::default_instance_ = new LoginResponse();
   LoginGame::default_instance_ = new LoginGame();
   ClientExit::default_instance_ = new ClientExit();
+  VersionTg::default_instance_->InitAsDefaultInstance();
   LoginRequest::default_instance_->InitAsDefaultInstance();
   RegisterAccountRequest::default_instance_->InitAsDefaultInstance();
   RegisterAccountFaildACK::default_instance_->InitAsDefaultInstance();
@@ -245,6 +278,8 @@ bool enumLoginResult_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+    case 5:
+    case 6:
       return true;
     default:
       return false;
@@ -265,8 +300,430 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int VersionTg::kNumber1FieldNumber;
+const int VersionTg::kNumber2FieldNumber;
+const int VersionTg::kNumber3FieldNumber;
+#endif  // !_MSC_VER
+
+VersionTg::VersionTg()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.VersionTg)
+}
+
+void VersionTg::InitAsDefaultInstance() {
+}
+
+VersionTg::VersionTg(const VersionTg& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.VersionTg)
+}
+
+void VersionTg::SharedCtor() {
+  _cached_size_ = 0;
+  number_1_ = 0;
+  number_2_ = 0;
+  number_3_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+VersionTg::~VersionTg() {
+  // @@protoc_insertion_point(destructor:message.VersionTg)
+  SharedDtor();
+}
+
+void VersionTg::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void VersionTg::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* VersionTg::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return VersionTg_descriptor_;
+}
+
+const VersionTg& VersionTg::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_login_2eproto();
+  return *default_instance_;
+}
+
+VersionTg* VersionTg::default_instance_ = NULL;
+
+VersionTg* VersionTg::New(::google::protobuf::Arena* arena) const {
+  VersionTg* n = new VersionTg;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void VersionTg::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<VersionTg*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(number_1_, number_3_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool VersionTg::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.VersionTg)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 number_1 = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &number_1_)));
+          set_has_number_1();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_number_2;
+        break;
+      }
+
+      // required int32 number_2 = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_number_2:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &number_2_)));
+          set_has_number_2();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_number_3;
+        break;
+      }
+
+      // required int32 number_3 = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_number_3:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &number_3_)));
+          set_has_number_3();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.VersionTg)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.VersionTg)
+  return false;
+#undef DO_
+}
+
+void VersionTg::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.VersionTg)
+  // required int32 number_1 = 1;
+  if (has_number_1()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->number_1(), output);
+  }
+
+  // required int32 number_2 = 2;
+  if (has_number_2()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->number_2(), output);
+  }
+
+  // required int32 number_3 = 3;
+  if (has_number_3()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->number_3(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.VersionTg)
+}
+
+::google::protobuf::uint8* VersionTg::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.VersionTg)
+  // required int32 number_1 = 1;
+  if (has_number_1()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->number_1(), target);
+  }
+
+  // required int32 number_2 = 2;
+  if (has_number_2()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->number_2(), target);
+  }
+
+  // required int32 number_3 = 3;
+  if (has_number_3()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->number_3(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.VersionTg)
+  return target;
+}
+
+int VersionTg::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_number_1()) {
+    // required int32 number_1 = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->number_1());
+  }
+
+  if (has_number_2()) {
+    // required int32 number_2 = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->number_2());
+  }
+
+  if (has_number_3()) {
+    // required int32 number_3 = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->number_3());
+  }
+
+  return total_size;
+}
+int VersionTg::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required int32 number_1 = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->number_1());
+
+    // required int32 number_2 = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->number_2());
+
+    // required int32 number_3 = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->number_3());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void VersionTg::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const VersionTg* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const VersionTg*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void VersionTg::MergeFrom(const VersionTg& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_number_1()) {
+      set_number_1(from.number_1());
+    }
+    if (from.has_number_2()) {
+      set_number_2(from.number_2());
+    }
+    if (from.has_number_3()) {
+      set_number_3(from.number_3());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void VersionTg::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void VersionTg::CopyFrom(const VersionTg& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VersionTg::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  return true;
+}
+
+void VersionTg::Swap(VersionTg* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void VersionTg::InternalSwap(VersionTg* other) {
+  std::swap(number_1_, other->number_1_);
+  std::swap(number_2_, other->number_2_);
+  std::swap(number_3_, other->number_3_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata VersionTg::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = VersionTg_descriptor_;
+  metadata.reflection = VersionTg_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// VersionTg
+
+// required int32 number_1 = 1;
+ bool VersionTg::has_number_1() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void VersionTg::set_has_number_1() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void VersionTg::clear_has_number_1() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void VersionTg::clear_number_1() {
+  number_1_ = 0;
+  clear_has_number_1();
+}
+ ::google::protobuf::int32 VersionTg::number_1() const {
+  // @@protoc_insertion_point(field_get:message.VersionTg.number_1)
+  return number_1_;
+}
+ void VersionTg::set_number_1(::google::protobuf::int32 value) {
+  set_has_number_1();
+  number_1_ = value;
+  // @@protoc_insertion_point(field_set:message.VersionTg.number_1)
+}
+
+// required int32 number_2 = 2;
+ bool VersionTg::has_number_2() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void VersionTg::set_has_number_2() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void VersionTg::clear_has_number_2() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void VersionTg::clear_number_2() {
+  number_2_ = 0;
+  clear_has_number_2();
+}
+ ::google::protobuf::int32 VersionTg::number_2() const {
+  // @@protoc_insertion_point(field_get:message.VersionTg.number_2)
+  return number_2_;
+}
+ void VersionTg::set_number_2(::google::protobuf::int32 value) {
+  set_has_number_2();
+  number_2_ = value;
+  // @@protoc_insertion_point(field_set:message.VersionTg.number_2)
+}
+
+// required int32 number_3 = 3;
+ bool VersionTg::has_number_3() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void VersionTg::set_has_number_3() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void VersionTg::clear_has_number_3() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void VersionTg::clear_number_3() {
+  number_3_ = 0;
+  clear_has_number_3();
+}
+ ::google::protobuf::int32 VersionTg::number_3() const {
+  // @@protoc_insertion_point(field_get:message.VersionTg.number_3)
+  return number_3_;
+}
+ void VersionTg::set_number_3(::google::protobuf::int32 value) {
+  set_has_number_3();
+  number_3_ = value;
+  // @@protoc_insertion_point(field_set:message.VersionTg.number_3)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int LoginRequest::kNameFieldNumber;
 const int LoginRequest::kPwdFieldNumber;
+const int LoginRequest::kVersionFieldNumber;
+const int LoginRequest::kChannelFieldNumber;
 #endif  // !_MSC_VER
 
 LoginRequest::LoginRequest()
@@ -276,6 +733,7 @@ LoginRequest::LoginRequest()
 }
 
 void LoginRequest::InitAsDefaultInstance() {
+  version_ = const_cast< ::message::VersionTg*>(&::message::VersionTg::default_instance());
 }
 
 LoginRequest::LoginRequest(const LoginRequest& from)
@@ -291,6 +749,8 @@ void LoginRequest::SharedCtor() {
   _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   pwd_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  version_ = NULL;
+  channel_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -303,6 +763,7 @@ void LoginRequest::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   pwd_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
+    delete version_;
   }
 }
 
@@ -332,13 +793,17 @@ LoginRequest* LoginRequest::New(::google::protobuf::Arena* arena) const {
 }
 
 void LoginRequest::Clear() {
-  if (_has_bits_[0 / 32] & 3) {
+  if (_has_bits_[0 / 32] & 15) {
     if (has_name()) {
       name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_pwd()) {
       pwd_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
+    if (has_version()) {
+      if (version_ != NULL) version_->::message::VersionTg::Clear();
+    }
+    channel_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -382,6 +847,34 @@ bool LoginRequest::MergePartialFromCodedStream(
             this->pwd().data(), this->pwd().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "message.LoginRequest.pwd");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_version;
+        break;
+      }
+
+      // optional .message.VersionTg version = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_version:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_version()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_channel;
+        break;
+      }
+
+      // optional int32 channel = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_channel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &channel_)));
+          set_has_channel();
         } else {
           goto handle_unusual;
         }
@@ -434,6 +927,17 @@ void LoginRequest::SerializeWithCachedSizes(
       2, this->pwd(), output);
   }
 
+  // optional .message.VersionTg version = 3;
+  if (has_version()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *this->version_, output);
+  }
+
+  // optional int32 channel = 4;
+  if (has_channel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->channel(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -466,6 +970,18 @@ void LoginRequest::SerializeWithCachedSizes(
         2, this->pwd(), target);
   }
 
+  // optional .message.VersionTg version = 3;
+  if (has_version()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, *this->version_, target);
+  }
+
+  // optional int32 channel = 4;
+  if (has_channel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->channel(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -477,7 +993,7 @@ void LoginRequest::SerializeWithCachedSizes(
 int LoginRequest::ByteSize() const {
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & 3) {
+  if (_has_bits_[0 / 32] & 15) {
     // optional string name = 1;
     if (has_name()) {
       total_size += 1 +
@@ -490,6 +1006,20 @@ int LoginRequest::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->pwd());
+    }
+
+    // optional .message.VersionTg version = 3;
+    if (has_version()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->version_);
+    }
+
+    // optional int32 channel = 4;
+    if (has_channel()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->channel());
     }
 
   }
@@ -527,6 +1057,12 @@ void LoginRequest::MergeFrom(const LoginRequest& from) {
       set_has_pwd();
       pwd_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.pwd_);
     }
+    if (from.has_version()) {
+      mutable_version()->::message::VersionTg::MergeFrom(from.version());
+    }
+    if (from.has_channel()) {
+      set_channel(from.channel());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -547,6 +1083,9 @@ void LoginRequest::CopyFrom(const LoginRequest& from) {
 
 bool LoginRequest::IsInitialized() const {
 
+  if (has_version()) {
+    if (!this->version_->IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -557,6 +1096,8 @@ void LoginRequest::Swap(LoginRequest* other) {
 void LoginRequest::InternalSwap(LoginRequest* other) {
   name_.Swap(&other->name_);
   pwd_.Swap(&other->pwd_);
+  std::swap(version_, other->version_);
+  std::swap(channel_, other->channel_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -677,6 +1218,73 @@ void LoginRequest::InternalSwap(LoginRequest* other) {
   }
   pwd_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), pwd);
   // @@protoc_insertion_point(field_set_allocated:message.LoginRequest.pwd)
+}
+
+// optional .message.VersionTg version = 3;
+ bool LoginRequest::has_version() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void LoginRequest::set_has_version() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void LoginRequest::clear_has_version() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void LoginRequest::clear_version() {
+  if (version_ != NULL) version_->::message::VersionTg::Clear();
+  clear_has_version();
+}
+ const ::message::VersionTg& LoginRequest::version() const {
+  // @@protoc_insertion_point(field_get:message.LoginRequest.version)
+  return version_ != NULL ? *version_ : *default_instance_->version_;
+}
+ ::message::VersionTg* LoginRequest::mutable_version() {
+  set_has_version();
+  if (version_ == NULL) {
+    version_ = new ::message::VersionTg;
+  }
+  // @@protoc_insertion_point(field_mutable:message.LoginRequest.version)
+  return version_;
+}
+ ::message::VersionTg* LoginRequest::release_version() {
+  clear_has_version();
+  ::message::VersionTg* temp = version_;
+  version_ = NULL;
+  return temp;
+}
+ void LoginRequest::set_allocated_version(::message::VersionTg* version) {
+  delete version_;
+  version_ = version;
+  if (version) {
+    set_has_version();
+  } else {
+    clear_has_version();
+  }
+  // @@protoc_insertion_point(field_set_allocated:message.LoginRequest.version)
+}
+
+// optional int32 channel = 4;
+ bool LoginRequest::has_channel() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void LoginRequest::set_has_channel() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void LoginRequest::clear_has_channel() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+ void LoginRequest::clear_channel() {
+  channel_ = 0;
+  clear_has_channel();
+}
+ ::google::protobuf::int32 LoginRequest::channel() const {
+  // @@protoc_insertion_point(field_get:message.LoginRequest.channel)
+  return channel_;
+}
+ void LoginRequest::set_channel(::google::protobuf::int32 value) {
+  set_has_channel();
+  channel_ = value;
+  // @@protoc_insertion_point(field_set:message.LoginRequest.channel)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1314,7 +1922,7 @@ const int LoginResponse::kGateIpFieldNumber;
 const int LoginResponse::kGatePortFieldNumber;
 const int LoginResponse::kUserAccountFieldNumber;
 const int LoginResponse::kResultFieldNumber;
-const int LoginResponse::kChartypeFieldNumber;
+const int LoginResponse::kVersionFieldNumber;
 #endif  // !_MSC_VER
 
 LoginResponse::LoginResponse()
@@ -1324,6 +1932,7 @@ LoginResponse::LoginResponse()
 }
 
 void LoginResponse::InitAsDefaultInstance() {
+  version_ = const_cast< ::message::VersionTg*>(&::message::VersionTg::default_instance());
 }
 
 LoginResponse::LoginResponse(const LoginResponse& from)
@@ -1341,7 +1950,7 @@ void LoginResponse::SharedCtor() {
   gate_port_ = 0u;
   user_account_ = 0u;
   result_ = 0;
-  chartype_ = 0u;
+  version_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1353,6 +1962,7 @@ LoginResponse::~LoginResponse() {
 void LoginResponse::SharedDtor() {
   gate_ip_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
+    delete version_;
   }
 }
 
@@ -1391,9 +2001,13 @@ void LoginResponse::Clear() {
 } while (0)
 
   if (_has_bits_[0 / 32] & 31) {
-    ZR_(gate_port_, chartype_);
+    ZR_(gate_port_, user_account_);
     if (has_gate_ip()) {
       gate_ip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    result_ = 0;
+    if (has_version()) {
+      if (version_ != NULL) version_->::message::VersionTg::Clear();
     }
   }
 
@@ -1478,18 +2092,16 @@ bool LoginResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_chartype;
+        if (input->ExpectTag(50)) goto parse_version;
         break;
       }
 
-      // optional uint32 chartype = 5;
-      case 5: {
-        if (tag == 40) {
-         parse_chartype:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &chartype_)));
-          set_has_chartype();
+      // optional .message.VersionTg version = 6;
+      case 6: {
+        if (tag == 50) {
+         parse_version:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_version()));
         } else {
           goto handle_unusual;
         }
@@ -1548,9 +2160,10 @@ void LoginResponse::SerializeWithCachedSizes(
       4, this->result(), output);
   }
 
-  // optional uint32 chartype = 5;
-  if (has_chartype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->chartype(), output);
+  // optional .message.VersionTg version = 6;
+  if (has_version()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, *this->version_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1590,9 +2203,11 @@ void LoginResponse::SerializeWithCachedSizes(
       4, this->result(), target);
   }
 
-  // optional uint32 chartype = 5;
-  if (has_chartype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->chartype(), target);
+  // optional .message.VersionTg version = 6;
+  if (has_version()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        6, *this->version_, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1634,11 +2249,11 @@ int LoginResponse::ByteSize() const {
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->result());
     }
 
-    // optional uint32 chartype = 5;
-    if (has_chartype()) {
+    // optional .message.VersionTg version = 6;
+    if (has_version()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->chartype());
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->version_);
     }
 
   }
@@ -1681,8 +2296,8 @@ void LoginResponse::MergeFrom(const LoginResponse& from) {
     if (from.has_result()) {
       set_result(from.result());
     }
-    if (from.has_chartype()) {
-      set_chartype(from.chartype());
+    if (from.has_version()) {
+      mutable_version()->::message::VersionTg::MergeFrom(from.version());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -1704,6 +2319,9 @@ void LoginResponse::CopyFrom(const LoginResponse& from) {
 
 bool LoginResponse::IsInitialized() const {
 
+  if (has_version()) {
+    if (!this->version_->IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1716,7 +2334,7 @@ void LoginResponse::InternalSwap(LoginResponse* other) {
   std::swap(gate_port_, other->gate_port_);
   std::swap(user_account_, other->user_account_);
   std::swap(result_, other->result_);
-  std::swap(chartype_, other->chartype_);
+  std::swap(version_, other->version_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1859,28 +2477,47 @@ void LoginResponse::InternalSwap(LoginResponse* other) {
   // @@protoc_insertion_point(field_set:message.LoginResponse.result)
 }
 
-// optional uint32 chartype = 5;
- bool LoginResponse::has_chartype() const {
+// optional .message.VersionTg version = 6;
+ bool LoginResponse::has_version() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
- void LoginResponse::set_has_chartype() {
+ void LoginResponse::set_has_version() {
   _has_bits_[0] |= 0x00000010u;
 }
- void LoginResponse::clear_has_chartype() {
+ void LoginResponse::clear_has_version() {
   _has_bits_[0] &= ~0x00000010u;
 }
- void LoginResponse::clear_chartype() {
-  chartype_ = 0u;
-  clear_has_chartype();
+ void LoginResponse::clear_version() {
+  if (version_ != NULL) version_->::message::VersionTg::Clear();
+  clear_has_version();
 }
- ::google::protobuf::uint32 LoginResponse::chartype() const {
-  // @@protoc_insertion_point(field_get:message.LoginResponse.chartype)
-  return chartype_;
+ const ::message::VersionTg& LoginResponse::version() const {
+  // @@protoc_insertion_point(field_get:message.LoginResponse.version)
+  return version_ != NULL ? *version_ : *default_instance_->version_;
 }
- void LoginResponse::set_chartype(::google::protobuf::uint32 value) {
-  set_has_chartype();
-  chartype_ = value;
-  // @@protoc_insertion_point(field_set:message.LoginResponse.chartype)
+ ::message::VersionTg* LoginResponse::mutable_version() {
+  set_has_version();
+  if (version_ == NULL) {
+    version_ = new ::message::VersionTg;
+  }
+  // @@protoc_insertion_point(field_mutable:message.LoginResponse.version)
+  return version_;
+}
+ ::message::VersionTg* LoginResponse::release_version() {
+  clear_has_version();
+  ::message::VersionTg* temp = version_;
+  version_ = NULL;
+  return temp;
+}
+ void LoginResponse::set_allocated_version(::message::VersionTg* version) {
+  delete version_;
+  version_ = version;
+  if (version) {
+    set_has_version();
+  } else {
+    clear_has_version();
+  }
+  // @@protoc_insertion_point(field_set_allocated:message.LoginResponse.version)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

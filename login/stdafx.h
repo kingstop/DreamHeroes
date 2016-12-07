@@ -28,6 +28,7 @@
 #include "user_tcp_server.h"
 #include "gate_tcp_server.h"
 #include "gate_manager.h"
+#include "login_config.h"
 
 
 enum EventTypes
@@ -54,6 +55,7 @@ struct FuLoginFather
 	UserTcpServer	sUserTcpServer;
 	GateTcpServer	sGateTcpServer;
 	GateManager		sGateManager;
+	LoginConfig     sLoginConfig;
 
 };
 
@@ -65,5 +67,6 @@ extern FuLoginFather*   gFuLoginServer;
 #define gLGUserServer	gFuLoginServer->sUserTcpServer
 #define gLGGateServer	gFuLoginServer->sGateTcpServer
 #define gLGVersion      gFuLoginServer->sVersion
-#define gLGGateManager	gFuLoginServer->sGateManager	
+#define gLGGateManager	gFuLoginServer->sGateManager
+#define gLoginConfig    gFuLoginServer->sLoginConfig
 #endif
