@@ -98,7 +98,7 @@ bool LoginServer::initDataFromDatabase(DBQuery* p, const void* data)
 		int verstion_number_2 = row["version_number_2"];
 		int verstion_number_3 = row["version_number_3"];
 		gLoginConfig.SetVersion(verstion_number_1, verstion_number_2, verstion_number_3);
-		std::string channels  = row["channel_id"];
+		std::string channels  = row["channel_id"].c_str();
 		gLoginConfig.SetChannels(channels.c_str());
 
 	}
