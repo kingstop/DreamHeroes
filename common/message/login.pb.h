@@ -603,10 +603,10 @@ class LoginResponse : public ::google::protobuf::Message {
   ::message::enumLoginResult result() const;
   void set_result(::message::enumLoginResult value);
 
-  // optional .message.VersionTg version = 6;
+  // optional .message.VersionTg version = 5;
   bool has_version() const;
   void clear_version();
-  static const int kVersionFieldNumber = 6;
+  static const int kVersionFieldNumber = 5;
   const ::message::VersionTg& version() const;
   ::message::VersionTg* mutable_version();
   ::message::VersionTg* release_version();
@@ -1329,7 +1329,7 @@ inline void LoginResponse::set_result(::message::enumLoginResult value) {
   // @@protoc_insertion_point(field_set:message.LoginResponse.result)
 }
 
-// optional .message.VersionTg version = 6;
+// optional .message.VersionTg version = 5;
 inline bool LoginResponse::has_version() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }

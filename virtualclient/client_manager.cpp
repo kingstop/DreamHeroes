@@ -31,7 +31,11 @@ bool ClientTest::init(int accountBegin, int accountEnd)
 			count = 0;
 		}
 		m_maxCount = count;
-		JsonHelper help("conf/robot.json");
+		char pFileName[MAX_PATH];
+		int nPos = GetCurrentDirectory(MAX_PATH, pFileName);
+		std::string path =  pFileName;
+		path = path + "\\server_conf\\robot.json";
+		JsonHelper help(path.c_str());
 		if (!help.loadJson())
 		{
 			return false;
@@ -49,6 +53,7 @@ bool ClientTest::init(int accountBegin, int accountEnd)
 		gEventMgr.addEvent(this, &ClientTest::reConnetClient, EVENT_ADD_TEST_ACCOUNT, m_onceTime, 0, 0);
 	}
 	_client_init = true;
+	
     return true;
 }
 

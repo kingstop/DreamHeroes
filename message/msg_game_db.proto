@@ -19,6 +19,7 @@ message MsgDealInfo
 	required string product_id = 2;
 	required int32 status = 3;
 	required int32 complete_status = 4;
+	required string cur_receipt = 5;
 	
 }
 

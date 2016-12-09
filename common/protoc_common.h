@@ -94,7 +94,7 @@ public:
 		}
 		else
 		{
-			Mylog::log_server(LOG_INFO, "parse message [%s]", name.c_str());
+			//Mylog::log_server(LOG_INFO, "parse message [%s]", name.c_str());
 		}
 
         (p->*methond)(message, flag);

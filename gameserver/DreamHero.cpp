@@ -18,6 +18,7 @@ DreamHero::DreamHero()
 	_last_task_advertisement_time = 0;
 	_day_offset_time = 0;
 	_gm_level = 0;
+	_account = 0;
 }
 
 
@@ -46,6 +47,7 @@ void DreamHero::set_account(u64 account)
 
 void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 {
+	_account = info->account();
 	_info.CopyFrom(info->data());
 	_current_chapter = info->current_chapter();
 	_current_section = info->current_section();
@@ -81,6 +83,7 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 		pay_entry.order_id_ = DealInfoEntry.order();
 		pay_entry.price_ = 0;
 		pay_entry.status_ = DealInfoEntry.status();
+		pay_entry.receipt_ = DealInfoEntry.cur_receipt().c_str();
 		pay_entry.type_ = (DealStatusType)DealInfoEntry.complete_status();
 		_deals_wait_to_pay.insert(DEALSWAITTOPAY::value_type(pay_entry.order_id_, pay_entry));
 	}
@@ -96,7 +99,28 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	DEALSWAITTOPAY::iterator it_deal = _deals_wait_to_pay.begin();
 	for (; it_deal != _deals_wait_to_pay.end(); ++ it_deal)
 	{
-		addDealPay(it_deal->second.key_code_.c_str(), it_deal->second.status_, it_deal->second.order_id_, message::Error_NO, false);
+		const DealWaitToPay& WaitToPay = it_deal->second;
+		switch (it_deal->second.type_)
+		{
+		case DealStatusType_WaitToPay:
+		case DealStatusType_WaitPrepareToPay:
+		{
+			addDealPay(WaitToPay.key_code_.c_str(), WaitToPay.status_, WaitToPay.order_id_, message::Error_NO, false);
+		}
+		break;
+		case DealStatusType_WaitPrepareToVerify:
+		{
+
+			VerifyDealHttpTaskIOS* entry = new VerifyDealHttpTaskIOS();
+			entry->init(_account, _info.name().c_str(), WaitToPay.receipt_.c_str(), WaitToPay.order_id_);
+			gHttpManager.addHttpTask(entry);
+		}
+		break;
+		default:
+			break;
+		}
+
+		
 	}
 
 }
@@ -1161,6 +1185,12 @@ void DreamHero::ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg)
 {
 	std::string receipt = msg->receipt().c_str();
 	VerifyDealHttpTaskIOS* entry = new VerifyDealHttpTaskIOS();
+	
+	char sz_temp[10240];
+	gRecordManager.dealWaitToVerifyRecord(_account, _info.name().c_str(), msg->order_id(), receipt.c_str());
+	sprintf(sz_temp, "replace into deal_wait_to_pay(`order_id`, `complete_status`, `receipt`) \
+				values(%d, %d, '%s') ", msg->order_id(), DealStatusType_WaitPrepareToVerify, receipt.c_str());
+	gDreamHeroManager.addSql(sz_temp);
 	entry->init(_account, _info.name().c_str(), receipt.c_str(), msg->order_id());
 	gHttpManager.addHttpTask(entry);
 }

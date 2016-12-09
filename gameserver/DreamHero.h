@@ -6,6 +6,7 @@ struct DealWaitToPay
 	int status_;
 	int price_;
 	int order_id_;
+	std::string receipt_;
 	DealStatusType type_;
 };
 class DreamHero : public EventableObject

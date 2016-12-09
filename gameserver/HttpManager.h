@@ -14,7 +14,8 @@ enum DealStatusType
 {
 	DealStatusType_WaitToPay,
 	DealStatusType_WaitPrepareToPay,
-	DealStatusType_Complete
+	DealStatusType_Complete,
+	DealStatusType_WaitPrepareToVerify,
 };
 class BaseHttpTask
 {

@@ -351,6 +351,18 @@ class MsgDealInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 complete_status() const;
   void set_complete_status(::google::protobuf::int32 value);
 
+  // required string cur_receipt = 5;
+  bool has_cur_receipt() const;
+  void clear_cur_receipt();
+  static const int kCurReceiptFieldNumber = 5;
+  const ::std::string& cur_receipt() const;
+  void set_cur_receipt(const ::std::string& value);
+  void set_cur_receipt(const char* value);
+  void set_cur_receipt(const char* value, size_t size);
+  ::std::string* mutable_cur_receipt();
+  ::std::string* release_cur_receipt();
+  void set_allocated_cur_receipt(::std::string* cur_receipt);
+
   // @@protoc_insertion_point(class_scope:message.MsgDealInfo)
  private:
   inline void set_has_order();
@@ -361,6 +373,8 @@ class MsgDealInfo : public ::google::protobuf::Message {
   inline void clear_has_status();
   inline void set_has_complete_status();
   inline void clear_has_complete_status();
+  inline void set_has_cur_receipt();
+  inline void clear_has_cur_receipt();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -371,6 +385,7 @@ class MsgDealInfo : public ::google::protobuf::Message {
   ::google::protobuf::internal::ArenaStringPtr product_id_;
   ::google::protobuf::int32 order_;
   ::google::protobuf::int32 status_;
+  ::google::protobuf::internal::ArenaStringPtr cur_receipt_;
   ::google::protobuf::int32 complete_status_;
   friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
@@ -1342,6 +1357,59 @@ inline void MsgDealInfo::set_complete_status(::google::protobuf::int32 value) {
   set_has_complete_status();
   complete_status_ = value;
   // @@protoc_insertion_point(field_set:message.MsgDealInfo.complete_status)
+}
+
+// required string cur_receipt = 5;
+inline bool MsgDealInfo::has_cur_receipt() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgDealInfo::set_has_cur_receipt() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgDealInfo::clear_has_cur_receipt() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgDealInfo::clear_cur_receipt() {
+  cur_receipt_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_cur_receipt();
+}
+inline const ::std::string& MsgDealInfo::cur_receipt() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.cur_receipt)
+  return cur_receipt_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgDealInfo::set_cur_receipt(const ::std::string& value) {
+  set_has_cur_receipt();
+  cur_receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.cur_receipt)
+}
+inline void MsgDealInfo::set_cur_receipt(const char* value) {
+  set_has_cur_receipt();
+  cur_receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgDealInfo.cur_receipt)
+}
+inline void MsgDealInfo::set_cur_receipt(const char* value, size_t size) {
+  set_has_cur_receipt();
+  cur_receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgDealInfo.cur_receipt)
+}
+inline ::std::string* MsgDealInfo::mutable_cur_receipt() {
+  set_has_cur_receipt();
+  // @@protoc_insertion_point(field_mutable:message.MsgDealInfo.cur_receipt)
+  return cur_receipt_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgDealInfo::release_cur_receipt() {
+  clear_has_cur_receipt();
+  return cur_receipt_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgDealInfo::set_allocated_cur_receipt(::std::string* cur_receipt) {
+  if (cur_receipt != NULL) {
+    set_has_cur_receipt();
+  } else {
+    clear_has_cur_receipt();
+  }
+  cur_receipt_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cur_receipt);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgDealInfo.cur_receipt)
 }
 
 // -------------------------------------------------------------------

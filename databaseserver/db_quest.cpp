@@ -158,7 +158,15 @@ void DBQuestManager::dbDoQueryHeroDeals(const SDBResult* r, const void* d, bool 
 			deal_info->set_order(row["order_id"]);
 			deal_info->set_product_id(row["key_code"].c_str());
 			deal_info->set_status(row["status"]);
-			deal_info->set_complete_status(row["complete_status"]);									
+			deal_info->set_complete_status(row["complete_status"]);	
+			
+			//if (row["receipt"] != NULL)
+			//{
+
+			//}
+			std::string receipt = row["receipt"].c_str();
+			deal_info->set_cur_receipt(receipt.c_str());
+			
 		}
 
 	}

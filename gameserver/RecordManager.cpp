@@ -16,6 +16,7 @@ RecordManager::RecordManager()
 	_sql_head[RecordTypeDealWaitToPay] = "insert into `deal_wait_to_pay`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
 	_sql_head[RecordTypeDealToPay] = "insert into `deal_to_pay`(`account_id`, `status`, `order_id`, `modify_gold`, `current_gold`, `product_id`, `record_time`) values";
 	_sql_head[RecotdTypeGiveUpDeal] = "insert into `give_up_deal`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
+	_sql_head[RecordTypeWaitToVerify] = "insert into `deal_wait_to_verify_reocrd`(`account_id`, `order_id`, `name`, `receipt`, `record_time`)";
 }
 
 
@@ -81,6 +82,12 @@ void RecordManager::dealWaitToPayRecord(account_type acc, const char* key_code, 
 	//`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`
 	sprintf(_szTemp, "(%llu, %d, %d, %d, '%s', '%s')", acc, status, price, order_id, key_code, getCurTime());
 	_record[RecordTypeDealWaitToPay].push_back(_szTemp);
+}
+
+void RecordManager::dealWaitToVerifyRecord(account_type acc, const char* name, int order_id, const char* recepit)
+{
+	sprintf(_szTemp, "(%llu, %d, '%s', '%s', '%s')", acc, order_id, name, recepit,  getCurTime());
+	_record[RecordTypeWaitToVerify].push_back(_szTemp);
 }
 
 void RecordManager::dealPayRecord(account_type acc, const char* key_code, int status, int order_id, int modify_gold, int current_gold)

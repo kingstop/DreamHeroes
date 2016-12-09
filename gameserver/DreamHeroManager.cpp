@@ -240,9 +240,10 @@ DreamHero* DreamHeroManager::CreateHero(message::MsgHeroDataDB2GS* HeroDataMsg, 
 		hero = new DreamHero();
 		const message::MsgHeroData* entry_msg = HeroDataMsg->mutable_data();
 		hero->set_info(HeroDataMsg);
-		hero->set_account(acc);
+		
 		_heroes.insert(MAPHEROS::value_type(hero->get_account(), hero));
 	}	
+	hero->set_account(acc);
 	hero->set_session(session);
 	hero->set_parent(this);
 	hero->StopDestroyClock();

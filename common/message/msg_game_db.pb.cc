@@ -93,11 +93,12 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgMapSpecialKill, _internal_metadata_),
       -1);
   MsgDealInfo_descriptor_ = file->message_type(2);
-  static const int MsgDealInfo_offsets_[4] = {
+  static const int MsgDealInfo_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, order_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, product_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, status_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, complete_status_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, cur_receipt_),
   };
   MsgDealInfo_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -293,23 +294,24 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
     "to\"&\n\023MsgReqHeroDataGS2DB\022\017\n\007account\030\001 \002"
     "(\004\"a\n\021MsgMapSpecialKill\022\022\n\nchapter_id\030\001 "
     "\002(\005\022\022\n\nsection_id\030\002 \002(\005\022$\n\005kills\030\003 \003(\0132\025"
-    ".message.MsgObjConfig\"Y\n\013MsgDealInfo\022\r\n\005"
+    ".message.MsgObjConfig\"n\n\013MsgDealInfo\022\r\n\005"
     "order\030\001 \002(\005\022\022\n\nproduct_id\030\002 \002(\t\022\016\n\006statu"
-    "s\030\003 \002(\005\022\027\n\017complete_status\030\004 \002(\005\"\322\002\n\020Msg"
-    "HeroDataDB2GS\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002"
-    " \002(\0132\024.message.MsgHeroData\022\027\n\017current_ch"
-    "apter\030\003 \002(\005\022\027\n\017current_section\030\004 \002(\005\022\027\n\017"
-    "free_task_count\030\005 \002(\005\022$\n\034last_task_adver"
-    "tisement_time\030\006 \002(\005\0221\n\rspecial_kills\030\007 \003"
-    "(\0132\032.message.MsgMapSpecialKill\022\020\n\010gm_lev"
-    "el\030\010 \002(\005\022#\n\005deals\030\t \003(\0132\024.message.MsgDea"
-    "lInfo\022.\n\021special_creatures\030\n \003(\0132\023.messa"
-    "ge.MsgIntPair\"\030\n\026MsgNeedCreateHeroDB2GS\""
-    "K\n\024MsgSaveHeroDataGS2DB\022\017\n\007account\030\001 \002(\004"
-    "\022\"\n\004Data\030\002 \002(\0132\024.message.MsgHeroData\"\037\n\020"
-    "MsgSaveDataGS2DB\022\013\n\003sql\030\001 \002(\014\" \n\021MsgReco"
-    "rdSqlGS2DB\022\013\n\003sql\030\001 \002(\014\"\027\n\025MsgSaveAllHer"
-    "oesGS2DB\"\027\n\025MsgSaveAllHeroesDB2GS", 833);
+    "s\030\003 \002(\005\022\027\n\017complete_status\030\004 \002(\005\022\023\n\013cur_"
+    "receipt\030\005 \002(\t\"\322\002\n\020MsgHeroDataDB2GS\022\017\n\007ac"
+    "count\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024.message.MsgH"
+    "eroData\022\027\n\017current_chapter\030\003 \002(\005\022\027\n\017curr"
+    "ent_section\030\004 \002(\005\022\027\n\017free_task_count\030\005 \002"
+    "(\005\022$\n\034last_task_advertisement_time\030\006 \002(\005"
+    "\0221\n\rspecial_kills\030\007 \003(\0132\032.message.MsgMap"
+    "SpecialKill\022\020\n\010gm_level\030\010 \002(\005\022#\n\005deals\030\t"
+    " \003(\0132\024.message.MsgDealInfo\022.\n\021special_cr"
+    "eatures\030\n \003(\0132\023.message.MsgIntPair\"\030\n\026Ms"
+    "gNeedCreateHeroDB2GS\"K\n\024MsgSaveHeroDataG"
+    "S2DB\022\017\n\007account\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024.me"
+    "ssage.MsgHeroData\"\037\n\020MsgSaveDataGS2DB\022\013\n"
+    "\003sql\030\001 \002(\014\" \n\021MsgRecordSqlGS2DB\022\013\n\003sql\030\001"
+    " \002(\014\"\027\n\025MsgSaveAllHeroesGS2DB\"\027\n\025MsgSave"
+    "AllHeroesDB2GS", 854);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_db.proto", &protobuf_RegisterTypes);
   MsgReqHeroDataGS2DB::default_instance_ = new MsgReqHeroDataGS2DB();
@@ -1041,6 +1043,7 @@ const int MsgDealInfo::kOrderFieldNumber;
 const int MsgDealInfo::kProductIdFieldNumber;
 const int MsgDealInfo::kStatusFieldNumber;
 const int MsgDealInfo::kCompleteStatusFieldNumber;
+const int MsgDealInfo::kCurReceiptFieldNumber;
 #endif  // !_MSC_VER
 
 MsgDealInfo::MsgDealInfo()
@@ -1067,6 +1070,7 @@ void MsgDealInfo::SharedCtor() {
   product_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   status_ = 0;
   complete_status_ = 0;
+  cur_receipt_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1077,6 +1081,7 @@ MsgDealInfo::~MsgDealInfo() {
 
 void MsgDealInfo::SharedDtor() {
   product_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  cur_receipt_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -1115,10 +1120,14 @@ void MsgDealInfo::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 15) {
-    ZR_(order_, complete_status_);
+  if (_has_bits_[0 / 32] & 31) {
+    ZR_(order_, status_);
     if (has_product_id()) {
       product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    complete_status_ = 0;
+    if (has_cur_receipt()) {
+      cur_receipt_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
 
@@ -1198,6 +1207,23 @@ bool MsgDealInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(42)) goto parse_cur_receipt;
+        break;
+      }
+
+      // required string cur_receipt = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_cur_receipt:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_cur_receipt()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->cur_receipt().data(), this->cur_receipt().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgDealInfo.cur_receipt");
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1252,6 +1278,16 @@ void MsgDealInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->complete_status(), output);
   }
 
+  // required string cur_receipt = 5;
+  if (has_cur_receipt()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->cur_receipt().data(), this->cur_receipt().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgDealInfo.cur_receipt");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->cur_receipt(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1286,6 +1322,17 @@ void MsgDealInfo::SerializeWithCachedSizes(
   // required int32 complete_status = 4;
   if (has_complete_status()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->complete_status(), target);
+  }
+
+  // required string cur_receipt = 5;
+  if (has_cur_receipt()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->cur_receipt().data(), this->cur_receipt().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgDealInfo.cur_receipt");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->cur_receipt(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1327,12 +1374,19 @@ int MsgDealInfo::RequiredFieldsByteSizeFallback() const {
         this->complete_status());
   }
 
+  if (has_cur_receipt()) {
+    // required string cur_receipt = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->cur_receipt());
+  }
+
   return total_size;
 }
 int MsgDealInfo::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
     // required int32 order = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1352,6 +1406,11 @@ int MsgDealInfo::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->complete_status());
+
+    // required string cur_receipt = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->cur_receipt());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -1395,6 +1454,10 @@ void MsgDealInfo::MergeFrom(const MsgDealInfo& from) {
     if (from.has_complete_status()) {
       set_complete_status(from.complete_status());
     }
+    if (from.has_cur_receipt()) {
+      set_has_cur_receipt();
+      cur_receipt_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cur_receipt_);
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1414,7 +1477,7 @@ void MsgDealInfo::CopyFrom(const MsgDealInfo& from) {
 }
 
 bool MsgDealInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
 
   return true;
 }
@@ -1428,6 +1491,7 @@ void MsgDealInfo::InternalSwap(MsgDealInfo* other) {
   product_id_.Swap(&other->product_id_);
   std::swap(status_, other->status_);
   std::swap(complete_status_, other->complete_status_);
+  cur_receipt_.Swap(&other->cur_receipt_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1567,6 +1631,59 @@ void MsgDealInfo::InternalSwap(MsgDealInfo* other) {
   set_has_complete_status();
   complete_status_ = value;
   // @@protoc_insertion_point(field_set:message.MsgDealInfo.complete_status)
+}
+
+// required string cur_receipt = 5;
+ bool MsgDealInfo::has_cur_receipt() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+ void MsgDealInfo::set_has_cur_receipt() {
+  _has_bits_[0] |= 0x00000010u;
+}
+ void MsgDealInfo::clear_has_cur_receipt() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+ void MsgDealInfo::clear_cur_receipt() {
+  cur_receipt_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_cur_receipt();
+}
+ const ::std::string& MsgDealInfo::cur_receipt() const {
+  // @@protoc_insertion_point(field_get:message.MsgDealInfo.cur_receipt)
+  return cur_receipt_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgDealInfo::set_cur_receipt(const ::std::string& value) {
+  set_has_cur_receipt();
+  cur_receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgDealInfo.cur_receipt)
+}
+ void MsgDealInfo::set_cur_receipt(const char* value) {
+  set_has_cur_receipt();
+  cur_receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgDealInfo.cur_receipt)
+}
+ void MsgDealInfo::set_cur_receipt(const char* value, size_t size) {
+  set_has_cur_receipt();
+  cur_receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgDealInfo.cur_receipt)
+}
+ ::std::string* MsgDealInfo::mutable_cur_receipt() {
+  set_has_cur_receipt();
+  // @@protoc_insertion_point(field_mutable:message.MsgDealInfo.cur_receipt)
+  return cur_receipt_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgDealInfo::release_cur_receipt() {
+  clear_has_cur_receipt();
+  return cur_receipt_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgDealInfo::set_allocated_cur_receipt(::std::string* cur_receipt) {
+  if (cur_receipt != NULL) {
+    set_has_cur_receipt();
+  } else {
+    clear_has_cur_receipt();
+  }
+  cur_receipt_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cur_receipt);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgDealInfo.cur_receipt)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

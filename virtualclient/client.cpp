@@ -25,7 +25,7 @@ void Client::initPBModule()
 {
     ProtocMsgBase<Client>::registerSDFun(&Client::send_message, NULL);
     ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::LoginResponse), &Client::parseLoginResult);
-	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgHeroInit), &Client::parseMsgHeroInit);
+	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::MsgS2CHeroesInit), &Client::parseClientInit);
 	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgHeroEquip), &Client::parseMsgHeroEquip);
 	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgToyInit), &Client::parseMsgToyInit);
 	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgEquipInit), &Client::parseMsgEquipInit);
@@ -115,6 +115,10 @@ void Client::on_connect()
             char buff[20] = {0};
             msg.set_name(_acc.c_str());
             msg.set_pwd("123456");
+			msg.set_channel(0);
+			msg.mutable_version()->set_number_1(0);
+			msg.mutable_version()->set_number_2(0);
+			msg.mutable_version()->set_number_3(0);
             sendPBMessage(&msg);
 			//static int login = 0;
 			//login ++;

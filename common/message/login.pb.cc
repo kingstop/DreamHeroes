@@ -233,7 +233,7 @@ void protobuf_AddDesc_login_2eproto() {
     "\"\230\001\n\rLoginResponse\022\017\n\007gate_ip\030\001 \001(\t\022\021\n\tg"
     "ate_port\030\002 \001(\r\022\024\n\014user_account\030\003 \001(\r\022(\n\006"
     "result\030\004 \001(\0162\030.message.enumLoginResult\022#"
-    "\n\007version\030\006 \001(\0132\022.message.VersionTg\"!\n\tL"
+    "\n\007version\030\005 \001(\0132\022.message.VersionTg\"!\n\tL"
     "oginGame\022\024\n\014user_account\030\001 \002(\r\"2\n\nClient"
     "Exit\022\016\n\006charid\030\001 \001(\r\022\024\n\014user_account\030\002 \001"
     "(\004*\346\001\n\017enumLoginResult\022\033\n\027enumLoginResul"
@@ -2092,13 +2092,13 @@ bool LoginResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_version;
+        if (input->ExpectTag(42)) goto parse_version;
         break;
       }
 
-      // optional .message.VersionTg version = 6;
-      case 6: {
-        if (tag == 50) {
+      // optional .message.VersionTg version = 5;
+      case 5: {
+        if (tag == 42) {
          parse_version:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_version()));
@@ -2160,10 +2160,10 @@ void LoginResponse::SerializeWithCachedSizes(
       4, this->result(), output);
   }
 
-  // optional .message.VersionTg version = 6;
+  // optional .message.VersionTg version = 5;
   if (has_version()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, *this->version_, output);
+      5, *this->version_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2203,11 +2203,11 @@ void LoginResponse::SerializeWithCachedSizes(
       4, this->result(), target);
   }
 
-  // optional .message.VersionTg version = 6;
+  // optional .message.VersionTg version = 5;
   if (has_version()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        6, *this->version_, target);
+        5, *this->version_, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2249,7 +2249,7 @@ int LoginResponse::ByteSize() const {
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->result());
     }
 
-    // optional .message.VersionTg version = 6;
+    // optional .message.VersionTg version = 5;
     if (has_version()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -2477,7 +2477,7 @@ void LoginResponse::InternalSwap(LoginResponse* other) {
   // @@protoc_insertion_point(field_set:message.LoginResponse.result)
 }
 
-// optional .message.VersionTg version = 6;
+// optional .message.VersionTg version = 5;
  bool LoginResponse::has_version() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
