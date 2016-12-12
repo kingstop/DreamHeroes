@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "DreamHeroManager.h"
 #include "DreamHero.h"
-#define _SAVE_COLLECT_TIME_  (10 * _TIME_SECOND_MSEL_)
+#define _SAVE_COLLECT_TIME_  (10 * 60 * _TIME_SECOND_MSEL_)
 DreamHeroManager::DreamHeroManager()
 {
 	char a = 'a';
@@ -338,7 +338,7 @@ void DreamHeroManager::CollectInfo()
 	}
 	int current_player = offline_count + online_count;
 
-	//Mylog::log_server(LOG_INFO, "current player count[%d], online player count[%d], offline player count[%d]", current_player, online_count, offline_count);
+	Mylog::log_server(LOG_INFO, "current player count[%d], online player count[%d], offline player count[%d]", current_player, online_count, offline_count);
 }
 
 DreamHero* DreamHeroManager::GetHeroByName(const char* name)
