@@ -130,7 +130,7 @@ void RecordManager::update()
 {
 	int max_count = 10;
 	std::string sql_record;
-	for (size_t i = RecordTypeEnterGame; i < RecordTypeMax; i++)
+	for (size_t i = RecordTypeLogin; i < RecordTypeMax; i++)
 	{		
 		RECORDS::iterator it = _record[i].begin();
 
