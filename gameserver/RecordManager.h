@@ -1,6 +1,8 @@
 #pragma once
 enum RecordType
 {
+	RecordTypeLogin,
+	RecordTypeLoginOut,
 	RecordTypeEnterGame,
 	RecordTypeLeaveGame,
 	RecordTypeTaskComplete,
@@ -12,7 +14,8 @@ enum RecordType
 	RecordTypeDealWaitToPay,
 	RecordTypeDealToPay,
 	RecordTypeWaitToVerify,
-	RecotdTypeGiveUpDeal,
+	RecordTypeGiveUpDeal,
+	RecordTypeRelive,
 	RecordTypeMax
 };
 
@@ -28,16 +31,21 @@ public:
 		GoldModify_CompleteTask,
 		GoldModify_UnlockChapter,
 		GoldModify_BuyHero,
-		GoldModify_BuyGold
+		GoldModify_BuyGold,
+		GoldModify_AcceptTask,
+		GoldModify_ReliveRecord
 	};
 public:
 	RecordManager();
 	virtual ~RecordManager();
 public:
+	void loginRecord(account_type acc, const char* nick_name);
+	void loginOutRecord(account_type acc, const char* nick_name);
+	void reliveRecord(account_type acc, const char* nick_name, int gold, int current_gold);
 	void enterGameRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, int current_gold);
 	void leaveGameRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, bool success, int gold, int current_gold);
 	void taskCompleteRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, int task_id, int gold, int current_gold);
-	void taskAccepteRecordRecord(account_type acc, const char* nick_name, int task_id);
+	void taskAccepteRecordRecord(account_type acc, const char* nick_name,int gold,int current_gold, int task_id);
 	void taskGiveUpRecord(account_type acc, const char* nick_name, int task_id);
 	void chapterUnlockRecord(account_type acc, const char* nick_name, int chapter_id, int gold, int current_gold);
 	void buyHeroRecord(account_type acc, const char* nick_name, int grid, int gold, int current_gold);

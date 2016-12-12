@@ -204,6 +204,7 @@ void DreamHero::StopDestroyClock()
 
 void DreamHero::Destroy()
 {
+	gRecordManager.loginOutRecord(_account, _info.name().c_str());
 	if (_session)
 	{
 		_session->setDreamHero(NULL);
@@ -682,9 +683,16 @@ void DreamHero::RefreshTask(int give_up_task_id, bool gold)
 	{
 		if (info_task_config.taskid() != 0)
 		{
-			gRecordManager.taskAccepteRecordRecord(_account, _info.name().c_str(), info_task_config.taskid());
+			int refresh_gold = 0;
+			if (gold == true)
+			{
+				refresh_gold = gGameConfig.getGlobalConfig().refresh_task_gold_;
+			}
 			current_gold = current_gold - gGameConfig.getGlobalConfig().refresh_task_gold_;
 			_info.set_gold(current_gold);
+			gRecordManager.goldModifyRecord(_account, _info.name().c_str(), -refresh_gold, current_gold, RecordManager::GoldModify_AcceptTask);
+			gRecordManager.taskAccepteRecordRecord(_account, _info.name().c_str(), refresh_gold,current_gold, info_task_config.taskid());
+			
 		}		
 	}
 
@@ -724,8 +732,16 @@ void DreamHero::ReqReliveReq(const message::MsgC2SReliveReq* msg)
 	int current_gold = _info.gold();
 	if (current_gold >= gGameConfig.getGlobalConfig().relive_gold_)
 	{
+		
 		current_gold = current_gold - gGameConfig.getGlobalConfig().relive_gold_;
 		_info.set_gold(current_gold);
+		gRecordManager.reliveRecord(_account, 
+			_info.name().c_str(),
+			gGameConfig.getGlobalConfig().relive_gold_, current_gold);
+
+		gRecordManager.goldModifyRecord(_account, _info.name().c_str(),
+			-gGameConfig.getGlobalConfig().relive_gold_, current_gold, RecordManager::GoldModify_ReliveRecord);
+
 	}
 	else
 	{
@@ -1231,6 +1247,7 @@ void DreamHero::SendClientInit()
 	sendPBMessage(&msg);
 	_online = true;
 	StartPing();
+	gRecordManager.loginRecord(_account, _info.name().c_str());
 }
 
 

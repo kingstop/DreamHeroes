@@ -4,21 +4,28 @@
 
 RecordManager::RecordManager()
 {
-	
+	_sql_head[RecordTypeLogin] = "insert into `login_record`(`account_id`, `nick_name`, `record_time`) values "; 
+	_sql_head[RecordTypeLoginOut] = "insert into `login_out_record`(`account_id`, `nick_name`, `record_time`) values ";
 	_sql_head[RecordTypeEnterGame] = "insert into `enter_game_record`(`account_id`, `nick_name`, `chapter_id`, `section_id`, `current_gold`, `record_time`) values ";
 	_sql_head[RecordTypeLeaveGame] = "insert into `leave_game_record`(`account_id`, `nick_name`, `chapter_id`, `section_id`, `success`, `gold`, `current_gold`, `record_time`) values";
 	_sql_head[RecordTypeTaskComplete] = "insert into `task_complete_record`(`account_id`, `nick_name`, `chapter_id`, `section_id`, `task_id`, `gold`, `current_gold`, `record_time`) values";
-	_sql_head[RecordTypeTaskAccepte] = "insert into `task_accepte_record`(`account_id`, `nick_name`, `task_id`, `record_time`) values";
+	_sql_head[RecordTypeTaskAccepte] = "insert into `task_accepte_record`(`account_id`, `nick_name`, `gold`, `current_gold`, `task_id`, `record_time`) values";
 	_sql_head[RecordTypeTaskGiveUp] = "insert into `task_give_up_record`(`account_id`, `nick_name`, `task_id`, `record_time`) values";
 	_sql_head[RecordTypeChapterUnlock] = "insert into `chapter_unlock_record`(`account_id`, `nick_name`, `chapter_id`, `gold`,  `current_gold`,`record_time`) values";
 	_sql_head[RecordTypeGoldModify] = "insert into `modify_gold_record`(`account_id`, `nick_name`, `gold`,  `current_gold`,`modify_type`, `record_time`) values";
 	_sql_head[RecordTypeBuyHero] = "insert into `buy_hero_record`(`account_id`, `nick_name`, `grid_hero`, `gold`, `current_gold`, `record_time`) values";
 	_sql_head[RecordTypeDealWaitToPay] = "insert into `deal_wait_to_pay`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
 	_sql_head[RecordTypeDealToPay] = "insert into `deal_to_pay`(`account_id`, `status`, `order_id`, `modify_gold`, `current_gold`, `product_id`, `record_time`) values";
-	_sql_head[RecotdTypeGiveUpDeal] = "insert into `give_up_deal`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
+	_sql_head[RecordTypeGiveUpDeal] = "insert into `give_up_deal`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
 	_sql_head[RecordTypeWaitToVerify] = "insert into `deal_wait_to_verify_reocrd`(`account_id`, `order_id`, `name`, `receipt`, `record_time`) values";
+	_sql_head[RecordTypeRelive] = "insert into `relive_record`(`account_id`, `nick_name`, `gold`, `current_gold`, `record_time`) values";
 }
 
+void RecordManager::reliveRecord(account_type acc, const char* nick_name, int gold, int current_gold)
+{
+	sprintf(_szTemp, "(%llu, '%s', %d, %d,'%s')", acc, nick_name, gold , current_gold,getCurTime());
+	_record[RecordTypeRelive].push_back(_szTemp);
+}
 
 RecordManager::~RecordManager()
 {
@@ -29,6 +36,20 @@ const char* RecordManager::getCurTime()
 	build_unix_time_to_string(g_server_time, _cur_time);
 	return _cur_time.c_str();
 }
+
+
+void RecordManager::loginRecord(account_type acc, const char* nick_name)
+{
+	sprintf(_szTemp, "(%llu, '%s','%s')", acc, nick_name, getCurTime());
+	_record[RecordTypeLogin].push_back(_szTemp);
+
+}
+void RecordManager::loginOutRecord(account_type acc, const char* nick_name)
+{
+	sprintf(_szTemp, "(%llu, '%s','%s')", acc, nick_name, getCurTime());
+	_record[RecordTypeLoginOut].push_back(_szTemp);
+}
+
 
 void RecordManager::enterGameRecord(account_type acc, const char* nick_name, int chapter_id, int section_id, int current_gold)
 {
@@ -48,9 +69,9 @@ void RecordManager::taskCompleteRecord(account_type acc, const char* nick_name, 
 	_record[RecordTypeTaskComplete].push_back(_szTemp);
 }
 
-void RecordManager::taskAccepteRecordRecord(account_type acc, const char* nick_name, int task_id)
+void RecordManager::taskAccepteRecordRecord(account_type acc, const char* nick_name,int gold, int current_gold, int task_id)
 {
-	sprintf(_szTemp, "(%llu, '%s', %d, '%s')", acc, nick_name, task_id, getCurTime());
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, %d,'%s')", acc, nick_name, gold, current_gold, task_id, getCurTime());
 	_record[RecordTypeTaskAccepte].push_back(_szTemp);
 }
 
@@ -102,7 +123,7 @@ void RecordManager::dealPayRecord(account_type acc, const char* key_code, int st
 void RecordManager::giveUpDealRecord(account_type acc, const char* key_code, int status, int price, int order_id)
 {
 	sprintf(_szTemp, "(%llu, %d, %d, %d, '%s', '%s')", acc, status, price, order_id, key_code, getCurTime());
-	_record[RecotdTypeGiveUpDeal].push_back(_szTemp);
+	_record[RecordTypeGiveUpDeal].push_back(_szTemp);
 }
 
 void RecordManager::update()
