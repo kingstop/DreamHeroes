@@ -4,7 +4,7 @@ enum
 {
     _WAITE_CONNECT_TIME_ = 5 /* * _TIME_MINUTE_*/ * _TIME_SECOND_MSEL_,
     _WAITE_RECONNECT_TIME_ = 5 /* * _TIME_MINUTE_ */ * _TIME_SECOND_MSEL_,
-	_COLLECT_INFO_TIME = 10  * _TIME_SECOND_MSEL_,
+	_COLLECT_INFO_TIME = 10 * _TIME_MINUTE_ * _TIME_SECOND_MSEL_,
     _TELL_LOGIN_GATE_INFO = 30 * _TIME_SECOND_MSEL_,
 };
 void UserManager::addToWait(tran_id_type t,  account_type a)
