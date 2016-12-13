@@ -179,14 +179,12 @@ void DreamHero::StopSave()
 void DreamHero::StartDestroyTime()
 {
 	_destroy_clock = true;
-	if (gEventMgr.hasEvent(this, EVENT_DESTROY_PLAYER_) == false)
+	if (gEventMgr.hasEvent(this, EVENT_DESTROY_PLAYER_) == true)
 	{
-		gEventMgr.addEvent(this, &DreamHero::Destroy, EVENT_DESTROY_PLAYER_, _REMOVE_PLAYER_TIME_, -1, 0);
+		gEventMgr.removeEvents(this, EVENT_DESTROY_PLAYER_);
+		
 	}
-	else
-	{
-		gEventMgr.modifyEventTime(this, EVENT_DESTROY_PLAYER_, _REMOVE_PLAYER_TIME_);
-	}
+	gEventMgr.addEvent(this, &DreamHero::Destroy, EVENT_DESTROY_PLAYER_, _REMOVE_PLAYER_TIME_, -1, 0);
 }
 
 void DreamHero::StopDestroyClock()
