@@ -14,7 +14,7 @@ void GateGameClient::offlinePlayer(tran_id_type t)
     message::MsgGT2GSOfflineUser msg;
     msg.set_trans(t);
     sendPBMessage(&msg);
-    //Mylog::log_player(LOG_INFO, "off line user[%u] from game server [%u]", t, m_GameInfo.game_id);
+    Mylog::log_player(LOG_INFO, "off line user[%u] from game server [%u]", t, m_GameInfo.game_id);
 }
 void GateGameClient::addNewPlayer(tran_id_type t,  account_type a)
 {

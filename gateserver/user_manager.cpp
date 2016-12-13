@@ -19,7 +19,7 @@ void UserManager::addToWait(tran_id_type t,  account_type a)
     message::MsgGT2LNPrepar msg;
     msg.set_account(t);
     gGTLoginClient.sendPBMessage(&msg);
-    //Mylog::log_player(LOG_INFO,"add user account[%u], trans[%u] .", a, t);
+    Mylog::log_player(LOG_INFO,"add user account[%u], trans[%u] .", a, t);
 }
 void UserManager::eventCallRemoveWait(tran_id_type t)
 {
@@ -163,7 +163,7 @@ bool UserManager::checkConn(tran_id_type t, UserSession* p)
         p->setState(UserSession::_connect_);
         m_onlines.addData(t, p);
         m_onlineaccs.addData(v, t);
-       // Mylog::log_player(LOG_INFO, "user[%u] connect count [%d]", t, m_onlineaccs.getDataMap().size());
+        Mylog::log_player(LOG_INFO, "user[%u] connect count [%d]", t, m_onlineaccs.getDataMap().size());
         return true;
     }
 

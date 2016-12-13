@@ -76,7 +76,7 @@ void UserSession::parseLoginGame(google::protobuf::Message* p, pb_flag_type flag
 	{
         if (_connect_ == m_state)
         {
-            //Mylog::log_player(LOG_ERROR, "client [%u] is connect ...", m_tranid);
+            Mylog::log_player(LOG_ERROR, "client [%u] is connect ...", m_tranid);
             return ;
         }
 		tran_id_type t = (tran_id_type)msg->user_account();
