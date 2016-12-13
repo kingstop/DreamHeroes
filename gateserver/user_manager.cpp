@@ -4,7 +4,7 @@ enum
 {
     _WAITE_CONNECT_TIME_ = 5 /* * _TIME_MINUTE_*/ * _TIME_SECOND_MSEL_,
     _WAITE_RECONNECT_TIME_ = 5 /* * _TIME_MINUTE_ */ * _TIME_SECOND_MSEL_,
-
+	_COLLECT_INFO_TIME = 10  * _TIME_SECOND_MSEL_,
     _TELL_LOGIN_GATE_INFO = 30 * _TIME_SECOND_MSEL_,
 };
 void UserManager::addToWait(tran_id_type t,  account_type a)
@@ -20,6 +20,24 @@ void UserManager::addToWait(tran_id_type t,  account_type a)
     msg.set_account(t);
     gGTLoginClient.sendPBMessage(&msg);
     Mylog::log_player(LOG_INFO,"add user account[%u], trans[%u] .", a, t);
+}
+UserManager::UserManager()
+{
+	gEventMgr.addEvent(this, &UserManager::collectInfo, EVENT_COLLECT_GATE_INFO, _COLLECT_INFO_TIME, -1, 0);
+}
+
+void UserManager::collectInfo()
+{
+	/*
+	    obj_ptr_map<tran_id_type, UserSession> m_onlines;
+    obj_map<account_type, tran_id_type> m_onlineaccs;
+    obj_map<tran_id_type, account_type> m_wait_map;
+    obj_map<tran_id_type, u16> m_recon_map;
+	*/
+	Mylog::log_player(LOG_INFO, "onlines[%d] onlineacc[%d] wait_map[%d] recon_map[%d]", 
+		m_onlines.getSize(),
+		m_onlineaccs.getSize(), m_wait_map.getSize(),
+		m_recon_map.getSize());
 }
 void UserManager::eventCallRemoveWait(tran_id_type t)
 {

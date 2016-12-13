@@ -5,6 +5,8 @@ class UserSession;
 class UserManager : public EventableObject
 {
 public:
+	UserManager();
+public:
     void addToWait(tran_id_type t,  account_type a);
     void kickUser(tran_id_type t,  account_type a);
     bool checkConn(tran_id_type t, UserSession* p);
@@ -13,7 +15,7 @@ public:
     void eventCallRemoveWait(tran_id_type t);
     void eventCallRemoveReconn(tran_id_type t);
     void makeRegisterData(message::MsgGTRegisterLG& msg);
-
+	void collectInfo();
     void removeUsers(u16 gs);
     void enableGateEvent();
     void evevntCall();
