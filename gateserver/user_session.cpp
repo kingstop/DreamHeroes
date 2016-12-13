@@ -77,6 +77,7 @@ void UserSession::pingNotify()
 	msg.set_time(g_server_time);
 	_ping_count++;
 	msg.set_ping_count(_ping_count);
+	sendPBMessage(&msg);
 }
 
 void UserSession::parseGameMsg(google::protobuf::Message* p, pb_flag_type flag)
