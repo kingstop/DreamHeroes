@@ -178,7 +178,6 @@ public:
         }
         return false;
     }
-	size_t getSize() const { return m_DataMap.size(); }
     const std::map<KEY, T>& getDataMap()const 
     {   return m_DataMap;   }
 protected:
