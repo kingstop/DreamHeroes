@@ -121,7 +121,7 @@ void RecordManager::dealPayRecord(account_type acc, const char* key_code, int st
 }
 void RecordManager::gameOnlineRecord(int online_count, int offline_count)
 {
-	sprintf(_szTemp, "(%d, %d, '%s')", online_count, offline_count);
+	sprintf(_szTemp, "(%d, %d, '%s')", online_count, offline_count, getCurTime());
 	_record[RecordTypeOnlineCount].push_back(_szTemp);
 
 }
