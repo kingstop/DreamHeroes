@@ -63,7 +63,13 @@ void UserSession::initPBModule()
 
 void UserSession::parsePingMsg(google::protobuf::Message* p, pb_flag_type flag)
 {
-	gEventMgr.modifyEventTime(this, EVENT_WAIT_PING_INFO, _NOPING_TIME_);
+	if (gEventMgr.hasEvent(this, EVENT_WAIT_PING_INFO) == true)
+	{
+		gEventMgr.removeEvents(this, EVENT_WAIT_PING_INFO);
+	}
+
+	gEventMgr.addEvent(this, &UserSession::noPing, EVENT_WAIT_PING_INFO, _NOPING_TIME_, 1, EVENT_FLAG_DELETES_OBJECT);
+
 }
 
 void UserSession::noPing()
@@ -108,14 +114,13 @@ void UserSession::parseLoginGame(google::protobuf::Message* p, pb_flag_type flag
         if(gGTUserMgr.checkConn(t, this))
         {   m_tranid = t;}
 	}
-	if (gEventMgr.hasEvent(this, EVENT_WAIT_PING_INFO) == false)
+	if (gEventMgr.hasEvent(this, EVENT_WAIT_PING_INFO) == true)
 	{
-		gEventMgr.addEvent(this, &UserSession::noPing, EVENT_WAIT_PING_INFO, _NOPING_TIME_, 1, EVENT_FLAG_DELETES_OBJECT);
+		gEventMgr.removeEvents(this, EVENT_WAIT_PING_INFO);
 	}
-	else
-	{
-		gEventMgr.modifyEventTime(this, EVENT_WAIT_PING_INFO, _NOPING_TIME_);
-	}
+
+	gEventMgr.addEvent(this, &UserSession::noPing, EVENT_WAIT_PING_INFO, _NOPING_TIME_, 1, EVENT_FLAG_DELETES_OBJECT);
+
 
 	if (gEventMgr.hasEvent(this, EVENT_PING_TIME_INFO) == false)
 	{
