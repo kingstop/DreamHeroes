@@ -174,14 +174,7 @@ void DreamHero::StopSave()
 }
 
 
-void DreamHero::StartPing()
-{
-	_ping_count = 0;
-	if (gEventMgr.hasEvent(this, EVENT_PALYER_PING_) == false)
-	{
-		gEventMgr.addEvent(this, &DreamHero::pingNotify, EVENT_PALYER_PING_, _HERO_PING_NOTIFY_, -1, 0);
-	}
-}
+
 
 void DreamHero::StartDestroyTime()
 {
@@ -1250,7 +1243,7 @@ void DreamHero::SendClientInit()
 	fillSpecialCreatureList(msg.mutable_special_creatures());	
 	sendPBMessage(&msg);
 	_online = true;
-	StartPing();
+	//StartPing();
 	gRecordManager.loginRecord(_account, _info.name().c_str());
 }
 
@@ -1496,11 +1489,3 @@ void DreamHero::sendPBMessage(google::protobuf::Message* p)
 	
 }
 
-void DreamHero::pingNotify()
-{
-	message::MsgS2CPingNotify msg;
-	msg.set_ping_count(_ping_count);
-	_ping_count++;
-	msg.set_time(g_server_time);
-	sendPBMessage(&msg);
-}

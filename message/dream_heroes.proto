@@ -243,6 +243,13 @@ message MsgS2CPingNotify
 	required uint64 time = 2;
 }
 
+
+message MsgC2SPingNotify
+{
+	required int32 ping_count = 1;
+	required uint64 time = 2;
+}
+
 message MsgC2SReqModifyNewTutorial
 {
 	required int32 flag = 1;

@@ -6,6 +6,8 @@ enum
 {
     _WAIT_ACCOUNT_DATA_TIME_ =  20 * _TIME_SECOND_MSEL_, 
     _WAIT_CLOSE_TIME_   = 1 * _TIME_SECOND_MSEL_,
+	_PING_TIME_ = 2 * _TIME_SECOND_MSEL_,
+	_NOPING_TIME_ = 10 * _TIME_SECOND_MSEL_
 };
 
 void UserSession::setState(u8 s)
@@ -55,6 +57,25 @@ void UserSession::initPBModule()
 	//ProtocMsgBase<UserSession>::registerCBFun(PROTOCO_NAME(message::RegisterAccountRequest),  &UserSession::r);
    //ProtocMsgBase<UserSession>::registerCBFun(PROTOCO_NAME(message::ClientExit),  &UserSession::parseExitGame);
 }
+
+void UserSession::parsePingMsg(google::protobuf::Message* p, pb_flag_type flag)
+{
+	gEventMgr.modifyEventTime(this, EVENT_WAIT_PING_INFO, _NOPING_TIME_);
+}
+
+void UserSession::noPing()
+{
+	close();
+}
+
+void UserSession::pingNotify()
+{
+	message::MsgS2CPingNotify msg;
+	msg.set_time(g_server_time);
+	_ping_count++;
+	msg.set_ping_count(_ping_count);
+}
+
 void UserSession::parseGameMsg(google::protobuf::Message* p, pb_flag_type flag)
 {
     GateGameClient* pkGame = gGTGameMgr.getGameClient(m_gs_id);
@@ -83,6 +104,20 @@ void UserSession::parseLoginGame(google::protobuf::Message* p, pb_flag_type flag
         if(gGTUserMgr.checkConn(t, this))
         {   m_tranid = t;}
 	}
+	if (gEventMgr.hasEvent(this, EVENT_WAIT_PING_INFO) == false)
+	{
+		gEventMgr.addEvent(this, &UserSession::noPing, EVENT_WAIT_PING_INFO, _NOPING_TIME_, 1, EVENT_FLAG_DELETES_OBJECT);
+	}
+	else
+	{
+		gEventMgr.modifyEventTime(this, EVENT_WAIT_PING_INFO, _NOPING_TIME_);
+	}
+
+	if (gEventMgr.hasEvent(this, EVENT_PING_TIME_INFO) == false)
+	{
+		gEventMgr.addEvent(this, &UserSession::pingNotify, EVENT_PING_TIME_INFO, _PING_TIME_, -1, 0);
+	}
+	
 	
 }
 UserSession::UserSession(void) : tcp_session( *net_global::get_io_service() )
@@ -92,6 +127,7 @@ UserSession::UserSession(void) : tcp_session( *net_global::get_io_service() )
     m_gs_id = INVALID_GAME_ID;
 	_proto_user_ptr = this;
 	_base64 = true;
+	_ping_count = 0;
 }
 
 UserSession::~UserSession(void)

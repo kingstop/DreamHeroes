@@ -22,6 +22,7 @@ public:
     void parseClientInit(google::protobuf::Message* p, pb_flag_type flag);
     void parseClientChar(google::protobuf::Message* p, pb_flag_type flag);
 	void parseMsgHeroInit(google::protobuf::Message* p, pb_flag_type flag);
+	void parseMsgPing(google::protobuf::Message* p, pb_flag_type flag);
 	//void parseMsgHeroEquip(google::protobuf::Message* p, pb_flag_type flag);
 	//void parseMsgToyInit(google::protobuf::Message* p, pb_flag_type flag);
 	//void parseMsgEquipInit(google::protobuf::Message* p, pb_flag_type flag);

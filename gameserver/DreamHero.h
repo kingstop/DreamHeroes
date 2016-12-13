@@ -38,7 +38,7 @@ public:
 	bool is_online();
 	void StartDestroyTime();
 	void StopDestroyClock();
-	void StartPing();
+	//void StartPing();
 public:
 	void dayRefresh(bool need_send_msg = true);
 	int getGMLevel();
@@ -75,7 +75,7 @@ protected:
 protected:
 	void fillSpecialCreatureList(::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >* list);
 	void sendPBMessage(google::protobuf::Message* p);
-	void pingNotify();
+	//void pingNotify();
 protected:
 	SPECIALKILLS _special_kills;
 	SPECIALCREATURES _special_creatures;

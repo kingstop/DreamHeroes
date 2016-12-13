@@ -21,6 +21,12 @@ public:
     void parseExitGame(google::protobuf::Message* p, pb_flag_type flag);
 	void parseGameMsg(google::protobuf::Message* p, pb_flag_type flag);
 
+	void parsePingMsg(google::protobuf::Message* p, pb_flag_type flag);
+
+	void pingNotify();
+
+	void noPing();
+
     void setState(u8 s);
     u8   getState() const {return m_state ;}
 
@@ -40,6 +46,7 @@ private:
 	u32 m_tranid;
     u16 m_gs_id;
 	u8  m_state;
+	int _ping_count;
 };
 /* 
 bool ProtocMsgBase<UserSession>::sendPBMessage(google::protobuf::Message* msg, pb_flag_type flag )

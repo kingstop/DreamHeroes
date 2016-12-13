@@ -26,6 +26,7 @@ void Client::initPBModule()
     ProtocMsgBase<Client>::registerSDFun(&Client::send_message, NULL);
     ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::LoginResponse), &Client::parseLoginResult);
 	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::MsgS2CHeroesInit), &Client::parseClientInit);
+	ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::MsgS2CPingNotify), &Client::parseMsgPing);
 	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgHeroEquip), &Client::parseMsgHeroEquip);
 	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgToyInit), &Client::parseMsgToyInit);
 	//ProtocMsgBase<Client>::registerCBFun(PROTOCO_NAME(message::S2CMsgEquipInit), &Client::parseMsgEquipInit);
@@ -58,6 +59,19 @@ void Client::parseClientChar(google::protobuf::Message* p, pb_flag_type flag)
     //        gEventMgr.addEvent(this, &Client::moveSend, EVENT_ROBOT_RAND_SEND, 200, 0 ,0);
     //    }
     //}
+}
+
+
+void Client::parseMsgPing(google::protobuf::Message* p, pb_flag_type flag)
+{
+	message::MsgS2CPingNotify* msg = (message::MsgS2CPingNotify*)p;
+	
+
+	message::MsgC2SPingNotify msgACK;
+	msgACK.set_ping_count(msg->ping_count());
+	msgACK.set_time(msg->time());
+	sendPBMessage(&msgACK);
+
 }
 void Client::parseLoginResult(google::protobuf::Message* p, pb_flag_type flag)
 {
