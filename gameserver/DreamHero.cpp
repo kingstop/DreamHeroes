@@ -19,6 +19,7 @@ DreamHero::DreamHero()
 	_day_offset_time = 0;
 	_gm_level = 0;
 	_account = 0;
+	_destroy_clock = false;
 }
 
 
@@ -184,6 +185,7 @@ void DreamHero::StartPing()
 
 void DreamHero::StartDestroyTime()
 {
+	_destroy_clock = true;
 	if (gEventMgr.hasEvent(this, EVENT_DESTROY_PLAYER_) == false)
 	{
 		gEventMgr.addEvent(this, &DreamHero::Destroy, EVENT_DESTROY_PLAYER_, _REMOVE_PLAYER_TIME_, -1, 0);
@@ -200,6 +202,8 @@ void DreamHero::StopDestroyClock()
 	{
 		gEventMgr.removeEvents(this, EVENT_DESTROY_PLAYER_);
 	}
+
+	_destroy_clock = false;
 }
 
 void DreamHero::Destroy()

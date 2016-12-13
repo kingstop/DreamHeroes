@@ -92,6 +92,8 @@ protected:
 	DEALSWAITTOPAY _deals_wait_to_pay;
 	int _gm_level;
 	int _ping_count;
+
+	bool _destroy_clock;
 	
 };
 
