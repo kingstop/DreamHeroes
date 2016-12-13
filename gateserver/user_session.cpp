@@ -7,7 +7,7 @@ enum
     _WAIT_ACCOUNT_DATA_TIME_ =  20 * _TIME_SECOND_MSEL_, 
     _WAIT_CLOSE_TIME_   = 1 * _TIME_SECOND_MSEL_,
 	_PING_TIME_ = 2 * _TIME_SECOND_MSEL_,
-	_NOPING_TIME_ = 10 * _TIME_SECOND_MSEL_
+	_NOPING_TIME_ = 15 * _TIME_SECOND_MSEL_
 };
 
 void UserSession::setState(u8 s)
