@@ -3,7 +3,7 @@
 #include "session.h"
 #include "RecordManager.h"
 #define _SAVE_PLAYER_TIME_  (10 * _TIME_SECOND_MSEL_)
-#define _REMOVE_PLAYER_TIME_  (20 * _TIME_SECOND_MSEL_)
+#define _REMOVE_PLAYER_TIME_  (3 * _TIME_SECOND_MSEL_)
 #define _HERO_PING_NOTIFY_ (1 * _TIME_SECOND_MSEL_)
 DreamHero::DreamHero()
 {
