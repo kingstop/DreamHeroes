@@ -106,6 +106,9 @@ void UserSession::on_accept( tcp_server* p )
 
 void UserSession::on_close( const boost::system::error_code& error )
 {
+	static int _count = 0;
+	_count++;
+	Mylog::log_player(LOG_DEBUG, "close count[%u]", _count);
 	Mylog::log_player(LOG_DEBUG, "user [%u] close , error code[%s] ", m_tranid, error.message().c_str());
     gGTUserMgr.checkClose(this);
     setState(_disable_);
