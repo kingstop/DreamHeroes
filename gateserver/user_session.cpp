@@ -54,6 +54,9 @@ void UserSession::initPBModule()
 {
 	ProtocMsgBase<UserSession>::registerSDFun(&UserSession::send_message, &UserSession::parseGameMsg);
 	ProtocMsgBase<UserSession>::registerCBFun(PROTOCO_NAME(message::LoginGame),  &UserSession::parseLoginGame);
+	ProtocMsgBase<UserSession>::registerCBFun(PROTOCO_NAME(message::MsgC2SPingNotify), &UserSession::parsePingMsg);
+
+	
 	//ProtocMsgBase<UserSession>::registerCBFun(PROTOCO_NAME(message::RegisterAccountRequest),  &UserSession::r);
    //ProtocMsgBase<UserSession>::registerCBFun(PROTOCO_NAME(message::ClientExit),  &UserSession::parseExitGame);
 }
