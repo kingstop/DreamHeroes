@@ -19,6 +19,7 @@ RecordManager::RecordManager()
 	_sql_head[RecordTypeGiveUpDeal] = "insert into `give_up_deal`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
 	_sql_head[RecordTypeWaitToVerify] = "insert into `deal_wait_to_verify_reocrd`(`account_id`, `order_id`, `name`, `receipt`, `record_time`) values";
 	_sql_head[RecordTypeRelive] = "insert into `relive_record`(`account_id`, `nick_name`, `gold`, `current_gold`, `record_time`) values";
+	_sql_head[RecordTypeOnlineCount] = "insert into `game_online_record`(`online_player_count`, `offline_player_count`, `record_time`) values";
 }
 
 void RecordManager::reliveRecord(account_type acc, const char* nick_name, int gold, int current_gold)
@@ -112,11 +113,16 @@ void RecordManager::dealWaitToVerifyRecord(account_type acc, const char* name, i
 }
 
 void RecordManager::dealPayRecord(account_type acc, const char* key_code, int status, int order_id, int modify_gold, int current_gold)
-{
-	
+{	
 	//`account_id`, `status`, `order_id`, `modify_gold`, `current_gold`, `product_id`, `record_time`
 	sprintf(_szTemp, "(%llu, %d, %d, %d, %d, '%s', '%s')", acc, status, order_id, modify_gold, current_gold, key_code, getCurTime());
 	_record[RecordTypeDealToPay].push_back(_szTemp);
+
+}
+void RecordManager::gameOnlineRecord(int online_count, int offline_count)
+{
+	sprintf(_szTemp, "(%d, %d, '%s')", online_count, offline_count);
+	_record[RecordTypeOnlineCount].push_back(_szTemp);
 
 }
 

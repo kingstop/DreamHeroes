@@ -16,6 +16,7 @@ enum RecordType
 	RecordTypeWaitToVerify,
 	RecordTypeGiveUpDeal,
 	RecordTypeRelive,
+	RecordTypeOnlineCount,
 	RecordTypeMax
 };
 
@@ -50,7 +51,7 @@ public:
 	void chapterUnlockRecord(account_type acc, const char* nick_name, int chapter_id, int gold, int current_gold);
 	void buyHeroRecord(account_type acc, const char* nick_name, int grid, int gold, int current_gold);
 	void goldModifyRecord(account_type acc, const char* nick_name, int gold, int current_gold, GoldModifyType en);
-
+	void gameOnlineRecord(int online_count, int offline_count);
 	void dealWaitToPayRecord(account_type acc, const char* key_code, int status, int price, int order_id);
 	void dealPayRecord(account_type acc, const char* key_code, int status, int order_id, int modify_gold, int current_gold);
 	void dealWaitToVerifyRecord(account_type acc, const char* name, int order_id, const char* recepit);

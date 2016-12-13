@@ -337,7 +337,7 @@ void DreamHeroManager::CollectInfo()
 		}
 	}
 	int current_player = offline_count + online_count;
-
+	gRecordManager.gameOnlineRecord(online_count, offline_count);
 	Mylog::log_server(LOG_INFO, "current player count[%d], online player count[%d], offline player count[%d]", current_player, online_count, offline_count);
 }
 
