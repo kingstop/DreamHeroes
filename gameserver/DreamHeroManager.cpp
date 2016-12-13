@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "DreamHeroManager.h"
 #include "DreamHero.h"
-#define _SAVE_COLLECT_TIME_  (10 * 60 * _TIME_SECOND_MSEL_)
+#define _SAVE_COLLECT_TIME_  (10 * _TIME_SECOND_MSEL_)
 DreamHeroManager::DreamHeroManager()
 {
 	char a = 'a';
