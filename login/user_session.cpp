@@ -43,49 +43,63 @@ void UserLoginSession::parsePlatformVerify(google::protobuf::Message* p, pb_flag
 
 void UserLoginSession::parseLoginGame(google::protobuf::Message* p, pb_flag_type flag)
 {
+	
 	message::LoginRequest* msg = static_cast<message::LoginRequest*>(p);
 	if (msg)
 	{
-		//static int login_account = 0;
-		//login_account ++;
-		int verstion_number_1 = msg->version().number_1();
-		int verstion_number_2 = msg->version().number_2();
-		int verstion_number_3 = msg->version().number_3();
-		int channel = msg->channel();
-		if (gLoginConfig.CompareVersion(verstion_number_1, verstion_number_2, verstion_number_3) == false)
+		bool check_account = true;
+		if (gLoginConfig.IsNeedPlatformVerify())
 		{
-			message::LoginResponse msg;
-			msg.set_result(message::enumLoginResult_ErrorVersion);
-			msg.mutable_version()->set_number_1(gLoginConfig.GetVersion()->versionNumber_1);
-			msg.mutable_version()->set_number_2(gLoginConfig.GetVersion()->versionNumber_2);
-			msg.mutable_version()->set_number_3(gLoginConfig.GetVersion()->versionNumber_3);
-			sendPBMessage(&msg);
+			if (m_state != UserLoginSession::_platform_success_ || msg->name() != _platform_user_id)
+			{
+				message::LoginResponse msg;
+				msg.set_result(message::enumLoginResult_ErrorNeedThirdVerify);
+				sendPBMessage(&msg);
+			}
+			else
+			{
+
+				check_account = false;
+			}
 		}
-		else if(gLoginConfig.CompareChannel(channel) == false)
+
+		if (check_account == true)
 		{
-			message::LoginResponse msg;
-			msg.set_result(message::enumLoginResult_ErrorChannel);
-			sendPBMessage(&msg);
-		}     
-		else if (msg->name().size() >= 128 || msg->pwd().size() >= 128)
-		{
-			message::LoginResponse msg;
-			msg.set_result(message::enumLoginResult_NameFail);
-			sendPBMessage(&msg);
+			int verstion_number_1 = msg->version().number_1();
+			int verstion_number_2 = msg->version().number_2();
+			int verstion_number_3 = msg->version().number_3();
+			int channel = msg->channel();
+			if (gLoginConfig.CompareVersion(verstion_number_1, verstion_number_2, verstion_number_3) == false)
+			{
+				message::LoginResponse msg;
+				msg.set_result(message::enumLoginResult_ErrorVersion);
+				msg.mutable_version()->set_number_1(gLoginConfig.GetVersion()->versionNumber_1);
+				msg.mutable_version()->set_number_2(gLoginConfig.GetVersion()->versionNumber_2);
+				msg.mutable_version()->set_number_3(gLoginConfig.GetVersion()->versionNumber_3);
+				sendPBMessage(&msg);
+			}
+			else if (gLoginConfig.CompareChannel(channel) == false)
+			{
+				message::LoginResponse msg;
+				msg.set_result(message::enumLoginResult_ErrorChannel);
+				sendPBMessage(&msg);
+			}
+			else if (msg->name().size() >= 128 || msg->pwd().size() >= 128)
+			{
+				message::LoginResponse msg;
+				msg.set_result(message::enumLoginResult_NameFail);
+				sendPBMessage(&msg);
+
+			}
+			else
+			{
+				gLGAccountMgr.checkAccount(msg->name(), msg->pwd(), this, CheckAcct::_login_check_, "check account");
+			}
+
 
 		}
-		else
-		{
-			gLGAccountMgr.checkAccount(msg->name(), msg->pwd(), this, CheckAcct::_login_check_, "check account");
-		}
 		
-//         message::CharMove m;
-//         m.set_charid(1);
-//         m.set_dir(10.f);
-//         m.set_x(10.f);
-//         m.set_x(10.f);
-//         m.set_timestamp(gLGServerTime);
-//         sendPBMessage(&m);
+
 	}
 	
 }

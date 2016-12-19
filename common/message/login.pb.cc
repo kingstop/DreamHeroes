@@ -293,13 +293,14 @@ void protobuf_AddDesc_login_2eproto() {
     "\010token_id\030\004 \002(\t\022\022\n\nchannel_id\030\005 \002(\005\022\022\n\ne"
     "xtra_data\030\006 \002(\t\"Z\n\024S2CPlatformVerifyACK\022"
     "\017\n\007user_id\030\001 \002(\t\022\021\n\tnick_name\030\002 \002(\t\022\r\n\005t"
-    "oken\030\003 \002(\t\022\017\n\007success\030\004 \002(\010*\346\001\n\017enumLogi"
+    "oken\030\003 \002(\t\022\017\n\007success\030\004 \002(\010*\220\002\n\017enumLogi"
     "nResult\022\033\n\027enumLoginResult_Success\020\000\022\030\n\024"
     "enumLoginResult_Fail\020\001\022\034\n\030enumLoginResul"
     "t_NameFail\020\002\022\033\n\027enumLoginResult_PwdFail\020"
     "\003\022\035\n\031enumLoginResult_HaveLogin\020\004\022 \n\034enum"
     "LoginResult_ErrorVersion\020\005\022 \n\034enumLoginR"
-    "esult_ErrorChannel\020\006", 980);
+    "esult_ErrorChannel\020\006\022(\n$enumLoginResult_"
+    "ErrorNeedThirdVerify\020\007", 1022);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "login.proto", &protobuf_RegisterTypes);
   VersionTg::default_instance_ = new VersionTg();
@@ -342,6 +343,7 @@ bool enumLoginResult_IsValid(int value) {
     case 4:
     case 5:
     case 6:
+    case 7:
       return true;
     default:
       return false;

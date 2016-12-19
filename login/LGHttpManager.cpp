@@ -61,7 +61,7 @@ bool LoginHttpTask::excute()
 		bret = reader.parse(respone_url.c_str(), value);
 		if (bret == false)
 		{
-
+			Mylog::log_server(LOG_ERROR,"failed to parse login http respone[%s]", respone_url.c_str());
 		}
 		else
 		{
@@ -82,6 +82,8 @@ bool LoginHttpTask::excute()
 	catch (std::exception &ex)
 	{
 		_error = message::Error_Unknow;
+		Mylog::log_server(LOG_ERROR, "parse login http respone[%s] crash ex[%s]", respone_url.c_str(), ex.what());
+
 	}
 	return true;
 }

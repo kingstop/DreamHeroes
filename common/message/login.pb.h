@@ -55,11 +55,12 @@ enum enumLoginResult {
   enumLoginResult_PwdFail = 3,
   enumLoginResult_HaveLogin = 4,
   enumLoginResult_ErrorVersion = 5,
-  enumLoginResult_ErrorChannel = 6
+  enumLoginResult_ErrorChannel = 6,
+  enumLoginResult_ErrorNeedThirdVerify = 7
 };
 bool enumLoginResult_IsValid(int value);
 const enumLoginResult enumLoginResult_MIN = enumLoginResult_Success;
-const enumLoginResult enumLoginResult_MAX = enumLoginResult_ErrorChannel;
+const enumLoginResult enumLoginResult_MAX = enumLoginResult_ErrorNeedThirdVerify;
 const int enumLoginResult_ARRAYSIZE = enumLoginResult_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* enumLoginResult_descriptor();

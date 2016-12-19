@@ -38,6 +38,7 @@ enum enumLoginResult
 	enumLoginResult_HaveLogin = 4;	//已经登录
 	enumLoginResult_ErrorVersion = 5;	//已经登录
 	enumLoginResult_ErrorChannel = 6;	//已经登录
+	enumLoginResult_ErrorNeedThirdVerify = 7;
 };
 
 

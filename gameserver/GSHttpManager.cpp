@@ -79,11 +79,6 @@ bool CreateDealHttpTaskIOS::excute()
 {
 	int channel_id = gHttpManager.getChannel();
 	int game_id = gHttpManager.getGameID();
-	//sprintf(_Http, "http://121.43.187.139/paygateway/index.php?action= third_preorder&channel=%d&user_id=%llu&ud=%s& product_id=%s", channel_id, _acc, );
-	//http://121.43.187.139/paygateway/index.php?action= third_preorder&channel=1001&user_id=1000001&ud=fahxgyhghjk& product_id=com.bodhiworld.dh.xxx
-	//sprintf(_Http, "http:// 121.43.187.139/paygateway/index.php?action=third_confirm& \
-	//		channel=%d&user_id=%llu& receipt ={}", channel_id, _acc);
-	//gHttpManager.Posts();
 	
 	std::string post_url;
 	std::string respone_url;
