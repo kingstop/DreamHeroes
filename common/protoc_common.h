@@ -80,6 +80,7 @@ public:
                 message = prototype->New();
                 if (!message->ParseFromArray(packet.getBegin(), packet.getLastLen()))
                 {
+					Mylog::log_server(LOG_ERROR, "faild to parse message [%s]", name.c_str());
                     delete message ;
                     return false;
                 }
