@@ -30,7 +30,7 @@
 #include "ShopSalesPromotionManager.h"
 #include "GameConfig.h"
 #include "RecordManager.h"
-#include "HttpManager.h"
+#include "GSHttpManager.h"
 /*#include "ObjectManager.h"
 #include "FRWorld.h*"
 */

@@ -166,7 +166,7 @@
     <ClInclude Include="gate_manager.h" />
     <ClInclude Include="gate_session.h" />
     <ClInclude Include="gate_tcp_server.h" />
-    <ClInclude Include="HttpManager.h" />
+    <ClInclude Include="GSHttpManager.h" />
     <ClInclude Include="LocationVector.h" />
     <ClInclude Include="RecordManager.h" />
     <ClInclude Include="server.h" />
@@ -183,7 +183,7 @@
     <ClCompile Include="gate_manager.cpp" />
     <ClCompile Include="gate_session.cpp" />
     <ClCompile Include="gate_tcp_server.cpp" />
-    <ClCompile Include="HttpManager.cpp" />
+    <ClCompile Include="GSHttpManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RecordManager.cpp" />
     <ClCompile Include="server.cpp" />

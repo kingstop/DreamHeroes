@@ -68,7 +68,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>log4cplusSD.lib;libprotobuf_d.lib;common_d.lib;libmysqld.lib;mysqlclient.lib;mysqlpp_d.lib;json_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>log4cplusSD.lib;libprotobuf_d.lib;common_d.lib;libmysqld.lib;mysqlclient.lib;mysqlpp_d.lib;libcurl.lib;json_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\..\..\..\..\bin\lib\;$(SolutionDir)\..\..\..\..\..\bin\external_lib\;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -96,6 +96,7 @@
     <ClCompile Include="gate_manager.cpp" />
     <ClCompile Include="gate_session.cpp" />
     <ClCompile Include="gate_tcp_server.cpp" />
+    <ClCompile Include="LGHttpManager.cpp" />
     <ClCompile Include="login_config.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="main.cpp" />
@@ -110,6 +111,7 @@
     <ClInclude Include="gate_manager.h" />
     <ClInclude Include="gate_session.h" />
     <ClInclude Include="gate_tcp_server.h" />
+    <ClInclude Include="LGHttpManager.h" />
     <ClInclude Include="login_config.h" />
     <ClInclude Include="server.h" />
     <ClInclude Include="stdafx.h" />

@@ -220,6 +220,8 @@ bool GameServer::initDataFromDatabase(DBQuery* p, const void* data)
 		}
 		gGameConfig.setServerID(s_temp);
 		u64 open_time = row["UNIX_TIMESTAMP(`server_open_time`)"];
+		std::string paltformHttpUrl = row["http_platform_url"].c_str();
+		gGameConfig.setPlatformHttpUrl(paltformHttpUrl.c_str());
 		gGameConfig.setServerOpenTime(open_time);
 		
 

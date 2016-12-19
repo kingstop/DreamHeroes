@@ -168,6 +168,7 @@
     <ClInclude Include="event_manager.h" />
     <ClInclude Include="event_table_object.h" />
     <ClInclude Include="exception.h" />
+    <ClInclude Include="HttpManager.h" />
     <ClInclude Include="http_client.h" />
     <ClInclude Include="http_server.h" />
     <ClInclude Include="io_service_pool.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="database.cpp" />
     <ClCompile Include="event_table_object.cpp" />
     <ClCompile Include="exception.cpp" />
+    <ClCompile Include="HttpManager.cpp" />
     <ClCompile Include="http_client.cpp" />
     <ClCompile Include="http_server.cpp" />
     <ClCompile Include="io_service_pool.cpp" />

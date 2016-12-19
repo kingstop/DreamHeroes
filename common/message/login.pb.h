@@ -45,6 +45,8 @@ class RegisterAccountFaildACK;
 class LoginResponse;
 class LoginGame;
 class ClientExit;
+class C2SPlatformVerifyReq;
+class S2CPlatformVerifyACK;
 
 enum enumLoginResult {
   enumLoginResult_Success = 0,
@@ -828,6 +830,310 @@ class ClientExit : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static ClientExit* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class C2SPlatformVerifyReq : public ::google::protobuf::Message {
+ public:
+  C2SPlatformVerifyReq();
+  virtual ~C2SPlatformVerifyReq();
+
+  C2SPlatformVerifyReq(const C2SPlatformVerifyReq& from);
+
+  inline C2SPlatformVerifyReq& operator=(const C2SPlatformVerifyReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const C2SPlatformVerifyReq& default_instance();
+
+  void Swap(C2SPlatformVerifyReq* other);
+
+  // implements Message ----------------------------------------------
+
+  inline C2SPlatformVerifyReq* New() const { return New(NULL); }
+
+  C2SPlatformVerifyReq* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const C2SPlatformVerifyReq& from);
+  void MergeFrom(const C2SPlatformVerifyReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(C2SPlatformVerifyReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string user_id = 1;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
+  // required string app_id = 2;
+  bool has_app_id() const;
+  void clear_app_id();
+  static const int kAppIdFieldNumber = 2;
+  const ::std::string& app_id() const;
+  void set_app_id(const ::std::string& value);
+  void set_app_id(const char* value);
+  void set_app_id(const char* value, size_t size);
+  ::std::string* mutable_app_id();
+  ::std::string* release_app_id();
+  void set_allocated_app_id(::std::string* app_id);
+
+  // required string app_key = 3;
+  bool has_app_key() const;
+  void clear_app_key();
+  static const int kAppKeyFieldNumber = 3;
+  const ::std::string& app_key() const;
+  void set_app_key(const ::std::string& value);
+  void set_app_key(const char* value);
+  void set_app_key(const char* value, size_t size);
+  ::std::string* mutable_app_key();
+  ::std::string* release_app_key();
+  void set_allocated_app_key(::std::string* app_key);
+
+  // required string token_id = 4;
+  bool has_token_id() const;
+  void clear_token_id();
+  static const int kTokenIdFieldNumber = 4;
+  const ::std::string& token_id() const;
+  void set_token_id(const ::std::string& value);
+  void set_token_id(const char* value);
+  void set_token_id(const char* value, size_t size);
+  ::std::string* mutable_token_id();
+  ::std::string* release_token_id();
+  void set_allocated_token_id(::std::string* token_id);
+
+  // required int32 channel_id = 5;
+  bool has_channel_id() const;
+  void clear_channel_id();
+  static const int kChannelIdFieldNumber = 5;
+  ::google::protobuf::int32 channel_id() const;
+  void set_channel_id(::google::protobuf::int32 value);
+
+  // required string extra_data = 6;
+  bool has_extra_data() const;
+  void clear_extra_data();
+  static const int kExtraDataFieldNumber = 6;
+  const ::std::string& extra_data() const;
+  void set_extra_data(const ::std::string& value);
+  void set_extra_data(const char* value);
+  void set_extra_data(const char* value, size_t size);
+  ::std::string* mutable_extra_data();
+  ::std::string* release_extra_data();
+  void set_allocated_extra_data(::std::string* extra_data);
+
+  // @@protoc_insertion_point(class_scope:message.C2SPlatformVerifyReq)
+ private:
+  inline void set_has_user_id();
+  inline void clear_has_user_id();
+  inline void set_has_app_id();
+  inline void clear_has_app_id();
+  inline void set_has_app_key();
+  inline void clear_has_app_key();
+  inline void set_has_token_id();
+  inline void clear_has_token_id();
+  inline void set_has_channel_id();
+  inline void clear_has_channel_id();
+  inline void set_has_extra_data();
+  inline void clear_has_extra_data();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  ::google::protobuf::internal::ArenaStringPtr app_id_;
+  ::google::protobuf::internal::ArenaStringPtr app_key_;
+  ::google::protobuf::internal::ArenaStringPtr token_id_;
+  ::google::protobuf::internal::ArenaStringPtr extra_data_;
+  ::google::protobuf::int32 channel_id_;
+  friend void  protobuf_AddDesc_login_2eproto();
+  friend void protobuf_AssignDesc_login_2eproto();
+  friend void protobuf_ShutdownFile_login_2eproto();
+
+  void InitAsDefaultInstance();
+  static C2SPlatformVerifyReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class S2CPlatformVerifyACK : public ::google::protobuf::Message {
+ public:
+  S2CPlatformVerifyACK();
+  virtual ~S2CPlatformVerifyACK();
+
+  S2CPlatformVerifyACK(const S2CPlatformVerifyACK& from);
+
+  inline S2CPlatformVerifyACK& operator=(const S2CPlatformVerifyACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2CPlatformVerifyACK& default_instance();
+
+  void Swap(S2CPlatformVerifyACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline S2CPlatformVerifyACK* New() const { return New(NULL); }
+
+  S2CPlatformVerifyACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const S2CPlatformVerifyACK& from);
+  void MergeFrom(const S2CPlatformVerifyACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(S2CPlatformVerifyACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string user_id = 1;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
+
+  // required string nick_name = 2;
+  bool has_nick_name() const;
+  void clear_nick_name();
+  static const int kNickNameFieldNumber = 2;
+  const ::std::string& nick_name() const;
+  void set_nick_name(const ::std::string& value);
+  void set_nick_name(const char* value);
+  void set_nick_name(const char* value, size_t size);
+  ::std::string* mutable_nick_name();
+  ::std::string* release_nick_name();
+  void set_allocated_nick_name(::std::string* nick_name);
+
+  // required string token = 3;
+  bool has_token() const;
+  void clear_token();
+  static const int kTokenFieldNumber = 3;
+  const ::std::string& token() const;
+  void set_token(const ::std::string& value);
+  void set_token(const char* value);
+  void set_token(const char* value, size_t size);
+  ::std::string* mutable_token();
+  ::std::string* release_token();
+  void set_allocated_token(::std::string* token);
+
+  // required bool success = 4;
+  bool has_success() const;
+  void clear_success();
+  static const int kSuccessFieldNumber = 4;
+  bool success() const;
+  void set_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:message.S2CPlatformVerifyACK)
+ private:
+  inline void set_has_user_id();
+  inline void clear_has_user_id();
+  inline void set_has_nick_name();
+  inline void clear_has_nick_name();
+  inline void set_has_token();
+  inline void clear_has_token();
+  inline void set_has_success();
+  inline void clear_has_success();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  ::google::protobuf::internal::ArenaStringPtr nick_name_;
+  ::google::protobuf::internal::ArenaStringPtr token_;
+  bool success_;
+  friend void  protobuf_AddDesc_login_2eproto();
+  friend void protobuf_AssignDesc_login_2eproto();
+  friend void protobuf_ShutdownFile_login_2eproto();
+
+  void InitAsDefaultInstance();
+  static S2CPlatformVerifyACK* default_instance_;
+};
 // ===================================================================
 
 
@@ -1450,6 +1756,486 @@ inline void ClientExit::set_user_account(::google::protobuf::uint64 value) {
   set_has_user_account();
   user_account_ = value;
   // @@protoc_insertion_point(field_set:message.ClientExit.user_account)
+}
+
+// -------------------------------------------------------------------
+
+// C2SPlatformVerifyReq
+
+// required string user_id = 1;
+inline bool C2SPlatformVerifyReq::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void C2SPlatformVerifyReq::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void C2SPlatformVerifyReq::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void C2SPlatformVerifyReq::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_id();
+}
+inline const ::std::string& C2SPlatformVerifyReq::user_id() const {
+  // @@protoc_insertion_point(field_get:message.C2SPlatformVerifyReq.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_user_id(const ::std::string& value) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.C2SPlatformVerifyReq.user_id)
+}
+inline void C2SPlatformVerifyReq::set_user_id(const char* value) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.C2SPlatformVerifyReq.user_id)
+}
+inline void C2SPlatformVerifyReq::set_user_id(const char* value, size_t size) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.C2SPlatformVerifyReq.user_id)
+}
+inline ::std::string* C2SPlatformVerifyReq::mutable_user_id() {
+  set_has_user_id();
+  // @@protoc_insertion_point(field_mutable:message.C2SPlatformVerifyReq.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* C2SPlatformVerifyReq::release_user_id() {
+  clear_has_user_id();
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    set_has_user_id();
+  } else {
+    clear_has_user_id();
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:message.C2SPlatformVerifyReq.user_id)
+}
+
+// required string app_id = 2;
+inline bool C2SPlatformVerifyReq::has_app_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void C2SPlatformVerifyReq::set_has_app_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void C2SPlatformVerifyReq::clear_has_app_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void C2SPlatformVerifyReq::clear_app_id() {
+  app_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_app_id();
+}
+inline const ::std::string& C2SPlatformVerifyReq::app_id() const {
+  // @@protoc_insertion_point(field_get:message.C2SPlatformVerifyReq.app_id)
+  return app_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_app_id(const ::std::string& value) {
+  set_has_app_id();
+  app_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.C2SPlatformVerifyReq.app_id)
+}
+inline void C2SPlatformVerifyReq::set_app_id(const char* value) {
+  set_has_app_id();
+  app_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.C2SPlatformVerifyReq.app_id)
+}
+inline void C2SPlatformVerifyReq::set_app_id(const char* value, size_t size) {
+  set_has_app_id();
+  app_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.C2SPlatformVerifyReq.app_id)
+}
+inline ::std::string* C2SPlatformVerifyReq::mutable_app_id() {
+  set_has_app_id();
+  // @@protoc_insertion_point(field_mutable:message.C2SPlatformVerifyReq.app_id)
+  return app_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* C2SPlatformVerifyReq::release_app_id() {
+  clear_has_app_id();
+  return app_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_allocated_app_id(::std::string* app_id) {
+  if (app_id != NULL) {
+    set_has_app_id();
+  } else {
+    clear_has_app_id();
+  }
+  app_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), app_id);
+  // @@protoc_insertion_point(field_set_allocated:message.C2SPlatformVerifyReq.app_id)
+}
+
+// required string app_key = 3;
+inline bool C2SPlatformVerifyReq::has_app_key() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void C2SPlatformVerifyReq::set_has_app_key() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void C2SPlatformVerifyReq::clear_has_app_key() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void C2SPlatformVerifyReq::clear_app_key() {
+  app_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_app_key();
+}
+inline const ::std::string& C2SPlatformVerifyReq::app_key() const {
+  // @@protoc_insertion_point(field_get:message.C2SPlatformVerifyReq.app_key)
+  return app_key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_app_key(const ::std::string& value) {
+  set_has_app_key();
+  app_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.C2SPlatformVerifyReq.app_key)
+}
+inline void C2SPlatformVerifyReq::set_app_key(const char* value) {
+  set_has_app_key();
+  app_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.C2SPlatformVerifyReq.app_key)
+}
+inline void C2SPlatformVerifyReq::set_app_key(const char* value, size_t size) {
+  set_has_app_key();
+  app_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.C2SPlatformVerifyReq.app_key)
+}
+inline ::std::string* C2SPlatformVerifyReq::mutable_app_key() {
+  set_has_app_key();
+  // @@protoc_insertion_point(field_mutable:message.C2SPlatformVerifyReq.app_key)
+  return app_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* C2SPlatformVerifyReq::release_app_key() {
+  clear_has_app_key();
+  return app_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_allocated_app_key(::std::string* app_key) {
+  if (app_key != NULL) {
+    set_has_app_key();
+  } else {
+    clear_has_app_key();
+  }
+  app_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), app_key);
+  // @@protoc_insertion_point(field_set_allocated:message.C2SPlatformVerifyReq.app_key)
+}
+
+// required string token_id = 4;
+inline bool C2SPlatformVerifyReq::has_token_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void C2SPlatformVerifyReq::set_has_token_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void C2SPlatformVerifyReq::clear_has_token_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void C2SPlatformVerifyReq::clear_token_id() {
+  token_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_token_id();
+}
+inline const ::std::string& C2SPlatformVerifyReq::token_id() const {
+  // @@protoc_insertion_point(field_get:message.C2SPlatformVerifyReq.token_id)
+  return token_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_token_id(const ::std::string& value) {
+  set_has_token_id();
+  token_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.C2SPlatformVerifyReq.token_id)
+}
+inline void C2SPlatformVerifyReq::set_token_id(const char* value) {
+  set_has_token_id();
+  token_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.C2SPlatformVerifyReq.token_id)
+}
+inline void C2SPlatformVerifyReq::set_token_id(const char* value, size_t size) {
+  set_has_token_id();
+  token_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.C2SPlatformVerifyReq.token_id)
+}
+inline ::std::string* C2SPlatformVerifyReq::mutable_token_id() {
+  set_has_token_id();
+  // @@protoc_insertion_point(field_mutable:message.C2SPlatformVerifyReq.token_id)
+  return token_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* C2SPlatformVerifyReq::release_token_id() {
+  clear_has_token_id();
+  return token_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_allocated_token_id(::std::string* token_id) {
+  if (token_id != NULL) {
+    set_has_token_id();
+  } else {
+    clear_has_token_id();
+  }
+  token_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token_id);
+  // @@protoc_insertion_point(field_set_allocated:message.C2SPlatformVerifyReq.token_id)
+}
+
+// required int32 channel_id = 5;
+inline bool C2SPlatformVerifyReq::has_channel_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void C2SPlatformVerifyReq::set_has_channel_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void C2SPlatformVerifyReq::clear_has_channel_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void C2SPlatformVerifyReq::clear_channel_id() {
+  channel_id_ = 0;
+  clear_has_channel_id();
+}
+inline ::google::protobuf::int32 C2SPlatformVerifyReq::channel_id() const {
+  // @@protoc_insertion_point(field_get:message.C2SPlatformVerifyReq.channel_id)
+  return channel_id_;
+}
+inline void C2SPlatformVerifyReq::set_channel_id(::google::protobuf::int32 value) {
+  set_has_channel_id();
+  channel_id_ = value;
+  // @@protoc_insertion_point(field_set:message.C2SPlatformVerifyReq.channel_id)
+}
+
+// required string extra_data = 6;
+inline bool C2SPlatformVerifyReq::has_extra_data() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void C2SPlatformVerifyReq::set_has_extra_data() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void C2SPlatformVerifyReq::clear_has_extra_data() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void C2SPlatformVerifyReq::clear_extra_data() {
+  extra_data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_extra_data();
+}
+inline const ::std::string& C2SPlatformVerifyReq::extra_data() const {
+  // @@protoc_insertion_point(field_get:message.C2SPlatformVerifyReq.extra_data)
+  return extra_data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_extra_data(const ::std::string& value) {
+  set_has_extra_data();
+  extra_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.C2SPlatformVerifyReq.extra_data)
+}
+inline void C2SPlatformVerifyReq::set_extra_data(const char* value) {
+  set_has_extra_data();
+  extra_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.C2SPlatformVerifyReq.extra_data)
+}
+inline void C2SPlatformVerifyReq::set_extra_data(const char* value, size_t size) {
+  set_has_extra_data();
+  extra_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.C2SPlatformVerifyReq.extra_data)
+}
+inline ::std::string* C2SPlatformVerifyReq::mutable_extra_data() {
+  set_has_extra_data();
+  // @@protoc_insertion_point(field_mutable:message.C2SPlatformVerifyReq.extra_data)
+  return extra_data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* C2SPlatformVerifyReq::release_extra_data() {
+  clear_has_extra_data();
+  return extra_data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void C2SPlatformVerifyReq::set_allocated_extra_data(::std::string* extra_data) {
+  if (extra_data != NULL) {
+    set_has_extra_data();
+  } else {
+    clear_has_extra_data();
+  }
+  extra_data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), extra_data);
+  // @@protoc_insertion_point(field_set_allocated:message.C2SPlatformVerifyReq.extra_data)
+}
+
+// -------------------------------------------------------------------
+
+// S2CPlatformVerifyACK
+
+// required string user_id = 1;
+inline bool S2CPlatformVerifyACK::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2CPlatformVerifyACK::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2CPlatformVerifyACK::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2CPlatformVerifyACK::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_id();
+}
+inline const ::std::string& S2CPlatformVerifyACK::user_id() const {
+  // @@protoc_insertion_point(field_get:message.S2CPlatformVerifyACK.user_id)
+  return user_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2CPlatformVerifyACK::set_user_id(const ::std::string& value) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.S2CPlatformVerifyACK.user_id)
+}
+inline void S2CPlatformVerifyACK::set_user_id(const char* value) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.S2CPlatformVerifyACK.user_id)
+}
+inline void S2CPlatformVerifyACK::set_user_id(const char* value, size_t size) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.S2CPlatformVerifyACK.user_id)
+}
+inline ::std::string* S2CPlatformVerifyACK::mutable_user_id() {
+  set_has_user_id();
+  // @@protoc_insertion_point(field_mutable:message.S2CPlatformVerifyACK.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2CPlatformVerifyACK::release_user_id() {
+  clear_has_user_id();
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2CPlatformVerifyACK::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    set_has_user_id();
+  } else {
+    clear_has_user_id();
+  }
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:message.S2CPlatformVerifyACK.user_id)
+}
+
+// required string nick_name = 2;
+inline bool S2CPlatformVerifyACK::has_nick_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2CPlatformVerifyACK::set_has_nick_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2CPlatformVerifyACK::clear_has_nick_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2CPlatformVerifyACK::clear_nick_name() {
+  nick_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_nick_name();
+}
+inline const ::std::string& S2CPlatformVerifyACK::nick_name() const {
+  // @@protoc_insertion_point(field_get:message.S2CPlatformVerifyACK.nick_name)
+  return nick_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2CPlatformVerifyACK::set_nick_name(const ::std::string& value) {
+  set_has_nick_name();
+  nick_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.S2CPlatformVerifyACK.nick_name)
+}
+inline void S2CPlatformVerifyACK::set_nick_name(const char* value) {
+  set_has_nick_name();
+  nick_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.S2CPlatformVerifyACK.nick_name)
+}
+inline void S2CPlatformVerifyACK::set_nick_name(const char* value, size_t size) {
+  set_has_nick_name();
+  nick_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.S2CPlatformVerifyACK.nick_name)
+}
+inline ::std::string* S2CPlatformVerifyACK::mutable_nick_name() {
+  set_has_nick_name();
+  // @@protoc_insertion_point(field_mutable:message.S2CPlatformVerifyACK.nick_name)
+  return nick_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2CPlatformVerifyACK::release_nick_name() {
+  clear_has_nick_name();
+  return nick_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2CPlatformVerifyACK::set_allocated_nick_name(::std::string* nick_name) {
+  if (nick_name != NULL) {
+    set_has_nick_name();
+  } else {
+    clear_has_nick_name();
+  }
+  nick_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nick_name);
+  // @@protoc_insertion_point(field_set_allocated:message.S2CPlatformVerifyACK.nick_name)
+}
+
+// required string token = 3;
+inline bool S2CPlatformVerifyACK::has_token() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2CPlatformVerifyACK::set_has_token() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2CPlatformVerifyACK::clear_has_token() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2CPlatformVerifyACK::clear_token() {
+  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_token();
+}
+inline const ::std::string& S2CPlatformVerifyACK::token() const {
+  // @@protoc_insertion_point(field_get:message.S2CPlatformVerifyACK.token)
+  return token_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2CPlatformVerifyACK::set_token(const ::std::string& value) {
+  set_has_token();
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.S2CPlatformVerifyACK.token)
+}
+inline void S2CPlatformVerifyACK::set_token(const char* value) {
+  set_has_token();
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.S2CPlatformVerifyACK.token)
+}
+inline void S2CPlatformVerifyACK::set_token(const char* value, size_t size) {
+  set_has_token();
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.S2CPlatformVerifyACK.token)
+}
+inline ::std::string* S2CPlatformVerifyACK::mutable_token() {
+  set_has_token();
+  // @@protoc_insertion_point(field_mutable:message.S2CPlatformVerifyACK.token)
+  return token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* S2CPlatformVerifyACK::release_token() {
+  clear_has_token();
+  return token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void S2CPlatformVerifyACK::set_allocated_token(::std::string* token) {
+  if (token != NULL) {
+    set_has_token();
+  } else {
+    clear_has_token();
+  }
+  token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
+  // @@protoc_insertion_point(field_set_allocated:message.S2CPlatformVerifyACK.token)
+}
+
+// required bool success = 4;
+inline bool S2CPlatformVerifyACK::has_success() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void S2CPlatformVerifyACK::set_has_success() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void S2CPlatformVerifyACK::clear_has_success() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void S2CPlatformVerifyACK::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+inline bool S2CPlatformVerifyACK::success() const {
+  // @@protoc_insertion_point(field_get:message.S2CPlatformVerifyACK.success)
+  return success_;
+}
+inline void S2CPlatformVerifyACK::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+  // @@protoc_insertion_point(field_set:message.S2CPlatformVerifyACK.success)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

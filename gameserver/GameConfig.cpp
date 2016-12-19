@@ -151,6 +151,16 @@ const globalConfig& GameConfig::getGlobalConfig()
 	return _global_config;
 }
 
+
+void GameConfig::setPlatformHttpUrl(const char* http)
+{
+	_platform_http = http;
+}
+
+const char* GameConfig::getPlatformHttpUrl()
+{
+	return _platform_http.c_str();
+}
 void GameConfig::Load(DBQuery* p)
 {
 

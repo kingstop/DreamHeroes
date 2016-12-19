@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "HttpManager.h"
+#include "GSHttpManager.h"
 #include "json_help.h"
 #include "DreamHero.h"
 
@@ -17,24 +17,20 @@ void HttpProcess()
 
 }
 
-BaseHttpTask::BaseHttpTask()
-{
-	_en = HttpType_NO;
-	_error = message::Error_NO;
-	_url_config = "http:// 121.43.187.139/paygateway/index.php?";
-
-}
-
-BaseHttpTask::~BaseHttpTask()
+BaseGSHttpTask::BaseGSHttpTask()
 {
 
 }
 
-void BaseHttpTask::set_acc(account_type acc)
+BaseGSHttpTask::~BaseGSHttpTask()
+{
+
+}
+
+void BaseGSHttpTask::set_acc(account_type acc)
 {
 	_acc = acc;
 }
-
 
 
 CreateDealHttpTaskIOS::CreateDealHttpTaskIOS()
@@ -59,7 +55,7 @@ bool CreateDealHttpTaskIOS::logicExcute()
 	DreamHero* hero = gDreamHeroManager.GetHero(_acc);
 	if (hero)
 	{
-		hero->addDealWaitToPay(_key_code.c_str(), _status, _price, _order_id, _error);
+		hero->addDealWaitToPay(_key_code.c_str(), _status, _price, _order_id, (message::GameError)_error);
 	}
 	else
 	{
@@ -92,7 +88,8 @@ bool CreateDealHttpTaskIOS::excute()
 	std::string post_url;
 	std::string respone_url;
 	char sz_temp[1024];
-	sprintf(sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%s",
+	sprintf(sz_temp, "%s/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%s",
+		gGameConfig.getPlatformHttpUrl(),
 		channel_id, game_id, _acc, _name.c_str(), _key_code.c_str());
 	
 	gHttpManager.Posts(sz_temp, post_url, respone_url);
@@ -172,7 +169,7 @@ bool VerifyDealHttpTaskIOS::logicExcute()
 	DreamHero* hero = gDreamHeroManager.GetHero(_acc);
 	if (hero)
 	{
-		hero->addDealPay(_product_id.c_str(), _status, _order_id, _error);
+		hero->addDealPay(_product_id.c_str(), _status, _order_id, (message::GameError)_error);
 	}
 	else
 	{
@@ -216,7 +213,9 @@ bool VerifyDealHttpTaskIOS::excute()
 		unsigned char sz_temp[10240];
 		unsigned char sz_temp_target[10240];
 		//urlencode((unsigned char*)_receipt.c_str(), sz_temp_target);
-		sprintf((char*)sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt=%s",
+		sprintf((char*)sz_temp,
+			"%s/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt=%s",
+			gGameConfig.getPlatformHttpUrl(),
 			channel_id, game_id, _acc, _order_id, _receipt.c_str());
 		//Mylog::log_server(LOG_INFO, "http verify [%s] ", sz_temp);
 		//Mylog::log_server(LOG_INFO, "http encode verify [%s] ", _receipt.c_str());
@@ -241,7 +240,8 @@ bool VerifyDealHttpTaskIOS::excute()
 				{
 					_product_id = value["product_id"].asString();
 					_order_id = value["order_id"].asInt();
-					sprintf((char*)sz_temp, "http://121.43.187.139:8080/paygateway/index.php?action=order_finish&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d",
+					sprintf((char*)sz_temp, "%s/paygateway/index.php?action=order_finish&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d",
+						gGameConfig.getPlatformHttpUrl(),
 						channel_id, game_id, _acc, _order_id);
 					value.clear();
 					gHttpManager.Posts((char*)sz_temp, post_url, respone_url);
@@ -282,100 +282,4 @@ bool VerifyDealHttpTaskIOS::excute()
 }
 
 
-int HttpManager::Posts(const std::string & strUrl, const std::string & strPost, std::string & strResponse, const char* pCaPath)
-{
-	_http_client->Posts(strUrl, strPost, strResponse, pCaPath);
-	return 0;
-}
 
-
-
-HttpManager::HttpManager()
-	:_stop(false)
-{
-	_http_client = new CurlHttpClient();
-}
-
-
-HttpManager::~HttpManager()
-{
-
-}
-
-int HttpManager::getChannel()
-{
-	return _channel;
-}
-
-int HttpManager::getGameID()
-{
-	return _game_id;
-}
-
-void HttpManager::setChannel(int channel)
-{
-	_channel = channel;
-}
-
-void HttpManager::setGameID(int game_id)
-{
-	_game_id = game_id;
-}
-
-void HttpManager::addHttpTask(BaseHttpTask* task)
-{
-	boost::mutex::scoped_lock lock(_http_mutex);
-	_https.push(task);
-}
-
-void HttpManager::update()
-{
-	
-	_http_mutex.lock();
-	while (_https.size() != 0)
-	{
-		_execute_https.push(_https.front());
-		_https.pop();
-	}
-	_http_mutex.unlock();
-
-	_http_complete_mutex.lock();
-	while (_execute_https.size() != 0)
-	{
-		BaseHttpTask* http_client = _execute_https.front();
-		http_client->excute();
-		_complete_task.push(http_client);
-		_execute_https.pop();
-	}
-	_http_complete_mutex.unlock();		
-}
-
-void HttpManager::logicUpdate()
-{
-	std::queue<BaseHttpTask*> queue_temp;
-	_http_complete_mutex.lock();
-	while (_complete_task.size() != 0)
-	{
-		BaseHttpTask* http_client = _complete_task.front();
-		queue_temp.push(http_client);
-		_complete_task.pop();
-	}
-	_http_complete_mutex.unlock();
-
-	while (queue_temp.size() != 0)
-	{
-		BaseHttpTask* http_client = queue_temp.front();
-		http_client->logicExcute();
-		delete http_client;
-		queue_temp.pop();
-	}
-}
-
-void HttpManager::setStop(bool stop)
-{
-	_stop = stop;
-}
-bool HttpManager::isStop()
-{
-	return _stop;
-}

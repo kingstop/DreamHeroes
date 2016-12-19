@@ -18,6 +18,7 @@ public:
 private:
     EventableObjectHolder m_EventHold;
 protected:
+	boost::thread* _http_thread;
 private:
 };
 #endif

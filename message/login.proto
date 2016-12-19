@@ -64,3 +64,21 @@ message ClientExit
 };
 
 
+
+message C2SPlatformVerifyReq
+{
+	required string user_id = 1;
+	required string app_id = 2;
+	required string app_key = 3;
+	required string token_id = 4;
+	required int32 channel_id = 5;
+	required string extra_data = 6;
+}
+
+message S2CPlatformVerifyACK
+{
+	required string user_id = 1;
+	required string nick_name = 2;
+	required string token = 3;
+	required bool success = 4;
+}

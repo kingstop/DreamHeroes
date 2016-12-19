@@ -124,6 +124,9 @@ public:
 	void setServerID(char server_id);
 	u64 getServerOpenTime();
 	char getServerID();
+	void setPlatformHttpUrl(const char* http);
+	const char* getPlatformHttpUrl();
+
 protected:
 	MAPTASKS _tasks;
 	MAPSHOPHEROCONFIGS _shop_heroes;
@@ -137,5 +140,6 @@ protected:
 	globalConfig _global_config;
 	u64 _server_open_time;
 	char _server_char;
+	std::string _platform_http;
 };
 

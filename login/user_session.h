@@ -12,12 +12,15 @@ public:
 		_checking_data_,
 		_wait_gate_,
 		_wait_close_,
+		_wait_platform_,
+		_platform_success_,
 	};
 	UserLoginSession(void);
 	~UserLoginSession(void);
 
 	// ×¢²áPBº¯ÊýÏûÏ¢
 	static void initPBModule();
+	void parsePlatformVerify(google::protobuf::Message* p, pb_flag_type flag);
 	void parseLoginGame(google::protobuf::Message* p, pb_flag_type flag);
 	void parseRegister(google::protobuf::Message* p, pb_flag_type flag);
 
@@ -31,11 +34,15 @@ public:
 	virtual void proc_message( const message_t& msg );
 	virtual void reset();
 	virtual void run();
+	const char* getPlatformUserId();
 	
 private:
 	u32 m_connecttime;
 	account_type m_accid;
 	u8  m_state;
+
+	std::string _platform_user_id;
+	
 };
 
 #endif 

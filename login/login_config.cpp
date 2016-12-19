@@ -21,6 +21,17 @@ bool LoginConfig::CompareVersion(int number_1, int number_2, int number_3)
 }
 
 
+void LoginConfig::SetNeedPlatformVerify(bool b)
+{
+	_need_platform_verify = b;
+}
+
+
+bool LoginConfig::IsNeedPlatformVerify( )
+{
+	return _need_platform_verify;
+}
+
 bool LoginConfig::CompareChannel(int channel)
 {
 	bool ret = false;
@@ -36,6 +47,15 @@ bool LoginConfig::CompareChannel(int channel)
 	return ret;
 }
 
+void LoginConfig::SetPlatform(const char* sz)
+{
+	_platform_url = sz;
+}
+
+const char* LoginConfig::GetPlatformUrl()
+{
+	return _platform_url.c_str();
+}
 
 const version_tg* LoginConfig::GetVersion()
 {

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-
+#include "LGHttpManager.h"
 
 LoginServer::LoginServer():m_EventHold(WORLD_INSTANCE)
 {
@@ -31,6 +31,7 @@ bool LoginServer::init()
         return false;
     }
     Mylog::log_server( LOG_INFO, "Start Login Server v[%s] Success!", gLGVersion.toString().c_str());
+	_http_thread = new boost::thread(HttpProcess);
     return true;
 }
 
@@ -100,7 +101,10 @@ bool LoginServer::initDataFromDatabase(DBQuery* p, const void* data)
 		gLoginConfig.SetVersion(verstion_number_1, verstion_number_2, verstion_number_3);
 		std::string channels  = row["channel_id"].c_str();
 		gLoginConfig.SetChannels(channels.c_str());
-
+		std::string platformUrl = row["http_platform_url"].c_str();
+		gLoginConfig.SetPlatform(platformUrl.c_str());
+		bool need_platform_check = (bool)row["need_third_platform"];
+		gLoginConfig.SetNeedPlatformVerify(need_platform_check);
 	}
 	
 

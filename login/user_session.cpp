@@ -2,6 +2,7 @@
 #include "user_session.h"
 #include "message/login.pb.h"
 #include "account_manager.h"
+#include "LGHttpManager.h"
 
 enum
 {
@@ -9,6 +10,8 @@ enum
     _SESSION_CHECK_ACCOUNT_ = 60 * _TIME_SECOND_MSEL_,
     _SESSION_WAIT_GATE_ = 60 * _TIME_SECOND_MSEL_,
     _SESSION_WAIT_CLOSE = 5 * _TIME_SECOND_MSEL_,
+	_SESSION_WAIT_HTTP_ = 5 * _TIME_SECOND_MSEL_,
+	_SESSION_WAIT_LOGIN_ = 5 * _TIME_SECOND_MSEL_,
 };
 
 void UserLoginSession::initPBModule()
@@ -16,7 +19,28 @@ void UserLoginSession::initPBModule()
 	ProtocMsgBase<UserLoginSession>::registerSDFun(&UserLoginSession::send_message, NULL);
 	ProtocMsgBase<UserLoginSession>::registerCBFun(PROTOCO_NAME(message::LoginRequest),  &UserLoginSession::parseLoginGame);
 	ProtocMsgBase<UserLoginSession>::registerCBFun(PROTOCO_NAME(message::RegisterAccountRequest),  &UserLoginSession::parseRegister);
+	ProtocMsgBase<UserLoginSession>::registerCBFun(PROTOCO_NAME(message::C2SPlatformVerifyReq), &UserLoginSession::parsePlatformVerify);
 }
+
+void UserLoginSession::parsePlatformVerify(google::protobuf::Message* p, pb_flag_type flag)
+{
+	message::C2SPlatformVerifyReq* msg = static_cast<message::C2SPlatformVerifyReq*>(p);
+	if (msg)
+	{
+		if (_platform_user_id.empty() || _platform_user_id == msg->user_id())
+		{
+			LoginHttpTask* httpEntry = new LoginHttpTask();
+			httpEntry->init(msg->user_id().c_str(), msg->app_id().c_str(),
+				msg->app_key().c_str(),
+				msg->token_id().c_str(), msg->extra_data().c_str(), msg->channel_id(), this);
+			gHttpManager.addHttpTask(httpEntry);
+			setState(UserLoginSession::_wait_platform_);
+
+
+		}
+	}
+}
+
 void UserLoginSession::parseLoginGame(google::protobuf::Message* p, pb_flag_type flag)
 {
 	message::LoginRequest* msg = static_cast<message::LoginRequest*>(p);
@@ -98,11 +122,13 @@ void UserLoginSession::setState(u8 s)
     case _disable_:
         {
             gEventMgr.removeEvents(this, EVENT_USER_SESSION_CLOSE);
-        }break;
+        }
+		break;
     case _wait_data_:
         {
             gEventMgr.addEvent(this, &UserLoginSession::setClose,EVENT_USER_SESSION_CLOSE, _SESSION_WAIT_ACCOUNT_ ,1,EVENT_FLAG_DELETES_OBJECT);
-        }break;
+        }
+		break;
     case  _checking_data_:
         {
             if (gEventMgr.hasEvent(this, EVENT_USER_SESSION_CLOSE))
@@ -110,21 +136,41 @@ void UserLoginSession::setState(u8 s)
                 gEventMgr.modifyEventTimeAndTimeLeft(this, EVENT_USER_SESSION_CLOSE, _SESSION_CHECK_ACCOUNT_);
             }
     
-        }break;
+        }
+		break;
     case _wait_gate_:
         {
             if (gEventMgr.hasEvent(this, EVENT_USER_SESSION_CLOSE))
             {
                 gEventMgr.modifyEventTimeAndTimeLeft(this, EVENT_USER_SESSION_CLOSE, _SESSION_WAIT_GATE_);
             }
-        }break;
+        }
+		break;
     case _wait_close_:
         {
             if (gEventMgr.hasEvent(this, EVENT_USER_SESSION_CLOSE))
             {
                 gEventMgr.modifyEventTimeAndTimeLeft(this, EVENT_USER_SESSION_CLOSE, _SESSION_WAIT_CLOSE);
             }
-        }break;
+        }
+		break;
+	case _wait_platform_:
+		{
+			if (gEventMgr.hasEvent(this, EVENT_USER_SESSION_CLOSE))
+			{
+				gEventMgr.modifyEventTimeAndTimeLeft(this, EVENT_USER_SESSION_CLOSE, _SESSION_WAIT_HTTP_);
+			}
+		}
+		break;
+
+	case _platform_success_:
+		{
+			if (gEventMgr.hasEvent(this, EVENT_USER_SESSION_CLOSE))
+			{
+				gEventMgr.modifyEventTimeAndTimeLeft(this, EVENT_USER_SESSION_CLOSE, _SESSION_WAIT_LOGIN_);
+			}
+		}
+		break;
     default:
         break;
     }
@@ -140,11 +186,15 @@ void UserLoginSession::on_close( const boost::system::error_code& error )
 {
     
     setState(_disable_);
-	
+	_platform_user_id.clear();
 	tcp_session::on_close( error );
 	Mylog::log_player(LOG_INFO, "remove a user session");
 }
 
+const char* UserLoginSession::getPlatformUserId()
+{
+	return _platform_user_id.c_str();
+}
 
 void UserLoginSession::proc_message( const message_t& msg )
 {
