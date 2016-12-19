@@ -46,7 +46,7 @@ bool LoginHttpTask::excute()
 		gLoginConfig.GetPlatformUrl(),
 		_channel_id, _app_id.c_str(), _app_key.c_str(), _user_id.c_str(),
 		_token.c_str(), _extra_data.c_str());
-
+	Mylog::log_server(LOG_INFO, sz_temp);
 	gHttpManager.Posts(sz_temp, post_url, respone_url);
 
 	try
