@@ -41,9 +41,8 @@ bool LoginHttpTask::excute()
 {
 	std::string post_url;
 	std::string respone_url;
-	char sz_temp[1024];
-	sprintf(sz_temp, "%s/logincheck/account_service.php?action=third_login_check&\
-		channel_id=%d&app_id=%s&app_key=%s&user_id=%s&token=%s&extra_data=%s",
+	char sz_temp[10240];
+	sprintf(sz_temp, "%s/logincheck/account_service.php?action=third_login_check&channel_id=%d&app_id=%s&app_key=%s&user_id=%s&token=%s&extra_data=%s",
 		gLoginConfig.GetPlatformUrl(),
 		_channel_id, _app_id.c_str(), _app_key.c_str(), _user_id.c_str(),
 		_token.c_str(), _extra_data.c_str());
