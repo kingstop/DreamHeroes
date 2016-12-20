@@ -10,29 +10,7 @@ public:
 		_session_online_,
 		_session_offline_,
 	};
-	void prasePBDefault(google::protobuf::Message* p);
-	//void parseC2SSaveMapRequest(google::protobuf::Message* p);
-	//void parseC2SHeroMapListRequest(google::protobuf::Message* p);
-	//void parseC2SHeroMapData(google::protobuf::Message* p);
-	//void parseGirlInfoRequest(google::protobuf::Message* p);
-	//void parseSignRequest(google::protobuf::Message* p);
-	//void parseModifyInfoRequest(google::protobuf::Message* p);
-	//void parseGoodListReq(google::protobuf::Message* p);
-	//void parseBuyGoodReq(google::protobuf::Message* p);
-	//void parseGirlsListRankReq(google::protobuf::Message* p);
-	//void parseGirlsListReq(google::protobuf::Message* p);
-	//void parseModifyGirlPerformance(google::protobuf::Message* p);
-	//void parseAddAccountReq(google::protobuf::Message* p);
-	//void parseReservationReq(google::protobuf::Message* p);
-	//void parseReservationInfoListReq(google::protobuf::Message* p);
-	//void parseAdviceReq(google::protobuf::Message* p);
-	//void parseAdviceListReq(google::protobuf::Message* p);
-	//void parseModifyNewsReq(google::protobuf::Message* p);
-	//void parseModifyPasswordReq(google::protobuf::Message* p);
-	//void parseReceiveReservationReq(google::protobuf::Message* p);
-	//void parseAddGoodInfoReq(google::protobuf::Message* p);
-	//void parseGoodsCDKEYListReq(google::protobuf::Message* p);
-	
+	void prasePBDefault(google::protobuf::Message* p);	
 	static void registerPBCall();
 public:
 	void praseDBQueryHeroInfo(message::MsgHeroDataDB2GS* HeroDataMsg);
@@ -66,6 +44,8 @@ public:
 	void parseReqVerifyDealIOS(google::protobuf::Message* p);
 	void parseReqModifyTutorial(google::protobuf::Message* p);
 	void parseReqRelive(google::protobuf::Message* p);
+
+	void parseReqBuySpirit(google::protobuf::Message* p);
 public:
 	void parseCmdReqMdodifyGMLevel(google::protobuf::Message* p);
 	void parseCmdReqEnterGame(google::protobuf::Message* p);

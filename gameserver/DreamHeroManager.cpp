@@ -54,14 +54,43 @@ void DreamHeroManager::Load(DBQuery* p)
 	}
 }
 
+void DreamHeroManager::recoverSpirit()
+{
+	MAPHEROS::iterator it = _heroes.begin();
+	for (; it != _heroes.end(); ++ it)
+	{
+		DreamHero* Hero = it->second;
+		if (Hero)
+		{
+			Hero->recoverSpirit();
+		}
+	}
+}
+
 void DreamHeroManager::init()
 {
+	_recover_spirit_minute = gGameConfig.getGlobalConfig().config_recover_spirit_minute_;
+	_recover_spirit = gGameConfig.getGlobalConfig().config_recover_spirit_;
 	_save_all_heroes_ok = false;
 	if (gEventMgr.hasEvent(this, EVENT_COLLECT_INFO_) == false)
 	{
 		gEventMgr.addEvent(this, &DreamHeroManager::CollectInfo, EVENT_COLLECT_INFO_, _SAVE_COLLECT_TIME_, -1, 0);
 	}
 	
+	if (_recover_spirit != 0 && _recover_spirit_minute != 0)
+	{
+		if (gEventMgr.hasEvent(this, EVENT_RECOVER_SPIRIT_) == false)
+		{
+			int time_entry = _recover_spirit * _TIME_MINUTE_ * _TIME_SECOND_MSEL_;
+			gEventMgr.addEvent(this, &DreamHeroManager::recoverSpirit, EVENT_RECOVER_SPIRIT_, time_entry, -1, 0);
+		}
+	}
+	else
+	{
+		//Mylog::log_server()
+	}
+
+
 	if (gEventMgr.hasEvent(this, EVENT_PER_HOUR) == false)
 	{
 		time_t server_time = g_server_start_time;

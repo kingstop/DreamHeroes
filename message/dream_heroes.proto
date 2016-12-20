@@ -7,35 +7,39 @@ enum GameError
 	Error_CanNotEnterGameTheInstanceIsLock = 1;
 	Error_CanNotEnterGameTheCharacterIsLock = 2;
 	Error_CanNotEnterGameTheSectionIsLock = 3;
-	Error_CanNotBuyHeroNotEnoughgold = 4;
-	Error_CanNotPassGameTheInstanceNotHaveEnoughGold = 5;
-	Error_NotEnterTheExitGame = 6;
-	Error_NotFoundTheChapterWhenEnterGame = 7;
-	Error_TheChapterIsNotLock = 8;
-	Error_UnlockChapterFailedNotFoundTheUnlockChapter = 9;
-	Error_UnlockChapterFailedTheRequiredSectionNotPass = 10;
-	Error_UnlockChapterFailedYouHaveToCompleteEnoughTasks = 11;
-	Error_UnlockChapterFailedYouNotHaveEnoughGold = 12;
-	Error_RefreshAdvertisementTaskFailedInCD = 13;
-	Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 14;
-	Error_RefreshAdvertisementTaskFailedUnknow = 15;
-	Error_RefreshAdvertisementTaskFailedNotEnoughGold = 16;
-	Error_BuyHeroFailedNotEnoughGold = 17;
-	Error_BuyHeroFailedThePriceIsOld = 18;
-	Error_BuyHeroFailedNotFoundGrid = 19;
-	Error_BuyHeroFailedNotPassRequiredSection = 20;
-	Error_ModifyCurrentFailedTheCharacterIsLock = 21;
-	Error_BuyGoldFailedNotFoundConfig = 22;
-	Error_BuyGoldFailedNotFoundOrder = 23;
-	Error_BuyGoldFailedTheOrderHaveBeenCompleted = 24;
-	Error_CreateDealFailedTheHttpErrorRespone = 25;
-	Error_CreateDealFailedTheHttpResponeFailed = 26;
-	Error_CreateDealDailedTheHttpResponeErrorProduct_id = 27;
-	Error_VerifyDealFailedTheHttpErrorRespone = 28;
-	Error_VerifyDealFailedTheHttpResponeFailed = 29;
-	Error_CmdFailedRequiredGMLevel = 30;
-	Error_ReliveFailedNotEnoughGod = 31;
-	Error_Unknow = 32;
+	Error_CanNotEnterGameNotEnoughSpirit = 4;
+	Error_CanNotBuyHeroNotEnoughgold = 5;
+	Error_CanNotPassGameTheInstanceNotHaveEnoughGold = 6;
+	Error_NotEnterTheExitGame = 7;
+	Error_NotFoundTheChapterWhenEnterGame = 8;
+	Error_TheChapterIsNotLock = 9;
+	Error_UnlockChapterFailedNotFoundTheUnlockChapter = 10;
+	Error_UnlockChapterFailedTheRequiredSectionNotPass = 11;
+	Error_UnlockChapterFailedYouHaveToCompleteEnoughTasks = 12;
+	Error_UnlockChapterFailedYouNotHaveEnoughGold = 13;
+	Error_RefreshAdvertisementTaskFailedInCD = 14;
+	Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 15;
+	Error_RefreshAdvertisementTaskFailedUnknow = 16;
+	Error_RefreshAdvertisementTaskFailedNotEnoughGold = 17;
+	Error_BuyHeroFailedNotEnoughGold = 18;
+	Error_BuyHeroFailedThePriceIsOld = 19;
+	Error_BuyHeroFailedNotFoundGrid = 20;
+	Error_BuyHeroFailedNotPassRequiredSection = 21;
+	Error_ModifyCurrentFailedTheCharacterIsLock = 22;
+	Error_BuyGoldFailedNotFoundConfig = 23;
+	Error_BuyGoldFailedNotFoundOrder = 24;
+	Error_BuyGoldFailedTheOrderHaveBeenCompleted = 25;
+	Error_CreateDealFailedTheHttpErrorRespone = 26;
+	Error_CreateDealFailedTheHttpResponeFailed = 27;
+	Error_CreateDealDailedTheHttpResponeErrorProduct_id = 28;
+	Error_VerifyDealFailedTheHttpErrorRespone = 29;
+	Error_VerifyDealFailedTheHttpResponeFailed = 30;
+	Error_BuySpiritFailedNotEnoughJewel = 31;
+	Error_BuySpiritFailedCanNotBuyMoreSpirit = 32;
+	Error_BuySpiritFailedNotFoundConfig = 33;
+	Error_CmdFailedRequiredGMLevel = 34;
+	Error_ReliveFailedNotEnoughGod = 35;
+	Error_Unknow = 36;
 }
 
 
@@ -71,6 +75,15 @@ message MsgS2CNewTaskNotify
 	required MsgTaskConfigInfo task = 1;
 }
 
+message MsgSpiritShopInfo
+{
+	required int32 index = 1;
+	required int32 spirit = 2;
+	required int32 need_jewel = 3;
+	required int32 resource_id = 4;
+	required string descript = 5;
+}
+
 message MsgS2CHeroesInit
 {
 	required MsgHeroData info = 1;
@@ -83,7 +96,32 @@ message MsgS2CHeroesInit
 	repeated MsgIntPair special_creatures = 8;
 	required int32 relive_gold = 9;
 	required int32 refresh_task_gold = 10;
+	required int32 max_spirit = 11;
+	required int32 config_recover_spirit_minute = 12;
+	required int32 config_recover_spirit = 13;
+	required int32 config_enter_game_use_spirit = 14;
+	repeated MsgSpiritShopInfo sprit_shop_infos = 15;
+	required int32 config_day_buy_spirit = 16;
+	required int32 last_recover_spirit_time = 17;	
+	required int32 last_buy_spirit_time = 18;
+	required int32 day_refresh_time = 19;
+
 }
+
+
+message MsgC2SReqBuySpirit
+{
+	required int32 index = 1;
+}
+
+message MsgS2CBuySpiritACK
+{
+	required int32 index = 1;
+	required int32 jewel = 2;
+	required int32 spirit = 3;
+}
+
+
 
 message MsgC2SReqEnterGame
 {
@@ -99,6 +137,7 @@ message MsgS2CEnterGameACK
 	repeated MsgDropBoxConfig drop_box_configs = 3;
 	repeated MsgObjConfig kill_list = 4;
 	required GameError error = 5 [default=Error_NO];
+	required int32 spirit = 6;
 	
 }
 

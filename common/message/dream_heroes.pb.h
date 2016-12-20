@@ -44,7 +44,10 @@ class MsgS2CShopConfigACK;
 class MsgC2SReqGameGlobalConfig;
 class MsgS2CSGameGlobalConfigACK;
 class MsgS2CNewTaskNotify;
+class MsgSpiritShopInfo;
 class MsgS2CHeroesInit;
+class MsgC2SReqBuySpirit;
+class MsgS2CBuySpiritACK;
 class MsgC2SReqEnterGame;
 class MsgS2CEnterGameACK;
 class MsgKillHistroy;
@@ -96,35 +99,39 @@ enum GameError {
   Error_CanNotEnterGameTheInstanceIsLock = 1,
   Error_CanNotEnterGameTheCharacterIsLock = 2,
   Error_CanNotEnterGameTheSectionIsLock = 3,
-  Error_CanNotBuyHeroNotEnoughgold = 4,
-  Error_CanNotPassGameTheInstanceNotHaveEnoughGold = 5,
-  Error_NotEnterTheExitGame = 6,
-  Error_NotFoundTheChapterWhenEnterGame = 7,
-  Error_TheChapterIsNotLock = 8,
-  Error_UnlockChapterFailedNotFoundTheUnlockChapter = 9,
-  Error_UnlockChapterFailedTheRequiredSectionNotPass = 10,
-  Error_UnlockChapterFailedYouHaveToCompleteEnoughTasks = 11,
-  Error_UnlockChapterFailedYouNotHaveEnoughGold = 12,
-  Error_RefreshAdvertisementTaskFailedInCD = 13,
-  Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 14,
-  Error_RefreshAdvertisementTaskFailedUnknow = 15,
-  Error_RefreshAdvertisementTaskFailedNotEnoughGold = 16,
-  Error_BuyHeroFailedNotEnoughGold = 17,
-  Error_BuyHeroFailedThePriceIsOld = 18,
-  Error_BuyHeroFailedNotFoundGrid = 19,
-  Error_BuyHeroFailedNotPassRequiredSection = 20,
-  Error_ModifyCurrentFailedTheCharacterIsLock = 21,
-  Error_BuyGoldFailedNotFoundConfig = 22,
-  Error_BuyGoldFailedNotFoundOrder = 23,
-  Error_BuyGoldFailedTheOrderHaveBeenCompleted = 24,
-  Error_CreateDealFailedTheHttpErrorRespone = 25,
-  Error_CreateDealFailedTheHttpResponeFailed = 26,
-  Error_CreateDealDailedTheHttpResponeErrorProduct_id = 27,
-  Error_VerifyDealFailedTheHttpErrorRespone = 28,
-  Error_VerifyDealFailedTheHttpResponeFailed = 29,
-  Error_CmdFailedRequiredGMLevel = 30,
-  Error_ReliveFailedNotEnoughGod = 31,
-  Error_Unknow = 32
+  Error_CanNotEnterGameNotEnoughSpirit = 4,
+  Error_CanNotBuyHeroNotEnoughgold = 5,
+  Error_CanNotPassGameTheInstanceNotHaveEnoughGold = 6,
+  Error_NotEnterTheExitGame = 7,
+  Error_NotFoundTheChapterWhenEnterGame = 8,
+  Error_TheChapterIsNotLock = 9,
+  Error_UnlockChapterFailedNotFoundTheUnlockChapter = 10,
+  Error_UnlockChapterFailedTheRequiredSectionNotPass = 11,
+  Error_UnlockChapterFailedYouHaveToCompleteEnoughTasks = 12,
+  Error_UnlockChapterFailedYouNotHaveEnoughGold = 13,
+  Error_RefreshAdvertisementTaskFailedInCD = 14,
+  Error_RefreshAdvertisementTaskFailedNotFoundGiveUpTaskID = 15,
+  Error_RefreshAdvertisementTaskFailedUnknow = 16,
+  Error_RefreshAdvertisementTaskFailedNotEnoughGold = 17,
+  Error_BuyHeroFailedNotEnoughGold = 18,
+  Error_BuyHeroFailedThePriceIsOld = 19,
+  Error_BuyHeroFailedNotFoundGrid = 20,
+  Error_BuyHeroFailedNotPassRequiredSection = 21,
+  Error_ModifyCurrentFailedTheCharacterIsLock = 22,
+  Error_BuyGoldFailedNotFoundConfig = 23,
+  Error_BuyGoldFailedNotFoundOrder = 24,
+  Error_BuyGoldFailedTheOrderHaveBeenCompleted = 25,
+  Error_CreateDealFailedTheHttpErrorRespone = 26,
+  Error_CreateDealFailedTheHttpResponeFailed = 27,
+  Error_CreateDealDailedTheHttpResponeErrorProduct_id = 28,
+  Error_VerifyDealFailedTheHttpErrorRespone = 29,
+  Error_VerifyDealFailedTheHttpResponeFailed = 30,
+  Error_BuySpiritFailedNotEnoughJewel = 31,
+  Error_BuySpiritFailedCanNotBuyMoreSpirit = 32,
+  Error_BuySpiritFailedNotFoundConfig = 33,
+  Error_CmdFailedRequiredGMLevel = 34,
+  Error_ReliveFailedNotEnoughGod = 35,
+  Error_Unknow = 36
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
@@ -665,6 +672,143 @@ class MsgS2CNewTaskNotify : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MsgSpiritShopInfo : public ::google::protobuf::Message {
+ public:
+  MsgSpiritShopInfo();
+  virtual ~MsgSpiritShopInfo();
+
+  MsgSpiritShopInfo(const MsgSpiritShopInfo& from);
+
+  inline MsgSpiritShopInfo& operator=(const MsgSpiritShopInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgSpiritShopInfo& default_instance();
+
+  void Swap(MsgSpiritShopInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgSpiritShopInfo* New() const { return New(NULL); }
+
+  MsgSpiritShopInfo* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgSpiritShopInfo& from);
+  void MergeFrom(const MsgSpiritShopInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgSpiritShopInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 index = 1;
+  bool has_index() const;
+  void clear_index();
+  static const int kIndexFieldNumber = 1;
+  ::google::protobuf::int32 index() const;
+  void set_index(::google::protobuf::int32 value);
+
+  // required int32 spirit = 2;
+  bool has_spirit() const;
+  void clear_spirit();
+  static const int kSpiritFieldNumber = 2;
+  ::google::protobuf::int32 spirit() const;
+  void set_spirit(::google::protobuf::int32 value);
+
+  // required int32 need_jewel = 3;
+  bool has_need_jewel() const;
+  void clear_need_jewel();
+  static const int kNeedJewelFieldNumber = 3;
+  ::google::protobuf::int32 need_jewel() const;
+  void set_need_jewel(::google::protobuf::int32 value);
+
+  // required int32 resource_id = 4;
+  bool has_resource_id() const;
+  void clear_resource_id();
+  static const int kResourceIdFieldNumber = 4;
+  ::google::protobuf::int32 resource_id() const;
+  void set_resource_id(::google::protobuf::int32 value);
+
+  // required string descript = 5;
+  bool has_descript() const;
+  void clear_descript();
+  static const int kDescriptFieldNumber = 5;
+  const ::std::string& descript() const;
+  void set_descript(const ::std::string& value);
+  void set_descript(const char* value);
+  void set_descript(const char* value, size_t size);
+  ::std::string* mutable_descript();
+  ::std::string* release_descript();
+  void set_allocated_descript(::std::string* descript);
+
+  // @@protoc_insertion_point(class_scope:message.MsgSpiritShopInfo)
+ private:
+  inline void set_has_index();
+  inline void clear_has_index();
+  inline void set_has_spirit();
+  inline void clear_has_spirit();
+  inline void set_has_need_jewel();
+  inline void clear_has_need_jewel();
+  inline void set_has_resource_id();
+  inline void clear_has_resource_id();
+  inline void set_has_descript();
+  inline void clear_has_descript();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 index_;
+  ::google::protobuf::int32 spirit_;
+  ::google::protobuf::int32 need_jewel_;
+  ::google::protobuf::int32 resource_id_;
+  ::google::protobuf::internal::ArenaStringPtr descript_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgSpiritShopInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MsgS2CHeroesInit : public ::google::protobuf::Message {
  public:
   MsgS2CHeroesInit();
@@ -811,6 +955,74 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int32 refresh_task_gold() const;
   void set_refresh_task_gold(::google::protobuf::int32 value);
 
+  // required int32 max_spirit = 11;
+  bool has_max_spirit() const;
+  void clear_max_spirit();
+  static const int kMaxSpiritFieldNumber = 11;
+  ::google::protobuf::int32 max_spirit() const;
+  void set_max_spirit(::google::protobuf::int32 value);
+
+  // required int32 config_recover_spirit_minute = 12;
+  bool has_config_recover_spirit_minute() const;
+  void clear_config_recover_spirit_minute();
+  static const int kConfigRecoverSpiritMinuteFieldNumber = 12;
+  ::google::protobuf::int32 config_recover_spirit_minute() const;
+  void set_config_recover_spirit_minute(::google::protobuf::int32 value);
+
+  // required int32 config_recover_spirit = 13;
+  bool has_config_recover_spirit() const;
+  void clear_config_recover_spirit();
+  static const int kConfigRecoverSpiritFieldNumber = 13;
+  ::google::protobuf::int32 config_recover_spirit() const;
+  void set_config_recover_spirit(::google::protobuf::int32 value);
+
+  // required int32 config_enter_game_use_spirit = 14;
+  bool has_config_enter_game_use_spirit() const;
+  void clear_config_enter_game_use_spirit();
+  static const int kConfigEnterGameUseSpiritFieldNumber = 14;
+  ::google::protobuf::int32 config_enter_game_use_spirit() const;
+  void set_config_enter_game_use_spirit(::google::protobuf::int32 value);
+
+  // repeated .message.MsgSpiritShopInfo sprit_shop_infos = 15;
+  int sprit_shop_infos_size() const;
+  void clear_sprit_shop_infos();
+  static const int kSpritShopInfosFieldNumber = 15;
+  const ::message::MsgSpiritShopInfo& sprit_shop_infos(int index) const;
+  ::message::MsgSpiritShopInfo* mutable_sprit_shop_infos(int index);
+  ::message::MsgSpiritShopInfo* add_sprit_shop_infos();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgSpiritShopInfo >&
+      sprit_shop_infos() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgSpiritShopInfo >*
+      mutable_sprit_shop_infos();
+
+  // required int32 config_day_buy_spirit = 16;
+  bool has_config_day_buy_spirit() const;
+  void clear_config_day_buy_spirit();
+  static const int kConfigDayBuySpiritFieldNumber = 16;
+  ::google::protobuf::int32 config_day_buy_spirit() const;
+  void set_config_day_buy_spirit(::google::protobuf::int32 value);
+
+  // required int32 last_recover_spirit_time = 17;
+  bool has_last_recover_spirit_time() const;
+  void clear_last_recover_spirit_time();
+  static const int kLastRecoverSpiritTimeFieldNumber = 17;
+  ::google::protobuf::int32 last_recover_spirit_time() const;
+  void set_last_recover_spirit_time(::google::protobuf::int32 value);
+
+  // required int32 last_buy_spirit_time = 18;
+  bool has_last_buy_spirit_time() const;
+  void clear_last_buy_spirit_time();
+  static const int kLastBuySpiritTimeFieldNumber = 18;
+  ::google::protobuf::int32 last_buy_spirit_time() const;
+  void set_last_buy_spirit_time(::google::protobuf::int32 value);
+
+  // required int32 day_refresh_time = 19;
+  bool has_day_refresh_time() const;
+  void clear_day_refresh_time();
+  static const int kDayRefreshTimeFieldNumber = 19;
+  ::google::protobuf::int32 day_refresh_time() const;
+  void set_day_refresh_time(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
   inline void set_has_info();
@@ -829,6 +1041,22 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   inline void clear_has_relive_gold();
   inline void set_has_refresh_task_gold();
   inline void clear_has_refresh_task_gold();
+  inline void set_has_max_spirit();
+  inline void clear_has_max_spirit();
+  inline void set_has_config_recover_spirit_minute();
+  inline void clear_has_config_recover_spirit_minute();
+  inline void set_has_config_recover_spirit();
+  inline void clear_has_config_recover_spirit();
+  inline void set_has_config_enter_game_use_spirit();
+  inline void clear_has_config_enter_game_use_spirit();
+  inline void set_has_config_day_buy_spirit();
+  inline void clear_has_config_day_buy_spirit();
+  inline void set_has_last_recover_spirit_time();
+  inline void clear_has_last_recover_spirit_time();
+  inline void set_has_last_buy_spirit_time();
+  inline void clear_has_last_buy_spirit_time();
+  inline void set_has_day_refresh_time();
+  inline void clear_has_day_refresh_time();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -846,12 +1074,222 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
   ::google::protobuf::int32 relive_gold_;
   ::google::protobuf::int32 refresh_task_gold_;
+  ::google::protobuf::int32 max_spirit_;
+  ::google::protobuf::int32 config_recover_spirit_minute_;
+  ::google::protobuf::int32 config_recover_spirit_;
+  ::google::protobuf::int32 config_enter_game_use_spirit_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgSpiritShopInfo > sprit_shop_infos_;
+  ::google::protobuf::int32 config_day_buy_spirit_;
+  ::google::protobuf::int32 last_recover_spirit_time_;
+  ::google::protobuf::int32 last_buy_spirit_time_;
+  ::google::protobuf::int32 day_refresh_time_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
 
   void InitAsDefaultInstance();
   static MsgS2CHeroesInit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqBuySpirit : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqBuySpirit();
+  virtual ~MsgC2SReqBuySpirit();
+
+  MsgC2SReqBuySpirit(const MsgC2SReqBuySpirit& from);
+
+  inline MsgC2SReqBuySpirit& operator=(const MsgC2SReqBuySpirit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqBuySpirit& default_instance();
+
+  void Swap(MsgC2SReqBuySpirit* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqBuySpirit* New() const { return New(NULL); }
+
+  MsgC2SReqBuySpirit* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqBuySpirit& from);
+  void MergeFrom(const MsgC2SReqBuySpirit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqBuySpirit* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 index = 1;
+  bool has_index() const;
+  void clear_index();
+  static const int kIndexFieldNumber = 1;
+  ::google::protobuf::int32 index() const;
+  void set_index(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqBuySpirit)
+ private:
+  inline void set_has_index();
+  inline void clear_has_index();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 index_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqBuySpirit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CBuySpiritACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CBuySpiritACK();
+  virtual ~MsgS2CBuySpiritACK();
+
+  MsgS2CBuySpiritACK(const MsgS2CBuySpiritACK& from);
+
+  inline MsgS2CBuySpiritACK& operator=(const MsgS2CBuySpiritACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CBuySpiritACK& default_instance();
+
+  void Swap(MsgS2CBuySpiritACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CBuySpiritACK* New() const { return New(NULL); }
+
+  MsgS2CBuySpiritACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CBuySpiritACK& from);
+  void MergeFrom(const MsgS2CBuySpiritACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CBuySpiritACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 index = 1;
+  bool has_index() const;
+  void clear_index();
+  static const int kIndexFieldNumber = 1;
+  ::google::protobuf::int32 index() const;
+  void set_index(::google::protobuf::int32 value);
+
+  // required int32 jewel = 2;
+  bool has_jewel() const;
+  void clear_jewel();
+  static const int kJewelFieldNumber = 2;
+  ::google::protobuf::int32 jewel() const;
+  void set_jewel(::google::protobuf::int32 value);
+
+  // required int32 spirit = 3;
+  bool has_spirit() const;
+  void clear_spirit();
+  static const int kSpiritFieldNumber = 3;
+  ::google::protobuf::int32 spirit() const;
+  void set_spirit(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CBuySpiritACK)
+ private:
+  inline void set_has_index();
+  inline void clear_has_index();
+  inline void set_has_jewel();
+  inline void clear_has_jewel();
+  inline void set_has_spirit();
+  inline void clear_has_spirit();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 index_;
+  ::google::protobuf::int32 jewel_;
+  ::google::protobuf::int32 spirit_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CBuySpiritACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1066,6 +1504,13 @@ class MsgS2CEnterGameACK : public ::google::protobuf::Message {
   ::message::GameError error() const;
   void set_error(::message::GameError value);
 
+  // required int32 spirit = 6;
+  bool has_spirit() const;
+  void clear_spirit();
+  static const int kSpiritFieldNumber = 6;
+  ::google::protobuf::int32 spirit() const;
+  void set_spirit(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CEnterGameACK)
  private:
   inline void set_has_chapter_id();
@@ -1074,6 +1519,8 @@ class MsgS2CEnterGameACK : public ::google::protobuf::Message {
   inline void clear_has_section_id();
   inline void set_has_error();
   inline void clear_has_error();
+  inline void set_has_spirit();
+  inline void clear_has_spirit();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1086,6 +1533,7 @@ class MsgS2CEnterGameACK : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgDropBoxConfig > drop_box_configs_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgObjConfig > kill_list_;
   int error_;
+  ::google::protobuf::int32 spirit_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -5713,6 +6161,159 @@ inline void MsgS2CNewTaskNotify::set_allocated_task(::message::MsgTaskConfigInfo
 
 // -------------------------------------------------------------------
 
+// MsgSpiritShopInfo
+
+// required int32 index = 1;
+inline bool MsgSpiritShopInfo::has_index() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgSpiritShopInfo::set_has_index() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgSpiritShopInfo::clear_has_index() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgSpiritShopInfo::clear_index() {
+  index_ = 0;
+  clear_has_index();
+}
+inline ::google::protobuf::int32 MsgSpiritShopInfo::index() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.index)
+  return index_;
+}
+inline void MsgSpiritShopInfo::set_index(::google::protobuf::int32 value) {
+  set_has_index();
+  index_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.index)
+}
+
+// required int32 spirit = 2;
+inline bool MsgSpiritShopInfo::has_spirit() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgSpiritShopInfo::set_has_spirit() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgSpiritShopInfo::clear_has_spirit() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgSpiritShopInfo::clear_spirit() {
+  spirit_ = 0;
+  clear_has_spirit();
+}
+inline ::google::protobuf::int32 MsgSpiritShopInfo::spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.spirit)
+  return spirit_;
+}
+inline void MsgSpiritShopInfo::set_spirit(::google::protobuf::int32 value) {
+  set_has_spirit();
+  spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.spirit)
+}
+
+// required int32 need_jewel = 3;
+inline bool MsgSpiritShopInfo::has_need_jewel() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgSpiritShopInfo::set_has_need_jewel() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgSpiritShopInfo::clear_has_need_jewel() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgSpiritShopInfo::clear_need_jewel() {
+  need_jewel_ = 0;
+  clear_has_need_jewel();
+}
+inline ::google::protobuf::int32 MsgSpiritShopInfo::need_jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.need_jewel)
+  return need_jewel_;
+}
+inline void MsgSpiritShopInfo::set_need_jewel(::google::protobuf::int32 value) {
+  set_has_need_jewel();
+  need_jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.need_jewel)
+}
+
+// required int32 resource_id = 4;
+inline bool MsgSpiritShopInfo::has_resource_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgSpiritShopInfo::set_has_resource_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgSpiritShopInfo::clear_has_resource_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgSpiritShopInfo::clear_resource_id() {
+  resource_id_ = 0;
+  clear_has_resource_id();
+}
+inline ::google::protobuf::int32 MsgSpiritShopInfo::resource_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.resource_id)
+  return resource_id_;
+}
+inline void MsgSpiritShopInfo::set_resource_id(::google::protobuf::int32 value) {
+  set_has_resource_id();
+  resource_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.resource_id)
+}
+
+// required string descript = 5;
+inline bool MsgSpiritShopInfo::has_descript() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgSpiritShopInfo::set_has_descript() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgSpiritShopInfo::clear_has_descript() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgSpiritShopInfo::clear_descript() {
+  descript_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_descript();
+}
+inline const ::std::string& MsgSpiritShopInfo::descript() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.descript)
+  return descript_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgSpiritShopInfo::set_descript(const ::std::string& value) {
+  set_has_descript();
+  descript_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.descript)
+}
+inline void MsgSpiritShopInfo::set_descript(const char* value) {
+  set_has_descript();
+  descript_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgSpiritShopInfo.descript)
+}
+inline void MsgSpiritShopInfo::set_descript(const char* value, size_t size) {
+  set_has_descript();
+  descript_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgSpiritShopInfo.descript)
+}
+inline ::std::string* MsgSpiritShopInfo::mutable_descript() {
+  set_has_descript();
+  // @@protoc_insertion_point(field_mutable:message.MsgSpiritShopInfo.descript)
+  return descript_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgSpiritShopInfo::release_descript() {
+  clear_has_descript();
+  return descript_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgSpiritShopInfo::set_allocated_descript(::std::string* descript) {
+  if (descript != NULL) {
+    set_has_descript();
+  } else {
+    clear_has_descript();
+  }
+  descript_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), descript);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgSpiritShopInfo.descript)
+}
+
+// -------------------------------------------------------------------
+
 // MsgS2CHeroesInit
 
 // required .message.MsgHeroData info = 1;
@@ -5986,6 +6587,332 @@ inline void MsgS2CHeroesInit::set_refresh_task_gold(::google::protobuf::int32 va
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.refresh_task_gold)
 }
 
+// required int32 max_spirit = 11;
+inline bool MsgS2CHeroesInit::has_max_spirit() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_max_spirit() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void MsgS2CHeroesInit::clear_has_max_spirit() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void MsgS2CHeroesInit::clear_max_spirit() {
+  max_spirit_ = 0;
+  clear_has_max_spirit();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::max_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.max_spirit)
+  return max_spirit_;
+}
+inline void MsgS2CHeroesInit::set_max_spirit(::google::protobuf::int32 value) {
+  set_has_max_spirit();
+  max_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.max_spirit)
+}
+
+// required int32 config_recover_spirit_minute = 12;
+inline bool MsgS2CHeroesInit::has_config_recover_spirit_minute() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_config_recover_spirit_minute() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void MsgS2CHeroesInit::clear_has_config_recover_spirit_minute() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void MsgS2CHeroesInit::clear_config_recover_spirit_minute() {
+  config_recover_spirit_minute_ = 0;
+  clear_has_config_recover_spirit_minute();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::config_recover_spirit_minute() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.config_recover_spirit_minute)
+  return config_recover_spirit_minute_;
+}
+inline void MsgS2CHeroesInit::set_config_recover_spirit_minute(::google::protobuf::int32 value) {
+  set_has_config_recover_spirit_minute();
+  config_recover_spirit_minute_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.config_recover_spirit_minute)
+}
+
+// required int32 config_recover_spirit = 13;
+inline bool MsgS2CHeroesInit::has_config_recover_spirit() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_config_recover_spirit() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void MsgS2CHeroesInit::clear_has_config_recover_spirit() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void MsgS2CHeroesInit::clear_config_recover_spirit() {
+  config_recover_spirit_ = 0;
+  clear_has_config_recover_spirit();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::config_recover_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.config_recover_spirit)
+  return config_recover_spirit_;
+}
+inline void MsgS2CHeroesInit::set_config_recover_spirit(::google::protobuf::int32 value) {
+  set_has_config_recover_spirit();
+  config_recover_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.config_recover_spirit)
+}
+
+// required int32 config_enter_game_use_spirit = 14;
+inline bool MsgS2CHeroesInit::has_config_enter_game_use_spirit() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_config_enter_game_use_spirit() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void MsgS2CHeroesInit::clear_has_config_enter_game_use_spirit() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void MsgS2CHeroesInit::clear_config_enter_game_use_spirit() {
+  config_enter_game_use_spirit_ = 0;
+  clear_has_config_enter_game_use_spirit();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::config_enter_game_use_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.config_enter_game_use_spirit)
+  return config_enter_game_use_spirit_;
+}
+inline void MsgS2CHeroesInit::set_config_enter_game_use_spirit(::google::protobuf::int32 value) {
+  set_has_config_enter_game_use_spirit();
+  config_enter_game_use_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.config_enter_game_use_spirit)
+}
+
+// repeated .message.MsgSpiritShopInfo sprit_shop_infos = 15;
+inline int MsgS2CHeroesInit::sprit_shop_infos_size() const {
+  return sprit_shop_infos_.size();
+}
+inline void MsgS2CHeroesInit::clear_sprit_shop_infos() {
+  sprit_shop_infos_.Clear();
+}
+inline const ::message::MsgSpiritShopInfo& MsgS2CHeroesInit::sprit_shop_infos(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return sprit_shop_infos_.Get(index);
+}
+inline ::message::MsgSpiritShopInfo* MsgS2CHeroesInit::mutable_sprit_shop_infos(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return sprit_shop_infos_.Mutable(index);
+}
+inline ::message::MsgSpiritShopInfo* MsgS2CHeroesInit::add_sprit_shop_infos() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return sprit_shop_infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgSpiritShopInfo >&
+MsgS2CHeroesInit::sprit_shop_infos() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return sprit_shop_infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgSpiritShopInfo >*
+MsgS2CHeroesInit::mutable_sprit_shop_infos() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return &sprit_shop_infos_;
+}
+
+// required int32 config_day_buy_spirit = 16;
+inline bool MsgS2CHeroesInit::has_config_day_buy_spirit() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_config_day_buy_spirit() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void MsgS2CHeroesInit::clear_has_config_day_buy_spirit() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void MsgS2CHeroesInit::clear_config_day_buy_spirit() {
+  config_day_buy_spirit_ = 0;
+  clear_has_config_day_buy_spirit();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::config_day_buy_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.config_day_buy_spirit)
+  return config_day_buy_spirit_;
+}
+inline void MsgS2CHeroesInit::set_config_day_buy_spirit(::google::protobuf::int32 value) {
+  set_has_config_day_buy_spirit();
+  config_day_buy_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.config_day_buy_spirit)
+}
+
+// required int32 last_recover_spirit_time = 17;
+inline bool MsgS2CHeroesInit::has_last_recover_spirit_time() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_last_recover_spirit_time() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void MsgS2CHeroesInit::clear_has_last_recover_spirit_time() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline void MsgS2CHeroesInit::clear_last_recover_spirit_time() {
+  last_recover_spirit_time_ = 0;
+  clear_has_last_recover_spirit_time();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::last_recover_spirit_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.last_recover_spirit_time)
+  return last_recover_spirit_time_;
+}
+inline void MsgS2CHeroesInit::set_last_recover_spirit_time(::google::protobuf::int32 value) {
+  set_has_last_recover_spirit_time();
+  last_recover_spirit_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_recover_spirit_time)
+}
+
+// required int32 last_buy_spirit_time = 18;
+inline bool MsgS2CHeroesInit::has_last_buy_spirit_time() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_last_buy_spirit_time() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void MsgS2CHeroesInit::clear_has_last_buy_spirit_time() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void MsgS2CHeroesInit::clear_last_buy_spirit_time() {
+  last_buy_spirit_time_ = 0;
+  clear_has_last_buy_spirit_time();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::last_buy_spirit_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.last_buy_spirit_time)
+  return last_buy_spirit_time_;
+}
+inline void MsgS2CHeroesInit::set_last_buy_spirit_time(::google::protobuf::int32 value) {
+  set_has_last_buy_spirit_time();
+  last_buy_spirit_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_buy_spirit_time)
+}
+
+// required int32 day_refresh_time = 19;
+inline bool MsgS2CHeroesInit::has_day_refresh_time() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_day_refresh_time() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void MsgS2CHeroesInit::clear_has_day_refresh_time() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void MsgS2CHeroesInit::clear_day_refresh_time() {
+  day_refresh_time_ = 0;
+  clear_has_day_refresh_time();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::day_refresh_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.day_refresh_time)
+  return day_refresh_time_;
+}
+inline void MsgS2CHeroesInit::set_day_refresh_time(::google::protobuf::int32 value) {
+  set_has_day_refresh_time();
+  day_refresh_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.day_refresh_time)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqBuySpirit
+
+// required int32 index = 1;
+inline bool MsgC2SReqBuySpirit::has_index() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SReqBuySpirit::set_has_index() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SReqBuySpirit::clear_has_index() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SReqBuySpirit::clear_index() {
+  index_ = 0;
+  clear_has_index();
+}
+inline ::google::protobuf::int32 MsgC2SReqBuySpirit::index() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqBuySpirit.index)
+  return index_;
+}
+inline void MsgC2SReqBuySpirit::set_index(::google::protobuf::int32 value) {
+  set_has_index();
+  index_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqBuySpirit.index)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CBuySpiritACK
+
+// required int32 index = 1;
+inline bool MsgS2CBuySpiritACK::has_index() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CBuySpiritACK::set_has_index() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CBuySpiritACK::clear_has_index() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CBuySpiritACK::clear_index() {
+  index_ = 0;
+  clear_has_index();
+}
+inline ::google::protobuf::int32 MsgS2CBuySpiritACK::index() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuySpiritACK.index)
+  return index_;
+}
+inline void MsgS2CBuySpiritACK::set_index(::google::protobuf::int32 value) {
+  set_has_index();
+  index_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuySpiritACK.index)
+}
+
+// required int32 jewel = 2;
+inline bool MsgS2CBuySpiritACK::has_jewel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CBuySpiritACK::set_has_jewel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CBuySpiritACK::clear_has_jewel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CBuySpiritACK::clear_jewel() {
+  jewel_ = 0;
+  clear_has_jewel();
+}
+inline ::google::protobuf::int32 MsgS2CBuySpiritACK::jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuySpiritACK.jewel)
+  return jewel_;
+}
+inline void MsgS2CBuySpiritACK::set_jewel(::google::protobuf::int32 value) {
+  set_has_jewel();
+  jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuySpiritACK.jewel)
+}
+
+// required int32 spirit = 3;
+inline bool MsgS2CBuySpiritACK::has_spirit() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CBuySpiritACK::set_has_spirit() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CBuySpiritACK::clear_has_spirit() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CBuySpiritACK::clear_spirit() {
+  spirit_ = 0;
+  clear_has_spirit();
+}
+inline ::google::protobuf::int32 MsgS2CBuySpiritACK::spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuySpiritACK.spirit)
+  return spirit_;
+}
+inline void MsgS2CBuySpiritACK::set_spirit(::google::protobuf::int32 value) {
+  set_has_spirit();
+  spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuySpiritACK.spirit)
+}
+
 // -------------------------------------------------------------------
 
 // MsgC2SReqEnterGame
@@ -6173,6 +7100,30 @@ inline void MsgS2CEnterGameACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CEnterGameACK.error)
+}
+
+// required int32 spirit = 6;
+inline bool MsgS2CEnterGameACK::has_spirit() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgS2CEnterGameACK::set_has_spirit() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgS2CEnterGameACK::clear_has_spirit() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MsgS2CEnterGameACK::clear_spirit() {
+  spirit_ = 0;
+  clear_has_spirit();
+}
+inline ::google::protobuf::int32 MsgS2CEnterGameACK::spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CEnterGameACK.spirit)
+  return spirit_;
+}
+inline void MsgS2CEnterGameACK::set_spirit(::google::protobuf::int32 value) {
+  set_has_spirit();
+  spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CEnterGameACK.spirit)
 }
 
 // -------------------------------------------------------------------

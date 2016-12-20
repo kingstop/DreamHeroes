@@ -547,6 +547,20 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
       mutable_special_creatures();
 
+  // required int32 last_recover_spirit_time = 11;
+  bool has_last_recover_spirit_time() const;
+  void clear_last_recover_spirit_time();
+  static const int kLastRecoverSpiritTimeFieldNumber = 11;
+  ::google::protobuf::int32 last_recover_spirit_time() const;
+  void set_last_recover_spirit_time(::google::protobuf::int32 value);
+
+  // required int32 last_buy_spirit_time = 12;
+  bool has_last_buy_spirit_time() const;
+  void clear_last_buy_spirit_time();
+  static const int kLastBuySpiritTimeFieldNumber = 12;
+  ::google::protobuf::int32 last_buy_spirit_time() const;
+  void set_last_buy_spirit_time(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroDataDB2GS)
  private:
   inline void set_has_account();
@@ -563,6 +577,10 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   inline void clear_has_last_task_advertisement_time();
   inline void set_has_gm_level();
   inline void clear_has_gm_level();
+  inline void set_has_last_recover_spirit_time();
+  inline void clear_has_last_recover_spirit_time();
+  inline void set_has_last_buy_spirit_time();
+  inline void clear_has_last_buy_spirit_time();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -578,8 +596,10 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::int32 last_task_advertisement_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill > special_kills_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo > deals_;
-  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
   ::google::protobuf::int32 gm_level_;
+  ::google::protobuf::int32 last_recover_spirit_time_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
+  ::google::protobuf::int32 last_buy_spirit_time_;
   friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto();
@@ -1691,6 +1711,54 @@ inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
 MsgHeroDataDB2GS::mutable_special_creatures() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.special_creatures)
   return &special_creatures_;
+}
+
+// required int32 last_recover_spirit_time = 11;
+inline bool MsgHeroDataDB2GS::has_last_recover_spirit_time() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void MsgHeroDataDB2GS::set_has_last_recover_spirit_time() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void MsgHeroDataDB2GS::clear_has_last_recover_spirit_time() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void MsgHeroDataDB2GS::clear_last_recover_spirit_time() {
+  last_recover_spirit_time_ = 0;
+  clear_has_last_recover_spirit_time();
+}
+inline ::google::protobuf::int32 MsgHeroDataDB2GS::last_recover_spirit_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.last_recover_spirit_time)
+  return last_recover_spirit_time_;
+}
+inline void MsgHeroDataDB2GS::set_last_recover_spirit_time(::google::protobuf::int32 value) {
+  set_has_last_recover_spirit_time();
+  last_recover_spirit_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_recover_spirit_time)
+}
+
+// required int32 last_buy_spirit_time = 12;
+inline bool MsgHeroDataDB2GS::has_last_buy_spirit_time() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void MsgHeroDataDB2GS::set_has_last_buy_spirit_time() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void MsgHeroDataDB2GS::clear_has_last_buy_spirit_time() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void MsgHeroDataDB2GS::clear_last_buy_spirit_time() {
+  last_buy_spirit_time_ = 0;
+  clear_has_last_buy_spirit_time();
+}
+inline ::google::protobuf::int32 MsgHeroDataDB2GS::last_buy_spirit_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.last_buy_spirit_time)
+  return last_buy_spirit_time_;
+}
+inline void MsgHeroDataDB2GS::set_last_buy_spirit_time(::google::protobuf::int32 value) {
+  set_has_last_buy_spirit_time();
+  last_buy_spirit_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_buy_spirit_time)
 }
 
 // -------------------------------------------------------------------

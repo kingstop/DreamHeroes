@@ -35,8 +35,6 @@ void UserLoginSession::parsePlatformVerify(google::protobuf::Message* p, pb_flag
 				msg->token_id().c_str(), msg->extra_data().c_str(), msg->channel_id(), this);
 			gHttpManager.addHttpTask(httpEntry);
 			setState(UserLoginSession::_wait_platform_);
-
-
 		}
 	}
 }

@@ -86,7 +86,7 @@ void DBQuestManager::saveHeroMap(message::MsgSaveHeroDataGS2DB* msg)
 void DBQuestManager::queryHeroInfo(account_type a, tran_id_type t, u16 gs)
 {
 	char sz_sql[256];
-	sprintf(sz_sql, "select * ,UNIX_TIMESTAMP(`last_task_advertisement_time`) from `character` where `account_id`=%llu;",a);
+	sprintf(sz_sql, "select * ,UNIX_TIMESTAMP(`last_recover_spirit_time`), UNIX_TIMESTAMP(`last_buy_spirit_time`), UNIX_TIMESTAMP(`last_task_advertisement_time`) from `character` where `account_id`=%llu;",a);
 	gDBCharDatabase.addSQueryTask(this, &DBQuestManager::dbDoQueryHeroInfo, sz_sql, 0, new tgHeroData(a, t, gs), _QUERY_HERO_INFO_);
 }
 
@@ -197,10 +197,15 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			data->set_current_hero(row["current_hero"]);
 			data->set_complete_task_count(row["complete_task_count"]);
 			data->set_new_tutorial(row["tutorial_flag"]);
+			data->set_jewel(row["jewel"]);
+			data->set_spirit(row["spirit"]);
+			data->set_day_buy_spirit(row["day_buy_spirit"]);
 			pkParm->info.set_current_section(row["current_section"]);
 			pkParm->info.set_current_chapter(row["current_chapter"]);
 			pkParm->info.set_free_task_count(row["free_task_count"]);
 			pkParm->info.set_last_task_advertisement_time(row["UNIX_TIMESTAMP(`last_task_advertisement_time`)"]);
+			pkParm->info.set_last_buy_spirit_time(row["UNIX_TIMESTAMP(`last_buy_spirit_time`)"]);
+			pkParm->info.set_last_recover_spirit_time(row["UNIX_TIMESTAMP(`last_recover_spirit_time`)"]);
 			pkParm->info.set_gm_level(row["gm_level"]);			
 			std::string records_str;
 			records_str = row["record_his"].c_str();

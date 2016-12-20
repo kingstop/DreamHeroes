@@ -38,6 +38,7 @@ public:
 	bool is_online();
 	void StartDestroyTime();
 	void StopDestroyClock();
+	void recoverSpirit();
 	//void StartPing();
 public:
 	void dayRefresh(bool need_send_msg = true);
@@ -58,6 +59,7 @@ public:
 	void ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg);
 	void ReqModifyTutorialFlag(const message::MsgC2SReqModifyNewTutorial* msg);
 	void ReqReliveReq(const message::MsgC2SReliveReq* msg);
+	void ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg);
 	void ReqRemoveAllSpecialCreatureList();
 	void ReqSetSpecialCreatureList(int creature_id, int status);
 	void ReqModifyCurrentHero(int grid_id);
@@ -92,6 +94,8 @@ protected:
 	DEALSWAITTOPAY _deals_wait_to_pay;
 	int _gm_level;
 	int _ping_count;
+	u32 _last_recover_spirit_time;
+	u32 _last_buy_spirit_time;
 
 	bool _destroy_clock;
 	

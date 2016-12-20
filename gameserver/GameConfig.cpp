@@ -146,6 +146,21 @@ const MAPTYPEDROPBOXCONFIGS* GameConfig::getMapDropBox(int chapter_id, int secti
 	return ret;
 }
 
+const MAPSPIRITSHOP* GameConfig::getSpiritShop()
+{
+	return &_map_spirit_shop;
+}
+const message::MsgSpiritShopInfo* GameConfig::getSpiritShop(int index)
+{
+	message::MsgSpiritShopInfo* entry = NULL;
+	MAPSPIRITSHOP::iterator it = _map_spirit_shop.find(index);
+	if (it != _map_spirit_shop.end())
+	{
+		entry = &it->second;
+	}
+	return entry;
+}
+
 const globalConfig& GameConfig::getGlobalConfig()
 {
 	return _global_config;
@@ -260,6 +275,13 @@ void GameConfig::Load(DBQuery* p)
 			_global_config.game_id_ = row["game_id"];
 			_global_config.refresh_task_gold_ = row["refresh_task_gold"];
 			_global_config.relive_gold_ = row["relive_gold"];
+			_global_config.config_jewel_ = row["config_jewel"];
+			_global_config.config_recover_spirit_ = row["config_recover_spirit"];
+			_global_config.config_recover_spirit_minute_ = row["config_recover_spirit_minute"];
+			_global_config.config_max_spirit_ = row["config_max_spirit"];
+			_global_config.config_enter_game_use_spirit_ = row["config_enter_game_use_spirit"];
+			_global_config.config_day_buy_spirit_ = row["config_day_buy_spirit"];
+
 		}
 
 		query.reset();
@@ -412,6 +434,27 @@ void GameConfig::Load(DBQuery* p)
 				}
 				
 			}			
+		}
+
+		query.reset();
+		sResult.clear();
+		query << "select * from `spirit_shop_config`;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			DBRow& row = sResult[i];
+			message::MsgSpiritShopInfo entry;
+			entry.set_index(row["index"]);
+			entry.set_spirit(row["spirit"]);
+			entry.set_need_jewel(row["need_jewel"]);
+			entry.set_resource_id(row["resource_id"]);
+			std::string script = row["descript"];
+			entry.set_descript(script.c_str());
+
+				
+			_map_spirit_shop[entry.index()] = entry;
+
 		}
 		gHttpManager.setChannel(_global_config.channel_id_);
 		gHttpManager.setGameID(_global_config.game_id_);

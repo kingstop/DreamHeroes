@@ -28,6 +28,13 @@ struct globalConfig
 	int game_id_;
 	int refresh_task_gold_;
 	int relive_gold_;
+	int config_max_spirit_;
+	int config_jewel_;
+	int config_recover_spirit_minute_;
+	int config_recover_spirit_;
+	int config_enter_game_use_spirit_;
+	int config_day_buy_spirit_;
+
 };
 struct ShopSalesPromotionConfig
 {
@@ -99,6 +106,8 @@ typedef std::map<int, MapRandomObjsConfig> MAPRANDOMOBJCONFIGS;
 typedef std::map<std::pair<int, int>, MAPRANDOMOBJCONFIGS> MAPALLRANDOMOBJCONFIGS;
 typedef std::map<std::pair<int, int>, MAPTYPEDROPBOXCONFIGS> MAPMAPDROPBOXCONFIGS;
 
+typedef std::map<int, message::MsgSpiritShopInfo> MAPSPIRITSHOP;
+
 
 class GameConfig
 {
@@ -119,6 +128,8 @@ public:
 	const GoldShopConfigInfo* getGoldShopConfigInfo(const char* appstore_product_id);
 	const globalConfig& getGlobalConfig();
 	const MAPTYPEDROPBOXCONFIGS* getMapDropBox(int chapter_id, int section_id);
+	const MAPSPIRITSHOP* getSpiritShop();
+	const message::MsgSpiritShopInfo* getSpiritShop(int index);
 
 	void setServerOpenTime(u64 time_open);
 	void setServerID(char server_id);
@@ -137,6 +148,7 @@ protected:
 	MAPALLBEHAVIORCONFIGS _map_behavior_config;
 	MAPALLRANDOMOBJCONFIGS _map_random_obj_configs;
 	MAPMAPDROPBOXCONFIGS _map_drop_box_configs;
+	MAPSPIRITSHOP _map_spirit_shop;
 	globalConfig _global_config;
 	u64 _server_open_time;
 	char _server_char;

@@ -1,4 +1,6 @@
 #pragma once
+#ifndef GSHTTPMANAGER_H
+#define GSHTTPMANAGER_H
 #include "cur_http_client.h"
 #include "HttpManager.h"
 
@@ -28,6 +30,8 @@ public:
 	void set_acc(account_type acc);
 protected:
 	account_type _acc;
+	HttpType _en;
+	message::GameError _error;
 
 };
 
@@ -44,8 +48,8 @@ public:
 protected:
 	std::string _name;
 	std::string _key_code;
-	
-	int _status;	
+
+	int _status;
 	int _price;
 	int _order_id;
 };
@@ -60,11 +64,14 @@ public:
 	virtual bool logicExcute();
 private:
 	std::string _receipt;
-	std::string _product_id;	
+	std::string _product_id;
 	int _status;
 	int _order_id;
 	std::string _name;
 };
+#endif // !GSHTTPMANAGER_H
+
+
 
 
 

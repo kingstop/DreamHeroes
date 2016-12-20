@@ -29,6 +29,7 @@ protected:
 	void dayRefresh();
 	void refrashDayNumber();
 	void refrashHeroTitle();
+	void recoverSpirit();
 protected:
 	MAPHEROS _heroes;
 	u8 _day_number[6][10];
@@ -38,5 +39,7 @@ protected:
 	std::vector<char> _char_configs;
 	u64 _last_save_time;
 	std::vector<std::string> _vc_sql;
+	int _recover_spirit_minute;
+	int _recover_spirit;
 };
 

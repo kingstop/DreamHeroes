@@ -38,9 +38,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgS2CNewTaskNotify_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CNewTaskNotify_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgSpiritShopInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgSpiritShopInfo_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgS2CHeroesInit_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CHeroesInit_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SReqBuySpirit_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgC2SReqBuySpirit_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgS2CBuySpiritACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgS2CBuySpiritACK_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgC2SReqEnterGame_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgC2SReqEnterGame_reflection_ = NULL;
@@ -275,8 +284,27 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CNewTaskNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CNewTaskNotify, _internal_metadata_),
       -1);
-  MsgS2CHeroesInit_descriptor_ = file->message_type(6);
-  static const int MsgS2CHeroesInit_offsets_[10] = {
+  MsgSpiritShopInfo_descriptor_ = file->message_type(6);
+  static const int MsgSpiritShopInfo_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpiritShopInfo, index_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpiritShopInfo, spirit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpiritShopInfo, need_jewel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpiritShopInfo, resource_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpiritShopInfo, descript_),
+  };
+  MsgSpiritShopInfo_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgSpiritShopInfo_descriptor_,
+      MsgSpiritShopInfo::default_instance_,
+      MsgSpiritShopInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpiritShopInfo, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgSpiritShopInfo),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpiritShopInfo, _internal_metadata_),
+      -1);
+  MsgS2CHeroesInit_descriptor_ = file->message_type(7);
+  static const int MsgS2CHeroesInit_offsets_[19] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, task_config_infos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, free_advertisement_config_count_),
@@ -287,6 +315,15 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, special_creatures_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, relive_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, refresh_task_gold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, max_spirit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, config_recover_spirit_minute_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, config_recover_spirit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, config_enter_game_use_spirit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, sprit_shop_infos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, config_day_buy_spirit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, last_recover_spirit_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, last_buy_spirit_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, day_refresh_time_),
   };
   MsgS2CHeroesInit_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -299,7 +336,39 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CHeroesInit),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, _internal_metadata_),
       -1);
-  MsgC2SReqEnterGame_descriptor_ = file->message_type(7);
+  MsgC2SReqBuySpirit_descriptor_ = file->message_type(8);
+  static const int MsgC2SReqBuySpirit_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuySpirit, index_),
+  };
+  MsgC2SReqBuySpirit_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgC2SReqBuySpirit_descriptor_,
+      MsgC2SReqBuySpirit::default_instance_,
+      MsgC2SReqBuySpirit_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuySpirit, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgC2SReqBuySpirit),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuySpirit, _internal_metadata_),
+      -1);
+  MsgS2CBuySpiritACK_descriptor_ = file->message_type(9);
+  static const int MsgS2CBuySpiritACK_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuySpiritACK, index_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuySpiritACK, jewel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuySpiritACK, spirit_),
+  };
+  MsgS2CBuySpiritACK_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgS2CBuySpiritACK_descriptor_,
+      MsgS2CBuySpiritACK::default_instance_,
+      MsgS2CBuySpiritACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuySpiritACK, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgS2CBuySpiritACK),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuySpiritACK, _internal_metadata_),
+      -1);
+  MsgC2SReqEnterGame_descriptor_ = file->message_type(10);
   static const int MsgC2SReqEnterGame_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, section_id_),
@@ -315,13 +384,14 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqEnterGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, _internal_metadata_),
       -1);
-  MsgS2CEnterGameACK_descriptor_ = file->message_type(8);
-  static const int MsgS2CEnterGameACK_offsets_[5] = {
+  MsgS2CEnterGameACK_descriptor_ = file->message_type(11);
+  static const int MsgS2CEnterGameACK_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, section_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, drop_box_configs_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, kill_list_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, error_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, spirit_),
   };
   MsgS2CEnterGameACK_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -334,7 +404,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CEnterGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, _internal_metadata_),
       -1);
-  MsgKillHistroy_descriptor_ = file->message_type(9);
+  MsgKillHistroy_descriptor_ = file->message_type(12);
   static const int MsgKillHistroy_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgKillHistroy, obj_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgKillHistroy, count_),
@@ -350,7 +420,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgKillHistroy),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgKillHistroy, _internal_metadata_),
       -1);
-  MsgC2SReqExitGame_descriptor_ = file->message_type(10);
+  MsgC2SReqExitGame_descriptor_ = file->message_type(13);
   static const int MsgC2SReqExitGame_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, section_id_),
@@ -373,7 +443,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqExitGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, _internal_metadata_),
       -1);
-  MsgS2CExitGameACK_descriptor_ = file->message_type(11);
+  MsgS2CExitGameACK_descriptor_ = file->message_type(14);
   static const int MsgS2CExitGameACK_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, section_id_),
@@ -396,7 +466,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CExitGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, _internal_metadata_),
       -1);
-  MsgC2SReqUnlockChapter_descriptor_ = file->message_type(12);
+  MsgC2SReqUnlockChapter_descriptor_ = file->message_type(15);
   static const int MsgC2SReqUnlockChapter_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqUnlockChapter, chapter_id_),
   };
@@ -411,7 +481,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqUnlockChapter),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqUnlockChapter, _internal_metadata_),
       -1);
-  MsgC2SReqAdvertisementApplyTask_descriptor_ = file->message_type(13);
+  MsgC2SReqAdvertisementApplyTask_descriptor_ = file->message_type(16);
   static const int MsgC2SReqAdvertisementApplyTask_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementApplyTask, gold_),
   };
@@ -426,7 +496,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqAdvertisementApplyTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementApplyTask, _internal_metadata_),
       -1);
-  MsgS2CAdvertisementApplyTaskACK_descriptor_ = file->message_type(14);
+  MsgS2CAdvertisementApplyTaskACK_descriptor_ = file->message_type(17);
   static const int MsgS2CAdvertisementApplyTaskACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementApplyTaskACK, error_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementApplyTaskACK, infos_),
@@ -443,7 +513,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CAdvertisementApplyTaskACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementApplyTaskACK, _internal_metadata_),
       -1);
-  MsgC2SReqAdvertisementRefreshTask_descriptor_ = file->message_type(15);
+  MsgC2SReqAdvertisementRefreshTask_descriptor_ = file->message_type(18);
   static const int MsgC2SReqAdvertisementRefreshTask_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementRefreshTask, give_up_task_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementRefreshTask, gold_),
@@ -459,7 +529,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqAdvertisementRefreshTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementRefreshTask, _internal_metadata_),
       -1);
-  MsgS2CAdvertisementRefreshTaskACK_descriptor_ = file->message_type(16);
+  MsgS2CAdvertisementRefreshTaskACK_descriptor_ = file->message_type(19);
   static const int MsgS2CAdvertisementRefreshTaskACK_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, give_up_task_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, error_),
@@ -477,7 +547,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CAdvertisementRefreshTaskACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, _internal_metadata_),
       -1);
-  MsgC2SReqModifyCurrentHero_descriptor_ = file->message_type(17);
+  MsgC2SReqModifyCurrentHero_descriptor_ = file->message_type(20);
   static const int MsgC2SReqModifyCurrentHero_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyCurrentHero, current_grid_),
   };
@@ -492,7 +562,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqModifyCurrentHero),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyCurrentHero, _internal_metadata_),
       -1);
-  MsgS2CModifyCurrentHeroACK_descriptor_ = file->message_type(18);
+  MsgS2CModifyCurrentHeroACK_descriptor_ = file->message_type(21);
   static const int MsgS2CModifyCurrentHeroACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, current_grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, error_),
@@ -508,7 +578,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CModifyCurrentHeroACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, _internal_metadata_),
       -1);
-  MsgS2CUnlockChapterACK_descriptor_ = file->message_type(19);
+  MsgS2CUnlockChapterACK_descriptor_ = file->message_type(22);
   static const int MsgS2CUnlockChapterACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, current_gold_),
@@ -525,7 +595,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CUnlockChapterACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, _internal_metadata_),
       -1);
-  MsgC2SReqBuyHero_descriptor_ = file->message_type(20);
+  MsgC2SReqBuyHero_descriptor_ = file->message_type(23);
   static const int MsgC2SReqBuyHero_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, gold_),
@@ -541,7 +611,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqBuyHero),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, _internal_metadata_),
       -1);
-  MsgS2CBuyHeroACK_descriptor_ = file->message_type(21);
+  MsgS2CBuyHeroACK_descriptor_ = file->message_type(24);
   static const int MsgS2CBuyHeroACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, current_gold_),
@@ -558,7 +628,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CBuyHeroACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, _internal_metadata_),
       -1);
-  MsgC2SReqGoldShopConfigs_descriptor_ = file->message_type(22);
+  MsgC2SReqGoldShopConfigs_descriptor_ = file->message_type(25);
   static const int MsgC2SReqGoldShopConfigs_offsets_[1] = {
   };
   MsgC2SReqGoldShopConfigs_reflection_ =
@@ -572,7 +642,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqGoldShopConfigs),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqGoldShopConfigs, _internal_metadata_),
       -1);
-  MsgS2CGoldShopConfigsACK_descriptor_ = file->message_type(23);
+  MsgS2CGoldShopConfigsACK_descriptor_ = file->message_type(26);
   static const int MsgS2CGoldShopConfigsACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CGoldShopConfigsACK, infos_),
   };
@@ -587,7 +657,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CGoldShopConfigsACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CGoldShopConfigsACK, _internal_metadata_),
       -1);
-  MsgC2SReqCrearteIOSDeal_descriptor_ = file->message_type(24);
+  MsgC2SReqCrearteIOSDeal_descriptor_ = file->message_type(27);
   static const int MsgC2SReqCrearteIOSDeal_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteIOSDeal, key_code_),
   };
@@ -602,7 +672,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqCrearteIOSDeal),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteIOSDeal, _internal_metadata_),
       -1);
-  MsgS2CCrearteIOSDealACK_descriptor_ = file->message_type(25);
+  MsgS2CCrearteIOSDealACK_descriptor_ = file->message_type(28);
   static const int MsgS2CCrearteIOSDealACK_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, key_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, status_),
@@ -621,7 +691,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCrearteIOSDealACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, _internal_metadata_),
       -1);
-  MsgC2SReqVerifyDealIOS_descriptor_ = file->message_type(26);
+  MsgC2SReqVerifyDealIOS_descriptor_ = file->message_type(29);
   static const int MsgC2SReqVerifyDealIOS_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, receipt_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, order_id_),
@@ -637,7 +707,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqVerifyDealIOS),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, _internal_metadata_),
       -1);
-  MsgS2CVerifyDealIOSACK_descriptor_ = file->message_type(27);
+  MsgS2CVerifyDealIOSACK_descriptor_ = file->message_type(30);
   static const int MsgS2CVerifyDealIOSACK_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, product_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, status_),
@@ -656,7 +726,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CVerifyDealIOSACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, _internal_metadata_),
       -1);
-  MsgS2CPingNotify_descriptor_ = file->message_type(28);
+  MsgS2CPingNotify_descriptor_ = file->message_type(31);
   static const int MsgS2CPingNotify_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CPingNotify, ping_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CPingNotify, time_),
@@ -672,7 +742,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CPingNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CPingNotify, _internal_metadata_),
       -1);
-  MsgC2SPingNotify_descriptor_ = file->message_type(29);
+  MsgC2SPingNotify_descriptor_ = file->message_type(32);
   static const int MsgC2SPingNotify_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SPingNotify, ping_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SPingNotify, time_),
@@ -688,7 +758,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SPingNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SPingNotify, _internal_metadata_),
       -1);
-  MsgC2SReqModifyNewTutorial_descriptor_ = file->message_type(30);
+  MsgC2SReqModifyNewTutorial_descriptor_ = file->message_type(33);
   static const int MsgC2SReqModifyNewTutorial_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyNewTutorial, flag_),
   };
@@ -703,7 +773,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqModifyNewTutorial),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyNewTutorial, _internal_metadata_),
       -1);
-  MsgS2CModifyNewTutorialACK_descriptor_ = file->message_type(31);
+  MsgS2CModifyNewTutorialACK_descriptor_ = file->message_type(34);
   static const int MsgS2CModifyNewTutorialACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyNewTutorialACK, flag_),
   };
@@ -718,7 +788,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CModifyNewTutorialACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyNewTutorialACK, _internal_metadata_),
       -1);
-  MsgC2SReliveReq_descriptor_ = file->message_type(32);
+  MsgC2SReliveReq_descriptor_ = file->message_type(35);
   static const int MsgC2SReliveReq_offsets_[1] = {
   };
   MsgC2SReliveReq_reflection_ =
@@ -732,7 +802,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReliveReq),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReliveReq, _internal_metadata_),
       -1);
-  MsgS2CReliveACK_descriptor_ = file->message_type(33);
+  MsgS2CReliveACK_descriptor_ = file->message_type(36);
   static const int MsgS2CReliveACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CReliveACK, current_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CReliveACK, error_),
@@ -748,7 +818,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CReliveACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CReliveACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqRemoveSpecialCreatureListHis_descriptor_ = file->message_type(34);
+  MsgC2SCmdReqRemoveSpecialCreatureListHis_descriptor_ = file->message_type(37);
   static const int MsgC2SCmdReqRemoveSpecialCreatureListHis_offsets_[1] = {
   };
   MsgC2SCmdReqRemoveSpecialCreatureListHis_reflection_ =
@@ -762,7 +832,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqRemoveSpecialCreatureListHis),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqRemoveSpecialCreatureListHis, _internal_metadata_),
       -1);
-  MsgC2SCmdReqSetSpecialCreatureHis_descriptor_ = file->message_type(35);
+  MsgC2SCmdReqSetSpecialCreatureHis_descriptor_ = file->message_type(38);
   static const int MsgC2SCmdReqSetSpecialCreatureHis_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqSetSpecialCreatureHis, creature_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqSetSpecialCreatureHis, status_),
@@ -778,7 +848,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqSetSpecialCreatureHis),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqSetSpecialCreatureHis, _internal_metadata_),
       -1);
-  MsgS2CCmdNotifySpecialCreatureHisModify_descriptor_ = file->message_type(36);
+  MsgS2CCmdNotifySpecialCreatureHisModify_descriptor_ = file->message_type(39);
   static const int MsgS2CCmdNotifySpecialCreatureHisModify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdNotifySpecialCreatureHisModify, special_creatures_),
   };
@@ -793,7 +863,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdNotifySpecialCreatureHisModify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdNotifySpecialCreatureHisModify, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyTaskCompleteCount_descriptor_ = file->message_type(37);
+  MsgC2SCmdReqModifyTaskCompleteCount_descriptor_ = file->message_type(40);
   static const int MsgC2SCmdReqModifyTaskCompleteCount_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyTaskCompleteCount, task_complete_count_),
   };
@@ -808,7 +878,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyTaskCompleteCount),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyTaskCompleteCount, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyTaskCompleteCountACK_descriptor_ = file->message_type(38);
+  MsgS2CCmdModifyTaskCompleteCountACK_descriptor_ = file->message_type(41);
   static const int MsgS2CCmdModifyTaskCompleteCountACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyTaskCompleteCountACK, current_task_count_),
   };
@@ -823,7 +893,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyTaskCompleteCountACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyTaskCompleteCountACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqShowGMLevel_descriptor_ = file->message_type(39);
+  MsgC2SCmdReqShowGMLevel_descriptor_ = file->message_type(42);
   static const int MsgC2SCmdReqShowGMLevel_offsets_[1] = {
   };
   MsgC2SCmdReqShowGMLevel_reflection_ =
@@ -837,7 +907,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqShowGMLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqShowGMLevel, _internal_metadata_),
       -1);
-  MsgS2CCmdShowGMLevelACK_descriptor_ = file->message_type(40);
+  MsgS2CCmdShowGMLevelACK_descriptor_ = file->message_type(43);
   static const int MsgS2CCmdShowGMLevelACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, gm_level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, error_),
@@ -853,7 +923,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdShowGMLevelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyGMLevel_descriptor_ = file->message_type(41);
+  MsgC2SCmdReqModifyGMLevel_descriptor_ = file->message_type(44);
   static const int MsgC2SCmdReqModifyGMLevel_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, level_),
@@ -869,7 +939,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyGMLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyGMLevelACK_descriptor_ = file->message_type(42);
+  MsgS2CCmdModifyGMLevelACK_descriptor_ = file->message_type(45);
   static const int MsgS2CCmdModifyGMLevelACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, level_),
@@ -886,7 +956,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyGMLevelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqEnterGame_descriptor_ = file->message_type(43);
+  MsgC2SCmdReqEnterGame_descriptor_ = file->message_type(46);
   static const int MsgC2SCmdReqEnterGame_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, section_id_),
@@ -902,7 +972,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqEnterGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetMap_descriptor_ = file->message_type(44);
+  MsgC2SCmdReqResetMap_descriptor_ = file->message_type(47);
   static const int MsgC2SCmdReqResetMap_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, section_id_),
@@ -918,7 +988,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetMap),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, _internal_metadata_),
       -1);
-  MsgS2CCmdResetMapACK_descriptor_ = file->message_type(45);
+  MsgS2CCmdResetMapACK_descriptor_ = file->message_type(48);
   static const int MsgS2CCmdResetMapACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, section_id_),
@@ -935,7 +1005,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdResetMapACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetGame_descriptor_ = file->message_type(46);
+  MsgC2SCmdReqResetGame_descriptor_ = file->message_type(49);
   static const int MsgC2SCmdReqResetGame_offsets_[1] = {
   };
   MsgC2SCmdReqResetGame_reflection_ =
@@ -949,7 +1019,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetGame, _internal_metadata_),
       -1);
-  MsgS2CCmdResetGameACK_descriptor_ = file->message_type(47);
+  MsgS2CCmdResetGameACK_descriptor_ = file->message_type(50);
   static const int MsgS2CCmdResetGameACK_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, current_advertisement_count_),
@@ -967,7 +1037,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdResetGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyGold_descriptor_ = file->message_type(48);
+  MsgC2SCmdReqModifyGold_descriptor_ = file->message_type(51);
   static const int MsgC2SCmdReqModifyGold_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGold, gold_),
   };
@@ -982,7 +1052,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyGold),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGold, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyGoldACK_descriptor_ = file->message_type(49);
+  MsgS2CCmdModifyGoldACK_descriptor_ = file->message_type(52);
   static const int MsgS2CCmdModifyGoldACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGoldACK, gold_),
   };
@@ -997,7 +1067,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyGoldACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGoldACK, _internal_metadata_),
       -1);
-  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(50);
+  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(53);
   static const int MsgS2CCmdReqReplaceTask_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, task_count_),
   };
@@ -1012,7 +1082,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdReqReplaceTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, _internal_metadata_),
       -1);
-  MsgS2CCmdReplaceTaskACK_descriptor_ = file->message_type(51);
+  MsgS2CCmdReplaceTaskACK_descriptor_ = file->message_type(54);
   static const int MsgS2CCmdReplaceTaskACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, error_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, infos_),
@@ -1054,7 +1124,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CNewTaskNotify_descriptor_, &MsgS2CNewTaskNotify::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgSpiritShopInfo_descriptor_, &MsgSpiritShopInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CHeroesInit_descriptor_, &MsgS2CHeroesInit::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgC2SReqBuySpirit_descriptor_, &MsgC2SReqBuySpirit::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgS2CBuySpiritACK_descriptor_, &MsgS2CBuySpiritACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgC2SReqEnterGame_descriptor_, &MsgC2SReqEnterGame::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -1162,8 +1238,14 @@ void protobuf_ShutdownFile_dream_5fheroes_2eproto() {
   delete MsgS2CSGameGlobalConfigACK_reflection_;
   delete MsgS2CNewTaskNotify::default_instance_;
   delete MsgS2CNewTaskNotify_reflection_;
+  delete MsgSpiritShopInfo::default_instance_;
+  delete MsgSpiritShopInfo_reflection_;
   delete MsgS2CHeroesInit::default_instance_;
   delete MsgS2CHeroesInit_reflection_;
+  delete MsgC2SReqBuySpirit::default_instance_;
+  delete MsgC2SReqBuySpirit_reflection_;
+  delete MsgS2CBuySpiritACK::default_instance_;
+  delete MsgS2CBuySpiritACK_reflection_;
   delete MsgC2SReqEnterGame::default_instance_;
   delete MsgC2SReqEnterGame_reflection_;
   delete MsgS2CEnterGameACK::default_instance_;
@@ -1273,151 +1355,169 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "2CSGameGlobalConfigACK\0224\n\rchapter_infos\030"
     "\001 \003(\0132\035.message.MsgChapterConfigInfo\"\?\n\023"
     "MsgS2CNewTaskNotify\022(\n\004task\030\001 \002(\0132\032.mess"
-    "age.MsgTaskConfigInfo\"\355\002\n\020MsgS2CHeroesIn"
-    "it\022\"\n\004info\030\001 \002(\0132\024.message.MsgHeroData\0225"
-    "\n\021task_config_infos\030\002 \003(\0132\032.message.MsgT"
-    "askConfigInfo\022\'\n\037free_advertisement_conf"
-    "ig_count\030\003 \002(\005\022#\n\033current_advertisement_"
-    "count\030\004 \002(\005\022\037\n\027last_advertisement_time\030\005"
-    " \002(\003\022\035\n\025advertisement_time_cd\030\006 \002(\005\022\020\n\010g"
-    "m_level\030\007 \002(\005\022.\n\021special_creatures\030\010 \003(\013"
-    "2\023.message.MsgIntPair\022\023\n\013relive_gold\030\t \002"
-    "(\005\022\031\n\021refresh_task_gold\030\n \002(\005\"<\n\022MsgC2SR"
-    "eqEnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsecti"
-    "on_id\030\002 \002(\005\"\310\001\n\022MsgS2CEnterGameACK\022\022\n\nch"
-    "apter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\0223\n\020dr"
-    "op_box_configs\030\003 \003(\0132\031.message.MsgDropBo"
-    "xConfig\022(\n\tkill_list\030\004 \003(\0132\025.message.Msg"
-    "ObjConfig\022+\n\005error\030\005 \002(\0162\022.message.GameE"
-    "rror:\010Error_NO\"C\n\016MsgKillHistroy\022\"\n\003obj\030"
-    "\001 \002(\0132\025.message.MsgObjConfig\022\r\n\005count\030\002 "
-    "\002(\005\"\252\002\n\021MsgC2SReqExitGame\022\022\n\nchapter_id\030"
-    "\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022(\n\ntask_infos\030"
-    "\003 \003(\0132\024.message.MsgTaskInfo\022\014\n\004gold\030\004 \002("
-    "\005\022\017\n\007success\030\005 \002(\010\022\026\n\016complete_tasks\030\006 \003"
-    "(\005\0220\n\021special_kill_list\030\007 \003(\0132\025.message."
-    "MsgObjConfig\022*\n\tkill_list\030\010 \003(\0132\027.messag"
-    "e.MsgKillHistroy\022.\n\021special_creatures\030\t "
-    "\003(\0132\023.message.MsgIntPair\"\256\002\n\021MsgS2CExitG"
-    "ameACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id"
-    "\030\002 \002(\005\022(\n\ntask_infos\030\003 \003(\0132\024.message.Msg"
-    "TaskInfo\022\024\n\014current_gold\030\004 \002(\005\022&\n\ttask_g"
-    "ift\030\005 \003(\0132\023.message.MsgIntPair\022\017\n\007succes"
-    "s\030\006 \002(\010\022\033\n\023complete_task_count\030\007 \002(\005\022+\n\005"
-    "error\030\010 \002(\0162\022.message.GameError:\010Error_N"
-    "O\022.\n\021special_creatures\030\t \003(\0132\023.message.M"
-    "sgIntPair\",\n\026MsgC2SReqUnlockChapter\022\022\n\nc"
-    "hapter_id\030\001 \002(\005\"/\n\037MsgC2SReqAdvertisemen"
-    "tApplyTask\022\014\n\004gold\030\001 \002(\010\"\217\001\n\037MsgS2CAdver"
-    "tisementApplyTaskACK\022+\n\005error\030\001 \002(\0162\022.me"
-    "ssage.GameError:\010Error_NO\022)\n\005infos\030\002 \003(\013"
-    "2\032.message.MsgTaskConfigInfo\022\024\n\014current_"
-    "gold\030\003 \002(\005\"J\n!MsgC2SReqAdvertisementRefr"
-    "eshTask\022\027\n\017give_up_task_id\030\001 \002(\005\022\014\n\004gold"
-    "\030\002 \002(\010\"\252\001\n!MsgS2CAdvertisementRefreshTas"
-    "kACK\022\027\n\017give_up_task_id\030\001 \002(\005\022+\n\005error\030\002"
-    " \002(\0162\022.message.GameError:\010Error_NO\022)\n\005in"
-    "fos\030\003 \003(\0132\032.message.MsgTaskConfigInfo\022\024\n"
-    "\014current_gold\030\004 \002(\005\"2\n\032MsgC2SReqModifyCu"
-    "rrentHero\022\024\n\014current_grid\030\001 \002(\005\"_\n\032MsgS2"
-    "CModifyCurrentHeroACK\022\024\n\014current_grid\030\001 "
+    "age.MsgTaskConfigInfo\"m\n\021MsgSpiritShopIn"
+    "fo\022\r\n\005index\030\001 \002(\005\022\016\n\006spirit\030\002 \002(\005\022\022\n\nnee"
+    "d_jewel\030\003 \002(\005\022\023\n\013resource_id\030\004 \002(\005\022\020\n\010de"
+    "script\030\005 \002(\t\"\233\005\n\020MsgS2CHeroesInit\022\"\n\004inf"
+    "o\030\001 \002(\0132\024.message.MsgHeroData\0225\n\021task_co"
+    "nfig_infos\030\002 \003(\0132\032.message.MsgTaskConfig"
+    "Info\022\'\n\037free_advertisement_config_count\030"
+    "\003 \002(\005\022#\n\033current_advertisement_count\030\004 \002"
+    "(\005\022\037\n\027last_advertisement_time\030\005 \002(\003\022\035\n\025a"
+    "dvertisement_time_cd\030\006 \002(\005\022\020\n\010gm_level\030\007"
+    " \002(\005\022.\n\021special_creatures\030\010 \003(\0132\023.messag"
+    "e.MsgIntPair\022\023\n\013relive_gold\030\t \002(\005\022\031\n\021ref"
+    "resh_task_gold\030\n \002(\005\022\022\n\nmax_spirit\030\013 \002(\005"
+    "\022$\n\034config_recover_spirit_minute\030\014 \002(\005\022\035"
+    "\n\025config_recover_spirit\030\r \002(\005\022$\n\034config_"
+    "enter_game_use_spirit\030\016 \002(\005\0224\n\020sprit_sho"
+    "p_infos\030\017 \003(\0132\032.message.MsgSpiritShopInf"
+    "o\022\035\n\025config_day_buy_spirit\030\020 \002(\005\022 \n\030last"
+    "_recover_spirit_time\030\021 \002(\005\022\034\n\024last_buy_s"
+    "pirit_time\030\022 \002(\005\022\030\n\020day_refresh_time\030\023 \002"
+    "(\005\"#\n\022MsgC2SReqBuySpirit\022\r\n\005index\030\001 \002(\005\""
+    "B\n\022MsgS2CBuySpiritACK\022\r\n\005index\030\001 \002(\005\022\r\n\005"
+    "jewel\030\002 \002(\005\022\016\n\006spirit\030\003 \002(\005\"<\n\022MsgC2SReq"
+    "EnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection"
+    "_id\030\002 \002(\005\"\330\001\n\022MsgS2CEnterGameACK\022\022\n\nchap"
+    "ter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\0223\n\020drop"
+    "_box_configs\030\003 \003(\0132\031.message.MsgDropBoxC"
+    "onfig\022(\n\tkill_list\030\004 \003(\0132\025.message.MsgOb"
+    "jConfig\022+\n\005error\030\005 \002(\0162\022.message.GameErr"
+    "or:\010Error_NO\022\016\n\006spirit\030\006 \002(\005\"C\n\016MsgKillH"
+    "istroy\022\"\n\003obj\030\001 \002(\0132\025.message.MsgObjConf"
+    "ig\022\r\n\005count\030\002 \002(\005\"\252\002\n\021MsgC2SReqExitGame\022"
+    "\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022"
+    "(\n\ntask_infos\030\003 \003(\0132\024.message.MsgTaskInf"
+    "o\022\014\n\004gold\030\004 \002(\005\022\017\n\007success\030\005 \002(\010\022\026\n\016comp"
+    "lete_tasks\030\006 \003(\005\0220\n\021special_kill_list\030\007 "
+    "\003(\0132\025.message.MsgObjConfig\022*\n\tkill_list\030"
+    "\010 \003(\0132\027.message.MsgKillHistroy\022.\n\021specia"
+    "l_creatures\030\t \003(\0132\023.message.MsgIntPair\"\256"
+    "\002\n\021MsgS2CExitGameACK\022\022\n\nchapter_id\030\001 \002(\005"
+    "\022\022\n\nsection_id\030\002 \002(\005\022(\n\ntask_infos\030\003 \003(\013"
+    "2\024.message.MsgTaskInfo\022\024\n\014current_gold\030\004"
+    " \002(\005\022&\n\ttask_gift\030\005 \003(\0132\023.message.MsgInt"
+    "Pair\022\017\n\007success\030\006 \002(\010\022\033\n\023complete_task_c"
+    "ount\030\007 \002(\005\022+\n\005error\030\010 \002(\0162\022.message.Game"
+    "Error:\010Error_NO\022.\n\021special_creatures\030\t \003"
+    "(\0132\023.message.MsgIntPair\",\n\026MsgC2SReqUnlo"
+    "ckChapter\022\022\n\nchapter_id\030\001 \002(\005\"/\n\037MsgC2SR"
+    "eqAdvertisementApplyTask\022\014\n\004gold\030\001 \002(\010\"\217"
+    "\001\n\037MsgS2CAdvertisementApplyTaskACK\022+\n\005er"
+    "ror\030\001 \002(\0162\022.message.GameError:\010Error_NO\022"
+    ")\n\005infos\030\002 \003(\0132\032.message.MsgTaskConfigIn"
+    "fo\022\024\n\014current_gold\030\003 \002(\005\"J\n!MsgC2SReqAdv"
+    "ertisementRefreshTask\022\027\n\017give_up_task_id"
+    "\030\001 \002(\005\022\014\n\004gold\030\002 \002(\010\"\252\001\n!MsgS2CAdvertise"
+    "mentRefreshTaskACK\022\027\n\017give_up_task_id\030\001 "
     "\002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameError:\010"
-    "Error_NO\"o\n\026MsgS2CUnlockChapterACK\022\022\n\nch"
-    "apter_id\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005\022+\n\005"
-    "error\030\003 \002(\0162\022.message.GameError:\010Error_N"
-    "O\".\n\020MsgC2SReqBuyHero\022\014\n\004grid\030\001 \002(\005\022\014\n\004g"
-    "old\030\002 \002(\005\"c\n\020MsgS2CBuyHeroACK\022\014\n\004grid\030\001 "
-    "\002(\005\022\024\n\014current_gold\030\002 \002(\005\022+\n\005error\030\003 \002(\016"
-    "2\022.message.GameError:\010Error_NO\"\032\n\030MsgC2S"
-    "ReqGoldShopConfigs\"I\n\030MsgS2CGoldShopConf"
-    "igsACK\022-\n\005infos\030\001 \003(\0132\036.message.MsgGoldS"
-    "hopConfigInfo\"+\n\027MsgC2SReqCrearteIOSDeal"
-    "\022\020\n\010key_code\030\001 \002(\t\"\211\001\n\027MsgS2CCrearteIOSD"
-    "ealACK\022\020\n\010key_code\030\001 \002(\t\022\016\n\006status\030\002 \002(\005"
-    "\022\r\n\005price\030\003 \002(\005\022\020\n\010order_id\030\004 \002(\005\022+\n\005err"
-    "or\030\005 \002(\0162\022.message.GameError:\010Error_NO\";"
-    "\n\026MsgC2SReqVerifyDealIOS\022\017\n\007receipt\030\001 \002("
-    "\t\022\020\n\010order_id\030\002 \002(\005\"\221\001\n\026MsgS2CVerifyDeal"
-    "IOSACK\022\022\n\nproduct_id\030\001 \002(\t\022\016\n\006status\030\002 \002"
-    "(\005\022\020\n\010order_id\030\003 \002(\005\022\024\n\014current_gold\030\004 \002"
-    "(\005\022+\n\005error\030\005 \002(\0162\022.message.GameError:\010E"
-    "rror_NO\"4\n\020MsgS2CPingNotify\022\022\n\nping_coun"
-    "t\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"4\n\020MsgC2SPingNotif"
-    "y\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"*\n\032M"
-    "sgC2SReqModifyNewTutorial\022\014\n\004flag\030\001 \002(\005\""
-    "*\n\032MsgS2CModifyNewTutorialACK\022\014\n\004flag\030\001 "
-    "\002(\005\"\021\n\017MsgC2SReliveReq\"T\n\017MsgS2CReliveAC"
-    "K\022\024\n\014current_gold\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022"
-    ".message.GameError:\010Error_NO\"*\n(MsgC2SCm"
-    "dReqRemoveSpecialCreatureListHis\"H\n!MsgC"
-    "2SCmdReqSetSpecialCreatureHis\022\023\n\013creatur"
-    "e_id\030\001 \002(\005\022\016\n\006status\030\002 \002(\005\"Y\n\'MsgS2CCmdN"
-    "otifySpecialCreatureHisModify\022.\n\021special"
-    "_creatures\030\001 \003(\0132\023.message.MsgIntPair\"B\n"
-    "#MsgC2SCmdReqModifyTaskCompleteCount\022\033\n\023"
-    "task_complete_count\030\001 \002(\005\"A\n#MsgS2CCmdMo"
-    "difyTaskCompleteCountACK\022\032\n\022current_task"
-    "_count\030\001 \002(\005\"\031\n\027MsgC2SCmdReqShowGMLevel\""
-    "X\n\027MsgS2CCmdShowGMLevelACK\022\020\n\010gm_level\030\001"
-    " \002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameError:"
-    "\010Error_NO\"8\n\031MsgC2SCmdReqModifyGMLevel\022\014"
-    "\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\"e\n\031MsgS2CCmd"
-    "ModifyGMLevelACK\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030"
-    "\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.GameError"
-    ":\010Error_NO\"\?\n\025MsgC2SCmdReqEnterGame\022\022\n\nc"
-    "hapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\">\n\024M"
-    "sgC2SCmdReqResetMap\022\022\n\nchapter_id\030\001 \002(\005\022"
-    "\022\n\nsection_id\030\002 \002(\005\"k\n\024MsgS2CCmdResetMap"
-    "ACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 "
-    "\002(\005\022+\n\005error\030\003 \002(\0162\022.message.GameError:\010"
-    "Error_NO\"\027\n\025MsgC2SCmdReqResetGame\"\256\001\n\025Ms"
-    "gS2CCmdResetGameACK\022\"\n\004info\030\001 \002(\0132\024.mess"
-    "age.MsgHeroData\022#\n\033current_advertisement"
-    "_count\030\002 \002(\005\022\037\n\027last_advertisement_time\030"
-    "\003 \002(\003\022+\n\005error\030\004 \002(\0162\022.message.GameError"
-    ":\010Error_NO\"&\n\026MsgC2SCmdReqModifyGold\022\014\n\004"
-    "gold\030\001 \002(\005\"&\n\026MsgS2CCmdModifyGoldACK\022\014\n\004"
-    "gold\030\001 \002(\005\"-\n\027MsgS2CCmdReqReplaceTask\022\022\n"
-    "\ntask_count\030\001 \002(\005\"q\n\027MsgS2CCmdReplaceTas"
-    "kACK\022+\n\005error\030\001 \002(\0162\022.message.GameError:"
-    "\010Error_NO\022)\n\005infos\030\002 \003(\0132\032.message.MsgTa"
-    "skConfigInfo*\263\013\n\tGameError\022\014\n\010Error_NO\020\000"
-    "\022*\n&Error_CanNotEnterGameTheInstanceIsLo"
-    "ck\020\001\022+\n\'Error_CanNotEnterGameTheCharacte"
-    "rIsLock\020\002\022)\n%Error_CanNotEnterGameTheSec"
-    "tionIsLock\020\003\022$\n Error_CanNotBuyHeroNotEn"
-    "oughgold\020\004\0224\n0Error_CanNotPassGameTheIns"
-    "tanceNotHaveEnoughGold\020\005\022\035\n\031Error_NotEnt"
-    "erTheExitGame\020\006\022)\n%Error_NotFoundTheChap"
-    "terWhenEnterGame\020\007\022\035\n\031Error_TheChapterIs"
-    "NotLock\020\010\0225\n1Error_UnlockChapterFailedNo"
-    "tFoundTheUnlockChapter\020\t\0226\n2Error_Unlock"
-    "ChapterFailedTheRequiredSectionNotPass\020\n"
-    "\0229\n5Error_UnlockChapterFailedYouHaveToCo"
-    "mpleteEnoughTasks\020\013\0221\n-Error_UnlockChapt"
-    "erFailedYouNotHaveEnoughGold\020\014\022,\n(Error_"
-    "RefreshAdvertisementTaskFailedInCD\020\r\022<\n8"
-    "Error_RefreshAdvertisementTaskFailedNotF"
-    "oundGiveUpTaskID\020\016\022.\n*Error_RefreshAdver"
-    "tisementTaskFailedUnknow\020\017\0225\n1Error_Refr"
-    "eshAdvertisementTaskFailedNotEnoughGold\020"
-    "\020\022$\n Error_BuyHeroFailedNotEnoughGold\020\021\022"
-    "$\n Error_BuyHeroFailedThePriceIsOld\020\022\022#\n"
-    "\037Error_BuyHeroFailedNotFoundGrid\020\023\022-\n)Er"
-    "ror_BuyHeroFailedNotPassRequiredSection\020"
-    "\024\022/\n+Error_ModifyCurrentFailedTheCharact"
-    "erIsLock\020\025\022%\n!Error_BuyGoldFailedNotFoun"
-    "dConfig\020\026\022$\n Error_BuyGoldFailedNotFound"
-    "Order\020\027\0220\n,Error_BuyGoldFailedTheOrderHa"
-    "veBeenCompleted\020\030\022-\n)Error_CreateDealFai"
-    "ledTheHttpErrorRespone\020\031\022.\n*Error_Create"
-    "DealFailedTheHttpResponeFailed\020\032\0227\n3Erro"
-    "r_CreateDealDailedTheHttpResponeErrorPro"
-    "duct_id\020\033\022-\n)Error_VerifyDealFailedTheHt"
-    "tpErrorRespone\020\034\022.\n*Error_VerifyDealFail"
-    "edTheHttpResponeFailed\020\035\022\"\n\036Error_CmdFai"
-    "ledRequiredGMLevel\020\036\022\"\n\036Error_ReliveFail"
-    "edNotEnoughGod\020\037\022\020\n\014Error_Unknow\020 ", 6154);
+    "Error_NO\022)\n\005infos\030\003 \003(\0132\032.message.MsgTas"
+    "kConfigInfo\022\024\n\014current_gold\030\004 \002(\005\"2\n\032Msg"
+    "C2SReqModifyCurrentHero\022\024\n\014current_grid\030"
+    "\001 \002(\005\"_\n\032MsgS2CModifyCurrentHeroACK\022\024\n\014c"
+    "urrent_grid\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.messa"
+    "ge.GameError:\010Error_NO\"o\n\026MsgS2CUnlockCh"
+    "apterACK\022\022\n\nchapter_id\030\001 \002(\005\022\024\n\014current_"
+    "gold\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.Game"
+    "Error:\010Error_NO\".\n\020MsgC2SReqBuyHero\022\014\n\004g"
+    "rid\030\001 \002(\005\022\014\n\004gold\030\002 \002(\005\"c\n\020MsgS2CBuyHero"
+    "ACK\022\014\n\004grid\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005\022"
+    "+\n\005error\030\003 \002(\0162\022.message.GameError:\010Erro"
+    "r_NO\"\032\n\030MsgC2SReqGoldShopConfigs\"I\n\030MsgS"
+    "2CGoldShopConfigsACK\022-\n\005infos\030\001 \003(\0132\036.me"
+    "ssage.MsgGoldShopConfigInfo\"+\n\027MsgC2SReq"
+    "CrearteIOSDeal\022\020\n\010key_code\030\001 \002(\t\"\211\001\n\027Msg"
+    "S2CCrearteIOSDealACK\022\020\n\010key_code\030\001 \002(\t\022\016"
+    "\n\006status\030\002 \002(\005\022\r\n\005price\030\003 \002(\005\022\020\n\010order_i"
+    "d\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.message.GameErr"
+    "or:\010Error_NO\";\n\026MsgC2SReqVerifyDealIOS\022\017"
+    "\n\007receipt\030\001 \002(\t\022\020\n\010order_id\030\002 \002(\005\"\221\001\n\026Ms"
+    "gS2CVerifyDealIOSACK\022\022\n\nproduct_id\030\001 \002(\t"
+    "\022\016\n\006status\030\002 \002(\005\022\020\n\010order_id\030\003 \002(\005\022\024\n\014cu"
+    "rrent_gold\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.messag"
+    "e.GameError:\010Error_NO\"4\n\020MsgS2CPingNotif"
+    "y\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"4\n\020M"
+    "sgC2SPingNotify\022\022\n\nping_count\030\001 \002(\005\022\014\n\004t"
+    "ime\030\002 \002(\004\"*\n\032MsgC2SReqModifyNewTutorial\022"
+    "\014\n\004flag\030\001 \002(\005\"*\n\032MsgS2CModifyNewTutorial"
+    "ACK\022\014\n\004flag\030\001 \002(\005\"\021\n\017MsgC2SReliveReq\"T\n\017"
+    "MsgS2CReliveACK\022\024\n\014current_gold\030\001 \002(\005\022+\n"
+    "\005error\030\002 \002(\0162\022.message.GameError:\010Error_"
+    "NO\"*\n(MsgC2SCmdReqRemoveSpecialCreatureL"
+    "istHis\"H\n!MsgC2SCmdReqSetSpecialCreature"
+    "His\022\023\n\013creature_id\030\001 \002(\005\022\016\n\006status\030\002 \002(\005"
+    "\"Y\n\'MsgS2CCmdNotifySpecialCreatureHisMod"
+    "ify\022.\n\021special_creatures\030\001 \003(\0132\023.message"
+    ".MsgIntPair\"B\n#MsgC2SCmdReqModifyTaskCom"
+    "pleteCount\022\033\n\023task_complete_count\030\001 \002(\005\""
+    "A\n#MsgS2CCmdModifyTaskCompleteCountACK\022\032"
+    "\n\022current_task_count\030\001 \002(\005\"\031\n\027MsgC2SCmdR"
+    "eqShowGMLevel\"X\n\027MsgS2CCmdShowGMLevelACK"
+    "\022\020\n\010gm_level\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.mess"
+    "age.GameError:\010Error_NO\"8\n\031MsgC2SCmdReqM"
+    "odifyGMLevel\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002("
+    "\005\"e\n\031MsgS2CCmdModifyGMLevelACK\022\014\n\004name\030\001"
+    " \002(\t\022\r\n\005level\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.mes"
+    "sage.GameError:\010Error_NO\"\?\n\025MsgC2SCmdReq"
+    "EnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection"
+    "_id\030\002 \002(\005\">\n\024MsgC2SCmdReqResetMap\022\022\n\ncha"
+    "pter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"k\n\024Msg"
+    "S2CCmdResetMapACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n"
+    "\nsection_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.messa"
+    "ge.GameError:\010Error_NO\"\027\n\025MsgC2SCmdReqRe"
+    "setGame\"\256\001\n\025MsgS2CCmdResetGameACK\022\"\n\004inf"
+    "o\030\001 \002(\0132\024.message.MsgHeroData\022#\n\033current"
+    "_advertisement_count\030\002 \002(\005\022\037\n\027last_adver"
+    "tisement_time\030\003 \002(\003\022+\n\005error\030\004 \002(\0162\022.mes"
+    "sage.GameError:\010Error_NO\"&\n\026MsgC2SCmdReq"
+    "ModifyGold\022\014\n\004gold\030\001 \002(\005\"&\n\026MsgS2CCmdMod"
+    "ifyGoldACK\022\014\n\004gold\030\001 \002(\005\"-\n\027MsgS2CCmdReq"
+    "ReplaceTask\022\022\n\ntask_count\030\001 \002(\005\"q\n\027MsgS2"
+    "CCmdReplaceTaskACK\022+\n\005error\030\001 \002(\0162\022.mess"
+    "age.GameError:\010Error_NO\022)\n\005infos\030\002 \003(\0132\032"
+    ".message.MsgTaskConfigInfo*\335\014\n\tGameError"
+    "\022\014\n\010Error_NO\020\000\022*\n&Error_CanNotEnterGameT"
+    "heInstanceIsLock\020\001\022+\n\'Error_CanNotEnterG"
+    "ameTheCharacterIsLock\020\002\022)\n%Error_CanNotE"
+    "nterGameTheSectionIsLock\020\003\022(\n$Error_CanN"
+    "otEnterGameNotEnoughSpirit\020\004\022$\n Error_Ca"
+    "nNotBuyHeroNotEnoughgold\020\005\0224\n0Error_CanN"
+    "otPassGameTheInstanceNotHaveEnoughGold\020\006"
+    "\022\035\n\031Error_NotEnterTheExitGame\020\007\022)\n%Error"
+    "_NotFoundTheChapterWhenEnterGame\020\010\022\035\n\031Er"
+    "ror_TheChapterIsNotLock\020\t\0225\n1Error_Unloc"
+    "kChapterFailedNotFoundTheUnlockChapter\020\n"
+    "\0226\n2Error_UnlockChapterFailedTheRequired"
+    "SectionNotPass\020\013\0229\n5Error_UnlockChapterF"
+    "ailedYouHaveToCompleteEnoughTasks\020\014\0221\n-E"
+    "rror_UnlockChapterFailedYouNotHaveEnough"
+    "Gold\020\r\022,\n(Error_RefreshAdvertisementTask"
+    "FailedInCD\020\016\022<\n8Error_RefreshAdvertiseme"
+    "ntTaskFailedNotFoundGiveUpTaskID\020\017\022.\n*Er"
+    "ror_RefreshAdvertisementTaskFailedUnknow"
+    "\020\020\0225\n1Error_RefreshAdvertisementTaskFail"
+    "edNotEnoughGold\020\021\022$\n Error_BuyHeroFailed"
+    "NotEnoughGold\020\022\022$\n Error_BuyHeroFailedTh"
+    "ePriceIsOld\020\023\022#\n\037Error_BuyHeroFailedNotF"
+    "oundGrid\020\024\022-\n)Error_BuyHeroFailedNotPass"
+    "RequiredSection\020\025\022/\n+Error_ModifyCurrent"
+    "FailedTheCharacterIsLock\020\026\022%\n!Error_BuyG"
+    "oldFailedNotFoundConfig\020\027\022$\n Error_BuyGo"
+    "ldFailedNotFoundOrder\020\030\0220\n,Error_BuyGold"
+    "FailedTheOrderHaveBeenCompleted\020\031\022-\n)Err"
+    "or_CreateDealFailedTheHttpErrorRespone\020\032"
+    "\022.\n*Error_CreateDealFailedTheHttpRespone"
+    "Failed\020\033\0227\n3Error_CreateDealDailedTheHtt"
+    "pResponeErrorProduct_id\020\034\022-\n)Error_Verif"
+    "yDealFailedTheHttpErrorRespone\020\035\022.\n*Erro"
+    "r_VerifyDealFailedTheHttpResponeFailed\020\036"
+    "\022\'\n#Error_BuySpiritFailedNotEnoughJewel\020"
+    "\037\022,\n(Error_BuySpiritFailedCanNotBuyMoreS"
+    "pirit\020 \022\'\n#Error_BuySpiritFailedNotFound"
+    "Config\020!\022\"\n\036Error_CmdFailedRequiredGMLev"
+    "el\020\"\022\"\n\036Error_ReliveFailedNotEnoughGod\020#"
+    "\022\020\n\014Error_Unknow\020$", 6858);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgS2CNotifyError::default_instance_ = new MsgS2CNotifyError();
@@ -1426,7 +1526,10 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgC2SReqGameGlobalConfig::default_instance_ = new MsgC2SReqGameGlobalConfig();
   MsgS2CSGameGlobalConfigACK::default_instance_ = new MsgS2CSGameGlobalConfigACK();
   MsgS2CNewTaskNotify::default_instance_ = new MsgS2CNewTaskNotify();
+  MsgSpiritShopInfo::default_instance_ = new MsgSpiritShopInfo();
   MsgS2CHeroesInit::default_instance_ = new MsgS2CHeroesInit();
+  MsgC2SReqBuySpirit::default_instance_ = new MsgC2SReqBuySpirit();
+  MsgS2CBuySpiritACK::default_instance_ = new MsgS2CBuySpiritACK();
   MsgC2SReqEnterGame::default_instance_ = new MsgC2SReqEnterGame();
   MsgS2CEnterGameACK::default_instance_ = new MsgS2CEnterGameACK();
   MsgKillHistroy::default_instance_ = new MsgKillHistroy();
@@ -1478,7 +1581,10 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgC2SReqGameGlobalConfig::default_instance_->InitAsDefaultInstance();
   MsgS2CSGameGlobalConfigACK::default_instance_->InitAsDefaultInstance();
   MsgS2CNewTaskNotify::default_instance_->InitAsDefaultInstance();
+  MsgSpiritShopInfo::default_instance_->InitAsDefaultInstance();
   MsgS2CHeroesInit::default_instance_->InitAsDefaultInstance();
+  MsgC2SReqBuySpirit::default_instance_->InitAsDefaultInstance();
+  MsgS2CBuySpiritACK::default_instance_->InitAsDefaultInstance();
   MsgC2SReqEnterGame::default_instance_->InitAsDefaultInstance();
   MsgS2CEnterGameACK::default_instance_->InitAsDefaultInstance();
   MsgKillHistroy::default_instance_->InitAsDefaultInstance();
@@ -1572,6 +1678,10 @@ bool GameError_IsValid(int value) {
     case 30:
     case 31:
     case 32:
+    case 33:
+    case 34:
+    case 35:
+    case 36:
       return true;
     default:
       return false;
@@ -3052,6 +3162,610 @@ void MsgS2CNewTaskNotify::InternalSwap(MsgS2CNewTaskNotify* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int MsgSpiritShopInfo::kIndexFieldNumber;
+const int MsgSpiritShopInfo::kSpiritFieldNumber;
+const int MsgSpiritShopInfo::kNeedJewelFieldNumber;
+const int MsgSpiritShopInfo::kResourceIdFieldNumber;
+const int MsgSpiritShopInfo::kDescriptFieldNumber;
+#endif  // !_MSC_VER
+
+MsgSpiritShopInfo::MsgSpiritShopInfo()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgSpiritShopInfo)
+}
+
+void MsgSpiritShopInfo::InitAsDefaultInstance() {
+}
+
+MsgSpiritShopInfo::MsgSpiritShopInfo(const MsgSpiritShopInfo& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgSpiritShopInfo)
+}
+
+void MsgSpiritShopInfo::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  index_ = 0;
+  spirit_ = 0;
+  need_jewel_ = 0;
+  resource_id_ = 0;
+  descript_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgSpiritShopInfo::~MsgSpiritShopInfo() {
+  // @@protoc_insertion_point(destructor:message.MsgSpiritShopInfo)
+  SharedDtor();
+}
+
+void MsgSpiritShopInfo::SharedDtor() {
+  descript_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void MsgSpiritShopInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgSpiritShopInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgSpiritShopInfo_descriptor_;
+}
+
+const MsgSpiritShopInfo& MsgSpiritShopInfo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgSpiritShopInfo* MsgSpiritShopInfo::default_instance_ = NULL;
+
+MsgSpiritShopInfo* MsgSpiritShopInfo::New(::google::protobuf::Arena* arena) const {
+  MsgSpiritShopInfo* n = new MsgSpiritShopInfo;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgSpiritShopInfo::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgSpiritShopInfo*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  if (_has_bits_[0 / 32] & 31) {
+    ZR_(index_, resource_id_);
+    if (has_descript()) {
+      descript_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+  }
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgSpiritShopInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgSpiritShopInfo)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 index = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_spirit;
+        break;
+      }
+
+      // required int32 spirit = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_spirit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &spirit_)));
+          set_has_spirit();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_need_jewel;
+        break;
+      }
+
+      // required int32 need_jewel = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_need_jewel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &need_jewel_)));
+          set_has_need_jewel();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_resource_id;
+        break;
+      }
+
+      // required int32 resource_id = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_resource_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &resource_id_)));
+          set_has_resource_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_descript;
+        break;
+      }
+
+      // required string descript = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_descript:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_descript()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->descript().data(), this->descript().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgSpiritShopInfo.descript");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgSpiritShopInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgSpiritShopInfo)
+  return false;
+#undef DO_
+}
+
+void MsgSpiritShopInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgSpiritShopInfo)
+  // required int32 index = 1;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->index(), output);
+  }
+
+  // required int32 spirit = 2;
+  if (has_spirit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->spirit(), output);
+  }
+
+  // required int32 need_jewel = 3;
+  if (has_need_jewel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->need_jewel(), output);
+  }
+
+  // required int32 resource_id = 4;
+  if (has_resource_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->resource_id(), output);
+  }
+
+  // required string descript = 5;
+  if (has_descript()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->descript().data(), this->descript().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgSpiritShopInfo.descript");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->descript(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgSpiritShopInfo)
+}
+
+::google::protobuf::uint8* MsgSpiritShopInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgSpiritShopInfo)
+  // required int32 index = 1;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->index(), target);
+  }
+
+  // required int32 spirit = 2;
+  if (has_spirit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->spirit(), target);
+  }
+
+  // required int32 need_jewel = 3;
+  if (has_need_jewel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->need_jewel(), target);
+  }
+
+  // required int32 resource_id = 4;
+  if (has_resource_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->resource_id(), target);
+  }
+
+  // required string descript = 5;
+  if (has_descript()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->descript().data(), this->descript().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgSpiritShopInfo.descript");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->descript(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgSpiritShopInfo)
+  return target;
+}
+
+int MsgSpiritShopInfo::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_index()) {
+    // required int32 index = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->index());
+  }
+
+  if (has_spirit()) {
+    // required int32 spirit = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->spirit());
+  }
+
+  if (has_need_jewel()) {
+    // required int32 need_jewel = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->need_jewel());
+  }
+
+  if (has_resource_id()) {
+    // required int32 resource_id = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->resource_id());
+  }
+
+  if (has_descript()) {
+    // required string descript = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->descript());
+  }
+
+  return total_size;
+}
+int MsgSpiritShopInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+    // required int32 index = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->index());
+
+    // required int32 spirit = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->spirit());
+
+    // required int32 need_jewel = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->need_jewel());
+
+    // required int32 resource_id = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->resource_id());
+
+    // required string descript = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->descript());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgSpiritShopInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgSpiritShopInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgSpiritShopInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgSpiritShopInfo::MergeFrom(const MsgSpiritShopInfo& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+    if (from.has_spirit()) {
+      set_spirit(from.spirit());
+    }
+    if (from.has_need_jewel()) {
+      set_need_jewel(from.need_jewel());
+    }
+    if (from.has_resource_id()) {
+      set_resource_id(from.resource_id());
+    }
+    if (from.has_descript()) {
+      set_has_descript();
+      descript_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.descript_);
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgSpiritShopInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgSpiritShopInfo::CopyFrom(const MsgSpiritShopInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgSpiritShopInfo::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+
+  return true;
+}
+
+void MsgSpiritShopInfo::Swap(MsgSpiritShopInfo* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgSpiritShopInfo::InternalSwap(MsgSpiritShopInfo* other) {
+  std::swap(index_, other->index_);
+  std::swap(spirit_, other->spirit_);
+  std::swap(need_jewel_, other->need_jewel_);
+  std::swap(resource_id_, other->resource_id_);
+  descript_.Swap(&other->descript_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgSpiritShopInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgSpiritShopInfo_descriptor_;
+  metadata.reflection = MsgSpiritShopInfo_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgSpiritShopInfo
+
+// required int32 index = 1;
+ bool MsgSpiritShopInfo::has_index() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgSpiritShopInfo::set_has_index() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgSpiritShopInfo::clear_has_index() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgSpiritShopInfo::clear_index() {
+  index_ = 0;
+  clear_has_index();
+}
+ ::google::protobuf::int32 MsgSpiritShopInfo::index() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.index)
+  return index_;
+}
+ void MsgSpiritShopInfo::set_index(::google::protobuf::int32 value) {
+  set_has_index();
+  index_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.index)
+}
+
+// required int32 spirit = 2;
+ bool MsgSpiritShopInfo::has_spirit() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgSpiritShopInfo::set_has_spirit() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgSpiritShopInfo::clear_has_spirit() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgSpiritShopInfo::clear_spirit() {
+  spirit_ = 0;
+  clear_has_spirit();
+}
+ ::google::protobuf::int32 MsgSpiritShopInfo::spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.spirit)
+  return spirit_;
+}
+ void MsgSpiritShopInfo::set_spirit(::google::protobuf::int32 value) {
+  set_has_spirit();
+  spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.spirit)
+}
+
+// required int32 need_jewel = 3;
+ bool MsgSpiritShopInfo::has_need_jewel() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgSpiritShopInfo::set_has_need_jewel() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgSpiritShopInfo::clear_has_need_jewel() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgSpiritShopInfo::clear_need_jewel() {
+  need_jewel_ = 0;
+  clear_has_need_jewel();
+}
+ ::google::protobuf::int32 MsgSpiritShopInfo::need_jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.need_jewel)
+  return need_jewel_;
+}
+ void MsgSpiritShopInfo::set_need_jewel(::google::protobuf::int32 value) {
+  set_has_need_jewel();
+  need_jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.need_jewel)
+}
+
+// required int32 resource_id = 4;
+ bool MsgSpiritShopInfo::has_resource_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void MsgSpiritShopInfo::set_has_resource_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void MsgSpiritShopInfo::clear_has_resource_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+ void MsgSpiritShopInfo::clear_resource_id() {
+  resource_id_ = 0;
+  clear_has_resource_id();
+}
+ ::google::protobuf::int32 MsgSpiritShopInfo::resource_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.resource_id)
+  return resource_id_;
+}
+ void MsgSpiritShopInfo::set_resource_id(::google::protobuf::int32 value) {
+  set_has_resource_id();
+  resource_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.resource_id)
+}
+
+// required string descript = 5;
+ bool MsgSpiritShopInfo::has_descript() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+ void MsgSpiritShopInfo::set_has_descript() {
+  _has_bits_[0] |= 0x00000010u;
+}
+ void MsgSpiritShopInfo::clear_has_descript() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+ void MsgSpiritShopInfo::clear_descript() {
+  descript_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_descript();
+}
+ const ::std::string& MsgSpiritShopInfo::descript() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.descript)
+  return descript_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgSpiritShopInfo::set_descript(const ::std::string& value) {
+  set_has_descript();
+  descript_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.descript)
+}
+ void MsgSpiritShopInfo::set_descript(const char* value) {
+  set_has_descript();
+  descript_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgSpiritShopInfo.descript)
+}
+ void MsgSpiritShopInfo::set_descript(const char* value, size_t size) {
+  set_has_descript();
+  descript_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgSpiritShopInfo.descript)
+}
+ ::std::string* MsgSpiritShopInfo::mutable_descript() {
+  set_has_descript();
+  // @@protoc_insertion_point(field_mutable:message.MsgSpiritShopInfo.descript)
+  return descript_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgSpiritShopInfo::release_descript() {
+  clear_has_descript();
+  return descript_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgSpiritShopInfo::set_allocated_descript(::std::string* descript) {
+  if (descript != NULL) {
+    set_has_descript();
+  } else {
+    clear_has_descript();
+  }
+  descript_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), descript);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgSpiritShopInfo.descript)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int MsgS2CHeroesInit::kInfoFieldNumber;
 const int MsgS2CHeroesInit::kTaskConfigInfosFieldNumber;
 const int MsgS2CHeroesInit::kFreeAdvertisementConfigCountFieldNumber;
@@ -3062,6 +3776,15 @@ const int MsgS2CHeroesInit::kGmLevelFieldNumber;
 const int MsgS2CHeroesInit::kSpecialCreaturesFieldNumber;
 const int MsgS2CHeroesInit::kReliveGoldFieldNumber;
 const int MsgS2CHeroesInit::kRefreshTaskGoldFieldNumber;
+const int MsgS2CHeroesInit::kMaxSpiritFieldNumber;
+const int MsgS2CHeroesInit::kConfigRecoverSpiritMinuteFieldNumber;
+const int MsgS2CHeroesInit::kConfigRecoverSpiritFieldNumber;
+const int MsgS2CHeroesInit::kConfigEnterGameUseSpiritFieldNumber;
+const int MsgS2CHeroesInit::kSpritShopInfosFieldNumber;
+const int MsgS2CHeroesInit::kConfigDayBuySpiritFieldNumber;
+const int MsgS2CHeroesInit::kLastRecoverSpiritTimeFieldNumber;
+const int MsgS2CHeroesInit::kLastBuySpiritTimeFieldNumber;
+const int MsgS2CHeroesInit::kDayRefreshTimeFieldNumber;
 #endif  // !_MSC_VER
 
 MsgS2CHeroesInit::MsgS2CHeroesInit()
@@ -3092,6 +3815,14 @@ void MsgS2CHeroesInit::SharedCtor() {
   gm_level_ = 0;
   relive_gold_ = 0;
   refresh_task_gold_ = 0;
+  max_spirit_ = 0;
+  config_recover_spirit_minute_ = 0;
+  config_recover_spirit_ = 0;
+  config_enter_game_use_spirit_ = 0;
+  config_day_buy_spirit_ = 0;
+  last_recover_spirit_time_ = 0;
+  last_buy_spirit_time_ = 0;
+  day_refresh_time_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3146,13 +3877,18 @@ void MsgS2CHeroesInit::Clear() {
       if (info_ != NULL) info_->::message::MsgHeroData::Clear();
     }
   }
-  ZR_(relive_gold_, refresh_task_gold_);
+  if (_has_bits_[8 / 32] & 48896) {
+    ZR_(relive_gold_, config_enter_game_use_spirit_);
+    config_day_buy_spirit_ = 0;
+  }
+  ZR_(last_recover_spirit_time_, day_refresh_time_);
 
 #undef ZR_HELPER_
 #undef ZR_
 
   task_config_infos_.Clear();
   special_creatures_.Clear();
+  sprit_shop_infos_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -3165,7 +3901,7 @@ bool MsgS2CHeroesInit::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:message.MsgS2CHeroesInit)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
@@ -3310,6 +4046,140 @@ bool MsgS2CHeroesInit::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(88)) goto parse_max_spirit;
+        break;
+      }
+
+      // required int32 max_spirit = 11;
+      case 11: {
+        if (tag == 88) {
+         parse_max_spirit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &max_spirit_)));
+          set_has_max_spirit();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(96)) goto parse_config_recover_spirit_minute;
+        break;
+      }
+
+      // required int32 config_recover_spirit_minute = 12;
+      case 12: {
+        if (tag == 96) {
+         parse_config_recover_spirit_minute:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &config_recover_spirit_minute_)));
+          set_has_config_recover_spirit_minute();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(104)) goto parse_config_recover_spirit;
+        break;
+      }
+
+      // required int32 config_recover_spirit = 13;
+      case 13: {
+        if (tag == 104) {
+         parse_config_recover_spirit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &config_recover_spirit_)));
+          set_has_config_recover_spirit();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(112)) goto parse_config_enter_game_use_spirit;
+        break;
+      }
+
+      // required int32 config_enter_game_use_spirit = 14;
+      case 14: {
+        if (tag == 112) {
+         parse_config_enter_game_use_spirit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &config_enter_game_use_spirit_)));
+          set_has_config_enter_game_use_spirit();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(122)) goto parse_sprit_shop_infos;
+        break;
+      }
+
+      // repeated .message.MsgSpiritShopInfo sprit_shop_infos = 15;
+      case 15: {
+        if (tag == 122) {
+         parse_sprit_shop_infos:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_sprit_shop_infos()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(122)) goto parse_sprit_shop_infos;
+        if (input->ExpectTag(128)) goto parse_config_day_buy_spirit;
+        break;
+      }
+
+      // required int32 config_day_buy_spirit = 16;
+      case 16: {
+        if (tag == 128) {
+         parse_config_day_buy_spirit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &config_day_buy_spirit_)));
+          set_has_config_day_buy_spirit();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(136)) goto parse_last_recover_spirit_time;
+        break;
+      }
+
+      // required int32 last_recover_spirit_time = 17;
+      case 17: {
+        if (tag == 136) {
+         parse_last_recover_spirit_time:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &last_recover_spirit_time_)));
+          set_has_last_recover_spirit_time();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(144)) goto parse_last_buy_spirit_time;
+        break;
+      }
+
+      // required int32 last_buy_spirit_time = 18;
+      case 18: {
+        if (tag == 144) {
+         parse_last_buy_spirit_time:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &last_buy_spirit_time_)));
+          set_has_last_buy_spirit_time();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(152)) goto parse_day_refresh_time;
+        break;
+      }
+
+      // required int32 day_refresh_time = 19;
+      case 19: {
+        if (tag == 152) {
+         parse_day_refresh_time:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &day_refresh_time_)));
+          set_has_day_refresh_time();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -3392,6 +4262,52 @@ void MsgS2CHeroesInit::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->refresh_task_gold(), output);
   }
 
+  // required int32 max_spirit = 11;
+  if (has_max_spirit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->max_spirit(), output);
+  }
+
+  // required int32 config_recover_spirit_minute = 12;
+  if (has_config_recover_spirit_minute()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->config_recover_spirit_minute(), output);
+  }
+
+  // required int32 config_recover_spirit = 13;
+  if (has_config_recover_spirit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->config_recover_spirit(), output);
+  }
+
+  // required int32 config_enter_game_use_spirit = 14;
+  if (has_config_enter_game_use_spirit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->config_enter_game_use_spirit(), output);
+  }
+
+  // repeated .message.MsgSpiritShopInfo sprit_shop_infos = 15;
+  for (unsigned int i = 0, n = this->sprit_shop_infos_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      15, this->sprit_shop_infos(i), output);
+  }
+
+  // required int32 config_day_buy_spirit = 16;
+  if (has_config_day_buy_spirit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->config_day_buy_spirit(), output);
+  }
+
+  // required int32 last_recover_spirit_time = 17;
+  if (has_last_recover_spirit_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->last_recover_spirit_time(), output);
+  }
+
+  // required int32 last_buy_spirit_time = 18;
+  if (has_last_buy_spirit_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->last_buy_spirit_time(), output);
+  }
+
+  // required int32 day_refresh_time = 19;
+  if (has_day_refresh_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->day_refresh_time(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3456,6 +4372,53 @@ void MsgS2CHeroesInit::SerializeWithCachedSizes(
   // required int32 refresh_task_gold = 10;
   if (has_refresh_task_gold()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->refresh_task_gold(), target);
+  }
+
+  // required int32 max_spirit = 11;
+  if (has_max_spirit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->max_spirit(), target);
+  }
+
+  // required int32 config_recover_spirit_minute = 12;
+  if (has_config_recover_spirit_minute()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->config_recover_spirit_minute(), target);
+  }
+
+  // required int32 config_recover_spirit = 13;
+  if (has_config_recover_spirit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->config_recover_spirit(), target);
+  }
+
+  // required int32 config_enter_game_use_spirit = 14;
+  if (has_config_enter_game_use_spirit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->config_enter_game_use_spirit(), target);
+  }
+
+  // repeated .message.MsgSpiritShopInfo sprit_shop_infos = 15;
+  for (unsigned int i = 0, n = this->sprit_shop_infos_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        15, this->sprit_shop_infos(i), target);
+  }
+
+  // required int32 config_day_buy_spirit = 16;
+  if (has_config_day_buy_spirit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->config_day_buy_spirit(), target);
+  }
+
+  // required int32 last_recover_spirit_time = 17;
+  if (has_last_recover_spirit_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->last_recover_spirit_time(), target);
+  }
+
+  // required int32 last_buy_spirit_time = 18;
+  if (has_last_buy_spirit_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->last_buy_spirit_time(), target);
+  }
+
+  // required int32 day_refresh_time = 19;
+  if (has_day_refresh_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->day_refresh_time(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3525,12 +4488,68 @@ int MsgS2CHeroesInit::RequiredFieldsByteSizeFallback() const {
         this->refresh_task_gold());
   }
 
+  if (has_max_spirit()) {
+    // required int32 max_spirit = 11;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->max_spirit());
+  }
+
+  if (has_config_recover_spirit_minute()) {
+    // required int32 config_recover_spirit_minute = 12;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->config_recover_spirit_minute());
+  }
+
+  if (has_config_recover_spirit()) {
+    // required int32 config_recover_spirit = 13;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->config_recover_spirit());
+  }
+
+  if (has_config_enter_game_use_spirit()) {
+    // required int32 config_enter_game_use_spirit = 14;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->config_enter_game_use_spirit());
+  }
+
+  if (has_config_day_buy_spirit()) {
+    // required int32 config_day_buy_spirit = 16;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->config_day_buy_spirit());
+  }
+
+  if (has_last_recover_spirit_time()) {
+    // required int32 last_recover_spirit_time = 17;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->last_recover_spirit_time());
+  }
+
+  if (has_last_buy_spirit_time()) {
+    // required int32 last_buy_spirit_time = 18;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->last_buy_spirit_time());
+  }
+
+  if (has_day_refresh_time()) {
+    // required int32 day_refresh_time = 19;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->day_refresh_time());
+  }
+
   return total_size;
 }
 int MsgS2CHeroesInit::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000037d) ^ 0x0000037d) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0007bf7d) ^ 0x0007bf7d) == 0) {  // All required fields are present.
     // required .message.MsgHeroData info = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -3571,6 +4590,46 @@ int MsgS2CHeroesInit::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->refresh_task_gold());
 
+    // required int32 max_spirit = 11;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->max_spirit());
+
+    // required int32 config_recover_spirit_minute = 12;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->config_recover_spirit_minute());
+
+    // required int32 config_recover_spirit = 13;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->config_recover_spirit());
+
+    // required int32 config_enter_game_use_spirit = 14;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->config_enter_game_use_spirit());
+
+    // required int32 config_day_buy_spirit = 16;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->config_day_buy_spirit());
+
+    // required int32 last_recover_spirit_time = 17;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->last_recover_spirit_time());
+
+    // required int32 last_buy_spirit_time = 18;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->last_buy_spirit_time());
+
+    // required int32 day_refresh_time = 19;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->day_refresh_time());
+
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
@@ -3588,6 +4647,14 @@ int MsgS2CHeroesInit::ByteSize() const {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         this->special_creatures(i));
+  }
+
+  // repeated .message.MsgSpiritShopInfo sprit_shop_infos = 15;
+  total_size += 1 * this->sprit_shop_infos_size();
+  for (int i = 0; i < this->sprit_shop_infos_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->sprit_shop_infos(i));
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3617,6 +4684,7 @@ void MsgS2CHeroesInit::MergeFrom(const MsgS2CHeroesInit& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   task_config_infos_.MergeFrom(from.task_config_infos_);
   special_creatures_.MergeFrom(from.special_creatures_);
+  sprit_shop_infos_.MergeFrom(from.sprit_shop_infos_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_info()) {
       mutable_info()->::message::MsgHeroData::MergeFrom(from.info());
@@ -3644,6 +4712,32 @@ void MsgS2CHeroesInit::MergeFrom(const MsgS2CHeroesInit& from) {
     if (from.has_refresh_task_gold()) {
       set_refresh_task_gold(from.refresh_task_gold());
     }
+    if (from.has_max_spirit()) {
+      set_max_spirit(from.max_spirit());
+    }
+    if (from.has_config_recover_spirit_minute()) {
+      set_config_recover_spirit_minute(from.config_recover_spirit_minute());
+    }
+    if (from.has_config_recover_spirit()) {
+      set_config_recover_spirit(from.config_recover_spirit());
+    }
+    if (from.has_config_enter_game_use_spirit()) {
+      set_config_enter_game_use_spirit(from.config_enter_game_use_spirit());
+    }
+    if (from.has_config_day_buy_spirit()) {
+      set_config_day_buy_spirit(from.config_day_buy_spirit());
+    }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_last_recover_spirit_time()) {
+      set_last_recover_spirit_time(from.last_recover_spirit_time());
+    }
+    if (from.has_last_buy_spirit_time()) {
+      set_last_buy_spirit_time(from.last_buy_spirit_time());
+    }
+    if (from.has_day_refresh_time()) {
+      set_day_refresh_time(from.day_refresh_time());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3663,13 +4757,14 @@ void MsgS2CHeroesInit::CopyFrom(const MsgS2CHeroesInit& from) {
 }
 
 bool MsgS2CHeroesInit::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000037d) != 0x0000037d) return false;
+  if ((_has_bits_[0] & 0x0007bf7d) != 0x0007bf7d) return false;
 
   if (has_info()) {
     if (!this->info_->IsInitialized()) return false;
   }
   if (!::google::protobuf::internal::AllAreInitialized(this->task_config_infos())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->special_creatures())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->sprit_shop_infos())) return false;
   return true;
 }
 
@@ -3688,6 +4783,15 @@ void MsgS2CHeroesInit::InternalSwap(MsgS2CHeroesInit* other) {
   special_creatures_.UnsafeArenaSwap(&other->special_creatures_);
   std::swap(relive_gold_, other->relive_gold_);
   std::swap(refresh_task_gold_, other->refresh_task_gold_);
+  std::swap(max_spirit_, other->max_spirit_);
+  std::swap(config_recover_spirit_minute_, other->config_recover_spirit_minute_);
+  std::swap(config_recover_spirit_, other->config_recover_spirit_);
+  std::swap(config_enter_game_use_spirit_, other->config_enter_game_use_spirit_);
+  sprit_shop_infos_.UnsafeArenaSwap(&other->sprit_shop_infos_);
+  std::swap(config_day_buy_spirit_, other->config_day_buy_spirit_);
+  std::swap(last_recover_spirit_time_, other->last_recover_spirit_time_);
+  std::swap(last_buy_spirit_time_, other->last_buy_spirit_time_);
+  std::swap(day_refresh_time_, other->day_refresh_time_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -3973,6 +5077,907 @@ MsgS2CHeroesInit::mutable_special_creatures() {
   set_has_refresh_task_gold();
   refresh_task_gold_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.refresh_task_gold)
+}
+
+// required int32 max_spirit = 11;
+ bool MsgS2CHeroesInit::has_max_spirit() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+ void MsgS2CHeroesInit::set_has_max_spirit() {
+  _has_bits_[0] |= 0x00000400u;
+}
+ void MsgS2CHeroesInit::clear_has_max_spirit() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+ void MsgS2CHeroesInit::clear_max_spirit() {
+  max_spirit_ = 0;
+  clear_has_max_spirit();
+}
+ ::google::protobuf::int32 MsgS2CHeroesInit::max_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.max_spirit)
+  return max_spirit_;
+}
+ void MsgS2CHeroesInit::set_max_spirit(::google::protobuf::int32 value) {
+  set_has_max_spirit();
+  max_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.max_spirit)
+}
+
+// required int32 config_recover_spirit_minute = 12;
+ bool MsgS2CHeroesInit::has_config_recover_spirit_minute() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+ void MsgS2CHeroesInit::set_has_config_recover_spirit_minute() {
+  _has_bits_[0] |= 0x00000800u;
+}
+ void MsgS2CHeroesInit::clear_has_config_recover_spirit_minute() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+ void MsgS2CHeroesInit::clear_config_recover_spirit_minute() {
+  config_recover_spirit_minute_ = 0;
+  clear_has_config_recover_spirit_minute();
+}
+ ::google::protobuf::int32 MsgS2CHeroesInit::config_recover_spirit_minute() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.config_recover_spirit_minute)
+  return config_recover_spirit_minute_;
+}
+ void MsgS2CHeroesInit::set_config_recover_spirit_minute(::google::protobuf::int32 value) {
+  set_has_config_recover_spirit_minute();
+  config_recover_spirit_minute_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.config_recover_spirit_minute)
+}
+
+// required int32 config_recover_spirit = 13;
+ bool MsgS2CHeroesInit::has_config_recover_spirit() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+ void MsgS2CHeroesInit::set_has_config_recover_spirit() {
+  _has_bits_[0] |= 0x00001000u;
+}
+ void MsgS2CHeroesInit::clear_has_config_recover_spirit() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+ void MsgS2CHeroesInit::clear_config_recover_spirit() {
+  config_recover_spirit_ = 0;
+  clear_has_config_recover_spirit();
+}
+ ::google::protobuf::int32 MsgS2CHeroesInit::config_recover_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.config_recover_spirit)
+  return config_recover_spirit_;
+}
+ void MsgS2CHeroesInit::set_config_recover_spirit(::google::protobuf::int32 value) {
+  set_has_config_recover_spirit();
+  config_recover_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.config_recover_spirit)
+}
+
+// required int32 config_enter_game_use_spirit = 14;
+ bool MsgS2CHeroesInit::has_config_enter_game_use_spirit() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+ void MsgS2CHeroesInit::set_has_config_enter_game_use_spirit() {
+  _has_bits_[0] |= 0x00002000u;
+}
+ void MsgS2CHeroesInit::clear_has_config_enter_game_use_spirit() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+ void MsgS2CHeroesInit::clear_config_enter_game_use_spirit() {
+  config_enter_game_use_spirit_ = 0;
+  clear_has_config_enter_game_use_spirit();
+}
+ ::google::protobuf::int32 MsgS2CHeroesInit::config_enter_game_use_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.config_enter_game_use_spirit)
+  return config_enter_game_use_spirit_;
+}
+ void MsgS2CHeroesInit::set_config_enter_game_use_spirit(::google::protobuf::int32 value) {
+  set_has_config_enter_game_use_spirit();
+  config_enter_game_use_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.config_enter_game_use_spirit)
+}
+
+// repeated .message.MsgSpiritShopInfo sprit_shop_infos = 15;
+ int MsgS2CHeroesInit::sprit_shop_infos_size() const {
+  return sprit_shop_infos_.size();
+}
+ void MsgS2CHeroesInit::clear_sprit_shop_infos() {
+  sprit_shop_infos_.Clear();
+}
+ const ::message::MsgSpiritShopInfo& MsgS2CHeroesInit::sprit_shop_infos(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return sprit_shop_infos_.Get(index);
+}
+ ::message::MsgSpiritShopInfo* MsgS2CHeroesInit::mutable_sprit_shop_infos(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return sprit_shop_infos_.Mutable(index);
+}
+ ::message::MsgSpiritShopInfo* MsgS2CHeroesInit::add_sprit_shop_infos() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return sprit_shop_infos_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::message::MsgSpiritShopInfo >&
+MsgS2CHeroesInit::sprit_shop_infos() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return sprit_shop_infos_;
+}
+ ::google::protobuf::RepeatedPtrField< ::message::MsgSpiritShopInfo >*
+MsgS2CHeroesInit::mutable_sprit_shop_infos() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CHeroesInit.sprit_shop_infos)
+  return &sprit_shop_infos_;
+}
+
+// required int32 config_day_buy_spirit = 16;
+ bool MsgS2CHeroesInit::has_config_day_buy_spirit() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+ void MsgS2CHeroesInit::set_has_config_day_buy_spirit() {
+  _has_bits_[0] |= 0x00008000u;
+}
+ void MsgS2CHeroesInit::clear_has_config_day_buy_spirit() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+ void MsgS2CHeroesInit::clear_config_day_buy_spirit() {
+  config_day_buy_spirit_ = 0;
+  clear_has_config_day_buy_spirit();
+}
+ ::google::protobuf::int32 MsgS2CHeroesInit::config_day_buy_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.config_day_buy_spirit)
+  return config_day_buy_spirit_;
+}
+ void MsgS2CHeroesInit::set_config_day_buy_spirit(::google::protobuf::int32 value) {
+  set_has_config_day_buy_spirit();
+  config_day_buy_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.config_day_buy_spirit)
+}
+
+// required int32 last_recover_spirit_time = 17;
+ bool MsgS2CHeroesInit::has_last_recover_spirit_time() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+ void MsgS2CHeroesInit::set_has_last_recover_spirit_time() {
+  _has_bits_[0] |= 0x00010000u;
+}
+ void MsgS2CHeroesInit::clear_has_last_recover_spirit_time() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+ void MsgS2CHeroesInit::clear_last_recover_spirit_time() {
+  last_recover_spirit_time_ = 0;
+  clear_has_last_recover_spirit_time();
+}
+ ::google::protobuf::int32 MsgS2CHeroesInit::last_recover_spirit_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.last_recover_spirit_time)
+  return last_recover_spirit_time_;
+}
+ void MsgS2CHeroesInit::set_last_recover_spirit_time(::google::protobuf::int32 value) {
+  set_has_last_recover_spirit_time();
+  last_recover_spirit_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_recover_spirit_time)
+}
+
+// required int32 last_buy_spirit_time = 18;
+ bool MsgS2CHeroesInit::has_last_buy_spirit_time() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+ void MsgS2CHeroesInit::set_has_last_buy_spirit_time() {
+  _has_bits_[0] |= 0x00020000u;
+}
+ void MsgS2CHeroesInit::clear_has_last_buy_spirit_time() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+ void MsgS2CHeroesInit::clear_last_buy_spirit_time() {
+  last_buy_spirit_time_ = 0;
+  clear_has_last_buy_spirit_time();
+}
+ ::google::protobuf::int32 MsgS2CHeroesInit::last_buy_spirit_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.last_buy_spirit_time)
+  return last_buy_spirit_time_;
+}
+ void MsgS2CHeroesInit::set_last_buy_spirit_time(::google::protobuf::int32 value) {
+  set_has_last_buy_spirit_time();
+  last_buy_spirit_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_buy_spirit_time)
+}
+
+// required int32 day_refresh_time = 19;
+ bool MsgS2CHeroesInit::has_day_refresh_time() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+ void MsgS2CHeroesInit::set_has_day_refresh_time() {
+  _has_bits_[0] |= 0x00040000u;
+}
+ void MsgS2CHeroesInit::clear_has_day_refresh_time() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+ void MsgS2CHeroesInit::clear_day_refresh_time() {
+  day_refresh_time_ = 0;
+  clear_has_day_refresh_time();
+}
+ ::google::protobuf::int32 MsgS2CHeroesInit::day_refresh_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.day_refresh_time)
+  return day_refresh_time_;
+}
+ void MsgS2CHeroesInit::set_day_refresh_time(::google::protobuf::int32 value) {
+  set_has_day_refresh_time();
+  day_refresh_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.day_refresh_time)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgC2SReqBuySpirit::kIndexFieldNumber;
+#endif  // !_MSC_VER
+
+MsgC2SReqBuySpirit::MsgC2SReqBuySpirit()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgC2SReqBuySpirit)
+}
+
+void MsgC2SReqBuySpirit::InitAsDefaultInstance() {
+}
+
+MsgC2SReqBuySpirit::MsgC2SReqBuySpirit(const MsgC2SReqBuySpirit& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgC2SReqBuySpirit)
+}
+
+void MsgC2SReqBuySpirit::SharedCtor() {
+  _cached_size_ = 0;
+  index_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgC2SReqBuySpirit::~MsgC2SReqBuySpirit() {
+  // @@protoc_insertion_point(destructor:message.MsgC2SReqBuySpirit)
+  SharedDtor();
+}
+
+void MsgC2SReqBuySpirit::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgC2SReqBuySpirit::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgC2SReqBuySpirit::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgC2SReqBuySpirit_descriptor_;
+}
+
+const MsgC2SReqBuySpirit& MsgC2SReqBuySpirit::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgC2SReqBuySpirit* MsgC2SReqBuySpirit::default_instance_ = NULL;
+
+MsgC2SReqBuySpirit* MsgC2SReqBuySpirit::New(::google::protobuf::Arena* arena) const {
+  MsgC2SReqBuySpirit* n = new MsgC2SReqBuySpirit;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgC2SReqBuySpirit::Clear() {
+  index_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgC2SReqBuySpirit::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgC2SReqBuySpirit)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 index = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgC2SReqBuySpirit)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgC2SReqBuySpirit)
+  return false;
+#undef DO_
+}
+
+void MsgC2SReqBuySpirit::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgC2SReqBuySpirit)
+  // required int32 index = 1;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->index(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgC2SReqBuySpirit)
+}
+
+::google::protobuf::uint8* MsgC2SReqBuySpirit::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SReqBuySpirit)
+  // required int32 index = 1;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->index(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SReqBuySpirit)
+  return target;
+}
+
+int MsgC2SReqBuySpirit::ByteSize() const {
+  int total_size = 0;
+
+  // required int32 index = 1;
+  if (has_index()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->index());
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgC2SReqBuySpirit::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgC2SReqBuySpirit* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SReqBuySpirit*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgC2SReqBuySpirit::MergeFrom(const MsgC2SReqBuySpirit& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgC2SReqBuySpirit::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgC2SReqBuySpirit::CopyFrom(const MsgC2SReqBuySpirit& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgC2SReqBuySpirit::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void MsgC2SReqBuySpirit::Swap(MsgC2SReqBuySpirit* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgC2SReqBuySpirit::InternalSwap(MsgC2SReqBuySpirit* other) {
+  std::swap(index_, other->index_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgC2SReqBuySpirit::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgC2SReqBuySpirit_descriptor_;
+  metadata.reflection = MsgC2SReqBuySpirit_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgC2SReqBuySpirit
+
+// required int32 index = 1;
+ bool MsgC2SReqBuySpirit::has_index() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgC2SReqBuySpirit::set_has_index() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgC2SReqBuySpirit::clear_has_index() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgC2SReqBuySpirit::clear_index() {
+  index_ = 0;
+  clear_has_index();
+}
+ ::google::protobuf::int32 MsgC2SReqBuySpirit::index() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqBuySpirit.index)
+  return index_;
+}
+ void MsgC2SReqBuySpirit::set_index(::google::protobuf::int32 value) {
+  set_has_index();
+  index_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqBuySpirit.index)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgS2CBuySpiritACK::kIndexFieldNumber;
+const int MsgS2CBuySpiritACK::kJewelFieldNumber;
+const int MsgS2CBuySpiritACK::kSpiritFieldNumber;
+#endif  // !_MSC_VER
+
+MsgS2CBuySpiritACK::MsgS2CBuySpiritACK()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgS2CBuySpiritACK)
+}
+
+void MsgS2CBuySpiritACK::InitAsDefaultInstance() {
+}
+
+MsgS2CBuySpiritACK::MsgS2CBuySpiritACK(const MsgS2CBuySpiritACK& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgS2CBuySpiritACK)
+}
+
+void MsgS2CBuySpiritACK::SharedCtor() {
+  _cached_size_ = 0;
+  index_ = 0;
+  jewel_ = 0;
+  spirit_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgS2CBuySpiritACK::~MsgS2CBuySpiritACK() {
+  // @@protoc_insertion_point(destructor:message.MsgS2CBuySpiritACK)
+  SharedDtor();
+}
+
+void MsgS2CBuySpiritACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgS2CBuySpiritACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgS2CBuySpiritACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgS2CBuySpiritACK_descriptor_;
+}
+
+const MsgS2CBuySpiritACK& MsgS2CBuySpiritACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgS2CBuySpiritACK* MsgS2CBuySpiritACK::default_instance_ = NULL;
+
+MsgS2CBuySpiritACK* MsgS2CBuySpiritACK::New(::google::protobuf::Arena* arena) const {
+  MsgS2CBuySpiritACK* n = new MsgS2CBuySpiritACK;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgS2CBuySpiritACK::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgS2CBuySpiritACK*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(index_, spirit_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgS2CBuySpiritACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgS2CBuySpiritACK)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 index = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_jewel;
+        break;
+      }
+
+      // required int32 jewel = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_jewel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &jewel_)));
+          set_has_jewel();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_spirit;
+        break;
+      }
+
+      // required int32 spirit = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_spirit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &spirit_)));
+          set_has_spirit();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgS2CBuySpiritACK)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgS2CBuySpiritACK)
+  return false;
+#undef DO_
+}
+
+void MsgS2CBuySpiritACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgS2CBuySpiritACK)
+  // required int32 index = 1;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->index(), output);
+  }
+
+  // required int32 jewel = 2;
+  if (has_jewel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->jewel(), output);
+  }
+
+  // required int32 spirit = 3;
+  if (has_spirit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->spirit(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgS2CBuySpiritACK)
+}
+
+::google::protobuf::uint8* MsgS2CBuySpiritACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CBuySpiritACK)
+  // required int32 index = 1;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->index(), target);
+  }
+
+  // required int32 jewel = 2;
+  if (has_jewel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->jewel(), target);
+  }
+
+  // required int32 spirit = 3;
+  if (has_spirit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->spirit(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CBuySpiritACK)
+  return target;
+}
+
+int MsgS2CBuySpiritACK::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_index()) {
+    // required int32 index = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->index());
+  }
+
+  if (has_jewel()) {
+    // required int32 jewel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->jewel());
+  }
+
+  if (has_spirit()) {
+    // required int32 spirit = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->spirit());
+  }
+
+  return total_size;
+}
+int MsgS2CBuySpiritACK::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required int32 index = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->index());
+
+    // required int32 jewel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->jewel());
+
+    // required int32 spirit = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->spirit());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgS2CBuySpiritACK::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgS2CBuySpiritACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CBuySpiritACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgS2CBuySpiritACK::MergeFrom(const MsgS2CBuySpiritACK& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+    if (from.has_jewel()) {
+      set_jewel(from.jewel());
+    }
+    if (from.has_spirit()) {
+      set_spirit(from.spirit());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgS2CBuySpiritACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgS2CBuySpiritACK::CopyFrom(const MsgS2CBuySpiritACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgS2CBuySpiritACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  return true;
+}
+
+void MsgS2CBuySpiritACK::Swap(MsgS2CBuySpiritACK* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgS2CBuySpiritACK::InternalSwap(MsgS2CBuySpiritACK* other) {
+  std::swap(index_, other->index_);
+  std::swap(jewel_, other->jewel_);
+  std::swap(spirit_, other->spirit_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgS2CBuySpiritACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgS2CBuySpiritACK_descriptor_;
+  metadata.reflection = MsgS2CBuySpiritACK_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgS2CBuySpiritACK
+
+// required int32 index = 1;
+ bool MsgS2CBuySpiritACK::has_index() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgS2CBuySpiritACK::set_has_index() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgS2CBuySpiritACK::clear_has_index() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgS2CBuySpiritACK::clear_index() {
+  index_ = 0;
+  clear_has_index();
+}
+ ::google::protobuf::int32 MsgS2CBuySpiritACK::index() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuySpiritACK.index)
+  return index_;
+}
+ void MsgS2CBuySpiritACK::set_index(::google::protobuf::int32 value) {
+  set_has_index();
+  index_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuySpiritACK.index)
+}
+
+// required int32 jewel = 2;
+ bool MsgS2CBuySpiritACK::has_jewel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgS2CBuySpiritACK::set_has_jewel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgS2CBuySpiritACK::clear_has_jewel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgS2CBuySpiritACK::clear_jewel() {
+  jewel_ = 0;
+  clear_has_jewel();
+}
+ ::google::protobuf::int32 MsgS2CBuySpiritACK::jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuySpiritACK.jewel)
+  return jewel_;
+}
+ void MsgS2CBuySpiritACK::set_jewel(::google::protobuf::int32 value) {
+  set_has_jewel();
+  jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuySpiritACK.jewel)
+}
+
+// required int32 spirit = 3;
+ bool MsgS2CBuySpiritACK::has_spirit() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgS2CBuySpiritACK::set_has_spirit() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgS2CBuySpiritACK::clear_has_spirit() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgS2CBuySpiritACK::clear_spirit() {
+  spirit_ = 0;
+  clear_has_spirit();
+}
+ ::google::protobuf::int32 MsgS2CBuySpiritACK::spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuySpiritACK.spirit)
+  return spirit_;
+}
+ void MsgS2CBuySpiritACK::set_spirit(::google::protobuf::int32 value) {
+  set_has_spirit();
+  spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuySpiritACK.spirit)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -4338,6 +6343,7 @@ const int MsgS2CEnterGameACK::kSectionIdFieldNumber;
 const int MsgS2CEnterGameACK::kDropBoxConfigsFieldNumber;
 const int MsgS2CEnterGameACK::kKillListFieldNumber;
 const int MsgS2CEnterGameACK::kErrorFieldNumber;
+const int MsgS2CEnterGameACK::kSpiritFieldNumber;
 #endif  // !_MSC_VER
 
 MsgS2CEnterGameACK::MsgS2CEnterGameACK()
@@ -4362,6 +6368,7 @@ void MsgS2CEnterGameACK::SharedCtor() {
   chapter_id_ = 0;
   section_id_ = 0;
   error_ = 0;
+  spirit_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4409,10 +6416,8 @@ void MsgS2CEnterGameACK::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 19) {
-    ZR_(chapter_id_, section_id_);
-    error_ = 0;
-  }
+  ZR_(chapter_id_, section_id_);
+  ZR_(error_, spirit_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -4508,6 +6513,21 @@ bool MsgS2CEnterGameACK::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(48)) goto parse_spirit;
+        break;
+      }
+
+      // required int32 spirit = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_spirit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &spirit_)));
+          set_has_spirit();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -4565,6 +6585,11 @@ void MsgS2CEnterGameACK::SerializeWithCachedSizes(
       5, this->error(), output);
   }
 
+  // required int32 spirit = 6;
+  if (has_spirit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->spirit(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -4605,6 +6630,11 @@ void MsgS2CEnterGameACK::SerializeWithCachedSizes(
       5, this->error(), target);
   }
 
+  // required int32 spirit = 6;
+  if (has_spirit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->spirit(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -4636,12 +6666,19 @@ int MsgS2CEnterGameACK::RequiredFieldsByteSizeFallback() const {
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
   }
 
+  if (has_spirit()) {
+    // required int32 spirit = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->spirit());
+  }
+
   return total_size;
 }
 int MsgS2CEnterGameACK::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000013) ^ 0x00000013) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00000033) ^ 0x00000033) == 0) {  // All required fields are present.
     // required int32 chapter_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4655,6 +6692,11 @@ int MsgS2CEnterGameACK::ByteSize() const {
     // required .message.GameError error = 5 [default = Error_NO];
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
+
+    // required int32 spirit = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->spirit());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -4712,6 +6754,9 @@ void MsgS2CEnterGameACK::MergeFrom(const MsgS2CEnterGameACK& from) {
     if (from.has_error()) {
       set_error(from.error());
     }
+    if (from.has_spirit()) {
+      set_spirit(from.spirit());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -4731,7 +6776,7 @@ void MsgS2CEnterGameACK::CopyFrom(const MsgS2CEnterGameACK& from) {
 }
 
 bool MsgS2CEnterGameACK::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000013) != 0x00000013) return false;
+  if ((_has_bits_[0] & 0x00000033) != 0x00000033) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->drop_box_configs())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->kill_list())) return false;
@@ -4748,6 +6793,7 @@ void MsgS2CEnterGameACK::InternalSwap(MsgS2CEnterGameACK* other) {
   drop_box_configs_.UnsafeArenaSwap(&other->drop_box_configs_);
   kill_list_.UnsafeArenaSwap(&other->kill_list_);
   std::swap(error_, other->error_);
+  std::swap(spirit_, other->spirit_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -4895,6 +6941,30 @@ MsgS2CEnterGameACK::mutable_kill_list() {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CEnterGameACK.error)
+}
+
+// required int32 spirit = 6;
+ bool MsgS2CEnterGameACK::has_spirit() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+ void MsgS2CEnterGameACK::set_has_spirit() {
+  _has_bits_[0] |= 0x00000020u;
+}
+ void MsgS2CEnterGameACK::clear_has_spirit() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+ void MsgS2CEnterGameACK::clear_spirit() {
+  spirit_ = 0;
+  clear_has_spirit();
+}
+ ::google::protobuf::int32 MsgS2CEnterGameACK::spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CEnterGameACK.spirit)
+  return spirit_;
+}
+ void MsgS2CEnterGameACK::set_spirit(::google::protobuf::int32 value) {
+  set_has_spirit();
+  spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CEnterGameACK.spirit)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

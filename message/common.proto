@@ -38,6 +38,9 @@ message MsgHeroData
 	required int32 current_hero = 6;
 	required int32 complete_task_count = 7;
 	required int32 new_tutorial = 8;	
+	required int32 jewel = 9;
+	required int32 spirit = 10;
+	required int32 day_buy_spirit = 11;
 }
 
 

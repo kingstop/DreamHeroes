@@ -553,6 +553,27 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 new_tutorial() const;
   void set_new_tutorial(::google::protobuf::int32 value);
 
+  // required int32 jewel = 9;
+  bool has_jewel() const;
+  void clear_jewel();
+  static const int kJewelFieldNumber = 9;
+  ::google::protobuf::int32 jewel() const;
+  void set_jewel(::google::protobuf::int32 value);
+
+  // required int32 spirit = 10;
+  bool has_spirit() const;
+  void clear_spirit();
+  static const int kSpiritFieldNumber = 10;
+  ::google::protobuf::int32 spirit() const;
+  void set_spirit(::google::protobuf::int32 value);
+
+  // required int32 day_buy_spirit = 11;
+  bool has_day_buy_spirit() const;
+  void clear_day_buy_spirit();
+  static const int kDayBuySpiritFieldNumber = 11;
+  ::google::protobuf::int32 day_buy_spirit() const;
+  void set_day_buy_spirit(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -565,6 +586,12 @@ class MsgHeroData : public ::google::protobuf::Message {
   inline void clear_has_complete_task_count();
   inline void set_has_new_tutorial();
   inline void clear_has_new_tutorial();
+  inline void set_has_jewel();
+  inline void clear_has_jewel();
+  inline void set_has_spirit();
+  inline void clear_has_spirit();
+  inline void set_has_day_buy_spirit();
+  inline void clear_has_day_buy_spirit();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -580,6 +607,9 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgTaskInfo > tasks_;
   ::google::protobuf::int32 complete_task_count_;
   ::google::protobuf::int32 new_tutorial_;
+  ::google::protobuf::int32 jewel_;
+  ::google::protobuf::int32 spirit_;
+  ::google::protobuf::int32 day_buy_spirit_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1872,6 +1902,78 @@ inline void MsgHeroData::set_new_tutorial(::google::protobuf::int32 value) {
   set_has_new_tutorial();
   new_tutorial_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.new_tutorial)
+}
+
+// required int32 jewel = 9;
+inline bool MsgHeroData::has_jewel() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void MsgHeroData::set_has_jewel() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void MsgHeroData::clear_has_jewel() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void MsgHeroData::clear_jewel() {
+  jewel_ = 0;
+  clear_has_jewel();
+}
+inline ::google::protobuf::int32 MsgHeroData::jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.jewel)
+  return jewel_;
+}
+inline void MsgHeroData::set_jewel(::google::protobuf::int32 value) {
+  set_has_jewel();
+  jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.jewel)
+}
+
+// required int32 spirit = 10;
+inline bool MsgHeroData::has_spirit() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void MsgHeroData::set_has_spirit() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void MsgHeroData::clear_has_spirit() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void MsgHeroData::clear_spirit() {
+  spirit_ = 0;
+  clear_has_spirit();
+}
+inline ::google::protobuf::int32 MsgHeroData::spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.spirit)
+  return spirit_;
+}
+inline void MsgHeroData::set_spirit(::google::protobuf::int32 value) {
+  set_has_spirit();
+  spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.spirit)
+}
+
+// required int32 day_buy_spirit = 11;
+inline bool MsgHeroData::has_day_buy_spirit() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void MsgHeroData::set_has_day_buy_spirit() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void MsgHeroData::clear_has_day_buy_spirit() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void MsgHeroData::clear_day_buy_spirit() {
+  day_buy_spirit_ = 0;
+  clear_has_day_buy_spirit();
+}
+inline ::google::protobuf::int32 MsgHeroData::day_buy_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.day_buy_spirit)
+  return day_buy_spirit_;
+}
+inline void MsgHeroData::set_day_buy_spirit(::google::protobuf::int32 value) {
+  set_has_day_buy_spirit();
+  day_buy_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.day_buy_spirit)
 }
 
 // -------------------------------------------------------------------

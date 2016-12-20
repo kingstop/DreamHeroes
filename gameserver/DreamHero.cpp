@@ -54,6 +54,8 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	_current_section = info->current_section();
 	_last_task_advertisement_time = info->last_task_advertisement_time();
 	_current_task_count = info->free_task_count();
+	_last_recover_spirit_time = info->last_recover_spirit_time();
+	_last_buy_spirit_time = info->last_buy_spirit_time();
 	int size_special_kills =  info->special_kills_size();
 	_gm_level = info->gm_level();
 	_special_kills.clear();
@@ -240,6 +242,7 @@ void DreamHero::SetGMLevel(int level)
 
 void DreamHero::dayRefresh(bool need_send_msg)
 {
+
 	bool can_Refresh_task = false;
 	if (_last_task_advertisement_time != 0)
 	{
@@ -274,6 +277,25 @@ void DreamHero::dayRefresh(bool need_send_msg)
 				task_entry->set_usetime(0);		
 			}
 		}
+	}
+
+	bool can_Refresh_spirit = false;
+	if (_last_buy_spirit_time != 0)
+	{
+		u64 temp_time = g_server_time - _day_offset_time;
+		if (same_day(temp_time, _last_buy_spirit_time) == false)
+		{
+			can_Refresh_spirit = true;
+		}
+	}
+	else
+	{
+		can_Refresh_spirit = true;
+	}
+
+	if (can_Refresh_spirit)
+	{
+		_info.set_day_buy_spirit(0);
 	}
 }
 
@@ -959,6 +981,9 @@ void DreamHero::ReqAdvertisementRefreshTask(const message::MsgC2SReqAdvertisemen
 
 void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 {
+	
+	int use_spirit_config = gGameConfig.getGlobalConfig().config_enter_game_use_spirit_;
+	int spirit = _info.spirit();
 	int chapter_id_temp = chapter_id;
 	int section_id_temp = section_id;
 	int records_length = _info.records_size();
@@ -979,25 +1004,39 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 		}
 		else
 		{
-			for (int i = 0; i < records_length; i++)
+	
+
+			if (use_spirit_config != 0)
 			{
-				const message::MsgIntPair record_entry = _info.records(i);
-				int chapter_config_id = record_entry.number_1();
-				int section_config_id = record_entry.number_2();
-				if (chapter_config_id == chapter_id_temp)
+				if (spirit < use_spirit_config)
 				{
-					int section = section_config_id + 1;
-					if (section_id_temp <= section)
-					{
-						en_error = message::Error_NO;
-					}
-					else
-					{
-						en_error = message::Error_CanNotEnterGameTheSectionIsLock;
-					}
-					break;
+					en_error = message::Error_CanNotEnterGameNotEnoughSpirit;
 				}
 			}
+
+			if (en_error == message::Error_NO)
+			{
+				for (int i = 0; i < records_length; i++)
+				{
+					const message::MsgIntPair record_entry = _info.records(i);
+					int chapter_config_id = record_entry.number_1();
+					int section_config_id = record_entry.number_2();
+					if (chapter_config_id == chapter_id_temp)
+					{
+						int section = section_config_id + 1;
+						if (section_id_temp <= section)
+						{
+							en_error = message::Error_NO;
+						}
+						else
+						{
+							en_error = message::Error_CanNotEnterGameTheSectionIsLock;
+						}
+						break;
+					}
+				}
+			}
+
 		}
 	}
 
@@ -1037,11 +1076,20 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 		}
 		_current_chapter = chapter_id_temp;
 		_current_section = section_id_temp;
+				
+		spirit = spirit - use_spirit_config;
+		if (spirit < 0)
+		{
+			spirit = 0;
+		}
+		_info.set_spirit(spirit);
+		
 	}
 	if (en_error == message::Error_NO)
 	{
 		gRecordManager.enterGameRecord(_account, _info.name().c_str(), chapter_id_temp, section_id_temp, _info.gold());
 	}
+	msgACK.set_spirit(_info.spirit());
 	msgACK.set_error(en_error);
 	sendPBMessage(&msgACK);
 }
@@ -1231,13 +1279,31 @@ void DreamHero::SendClientInit()
 			}
 		}
 	}
-	msg.set_free_advertisement_config_count(gGameConfig.getGlobalConfig().day_free_task_count_);
+	const MAPSPIRITSHOP* spirit_shop_infos = gGameConfig.getSpiritShop();
+	MAPSPIRITSHOP::const_iterator it_spirit = spirit_shop_infos->begin();
+	for (; it_spirit != spirit_shop_infos->end(); ++ it_spirit)
+	{
+		msg.add_sprit_shop_infos()->CopyFrom(it_spirit->second);
+		//msg.
+	}
 	msg.set_current_advertisement_count(_current_task_count);
 	msg.set_last_advertisement_time(_last_task_advertisement_time);
-	msg.set_advertisement_time_cd(gGameConfig.getGlobalConfig().day_task_advertisement_task_cd_);
 	msg.set_gm_level(getGMLevel());
-	msg.set_refresh_task_gold(gGameConfig.getGlobalConfig().refresh_task_gold_);
-	msg.set_relive_gold(gGameConfig.getGlobalConfig().relive_gold_);
+	const globalConfig& globalConfig = gGameConfig.getGlobalConfig();
+
+	msg.set_free_advertisement_config_count(globalConfig.day_free_task_count_);
+	msg.set_advertisement_time_cd(globalConfig.day_task_advertisement_task_cd_);
+	msg.set_refresh_task_gold(globalConfig.refresh_task_gold_);
+	msg.set_relive_gold(globalConfig.relive_gold_);
+	msg.set_max_spirit(globalConfig.config_max_spirit_);
+	msg.set_config_recover_spirit_minute(globalConfig.config_recover_spirit_minute_);
+	msg.set_config_recover_spirit(globalConfig.config_recover_spirit_);
+	msg.set_config_enter_game_use_spirit(globalConfig.config_enter_game_use_spirit_);
+	msg.set_config_day_buy_spirit(globalConfig.config_day_buy_spirit_);
+	
+	msg.set_last_buy_spirit_time(_last_buy_spirit_time);
+	msg.set_last_recover_spirit_time(_last_recover_spirit_time);
+	msg.set_day_refresh_time(globalConfig.day_Refresh_time_);
 	fillSpecialCreatureList(msg.mutable_special_creatures());	
 	sendPBMessage(&msg);
 	_online = true;
@@ -1274,7 +1340,52 @@ void DreamHero::LoadFromConfig()
 	_info.set_name(name.c_str());
 	_info.set_new_tutorial(0);
 	_ping_count = 0;
+	_info.set_jewel(gGameConfig.getGlobalConfig().config_jewel_);
+	_info.set_spirit(gGameConfig.getGlobalConfig().config_max_spirit_);
+	_last_recover_spirit_time = g_server_time;
 	SetGMLevel(1);
+}
+
+void DreamHero::ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg)
+{
+	message::GameError error = message::Error_NO;
+	message::MsgS2CBuySpiritACK msgACK;
+	int day_buy_spirit = _info.day_buy_spirit();
+	int config_day_buy_spirit = gGameConfig.getGlobalConfig().config_day_buy_spirit_;
+	if (day_buy_spirit >= config_day_buy_spirit)
+	{
+		error = message::Error_BuySpiritFailedCanNotBuyMoreSpirit;
+	}
+	else
+	{
+		const message::MsgSpiritShopInfo* config_info = gGameConfig.getSpiritShop(msg->index());
+		if (config_info != NULL)
+		{
+			int need_jewel = config_info->need_jewel();
+			int spirit_config = config_info->spirit();
+			if (need_jewel < _info.jewel())
+			{
+				error = message::Error_BuySpiritFailedNotEnoughJewel;
+			}
+			else
+			{
+				int jewel = _info.jewel() - need_jewel;
+				int spirit = _info.spirit() + spirit_config;
+				_info.set_jewel(jewel);
+				_info.set_spirit(spirit);
+			}
+		}
+		else
+		{
+			error = message::Error_BuySpiritFailedNotFoundConfig;
+		}
+	}
+
+	msgACK.set_index(msg->index());
+	msgACK.set_jewel(_info.jewel());
+	msgACK.set_spirit(_info.spirit());
+	sendPBMessage(&msgACK);
+
 }
 
 void DreamHero::SaveHero()
@@ -1355,6 +1466,8 @@ void DreamHero::SaveHero()
 	}
 	char temp[4096];
 	std::string last_task_advertisement_time_temp;
+	std::string last_recover_spirit_time;
+	std::string last_buy_spirit_time;
 
 	SPECIALCREATURES::iterator it_special_creatures = _special_creatures.begin();
 	for (int i = 0; it_special_creatures != _special_creatures.end(); ++ it_special_creatures, i ++)
@@ -1367,17 +1480,20 @@ void DreamHero::SaveHero()
 		special_creatures += sz_temp_1;
 	}
 
-
 	build_unix_time_to_string(_last_task_advertisement_time, last_task_advertisement_time_temp);
+	build_unix_time_to_string(_last_recover_spirit_time, last_recover_spirit_time);
+	build_unix_time_to_string(_last_buy_spirit_time, last_buy_spirit_time);
 //#ifdef WIN32
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,`special_kill`,\
 		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`, `special_creatures`, \
-		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`) values \
-		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d);",
+		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`,\
+		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`) values \
+		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d, %s, %d, %s);",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
-		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count, _info.new_tutorial());
+		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count, _info.new_tutorial(),
+		_info.jewel(), _info.spirit(), last_recover_spirit_time.c_str(), _info.day_buy_spirit(), last_buy_spirit_time.c_str());
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
@@ -1476,6 +1592,24 @@ void DreamHero::ReqGoldShopConfigs()
 const char* DreamHero::get_name()
 {
 	return _info.name().c_str();
+}
+
+void DreamHero::recoverSpirit()
+{
+	int spirit = _info.spirit();
+	int config_max_spirit = gGameConfig.getGlobalConfig().config_max_spirit_;
+	int config_spirit = gGameConfig.getGlobalConfig().config_recover_spirit_;
+	if (spirit < config_max_spirit)
+	{
+		spirit += config_spirit;
+		if (spirit >= config_max_spirit)
+		{
+			spirit = config_max_spirit;
+		}
+	}
+	_info.set_spirit(spirit);
+	_last_recover_spirit_time = g_server_time;
+	
 }
 
 void DreamHero::sendPBMessage(google::protobuf::Message* p)

@@ -41,6 +41,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqVerifyDealIOS), &Session::parseReqVerifyDealIOS);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyNewTutorial), &Session::parseReqModifyTutorial);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReliveReq), &Session::parseReqRelive);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuySpirit), &Session::parseReqBuySpirit);
 
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGMLevel), &Session::parseCmdReqMdodifyGMLevel);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqEnterGame), &Session::parseCmdReqEnterGame);
@@ -315,6 +316,23 @@ void Session::parseDBQueryNeedCreateHero()
 		_dream_hero->SendClientInit();
 	}
 }
+
+/*
+void ReqReliveReq(const message::MsgC2SReliveReq* msg);
+void ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg);
+*/
+
+
+
+void Session::parseReqBuySpirit(google::protobuf::Message* p)
+{
+	if (_dream_hero)
+	{
+		message::MsgC2SReqBuySpirit* msg = (message::MsgC2SReqBuySpirit*)p;
+		_dream_hero->ReqBuySpirit(msg);
+	}
+}
+
 
 void Session::praseDBQueryHeroInfo(message::MsgHeroDataDB2GS* HeroDataMsg)
 {

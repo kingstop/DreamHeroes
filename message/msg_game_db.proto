@@ -35,6 +35,8 @@ message MsgHeroDataDB2GS
 	required int32 gm_level = 8;
 	repeated MsgDealInfo deals = 9;
 	repeated MsgIntPair special_creatures = 10;
+	required int32 last_recover_spirit_time = 11;	
+	required int32 last_buy_spirit_time = 12;
 	
 }
 
