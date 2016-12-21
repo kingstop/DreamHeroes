@@ -81,7 +81,7 @@ void DreamHeroManager::init()
 	{
 		if (gEventMgr.hasEvent(this, EVENT_RECOVER_SPIRIT_) == false)
 		{
-			int time_entry = _recover_spirit * _TIME_MINUTE_ * _TIME_SECOND_MSEL_;
+			int time_entry = _recover_spirit_minute * _TIME_MINUTE_ * _TIME_SECOND_MSEL_;
 			gEventMgr.addEvent(this, &DreamHeroManager::recoverSpirit, EVENT_RECOVER_SPIRIT_, time_entry, -1, 0);
 		}
 	}
