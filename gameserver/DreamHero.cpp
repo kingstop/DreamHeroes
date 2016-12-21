@@ -1359,7 +1359,7 @@ void DreamHero::LoadFromConfig()
 	}
 	message::MsgIntPair* pair_entry = _info.mutable_records()->Add();
 	pair_entry->set_number_1(1);
-	pair_entry->set_number_2(0);
+	pair_entry->set_number_2(1);
 	message::MsgIntPair* pair_entry_1 = _info.mutable_records()->Add();
 	pair_entry_1->set_number_1(0);
 	pair_entry_1->set_number_2(0);
