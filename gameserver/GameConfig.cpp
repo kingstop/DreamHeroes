@@ -449,7 +449,7 @@ void GameConfig::Load(DBQuery* p)
 			entry.set_spirit(row["spirit"]);
 			entry.set_need_jewel(row["need_jewel"]);
 			entry.set_resource_id(row["resource_id"]);
-			std::string script = row["descript"];
+			std::string script = row["descript"].c_str();
 			entry.set_descript(script.c_str());
 
 				
