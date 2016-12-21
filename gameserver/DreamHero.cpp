@@ -1520,7 +1520,7 @@ void DreamHero::SaveHero()
 		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`, `special_creatures`, \
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`,\
 		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`) values \
-		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d, %s, %d, %s);",
+		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d, '%s', %d, '%s');",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
