@@ -119,6 +119,7 @@ message MsgS2CBuySpiritACK
 	required int32 index = 1;
 	required int32 jewel = 2;
 	required int32 spirit = 3;
+	required GameError error = 4 [default=Error_NO];
 }
 
 

@@ -1266,6 +1266,13 @@ class MsgS2CBuySpiritACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 spirit() const;
   void set_spirit(::google::protobuf::int32 value);
 
+  // required .message.GameError error = 4 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 4;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CBuySpiritACK)
  private:
   inline void set_has_index();
@@ -1274,6 +1281,8 @@ class MsgS2CBuySpiritACK : public ::google::protobuf::Message {
   inline void clear_has_jewel();
   inline void set_has_spirit();
   inline void clear_has_spirit();
+  inline void set_has_error();
+  inline void clear_has_error();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1284,6 +1293,7 @@ class MsgS2CBuySpiritACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 index_;
   ::google::protobuf::int32 jewel_;
   ::google::protobuf::int32 spirit_;
+  int error_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -6911,6 +6921,31 @@ inline void MsgS2CBuySpiritACK::set_spirit(::google::protobuf::int32 value) {
   set_has_spirit();
   spirit_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CBuySpiritACK.spirit)
+}
+
+// required .message.GameError error = 4 [default = Error_NO];
+inline bool MsgS2CBuySpiritACK::has_error() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgS2CBuySpiritACK::set_has_error() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgS2CBuySpiritACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgS2CBuySpiritACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CBuySpiritACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuySpiritACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CBuySpiritACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuySpiritACK.error)
 }
 
 // -------------------------------------------------------------------

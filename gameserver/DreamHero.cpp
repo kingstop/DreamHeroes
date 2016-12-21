@@ -1383,6 +1383,8 @@ void DreamHero::ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg)
 	msgACK.set_index(msg->index());
 	msgACK.set_jewel(_info.jewel());
 	msgACK.set_spirit(_info.spirit());
+	msgACK.set_error(error);
+	
 	sendPBMessage(&msgACK);
 
 }
