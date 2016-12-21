@@ -28,6 +28,12 @@ message MsgIntPair
 	required int32 number_2 = 2;
 }
 
+message MsgIntBoolPair
+{
+	required int32 number = 1;
+	required bool valid = 2;
+}
+
 message MsgHeroData
 {	
 	required string name = 1;		
@@ -41,6 +47,7 @@ message MsgHeroData
 	required int32 jewel = 9;
 	required int32 spirit = 10;
 	required int32 day_buy_spirit = 11;
+	repeated MsgIntBoolPair lotion_status = 12;
 }
 
 
@@ -112,5 +119,7 @@ message MsgGoldShopConfigInfo
 	required float money = 4;
 	required string describe = 5;
 }
+
+
 
 

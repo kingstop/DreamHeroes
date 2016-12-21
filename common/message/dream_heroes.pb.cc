@@ -41,9 +41,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgSpiritShopInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgSpiritShopInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgLotionShopConfigInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgLotionShopConfigInfo_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgS2CHeroesInit_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CHeroesInit_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SReqBuyLotion_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgC2SReqBuyLotion_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgS2CBuyLotionACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgS2CBuyLotionACK_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgC2SReqBuySpirit_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgC2SReqBuySpirit_reflection_ = NULL;
@@ -201,6 +210,7 @@ const ::google::protobuf::Descriptor* MsgS2CCmdModifySpiritACK_descriptor_ = NUL
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CCmdModifySpiritACK_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* GameError_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* LotionUseType_descriptor_ = NULL;
 
 }  // namespace
 
@@ -318,8 +328,25 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgSpiritShopInfo),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpiritShopInfo, _internal_metadata_),
       -1);
-  MsgS2CHeroesInit_descriptor_ = file->message_type(7);
-  static const int MsgS2CHeroesInit_offsets_[19] = {
+  MsgLotionShopConfigInfo_descriptor_ = file->message_type(7);
+  static const int MsgLotionShopConfigInfo_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, lotion_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, use_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, use_count_),
+  };
+  MsgLotionShopConfigInfo_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgLotionShopConfigInfo_descriptor_,
+      MsgLotionShopConfigInfo::default_instance_,
+      MsgLotionShopConfigInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgLotionShopConfigInfo),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, _internal_metadata_),
+      -1);
+  MsgS2CHeroesInit_descriptor_ = file->message_type(8);
+  static const int MsgS2CHeroesInit_offsets_[20] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, task_config_infos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, free_advertisement_config_count_),
@@ -339,6 +366,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, last_recover_spirit_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, last_buy_spirit_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, day_refresh_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, lotion_shop_configs_),
   };
   MsgS2CHeroesInit_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -351,7 +379,40 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CHeroesInit),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CHeroesInit, _internal_metadata_),
       -1);
-  MsgC2SReqBuySpirit_descriptor_ = file->message_type(8);
+  MsgC2SReqBuyLotion_descriptor_ = file->message_type(9);
+  static const int MsgC2SReqBuyLotion_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyLotion, lotion_id_),
+  };
+  MsgC2SReqBuyLotion_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgC2SReqBuyLotion_descriptor_,
+      MsgC2SReqBuyLotion::default_instance_,
+      MsgC2SReqBuyLotion_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyLotion, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgC2SReqBuyLotion),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyLotion, _internal_metadata_),
+      -1);
+  MsgS2CBuyLotionACK_descriptor_ = file->message_type(10);
+  static const int MsgS2CBuyLotionACK_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyLotionACK, lotion_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyLotionACK, current_gold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyLotionACK, current_jewel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyLotionACK, error_),
+  };
+  MsgS2CBuyLotionACK_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgS2CBuyLotionACK_descriptor_,
+      MsgS2CBuyLotionACK::default_instance_,
+      MsgS2CBuyLotionACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyLotionACK, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgS2CBuyLotionACK),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyLotionACK, _internal_metadata_),
+      -1);
+  MsgC2SReqBuySpirit_descriptor_ = file->message_type(11);
   static const int MsgC2SReqBuySpirit_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuySpirit, index_),
   };
@@ -366,7 +427,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqBuySpirit),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuySpirit, _internal_metadata_),
       -1);
-  MsgS2CBuySpiritACK_descriptor_ = file->message_type(9);
+  MsgS2CBuySpiritACK_descriptor_ = file->message_type(12);
   static const int MsgS2CBuySpiritACK_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuySpiritACK, index_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuySpiritACK, jewel_),
@@ -384,7 +445,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CBuySpiritACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuySpiritACK, _internal_metadata_),
       -1);
-  MsgC2SReqEnterGame_descriptor_ = file->message_type(10);
+  MsgC2SReqEnterGame_descriptor_ = file->message_type(13);
   static const int MsgC2SReqEnterGame_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, section_id_),
@@ -400,7 +461,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqEnterGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, _internal_metadata_),
       -1);
-  MsgS2CEnterGameACK_descriptor_ = file->message_type(11);
+  MsgS2CEnterGameACK_descriptor_ = file->message_type(14);
   static const int MsgS2CEnterGameACK_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, section_id_),
@@ -420,7 +481,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CEnterGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, _internal_metadata_),
       -1);
-  MsgKillHistroy_descriptor_ = file->message_type(12);
+  MsgKillHistroy_descriptor_ = file->message_type(15);
   static const int MsgKillHistroy_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgKillHistroy, obj_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgKillHistroy, count_),
@@ -436,7 +497,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgKillHistroy),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgKillHistroy, _internal_metadata_),
       -1);
-  MsgC2SReqExitGame_descriptor_ = file->message_type(13);
+  MsgC2SReqExitGame_descriptor_ = file->message_type(16);
   static const int MsgC2SReqExitGame_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, section_id_),
@@ -459,7 +520,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqExitGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, _internal_metadata_),
       -1);
-  MsgS2CExitGameACK_descriptor_ = file->message_type(14);
+  MsgS2CExitGameACK_descriptor_ = file->message_type(17);
   static const int MsgS2CExitGameACK_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, section_id_),
@@ -482,7 +543,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CExitGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, _internal_metadata_),
       -1);
-  MsgC2SReqUnlockChapter_descriptor_ = file->message_type(15);
+  MsgC2SReqUnlockChapter_descriptor_ = file->message_type(18);
   static const int MsgC2SReqUnlockChapter_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqUnlockChapter, chapter_id_),
   };
@@ -497,7 +558,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqUnlockChapter),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqUnlockChapter, _internal_metadata_),
       -1);
-  MsgC2SReqAdvertisementApplyTask_descriptor_ = file->message_type(16);
+  MsgC2SReqAdvertisementApplyTask_descriptor_ = file->message_type(19);
   static const int MsgC2SReqAdvertisementApplyTask_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementApplyTask, gold_),
   };
@@ -512,7 +573,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqAdvertisementApplyTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementApplyTask, _internal_metadata_),
       -1);
-  MsgS2CAdvertisementApplyTaskACK_descriptor_ = file->message_type(17);
+  MsgS2CAdvertisementApplyTaskACK_descriptor_ = file->message_type(20);
   static const int MsgS2CAdvertisementApplyTaskACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementApplyTaskACK, error_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementApplyTaskACK, infos_),
@@ -529,7 +590,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CAdvertisementApplyTaskACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementApplyTaskACK, _internal_metadata_),
       -1);
-  MsgC2SReqAdvertisementRefreshTask_descriptor_ = file->message_type(18);
+  MsgC2SReqAdvertisementRefreshTask_descriptor_ = file->message_type(21);
   static const int MsgC2SReqAdvertisementRefreshTask_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementRefreshTask, give_up_task_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementRefreshTask, gold_),
@@ -545,7 +606,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqAdvertisementRefreshTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementRefreshTask, _internal_metadata_),
       -1);
-  MsgS2CAdvertisementRefreshTaskACK_descriptor_ = file->message_type(19);
+  MsgS2CAdvertisementRefreshTaskACK_descriptor_ = file->message_type(22);
   static const int MsgS2CAdvertisementRefreshTaskACK_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, give_up_task_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, error_),
@@ -563,7 +624,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CAdvertisementRefreshTaskACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, _internal_metadata_),
       -1);
-  MsgC2SReqModifyCurrentHero_descriptor_ = file->message_type(20);
+  MsgC2SReqModifyCurrentHero_descriptor_ = file->message_type(23);
   static const int MsgC2SReqModifyCurrentHero_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyCurrentHero, current_grid_),
   };
@@ -578,7 +639,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqModifyCurrentHero),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyCurrentHero, _internal_metadata_),
       -1);
-  MsgS2CModifyCurrentHeroACK_descriptor_ = file->message_type(21);
+  MsgS2CModifyCurrentHeroACK_descriptor_ = file->message_type(24);
   static const int MsgS2CModifyCurrentHeroACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, current_grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, error_),
@@ -594,7 +655,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CModifyCurrentHeroACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, _internal_metadata_),
       -1);
-  MsgS2CUnlockChapterACK_descriptor_ = file->message_type(22);
+  MsgS2CUnlockChapterACK_descriptor_ = file->message_type(25);
   static const int MsgS2CUnlockChapterACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, current_gold_),
@@ -611,7 +672,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CUnlockChapterACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, _internal_metadata_),
       -1);
-  MsgC2SReqBuyHero_descriptor_ = file->message_type(23);
+  MsgC2SReqBuyHero_descriptor_ = file->message_type(26);
   static const int MsgC2SReqBuyHero_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, gold_),
@@ -627,7 +688,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqBuyHero),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, _internal_metadata_),
       -1);
-  MsgS2CBuyHeroACK_descriptor_ = file->message_type(24);
+  MsgS2CBuyHeroACK_descriptor_ = file->message_type(27);
   static const int MsgS2CBuyHeroACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, current_gold_),
@@ -644,7 +705,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CBuyHeroACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, _internal_metadata_),
       -1);
-  MsgC2SReqGoldShopConfigs_descriptor_ = file->message_type(25);
+  MsgC2SReqGoldShopConfigs_descriptor_ = file->message_type(28);
   static const int MsgC2SReqGoldShopConfigs_offsets_[1] = {
   };
   MsgC2SReqGoldShopConfigs_reflection_ =
@@ -658,7 +719,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqGoldShopConfigs),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqGoldShopConfigs, _internal_metadata_),
       -1);
-  MsgS2CGoldShopConfigsACK_descriptor_ = file->message_type(26);
+  MsgS2CGoldShopConfigsACK_descriptor_ = file->message_type(29);
   static const int MsgS2CGoldShopConfigsACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CGoldShopConfigsACK, infos_),
   };
@@ -673,7 +734,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CGoldShopConfigsACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CGoldShopConfigsACK, _internal_metadata_),
       -1);
-  MsgC2SReqCrearteIOSDeal_descriptor_ = file->message_type(27);
+  MsgC2SReqCrearteIOSDeal_descriptor_ = file->message_type(30);
   static const int MsgC2SReqCrearteIOSDeal_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteIOSDeal, key_code_),
   };
@@ -688,7 +749,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqCrearteIOSDeal),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteIOSDeal, _internal_metadata_),
       -1);
-  MsgS2CCrearteIOSDealACK_descriptor_ = file->message_type(28);
+  MsgS2CCrearteIOSDealACK_descriptor_ = file->message_type(31);
   static const int MsgS2CCrearteIOSDealACK_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, key_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, status_),
@@ -707,7 +768,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCrearteIOSDealACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, _internal_metadata_),
       -1);
-  MsgC2SReqVerifyDealIOS_descriptor_ = file->message_type(29);
+  MsgC2SReqVerifyDealIOS_descriptor_ = file->message_type(32);
   static const int MsgC2SReqVerifyDealIOS_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, receipt_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, order_id_),
@@ -723,7 +784,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqVerifyDealIOS),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, _internal_metadata_),
       -1);
-  MsgS2CVerifyDealIOSACK_descriptor_ = file->message_type(30);
+  MsgS2CVerifyDealIOSACK_descriptor_ = file->message_type(33);
   static const int MsgS2CVerifyDealIOSACK_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, product_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, status_),
@@ -742,7 +803,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CVerifyDealIOSACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, _internal_metadata_),
       -1);
-  MsgS2CPingNotify_descriptor_ = file->message_type(31);
+  MsgS2CPingNotify_descriptor_ = file->message_type(34);
   static const int MsgS2CPingNotify_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CPingNotify, ping_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CPingNotify, time_),
@@ -758,7 +819,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CPingNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CPingNotify, _internal_metadata_),
       -1);
-  MsgS2CRecoverSpiritNotify_descriptor_ = file->message_type(32);
+  MsgS2CRecoverSpiritNotify_descriptor_ = file->message_type(35);
   static const int MsgS2CRecoverSpiritNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CRecoverSpiritNotify, current_spirit_),
   };
@@ -773,7 +834,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CRecoverSpiritNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CRecoverSpiritNotify, _internal_metadata_),
       -1);
-  MsgC2SPingNotify_descriptor_ = file->message_type(33);
+  MsgC2SPingNotify_descriptor_ = file->message_type(36);
   static const int MsgC2SPingNotify_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SPingNotify, ping_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SPingNotify, time_),
@@ -789,7 +850,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SPingNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SPingNotify, _internal_metadata_),
       -1);
-  MsgC2SReqModifyNewTutorial_descriptor_ = file->message_type(34);
+  MsgC2SReqModifyNewTutorial_descriptor_ = file->message_type(37);
   static const int MsgC2SReqModifyNewTutorial_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyNewTutorial, flag_),
   };
@@ -804,7 +865,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqModifyNewTutorial),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyNewTutorial, _internal_metadata_),
       -1);
-  MsgS2CModifyNewTutorialACK_descriptor_ = file->message_type(35);
+  MsgS2CModifyNewTutorialACK_descriptor_ = file->message_type(38);
   static const int MsgS2CModifyNewTutorialACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyNewTutorialACK, flag_),
   };
@@ -819,7 +880,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CModifyNewTutorialACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyNewTutorialACK, _internal_metadata_),
       -1);
-  MsgC2SReliveReq_descriptor_ = file->message_type(36);
+  MsgC2SReliveReq_descriptor_ = file->message_type(39);
   static const int MsgC2SReliveReq_offsets_[1] = {
   };
   MsgC2SReliveReq_reflection_ =
@@ -833,7 +894,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReliveReq),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReliveReq, _internal_metadata_),
       -1);
-  MsgS2CReliveACK_descriptor_ = file->message_type(37);
+  MsgS2CReliveACK_descriptor_ = file->message_type(40);
   static const int MsgS2CReliveACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CReliveACK, current_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CReliveACK, error_),
@@ -849,7 +910,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CReliveACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CReliveACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqRemoveSpecialCreatureListHis_descriptor_ = file->message_type(38);
+  MsgC2SCmdReqRemoveSpecialCreatureListHis_descriptor_ = file->message_type(41);
   static const int MsgC2SCmdReqRemoveSpecialCreatureListHis_offsets_[1] = {
   };
   MsgC2SCmdReqRemoveSpecialCreatureListHis_reflection_ =
@@ -863,7 +924,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqRemoveSpecialCreatureListHis),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqRemoveSpecialCreatureListHis, _internal_metadata_),
       -1);
-  MsgC2SCmdReqSetSpecialCreatureHis_descriptor_ = file->message_type(39);
+  MsgC2SCmdReqSetSpecialCreatureHis_descriptor_ = file->message_type(42);
   static const int MsgC2SCmdReqSetSpecialCreatureHis_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqSetSpecialCreatureHis, creature_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqSetSpecialCreatureHis, status_),
@@ -879,7 +940,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqSetSpecialCreatureHis),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqSetSpecialCreatureHis, _internal_metadata_),
       -1);
-  MsgS2CCmdNotifySpecialCreatureHisModify_descriptor_ = file->message_type(40);
+  MsgS2CCmdNotifySpecialCreatureHisModify_descriptor_ = file->message_type(43);
   static const int MsgS2CCmdNotifySpecialCreatureHisModify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdNotifySpecialCreatureHisModify, special_creatures_),
   };
@@ -894,7 +955,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdNotifySpecialCreatureHisModify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdNotifySpecialCreatureHisModify, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyTaskCompleteCount_descriptor_ = file->message_type(41);
+  MsgC2SCmdReqModifyTaskCompleteCount_descriptor_ = file->message_type(44);
   static const int MsgC2SCmdReqModifyTaskCompleteCount_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyTaskCompleteCount, task_complete_count_),
   };
@@ -909,7 +970,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyTaskCompleteCount),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyTaskCompleteCount, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyTaskCompleteCountACK_descriptor_ = file->message_type(42);
+  MsgS2CCmdModifyTaskCompleteCountACK_descriptor_ = file->message_type(45);
   static const int MsgS2CCmdModifyTaskCompleteCountACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyTaskCompleteCountACK, current_task_count_),
   };
@@ -924,7 +985,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyTaskCompleteCountACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyTaskCompleteCountACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqShowGMLevel_descriptor_ = file->message_type(43);
+  MsgC2SCmdReqShowGMLevel_descriptor_ = file->message_type(46);
   static const int MsgC2SCmdReqShowGMLevel_offsets_[1] = {
   };
   MsgC2SCmdReqShowGMLevel_reflection_ =
@@ -938,7 +999,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqShowGMLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqShowGMLevel, _internal_metadata_),
       -1);
-  MsgS2CCmdShowGMLevelACK_descriptor_ = file->message_type(44);
+  MsgS2CCmdShowGMLevelACK_descriptor_ = file->message_type(47);
   static const int MsgS2CCmdShowGMLevelACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, gm_level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, error_),
@@ -954,7 +1015,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdShowGMLevelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyGMLevel_descriptor_ = file->message_type(45);
+  MsgC2SCmdReqModifyGMLevel_descriptor_ = file->message_type(48);
   static const int MsgC2SCmdReqModifyGMLevel_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, level_),
@@ -970,7 +1031,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyGMLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyGMLevelACK_descriptor_ = file->message_type(46);
+  MsgS2CCmdModifyGMLevelACK_descriptor_ = file->message_type(49);
   static const int MsgS2CCmdModifyGMLevelACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, level_),
@@ -987,7 +1048,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyGMLevelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqEnterGame_descriptor_ = file->message_type(47);
+  MsgC2SCmdReqEnterGame_descriptor_ = file->message_type(50);
   static const int MsgC2SCmdReqEnterGame_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, section_id_),
@@ -1003,7 +1064,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqEnterGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetMap_descriptor_ = file->message_type(48);
+  MsgC2SCmdReqResetMap_descriptor_ = file->message_type(51);
   static const int MsgC2SCmdReqResetMap_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, section_id_),
@@ -1019,7 +1080,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetMap),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, _internal_metadata_),
       -1);
-  MsgS2CCmdResetMapACK_descriptor_ = file->message_type(49);
+  MsgS2CCmdResetMapACK_descriptor_ = file->message_type(52);
   static const int MsgS2CCmdResetMapACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, section_id_),
@@ -1036,7 +1097,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdResetMapACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetGame_descriptor_ = file->message_type(50);
+  MsgC2SCmdReqResetGame_descriptor_ = file->message_type(53);
   static const int MsgC2SCmdReqResetGame_offsets_[1] = {
   };
   MsgC2SCmdReqResetGame_reflection_ =
@@ -1050,7 +1111,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetGame, _internal_metadata_),
       -1);
-  MsgS2CCmdResetGameACK_descriptor_ = file->message_type(51);
+  MsgS2CCmdResetGameACK_descriptor_ = file->message_type(54);
   static const int MsgS2CCmdResetGameACK_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, current_advertisement_count_),
@@ -1068,7 +1129,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdResetGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyGold_descriptor_ = file->message_type(52);
+  MsgC2SCmdReqModifyGold_descriptor_ = file->message_type(55);
   static const int MsgC2SCmdReqModifyGold_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGold, gold_),
   };
@@ -1083,7 +1144,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyGold),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGold, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyGoldACK_descriptor_ = file->message_type(53);
+  MsgS2CCmdModifyGoldACK_descriptor_ = file->message_type(56);
   static const int MsgS2CCmdModifyGoldACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGoldACK, gold_),
   };
@@ -1098,7 +1159,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyGoldACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGoldACK, _internal_metadata_),
       -1);
-  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(54);
+  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(57);
   static const int MsgS2CCmdReqReplaceTask_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, task_count_),
   };
@@ -1113,7 +1174,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdReqReplaceTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, _internal_metadata_),
       -1);
-  MsgS2CCmdReplaceTaskACK_descriptor_ = file->message_type(55);
+  MsgS2CCmdReplaceTaskACK_descriptor_ = file->message_type(58);
   static const int MsgS2CCmdReplaceTaskACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, error_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, infos_),
@@ -1129,7 +1190,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdReplaceTaskACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyJewel_descriptor_ = file->message_type(56);
+  MsgC2SCmdReqModifyJewel_descriptor_ = file->message_type(59);
   static const int MsgC2SCmdReqModifyJewel_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyJewel, jewel_),
   };
@@ -1144,7 +1205,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyJewel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyJewel, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyJewelACK_descriptor_ = file->message_type(57);
+  MsgS2CCmdModifyJewelACK_descriptor_ = file->message_type(60);
   static const int MsgS2CCmdModifyJewelACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyJewelACK, current_jewel_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyJewelACK, error_),
@@ -1160,7 +1221,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyJewelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyJewelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifySpirit_descriptor_ = file->message_type(58);
+  MsgC2SCmdReqModifySpirit_descriptor_ = file->message_type(61);
   static const int MsgC2SCmdReqModifySpirit_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifySpirit, spirit_),
   };
@@ -1175,7 +1236,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifySpirit),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifySpirit, _internal_metadata_),
       -1);
-  MsgS2CCmdModifySpiritACK_descriptor_ = file->message_type(59);
+  MsgS2CCmdModifySpiritACK_descriptor_ = file->message_type(62);
   static const int MsgS2CCmdModifySpiritACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifySpiritACK, current_spirit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifySpiritACK, error_),
@@ -1192,6 +1253,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifySpiritACK, _internal_metadata_),
       -1);
   GameError_descriptor_ = file->enum_type(0);
+  LotionUseType_descriptor_ = file->enum_type(1);
 }
 
 namespace {
@@ -1219,7 +1281,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgSpiritShopInfo_descriptor_, &MsgSpiritShopInfo::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgLotionShopConfigInfo_descriptor_, &MsgLotionShopConfigInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CHeroesInit_descriptor_, &MsgS2CHeroesInit::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgC2SReqBuyLotion_descriptor_, &MsgC2SReqBuyLotion::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgS2CBuyLotionACK_descriptor_, &MsgS2CBuyLotionACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgC2SReqBuySpirit_descriptor_, &MsgC2SReqBuySpirit::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -1343,8 +1411,14 @@ void protobuf_ShutdownFile_dream_5fheroes_2eproto() {
   delete MsgS2CNewTaskNotify_reflection_;
   delete MsgSpiritShopInfo::default_instance_;
   delete MsgSpiritShopInfo_reflection_;
+  delete MsgLotionShopConfigInfo::default_instance_;
+  delete MsgLotionShopConfigInfo_reflection_;
   delete MsgS2CHeroesInit::default_instance_;
   delete MsgS2CHeroesInit_reflection_;
+  delete MsgC2SReqBuyLotion::default_instance_;
+  delete MsgC2SReqBuyLotion_reflection_;
+  delete MsgS2CBuyLotionACK::default_instance_;
+  delete MsgS2CBuyLotionACK_reflection_;
   delete MsgC2SReqBuySpirit::default_instance_;
   delete MsgC2SReqBuySpirit_reflection_;
   delete MsgS2CBuySpiritACK::default_instance_;
@@ -1471,175 +1545,188 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "age.MsgTaskConfigInfo\"m\n\021MsgSpiritShopIn"
     "fo\022\r\n\005index\030\001 \002(\005\022\016\n\006spirit\030\002 \002(\005\022\022\n\nnee"
     "d_jewel\030\003 \002(\005\022\023\n\013resource_id\030\004 \002(\005\022\020\n\010de"
-    "script\030\005 \002(\t\"\233\005\n\020MsgS2CHeroesInit\022\"\n\004inf"
-    "o\030\001 \002(\0132\024.message.MsgHeroData\0225\n\021task_co"
-    "nfig_infos\030\002 \003(\0132\032.message.MsgTaskConfig"
-    "Info\022\'\n\037free_advertisement_config_count\030"
-    "\003 \002(\005\022#\n\033current_advertisement_count\030\004 \002"
-    "(\005\022\037\n\027last_advertisement_time\030\005 \002(\003\022\035\n\025a"
-    "dvertisement_time_cd\030\006 \002(\005\022\020\n\010gm_level\030\007"
-    " \002(\005\022.\n\021special_creatures\030\010 \003(\0132\023.messag"
-    "e.MsgIntPair\022\023\n\013relive_gold\030\t \002(\005\022\031\n\021ref"
-    "resh_task_gold\030\n \002(\005\022\022\n\nmax_spirit\030\013 \002(\005"
-    "\022$\n\034config_recover_spirit_minute\030\014 \002(\005\022\035"
-    "\n\025config_recover_spirit\030\r \002(\005\022$\n\034config_"
-    "enter_game_use_spirit\030\016 \002(\005\0224\n\020sprit_sho"
-    "p_infos\030\017 \003(\0132\032.message.MsgSpiritShopInf"
-    "o\022\035\n\025config_day_buy_spirit\030\020 \002(\005\022 \n\030last"
-    "_recover_spirit_time\030\021 \002(\005\022\034\n\024last_buy_s"
-    "pirit_time\030\022 \002(\005\022\030\n\020day_refresh_time\030\023 \002"
-    "(\005\"#\n\022MsgC2SReqBuySpirit\022\r\n\005index\030\001 \002(\005\""
-    "o\n\022MsgS2CBuySpiritACK\022\r\n\005index\030\001 \002(\005\022\r\n\005"
-    "jewel\030\002 \002(\005\022\016\n\006spirit\030\003 \002(\005\022+\n\005error\030\004 \002"
-    "(\0162\022.message.GameError:\010Error_NO\"<\n\022MsgC"
-    "2SReqEnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nse"
-    "ction_id\030\002 \002(\005\"\330\001\n\022MsgS2CEnterGameACK\022\022\n"
-    "\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\0223\n"
-    "\020drop_box_configs\030\003 \003(\0132\031.message.MsgDro"
-    "pBoxConfig\022(\n\tkill_list\030\004 \003(\0132\025.message."
-    "MsgObjConfig\022+\n\005error\030\005 \002(\0162\022.message.Ga"
-    "meError:\010Error_NO\022\016\n\006spirit\030\006 \002(\005\"C\n\016Msg"
-    "KillHistroy\022\"\n\003obj\030\001 \002(\0132\025.message.MsgOb"
-    "jConfig\022\r\n\005count\030\002 \002(\005\"\252\002\n\021MsgC2SReqExit"
-    "Game\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002"
-    " \002(\005\022(\n\ntask_infos\030\003 \003(\0132\024.message.MsgTa"
-    "skInfo\022\014\n\004gold\030\004 \002(\005\022\017\n\007success\030\005 \002(\010\022\026\n"
-    "\016complete_tasks\030\006 \003(\005\0220\n\021special_kill_li"
-    "st\030\007 \003(\0132\025.message.MsgObjConfig\022*\n\tkill_"
-    "list\030\010 \003(\0132\027.message.MsgKillHistroy\022.\n\021s"
-    "pecial_creatures\030\t \003(\0132\023.message.MsgIntP"
-    "air\"\256\002\n\021MsgS2CExitGameACK\022\022\n\nchapter_id\030"
-    "\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022(\n\ntask_infos\030"
-    "\003 \003(\0132\024.message.MsgTaskInfo\022\024\n\014current_g"
-    "old\030\004 \002(\005\022&\n\ttask_gift\030\005 \003(\0132\023.message.M"
-    "sgIntPair\022\017\n\007success\030\006 \002(\010\022\033\n\023complete_t"
-    "ask_count\030\007 \002(\005\022+\n\005error\030\010 \002(\0162\022.message"
-    ".GameError:\010Error_NO\022.\n\021special_creature"
-    "s\030\t \003(\0132\023.message.MsgIntPair\",\n\026MsgC2SRe"
-    "qUnlockChapter\022\022\n\nchapter_id\030\001 \002(\005\"/\n\037Ms"
-    "gC2SReqAdvertisementApplyTask\022\014\n\004gold\030\001 "
-    "\002(\010\"\217\001\n\037MsgS2CAdvertisementApplyTaskACK\022"
+    "script\030\005 \002(\t\"}\n\027MsgLotionShopConfigInfo\022"
+    "\021\n\tlotion_id\030\001 \002(\005\022<\n\010use_type\030\002 \002(\0162\026.m"
+    "essage.LotionUseType:\022LotionUseType_gold"
+    "\022\021\n\tuse_count\030\003 \002(\005\"\332\005\n\020MsgS2CHeroesInit"
+    "\022\"\n\004info\030\001 \002(\0132\024.message.MsgHeroData\0225\n\021"
+    "task_config_infos\030\002 \003(\0132\032.message.MsgTas"
+    "kConfigInfo\022\'\n\037free_advertisement_config"
+    "_count\030\003 \002(\005\022#\n\033current_advertisement_co"
+    "unt\030\004 \002(\005\022\037\n\027last_advertisement_time\030\005 \002"
+    "(\003\022\035\n\025advertisement_time_cd\030\006 \002(\005\022\020\n\010gm_"
+    "level\030\007 \002(\005\022.\n\021special_creatures\030\010 \003(\0132\023"
+    ".message.MsgIntPair\022\023\n\013relive_gold\030\t \002(\005"
+    "\022\031\n\021refresh_task_gold\030\n \002(\005\022\022\n\nmax_spiri"
+    "t\030\013 \002(\005\022$\n\034config_recover_spirit_minute\030"
+    "\014 \002(\005\022\035\n\025config_recover_spirit\030\r \002(\005\022$\n\034"
+    "config_enter_game_use_spirit\030\016 \002(\005\0224\n\020sp"
+    "rit_shop_infos\030\017 \003(\0132\032.message.MsgSpirit"
+    "ShopInfo\022\035\n\025config_day_buy_spirit\030\020 \002(\005\022"
+    " \n\030last_recover_spirit_time\030\021 \002(\005\022\034\n\024las"
+    "t_buy_spirit_time\030\022 \002(\005\022\030\n\020day_refresh_t"
+    "ime\030\023 \002(\005\022=\n\023lotion_shop_configs\030\024 \003(\0132 "
+    ".message.MsgLotionShopConfigInfo\"\'\n\022MsgC"
+    "2SReqBuyLotion\022\021\n\tlotion_id\030\001 \002(\005\"\201\001\n\022Ms"
+    "gS2CBuyLotionACK\022\021\n\tlotion_id\030\001 \002(\005\022\024\n\014c"
+    "urrent_gold\030\002 \002(\005\022\025\n\rcurrent_jewel\030\003 \002(\005"
+    "\022+\n\005error\030\004 \002(\0162\022.message.GameError:\010Err"
+    "or_NO\"#\n\022MsgC2SReqBuySpirit\022\r\n\005index\030\001 \002"
+    "(\005\"o\n\022MsgS2CBuySpiritACK\022\r\n\005index\030\001 \002(\005\022"
+    "\r\n\005jewel\030\002 \002(\005\022\016\n\006spirit\030\003 \002(\005\022+\n\005error\030"
+    "\004 \002(\0162\022.message.GameError:\010Error_NO\"<\n\022M"
+    "sgC2SReqEnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n"
+    "\nsection_id\030\002 \002(\005\"\330\001\n\022MsgS2CEnterGameACK"
+    "\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005"
+    "\0223\n\020drop_box_configs\030\003 \003(\0132\031.message.Msg"
+    "DropBoxConfig\022(\n\tkill_list\030\004 \003(\0132\025.messa"
+    "ge.MsgObjConfig\022+\n\005error\030\005 \002(\0162\022.message"
+    ".GameError:\010Error_NO\022\016\n\006spirit\030\006 \002(\005\"C\n\016"
+    "MsgKillHistroy\022\"\n\003obj\030\001 \002(\0132\025.message.Ms"
+    "gObjConfig\022\r\n\005count\030\002 \002(\005\"\252\002\n\021MsgC2SReqE"
+    "xitGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_i"
+    "d\030\002 \002(\005\022(\n\ntask_infos\030\003 \003(\0132\024.message.Ms"
+    "gTaskInfo\022\014\n\004gold\030\004 \002(\005\022\017\n\007success\030\005 \002(\010"
+    "\022\026\n\016complete_tasks\030\006 \003(\005\0220\n\021special_kill"
+    "_list\030\007 \003(\0132\025.message.MsgObjConfig\022*\n\tki"
+    "ll_list\030\010 \003(\0132\027.message.MsgKillHistroy\022."
+    "\n\021special_creatures\030\t \003(\0132\023.message.MsgI"
+    "ntPair\"\256\002\n\021MsgS2CExitGameACK\022\022\n\nchapter_"
+    "id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022(\n\ntask_inf"
+    "os\030\003 \003(\0132\024.message.MsgTaskInfo\022\024\n\014curren"
+    "t_gold\030\004 \002(\005\022&\n\ttask_gift\030\005 \003(\0132\023.messag"
+    "e.MsgIntPair\022\017\n\007success\030\006 \002(\010\022\033\n\023complet"
+    "e_task_count\030\007 \002(\005\022+\n\005error\030\010 \002(\0162\022.mess"
+    "age.GameError:\010Error_NO\022.\n\021special_creat"
+    "ures\030\t \003(\0132\023.message.MsgIntPair\",\n\026MsgC2"
+    "SReqUnlockChapter\022\022\n\nchapter_id\030\001 \002(\005\"/\n"
+    "\037MsgC2SReqAdvertisementApplyTask\022\014\n\004gold"
+    "\030\001 \002(\010\"\217\001\n\037MsgS2CAdvertisementApplyTaskA"
+    "CK\022+\n\005error\030\001 \002(\0162\022.message.GameError:\010E"
+    "rror_NO\022)\n\005infos\030\002 \003(\0132\032.message.MsgTask"
+    "ConfigInfo\022\024\n\014current_gold\030\003 \002(\005\"J\n!MsgC"
+    "2SReqAdvertisementRefreshTask\022\027\n\017give_up"
+    "_task_id\030\001 \002(\005\022\014\n\004gold\030\002 \002(\010\"\252\001\n!MsgS2CA"
+    "dvertisementRefreshTaskACK\022\027\n\017give_up_ta"
+    "sk_id\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.Gam"
+    "eError:\010Error_NO\022)\n\005infos\030\003 \003(\0132\032.messag"
+    "e.MsgTaskConfigInfo\022\024\n\014current_gold\030\004 \002("
+    "\005\"2\n\032MsgC2SReqModifyCurrentHero\022\024\n\014curre"
+    "nt_grid\030\001 \002(\005\"_\n\032MsgS2CModifyCurrentHero"
+    "ACK\022\024\n\014current_grid\030\001 \002(\005\022+\n\005error\030\002 \002(\016"
+    "2\022.message.GameError:\010Error_NO\"o\n\026MsgS2C"
+    "UnlockChapterACK\022\022\n\nchapter_id\030\001 \002(\005\022\024\n\014"
+    "current_gold\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.mess"
+    "age.GameError:\010Error_NO\".\n\020MsgC2SReqBuyH"
+    "ero\022\014\n\004grid\030\001 \002(\005\022\014\n\004gold\030\002 \002(\005\"c\n\020MsgS2"
+    "CBuyHeroACK\022\014\n\004grid\030\001 \002(\005\022\024\n\014current_gol"
+    "d\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.GameErr"
+    "or:\010Error_NO\"\032\n\030MsgC2SReqGoldShopConfigs"
+    "\"I\n\030MsgS2CGoldShopConfigsACK\022-\n\005infos\030\001 "
+    "\003(\0132\036.message.MsgGoldShopConfigInfo\"+\n\027M"
+    "sgC2SReqCrearteIOSDeal\022\020\n\010key_code\030\001 \002(\t"
+    "\"\211\001\n\027MsgS2CCrearteIOSDealACK\022\020\n\010key_code"
+    "\030\001 \002(\t\022\016\n\006status\030\002 \002(\005\022\r\n\005price\030\003 \002(\005\022\020\n"
+    "\010order_id\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.message"
+    ".GameError:\010Error_NO\";\n\026MsgC2SReqVerifyD"
+    "ealIOS\022\017\n\007receipt\030\001 \002(\t\022\020\n\010order_id\030\002 \002("
+    "\005\"\221\001\n\026MsgS2CVerifyDealIOSACK\022\022\n\nproduct_"
+    "id\030\001 \002(\t\022\016\n\006status\030\002 \002(\005\022\020\n\010order_id\030\003 \002"
+    "(\005\022\024\n\014current_gold\030\004 \002(\005\022+\n\005error\030\005 \002(\0162"
+    "\022.message.GameError:\010Error_NO\"4\n\020MsgS2CP"
+    "ingNotify\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030\002 "
+    "\002(\004\"3\n\031MsgS2CRecoverSpiritNotify\022\026\n\016curr"
+    "ent_spirit\030\001 \002(\005\"4\n\020MsgC2SPingNotify\022\022\n\n"
+    "ping_count\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"*\n\032MsgC2S"
+    "ReqModifyNewTutorial\022\014\n\004flag\030\001 \002(\005\"*\n\032Ms"
+    "gS2CModifyNewTutorialACK\022\014\n\004flag\030\001 \002(\005\"\021"
+    "\n\017MsgC2SReliveReq\"T\n\017MsgS2CReliveACK\022\024\n\014"
+    "current_gold\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.mess"
+    "age.GameError:\010Error_NO\"*\n(MsgC2SCmdReqR"
+    "emoveSpecialCreatureListHis\"H\n!MsgC2SCmd"
+    "ReqSetSpecialCreatureHis\022\023\n\013creature_id\030"
+    "\001 \002(\005\022\016\n\006status\030\002 \002(\005\"Y\n\'MsgS2CCmdNotify"
+    "SpecialCreatureHisModify\022.\n\021special_crea"
+    "tures\030\001 \003(\0132\023.message.MsgIntPair\"B\n#MsgC"
+    "2SCmdReqModifyTaskCompleteCount\022\033\n\023task_"
+    "complete_count\030\001 \002(\005\"A\n#MsgS2CCmdModifyT"
+    "askCompleteCountACK\022\032\n\022current_task_coun"
+    "t\030\001 \002(\005\"\031\n\027MsgC2SCmdReqShowGMLevel\"X\n\027Ms"
+    "gS2CCmdShowGMLevelACK\022\020\n\010gm_level\030\001 \002(\005\022"
+    "+\n\005error\030\002 \002(\0162\022.message.GameError:\010Erro"
+    "r_NO\"8\n\031MsgC2SCmdReqModifyGMLevel\022\014\n\004nam"
+    "e\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\"e\n\031MsgS2CCmdModif"
+    "yGMLevelACK\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005"
+    "\022+\n\005error\030\003 \002(\0162\022.message.GameError:\010Err"
+    "or_NO\"\?\n\025MsgC2SCmdReqEnterGame\022\022\n\nchapte"
+    "r_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\">\n\024MsgC2S"
+    "CmdReqResetMap\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nse"
+    "ction_id\030\002 \002(\005\"k\n\024MsgS2CCmdResetMapACK\022\022"
+    "\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022+"
+    "\n\005error\030\003 \002(\0162\022.message.GameError:\010Error"
+    "_NO\"\027\n\025MsgC2SCmdReqResetGame\"\256\001\n\025MsgS2CC"
+    "mdResetGameACK\022\"\n\004info\030\001 \002(\0132\024.message.M"
+    "sgHeroData\022#\n\033current_advertisement_coun"
+    "t\030\002 \002(\005\022\037\n\027last_advertisement_time\030\003 \002(\003"
+    "\022+\n\005error\030\004 \002(\0162\022.message.GameError:\010Err"
+    "or_NO\"&\n\026MsgC2SCmdReqModifyGold\022\014\n\004gold\030"
+    "\001 \002(\005\"&\n\026MsgS2CCmdModifyGoldACK\022\014\n\004gold\030"
+    "\001 \002(\005\"-\n\027MsgS2CCmdReqReplaceTask\022\022\n\ntask"
+    "_count\030\001 \002(\005\"q\n\027MsgS2CCmdReplaceTaskACK\022"
     "+\n\005error\030\001 \002(\0162\022.message.GameError:\010Erro"
     "r_NO\022)\n\005infos\030\002 \003(\0132\032.message.MsgTaskCon"
-    "figInfo\022\024\n\014current_gold\030\003 \002(\005\"J\n!MsgC2SR"
-    "eqAdvertisementRefreshTask\022\027\n\017give_up_ta"
-    "sk_id\030\001 \002(\005\022\014\n\004gold\030\002 \002(\010\"\252\001\n!MsgS2CAdve"
-    "rtisementRefreshTaskACK\022\027\n\017give_up_task_"
-    "id\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameEr"
-    "ror:\010Error_NO\022)\n\005infos\030\003 \003(\0132\032.message.M"
-    "sgTaskConfigInfo\022\024\n\014current_gold\030\004 \002(\005\"2"
-    "\n\032MsgC2SReqModifyCurrentHero\022\024\n\014current_"
-    "grid\030\001 \002(\005\"_\n\032MsgS2CModifyCurrentHeroACK"
-    "\022\024\n\014current_grid\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022."
-    "message.GameError:\010Error_NO\"o\n\026MsgS2CUnl"
-    "ockChapterACK\022\022\n\nchapter_id\030\001 \002(\005\022\024\n\014cur"
-    "rent_gold\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message"
-    ".GameError:\010Error_NO\".\n\020MsgC2SReqBuyHero"
-    "\022\014\n\004grid\030\001 \002(\005\022\014\n\004gold\030\002 \002(\005\"c\n\020MsgS2CBu"
-    "yHeroACK\022\014\n\004grid\030\001 \002(\005\022\024\n\014current_gold\030\002"
-    " \002(\005\022+\n\005error\030\003 \002(\0162\022.message.GameError:"
-    "\010Error_NO\"\032\n\030MsgC2SReqGoldShopConfigs\"I\n"
-    "\030MsgS2CGoldShopConfigsACK\022-\n\005infos\030\001 \003(\013"
-    "2\036.message.MsgGoldShopConfigInfo\"+\n\027MsgC"
-    "2SReqCrearteIOSDeal\022\020\n\010key_code\030\001 \002(\t\"\211\001"
-    "\n\027MsgS2CCrearteIOSDealACK\022\020\n\010key_code\030\001 "
-    "\002(\t\022\016\n\006status\030\002 \002(\005\022\r\n\005price\030\003 \002(\005\022\020\n\010or"
-    "der_id\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.message.Ga"
-    "meError:\010Error_NO\";\n\026MsgC2SReqVerifyDeal"
-    "IOS\022\017\n\007receipt\030\001 \002(\t\022\020\n\010order_id\030\002 \002(\005\"\221"
-    "\001\n\026MsgS2CVerifyDealIOSACK\022\022\n\nproduct_id\030"
-    "\001 \002(\t\022\016\n\006status\030\002 \002(\005\022\020\n\010order_id\030\003 \002(\005\022"
-    "\024\n\014current_gold\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.m"
-    "essage.GameError:\010Error_NO\"4\n\020MsgS2CPing"
-    "Notify\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030\002 \002(\004"
-    "\"3\n\031MsgS2CRecoverSpiritNotify\022\026\n\016current"
-    "_spirit\030\001 \002(\005\"4\n\020MsgC2SPingNotify\022\022\n\npin"
-    "g_count\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"*\n\032MsgC2SReq"
-    "ModifyNewTutorial\022\014\n\004flag\030\001 \002(\005\"*\n\032MsgS2"
-    "CModifyNewTutorialACK\022\014\n\004flag\030\001 \002(\005\"\021\n\017M"
-    "sgC2SReliveReq\"T\n\017MsgS2CReliveACK\022\024\n\014cur"
-    "rent_gold\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message"
-    ".GameError:\010Error_NO\"*\n(MsgC2SCmdReqRemo"
-    "veSpecialCreatureListHis\"H\n!MsgC2SCmdReq"
-    "SetSpecialCreatureHis\022\023\n\013creature_id\030\001 \002"
-    "(\005\022\016\n\006status\030\002 \002(\005\"Y\n\'MsgS2CCmdNotifySpe"
-    "cialCreatureHisModify\022.\n\021special_creatur"
-    "es\030\001 \003(\0132\023.message.MsgIntPair\"B\n#MsgC2SC"
-    "mdReqModifyTaskCompleteCount\022\033\n\023task_com"
-    "plete_count\030\001 \002(\005\"A\n#MsgS2CCmdModifyTask"
-    "CompleteCountACK\022\032\n\022current_task_count\030\001"
-    " \002(\005\"\031\n\027MsgC2SCmdReqShowGMLevel\"X\n\027MsgS2"
-    "CCmdShowGMLevelACK\022\020\n\010gm_level\030\001 \002(\005\022+\n\005"
-    "error\030\002 \002(\0162\022.message.GameError:\010Error_N"
-    "O\"8\n\031MsgC2SCmdReqModifyGMLevel\022\014\n\004name\030\001"
-    " \002(\t\022\r\n\005level\030\002 \002(\005\"e\n\031MsgS2CCmdModifyGM"
-    "LevelACK\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\022+\n"
-    "\005error\030\003 \002(\0162\022.message.GameError:\010Error_"
-    "NO\"\?\n\025MsgC2SCmdReqEnterGame\022\022\n\nchapter_i"
-    "d\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\">\n\024MsgC2SCmd"
-    "ReqResetMap\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsecti"
-    "on_id\030\002 \002(\005\"k\n\024MsgS2CCmdResetMapACK\022\022\n\nc"
-    "hapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022+\n\005e"
-    "rror\030\003 \002(\0162\022.message.GameError:\010Error_NO"
-    "\"\027\n\025MsgC2SCmdReqResetGame\"\256\001\n\025MsgS2CCmdR"
-    "esetGameACK\022\"\n\004info\030\001 \002(\0132\024.message.MsgH"
-    "eroData\022#\n\033current_advertisement_count\030\002"
-    " \002(\005\022\037\n\027last_advertisement_time\030\003 \002(\003\022+\n"
-    "\005error\030\004 \002(\0162\022.message.GameError:\010Error_"
-    "NO\"&\n\026MsgC2SCmdReqModifyGold\022\014\n\004gold\030\001 \002"
-    "(\005\"&\n\026MsgS2CCmdModifyGoldACK\022\014\n\004gold\030\001 \002"
-    "(\005\"-\n\027MsgS2CCmdReqReplaceTask\022\022\n\ntask_co"
-    "unt\030\001 \002(\005\"q\n\027MsgS2CCmdReplaceTaskACK\022+\n\005"
-    "error\030\001 \002(\0162\022.message.GameError:\010Error_N"
-    "O\022)\n\005infos\030\002 \003(\0132\032.message.MsgTaskConfig"
-    "Info\"(\n\027MsgC2SCmdReqModifyJewel\022\r\n\005jewel"
-    "\030\001 \002(\005\"]\n\027MsgS2CCmdModifyJewelACK\022\025\n\rcur"
-    "rent_jewel\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.messag"
-    "e.GameError:\010Error_NO\"*\n\030MsgC2SCmdReqMod"
-    "ifySpirit\022\016\n\006spirit\030\001 \002(\005\"_\n\030MsgS2CCmdMo"
-    "difySpiritACK\022\026\n\016current_spirit\030\001 \002(\005\022+\n"
-    "\005error\030\002 \002(\0162\022.message.GameError:\010Error_"
-    "NO*\335\014\n\tGameError\022\014\n\010Error_NO\020\000\022*\n&Error_"
-    "CanNotEnterGameTheInstanceIsLock\020\001\022+\n\'Er"
-    "ror_CanNotEnterGameTheCharacterIsLock\020\002\022"
-    ")\n%Error_CanNotEnterGameTheSectionIsLock"
-    "\020\003\022(\n$Error_CanNotEnterGameNotEnoughSpir"
-    "it\020\004\022$\n Error_CanNotBuyHeroNotEnoughgold"
-    "\020\005\0224\n0Error_CanNotPassGameTheInstanceNot"
-    "HaveEnoughGold\020\006\022\035\n\031Error_NotEnterTheExi"
-    "tGame\020\007\022)\n%Error_NotFoundTheChapterWhenE"
-    "nterGame\020\010\022\035\n\031Error_TheChapterIsNotLock\020"
-    "\t\0225\n1Error_UnlockChapterFailedNotFoundTh"
-    "eUnlockChapter\020\n\0226\n2Error_UnlockChapterF"
-    "ailedTheRequiredSectionNotPass\020\013\0229\n5Erro"
-    "r_UnlockChapterFailedYouHaveToCompleteEn"
-    "oughTasks\020\014\0221\n-Error_UnlockChapterFailed"
-    "YouNotHaveEnoughGold\020\r\022,\n(Error_RefreshA"
-    "dvertisementTaskFailedInCD\020\016\022<\n8Error_Re"
-    "freshAdvertisementTaskFailedNotFoundGive"
-    "UpTaskID\020\017\022.\n*Error_RefreshAdvertisement"
-    "TaskFailedUnknow\020\020\0225\n1Error_RefreshAdver"
-    "tisementTaskFailedNotEnoughGold\020\021\022$\n Err"
-    "or_BuyHeroFailedNotEnoughGold\020\022\022$\n Error"
-    "_BuyHeroFailedThePriceIsOld\020\023\022#\n\037Error_B"
-    "uyHeroFailedNotFoundGrid\020\024\022-\n)Error_BuyH"
-    "eroFailedNotPassRequiredSection\020\025\022/\n+Err"
-    "or_ModifyCurrentFailedTheCharacterIsLock"
-    "\020\026\022%\n!Error_BuyGoldFailedNotFoundConfig\020"
-    "\027\022$\n Error_BuyGoldFailedNotFoundOrder\020\030\022"
-    "0\n,Error_BuyGoldFailedTheOrderHaveBeenCo"
-    "mpleted\020\031\022-\n)Error_CreateDealFailedTheHt"
-    "tpErrorRespone\020\032\022.\n*Error_CreateDealFail"
-    "edTheHttpResponeFailed\020\033\0227\n3Error_Create"
-    "DealDailedTheHttpResponeErrorProduct_id\020"
-    "\034\022-\n)Error_VerifyDealFailedTheHttpErrorR"
-    "espone\020\035\022.\n*Error_VerifyDealFailedTheHtt"
-    "pResponeFailed\020\036\022\'\n#Error_BuySpiritFaile"
-    "dNotEnoughJewel\020\037\022,\n(Error_BuySpiritFail"
-    "edCanNotBuyMoreSpirit\020 \022\'\n#Error_BuySpir"
-    "itFailedNotFoundConfig\020!\022\"\n\036Error_CmdFai"
-    "ledRequiredGMLevel\020\"\022\"\n\036Error_ReliveFail"
-    "edNotEnoughGod\020#\022\020\n\014Error_Unknow\020$", 7234);
+    "figInfo\"(\n\027MsgC2SCmdReqModifyJewel\022\r\n\005je"
+    "wel\030\001 \002(\005\"]\n\027MsgS2CCmdModifyJewelACK\022\025\n\r"
+    "current_jewel\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.mes"
+    "sage.GameError:\010Error_NO\"*\n\030MsgC2SCmdReq"
+    "ModifySpirit\022\016\n\006spirit\030\001 \002(\005\"_\n\030MsgS2CCm"
+    "dModifySpiritACK\022\026\n\016current_spirit\030\001 \002(\005"
+    "\022+\n\005error\030\002 \002(\0162\022.message.GameError:\010Err"
+    "or_NO*\262\r\n\tGameError\022\014\n\010Error_NO\020\000\022*\n&Err"
+    "or_CanNotEnterGameTheInstanceIsLock\020\001\022+\n"
+    "\'Error_CanNotEnterGameTheCharacterIsLock"
+    "\020\002\022)\n%Error_CanNotEnterGameTheSectionIsL"
+    "ock\020\003\022(\n$Error_CanNotEnterGameNotEnoughS"
+    "pirit\020\004\022$\n Error_CanNotBuyHeroNotEnoughg"
+    "old\020\005\0224\n0Error_CanNotPassGameTheInstance"
+    "NotHaveEnoughGold\020\006\022\035\n\031Error_NotEnterThe"
+    "ExitGame\020\007\022)\n%Error_NotFoundTheChapterWh"
+    "enEnterGame\020\010\022\035\n\031Error_TheChapterIsNotLo"
+    "ck\020\t\0225\n1Error_UnlockChapterFailedNotFoun"
+    "dTheUnlockChapter\020\n\0226\n2Error_UnlockChapt"
+    "erFailedTheRequiredSectionNotPass\020\013\0229\n5E"
+    "rror_UnlockChapterFailedYouHaveToComplet"
+    "eEnoughTasks\020\014\0221\n-Error_UnlockChapterFai"
+    "ledYouNotHaveEnoughGold\020\r\022,\n(Error_Refre"
+    "shAdvertisementTaskFailedInCD\020\016\022<\n8Error"
+    "_RefreshAdvertisementTaskFailedNotFoundG"
+    "iveUpTaskID\020\017\022.\n*Error_RefreshAdvertisem"
+    "entTaskFailedUnknow\020\020\0225\n1Error_RefreshAd"
+    "vertisementTaskFailedNotEnoughGold\020\021\022$\n "
+    "Error_BuyHeroFailedNotEnoughGold\020\022\022$\n Er"
+    "ror_BuyHeroFailedThePriceIsOld\020\023\022#\n\037Erro"
+    "r_BuyHeroFailedNotFoundGrid\020\024\022-\n)Error_B"
+    "uyHeroFailedNotPassRequiredSection\020\025\022/\n+"
+    "Error_ModifyCurrentFailedTheCharacterIsL"
+    "ock\020\026\022%\n!Error_BuyGoldFailedNotFoundConf"
+    "ig\020\027\022$\n Error_BuyGoldFailedNotFoundOrder"
+    "\020\030\0220\n,Error_BuyGoldFailedTheOrderHaveBee"
+    "nCompleted\020\031\022-\n)Error_CreateDealFailedTh"
+    "eHttpErrorRespone\020\032\022.\n*Error_CreateDealF"
+    "ailedTheHttpResponeFailed\020\033\0227\n3Error_Cre"
+    "ateDealDailedTheHttpResponeErrorProduct_"
+    "id\020\034\022-\n)Error_VerifyDealFailedTheHttpErr"
+    "orRespone\020\035\022.\n*Error_VerifyDealFailedThe"
+    "HttpResponeFailed\020\036\022\'\n#Error_BuySpiritFa"
+    "iledNotEnoughJewel\020\037\022,\n(Error_BuySpiritF"
+    "ailedCanNotBuyMoreSpirit\020 \022\'\n#Error_BuyS"
+    "piritFailedNotFoundConfig\020!\022\"\n\036Error_Cmd"
+    "FailedRequiredGMLevel\020\"\022\"\n\036Error_ReliveF"
+    "ailedNotEnoughGod\020#\022(\n$Error_FailedToBuy"
+    "LotionNotEnoughGold\020$\022)\n%Error_FailedToB"
+    "uyLotionNotEnoughJewel\020%\022\020\n\014Error_Unknow"
+    "\020&*@\n\rLotionUseType\022\026\n\022LotionUseType_gol"
+    "d\020\001\022\027\n\023LotionUseType_jewel\020\002", 7748);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgS2CNotifyError::default_instance_ = new MsgS2CNotifyError();
@@ -1649,7 +1736,10 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CSGameGlobalConfigACK::default_instance_ = new MsgS2CSGameGlobalConfigACK();
   MsgS2CNewTaskNotify::default_instance_ = new MsgS2CNewTaskNotify();
   MsgSpiritShopInfo::default_instance_ = new MsgSpiritShopInfo();
+  MsgLotionShopConfigInfo::default_instance_ = new MsgLotionShopConfigInfo();
   MsgS2CHeroesInit::default_instance_ = new MsgS2CHeroesInit();
+  MsgC2SReqBuyLotion::default_instance_ = new MsgC2SReqBuyLotion();
+  MsgS2CBuyLotionACK::default_instance_ = new MsgS2CBuyLotionACK();
   MsgC2SReqBuySpirit::default_instance_ = new MsgC2SReqBuySpirit();
   MsgS2CBuySpiritACK::default_instance_ = new MsgS2CBuySpiritACK();
   MsgC2SReqEnterGame::default_instance_ = new MsgC2SReqEnterGame();
@@ -1709,7 +1799,10 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CSGameGlobalConfigACK::default_instance_->InitAsDefaultInstance();
   MsgS2CNewTaskNotify::default_instance_->InitAsDefaultInstance();
   MsgSpiritShopInfo::default_instance_->InitAsDefaultInstance();
+  MsgLotionShopConfigInfo::default_instance_->InitAsDefaultInstance();
   MsgS2CHeroesInit::default_instance_->InitAsDefaultInstance();
+  MsgC2SReqBuyLotion::default_instance_->InitAsDefaultInstance();
+  MsgS2CBuyLotionACK::default_instance_->InitAsDefaultInstance();
   MsgC2SReqBuySpirit::default_instance_->InitAsDefaultInstance();
   MsgS2CBuySpiritACK::default_instance_->InitAsDefaultInstance();
   MsgC2SReqEnterGame::default_instance_->InitAsDefaultInstance();
@@ -1814,6 +1907,22 @@ bool GameError_IsValid(int value) {
     case 34:
     case 35:
     case 36:
+    case 37:
+    case 38:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* LotionUseType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LotionUseType_descriptor_;
+}
+bool LotionUseType_IsValid(int value) {
+  switch(value) {
+    case 1:
+    case 2:
       return true;
     default:
       return false;
@@ -3898,6 +4007,424 @@ void MsgSpiritShopInfo::InternalSwap(MsgSpiritShopInfo* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int MsgLotionShopConfigInfo::kLotionIdFieldNumber;
+const int MsgLotionShopConfigInfo::kUseTypeFieldNumber;
+const int MsgLotionShopConfigInfo::kUseCountFieldNumber;
+#endif  // !_MSC_VER
+
+MsgLotionShopConfigInfo::MsgLotionShopConfigInfo()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgLotionShopConfigInfo)
+}
+
+void MsgLotionShopConfigInfo::InitAsDefaultInstance() {
+}
+
+MsgLotionShopConfigInfo::MsgLotionShopConfigInfo(const MsgLotionShopConfigInfo& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgLotionShopConfigInfo)
+}
+
+void MsgLotionShopConfigInfo::SharedCtor() {
+  _cached_size_ = 0;
+  lotion_id_ = 0;
+  use_type_ = 1;
+  use_count_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgLotionShopConfigInfo::~MsgLotionShopConfigInfo() {
+  // @@protoc_insertion_point(destructor:message.MsgLotionShopConfigInfo)
+  SharedDtor();
+}
+
+void MsgLotionShopConfigInfo::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgLotionShopConfigInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgLotionShopConfigInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgLotionShopConfigInfo_descriptor_;
+}
+
+const MsgLotionShopConfigInfo& MsgLotionShopConfigInfo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgLotionShopConfigInfo* MsgLotionShopConfigInfo::default_instance_ = NULL;
+
+MsgLotionShopConfigInfo* MsgLotionShopConfigInfo::New(::google::protobuf::Arena* arena) const {
+  MsgLotionShopConfigInfo* n = new MsgLotionShopConfigInfo;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgLotionShopConfigInfo::Clear() {
+  if (_has_bits_[0 / 32] & 7) {
+    lotion_id_ = 0;
+    use_type_ = 1;
+    use_count_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgLotionShopConfigInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgLotionShopConfigInfo)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 lotion_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &lotion_id_)));
+          set_has_lotion_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_use_type;
+        break;
+      }
+
+      // required .message.LotionUseType use_type = 2 [default = LotionUseType_gold];
+      case 2: {
+        if (tag == 16) {
+         parse_use_type:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::message::LotionUseType_IsValid(value)) {
+            set_use_type(static_cast< ::message::LotionUseType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(2, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_use_count;
+        break;
+      }
+
+      // required int32 use_count = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_use_count:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &use_count_)));
+          set_has_use_count();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgLotionShopConfigInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgLotionShopConfigInfo)
+  return false;
+#undef DO_
+}
+
+void MsgLotionShopConfigInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgLotionShopConfigInfo)
+  // required int32 lotion_id = 1;
+  if (has_lotion_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lotion_id(), output);
+  }
+
+  // required .message.LotionUseType use_type = 2 [default = LotionUseType_gold];
+  if (has_use_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->use_type(), output);
+  }
+
+  // required int32 use_count = 3;
+  if (has_use_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->use_count(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgLotionShopConfigInfo)
+}
+
+::google::protobuf::uint8* MsgLotionShopConfigInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgLotionShopConfigInfo)
+  // required int32 lotion_id = 1;
+  if (has_lotion_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lotion_id(), target);
+  }
+
+  // required .message.LotionUseType use_type = 2 [default = LotionUseType_gold];
+  if (has_use_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->use_type(), target);
+  }
+
+  // required int32 use_count = 3;
+  if (has_use_count()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->use_count(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgLotionShopConfigInfo)
+  return target;
+}
+
+int MsgLotionShopConfigInfo::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_lotion_id()) {
+    // required int32 lotion_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->lotion_id());
+  }
+
+  if (has_use_type()) {
+    // required .message.LotionUseType use_type = 2 [default = LotionUseType_gold];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->use_type());
+  }
+
+  if (has_use_count()) {
+    // required int32 use_count = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->use_count());
+  }
+
+  return total_size;
+}
+int MsgLotionShopConfigInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required int32 lotion_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->lotion_id());
+
+    // required .message.LotionUseType use_type = 2 [default = LotionUseType_gold];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->use_type());
+
+    // required int32 use_count = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->use_count());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgLotionShopConfigInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgLotionShopConfigInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgLotionShopConfigInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgLotionShopConfigInfo::MergeFrom(const MsgLotionShopConfigInfo& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_lotion_id()) {
+      set_lotion_id(from.lotion_id());
+    }
+    if (from.has_use_type()) {
+      set_use_type(from.use_type());
+    }
+    if (from.has_use_count()) {
+      set_use_count(from.use_count());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgLotionShopConfigInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgLotionShopConfigInfo::CopyFrom(const MsgLotionShopConfigInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgLotionShopConfigInfo::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  return true;
+}
+
+void MsgLotionShopConfigInfo::Swap(MsgLotionShopConfigInfo* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgLotionShopConfigInfo::InternalSwap(MsgLotionShopConfigInfo* other) {
+  std::swap(lotion_id_, other->lotion_id_);
+  std::swap(use_type_, other->use_type_);
+  std::swap(use_count_, other->use_count_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgLotionShopConfigInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgLotionShopConfigInfo_descriptor_;
+  metadata.reflection = MsgLotionShopConfigInfo_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgLotionShopConfigInfo
+
+// required int32 lotion_id = 1;
+ bool MsgLotionShopConfigInfo::has_lotion_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgLotionShopConfigInfo::set_has_lotion_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgLotionShopConfigInfo::clear_has_lotion_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgLotionShopConfigInfo::clear_lotion_id() {
+  lotion_id_ = 0;
+  clear_has_lotion_id();
+}
+ ::google::protobuf::int32 MsgLotionShopConfigInfo::lotion_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.lotion_id)
+  return lotion_id_;
+}
+ void MsgLotionShopConfigInfo::set_lotion_id(::google::protobuf::int32 value) {
+  set_has_lotion_id();
+  lotion_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.lotion_id)
+}
+
+// required .message.LotionUseType use_type = 2 [default = LotionUseType_gold];
+ bool MsgLotionShopConfigInfo::has_use_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgLotionShopConfigInfo::set_has_use_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgLotionShopConfigInfo::clear_has_use_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgLotionShopConfigInfo::clear_use_type() {
+  use_type_ = 1;
+  clear_has_use_type();
+}
+ ::message::LotionUseType MsgLotionShopConfigInfo::use_type() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.use_type)
+  return static_cast< ::message::LotionUseType >(use_type_);
+}
+ void MsgLotionShopConfigInfo::set_use_type(::message::LotionUseType value) {
+  assert(::message::LotionUseType_IsValid(value));
+  set_has_use_type();
+  use_type_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.use_type)
+}
+
+// required int32 use_count = 3;
+ bool MsgLotionShopConfigInfo::has_use_count() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgLotionShopConfigInfo::set_has_use_count() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgLotionShopConfigInfo::clear_has_use_count() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgLotionShopConfigInfo::clear_use_count() {
+  use_count_ = 0;
+  clear_has_use_count();
+}
+ ::google::protobuf::int32 MsgLotionShopConfigInfo::use_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.use_count)
+  return use_count_;
+}
+ void MsgLotionShopConfigInfo::set_use_count(::google::protobuf::int32 value) {
+  set_has_use_count();
+  use_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.use_count)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int MsgS2CHeroesInit::kInfoFieldNumber;
 const int MsgS2CHeroesInit::kTaskConfigInfosFieldNumber;
 const int MsgS2CHeroesInit::kFreeAdvertisementConfigCountFieldNumber;
@@ -3917,6 +4444,7 @@ const int MsgS2CHeroesInit::kConfigDayBuySpiritFieldNumber;
 const int MsgS2CHeroesInit::kLastRecoverSpiritTimeFieldNumber;
 const int MsgS2CHeroesInit::kLastBuySpiritTimeFieldNumber;
 const int MsgS2CHeroesInit::kDayRefreshTimeFieldNumber;
+const int MsgS2CHeroesInit::kLotionShopConfigsFieldNumber;
 #endif  // !_MSC_VER
 
 MsgS2CHeroesInit::MsgS2CHeroesInit()
@@ -4021,6 +4549,7 @@ void MsgS2CHeroesInit::Clear() {
   task_config_infos_.Clear();
   special_creatures_.Clear();
   sprit_shop_infos_.Clear();
+  lotion_shop_configs_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -4312,6 +4841,20 @@ bool MsgS2CHeroesInit::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(162)) goto parse_lotion_shop_configs;
+        break;
+      }
+
+      // repeated .message.MsgLotionShopConfigInfo lotion_shop_configs = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_lotion_shop_configs:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_lotion_shop_configs()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_lotion_shop_configs;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -4440,6 +4983,12 @@ void MsgS2CHeroesInit::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->day_refresh_time(), output);
   }
 
+  // repeated .message.MsgLotionShopConfigInfo lotion_shop_configs = 20;
+  for (unsigned int i = 0, n = this->lotion_shop_configs_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      20, this->lotion_shop_configs(i), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -4551,6 +5100,13 @@ void MsgS2CHeroesInit::SerializeWithCachedSizes(
   // required int32 day_refresh_time = 19;
   if (has_day_refresh_time()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->day_refresh_time(), target);
+  }
+
+  // repeated .message.MsgLotionShopConfigInfo lotion_shop_configs = 20;
+  for (unsigned int i = 0, n = this->lotion_shop_configs_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        20, this->lotion_shop_configs(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4789,6 +5345,14 @@ int MsgS2CHeroesInit::ByteSize() const {
         this->sprit_shop_infos(i));
   }
 
+  // repeated .message.MsgLotionShopConfigInfo lotion_shop_configs = 20;
+  total_size += 2 * this->lotion_shop_configs_size();
+  for (int i = 0; i < this->lotion_shop_configs_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->lotion_shop_configs(i));
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -4817,6 +5381,7 @@ void MsgS2CHeroesInit::MergeFrom(const MsgS2CHeroesInit& from) {
   task_config_infos_.MergeFrom(from.task_config_infos_);
   special_creatures_.MergeFrom(from.special_creatures_);
   sprit_shop_infos_.MergeFrom(from.sprit_shop_infos_);
+  lotion_shop_configs_.MergeFrom(from.lotion_shop_configs_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_info()) {
       mutable_info()->::message::MsgHeroData::MergeFrom(from.info());
@@ -4897,6 +5462,7 @@ bool MsgS2CHeroesInit::IsInitialized() const {
   if (!::google::protobuf::internal::AllAreInitialized(this->task_config_infos())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->special_creatures())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->sprit_shop_infos())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->lotion_shop_configs())) return false;
   return true;
 }
 
@@ -4924,6 +5490,7 @@ void MsgS2CHeroesInit::InternalSwap(MsgS2CHeroesInit* other) {
   std::swap(last_recover_spirit_time_, other->last_recover_spirit_time_);
   std::swap(last_buy_spirit_time_, other->last_buy_spirit_time_);
   std::swap(day_refresh_time_, other->day_refresh_time_);
+  lotion_shop_configs_.UnsafeArenaSwap(&other->lotion_shop_configs_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -5431,6 +5998,788 @@ MsgS2CHeroesInit::mutable_sprit_shop_infos() {
   set_has_day_refresh_time();
   day_refresh_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.day_refresh_time)
+}
+
+// repeated .message.MsgLotionShopConfigInfo lotion_shop_configs = 20;
+ int MsgS2CHeroesInit::lotion_shop_configs_size() const {
+  return lotion_shop_configs_.size();
+}
+ void MsgS2CHeroesInit::clear_lotion_shop_configs() {
+  lotion_shop_configs_.Clear();
+}
+ const ::message::MsgLotionShopConfigInfo& MsgS2CHeroesInit::lotion_shop_configs(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return lotion_shop_configs_.Get(index);
+}
+ ::message::MsgLotionShopConfigInfo* MsgS2CHeroesInit::mutable_lotion_shop_configs(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return lotion_shop_configs_.Mutable(index);
+}
+ ::message::MsgLotionShopConfigInfo* MsgS2CHeroesInit::add_lotion_shop_configs() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return lotion_shop_configs_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo >&
+MsgS2CHeroesInit::lotion_shop_configs() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return lotion_shop_configs_;
+}
+ ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo >*
+MsgS2CHeroesInit::mutable_lotion_shop_configs() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return &lotion_shop_configs_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgC2SReqBuyLotion::kLotionIdFieldNumber;
+#endif  // !_MSC_VER
+
+MsgC2SReqBuyLotion::MsgC2SReqBuyLotion()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgC2SReqBuyLotion)
+}
+
+void MsgC2SReqBuyLotion::InitAsDefaultInstance() {
+}
+
+MsgC2SReqBuyLotion::MsgC2SReqBuyLotion(const MsgC2SReqBuyLotion& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgC2SReqBuyLotion)
+}
+
+void MsgC2SReqBuyLotion::SharedCtor() {
+  _cached_size_ = 0;
+  lotion_id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgC2SReqBuyLotion::~MsgC2SReqBuyLotion() {
+  // @@protoc_insertion_point(destructor:message.MsgC2SReqBuyLotion)
+  SharedDtor();
+}
+
+void MsgC2SReqBuyLotion::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgC2SReqBuyLotion::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgC2SReqBuyLotion::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgC2SReqBuyLotion_descriptor_;
+}
+
+const MsgC2SReqBuyLotion& MsgC2SReqBuyLotion::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgC2SReqBuyLotion* MsgC2SReqBuyLotion::default_instance_ = NULL;
+
+MsgC2SReqBuyLotion* MsgC2SReqBuyLotion::New(::google::protobuf::Arena* arena) const {
+  MsgC2SReqBuyLotion* n = new MsgC2SReqBuyLotion;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgC2SReqBuyLotion::Clear() {
+  lotion_id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgC2SReqBuyLotion::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgC2SReqBuyLotion)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 lotion_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &lotion_id_)));
+          set_has_lotion_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgC2SReqBuyLotion)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgC2SReqBuyLotion)
+  return false;
+#undef DO_
+}
+
+void MsgC2SReqBuyLotion::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgC2SReqBuyLotion)
+  // required int32 lotion_id = 1;
+  if (has_lotion_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lotion_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgC2SReqBuyLotion)
+}
+
+::google::protobuf::uint8* MsgC2SReqBuyLotion::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SReqBuyLotion)
+  // required int32 lotion_id = 1;
+  if (has_lotion_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lotion_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SReqBuyLotion)
+  return target;
+}
+
+int MsgC2SReqBuyLotion::ByteSize() const {
+  int total_size = 0;
+
+  // required int32 lotion_id = 1;
+  if (has_lotion_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->lotion_id());
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgC2SReqBuyLotion::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgC2SReqBuyLotion* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SReqBuyLotion*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgC2SReqBuyLotion::MergeFrom(const MsgC2SReqBuyLotion& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_lotion_id()) {
+      set_lotion_id(from.lotion_id());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgC2SReqBuyLotion::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgC2SReqBuyLotion::CopyFrom(const MsgC2SReqBuyLotion& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgC2SReqBuyLotion::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void MsgC2SReqBuyLotion::Swap(MsgC2SReqBuyLotion* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgC2SReqBuyLotion::InternalSwap(MsgC2SReqBuyLotion* other) {
+  std::swap(lotion_id_, other->lotion_id_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgC2SReqBuyLotion::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgC2SReqBuyLotion_descriptor_;
+  metadata.reflection = MsgC2SReqBuyLotion_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgC2SReqBuyLotion
+
+// required int32 lotion_id = 1;
+ bool MsgC2SReqBuyLotion::has_lotion_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgC2SReqBuyLotion::set_has_lotion_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgC2SReqBuyLotion::clear_has_lotion_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgC2SReqBuyLotion::clear_lotion_id() {
+  lotion_id_ = 0;
+  clear_has_lotion_id();
+}
+ ::google::protobuf::int32 MsgC2SReqBuyLotion::lotion_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqBuyLotion.lotion_id)
+  return lotion_id_;
+}
+ void MsgC2SReqBuyLotion::set_lotion_id(::google::protobuf::int32 value) {
+  set_has_lotion_id();
+  lotion_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqBuyLotion.lotion_id)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgS2CBuyLotionACK::kLotionIdFieldNumber;
+const int MsgS2CBuyLotionACK::kCurrentGoldFieldNumber;
+const int MsgS2CBuyLotionACK::kCurrentJewelFieldNumber;
+const int MsgS2CBuyLotionACK::kErrorFieldNumber;
+#endif  // !_MSC_VER
+
+MsgS2CBuyLotionACK::MsgS2CBuyLotionACK()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgS2CBuyLotionACK)
+}
+
+void MsgS2CBuyLotionACK::InitAsDefaultInstance() {
+}
+
+MsgS2CBuyLotionACK::MsgS2CBuyLotionACK(const MsgS2CBuyLotionACK& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgS2CBuyLotionACK)
+}
+
+void MsgS2CBuyLotionACK::SharedCtor() {
+  _cached_size_ = 0;
+  lotion_id_ = 0;
+  current_gold_ = 0;
+  current_jewel_ = 0;
+  error_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgS2CBuyLotionACK::~MsgS2CBuyLotionACK() {
+  // @@protoc_insertion_point(destructor:message.MsgS2CBuyLotionACK)
+  SharedDtor();
+}
+
+void MsgS2CBuyLotionACK::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgS2CBuyLotionACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgS2CBuyLotionACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgS2CBuyLotionACK_descriptor_;
+}
+
+const MsgS2CBuyLotionACK& MsgS2CBuyLotionACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgS2CBuyLotionACK* MsgS2CBuyLotionACK::default_instance_ = NULL;
+
+MsgS2CBuyLotionACK* MsgS2CBuyLotionACK::New(::google::protobuf::Arena* arena) const {
+  MsgS2CBuyLotionACK* n = new MsgS2CBuyLotionACK;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgS2CBuyLotionACK::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgS2CBuyLotionACK*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(lotion_id_, error_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgS2CBuyLotionACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgS2CBuyLotionACK)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 lotion_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &lotion_id_)));
+          set_has_lotion_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_current_gold;
+        break;
+      }
+
+      // required int32 current_gold = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_current_gold:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &current_gold_)));
+          set_has_current_gold();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_current_jewel;
+        break;
+      }
+
+      // required int32 current_jewel = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_current_jewel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &current_jewel_)));
+          set_has_current_jewel();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_error;
+        break;
+      }
+
+      // required .message.GameError error = 4 [default = Error_NO];
+      case 4: {
+        if (tag == 32) {
+         parse_error:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::message::GameError_IsValid(value)) {
+            set_error(static_cast< ::message::GameError >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(4, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgS2CBuyLotionACK)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgS2CBuyLotionACK)
+  return false;
+#undef DO_
+}
+
+void MsgS2CBuyLotionACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgS2CBuyLotionACK)
+  // required int32 lotion_id = 1;
+  if (has_lotion_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lotion_id(), output);
+  }
+
+  // required int32 current_gold = 2;
+  if (has_current_gold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->current_gold(), output);
+  }
+
+  // required int32 current_jewel = 3;
+  if (has_current_jewel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->current_jewel(), output);
+  }
+
+  // required .message.GameError error = 4 [default = Error_NO];
+  if (has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->error(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgS2CBuyLotionACK)
+}
+
+::google::protobuf::uint8* MsgS2CBuyLotionACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CBuyLotionACK)
+  // required int32 lotion_id = 1;
+  if (has_lotion_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lotion_id(), target);
+  }
+
+  // required int32 current_gold = 2;
+  if (has_current_gold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->current_gold(), target);
+  }
+
+  // required int32 current_jewel = 3;
+  if (has_current_jewel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->current_jewel(), target);
+  }
+
+  // required .message.GameError error = 4 [default = Error_NO];
+  if (has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->error(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CBuyLotionACK)
+  return target;
+}
+
+int MsgS2CBuyLotionACK::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_lotion_id()) {
+    // required int32 lotion_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->lotion_id());
+  }
+
+  if (has_current_gold()) {
+    // required int32 current_gold = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->current_gold());
+  }
+
+  if (has_current_jewel()) {
+    // required int32 current_jewel = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->current_jewel());
+  }
+
+  if (has_error()) {
+    // required .message.GameError error = 4 [default = Error_NO];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
+  }
+
+  return total_size;
+}
+int MsgS2CBuyLotionACK::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+    // required int32 lotion_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->lotion_id());
+
+    // required int32 current_gold = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->current_gold());
+
+    // required int32 current_jewel = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->current_jewel());
+
+    // required .message.GameError error = 4 [default = Error_NO];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgS2CBuyLotionACK::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgS2CBuyLotionACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CBuyLotionACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgS2CBuyLotionACK::MergeFrom(const MsgS2CBuyLotionACK& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_lotion_id()) {
+      set_lotion_id(from.lotion_id());
+    }
+    if (from.has_current_gold()) {
+      set_current_gold(from.current_gold());
+    }
+    if (from.has_current_jewel()) {
+      set_current_jewel(from.current_jewel());
+    }
+    if (from.has_error()) {
+      set_error(from.error());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgS2CBuyLotionACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgS2CBuyLotionACK::CopyFrom(const MsgS2CBuyLotionACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgS2CBuyLotionACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+
+  return true;
+}
+
+void MsgS2CBuyLotionACK::Swap(MsgS2CBuyLotionACK* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgS2CBuyLotionACK::InternalSwap(MsgS2CBuyLotionACK* other) {
+  std::swap(lotion_id_, other->lotion_id_);
+  std::swap(current_gold_, other->current_gold_);
+  std::swap(current_jewel_, other->current_jewel_);
+  std::swap(error_, other->error_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgS2CBuyLotionACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgS2CBuyLotionACK_descriptor_;
+  metadata.reflection = MsgS2CBuyLotionACK_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgS2CBuyLotionACK
+
+// required int32 lotion_id = 1;
+ bool MsgS2CBuyLotionACK::has_lotion_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgS2CBuyLotionACK::set_has_lotion_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgS2CBuyLotionACK::clear_has_lotion_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgS2CBuyLotionACK::clear_lotion_id() {
+  lotion_id_ = 0;
+  clear_has_lotion_id();
+}
+ ::google::protobuf::int32 MsgS2CBuyLotionACK::lotion_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuyLotionACK.lotion_id)
+  return lotion_id_;
+}
+ void MsgS2CBuyLotionACK::set_lotion_id(::google::protobuf::int32 value) {
+  set_has_lotion_id();
+  lotion_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuyLotionACK.lotion_id)
+}
+
+// required int32 current_gold = 2;
+ bool MsgS2CBuyLotionACK::has_current_gold() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgS2CBuyLotionACK::set_has_current_gold() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgS2CBuyLotionACK::clear_has_current_gold() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgS2CBuyLotionACK::clear_current_gold() {
+  current_gold_ = 0;
+  clear_has_current_gold();
+}
+ ::google::protobuf::int32 MsgS2CBuyLotionACK::current_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuyLotionACK.current_gold)
+  return current_gold_;
+}
+ void MsgS2CBuyLotionACK::set_current_gold(::google::protobuf::int32 value) {
+  set_has_current_gold();
+  current_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuyLotionACK.current_gold)
+}
+
+// required int32 current_jewel = 3;
+ bool MsgS2CBuyLotionACK::has_current_jewel() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgS2CBuyLotionACK::set_has_current_jewel() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgS2CBuyLotionACK::clear_has_current_jewel() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgS2CBuyLotionACK::clear_current_jewel() {
+  current_jewel_ = 0;
+  clear_has_current_jewel();
+}
+ ::google::protobuf::int32 MsgS2CBuyLotionACK::current_jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuyLotionACK.current_jewel)
+  return current_jewel_;
+}
+ void MsgS2CBuyLotionACK::set_current_jewel(::google::protobuf::int32 value) {
+  set_has_current_jewel();
+  current_jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuyLotionACK.current_jewel)
+}
+
+// required .message.GameError error = 4 [default = Error_NO];
+ bool MsgS2CBuyLotionACK::has_error() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void MsgS2CBuyLotionACK::set_has_error() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void MsgS2CBuyLotionACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+ void MsgS2CBuyLotionACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+ ::message::GameError MsgS2CBuyLotionACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuyLotionACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+ void MsgS2CBuyLotionACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuyLotionACK.error)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -105,6 +105,7 @@ typedef std::map<std::pair<int, int>, MAPBEHAVIORCONFIGS> MAPALLBEHAVIORCONFIGS;
 typedef std::map<int, MapRandomObjsConfig> MAPRANDOMOBJCONFIGS;
 typedef std::map<std::pair<int, int>, MAPRANDOMOBJCONFIGS> MAPALLRANDOMOBJCONFIGS;
 typedef std::map<std::pair<int, int>, MAPTYPEDROPBOXCONFIGS> MAPMAPDROPBOXCONFIGS;
+typedef std::map<int, message::MsgLotionShopConfigInfo> MAPLOTIONSHOPCONFIGS;
 
 typedef std::map<int, message::MsgSpiritShopInfo> MAPSPIRITSHOP;
 

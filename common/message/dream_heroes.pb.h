@@ -45,7 +45,10 @@ class MsgC2SReqGameGlobalConfig;
 class MsgS2CSGameGlobalConfigACK;
 class MsgS2CNewTaskNotify;
 class MsgSpiritShopInfo;
+class MsgLotionShopConfigInfo;
 class MsgS2CHeroesInit;
+class MsgC2SReqBuyLotion;
+class MsgS2CBuyLotionACK;
 class MsgC2SReqBuySpirit;
 class MsgS2CBuySpiritACK;
 class MsgC2SReqEnterGame;
@@ -136,7 +139,9 @@ enum GameError {
   Error_BuySpiritFailedNotFoundConfig = 33,
   Error_CmdFailedRequiredGMLevel = 34,
   Error_ReliveFailedNotEnoughGod = 35,
-  Error_Unknow = 36
+  Error_FailedToBuyLotionNotEnoughGold = 36,
+  Error_FailedToBuyLotionNotEnoughJewel = 37,
+  Error_Unknow = 38
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
@@ -152,6 +157,25 @@ inline bool GameError_Parse(
     const ::std::string& name, GameError* value) {
   return ::google::protobuf::internal::ParseNamedEnum<GameError>(
     GameError_descriptor(), name, value);
+}
+enum LotionUseType {
+  LotionUseType_gold = 1,
+  LotionUseType_jewel = 2
+};
+bool LotionUseType_IsValid(int value);
+const LotionUseType LotionUseType_MIN = LotionUseType_gold;
+const LotionUseType LotionUseType_MAX = LotionUseType_jewel;
+const int LotionUseType_ARRAYSIZE = LotionUseType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* LotionUseType_descriptor();
+inline const ::std::string& LotionUseType_Name(LotionUseType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    LotionUseType_descriptor(), value);
+}
+inline bool LotionUseType_Parse(
+    const ::std::string& name, LotionUseType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<LotionUseType>(
+    LotionUseType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -814,6 +838,118 @@ class MsgSpiritShopInfo : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
+ public:
+  MsgLotionShopConfigInfo();
+  virtual ~MsgLotionShopConfigInfo();
+
+  MsgLotionShopConfigInfo(const MsgLotionShopConfigInfo& from);
+
+  inline MsgLotionShopConfigInfo& operator=(const MsgLotionShopConfigInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgLotionShopConfigInfo& default_instance();
+
+  void Swap(MsgLotionShopConfigInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgLotionShopConfigInfo* New() const { return New(NULL); }
+
+  MsgLotionShopConfigInfo* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgLotionShopConfigInfo& from);
+  void MergeFrom(const MsgLotionShopConfigInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgLotionShopConfigInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 lotion_id = 1;
+  bool has_lotion_id() const;
+  void clear_lotion_id();
+  static const int kLotionIdFieldNumber = 1;
+  ::google::protobuf::int32 lotion_id() const;
+  void set_lotion_id(::google::protobuf::int32 value);
+
+  // required .message.LotionUseType use_type = 2 [default = LotionUseType_gold];
+  bool has_use_type() const;
+  void clear_use_type();
+  static const int kUseTypeFieldNumber = 2;
+  ::message::LotionUseType use_type() const;
+  void set_use_type(::message::LotionUseType value);
+
+  // required int32 use_count = 3;
+  bool has_use_count() const;
+  void clear_use_count();
+  static const int kUseCountFieldNumber = 3;
+  ::google::protobuf::int32 use_count() const;
+  void set_use_count(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgLotionShopConfigInfo)
+ private:
+  inline void set_has_lotion_id();
+  inline void clear_has_lotion_id();
+  inline void set_has_use_type();
+  inline void clear_has_use_type();
+  inline void set_has_use_count();
+  inline void clear_has_use_count();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 lotion_id_;
+  int use_type_;
+  ::google::protobuf::int32 use_count_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgLotionShopConfigInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MsgS2CHeroesInit : public ::google::protobuf::Message {
  public:
   MsgS2CHeroesInit();
@@ -1028,6 +1164,18 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int32 day_refresh_time() const;
   void set_day_refresh_time(::google::protobuf::int32 value);
 
+  // repeated .message.MsgLotionShopConfigInfo lotion_shop_configs = 20;
+  int lotion_shop_configs_size() const;
+  void clear_lotion_shop_configs();
+  static const int kLotionShopConfigsFieldNumber = 20;
+  const ::message::MsgLotionShopConfigInfo& lotion_shop_configs(int index) const;
+  ::message::MsgLotionShopConfigInfo* mutable_lotion_shop_configs(int index);
+  ::message::MsgLotionShopConfigInfo* add_lotion_shop_configs();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo >&
+      lotion_shop_configs() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo >*
+      mutable_lotion_shop_configs();
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
   inline void set_has_info();
@@ -1088,12 +1236,224 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int32 last_recover_spirit_time_;
   ::google::protobuf::int32 last_buy_spirit_time_;
   ::google::protobuf::int32 day_refresh_time_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo > lotion_shop_configs_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
 
   void InitAsDefaultInstance();
   static MsgS2CHeroesInit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqBuyLotion : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqBuyLotion();
+  virtual ~MsgC2SReqBuyLotion();
+
+  MsgC2SReqBuyLotion(const MsgC2SReqBuyLotion& from);
+
+  inline MsgC2SReqBuyLotion& operator=(const MsgC2SReqBuyLotion& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqBuyLotion& default_instance();
+
+  void Swap(MsgC2SReqBuyLotion* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqBuyLotion* New() const { return New(NULL); }
+
+  MsgC2SReqBuyLotion* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqBuyLotion& from);
+  void MergeFrom(const MsgC2SReqBuyLotion& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqBuyLotion* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 lotion_id = 1;
+  bool has_lotion_id() const;
+  void clear_lotion_id();
+  static const int kLotionIdFieldNumber = 1;
+  ::google::protobuf::int32 lotion_id() const;
+  void set_lotion_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqBuyLotion)
+ private:
+  inline void set_has_lotion_id();
+  inline void clear_has_lotion_id();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 lotion_id_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqBuyLotion* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CBuyLotionACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CBuyLotionACK();
+  virtual ~MsgS2CBuyLotionACK();
+
+  MsgS2CBuyLotionACK(const MsgS2CBuyLotionACK& from);
+
+  inline MsgS2CBuyLotionACK& operator=(const MsgS2CBuyLotionACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CBuyLotionACK& default_instance();
+
+  void Swap(MsgS2CBuyLotionACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CBuyLotionACK* New() const { return New(NULL); }
+
+  MsgS2CBuyLotionACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CBuyLotionACK& from);
+  void MergeFrom(const MsgS2CBuyLotionACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CBuyLotionACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 lotion_id = 1;
+  bool has_lotion_id() const;
+  void clear_lotion_id();
+  static const int kLotionIdFieldNumber = 1;
+  ::google::protobuf::int32 lotion_id() const;
+  void set_lotion_id(::google::protobuf::int32 value);
+
+  // required int32 current_gold = 2;
+  bool has_current_gold() const;
+  void clear_current_gold();
+  static const int kCurrentGoldFieldNumber = 2;
+  ::google::protobuf::int32 current_gold() const;
+  void set_current_gold(::google::protobuf::int32 value);
+
+  // required int32 current_jewel = 3;
+  bool has_current_jewel() const;
+  void clear_current_jewel();
+  static const int kCurrentJewelFieldNumber = 3;
+  ::google::protobuf::int32 current_jewel() const;
+  void set_current_jewel(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 4 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 4;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CBuyLotionACK)
+ private:
+  inline void set_has_lotion_id();
+  inline void clear_has_lotion_id();
+  inline void set_has_current_gold();
+  inline void clear_has_current_gold();
+  inline void set_has_current_jewel();
+  inline void clear_has_current_jewel();
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 lotion_id_;
+  ::google::protobuf::int32 current_gold_;
+  ::google::protobuf::int32 current_jewel_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CBuyLotionACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -6800,6 +7160,83 @@ inline void MsgSpiritShopInfo::set_allocated_descript(::std::string* descript) {
 
 // -------------------------------------------------------------------
 
+// MsgLotionShopConfigInfo
+
+// required int32 lotion_id = 1;
+inline bool MsgLotionShopConfigInfo::has_lotion_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgLotionShopConfigInfo::set_has_lotion_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgLotionShopConfigInfo::clear_has_lotion_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgLotionShopConfigInfo::clear_lotion_id() {
+  lotion_id_ = 0;
+  clear_has_lotion_id();
+}
+inline ::google::protobuf::int32 MsgLotionShopConfigInfo::lotion_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.lotion_id)
+  return lotion_id_;
+}
+inline void MsgLotionShopConfigInfo::set_lotion_id(::google::protobuf::int32 value) {
+  set_has_lotion_id();
+  lotion_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.lotion_id)
+}
+
+// required .message.LotionUseType use_type = 2 [default = LotionUseType_gold];
+inline bool MsgLotionShopConfigInfo::has_use_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgLotionShopConfigInfo::set_has_use_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgLotionShopConfigInfo::clear_has_use_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgLotionShopConfigInfo::clear_use_type() {
+  use_type_ = 1;
+  clear_has_use_type();
+}
+inline ::message::LotionUseType MsgLotionShopConfigInfo::use_type() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.use_type)
+  return static_cast< ::message::LotionUseType >(use_type_);
+}
+inline void MsgLotionShopConfigInfo::set_use_type(::message::LotionUseType value) {
+  assert(::message::LotionUseType_IsValid(value));
+  set_has_use_type();
+  use_type_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.use_type)
+}
+
+// required int32 use_count = 3;
+inline bool MsgLotionShopConfigInfo::has_use_count() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgLotionShopConfigInfo::set_has_use_count() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgLotionShopConfigInfo::clear_has_use_count() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgLotionShopConfigInfo::clear_use_count() {
+  use_count_ = 0;
+  clear_has_use_count();
+}
+inline ::google::protobuf::int32 MsgLotionShopConfigInfo::use_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.use_count)
+  return use_count_;
+}
+inline void MsgLotionShopConfigInfo::set_use_count(::google::protobuf::int32 value) {
+  set_has_use_count();
+  use_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.use_count)
+}
+
+// -------------------------------------------------------------------
+
 // MsgS2CHeroesInit
 
 // required .message.MsgHeroData info = 1;
@@ -7293,6 +7730,165 @@ inline void MsgS2CHeroesInit::set_day_refresh_time(::google::protobuf::int32 val
   set_has_day_refresh_time();
   day_refresh_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.day_refresh_time)
+}
+
+// repeated .message.MsgLotionShopConfigInfo lotion_shop_configs = 20;
+inline int MsgS2CHeroesInit::lotion_shop_configs_size() const {
+  return lotion_shop_configs_.size();
+}
+inline void MsgS2CHeroesInit::clear_lotion_shop_configs() {
+  lotion_shop_configs_.Clear();
+}
+inline const ::message::MsgLotionShopConfigInfo& MsgS2CHeroesInit::lotion_shop_configs(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return lotion_shop_configs_.Get(index);
+}
+inline ::message::MsgLotionShopConfigInfo* MsgS2CHeroesInit::mutable_lotion_shop_configs(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return lotion_shop_configs_.Mutable(index);
+}
+inline ::message::MsgLotionShopConfigInfo* MsgS2CHeroesInit::add_lotion_shop_configs() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return lotion_shop_configs_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo >&
+MsgS2CHeroesInit::lotion_shop_configs() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return lotion_shop_configs_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo >*
+MsgS2CHeroesInit::mutable_lotion_shop_configs() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CHeroesInit.lotion_shop_configs)
+  return &lotion_shop_configs_;
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqBuyLotion
+
+// required int32 lotion_id = 1;
+inline bool MsgC2SReqBuyLotion::has_lotion_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SReqBuyLotion::set_has_lotion_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SReqBuyLotion::clear_has_lotion_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SReqBuyLotion::clear_lotion_id() {
+  lotion_id_ = 0;
+  clear_has_lotion_id();
+}
+inline ::google::protobuf::int32 MsgC2SReqBuyLotion::lotion_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqBuyLotion.lotion_id)
+  return lotion_id_;
+}
+inline void MsgC2SReqBuyLotion::set_lotion_id(::google::protobuf::int32 value) {
+  set_has_lotion_id();
+  lotion_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqBuyLotion.lotion_id)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CBuyLotionACK
+
+// required int32 lotion_id = 1;
+inline bool MsgS2CBuyLotionACK::has_lotion_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CBuyLotionACK::set_has_lotion_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CBuyLotionACK::clear_has_lotion_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CBuyLotionACK::clear_lotion_id() {
+  lotion_id_ = 0;
+  clear_has_lotion_id();
+}
+inline ::google::protobuf::int32 MsgS2CBuyLotionACK::lotion_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuyLotionACK.lotion_id)
+  return lotion_id_;
+}
+inline void MsgS2CBuyLotionACK::set_lotion_id(::google::protobuf::int32 value) {
+  set_has_lotion_id();
+  lotion_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuyLotionACK.lotion_id)
+}
+
+// required int32 current_gold = 2;
+inline bool MsgS2CBuyLotionACK::has_current_gold() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CBuyLotionACK::set_has_current_gold() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CBuyLotionACK::clear_has_current_gold() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CBuyLotionACK::clear_current_gold() {
+  current_gold_ = 0;
+  clear_has_current_gold();
+}
+inline ::google::protobuf::int32 MsgS2CBuyLotionACK::current_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuyLotionACK.current_gold)
+  return current_gold_;
+}
+inline void MsgS2CBuyLotionACK::set_current_gold(::google::protobuf::int32 value) {
+  set_has_current_gold();
+  current_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuyLotionACK.current_gold)
+}
+
+// required int32 current_jewel = 3;
+inline bool MsgS2CBuyLotionACK::has_current_jewel() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CBuyLotionACK::set_has_current_jewel() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CBuyLotionACK::clear_has_current_jewel() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CBuyLotionACK::clear_current_jewel() {
+  current_jewel_ = 0;
+  clear_has_current_jewel();
+}
+inline ::google::protobuf::int32 MsgS2CBuyLotionACK::current_jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuyLotionACK.current_jewel)
+  return current_jewel_;
+}
+inline void MsgS2CBuyLotionACK::set_current_jewel(::google::protobuf::int32 value) {
+  set_has_current_jewel();
+  current_jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuyLotionACK.current_jewel)
+}
+
+// required .message.GameError error = 4 [default = Error_NO];
+inline bool MsgS2CBuyLotionACK::has_error() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgS2CBuyLotionACK::set_has_error() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgS2CBuyLotionACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgS2CBuyLotionACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CBuyLotionACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CBuyLotionACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CBuyLotionACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CBuyLotionACK.error)
 }
 
 // -------------------------------------------------------------------
@@ -10525,6 +11121,11 @@ template <> struct is_proto_enum< ::message::GameError> : ::google::protobuf::in
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::message::GameError>() {
   return ::message::GameError_descriptor();
+}
+template <> struct is_proto_enum< ::message::LotionUseType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::message::LotionUseType>() {
+  return ::message::LotionUseType_descriptor();
 }
 
 }  // namespace protobuf

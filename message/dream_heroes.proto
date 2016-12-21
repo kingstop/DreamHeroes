@@ -39,7 +39,9 @@ enum GameError
 	Error_BuySpiritFailedNotFoundConfig = 33;
 	Error_CmdFailedRequiredGMLevel = 34;
 	Error_ReliveFailedNotEnoughGod = 35;
-	Error_Unknow = 36;
+	Error_FailedToBuyLotionNotEnoughGold = 36;
+	Error_FailedToBuyLotionNotEnoughJewel = 37;
+	Error_Unknow = 38;
 }
 
 
@@ -84,6 +86,20 @@ message MsgSpiritShopInfo
 	required string descript = 5;
 }
 
+enum LotionUseType
+{
+	LotionUseType_gold = 1;
+	LotionUseType_jewel = 2;
+}
+
+message MsgLotionShopConfigInfo
+{
+	required int32 lotion_id = 1;
+	required LotionUseType use_type = 2 [default = LotionUseType_gold];
+	required int32 use_count = 3;
+
+}
+
 message MsgS2CHeroesInit
 {
 	required MsgHeroData info = 1;
@@ -105,7 +121,23 @@ message MsgS2CHeroesInit
 	required int32 last_recover_spirit_time = 17;	
 	required int32 last_buy_spirit_time = 18;
 	required int32 day_refresh_time = 19;
+	repeated MsgLotionShopConfigInfo lotion_shop_configs = 20;
 
+}
+
+
+message MsgC2SReqBuyLotion
+{
+	required int32 lotion_id = 1;
+}
+
+
+message MsgS2CBuyLotionACK
+{
+	required int32 lotion_id = 1;
+	required int32 current_gold = 2;
+	required int32 current_jewel = 3;
+	required GameError error = 4 [default=Error_NO];
 }
 
 

@@ -40,6 +40,7 @@ void protobuf_ShutdownFile_common_2eproto();
 class MsgObjConfig;
 class MsgDropBoxConfig;
 class MsgIntPair;
+class MsgIntBoolPair;
 class MsgHeroData;
 class MsgTaskConditionInfo;
 class MsgTaskConfigInfo;
@@ -413,6 +414,108 @@ class MsgIntPair : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MsgIntBoolPair : public ::google::protobuf::Message {
+ public:
+  MsgIntBoolPair();
+  virtual ~MsgIntBoolPair();
+
+  MsgIntBoolPair(const MsgIntBoolPair& from);
+
+  inline MsgIntBoolPair& operator=(const MsgIntBoolPair& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgIntBoolPair& default_instance();
+
+  void Swap(MsgIntBoolPair* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgIntBoolPair* New() const { return New(NULL); }
+
+  MsgIntBoolPair* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgIntBoolPair& from);
+  void MergeFrom(const MsgIntBoolPair& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgIntBoolPair* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 number = 1;
+  bool has_number() const;
+  void clear_number();
+  static const int kNumberFieldNumber = 1;
+  ::google::protobuf::int32 number() const;
+  void set_number(::google::protobuf::int32 value);
+
+  // required bool valid = 2;
+  bool has_valid() const;
+  void clear_valid();
+  static const int kValidFieldNumber = 2;
+  bool valid() const;
+  void set_valid(bool value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgIntBoolPair)
+ private:
+  inline void set_has_number();
+  inline void clear_has_number();
+  inline void set_has_valid();
+  inline void clear_has_valid();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 number_;
+  bool valid_;
+  friend void  protobuf_AddDesc_common_2eproto();
+  friend void protobuf_AssignDesc_common_2eproto();
+  friend void protobuf_ShutdownFile_common_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgIntBoolPair* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MsgHeroData : public ::google::protobuf::Message {
  public:
   MsgHeroData();
@@ -574,6 +677,18 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 day_buy_spirit() const;
   void set_day_buy_spirit(::google::protobuf::int32 value);
 
+  // repeated .message.MsgIntBoolPair lotion_status = 12;
+  int lotion_status_size() const;
+  void clear_lotion_status();
+  static const int kLotionStatusFieldNumber = 12;
+  const ::message::MsgIntBoolPair& lotion_status(int index) const;
+  ::message::MsgIntBoolPair* mutable_lotion_status(int index);
+  ::message::MsgIntBoolPair* add_lotion_status();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
+      lotion_status() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
+      mutable_lotion_status();
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -609,6 +724,7 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 new_tutorial_;
   ::google::protobuf::int32 jewel_;
   ::google::protobuf::int32 spirit_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair > lotion_status_;
   ::google::protobuf::int32 day_buy_spirit_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
@@ -1663,6 +1779,58 @@ inline void MsgIntPair::set_number_2(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// MsgIntBoolPair
+
+// required int32 number = 1;
+inline bool MsgIntBoolPair::has_number() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgIntBoolPair::set_has_number() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgIntBoolPair::clear_has_number() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgIntBoolPair::clear_number() {
+  number_ = 0;
+  clear_has_number();
+}
+inline ::google::protobuf::int32 MsgIntBoolPair::number() const {
+  // @@protoc_insertion_point(field_get:message.MsgIntBoolPair.number)
+  return number_;
+}
+inline void MsgIntBoolPair::set_number(::google::protobuf::int32 value) {
+  set_has_number();
+  number_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgIntBoolPair.number)
+}
+
+// required bool valid = 2;
+inline bool MsgIntBoolPair::has_valid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgIntBoolPair::set_has_valid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgIntBoolPair::clear_has_valid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgIntBoolPair::clear_valid() {
+  valid_ = false;
+  clear_has_valid();
+}
+inline bool MsgIntBoolPair::valid() const {
+  // @@protoc_insertion_point(field_get:message.MsgIntBoolPair.valid)
+  return valid_;
+}
+inline void MsgIntBoolPair::set_valid(bool value) {
+  set_has_valid();
+  valid_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgIntBoolPair.valid)
+}
+
+// -------------------------------------------------------------------
+
 // MsgHeroData
 
 // required string name = 1;
@@ -1974,6 +2142,36 @@ inline void MsgHeroData::set_day_buy_spirit(::google::protobuf::int32 value) {
   set_has_day_buy_spirit();
   day_buy_spirit_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.day_buy_spirit)
+}
+
+// repeated .message.MsgIntBoolPair lotion_status = 12;
+inline int MsgHeroData::lotion_status_size() const {
+  return lotion_status_.size();
+}
+inline void MsgHeroData::clear_lotion_status() {
+  lotion_status_.Clear();
+}
+inline const ::message::MsgIntBoolPair& MsgHeroData::lotion_status(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.lotion_status)
+  return lotion_status_.Get(index);
+}
+inline ::message::MsgIntBoolPair* MsgHeroData::mutable_lotion_status(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroData.lotion_status)
+  return lotion_status_.Mutable(index);
+}
+inline ::message::MsgIntBoolPair* MsgHeroData::add_lotion_status() {
+  // @@protoc_insertion_point(field_add:message.MsgHeroData.lotion_status)
+  return lotion_status_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
+MsgHeroData::lotion_status() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroData.lotion_status)
+  return lotion_status_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
+MsgHeroData::mutable_lotion_status() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroData.lotion_status)
+  return &lotion_status_;
 }
 
 // -------------------------------------------------------------------
