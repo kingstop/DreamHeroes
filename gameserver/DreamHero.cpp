@@ -1005,15 +1005,6 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 		else
 		{
 	
-
-			if (use_spirit_config != 0)
-			{
-				if (spirit < use_spirit_config)
-				{
-					en_error = message::Error_CanNotEnterGameNotEnoughSpirit;
-				}
-			}
-
 			if (en_error == message::Error_NO)
 			{
 				for (int i = 0; i < records_length; i++)
@@ -1036,6 +1027,17 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 					}
 				}
 			}
+			if (en_error == message::Error_NO)
+			{
+				if (use_spirit_config != 0)
+				{
+					if (spirit < use_spirit_config)
+					{
+						en_error = message::Error_CanNotEnterGameNotEnoughSpirit;
+					}
+				}
+			}
+
 
 		}
 	}
