@@ -1392,7 +1392,7 @@ void DreamHero::ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg)
 		{
 			int need_jewel = config_info->need_jewel();
 			int spirit_config = config_info->spirit();
-			if (need_jewel < _info.jewel())
+			if (need_jewel <= _info.jewel())
 			{
 
 				int jewel = _info.jewel() - need_jewel;
@@ -1642,9 +1642,9 @@ void DreamHero::recoverSpirit()
 
 	_info.set_spirit(spirit);
 	_last_recover_spirit_time = g_server_time;
-	message::MsgS2CRecoverSpiritNotify notify;
-	notify.set_current_spirit(_info.spirit());
-	sendPBMessage(&notify);
+	//message::MsgS2CRecoverSpiritNotify notify;
+	//notify.set_current_spirit(_info.spirit());
+	//sendPBMessage(&notify);
 	
 }
 
