@@ -423,5 +423,28 @@ message MsgS2CCmdReplaceTaskACK
 	repeated MsgTaskConfigInfo infos = 2;
 }
 
+message MsgC2SCmdReqModifyJewel
+{
+	required int32 jewel = 1;
+}
+
+message MsgS2CCmdModifyJewelACK
+{
+	required int32 current_jewel = 1;
+	required GameError error = 2 [default=Error_NO];
+}
+
+
+message MsgC2SCmdReqModifySpirit
+{
+	required int32 spirit = 1;
+}
+
+message MsgS2CCmdModifySpiritACK
+{
+	required int32 current_spirit = 1;
+	required GameError error = 2 [default=Error_NO];
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////

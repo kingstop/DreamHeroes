@@ -60,6 +60,8 @@ public:
 	void ReqModifyTutorialFlag(const message::MsgC2SReqModifyNewTutorial* msg);
 	void ReqReliveReq(const message::MsgC2SReliveReq* msg);
 	void ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg);
+
+
 	void ReqRemoveAllSpecialCreatureList();
 	void ReqSetSpecialCreatureList(int creature_id, int status);
 	void ReqModifyCurrentHero(int grid_id);
@@ -70,6 +72,13 @@ public:
 public:
 	void addDealWaitToPay(std::string key_code, int status, int price, int order_id, message::GameError error);
 	void addDealPay(std::string key_code, int status, int order_id, message::GameError error, bool send_msg = true);
+
+public:
+	int	getSpirit();
+	void setSpirit(int spirit);
+	int	getJewel();
+	void setJewel(int jewel);
+
 protected:
 	message::MsgTaskConfigInfo RadnomTaskInfo(int give_up_task = 0);
 	void RefreshTask(int give_up_task_id, bool gold);	

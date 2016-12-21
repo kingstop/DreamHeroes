@@ -53,6 +53,9 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqSetSpecialCreatureHis), &Session::parseCmdReqSetSpecialCreatureHis);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqRemoveSpecialCreatureListHis), &Session::parseCmdReqRemoveSpecialCreatureListHis);
 
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyJewel), &Session::parseCmdReqModifyJewel);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifySpirit), &Session::parseCmdReqModifySpirit);
+
 }
 
 void Session::parseReqShopConfig(google::protobuf::Message* p)
@@ -79,6 +82,49 @@ void Session::parseReqEnterGame(google::protobuf::Message* p)
 	}
 	message::MsgC2SReqEnterGame* msg = (message::MsgC2SReqEnterGame*)p;
 	_dream_hero->ReqEnterGame(msg);
+}
+
+void Session::parseCmdReqModifyJewel(google::protobuf::Message* p)
+{
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+	message::MsgS2CCmdModifyJewelACK msgACK;
+	message::GameError error = message::Error_NO;
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		message::MsgC2SCmdReqModifyJewel* msg = (message::MsgC2SCmdReqModifyJewel*)p;
+		int jewel = _dream_hero->getJewel() + msg->jewel();
+		_dream_hero->setJewel(jewel);
+	}
+	else
+	{
+		error = message::Error_CmdFailedRequiredGMLevel;
+	}
+	msgACK.set_current_jewel(_dream_hero->getJewel());
+	msgACK.set_error(error);
+	sendPBMessage(&msgACK);
+
+}
+void Session::parseCmdReqModifySpirit(google::protobuf::Message* p)
+{
+	message::MsgS2CCmdModifySpiritACK msgACK;
+	message::GameError error = message::Error_NO;
+	
+	if (_dream_hero->getGMLevel() > 0)
+	{
+			message::MsgC2SCmdReqModifySpirit* msg = (message::MsgC2SCmdReqModifySpirit*)p;
+			int spirit = _dream_hero->getSpirit() + msg->spirit();
+			_dream_hero->setSpirit(spirit);
+	}
+	else
+	{
+		error = message::Error_CmdFailedRequiredGMLevel;
+	}
+	msgACK.set_current_spirit(_dream_hero->getSpirit());
+	msgACK.set_error(error);
+	sendPBMessage(&msgACK);
 }
 
 

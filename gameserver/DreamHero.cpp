@@ -1093,6 +1093,23 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 	sendPBMessage(&msgACK);
 }
 
+int	DreamHero::getSpirit()
+{
+	return _info.spirit();
+}
+void DreamHero::setSpirit(int spirit)
+{
+	_info.set_spirit(spirit);
+}
+int	DreamHero::getJewel()
+{
+	return _info.jewel();
+}
+void DreamHero::setJewel(int jewel)
+{
+	_info.set_jewel(jewel);
+}
+
 
 void DreamHero::SendResetGameACK(message::GameError en)
 {

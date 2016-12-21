@@ -56,6 +56,8 @@ public:
 	void parseCmdReqModifyTaskCompleteCount(google::protobuf::Message* p);
 	void parseCmdReqRemoveSpecialCreatureListHis(google::protobuf::Message* p);
 	void parseCmdReqSetSpecialCreatureHis(google::protobuf::Message* p);
+	void parseCmdReqModifyJewel(google::protobuf::Message* p);
+	void parseCmdReqModifySpirit(google::protobuf::Message* p);
 
 	int getState();
 

@@ -93,6 +93,10 @@ class MsgC2SCmdReqModifyGold;
 class MsgS2CCmdModifyGoldACK;
 class MsgS2CCmdReqReplaceTask;
 class MsgS2CCmdReplaceTaskACK;
+class MsgC2SCmdReqModifyJewel;
+class MsgS2CCmdModifyJewelACK;
+class MsgC2SCmdReqModifySpirit;
+class MsgS2CCmdModifySpiritACK;
 
 enum GameError {
   Error_NO = 0,
@@ -6013,6 +6017,388 @@ class MsgS2CCmdReplaceTaskACK : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgS2CCmdReplaceTaskACK* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgC2SCmdReqModifyJewel : public ::google::protobuf::Message {
+ public:
+  MsgC2SCmdReqModifyJewel();
+  virtual ~MsgC2SCmdReqModifyJewel();
+
+  MsgC2SCmdReqModifyJewel(const MsgC2SCmdReqModifyJewel& from);
+
+  inline MsgC2SCmdReqModifyJewel& operator=(const MsgC2SCmdReqModifyJewel& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SCmdReqModifyJewel& default_instance();
+
+  void Swap(MsgC2SCmdReqModifyJewel* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SCmdReqModifyJewel* New() const { return New(NULL); }
+
+  MsgC2SCmdReqModifyJewel* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SCmdReqModifyJewel& from);
+  void MergeFrom(const MsgC2SCmdReqModifyJewel& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SCmdReqModifyJewel* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 jewel = 1;
+  bool has_jewel() const;
+  void clear_jewel();
+  static const int kJewelFieldNumber = 1;
+  ::google::protobuf::int32 jewel() const;
+  void set_jewel(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SCmdReqModifyJewel)
+ private:
+  inline void set_has_jewel();
+  inline void clear_has_jewel();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 jewel_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SCmdReqModifyJewel* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CCmdModifyJewelACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CCmdModifyJewelACK();
+  virtual ~MsgS2CCmdModifyJewelACK();
+
+  MsgS2CCmdModifyJewelACK(const MsgS2CCmdModifyJewelACK& from);
+
+  inline MsgS2CCmdModifyJewelACK& operator=(const MsgS2CCmdModifyJewelACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CCmdModifyJewelACK& default_instance();
+
+  void Swap(MsgS2CCmdModifyJewelACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CCmdModifyJewelACK* New() const { return New(NULL); }
+
+  MsgS2CCmdModifyJewelACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CCmdModifyJewelACK& from);
+  void MergeFrom(const MsgS2CCmdModifyJewelACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CCmdModifyJewelACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 current_jewel = 1;
+  bool has_current_jewel() const;
+  void clear_current_jewel();
+  static const int kCurrentJewelFieldNumber = 1;
+  ::google::protobuf::int32 current_jewel() const;
+  void set_current_jewel(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 2 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CCmdModifyJewelACK)
+ private:
+  inline void set_has_current_jewel();
+  inline void clear_has_current_jewel();
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 current_jewel_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CCmdModifyJewelACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SCmdReqModifySpirit : public ::google::protobuf::Message {
+ public:
+  MsgC2SCmdReqModifySpirit();
+  virtual ~MsgC2SCmdReqModifySpirit();
+
+  MsgC2SCmdReqModifySpirit(const MsgC2SCmdReqModifySpirit& from);
+
+  inline MsgC2SCmdReqModifySpirit& operator=(const MsgC2SCmdReqModifySpirit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SCmdReqModifySpirit& default_instance();
+
+  void Swap(MsgC2SCmdReqModifySpirit* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SCmdReqModifySpirit* New() const { return New(NULL); }
+
+  MsgC2SCmdReqModifySpirit* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SCmdReqModifySpirit& from);
+  void MergeFrom(const MsgC2SCmdReqModifySpirit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SCmdReqModifySpirit* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 spirit = 1;
+  bool has_spirit() const;
+  void clear_spirit();
+  static const int kSpiritFieldNumber = 1;
+  ::google::protobuf::int32 spirit() const;
+  void set_spirit(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SCmdReqModifySpirit)
+ private:
+  inline void set_has_spirit();
+  inline void clear_has_spirit();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 spirit_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SCmdReqModifySpirit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CCmdModifySpiritACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CCmdModifySpiritACK();
+  virtual ~MsgS2CCmdModifySpiritACK();
+
+  MsgS2CCmdModifySpiritACK(const MsgS2CCmdModifySpiritACK& from);
+
+  inline MsgS2CCmdModifySpiritACK& operator=(const MsgS2CCmdModifySpiritACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CCmdModifySpiritACK& default_instance();
+
+  void Swap(MsgS2CCmdModifySpiritACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CCmdModifySpiritACK* New() const { return New(NULL); }
+
+  MsgS2CCmdModifySpiritACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CCmdModifySpiritACK& from);
+  void MergeFrom(const MsgS2CCmdModifySpiritACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CCmdModifySpiritACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 current_spirit = 1;
+  bool has_current_spirit() const;
+  void clear_current_spirit();
+  static const int kCurrentSpiritFieldNumber = 1;
+  ::google::protobuf::int32 current_spirit() const;
+  void set_current_spirit(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 2 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CCmdModifySpiritACK)
+ private:
+  inline void set_has_current_spirit();
+  inline void clear_has_current_spirit();
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 current_spirit_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CCmdModifySpiritACK* default_instance_;
+};
 // ===================================================================
 
 
@@ -9843,6 +10229,168 @@ inline ::google::protobuf::RepeatedPtrField< ::message::MsgTaskConfigInfo >*
 MsgS2CCmdReplaceTaskACK::mutable_infos() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgS2CCmdReplaceTaskACK.infos)
   return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SCmdReqModifyJewel
+
+// required int32 jewel = 1;
+inline bool MsgC2SCmdReqModifyJewel::has_jewel() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SCmdReqModifyJewel::set_has_jewel() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SCmdReqModifyJewel::clear_has_jewel() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SCmdReqModifyJewel::clear_jewel() {
+  jewel_ = 0;
+  clear_has_jewel();
+}
+inline ::google::protobuf::int32 MsgC2SCmdReqModifyJewel::jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SCmdReqModifyJewel.jewel)
+  return jewel_;
+}
+inline void MsgC2SCmdReqModifyJewel::set_jewel(::google::protobuf::int32 value) {
+  set_has_jewel();
+  jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SCmdReqModifyJewel.jewel)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CCmdModifyJewelACK
+
+// required int32 current_jewel = 1;
+inline bool MsgS2CCmdModifyJewelACK::has_current_jewel() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CCmdModifyJewelACK::set_has_current_jewel() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CCmdModifyJewelACK::clear_has_current_jewel() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CCmdModifyJewelACK::clear_current_jewel() {
+  current_jewel_ = 0;
+  clear_has_current_jewel();
+}
+inline ::google::protobuf::int32 MsgS2CCmdModifyJewelACK::current_jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdModifyJewelACK.current_jewel)
+  return current_jewel_;
+}
+inline void MsgS2CCmdModifyJewelACK::set_current_jewel(::google::protobuf::int32 value) {
+  set_has_current_jewel();
+  current_jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdModifyJewelACK.current_jewel)
+}
+
+// required .message.GameError error = 2 [default = Error_NO];
+inline bool MsgS2CCmdModifyJewelACK::has_error() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CCmdModifyJewelACK::set_has_error() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CCmdModifyJewelACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CCmdModifyJewelACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CCmdModifyJewelACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdModifyJewelACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CCmdModifyJewelACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdModifyJewelACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SCmdReqModifySpirit
+
+// required int32 spirit = 1;
+inline bool MsgC2SCmdReqModifySpirit::has_spirit() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SCmdReqModifySpirit::set_has_spirit() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SCmdReqModifySpirit::clear_has_spirit() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SCmdReqModifySpirit::clear_spirit() {
+  spirit_ = 0;
+  clear_has_spirit();
+}
+inline ::google::protobuf::int32 MsgC2SCmdReqModifySpirit::spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SCmdReqModifySpirit.spirit)
+  return spirit_;
+}
+inline void MsgC2SCmdReqModifySpirit::set_spirit(::google::protobuf::int32 value) {
+  set_has_spirit();
+  spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SCmdReqModifySpirit.spirit)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CCmdModifySpiritACK
+
+// required int32 current_spirit = 1;
+inline bool MsgS2CCmdModifySpiritACK::has_current_spirit() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CCmdModifySpiritACK::set_has_current_spirit() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CCmdModifySpiritACK::clear_has_current_spirit() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CCmdModifySpiritACK::clear_current_spirit() {
+  current_spirit_ = 0;
+  clear_has_current_spirit();
+}
+inline ::google::protobuf::int32 MsgS2CCmdModifySpiritACK::current_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdModifySpiritACK.current_spirit)
+  return current_spirit_;
+}
+inline void MsgS2CCmdModifySpiritACK::set_current_spirit(::google::protobuf::int32 value) {
+  set_has_current_spirit();
+  current_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdModifySpiritACK.current_spirit)
+}
+
+// required .message.GameError error = 2 [default = Error_NO];
+inline bool MsgS2CCmdModifySpiritACK::has_error() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CCmdModifySpiritACK::set_has_error() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CCmdModifySpiritACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CCmdModifySpiritACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CCmdModifySpiritACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdModifySpiritACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CCmdModifySpiritACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdModifySpiritACK.error)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
