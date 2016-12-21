@@ -1639,8 +1639,12 @@ void DreamHero::recoverSpirit()
 			spirit = config_max_spirit;
 		}
 	}
+
 	_info.set_spirit(spirit);
 	_last_recover_spirit_time = g_server_time;
+	message::MsgS2CRecoverSpiritNotify notify;
+	notify.set_current_spirit(_info.spirit());
+	sendPBMessage(&notify);
 	
 }
 

@@ -70,6 +70,7 @@ class MsgS2CCrearteIOSDealACK;
 class MsgC2SReqVerifyDealIOS;
 class MsgS2CVerifyDealIOSACK;
 class MsgS2CPingNotify;
+class MsgS2CRecoverSpiritNotify;
 class MsgC2SPingNotify;
 class MsgC2SReqModifyNewTutorial;
 class MsgS2CModifyNewTutorialACK;
@@ -3811,6 +3812,95 @@ class MsgS2CPingNotify : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgS2CPingNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CRecoverSpiritNotify : public ::google::protobuf::Message {
+ public:
+  MsgS2CRecoverSpiritNotify();
+  virtual ~MsgS2CRecoverSpiritNotify();
+
+  MsgS2CRecoverSpiritNotify(const MsgS2CRecoverSpiritNotify& from);
+
+  inline MsgS2CRecoverSpiritNotify& operator=(const MsgS2CRecoverSpiritNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CRecoverSpiritNotify& default_instance();
+
+  void Swap(MsgS2CRecoverSpiritNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CRecoverSpiritNotify* New() const { return New(NULL); }
+
+  MsgS2CRecoverSpiritNotify* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CRecoverSpiritNotify& from);
+  void MergeFrom(const MsgS2CRecoverSpiritNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CRecoverSpiritNotify* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 current_spirit = 1;
+  bool has_current_spirit() const;
+  void clear_current_spirit();
+  static const int kCurrentSpiritFieldNumber = 1;
+  ::google::protobuf::int32 current_spirit() const;
+  void set_current_spirit(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CRecoverSpiritNotify)
+ private:
+  inline void set_has_current_spirit();
+  inline void clear_has_current_spirit();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 current_spirit_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CRecoverSpiritNotify* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -9226,6 +9316,34 @@ inline void MsgS2CPingNotify::set_time(::google::protobuf::uint64 value) {
   set_has_time();
   time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CPingNotify.time)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CRecoverSpiritNotify
+
+// required int32 current_spirit = 1;
+inline bool MsgS2CRecoverSpiritNotify::has_current_spirit() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CRecoverSpiritNotify::set_has_current_spirit() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CRecoverSpiritNotify::clear_has_current_spirit() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CRecoverSpiritNotify::clear_current_spirit() {
+  current_spirit_ = 0;
+  clear_has_current_spirit();
+}
+inline ::google::protobuf::int32 MsgS2CRecoverSpiritNotify::current_spirit() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CRecoverSpiritNotify.current_spirit)
+  return current_spirit_;
+}
+inline void MsgS2CRecoverSpiritNotify::set_current_spirit(::google::protobuf::int32 value) {
+  set_has_current_spirit();
+  current_spirit_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CRecoverSpiritNotify.current_spirit)
 }
 
 // -------------------------------------------------------------------
