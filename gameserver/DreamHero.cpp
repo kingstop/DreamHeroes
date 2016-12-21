@@ -1004,29 +1004,26 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 		}
 		else
 		{
-	
-			if (en_error == message::Error_NO)
+			for (int i = 0; i < records_length; i++)
 			{
-				for (int i = 0; i < records_length; i++)
+				const message::MsgIntPair record_entry = _info.records(i);
+				int chapter_config_id = record_entry.number_1();
+				int section_config_id = record_entry.number_2();
+				if (chapter_config_id == chapter_id_temp)
 				{
-					const message::MsgIntPair record_entry = _info.records(i);
-					int chapter_config_id = record_entry.number_1();
-					int section_config_id = record_entry.number_2();
-					if (chapter_config_id == chapter_id_temp)
+					int section = section_config_id + 1;
+					if (section_id_temp <= section)
 					{
-						int section = section_config_id + 1;
-						if (section_id_temp <= section)
-						{
-							en_error = message::Error_NO;
-						}
-						else
-						{
-							en_error = message::Error_CanNotEnterGameTheSectionIsLock;
-						}
-						break;
+						en_error = message::Error_NO;
 					}
+					else
+					{
+						en_error = message::Error_CanNotEnterGameTheSectionIsLock;
+					}
+					break;
 				}
 			}
+
 			if (en_error == message::Error_NO)
 			{
 				if (use_spirit_config != 0)
