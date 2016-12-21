@@ -91,6 +91,8 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 		_deals_wait_to_pay.insert(DEALSWAITTOPAY::value_type(pay_entry.order_id_, pay_entry));
 	}
 
+	
+
 	_special_creatures.clear();
 	int special_creatures_size =  info->special_creatures_size();
 	for (int i = 0; i < special_creatures_size; i ++)
@@ -126,6 +128,17 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 		
 	}
 
+	if (g_server_time > _last_recover_spirit_time)
+	{		
+		int recorver_times = (int) float(float(g_server_time) - float(_last_recover_spirit_time)) / float(gGameConfig.getGlobalConfig().config_recover_spirit_minute_ * 60);
+		int recorver_spirit = gGameConfig.getGlobalConfig().config_recover_spirit_ * recorver_times;
+		int temp_spirit = recorver_spirit + _info.spirit();
+		if (temp_spirit > gGameConfig.getGlobalConfig().config_max_spirit_)
+		{
+			temp_spirit = gGameConfig.getGlobalConfig().config_max_spirit_;
+		}
+		_info.set_spirit(temp_spirit);
+	}
 }
 
 
