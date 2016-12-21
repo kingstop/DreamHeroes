@@ -1381,14 +1381,15 @@ void DreamHero::ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg)
 			int spirit_config = config_info->spirit();
 			if (need_jewel < _info.jewel())
 			{
-				error = message::Error_BuySpiritFailedNotEnoughJewel;
-			}
-			else
-			{
+
 				int jewel = _info.jewel() - need_jewel;
 				int spirit = _info.spirit() + spirit_config;
 				_info.set_jewel(jewel);
 				_info.set_spirit(spirit);
+			}
+			else
+			{
+				error = message::Error_BuySpiritFailedNotEnoughJewel;
 			}
 		}
 		else
