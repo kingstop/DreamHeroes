@@ -11,12 +11,13 @@
 
 int main()
 {
-
+	/*
 	boost::asio::io_service service;
 	Server server(service, 2000);
 
 	server.start();
 	service.run();
+	*/
     return 0;
 }
 
