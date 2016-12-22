@@ -1410,6 +1410,7 @@ void DreamHero::SendClientInit()
 	msg.set_last_buy_spirit_time(_last_buy_spirit_time);
 	msg.set_last_recover_spirit_time(_last_recover_spirit_time);
 	msg.set_day_refresh_time(globalConfig.day_Refresh_time_);
+	msg.set_last_lottery_time(_last_day_lottery_time);
 	fillSpecialCreatureList(msg.mutable_special_creatures());	
 	sendPBMessage(&msg);
 	_online = true;
