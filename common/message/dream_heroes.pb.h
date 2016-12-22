@@ -147,7 +147,10 @@ enum GameError {
   Error_FailedToBuyNotFoundThisLotion = 39,
   Error_FailedExitGameNotFoundTheUseLotion = 40,
   Error_FailedToLotteryTodayHaveBeenLotteried = 41,
-  Error_Unknow = 42
+  Error_FailedToLotteryNothingCanBeLotteried = 42,
+  Error_FailedToLotteryErrorRating = 43,
+  Error_FailedToLotteryErrorLotionConfig = 44,
+  Error_Unknow = 45
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
@@ -1504,6 +1507,13 @@ class MsgS2CDayLotteryACK : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_current_lotions();
 
+  // required uint32 last_lottery_time = 8;
+  bool has_last_lottery_time() const;
+  void clear_last_lottery_time();
+  static const int kLastLotteryTimeFieldNumber = 8;
+  ::google::protobuf::uint32 last_lottery_time() const;
+  void set_last_lottery_time(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CDayLotteryACK)
  private:
   inline void set_has_error();
@@ -1518,6 +1528,8 @@ class MsgS2CDayLotteryACK : public ::google::protobuf::Message {
   inline void clear_has_current_jewel();
   inline void set_has_current_gold();
   inline void clear_has_current_gold();
+  inline void set_has_last_lottery_time();
+  inline void clear_has_last_lottery_time();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1532,6 +1544,7 @@ class MsgS2CDayLotteryACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 current_jewel_;
   ::google::protobuf::int32 current_gold_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > current_lotions_;
+  ::google::protobuf::uint32 last_lottery_time_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -8366,6 +8379,30 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 MsgS2CDayLotteryACK::mutable_current_lotions() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgS2CDayLotteryACK.current_lotions)
   return &current_lotions_;
+}
+
+// required uint32 last_lottery_time = 8;
+inline bool MsgS2CDayLotteryACK::has_last_lottery_time() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void MsgS2CDayLotteryACK::set_has_last_lottery_time() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void MsgS2CDayLotteryACK::clear_has_last_lottery_time() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void MsgS2CDayLotteryACK::clear_last_lottery_time() {
+  last_lottery_time_ = 0u;
+  clear_has_last_lottery_time();
+}
+inline ::google::protobuf::uint32 MsgS2CDayLotteryACK::last_lottery_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CDayLotteryACK.last_lottery_time)
+  return last_lottery_time_;
+}
+inline void MsgS2CDayLotteryACK::set_last_lottery_time(::google::protobuf::uint32 value) {
+  set_has_last_lottery_time();
+  last_lottery_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CDayLotteryACK.last_lottery_time)
 }
 
 // -------------------------------------------------------------------

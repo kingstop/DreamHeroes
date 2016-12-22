@@ -45,7 +45,10 @@ enum GameError
 	Error_FailedToBuyNotFoundThisLotion = 39;
 	Error_FailedExitGameNotFoundTheUseLotion = 40;
 	Error_FailedToLotteryTodayHaveBeenLotteried = 41;
-	Error_Unknow = 42;
+	Error_FailedToLotteryNothingCanBeLotteried = 42;
+	Error_FailedToLotteryErrorRating = 43;
+	Error_FailedToLotteryErrorLotionConfig = 44;
+	Error_Unknow = 45;
 }
 
 
@@ -155,6 +158,7 @@ message MsgS2CDayLotteryACK
 	required int32 current_jewel = 5;
 	required int32 current_gold = 6;
 	repeated int32 current_lotions = 7;
+	required uint32 last_lottery_time = 8;
 }
 
 message MsgC2SReqBuyLotion

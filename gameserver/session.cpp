@@ -56,7 +56,17 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyJewel), &Session::parseCmdReqModifyJewel);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifySpirit), &Session::parseCmdReqModifySpirit);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuyLotion), &Session::parseReqBuyLotion);
-	
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqDayLottery), &Session::parseReqDayLottery);
+}
+
+void Session::parseReqDayLottery(google::protobuf::Message* p)
+{
+	if (_dream_hero != NULL)
+	{
+		message::MsgC2SReqDayLottery* msg = (message::MsgC2SReqDayLottery*)p;
+		_dream_hero->ReqDayLottery(msg);
+
+	}
 }
 
 void Session::parseReqShopConfig(google::protobuf::Message* p)

@@ -505,7 +505,7 @@ void GameConfig::Load(DBQuery* p)
 			DBRow& row = sResult[i];
 			int temp_type = row["type"];
 
-			lotteryConfig.lottery_type_ = (enLotteryBox)temp_type;
+			lotteryConfig.lottery_type_ = (message::enLotteryBox)temp_type;
 			lotteryConfig.sub_index_ = row["sub_type"];
 			lotteryConfig.base_count_ = row["base_count"];
 			lotteryConfig.random_count_ = row["randdom_count"];

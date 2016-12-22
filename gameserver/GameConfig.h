@@ -102,7 +102,7 @@ enum enLotteryBox
 
 struct LotteryDrawBoxConfig
 {
-	enLotteryBox lottery_type_;
+	message::enLotteryBox lottery_type_;
 	int sub_index_;
 	int base_count_;
 	int random_count_;

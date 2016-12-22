@@ -1580,6 +1580,7 @@ void DreamHero::SaveHero()
 	std::string last_task_advertisement_time_temp;
 	std::string last_recover_spirit_time;
 	std::string last_buy_spirit_time;
+	std::string last_lottery_time;
 
 	SPECIALCREATURES::iterator it_special_creatures = _special_creatures.begin();
 	for (int i = 0; it_special_creatures != _special_creatures.end(); ++ it_special_creatures, i ++)
@@ -1595,6 +1596,8 @@ void DreamHero::SaveHero()
 	build_unix_time_to_string(_last_task_advertisement_time, last_task_advertisement_time_temp);
 	build_unix_time_to_string(_last_recover_spirit_time, last_recover_spirit_time);
 	build_unix_time_to_string(_last_buy_spirit_time, last_buy_spirit_time);
+	build_unix_time_to_string(_last_day_lottery_time, last_lottery_time);
+
 	int lotion_size =  _info.lotions_size();
 	std::string str_lotion_status;
 	char sz_lotion_status[128];
@@ -1613,14 +1616,14 @@ void DreamHero::SaveHero()
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,`special_kill`,\
 		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`, `special_creatures`, \
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`,\
-		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`, `lotions`) values \
-		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d, '%s', %d, '%s', '%s');",
+		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`, `lotions`, `last_lottery_time`) values \
+		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d, '%s', %d, '%s', '%s', '%s');",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
 		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count, _info.new_tutorial(),
 		_info.jewel(), _info.spirit(), last_recover_spirit_time.c_str(), _info.day_buy_spirit(), 
-		last_buy_spirit_time.c_str(), str_lotion_status.c_str());
+		last_buy_spirit_time.c_str(), str_lotion_status.c_str(), last_lottery_time.c_str());
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
@@ -1704,7 +1707,137 @@ void DreamHero::ReqSetSpecialCreatureList(int creature_id, int status)
 
 void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 {
-	
+	u64 temp_time = g_server_time - _day_offset_time;
+	message::MsgS2CDayLotteryACK msgACK;
+	msgACK.set_count(0);
+	msgACK.set_current_gold(_info.gold());
+	msgACK.set_current_jewel(_info.jewel());
+	msgACK.set_type(message::Lottery_Jewel);
+	msgACK.set_index(0);
+	msgACK.set_error(message::Error_NO);
+	int self_lotion_size = _info.lotions_size();
+	for (size_t i = 0; i < self_lotion_size; i++)
+	{
+		msgACK.add_current_lotions(_info.lotions(i));
+	}
+
+	if (same_day(temp_time, _last_day_lottery_time) == false)
+	{
+		const VCLOTTERYDRAWBOXSCONFIGS* configs = gGameConfig.getLotteryDrawBoxs();
+		VCLOTTERYDRAWBOXSCONFIGS vc_lottery_random;
+		VCLOTTERYDRAWBOXSCONFIGS::const_iterator it = configs->begin();
+		for (; it != configs->end(); ++ it)
+		{
+			const LotteryDrawBoxConfig& lotteryConfig = (*it);
+			if (lotteryConfig.lottery_type_ == message::Lottery_Lotion)
+			{
+				int self_lotion_size = _info.lotions_size();
+				bool ret_find = false;
+				for (size_t i = 0; i < self_lotion_size; i++)
+				{
+					if (lotteryConfig.sub_index_ == _info.lotions(i))
+					{
+						ret_find = true;
+						break;
+					}
+				}
+				if (ret_find == false)
+				{
+					vc_lottery_random.push_back(lotteryConfig);
+				}				
+			}
+			else
+			{
+				vc_lottery_random.push_back(lotteryConfig);
+			}			
+		}
+		if (vc_lottery_random.empty() == false)
+		{
+			LotteryDrawBoxConfig entry = vc_lottery_random[0];
+			std::map<int, LotteryDrawBoxConfig> map_random_lottery;
+			it = vc_lottery_random.begin();
+			int rating = 0;
+			for (; it != vc_lottery_random.begin(); ++it)
+			{
+				const LotteryDrawBoxConfig& entry = (*it);
+				map_random_lottery[rating] = entry;
+				rating += entry.rating_;
+			}
+			if (rating > 0)
+			{
+				_last_day_lottery_time = g_server_time;
+				int current_rating = rand() % rating;
+				std::map<int, LotteryDrawBoxConfig>::iterator it_map = map_random_lottery.begin();
+
+				for (; it_map != map_random_lottery.end(); ++it_map)
+				{
+					if (current_rating >= it_map->first)
+					{
+						break;
+					}
+					entry = it_map->second;
+				}
+
+				if (entry.lottery_type_ == message::Lottery_Lotion)
+				{
+					if (entry.sub_index_>=0 && entry.sub_index_ <= 3)
+					{
+						_info.add_lotions(entry.sub_index_);
+						msgACK.add_current_lotions(entry.sub_index_);
+					}
+					else
+					{
+						msgACK.set_error(message::Error_FailedToLotteryErrorLotionConfig);
+					}
+
+				}
+				else
+				{
+					int random_count = 0;
+					if (entry.random_count_ > 0)
+					{
+						random_count = rand() % entry.random_count_;
+					}
+					int add_count = entry.base_count_ + random_count;
+					if (add_count != 0)
+					{
+						if (entry.lottery_type_ == message::Lottery_Gold)
+						{
+							int gold = _info.gold();
+							gold += add_count;
+							_info.set_gold(gold);
+							msgACK.set_current_gold(_info.gold());
+						}
+						else if (entry.lottery_type_ == message::Lottery_Jewel)
+						{
+							int jewel = _info.jewel();
+							jewel += add_count;
+							_info.set_jewel(jewel);
+							msgACK.set_current_jewel(_info.jewel());
+						}
+						
+					}
+					
+				}
+
+			}
+			else
+			{
+				msgACK.set_error(message::Error_FailedToLotteryErrorRating);
+			}
+		}
+		else
+		{
+			msgACK.set_error(message::Error_FailedToLotteryNothingCanBeLotteried);
+		}
+
+	}
+	else
+	{
+		msgACK.set_error(message::Error_FailedToLotteryTodayHaveBeenLotteried);
+	}
+	msgACK.set_last_lottery_time(_last_day_lottery_time);
+	sendPBMessage(&msgACK);
 }
 
 void DreamHero::ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg)
