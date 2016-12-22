@@ -146,7 +146,8 @@ enum GameError {
   Error_FailedToBuyLotionAlreadyHaveLotion = 38,
   Error_FailedToBuyNotFoundThisLotion = 39,
   Error_FailedExitGameNotFoundTheUseLotion = 40,
-  Error_Unknow = 41
+  Error_FailedToLotteryTodayHaveBeenLotteried = 41,
+  Error_Unknow = 42
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;

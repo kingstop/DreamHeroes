@@ -44,7 +44,8 @@ enum GameError
 	Error_FailedToBuyLotionAlreadyHaveLotion = 38;
 	Error_FailedToBuyNotFoundThisLotion = 39;
 	Error_FailedExitGameNotFoundTheUseLotion = 40;
-	Error_Unknow = 41;
+	Error_FailedToLotteryTodayHaveBeenLotteried = 41;
+	Error_Unknow = 42;
 }
 
 

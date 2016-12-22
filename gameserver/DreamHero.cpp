@@ -1700,6 +1700,12 @@ void DreamHero::ReqSetSpecialCreatureList(int creature_id, int status)
 	sendPBMessage(&msg);	
 }
 
+
+void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
+{
+	
+}
+
 void DreamHero::ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg)
 {
 	message::GameError error = message::Error_NO;

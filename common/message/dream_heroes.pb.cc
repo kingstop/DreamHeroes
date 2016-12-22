@@ -1747,7 +1747,7 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "ifySpirit\022\016\n\006spirit\030\001 \002(\005\"_\n\030MsgS2CCmdMo"
     "difySpiritACK\022\026\n\016current_spirit\030\001 \002(\005\022+\n"
     "\005error\030\002 \002(\0162\022.message.GameError:\010Error_"
-    "NO*\267\016\n\tGameError\022\014\n\010Error_NO\020\000\022*\n&Error_"
+    "NO*\350\016\n\tGameError\022\014\n\010Error_NO\020\000\022*\n&Error_"
     "CanNotEnterGameTheInstanceIsLock\020\001\022+\n\'Er"
     "ror_CanNotEnterGameTheCharacterIsLock\020\002\022"
     ")\n%Error_CanNotEnterGameTheSectionIsLock"
@@ -1792,11 +1792,12 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "otionNotEnoughJewel\020%\022,\n(Error_FailedToB"
     "uyLotionAlreadyHaveLotion\020&\022\'\n#Error_Fai"
     "ledToBuyNotFoundThisLotion\020\'\022,\n(Error_Fa"
-    "iledExitGameNotFoundTheUseLotion\020(\022\020\n\014Er"
-    "ror_Unknow\020)*@\n\rLotionUseType\022\026\n\022LotionU"
-    "seType_gold\020\001\022\027\n\023LotionUseType_jewel\020\002*G"
-    "\n\014enLotteryBox\022\021\n\rLottery_Jewel\020\000\022\020\n\014Lot"
-    "tery_Gold\020\001\022\022\n\016Lottery_Lotion\020\002", 8311);
+    "iledExitGameNotFoundTheUseLotion\020(\022/\n+Er"
+    "ror_FailedToLotteryTodayHaveBeenLotterie"
+    "d\020)\022\020\n\014Error_Unknow\020**@\n\rLotionUseType\022\026"
+    "\n\022LotionUseType_gold\020\001\022\027\n\023LotionUseType_"
+    "jewel\020\002*G\n\014enLotteryBox\022\021\n\rLottery_Jewel"
+    "\020\000\022\020\n\014Lottery_Gold\020\001\022\022\n\016Lottery_Lotion\020\002", 8360);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgS2CNotifyError::default_instance_ = new MsgS2CNotifyError();
@@ -1986,6 +1987,7 @@ bool GameError_IsValid(int value) {
     case 39:
     case 40:
     case 41:
+    case 42:
       return true;
     default:
       return false;
