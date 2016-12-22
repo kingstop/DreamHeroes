@@ -132,6 +132,7 @@ message MsgS2CHeroesInit
 	required int32 day_refresh_time = 19;
 	repeated MsgLotionShopConfigInfo lotion_shop_configs = 20;
 	required uint32 last_lottery_time = 21;
+	required uint32 server_time = 22;
 
 }
 

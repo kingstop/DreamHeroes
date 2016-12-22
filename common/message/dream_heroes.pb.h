@@ -1237,6 +1237,13 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::uint32 last_lottery_time() const;
   void set_last_lottery_time(::google::protobuf::uint32 value);
 
+  // required uint32 server_time = 22;
+  bool has_server_time() const;
+  void clear_server_time();
+  static const int kServerTimeFieldNumber = 22;
+  ::google::protobuf::uint32 server_time() const;
+  void set_server_time(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
   inline void set_has_info();
@@ -1273,6 +1280,8 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   inline void clear_has_day_refresh_time();
   inline void set_has_last_lottery_time();
   inline void clear_has_last_lottery_time();
+  inline void set_has_server_time();
+  inline void clear_has_server_time();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1301,6 +1310,7 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int32 day_refresh_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo > lotion_shop_configs_;
   ::google::protobuf::uint32 last_lottery_time_;
+  ::google::protobuf::uint32 server_time_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -8195,6 +8205,30 @@ inline void MsgS2CHeroesInit::set_last_lottery_time(::google::protobuf::uint32 v
   set_has_last_lottery_time();
   last_lottery_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_lottery_time)
+}
+
+// required uint32 server_time = 22;
+inline bool MsgS2CHeroesInit::has_server_time() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_server_time() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void MsgS2CHeroesInit::clear_has_server_time() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void MsgS2CHeroesInit::clear_server_time() {
+  server_time_ = 0u;
+  clear_has_server_time();
+}
+inline ::google::protobuf::uint32 MsgS2CHeroesInit::server_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.server_time)
+  return server_time_;
+}
+inline void MsgS2CHeroesInit::set_server_time(::google::protobuf::uint32 value) {
+  set_has_server_time();
+  server_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.server_time)
 }
 
 // -------------------------------------------------------------------
