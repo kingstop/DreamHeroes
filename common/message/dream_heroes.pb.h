@@ -47,6 +47,8 @@ class MsgS2CNewTaskNotify;
 class MsgSpiritShopInfo;
 class MsgLotionShopConfigInfo;
 class MsgS2CHeroesInit;
+class MsgC2SReqDayLottery;
+class MsgS2CDayLotteryACK;
 class MsgC2SReqBuyLotion;
 class MsgS2CBuyLotionACK;
 class MsgC2SReqBuySpirit;
@@ -179,6 +181,26 @@ inline bool LotionUseType_Parse(
     const ::std::string& name, LotionUseType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<LotionUseType>(
     LotionUseType_descriptor(), name, value);
+}
+enum enLotteryBox {
+  Lottery_Jewel = 0,
+  Lottery_Gold = 1,
+  Lottery_Lotion = 2
+};
+bool enLotteryBox_IsValid(int value);
+const enLotteryBox enLotteryBox_MIN = Lottery_Jewel;
+const enLotteryBox enLotteryBox_MAX = Lottery_Lotion;
+const int enLotteryBox_ARRAYSIZE = enLotteryBox_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* enLotteryBox_descriptor();
+inline const ::std::string& enLotteryBox_Name(enLotteryBox value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    enLotteryBox_descriptor(), value);
+}
+inline bool enLotteryBox_Parse(
+    const ::std::string& name, enLotteryBox* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<enLotteryBox>(
+    enLotteryBox_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1204,6 +1226,13 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo >*
       mutable_lotion_shop_configs();
 
+  // required uint32 last_lottery_time = 21;
+  bool has_last_lottery_time() const;
+  void clear_last_lottery_time();
+  static const int kLastLotteryTimeFieldNumber = 21;
+  ::google::protobuf::uint32 last_lottery_time() const;
+  void set_last_lottery_time(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
   inline void set_has_info();
@@ -1238,6 +1267,8 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   inline void clear_has_last_buy_spirit_time();
   inline void set_has_day_refresh_time();
   inline void clear_has_day_refresh_time();
+  inline void set_has_last_lottery_time();
+  inline void clear_has_last_lottery_time();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1265,12 +1296,247 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int32 last_buy_spirit_time_;
   ::google::protobuf::int32 day_refresh_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo > lotion_shop_configs_;
+  ::google::protobuf::uint32 last_lottery_time_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
 
   void InitAsDefaultInstance();
   static MsgS2CHeroesInit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqDayLottery : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqDayLottery();
+  virtual ~MsgC2SReqDayLottery();
+
+  MsgC2SReqDayLottery(const MsgC2SReqDayLottery& from);
+
+  inline MsgC2SReqDayLottery& operator=(const MsgC2SReqDayLottery& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqDayLottery& default_instance();
+
+  void Swap(MsgC2SReqDayLottery* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqDayLottery* New() const { return New(NULL); }
+
+  MsgC2SReqDayLottery* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqDayLottery& from);
+  void MergeFrom(const MsgC2SReqDayLottery& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqDayLottery* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqDayLottery)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqDayLottery* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CDayLotteryACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CDayLotteryACK();
+  virtual ~MsgS2CDayLotteryACK();
+
+  MsgS2CDayLotteryACK(const MsgS2CDayLotteryACK& from);
+
+  inline MsgS2CDayLotteryACK& operator=(const MsgS2CDayLotteryACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CDayLotteryACK& default_instance();
+
+  void Swap(MsgS2CDayLotteryACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CDayLotteryACK* New() const { return New(NULL); }
+
+  MsgS2CDayLotteryACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CDayLotteryACK& from);
+  void MergeFrom(const MsgS2CDayLotteryACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CDayLotteryACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .message.GameError error = 1 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // required .message.enLotteryBox type = 2 [default = Lottery_Jewel];
+  bool has_type() const;
+  void clear_type();
+  static const int kTypeFieldNumber = 2;
+  ::message::enLotteryBox type() const;
+  void set_type(::message::enLotteryBox value);
+
+  // required int32 index = 3;
+  bool has_index() const;
+  void clear_index();
+  static const int kIndexFieldNumber = 3;
+  ::google::protobuf::int32 index() const;
+  void set_index(::google::protobuf::int32 value);
+
+  // required int32 count = 4;
+  bool has_count() const;
+  void clear_count();
+  static const int kCountFieldNumber = 4;
+  ::google::protobuf::int32 count() const;
+  void set_count(::google::protobuf::int32 value);
+
+  // required int32 current_jewel = 5;
+  bool has_current_jewel() const;
+  void clear_current_jewel();
+  static const int kCurrentJewelFieldNumber = 5;
+  ::google::protobuf::int32 current_jewel() const;
+  void set_current_jewel(::google::protobuf::int32 value);
+
+  // required int32 current_gold = 6;
+  bool has_current_gold() const;
+  void clear_current_gold();
+  static const int kCurrentGoldFieldNumber = 6;
+  ::google::protobuf::int32 current_gold() const;
+  void set_current_gold(::google::protobuf::int32 value);
+
+  // repeated int32 current_lotions = 7;
+  int current_lotions_size() const;
+  void clear_current_lotions();
+  static const int kCurrentLotionsFieldNumber = 7;
+  ::google::protobuf::int32 current_lotions(int index) const;
+  void set_current_lotions(int index, ::google::protobuf::int32 value);
+  void add_current_lotions(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      current_lotions() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_current_lotions();
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CDayLotteryACK)
+ private:
+  inline void set_has_error();
+  inline void clear_has_error();
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_index();
+  inline void clear_has_index();
+  inline void set_has_count();
+  inline void clear_has_count();
+  inline void set_has_current_jewel();
+  inline void clear_has_current_jewel();
+  inline void set_has_current_gold();
+  inline void clear_has_current_gold();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  int error_;
+  int type_;
+  ::google::protobuf::int32 index_;
+  ::google::protobuf::int32 count_;
+  ::google::protobuf::int32 current_jewel_;
+  ::google::protobuf::int32 current_gold_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > current_lotions_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CDayLotteryACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -7893,6 +8159,214 @@ MsgS2CHeroesInit::mutable_lotion_shop_configs() {
   return &lotion_shop_configs_;
 }
 
+// required uint32 last_lottery_time = 21;
+inline bool MsgS2CHeroesInit::has_last_lottery_time() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_last_lottery_time() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void MsgS2CHeroesInit::clear_has_last_lottery_time() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void MsgS2CHeroesInit::clear_last_lottery_time() {
+  last_lottery_time_ = 0u;
+  clear_has_last_lottery_time();
+}
+inline ::google::protobuf::uint32 MsgS2CHeroesInit::last_lottery_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.last_lottery_time)
+  return last_lottery_time_;
+}
+inline void MsgS2CHeroesInit::set_last_lottery_time(::google::protobuf::uint32 value) {
+  set_has_last_lottery_time();
+  last_lottery_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_lottery_time)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqDayLottery
+
+// -------------------------------------------------------------------
+
+// MsgS2CDayLotteryACK
+
+// required .message.GameError error = 1 [default = Error_NO];
+inline bool MsgS2CDayLotteryACK::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CDayLotteryACK::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CDayLotteryACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CDayLotteryACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CDayLotteryACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CDayLotteryACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CDayLotteryACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CDayLotteryACK.error)
+}
+
+// required .message.enLotteryBox type = 2 [default = Lottery_Jewel];
+inline bool MsgS2CDayLotteryACK::has_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CDayLotteryACK::set_has_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CDayLotteryACK::clear_has_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CDayLotteryACK::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::message::enLotteryBox MsgS2CDayLotteryACK::type() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CDayLotteryACK.type)
+  return static_cast< ::message::enLotteryBox >(type_);
+}
+inline void MsgS2CDayLotteryACK::set_type(::message::enLotteryBox value) {
+  assert(::message::enLotteryBox_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CDayLotteryACK.type)
+}
+
+// required int32 index = 3;
+inline bool MsgS2CDayLotteryACK::has_index() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CDayLotteryACK::set_has_index() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CDayLotteryACK::clear_has_index() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CDayLotteryACK::clear_index() {
+  index_ = 0;
+  clear_has_index();
+}
+inline ::google::protobuf::int32 MsgS2CDayLotteryACK::index() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CDayLotteryACK.index)
+  return index_;
+}
+inline void MsgS2CDayLotteryACK::set_index(::google::protobuf::int32 value) {
+  set_has_index();
+  index_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CDayLotteryACK.index)
+}
+
+// required int32 count = 4;
+inline bool MsgS2CDayLotteryACK::has_count() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgS2CDayLotteryACK::set_has_count() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgS2CDayLotteryACK::clear_has_count() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgS2CDayLotteryACK::clear_count() {
+  count_ = 0;
+  clear_has_count();
+}
+inline ::google::protobuf::int32 MsgS2CDayLotteryACK::count() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CDayLotteryACK.count)
+  return count_;
+}
+inline void MsgS2CDayLotteryACK::set_count(::google::protobuf::int32 value) {
+  set_has_count();
+  count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CDayLotteryACK.count)
+}
+
+// required int32 current_jewel = 5;
+inline bool MsgS2CDayLotteryACK::has_current_jewel() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgS2CDayLotteryACK::set_has_current_jewel() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgS2CDayLotteryACK::clear_has_current_jewel() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgS2CDayLotteryACK::clear_current_jewel() {
+  current_jewel_ = 0;
+  clear_has_current_jewel();
+}
+inline ::google::protobuf::int32 MsgS2CDayLotteryACK::current_jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CDayLotteryACK.current_jewel)
+  return current_jewel_;
+}
+inline void MsgS2CDayLotteryACK::set_current_jewel(::google::protobuf::int32 value) {
+  set_has_current_jewel();
+  current_jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CDayLotteryACK.current_jewel)
+}
+
+// required int32 current_gold = 6;
+inline bool MsgS2CDayLotteryACK::has_current_gold() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgS2CDayLotteryACK::set_has_current_gold() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgS2CDayLotteryACK::clear_has_current_gold() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MsgS2CDayLotteryACK::clear_current_gold() {
+  current_gold_ = 0;
+  clear_has_current_gold();
+}
+inline ::google::protobuf::int32 MsgS2CDayLotteryACK::current_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CDayLotteryACK.current_gold)
+  return current_gold_;
+}
+inline void MsgS2CDayLotteryACK::set_current_gold(::google::protobuf::int32 value) {
+  set_has_current_gold();
+  current_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CDayLotteryACK.current_gold)
+}
+
+// repeated int32 current_lotions = 7;
+inline int MsgS2CDayLotteryACK::current_lotions_size() const {
+  return current_lotions_.size();
+}
+inline void MsgS2CDayLotteryACK::clear_current_lotions() {
+  current_lotions_.Clear();
+}
+inline ::google::protobuf::int32 MsgS2CDayLotteryACK::current_lotions(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CDayLotteryACK.current_lotions)
+  return current_lotions_.Get(index);
+}
+inline void MsgS2CDayLotteryACK::set_current_lotions(int index, ::google::protobuf::int32 value) {
+  current_lotions_.Set(index, value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CDayLotteryACK.current_lotions)
+}
+inline void MsgS2CDayLotteryACK::add_current_lotions(::google::protobuf::int32 value) {
+  current_lotions_.Add(value);
+  // @@protoc_insertion_point(field_add:message.MsgS2CDayLotteryACK.current_lotions)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MsgS2CDayLotteryACK::current_lotions() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CDayLotteryACK.current_lotions)
+  return current_lotions_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MsgS2CDayLotteryACK::mutable_current_lotions() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CDayLotteryACK.current_lotions)
+  return &current_lotions_;
+}
+
 // -------------------------------------------------------------------
 
 // MsgC2SReqBuyLotion
@@ -11317,6 +11791,11 @@ template <> struct is_proto_enum< ::message::LotionUseType> : ::google::protobuf
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::message::LotionUseType>() {
   return ::message::LotionUseType_descriptor();
+}
+template <> struct is_proto_enum< ::message::enLotteryBox> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::message::enLotteryBox>() {
+  return ::message::enLotteryBox_descriptor();
 }
 
 }  // namespace protobuf

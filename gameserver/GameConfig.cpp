@@ -192,6 +192,12 @@ const char* GameConfig::getPlatformHttpUrl()
 {
 	return _platform_http.c_str();
 }
+
+const VCLOTTERYDRAWBOXSCONFIGS* GameConfig::getLotteryDrawBoxs()
+{
+	return &_lottery_draw_configs;
+}
+
 void GameConfig::Load(DBQuery* p)
 {
 
@@ -486,6 +492,25 @@ void GameConfig::Load(DBQuery* p)
 			entry_config.set_resource_id(row["resource_id"]);
 			entry_config.set_describe(row["describe"].c_str());
 			_map_lotion_shop_configs[entry_config.lotion_id()] = entry_config;
+		}
+
+		query.reset();
+		sResult.clear();
+		query << "select * from `lottery_draw_box_config`;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			LotteryDrawBoxConfig lotteryConfig;
+			DBRow& row = sResult[i];
+			int temp_type = row["type"];
+
+			lotteryConfig.lottery_type_ = (enLotteryBox)temp_type;
+			lotteryConfig.sub_index_ = row["sub_type"];
+			lotteryConfig.base_count_ = row["base_count"];
+			lotteryConfig.random_count_ = row["randdom_count"];
+			lotteryConfig.rating_ = row["rating"];
+			_lottery_draw_configs.push_back(lotteryConfig);
 		}
 		gHttpManager.setChannel(_global_config.channel_id_);
 		gHttpManager.setGameID(_global_config.game_id_);

@@ -57,6 +57,7 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	_last_recover_spirit_time = info->last_recover_spirit_time();
 	_last_buy_spirit_time = info->last_buy_spirit_time();
 	int size_special_kills =  info->special_kills_size();
+	_last_day_lottery_time = info->last_lottery_time();
 	_gm_level = info->gm_level();
 	_special_kills.clear();
 	for (int i = 0; i < size_special_kills; i ++)
@@ -1703,7 +1704,7 @@ void DreamHero::ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg)
 {
 	message::GameError error = message::Error_NO;
 	int lotion_id = msg->lotion_id();
-	if (lotion_id < 0 && lotion_id > 3)
+	if (lotion_id >= 0 && lotion_id <= 3)
 	{		
 		const message::MsgLotionShopConfigInfo* shop_config = gGameConfig.getLotionShop(lotion_id);
 		if (shop_config != NULL)

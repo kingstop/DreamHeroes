@@ -127,9 +127,34 @@ message MsgS2CHeroesInit
 	required int32 last_buy_spirit_time = 18;
 	required int32 day_refresh_time = 19;
 	repeated MsgLotionShopConfigInfo lotion_shop_configs = 20;
+	required uint32 last_lottery_time = 21;
 
 }
 
+
+message MsgC2SReqDayLottery
+{
+	
+}
+
+enum enLotteryBox
+{
+	Lottery_Jewel = 0;
+	Lottery_Gold = 1;
+	Lottery_Lotion = 2;
+};
+
+
+message MsgS2CDayLotteryACK
+{
+	required GameError error = 1 [default=Error_NO];
+	required  enLotteryBox type = 2[default=Lottery_Jewel];
+	required int32 index = 3;
+	required int32 count = 4;
+	required int32 current_jewel = 5;
+	required int32 current_gold = 6;
+	repeated int32 current_lotions = 7;
+}
 
 message MsgC2SReqBuyLotion
 {

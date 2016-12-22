@@ -106,6 +106,7 @@ protected:
 	int _ping_count;
 	u32 _last_recover_spirit_time;
 	u32 _last_buy_spirit_time;
+	u32 _last_day_lottery_time;
 
 	bool _destroy_clock;
 	

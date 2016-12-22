@@ -86,7 +86,7 @@ void DBQuestManager::saveHeroMap(message::MsgSaveHeroDataGS2DB* msg)
 void DBQuestManager::queryHeroInfo(account_type a, tran_id_type t, u16 gs)
 {
 	char sz_sql[256];
-	sprintf(sz_sql, "select * ,UNIX_TIMESTAMP(`last_recover_spirit_time`), UNIX_TIMESTAMP(`last_buy_spirit_time`), UNIX_TIMESTAMP(`last_task_advertisement_time`) from `character` where `account_id`=%llu;",a);
+	sprintf(sz_sql, "select * ,UNIX_TIMESTAMP(`last_lottery_time`),UNIX_TIMESTAMP(`last_recover_spirit_time`), UNIX_TIMESTAMP(`last_buy_spirit_time`), UNIX_TIMESTAMP(`last_task_advertisement_time`) from `character` where `account_id`=%llu;",a);
 	gDBCharDatabase.addSQueryTask(this, &DBQuestManager::dbDoQueryHeroInfo, sz_sql, 0, new tgHeroData(a, t, gs), _QUERY_HERO_INFO_);
 }
 
@@ -206,7 +206,8 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			pkParm->info.set_last_task_advertisement_time(row["UNIX_TIMESTAMP(`last_task_advertisement_time`)"]);
 			pkParm->info.set_last_buy_spirit_time(row["UNIX_TIMESTAMP(`last_buy_spirit_time`)"]);
 			pkParm->info.set_last_recover_spirit_time(row["UNIX_TIMESTAMP(`last_recover_spirit_time`)"]);
-			pkParm->info.set_gm_level(row["gm_level"]);			
+			pkParm->info.set_gm_level(row["gm_level"]);	
+			pkParm->info.set_last_lottery_time(row["UNIX_TIMESTAMP(`last_lottery_time`)"]);//last_lottery_time
 			std::string records_str;
 			records_str = row["record_his"].c_str();
 			std::vector<std::string> outVC;

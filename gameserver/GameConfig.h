@@ -93,6 +93,22 @@ struct GoldShopConfigInfo
 	message::MsgGoldShopConfigInfo info_;
 };
 
+enum enLotteryBox
+{
+	Lottery_Jewel,
+	Lottery_Gold,
+	Lottery_Lotion
+};
+
+struct LotteryDrawBoxConfig
+{
+	enLotteryBox lottery_type_;
+	int sub_index_;
+	int base_count_;
+	int random_count_;
+	int rating_;
+};
+
 typedef std::map<int, message::MsgTaskConfigInfo> MAPTASKS;
 typedef std::map<int, message::MsgShopConfigInfo> MAPSHOPHEROCONFIGS;
 typedef std::map<int, message::MsgChapterConfigInfo> MAPCHAPTERCONFIGINFOS;
@@ -106,9 +122,8 @@ typedef std::map<int, MapRandomObjsConfig> MAPRANDOMOBJCONFIGS;
 typedef std::map<std::pair<int, int>, MAPRANDOMOBJCONFIGS> MAPALLRANDOMOBJCONFIGS;
 typedef std::map<std::pair<int, int>, MAPTYPEDROPBOXCONFIGS> MAPMAPDROPBOXCONFIGS;
 typedef std::map<int, message::MsgLotionShopConfigInfo> MAPLOTIONSHOPCONFIGS;
-
 typedef std::map<int, message::MsgSpiritShopInfo> MAPSPIRITSHOP;
-
+typedef std::vector<LotteryDrawBoxConfig> VCLOTTERYDRAWBOXSCONFIGS;
 
 class GameConfig
 {
@@ -133,6 +148,7 @@ public:
 	const message::MsgSpiritShopInfo* getSpiritShop(int index);
 	const MAPLOTIONSHOPCONFIGS* getLotionShop();
 	const message::MsgLotionShopConfigInfo* getLotionShop(int index);
+	const VCLOTTERYDRAWBOXSCONFIGS* getLotteryDrawBoxs();
 
 	void setServerOpenTime(u64 time_open);
 	void setServerID(char server_id);
@@ -153,6 +169,7 @@ protected:
 	MAPMAPDROPBOXCONFIGS _map_drop_box_configs;
 	MAPSPIRITSHOP _map_spirit_shop;
 	MAPLOTIONSHOPCONFIGS _map_lotion_shop_configs;
+	VCLOTTERYDRAWBOXSCONFIGS _lottery_draw_configs;
 	globalConfig _global_config;
 	u64 _server_open_time;
 	char _server_char;
