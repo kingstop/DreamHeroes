@@ -41,7 +41,10 @@ enum GameError
 	Error_ReliveFailedNotEnoughGod = 35;
 	Error_FailedToBuyLotionNotEnoughGold = 36;
 	Error_FailedToBuyLotionNotEnoughJewel = 37;
-	Error_Unknow = 38;
+	Error_FailedToBuyLotionAlreadyHaveLotion = 38;
+	Error_FailedToBuyNotFoundThisLotion = 39;
+	Error_FailedExitGameNotFoundTheUseLotion = 40;
+	Error_Unknow = 41;
 }
 
 
@@ -83,7 +86,7 @@ message MsgSpiritShopInfo
 	required int32 spirit = 2;
 	required int32 need_jewel = 3;
 	required int32 resource_id = 4;
-	required string descript = 5;
+	required string describe = 5;
 }
 
 enum LotionUseType
@@ -97,6 +100,8 @@ message MsgLotionShopConfigInfo
 	required int32 lotion_id = 1;
 	required LotionUseType use_type = 2 [default = LotionUseType_gold];
 	required int32 use_count = 3;
+	required int32 resource_id = 4;
+	required string describe = 5;
 
 }
 
@@ -192,6 +197,7 @@ message MsgC2SReqExitGame
 	repeated MsgObjConfig special_kill_list = 7;
 	repeated MsgKillHistroy kill_list = 8;
 	repeated MsgIntPair special_creatures = 9;
+	repeated int32 use_lotions = 10;
 }
 
 message MsgS2CExitGameACK
@@ -205,6 +211,7 @@ message MsgS2CExitGameACK
 	required int32 complete_task_count = 7;
 	required GameError error = 8 [default=Error_NO];
 	repeated MsgIntPair special_creatures = 9;
+	repeated int32 current_lotions = 10;
 }
 
 message MsgC2SReqUnlockChapter

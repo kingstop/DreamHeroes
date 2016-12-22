@@ -304,6 +304,16 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 				}
 			}
 			
+			std::string lotions_str = row["lotions"].c_str();
+			outVC.clear();
+			SplitStringA(lotions_str, ",", outVC);
+			length_vc = outVC.size();
+			for (size_t i = 0; i < length_vc; i++)
+			{
+				data->add_lotions(atoi(outVC[i].c_str()));
+			}
+
+
 			std::string special_creatures = row["special_creatures"].c_str();
 			outVC.clear();
 			SplitStringA(special_creatures, ";", outVC);

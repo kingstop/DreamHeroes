@@ -141,7 +141,10 @@ enum GameError {
   Error_ReliveFailedNotEnoughGod = 35,
   Error_FailedToBuyLotionNotEnoughGold = 36,
   Error_FailedToBuyLotionNotEnoughJewel = 37,
-  Error_Unknow = 38
+  Error_FailedToBuyLotionAlreadyHaveLotion = 38,
+  Error_FailedToBuyNotFoundThisLotion = 39,
+  Error_FailedExitGameNotFoundTheUseLotion = 40,
+  Error_Unknow = 41
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
@@ -793,17 +796,17 @@ class MsgSpiritShopInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 resource_id() const;
   void set_resource_id(::google::protobuf::int32 value);
 
-  // required string descript = 5;
-  bool has_descript() const;
-  void clear_descript();
-  static const int kDescriptFieldNumber = 5;
-  const ::std::string& descript() const;
-  void set_descript(const ::std::string& value);
-  void set_descript(const char* value);
-  void set_descript(const char* value, size_t size);
-  ::std::string* mutable_descript();
-  ::std::string* release_descript();
-  void set_allocated_descript(::std::string* descript);
+  // required string describe = 5;
+  bool has_describe() const;
+  void clear_describe();
+  static const int kDescribeFieldNumber = 5;
+  const ::std::string& describe() const;
+  void set_describe(const ::std::string& value);
+  void set_describe(const char* value);
+  void set_describe(const char* value, size_t size);
+  ::std::string* mutable_describe();
+  ::std::string* release_describe();
+  void set_allocated_describe(::std::string* describe);
 
   // @@protoc_insertion_point(class_scope:message.MsgSpiritShopInfo)
  private:
@@ -815,8 +818,8 @@ class MsgSpiritShopInfo : public ::google::protobuf::Message {
   inline void clear_has_need_jewel();
   inline void set_has_resource_id();
   inline void clear_has_resource_id();
-  inline void set_has_descript();
-  inline void clear_has_descript();
+  inline void set_has_describe();
+  inline void clear_has_describe();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -828,7 +831,7 @@ class MsgSpiritShopInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 spirit_;
   ::google::protobuf::int32 need_jewel_;
   ::google::protobuf::int32 resource_id_;
-  ::google::protobuf::internal::ArenaStringPtr descript_;
+  ::google::protobuf::internal::ArenaStringPtr describe_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -923,6 +926,25 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 use_count() const;
   void set_use_count(::google::protobuf::int32 value);
 
+  // required int32 resource_id = 4;
+  bool has_resource_id() const;
+  void clear_resource_id();
+  static const int kResourceIdFieldNumber = 4;
+  ::google::protobuf::int32 resource_id() const;
+  void set_resource_id(::google::protobuf::int32 value);
+
+  // required string describe = 5;
+  bool has_describe() const;
+  void clear_describe();
+  static const int kDescribeFieldNumber = 5;
+  const ::std::string& describe() const;
+  void set_describe(const ::std::string& value);
+  void set_describe(const char* value);
+  void set_describe(const char* value, size_t size);
+  ::std::string* mutable_describe();
+  ::std::string* release_describe();
+  void set_allocated_describe(::std::string* describe);
+
   // @@protoc_insertion_point(class_scope:message.MsgLotionShopConfigInfo)
  private:
   inline void set_has_lotion_id();
@@ -931,6 +953,10 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_use_type();
   inline void set_has_use_count();
   inline void clear_has_use_count();
+  inline void set_has_resource_id();
+  inline void clear_has_resource_id();
+  inline void set_has_describe();
+  inline void clear_has_describe();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -941,6 +967,8 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 lotion_id_;
   int use_type_;
   ::google::protobuf::int32 use_count_;
+  ::google::protobuf::int32 resource_id_;
+  ::google::protobuf::internal::ArenaStringPtr describe_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -2174,6 +2202,18 @@ class MsgC2SReqExitGame : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
       mutable_special_creatures();
 
+  // repeated int32 use_lotions = 10;
+  int use_lotions_size() const;
+  void clear_use_lotions();
+  static const int kUseLotionsFieldNumber = 10;
+  ::google::protobuf::int32 use_lotions(int index) const;
+  void set_use_lotions(int index, ::google::protobuf::int32 value);
+  void add_use_lotions(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      use_lotions() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_use_lotions();
+
   // @@protoc_insertion_point(class_scope:message.MsgC2SReqExitGame)
  private:
   inline void set_has_chapter_id();
@@ -2200,6 +2240,7 @@ class MsgC2SReqExitGame : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgObjConfig > special_kill_list_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgKillHistroy > kill_list_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > use_lotions_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -2351,6 +2392,18 @@ class MsgS2CExitGameACK : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
       mutable_special_creatures();
 
+  // repeated int32 current_lotions = 10;
+  int current_lotions_size() const;
+  void clear_current_lotions();
+  static const int kCurrentLotionsFieldNumber = 10;
+  ::google::protobuf::int32 current_lotions(int index) const;
+  void set_current_lotions(int index, ::google::protobuf::int32 value);
+  void add_current_lotions(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      current_lotions() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_current_lotions();
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CExitGameACK)
  private:
   inline void set_has_chapter_id();
@@ -2381,6 +2434,7 @@ class MsgS2CExitGameACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 complete_task_count_;
   int error_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > current_lotions_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -7105,57 +7159,57 @@ inline void MsgSpiritShopInfo::set_resource_id(::google::protobuf::int32 value) 
   // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.resource_id)
 }
 
-// required string descript = 5;
-inline bool MsgSpiritShopInfo::has_descript() const {
+// required string describe = 5;
+inline bool MsgSpiritShopInfo::has_describe() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void MsgSpiritShopInfo::set_has_descript() {
+inline void MsgSpiritShopInfo::set_has_describe() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void MsgSpiritShopInfo::clear_has_descript() {
+inline void MsgSpiritShopInfo::clear_has_describe() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void MsgSpiritShopInfo::clear_descript() {
-  descript_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_descript();
+inline void MsgSpiritShopInfo::clear_describe() {
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_describe();
 }
-inline const ::std::string& MsgSpiritShopInfo::descript() const {
-  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.descript)
-  return descript_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& MsgSpiritShopInfo::describe() const {
+  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.describe)
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgSpiritShopInfo::set_descript(const ::std::string& value) {
-  set_has_descript();
-  descript_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.descript)
+inline void MsgSpiritShopInfo::set_describe(const ::std::string& value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.describe)
 }
-inline void MsgSpiritShopInfo::set_descript(const char* value) {
-  set_has_descript();
-  descript_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgSpiritShopInfo.descript)
+inline void MsgSpiritShopInfo::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgSpiritShopInfo.describe)
 }
-inline void MsgSpiritShopInfo::set_descript(const char* value, size_t size) {
-  set_has_descript();
-  descript_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void MsgSpiritShopInfo::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgSpiritShopInfo.descript)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgSpiritShopInfo.describe)
 }
-inline ::std::string* MsgSpiritShopInfo::mutable_descript() {
-  set_has_descript();
-  // @@protoc_insertion_point(field_mutable:message.MsgSpiritShopInfo.descript)
-  return descript_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* MsgSpiritShopInfo::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgSpiritShopInfo.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* MsgSpiritShopInfo::release_descript() {
-  clear_has_descript();
-  return descript_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* MsgSpiritShopInfo::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgSpiritShopInfo::set_allocated_descript(::std::string* descript) {
-  if (descript != NULL) {
-    set_has_descript();
+inline void MsgSpiritShopInfo::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
   } else {
-    clear_has_descript();
+    clear_has_describe();
   }
-  descript_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), descript);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgSpiritShopInfo.descript)
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgSpiritShopInfo.describe)
 }
 
 // -------------------------------------------------------------------
@@ -7233,6 +7287,83 @@ inline void MsgLotionShopConfigInfo::set_use_count(::google::protobuf::int32 val
   set_has_use_count();
   use_count_ = value;
   // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.use_count)
+}
+
+// required int32 resource_id = 4;
+inline bool MsgLotionShopConfigInfo::has_resource_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgLotionShopConfigInfo::set_has_resource_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgLotionShopConfigInfo::clear_has_resource_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgLotionShopConfigInfo::clear_resource_id() {
+  resource_id_ = 0;
+  clear_has_resource_id();
+}
+inline ::google::protobuf::int32 MsgLotionShopConfigInfo::resource_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.resource_id)
+  return resource_id_;
+}
+inline void MsgLotionShopConfigInfo::set_resource_id(::google::protobuf::int32 value) {
+  set_has_resource_id();
+  resource_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.resource_id)
+}
+
+// required string describe = 5;
+inline bool MsgLotionShopConfigInfo::has_describe() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgLotionShopConfigInfo::set_has_describe() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgLotionShopConfigInfo::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgLotionShopConfigInfo::clear_describe() {
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_describe();
+}
+inline const ::std::string& MsgLotionShopConfigInfo::describe() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.describe)
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgLotionShopConfigInfo::set_describe(const ::std::string& value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.describe)
+}
+inline void MsgLotionShopConfigInfo::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgLotionShopConfigInfo.describe)
+}
+inline void MsgLotionShopConfigInfo::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgLotionShopConfigInfo.describe)
+}
+inline ::std::string* MsgLotionShopConfigInfo::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgLotionShopConfigInfo.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgLotionShopConfigInfo::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgLotionShopConfigInfo::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
+  } else {
+    clear_has_describe();
+  }
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgLotionShopConfigInfo.describe)
 }
 
 // -------------------------------------------------------------------
@@ -8554,6 +8685,36 @@ MsgC2SReqExitGame::mutable_special_creatures() {
   return &special_creatures_;
 }
 
+// repeated int32 use_lotions = 10;
+inline int MsgC2SReqExitGame::use_lotions_size() const {
+  return use_lotions_.size();
+}
+inline void MsgC2SReqExitGame::clear_use_lotions() {
+  use_lotions_.Clear();
+}
+inline ::google::protobuf::int32 MsgC2SReqExitGame::use_lotions(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqExitGame.use_lotions)
+  return use_lotions_.Get(index);
+}
+inline void MsgC2SReqExitGame::set_use_lotions(int index, ::google::protobuf::int32 value) {
+  use_lotions_.Set(index, value);
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqExitGame.use_lotions)
+}
+inline void MsgC2SReqExitGame::add_use_lotions(::google::protobuf::int32 value) {
+  use_lotions_.Add(value);
+  // @@protoc_insertion_point(field_add:message.MsgC2SReqExitGame.use_lotions)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MsgC2SReqExitGame::use_lotions() const {
+  // @@protoc_insertion_point(field_list:message.MsgC2SReqExitGame.use_lotions)
+  return use_lotions_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MsgC2SReqExitGame::mutable_use_lotions() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgC2SReqExitGame.use_lotions)
+  return &use_lotions_;
+}
+
 // -------------------------------------------------------------------
 
 // MsgS2CExitGameACK
@@ -8791,6 +8952,36 @@ inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
 MsgS2CExitGameACK::mutable_special_creatures() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgS2CExitGameACK.special_creatures)
   return &special_creatures_;
+}
+
+// repeated int32 current_lotions = 10;
+inline int MsgS2CExitGameACK::current_lotions_size() const {
+  return current_lotions_.size();
+}
+inline void MsgS2CExitGameACK::clear_current_lotions() {
+  current_lotions_.Clear();
+}
+inline ::google::protobuf::int32 MsgS2CExitGameACK::current_lotions(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CExitGameACK.current_lotions)
+  return current_lotions_.Get(index);
+}
+inline void MsgS2CExitGameACK::set_current_lotions(int index, ::google::protobuf::int32 value) {
+  current_lotions_.Set(index, value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CExitGameACK.current_lotions)
+}
+inline void MsgS2CExitGameACK::add_current_lotions(::google::protobuf::int32 value) {
+  current_lotions_.Add(value);
+  // @@protoc_insertion_point(field_add:message.MsgS2CExitGameACK.current_lotions)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MsgS2CExitGameACK::current_lotions() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CExitGameACK.current_lotions)
+  return current_lotions_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MsgS2CExitGameACK::mutable_current_lotions() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CExitGameACK.current_lotions)
+  return &current_lotions_;
 }
 
 // -------------------------------------------------------------------

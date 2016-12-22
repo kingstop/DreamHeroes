@@ -60,6 +60,7 @@ public:
 	void ReqModifyTutorialFlag(const message::MsgC2SReqModifyNewTutorial* msg);
 	void ReqReliveReq(const message::MsgC2SReliveReq* msg);
 	void ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg);
+	void ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg);
 
 
 	void ReqRemoveAllSpecialCreatureList();

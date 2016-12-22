@@ -131,6 +131,8 @@ public:
 	const MAPTYPEDROPBOXCONFIGS* getMapDropBox(int chapter_id, int section_id);
 	const MAPSPIRITSHOP* getSpiritShop();
 	const message::MsgSpiritShopInfo* getSpiritShop(int index);
+	const MAPLOTIONSHOPCONFIGS* getLotionShop();
+	const message::MsgLotionShopConfigInfo* getLotionShop(int index);
 
 	void setServerOpenTime(u64 time_open);
 	void setServerID(char server_id);
@@ -150,6 +152,7 @@ protected:
 	MAPALLRANDOMOBJCONFIGS _map_random_obj_configs;
 	MAPMAPDROPBOXCONFIGS _map_drop_box_configs;
 	MAPSPIRITSHOP _map_spirit_shop;
+	MAPLOTIONSHOPCONFIGS _map_lotion_shop_configs;
 	globalConfig _global_config;
 	u64 _server_open_time;
 	char _server_char;

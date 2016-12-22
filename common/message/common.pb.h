@@ -677,17 +677,17 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 day_buy_spirit() const;
   void set_day_buy_spirit(::google::protobuf::int32 value);
 
-  // repeated .message.MsgIntBoolPair lotion_status = 12;
-  int lotion_status_size() const;
-  void clear_lotion_status();
-  static const int kLotionStatusFieldNumber = 12;
-  const ::message::MsgIntBoolPair& lotion_status(int index) const;
-  ::message::MsgIntBoolPair* mutable_lotion_status(int index);
-  ::message::MsgIntBoolPair* add_lotion_status();
-  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
-      lotion_status() const;
-  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
-      mutable_lotion_status();
+  // repeated int32 lotions = 12;
+  int lotions_size() const;
+  void clear_lotions();
+  static const int kLotionsFieldNumber = 12;
+  ::google::protobuf::int32 lotions(int index) const;
+  void set_lotions(int index, ::google::protobuf::int32 value);
+  void add_lotions(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      lotions() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_lotions();
 
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
@@ -724,7 +724,7 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 new_tutorial_;
   ::google::protobuf::int32 jewel_;
   ::google::protobuf::int32 spirit_;
-  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair > lotion_status_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > lotions_;
   ::google::protobuf::int32 day_buy_spirit_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
@@ -2144,34 +2144,34 @@ inline void MsgHeroData::set_day_buy_spirit(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:message.MsgHeroData.day_buy_spirit)
 }
 
-// repeated .message.MsgIntBoolPair lotion_status = 12;
-inline int MsgHeroData::lotion_status_size() const {
-  return lotion_status_.size();
+// repeated int32 lotions = 12;
+inline int MsgHeroData::lotions_size() const {
+  return lotions_.size();
 }
-inline void MsgHeroData::clear_lotion_status() {
-  lotion_status_.Clear();
+inline void MsgHeroData::clear_lotions() {
+  lotions_.Clear();
 }
-inline const ::message::MsgIntBoolPair& MsgHeroData::lotion_status(int index) const {
-  // @@protoc_insertion_point(field_get:message.MsgHeroData.lotion_status)
-  return lotion_status_.Get(index);
+inline ::google::protobuf::int32 MsgHeroData::lotions(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.lotions)
+  return lotions_.Get(index);
 }
-inline ::message::MsgIntBoolPair* MsgHeroData::mutable_lotion_status(int index) {
-  // @@protoc_insertion_point(field_mutable:message.MsgHeroData.lotion_status)
-  return lotion_status_.Mutable(index);
+inline void MsgHeroData::set_lotions(int index, ::google::protobuf::int32 value) {
+  lotions_.Set(index, value);
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.lotions)
 }
-inline ::message::MsgIntBoolPair* MsgHeroData::add_lotion_status() {
-  // @@protoc_insertion_point(field_add:message.MsgHeroData.lotion_status)
-  return lotion_status_.Add();
+inline void MsgHeroData::add_lotions(::google::protobuf::int32 value) {
+  lotions_.Add(value);
+  // @@protoc_insertion_point(field_add:message.MsgHeroData.lotions)
 }
-inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
-MsgHeroData::lotion_status() const {
-  // @@protoc_insertion_point(field_list:message.MsgHeroData.lotion_status)
-  return lotion_status_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MsgHeroData::lotions() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroData.lotions)
+  return lotions_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
-MsgHeroData::mutable_lotion_status() {
-  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroData.lotion_status)
-  return &lotion_status_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MsgHeroData::mutable_lotions() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroData.lotions)
+  return &lotions_;
 }
 
 // -------------------------------------------------------------------

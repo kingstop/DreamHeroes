@@ -483,137 +483,206 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 	}
 	else
 	{
-		google::protobuf::RepeatedPtrField< ::message::MsgTaskInfo >* temp_repeated = NULL;
-		::google::protobuf::RepeatedPtrField< ::message::MsgTaskInfo >::iterator it;
-		temp_repeated = _info.mutable_tasks();
-		for (int i = 0; i < task_size; i++)
+		int use_lotion_size = msg->use_lotions_size();
+		if (use_lotion_size != 0)
 		{
-			message::MsgTaskInfo task_entry = msg->task_infos(i);
-			int current_task_size = _info.tasks_size();
-			for (int i = 0; i < current_task_size; i++)
+			std::vector<int> vclotions;
+			int lostion_size = _info.lotions_size();
+			for (size_t i = 0; i < lostion_size; i++)
 			{
-				message::MsgTaskInfo* cur_info = _info.mutable_tasks(i);
-				if (cur_info->taskid() == task_entry.taskid())
+				vclotions.push_back(_info.lotions(i));
+			}
+			for (size_t i = 0; i < use_lotion_size; i++)
+			{
+				if (vclotions.empty())
 				{
-					cur_info->CopyFrom(task_entry);
+					msgACK.set_error(message::Error_FailedExitGameNotFoundTheUseLotion);
 					break;
 				}
+				int current_lotion_id = msg->use_lotions(i);
+				bool find_ret = false;
+				std::vector<int>::iterator it = vclotions.begin();
+				for (; it != vclotions.end(); ++it)
+				{
+					if (current_lotion_id == (*it))
+					{
+						find_ret = true;
+						break;
+					}
+				}
+
+				if (find_ret == false)
+				{
+					msgACK.set_error(message::Error_FailedExitGameNotFoundTheUseLotion);
+					break;
+				}
+
 			}
 		}
-
-		for (int i = 0; i < complete_tasks_temp_size; i++)
+		if (msgACK.error() == message::Error_NO)
 		{
-			int task_id = msg->complete_tasks(i);
-			const message::MsgTaskConfigInfo* info_task_config = gGameConfig.getMapTask(task_id);
-			bool try_to_find_task_info = false;
-			int task_gift_gold = 0;
-			if (info_task_config != NULL)
+			if (use_lotion_size != 0)
 			{
-				temp_repeated = _info.mutable_tasks();
-				it = temp_repeated->begin();
-				for (; it != temp_repeated->end(); ++it)
+				std::vector<int> vc_current_lotions;
+				int current_lotion_size = _info.lotions_size();
+				for (size_t i = 0; i < current_lotion_size; i++)
 				{
-					message::MsgTaskInfo task_entry = (*it);
-					if (task_entry.taskid() == task_id)
+					bool use_lotion = false;
+					int current_lotion = _info.lotions(i);
+					int use_lotion_size = msg->use_lotions_size();
+					for (size_t j = 0; j < use_lotion_size; j++)
 					{
+						if (msg->use_lotions(j) == current_lotion)
+						{
+							use_lotion = true;
+							break;
+						}						
+					}
+					if (use_lotion == false)
+					{
+						vc_current_lotions.push_back(current_lotion);
+					}
+				}
+				std::vector<int>::iterator it_current_lotions = vc_current_lotions.begin();
+				_info.clear_lotions();
+				msgACK.clear_current_lotions();
+				for (; it_current_lotions != vc_current_lotions.end(); ++ it_current_lotions)
+				{
+					int current_lotion_id = *it_current_lotions;
+					_info.add_lotions(current_lotion_id);
+					msgACK.add_current_lotions(current_lotion_id);
+				}
 
-						
-						try_to_find_task_info = true;
-						task_gift_gold = info_task_config->gift_gold();
-						cur_complete_task_count++;
-						temp_repeated->erase(it);
-						all_task_gold += task_gift_gold;
-						
-						gRecordManager.taskCompleteRecord(_account, _info.name().c_str(), _current_chapter, _current_section, task_id, task_gift_gold, all_task_gold + _info.gold());
+			}
+			google::protobuf::RepeatedPtrField< ::message::MsgTaskInfo >* temp_repeated = NULL;
+			::google::protobuf::RepeatedPtrField< ::message::MsgTaskInfo >::iterator it;
+			temp_repeated = _info.mutable_tasks();
+			for (int i = 0; i < task_size; i++)
+			{
+				message::MsgTaskInfo task_entry = msg->task_infos(i);
+				int current_task_size = _info.tasks_size();
+				for (int i = 0; i < current_task_size; i++)
+				{
+					message::MsgTaskInfo* cur_info = _info.mutable_tasks(i);
+					if (cur_info->taskid() == task_entry.taskid())
+					{
+						cur_info->CopyFrom(task_entry);
 						break;
 					}
 				}
 			}
-			else
-			{
-				//need error log;
-			}
-			message::MsgIntPair* entry_pair = msgACK.add_task_gift();
-			entry_pair->set_number_1(task_id);
-			entry_pair->set_number_2(task_gift_gold);
-		}
-		int gold_entry = _info.gold();
-		if (gold_entry < 0)
-		{
-			gold_entry = 0;
-		}
 
-		// need modify
-		gold_entry += msg->gold();
-		int length_task_gift = msgACK.task_gift_size();
-		for (int i = 0; i < length_task_gift; i++)
-		{
-			const message::MsgIntPair entry = msgACK.task_gift(i);
-			gold_entry += entry.number_2();
-		}
-
-		temp_repeated = _info.mutable_tasks();
-		it = temp_repeated->begin();
-		for (; it != temp_repeated->end(); ++it)
-		{
-			message::MsgTaskInfo* info_entry = msgACK.add_task_infos();
-			info_entry->CopyFrom(*it);
-		}
-		if (msg->success())
-		{
-			bool find_chapter = false;
-			int record_size = _info.records_size();
-			for (int i = 0; i < record_size; i++)
+			for (int i = 0; i < complete_tasks_temp_size; i++)
 			{
-				message::MsgIntPair* pair_entry = _info.mutable_records(i);
-				if (pair_entry->number_1() == chapter_id_temp)
+				int task_id = msg->complete_tasks(i);
+				const message::MsgTaskConfigInfo* info_task_config = gGameConfig.getMapTask(task_id);
+				bool try_to_find_task_info = false;
+				int task_gift_gold = 0;
+				if (info_task_config != NULL)
 				{
-					if (section_id_temp == pair_entry->number_2() + 1)
+					temp_repeated = _info.mutable_tasks();
+					it = temp_repeated->begin();
+					for (; it != temp_repeated->end(); ++it)
 					{
-						pair_entry->set_number_2(section_id_temp);
-						find_chapter = true;
+						message::MsgTaskInfo task_entry = (*it);
+						if (task_entry.taskid() == task_id)
+						{
+							try_to_find_task_info = true;
+							task_gift_gold = info_task_config->gift_gold();
+							cur_complete_task_count++;
+							temp_repeated->erase(it);
+							all_task_gold += task_gift_gold;
+
+							gRecordManager.taskCompleteRecord(_account, _info.name().c_str(), _current_chapter, _current_section, task_id, task_gift_gold, all_task_gold + _info.gold());
+							break;
+						}
+					}
+				}
+				else
+				{
+					//need error log;
+				}
+				message::MsgIntPair* entry_pair = msgACK.add_task_gift();
+				entry_pair->set_number_1(task_id);
+				entry_pair->set_number_2(task_gift_gold);
+			}
+			int gold_entry = _info.gold();
+			if (gold_entry < 0)
+			{
+				gold_entry = 0;
+			}
+
+			// need modify
+			gold_entry += msg->gold();
+			int length_task_gift = msgACK.task_gift_size();
+			for (int i = 0; i < length_task_gift; i++)
+			{
+				const message::MsgIntPair entry = msgACK.task_gift(i);
+				gold_entry += entry.number_2();
+			}
+
+			temp_repeated = _info.mutable_tasks();
+			it = temp_repeated->begin();
+			for (; it != temp_repeated->end(); ++it)
+			{
+				message::MsgTaskInfo* info_entry = msgACK.add_task_infos();
+				info_entry->CopyFrom(*it);
+			}
+			if (msg->success())
+			{
+				bool find_chapter = false;
+				int record_size = _info.records_size();
+				for (int i = 0; i < record_size; i++)
+				{
+					message::MsgIntPair* pair_entry = _info.mutable_records(i);
+					if (pair_entry->number_1() == chapter_id_temp)
+					{
+						if (section_id_temp == pair_entry->number_2() + 1)
+						{
+							pair_entry->set_number_2(section_id_temp);
+							find_chapter = true;
+						}
 					}
 				}
 			}
-		}
-		msgACK.set_current_gold(gold_entry);
-		_info.set_gold(gold_entry);
-		_info.set_complete_task_count(cur_complete_task_count);
-		std::pair<int, int> pair_entry;
-		pair_entry.first = _current_chapter;
-		pair_entry.second = _current_section;
-		SPECIALKILLS::iterator it_special_kill = _special_kills.find(pair_entry);
-		if (it_special_kill == _special_kills.end())
-		{
-			std::vector<message::MsgObjConfig> vc_temp;
-			_special_kills.insert(SPECIALKILLS::value_type(pair_entry, vc_temp));
-		}
-		int special_kill_size = msg->special_kill_list_size();
-		for (int i = 0; i < special_kill_size; i ++)
-		{
-			const message::MsgObjConfig obj_config_entry = msg->special_kill_list(i);
-			bool need_add = true;
-			std::vector<message::MsgObjConfig>::iterator it_special_temp = _special_kills[pair_entry].begin();
-			for (; it_special_temp != _special_kills[pair_entry].end(); ++ it_special_temp)
+			msgACK.set_current_gold(gold_entry);
+			_info.set_gold(gold_entry);
+			_info.set_complete_task_count(cur_complete_task_count);
+			std::pair<int, int> pair_entry;
+			pair_entry.first = _current_chapter;
+			pair_entry.second = _current_section;
+			SPECIALKILLS::iterator it_special_kill = _special_kills.find(pair_entry);
+			if (it_special_kill == _special_kills.end())
 			{
-				if (it_special_temp->id() == obj_config_entry.id() && it_special_temp->type() == obj_config_entry.type())
+				std::vector<message::MsgObjConfig> vc_temp;
+				_special_kills.insert(SPECIALKILLS::value_type(pair_entry, vc_temp));
+			}
+			int special_kill_size = msg->special_kill_list_size();
+			for (int i = 0; i < special_kill_size; i++)
+			{
+				const message::MsgObjConfig obj_config_entry = msg->special_kill_list(i);
+				bool need_add = true;
+				std::vector<message::MsgObjConfig>::iterator it_special_temp = _special_kills[pair_entry].begin();
+				for (; it_special_temp != _special_kills[pair_entry].end(); ++it_special_temp)
 				{
-					need_add = false;
-					break;
+					if (it_special_temp->id() == obj_config_entry.id() && it_special_temp->type() == obj_config_entry.type())
+					{
+						need_add = false;
+						break;
+					}
+				}
+				if (need_add)
+				{
+					_special_kills[pair_entry].push_back(obj_config_entry);
 				}
 			}
-			if (need_add)
+			int special_creatures_size = msg->special_creatures_size();
+			for (int i = 0; i < special_creatures_size; i++)
 			{
-				_special_kills[pair_entry].push_back(obj_config_entry);
+				const message::MsgIntPair entry_pair = msg->special_creatures(i);
+				_special_creatures[entry_pair.number_1()] = entry_pair.number_2();
 			}
 		}
-		int special_creatures_size = msg->special_creatures_size();
-		for (int i = 0; i < special_creatures_size; i ++)
-		{
-			const message::MsgIntPair entry_pair = msg->special_creatures(i);
-			_special_creatures[entry_pair.number_1()] = entry_pair.number_2();
-		}
-
 	}
 	if (msgACK.error() == message::Error_NO)
 	{
@@ -1315,6 +1384,13 @@ void DreamHero::SendClientInit()
 		msg.add_sprit_shop_infos()->CopyFrom(it_spirit->second);
 		//msg.
 	}
+
+	const MAPLOTIONSHOPCONFIGS* lotion_shop_configs = gGameConfig.getLotionShop();
+	MAPLOTIONSHOPCONFIGS::const_iterator it_lotion_shop_config = lotion_shop_configs->begin();
+	for (; it_lotion_shop_config != lotion_shop_configs->end(); ++ it_lotion_shop_config)
+	{
+		msg.add_lotion_shop_configs()->CopyFrom(it_lotion_shop_config->second);
+	}
 	msg.set_current_advertisement_count(_current_task_count);
 	msg.set_last_advertisement_time(_last_task_advertisement_time);
 	msg.set_gm_level(getGMLevel());
@@ -1517,17 +1593,32 @@ void DreamHero::SaveHero()
 	build_unix_time_to_string(_last_task_advertisement_time, last_task_advertisement_time_temp);
 	build_unix_time_to_string(_last_recover_spirit_time, last_recover_spirit_time);
 	build_unix_time_to_string(_last_buy_spirit_time, last_buy_spirit_time);
+	int lotion_size =  _info.lotions_size();
+	std::string str_lotion_status;
+	char sz_lotion_status[128];
+	for (int i = 0; i < lotion_size; i ++)
+	{
+		if (i != 0)
+		{
+			str_lotion_status += ",";
+		}
+
+		sprintf(sz_lotion_status, "%d", _info.lotions(i));
+		str_lotion_status += sz_lotion_status;
+	}
+	
 //#ifdef WIN32
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,`special_kill`,\
 		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`, `special_creatures`, \
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`,\
-		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`) values \
-		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d, '%s', %d, '%s');",
+		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`, `lotions`) values \
+		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d, '%s', %d, '%s', '%s');",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
 		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count, _info.new_tutorial(),
-		_info.jewel(), _info.spirit(), last_recover_spirit_time.c_str(), _info.day_buy_spirit(), last_buy_spirit_time.c_str());
+		_info.jewel(), _info.spirit(), last_recover_spirit_time.c_str(), _info.day_buy_spirit(), 
+		last_buy_spirit_time.c_str(), str_lotion_status.c_str());
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
@@ -1605,8 +1696,86 @@ void DreamHero::ReqSetSpecialCreatureList(int creature_id, int status)
 	_special_creatures[creature_id] = status;
 	message::MsgS2CCmdNotifySpecialCreatureHisModify msg;
 	fillSpecialCreatureList(msg.mutable_special_creatures());
-	sendPBMessage(&msg);
-	
+	sendPBMessage(&msg);	
+}
+
+void DreamHero::ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg)
+{
+	message::GameError error = message::Error_NO;
+	int lotion_id = msg->lotion_id();
+	if (lotion_id < 0 && lotion_id > 3)
+	{		
+		const message::MsgLotionShopConfigInfo* shop_config = gGameConfig.getLotionShop(lotion_id);
+		if (shop_config != NULL)
+		{
+			int lotion_size = _info.lotions_size();
+			for (size_t i = 0; i < lotion_size; i++)
+			{
+				if (_info.lotions(i) == lotion_id)
+				{
+					error = message::Error_FailedToBuyLotionAlreadyHaveLotion;
+					break;
+				}
+
+			}
+			if (error = message::Error_NO)
+			{
+				switch (shop_config->use_type())
+				{
+				case message::LotionUseType_jewel:
+				{
+					int jewel = _info.jewel();
+					if (jewel < shop_config->use_count())
+					{
+						error = message::Error_FailedToBuyLotionNotEnoughJewel;
+					}
+					else
+					{
+						jewel -= shop_config->use_count();
+						_info.set_jewel(jewel);
+					}
+
+				}
+				break;
+				case message::LotionUseType_gold:
+				{
+					int gold = _info.gold();
+					if (gold < shop_config->use_count())
+					{
+						error = message::Error_FailedToBuyLotionNotEnoughGold;
+					}
+					else
+					{
+						gold -= shop_config->use_count();
+						_info.set_gold(gold);
+					}
+				}
+				break;
+				default:
+					break;
+				}
+
+				if (error == message::Error_NO)
+				{
+					_info.add_lotions(lotion_id);
+				}
+			}
+		}
+		else
+		{
+			error = message::Error_FailedToBuyNotFoundThisLotion;
+		}
+	}
+	else
+	{
+		error = message::Error_FailedToBuyNotFoundThisLotion;
+	}
+	message::MsgS2CBuyLotionACK msgACK;
+	msgACK.set_lotion_id(lotion_id);
+	msgACK.set_current_gold(_info.gold());
+	msgACK.set_current_jewel(_info.jewel());
+	msgACK.set_error(error);
+	sendPBMessage(&msgACK);
 }
 
 

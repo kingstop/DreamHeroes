@@ -55,7 +55,8 @@ void Session::registerPBCall()
 
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyJewel), &Session::parseCmdReqModifyJewel);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifySpirit), &Session::parseCmdReqModifySpirit);
-
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuyLotion), &Session::parseReqBuyLotion);
+	
 }
 
 void Session::parseReqShopConfig(google::protobuf::Message* p)
@@ -578,6 +579,17 @@ void Session::parseCmdReqRemoveSpecialCreatureListHis(google::protobuf::Message*
 		sendPBMessage(&msgError);
 	}
 }
+
+void Session::parseReqBuyLotion(google::protobuf::Message* p)
+{
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+	message::MsgC2SReqBuyLotion* msg = (message::MsgC2SReqBuyLotion*)p;
+	_dream_hero->ReqBuyLotion(msg);
+}
+
 void Session::parseCmdReqSetSpecialCreatureHis(google::protobuf::Message* p)
 {
 	if (_dream_hero == NULL)

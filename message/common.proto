@@ -47,7 +47,7 @@ message MsgHeroData
 	required int32 jewel = 9;
 	required int32 spirit = 10;
 	required int32 day_buy_spirit = 11;
-	repeated MsgIntBoolPair lotion_status = 12;
+	repeated int32 lotions = 12;
 }
 
 

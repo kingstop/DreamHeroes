@@ -44,8 +44,8 @@ public:
 	void parseReqVerifyDealIOS(google::protobuf::Message* p);
 	void parseReqModifyTutorial(google::protobuf::Message* p);
 	void parseReqRelive(google::protobuf::Message* p);
-
 	void parseReqBuySpirit(google::protobuf::Message* p);
+	void parseReqBuyLotion(google::protobuf::Message* p);
 public:
 	void parseCmdReqMdodifyGMLevel(google::protobuf::Message* p);
 	void parseCmdReqEnterGame(google::protobuf::Message* p);

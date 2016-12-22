@@ -132,6 +132,22 @@ const TimeShopSalesPromotionConfig* GameConfig::getTimeShopSalesPromotionConfig(
 }
 
 
+const MAPLOTIONSHOPCONFIGS* GameConfig::getLotionShop()
+{
+	return &_map_lotion_shop_configs;
+}
+const message::MsgLotionShopConfigInfo* GameConfig::getLotionShop(int index)
+{
+	message::MsgLotionShopConfigInfo* entry = NULL;
+	MAPLOTIONSHOPCONFIGS::iterator it = _map_lotion_shop_configs.find(index);
+	if (it != _map_lotion_shop_configs.end())
+	{
+		entry = &it->second;
+	}
+	return entry;
+}
+
+
 const MAPTYPEDROPBOXCONFIGS* GameConfig::getMapDropBox(int chapter_id, int section_id)
 {
 	MAPTYPEDROPBOXCONFIGS* ret = NULL;
@@ -449,12 +465,27 @@ void GameConfig::Load(DBQuery* p)
 			entry.set_spirit(row["spirit"]);
 			entry.set_need_jewel(row["need_jewel"]);
 			entry.set_resource_id(row["resource_id"]);
-			std::string script = row["descript"].c_str();
-			entry.set_descript(script.c_str());
-
-				
+			std::string script = row["describe"].c_str();
+			entry.set_describe(script.c_str());
 			_map_spirit_shop[entry.index()] = entry;
+		}
 
+		query.reset();
+		sResult.clear();
+		query << "select * from `lotion_shop_config`;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			DBRow& row = sResult[i];
+			message::MsgLotionShopConfigInfo entry_config;
+			entry_config.set_lotion_id(row["lotion_id"]);
+			int use_type = row["use_type"];
+			entry_config.set_use_type((message::LotionUseType)use_type);
+			entry_config.set_use_count(row["use_count"]);
+			entry_config.set_resource_id(row["resource_id"]);
+			entry_config.set_describe(row["describe"].c_str());
+			_map_lotion_shop_configs[entry_config.lotion_id()] = entry_config;
 		}
 		gHttpManager.setChannel(_global_config.channel_id_);
 		gHttpManager.setGameID(_global_config.game_id_);
