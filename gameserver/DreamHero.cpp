@@ -1860,7 +1860,7 @@ void DreamHero::ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg)
 				}
 
 			}
-			if (error = message::Error_NO)
+			if (error == message::Error_NO)
 			{
 				switch (shop_config->use_type())
 				{
