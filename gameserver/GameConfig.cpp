@@ -340,6 +340,7 @@ void GameConfig::Load(DBQuery* p)
 			info_entry.info_.set_resource_id(row["resource_id"]);
 			info_entry.info_.set_money(row["money"]);
 			info_entry.appstore_product_id_ = row["appstore_key"].c_str();
+			info_entry.info_.set_jewel(row["jewel"]);
 			
 			_gold_shop_config_infos[info_entry.info_.id()] = info_entry;
 		}

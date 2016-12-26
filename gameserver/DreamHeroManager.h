@@ -22,8 +22,10 @@ public:
 	void save_all_heroes_ok();
 	void CollectInfo();
 	std::string generateName();
+	std::string generateDealOrderID();
 	void addSql(const char* sql);
 protected:
+	std::string generateStr(int& key, const char* argu);
 	void eventPerHour();
 	void save();
 	void dayRefresh();
@@ -41,5 +43,6 @@ protected:
 	std::vector<std::string> _vc_sql;
 	int _recover_spirit_minute;
 	int _recover_spirit;
+	int _deal_order_id;
 };
 

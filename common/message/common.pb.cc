@@ -255,12 +255,13 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, _internal_metadata_),
       -1);
   MsgGoldShopConfigInfo_descriptor_ = file->message_type(10);
-  static const int MsgGoldShopConfigInfo_offsets_[5] = {
+  static const int MsgGoldShopConfigInfo_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, resource_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, money_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, describe_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, jewel_),
   };
   MsgGoldShopConfigInfo_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -379,17 +380,17 @@ void protobuf_AddDesc_common_2eproto() {
     "_id\030\001 \002(\005\022\033\n\023required_chapter_id\030\002 \002(\005\022\033"
     "\n\023required_section_id\030\003 \002(\005\022$\n\034required_"
     "task_complete_count\030\004 \002(\005\022\024\n\014require_gol"
-    "d\030\005 \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"g\n\025Ms"
+    "d\030\005 \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"v\n\025Ms"
     "gGoldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013resou"
     "rce_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 \002("
-    "\002\022\020\n\010describe\030\005 \002(\t*4\n\007SubType\022\013\n\007DEFAUL"
-    "T\020\000\022\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010Ta"
-    "skType\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_Ki"
-    "llMonster\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020Ta"
-    "skType_UnKnown\020\003\022\027\n\023TaskType_LimitLevel\020"
-    "\004\022\030\n\024TaskType_LimitRevive\020\005\022\"\n\036TaskType_"
-    "LimitTime_KillMonster\020\006\022#\n\037TaskType_Accu"
-    "mulate_KillMonster\020\007", 1780);
+    "\002\022\020\n\010describe\030\005 \002(\t\022\r\n\005jewel\030\006 \002(\005*4\n\007Su"
+    "bType\022\013\n\007DEFAULT\020\000\022\013\n\007MONSTER\020\001\022\017\n\013INTER"
+    "ACTIVE\020\002*\340\001\n\010TaskType\022\021\n\rTaskType_NULL\020\000"
+    "\022\030\n\024TaskType_KillMonster\020\001\022\025\n\021TaskType_P"
+    "assGame\020\002\022\024\n\020TaskType_UnKnown\020\003\022\027\n\023TaskT"
+    "ype_LimitLevel\020\004\022\030\n\024TaskType_LimitRevive"
+    "\020\005\022\"\n\036TaskType_LimitTime_KillMonster\020\006\022#"
+    "\n\037TaskType_Accumulate_KillMonster\020\007", 1795);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   MsgObjConfig::default_instance_ = new MsgObjConfig();
@@ -6172,6 +6173,7 @@ const int MsgGoldShopConfigInfo::kResourceIdFieldNumber;
 const int MsgGoldShopConfigInfo::kGoldFieldNumber;
 const int MsgGoldShopConfigInfo::kMoneyFieldNumber;
 const int MsgGoldShopConfigInfo::kDescribeFieldNumber;
+const int MsgGoldShopConfigInfo::kJewelFieldNumber;
 #endif  // !_MSC_VER
 
 MsgGoldShopConfigInfo::MsgGoldShopConfigInfo()
@@ -6199,6 +6201,7 @@ void MsgGoldShopConfigInfo::SharedCtor() {
   gold_ = 0;
   money_ = 0;
   describe_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  jewel_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6247,11 +6250,12 @@ void MsgGoldShopConfigInfo::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 31) {
+  if (_has_bits_[0 / 32] & 63) {
     ZR_(id_, money_);
     if (has_describe()) {
       describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
+    jewel_ = 0;
   }
 
 #undef ZR_HELPER_
@@ -6345,6 +6349,21 @@ bool MsgGoldShopConfigInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(48)) goto parse_jewel;
+        break;
+      }
+
+      // required int32 jewel = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_jewel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &jewel_)));
+          set_has_jewel();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -6404,6 +6423,11 @@ void MsgGoldShopConfigInfo::SerializeWithCachedSizes(
       5, this->describe(), output);
   }
 
+  // required int32 jewel = 6;
+  if (has_jewel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->jewel(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -6443,6 +6467,11 @@ void MsgGoldShopConfigInfo::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         5, this->describe(), target);
+  }
+
+  // required int32 jewel = 6;
+  if (has_jewel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->jewel(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6489,12 +6518,19 @@ int MsgGoldShopConfigInfo::RequiredFieldsByteSizeFallback() const {
         this->describe());
   }
 
+  if (has_jewel()) {
+    // required int32 jewel = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->jewel());
+  }
+
   return total_size;
 }
 int MsgGoldShopConfigInfo::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
     // required int32 id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6517,6 +6553,11 @@ int MsgGoldShopConfigInfo::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->describe());
+
+    // required int32 jewel = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->jewel());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -6563,6 +6604,9 @@ void MsgGoldShopConfigInfo::MergeFrom(const MsgGoldShopConfigInfo& from) {
       set_has_describe();
       describe_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.describe_);
     }
+    if (from.has_jewel()) {
+      set_jewel(from.jewel());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -6582,7 +6626,7 @@ void MsgGoldShopConfigInfo::CopyFrom(const MsgGoldShopConfigInfo& from) {
 }
 
 bool MsgGoldShopConfigInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
 
   return true;
 }
@@ -6597,6 +6641,7 @@ void MsgGoldShopConfigInfo::InternalSwap(MsgGoldShopConfigInfo* other) {
   std::swap(gold_, other->gold_);
   std::swap(money_, other->money_);
   describe_.Swap(&other->describe_);
+  std::swap(jewel_, other->jewel_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -6760,6 +6805,30 @@ void MsgGoldShopConfigInfo::InternalSwap(MsgGoldShopConfigInfo* other) {
   }
   describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
   // @@protoc_insertion_point(field_set_allocated:message.MsgGoldShopConfigInfo.describe)
+}
+
+// required int32 jewel = 6;
+ bool MsgGoldShopConfigInfo::has_jewel() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+ void MsgGoldShopConfigInfo::set_has_jewel() {
+  _has_bits_[0] |= 0x00000020u;
+}
+ void MsgGoldShopConfigInfo::clear_has_jewel() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+ void MsgGoldShopConfigInfo::clear_jewel() {
+  jewel_ = 0;
+  clear_has_jewel();
+}
+ ::google::protobuf::int32 MsgGoldShopConfigInfo::jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.jewel)
+  return jewel_;
+}
+ void MsgGoldShopConfigInfo::set_jewel(::google::protobuf::int32 value) {
+  set_has_jewel();
+  jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.jewel)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

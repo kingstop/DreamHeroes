@@ -11,7 +11,8 @@ DreamHeroManager::DreamHeroManager()
 	}
 	_last_save_time = 0;
 	_save_all_heroes_ok = false;
-	_day_create_heroes_count = 0;;
+	_day_create_heroes_count = 0;
+	_deal_order_id = 0;
 }
 
 
@@ -48,6 +49,7 @@ void DreamHeroManager::Load(DBQuery* p)
 				}
 			}
 			_last_save_time = row["UNIX_TIMESTAMP(`save_time`)"];
+			_deal_order_id = row["deal_order_id"];
 			
 		}
 
@@ -147,9 +149,9 @@ void DreamHeroManager::save()
 	std::string str_server_id;
 	str_server_id.push_back(server_id);
 	str_server_id.push_back('\0');
-	sprintf(sz_sql, "replace into `heroes_statu`(`sid`, `server_id`, `day_create_heroes_count`, `day_number`, `heroes_online_count`, `save_time`)\
-	 values (%d, '%s', %d, '%s', %d, '%s');",0, str_server_id.c_str() , _day_create_heroes_count, number_str.c_str(),
-		count, last_time_temp.c_str());
+	sprintf(sz_sql, "replace into `heroes_statu`(`sid`, `server_id`, `day_create_heroes_count`, `day_number`, `heroes_online_count`, `save_time`, `deal_order_id`)\
+	 values (%d, '%s', %d, '%s', %d, '%s', %d);",0, str_server_id.c_str() , _day_create_heroes_count, number_str.c_str(),
+		count, last_time_temp.c_str(), _deal_order_id);
 	message::MsgSaveDataGS2DB msg_db;
 	msg_db.set_sql(sz_sql);
 	
@@ -174,24 +176,38 @@ void DreamHeroManager::eventPerHour()
 	}
 }
 
-std::string DreamHeroManager::generateName()
+std::string DreamHeroManager::generateStr(int& key, const char* argu)
 {
-	_day_create_heroes_count++;
+	
 	//int number_entry;
 	int number_temp = 1;
 	char current_server_char = gGameConfig.getServerID();
-	std::string str_name = current_server_char + _hero_day_title ;
+	std::string str_name = current_server_char + _hero_day_title;
 	int numbers[6];
 	for (size_t i = 0; i < 6; i++)
 	{
-		int cur_number = (_day_create_heroes_count / number_temp) % 10;
+		int cur_number = (key / number_temp) % 10;
 		numbers[i] = _day_number[i][cur_number];
 		number_temp *= 10;
 	}
 	char sz_name[256];
-	sprintf(sz_name, "%s%d%d%d%d%d%d", str_name.c_str(), numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]);
+	sprintf(sz_name, "%s%d%d%d%d%d%d%s", str_name.c_str(), numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5], argu);
 
 	return sz_name;
+
+}
+
+std::string DreamHeroManager::generateName()
+{
+	_day_create_heroes_count++;
+	//int number_entry;
+	return generateStr(_day_create_heroes_count, "");
+}
+
+std::string DreamHeroManager::generateDealOrderID()
+{
+	_deal_order_id++;
+	return generateStr(_deal_order_id, "order");
 }
 
 void DreamHeroManager::refrashHeroTitle()

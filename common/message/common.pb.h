@@ -1542,6 +1542,13 @@ class MsgGoldShopConfigInfo : public ::google::protobuf::Message {
   ::std::string* release_describe();
   void set_allocated_describe(::std::string* describe);
 
+  // required int32 jewel = 6;
+  bool has_jewel() const;
+  void clear_jewel();
+  static const int kJewelFieldNumber = 6;
+  ::google::protobuf::int32 jewel() const;
+  void set_jewel(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgGoldShopConfigInfo)
  private:
   inline void set_has_id();
@@ -1554,6 +1561,8 @@ class MsgGoldShopConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_money();
   inline void set_has_describe();
   inline void clear_has_describe();
+  inline void set_has_jewel();
+  inline void clear_has_jewel();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1566,6 +1575,7 @@ class MsgGoldShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 gold_;
   float money_;
   ::google::protobuf::internal::ArenaStringPtr describe_;
+  ::google::protobuf::int32 jewel_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -3082,6 +3092,30 @@ inline void MsgGoldShopConfigInfo::set_allocated_describe(::std::string* describ
   }
   describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
   // @@protoc_insertion_point(field_set_allocated:message.MsgGoldShopConfigInfo.describe)
+}
+
+// required int32 jewel = 6;
+inline bool MsgGoldShopConfigInfo::has_jewel() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgGoldShopConfigInfo::set_has_jewel() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgGoldShopConfigInfo::clear_has_jewel() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MsgGoldShopConfigInfo::clear_jewel() {
+  jewel_ = 0;
+  clear_has_jewel();
+}
+inline ::google::protobuf::int32 MsgGoldShopConfigInfo::jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.jewel)
+  return jewel_;
+}
+inline void MsgGoldShopConfigInfo::set_jewel(::google::protobuf::int32 value) {
+  set_has_jewel();
+  jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.jewel)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -1,0 +1,20 @@
+package message;
+import "common.proto";
+
+message MsgS2PRegisterServer
+{
+	required int32 server_id = 1;
+	required int32 game_id = 2;
+	required int32 server_type = 3;
+}
+
+message MsgP2SClinchADealNotify
+{
+	required string product_key = 1;
+	required string order_id = 2;
+}
+message MsgS2PCloseDealMptify
+{
+	required string product_key = 1;
+	required string order_id = 2;
+}

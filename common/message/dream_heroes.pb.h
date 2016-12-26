@@ -74,6 +74,8 @@ class MsgC2SReqCrearteIOSDeal;
 class MsgS2CCrearteIOSDealACK;
 class MsgC2SReqVerifyDealIOS;
 class MsgS2CVerifyDealIOSACK;
+class MsgC2SReqApplyDeal;
+class MsgS2CApplyDealACK;
 class MsgS2CPingNotify;
 class MsgS2CRecoverSpiritNotify;
 class MsgC2SPingNotify;
@@ -4414,6 +4416,217 @@ class MsgS2CVerifyDealIOSACK : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgS2CVerifyDealIOSACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqApplyDeal : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqApplyDeal();
+  virtual ~MsgC2SReqApplyDeal();
+
+  MsgC2SReqApplyDeal(const MsgC2SReqApplyDeal& from);
+
+  inline MsgC2SReqApplyDeal& operator=(const MsgC2SReqApplyDeal& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqApplyDeal& default_instance();
+
+  void Swap(MsgC2SReqApplyDeal* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqApplyDeal* New() const { return New(NULL); }
+
+  MsgC2SReqApplyDeal* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqApplyDeal& from);
+  void MergeFrom(const MsgC2SReqApplyDeal& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqApplyDeal* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int32 id() const;
+  void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqApplyDeal)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 id_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqApplyDeal* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CApplyDealACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CApplyDealACK();
+  virtual ~MsgS2CApplyDealACK();
+
+  MsgS2CApplyDealACK(const MsgS2CApplyDealACK& from);
+
+  inline MsgS2CApplyDealACK& operator=(const MsgS2CApplyDealACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CApplyDealACK& default_instance();
+
+  void Swap(MsgS2CApplyDealACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CApplyDealACK* New() const { return New(NULL); }
+
+  MsgS2CApplyDealACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CApplyDealACK& from);
+  void MergeFrom(const MsgS2CApplyDealACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CApplyDealACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int32 id() const;
+  void set_id(::google::protobuf::int32 value);
+
+  // required string product_key = 2;
+  bool has_product_key() const;
+  void clear_product_key();
+  static const int kProductKeyFieldNumber = 2;
+  const ::std::string& product_key() const;
+  void set_product_key(const ::std::string& value);
+  void set_product_key(const char* value);
+  void set_product_key(const char* value, size_t size);
+  ::std::string* mutable_product_key();
+  ::std::string* release_product_key();
+  void set_allocated_product_key(::std::string* product_key);
+
+  // required string order_id = 3;
+  bool has_order_id() const;
+  void clear_order_id();
+  static const int kOrderIdFieldNumber = 3;
+  const ::std::string& order_id() const;
+  void set_order_id(const ::std::string& value);
+  void set_order_id(const char* value);
+  void set_order_id(const char* value, size_t size);
+  ::std::string* mutable_order_id();
+  ::std::string* release_order_id();
+  void set_allocated_order_id(::std::string* order_id);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CApplyDealACK)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_product_key();
+  inline void clear_has_product_key();
+  inline void set_has_order_id();
+  inline void clear_has_order_id();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr product_key_;
+  ::google::protobuf::internal::ArenaStringPtr order_id_;
+  ::google::protobuf::int32 id_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CApplyDealACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -10597,6 +10810,168 @@ inline void MsgS2CVerifyDealIOSACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqApplyDeal
+
+// required int32 id = 1;
+inline bool MsgC2SReqApplyDeal::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SReqApplyDeal::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SReqApplyDeal::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SReqApplyDeal::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 MsgC2SReqApplyDeal::id() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqApplyDeal.id)
+  return id_;
+}
+inline void MsgC2SReqApplyDeal::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqApplyDeal.id)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CApplyDealACK
+
+// required int32 id = 1;
+inline bool MsgS2CApplyDealACK::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CApplyDealACK::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CApplyDealACK::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CApplyDealACK::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 MsgS2CApplyDealACK::id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CApplyDealACK.id)
+  return id_;
+}
+inline void MsgS2CApplyDealACK::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CApplyDealACK.id)
+}
+
+// required string product_key = 2;
+inline bool MsgS2CApplyDealACK::has_product_key() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CApplyDealACK::set_has_product_key() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CApplyDealACK::clear_has_product_key() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CApplyDealACK::clear_product_key() {
+  product_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_key();
+}
+inline const ::std::string& MsgS2CApplyDealACK::product_key() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CApplyDealACK.product_key)
+  return product_key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CApplyDealACK::set_product_key(const ::std::string& value) {
+  set_has_product_key();
+  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CApplyDealACK.product_key)
+}
+inline void MsgS2CApplyDealACK::set_product_key(const char* value) {
+  set_has_product_key();
+  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CApplyDealACK.product_key)
+}
+inline void MsgS2CApplyDealACK::set_product_key(const char* value, size_t size) {
+  set_has_product_key();
+  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CApplyDealACK.product_key)
+}
+inline ::std::string* MsgS2CApplyDealACK::mutable_product_key() {
+  set_has_product_key();
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CApplyDealACK.product_key)
+  return product_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgS2CApplyDealACK::release_product_key() {
+  clear_has_product_key();
+  return product_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CApplyDealACK::set_allocated_product_key(::std::string* product_key) {
+  if (product_key != NULL) {
+    set_has_product_key();
+  } else {
+    clear_has_product_key();
+  }
+  product_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_key);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CApplyDealACK.product_key)
+}
+
+// required string order_id = 3;
+inline bool MsgS2CApplyDealACK::has_order_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CApplyDealACK::set_has_order_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CApplyDealACK::clear_has_order_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CApplyDealACK::clear_order_id() {
+  order_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_order_id();
+}
+inline const ::std::string& MsgS2CApplyDealACK::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CApplyDealACK.order_id)
+  return order_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CApplyDealACK::set_order_id(const ::std::string& value) {
+  set_has_order_id();
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CApplyDealACK.order_id)
+}
+inline void MsgS2CApplyDealACK::set_order_id(const char* value) {
+  set_has_order_id();
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CApplyDealACK.order_id)
+}
+inline void MsgS2CApplyDealACK::set_order_id(const char* value, size_t size) {
+  set_has_order_id();
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CApplyDealACK.order_id)
+}
+inline ::std::string* MsgS2CApplyDealACK::mutable_order_id() {
+  set_has_order_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CApplyDealACK.order_id)
+  return order_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgS2CApplyDealACK::release_order_id() {
+  clear_has_order_id();
+  return order_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CApplyDealACK::set_allocated_order_id(::std::string* order_id) {
+  if (order_id != NULL) {
+    set_has_order_id();
+  } else {
+    clear_has_order_id();
+  }
+  order_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CApplyDealACK.order_id)
 }
 
 // -------------------------------------------------------------------

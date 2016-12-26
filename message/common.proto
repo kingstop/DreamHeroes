@@ -118,6 +118,7 @@ message MsgGoldShopConfigInfo
 	required int32 gold = 3;
 	required float money = 4;
 	required string describe = 5;
+	required int32 jewel = 6;
 }
 
 
