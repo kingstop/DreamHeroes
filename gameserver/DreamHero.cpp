@@ -1415,6 +1415,7 @@ void DreamHero::SendClientInit()
 	fillSpecialCreatureList(msg.mutable_special_creatures());	
 	sendPBMessage(&msg);
 	_online = true;
+	Mylog::log_player(LOG_INFO, "send account init account[%d] name[%s]", _account, _info.name().c_str());
 	//StartPing();
 	gRecordManager.loginRecord(_account, _info.name().c_str());
 }
