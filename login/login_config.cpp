@@ -35,15 +35,18 @@ bool LoginConfig::IsNeedPlatformVerify( )
 bool LoginConfig::CompareChannel(int channel)
 {
 	bool ret = false;
-	std::vector<int>::iterator it = _channels.begin();
-	for (; it != _channels.end(); ++ it)
+	int i = 0;
+	int length = _channels.size();
+	for (size_t i = 0; i < length; i++)
 	{
-		if ((*it) == channel)
+		int cur_channel_id = _channels[i];
+		if (cur_channel_id == channel)
 		{
 			ret = true;
 			break;
 		}
 	}
+
 	return ret;
 }
 
