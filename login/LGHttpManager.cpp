@@ -65,7 +65,7 @@ bool LoginHttpTask::excute()
 		else
 		{
 			bool bret_status = value["status"].empty();
-			if (bret_status)
+			if (bret_status == false)
 			{
 				_status = value["status"].asInt();
 				if (_status == 0)
