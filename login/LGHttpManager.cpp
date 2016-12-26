@@ -112,5 +112,6 @@ bool LoginHttpTask::logicExcute()
 	msg.set_user_id(_user_id.c_str());
 	msg.set_token(_s_token.c_str());
 	msg.set_success(success);
+	_session->sendPBMessage(&msg);
 	return true;
 }
