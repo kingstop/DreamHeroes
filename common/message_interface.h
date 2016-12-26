@@ -1,11 +1,12 @@
 #ifndef __message_interface_h__
 #define __message_interface_h__
 #include "string.h"
+#include "common_type.h"
 
 class tcp_session ;
-typedef unsigned int	message_len;    //包长定义
-typedef unsigned short	message_mask;   //包标识定义
-typedef unsigned int	message_crc32;  //包验证码定义
+typedef u32	message_len;    //包长定义
+typedef u16	message_mask;   //包标识定义
+typedef u32	message_crc32;  //包验证码定义
 /************************************************************************/
 /* 一个消息包,包括包头部分和内容部分,包头定义为长度+标识+包验证码       */
 /*          MESSAGE_HEAD_MASK_BEGIN代表包头标识开始位置.                */

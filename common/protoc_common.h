@@ -6,11 +6,11 @@
 
 #define PROTOCO_NAME(CLS) CLS::default_instance().GetTypeName()
 
-typedef unsigned int pb_flag_type;
+typedef u32 pb_flag_type;
 class ProtocBufferCommon
 {
 public:
-    typedef unsigned int pb_name_type;
+    typedef u32 pb_name_type;
    
     static bool initProtocBuffer()
     {

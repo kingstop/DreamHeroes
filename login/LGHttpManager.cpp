@@ -90,7 +90,7 @@ bool LoginHttpTask::logicExcute()
 {
 	
 	bool success = false;
-	if (strcmp(_session->getPlatformUserId(), _user_id.c_str()) == 0)
+	//if (strcmp(_session->getPlatformUserId(), _user_id.c_str()) == 0)
 	{
 		if (_status == 0)
 		{
