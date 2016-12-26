@@ -89,16 +89,16 @@ bool LoginHttpTask::excute()
 bool LoginHttpTask::logicExcute()
 {
 	
-	//bool success = false;
-	//if (_session->getState() == UserLoginSession::_wait_platform_)
-	//{
-	//	if (_status == 0)
-	//	{
-	//		_session->setState(UserLoginSession::_platform_success_);
-	//		success = true;
-	//	}
-	//}
-	//
+	bool success = false;
+	if (_session->getState() == UserLoginSession::_wait_platform_)
+	{
+		if (_status == 0)
+		{
+			_session->setState(UserLoginSession::_platform_success_);
+			success = true;
+		}
+	}
+	
 	//if (strcmp(_session->getPlatformUserId(), _user_id.c_str()) == 0)
 	//{
 	//	if (_status == 0)
