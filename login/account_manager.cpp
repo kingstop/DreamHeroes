@@ -152,7 +152,7 @@ void AccountManager::checkAccountCall(const void* data, bool sucess)
 				}
 				else
 				{
-					Mylog::log_player( LOG_INFO, "add acc[%s] Account[%d] Login info to gate.!", pkData->str.c_str(), p->nId);
+					Mylog::log_player( LOG_INFO, "add acc[%s] Account[%d] channel[%d]Login info to gate.!", pkData->str.c_str(), p->nId, pkData->channel);
 				}
 			}else
 			{
