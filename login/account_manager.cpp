@@ -186,11 +186,11 @@ void AccountManager::batchQuery(DBQuery* p, const void* data)
 		parms << pkData->channel;
 		if (pkData->check_type == CheckAcct::_login_check_)
 		{
-			query << "CALL CheckAccount(%0q, %1q)";
+			query << "CALL CheckAccount(%0q, %1q, %2q)";
 		}
 		else
 		{
-			query <<  "CALL NewAccount(%0q, %1q)";
+			query <<  "CALL NewAccount(%0q, %1q, %2q)";
 		}
 		
 		query.parse();
