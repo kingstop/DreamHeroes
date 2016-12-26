@@ -17,7 +17,7 @@ struct CheckAcct
 		_new_acc_check_
 
 	};
-	CheckAcct( const std::string& name, const std::string& password, u8 t,UserLoginSession* p)
+	CheckAcct( const std::string& name, const std::string& password, int ch,u8 t,UserLoginSession* p)
 	{
 		acct = INVALID_ACCOUNT;
 		str = name;
@@ -25,6 +25,7 @@ struct CheckAcct
 		ower = p;
 		result = _check_pass_;
 		check_type = t;
+		channel = ch;
 	}
 	std::string str;
 	std::string pwd;
@@ -32,6 +33,7 @@ struct CheckAcct
 	UserLoginSession* ower;
 	u32 acct;
 	u8 check_type;
+	u32 channel;
 
 };
 struct Account : PUBLIC_BASE_OBJECT(Account)
@@ -74,7 +76,7 @@ public:
 	~AccountManager();
 
 	bool loadBanCall(const UDBResult& r);
-	void checkAccount(const std::string&strName, const std::string& strPwd, UserLoginSession* p , u16 t, const char* s);
+	void checkAccount(const std::string&strName, const std::string& strPwd, int channel,UserLoginSession* p , u16 t, const char* s);
 	
 	void batchQuery(DBQuery* p, const void* data);
 	void CreateNewAccount(const void* data, bool sucess);

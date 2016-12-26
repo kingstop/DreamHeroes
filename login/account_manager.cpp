@@ -99,7 +99,7 @@ void AccountManager::CreateNewAccount(const void* data, bool sucess)
 			}
 			else
 			{
-				gLGCenterDB.addBatchTask<AccountManager>(this, &AccountManager::batchQuery, &AccountManager::checkAccountCall, new CheckAcct(pkData->str, pkData->pwd, CheckAcct::_login_check_ , pkData->ower),"check account");
+				gLGCenterDB.addBatchTask<AccountManager>(this, &AccountManager::batchQuery, &AccountManager::checkAccountCall, new CheckAcct(pkData->str, pkData->pwd, 0,CheckAcct::_login_check_ , pkData->ower),"check account");
 			}
 		}
 	}
@@ -183,6 +183,7 @@ void AccountManager::batchQuery(DBQuery* p, const void* data)
 		query.reset();
 		parms << pkData->str;
 		parms << pkData->pwd;
+		parms << pkData->channel;
 		if (pkData->check_type == CheckAcct::_login_check_)
 		{
 			query << "CALL CheckAccount(%0q, %1q)";
@@ -209,16 +210,16 @@ void AccountManager::batchQuery(DBQuery* p, const void* data)
 }
 
 
-void AccountManager::checkAccount(const std::string&strName, const std::string& strPwd,UserLoginSession* p, u16 t, const char* s)
+void AccountManager::checkAccount(const std::string&strName, const std::string& strPwd,int channel, UserLoginSession* p, u16 t, const char* s)
 {
 	p->setState(UserLoginSession::_checking_data_);
 	if (t == CheckAcct::_login_check_)
 	{		
-		gLGCenterDB.addBatchTask<AccountManager>(this, &AccountManager::batchQuery, &AccountManager::checkAccountCall, new CheckAcct(strName, strPwd, t ,p), s);
+		gLGCenterDB.addBatchTask<AccountManager>(this, &AccountManager::batchQuery, &AccountManager::checkAccountCall, new CheckAcct(strName, strPwd, channel,t ,p), s);
 	}
 	else if (t == CheckAcct::_new_acc_check_)
 	{
-		gLGCenterDB.addBatchTask<AccountManager>(this, &AccountManager::batchQuery, &AccountManager::CreateNewAccount, new CheckAcct(strName, strPwd, t ,p), s);
+		gLGCenterDB.addBatchTask<AccountManager>(this, &AccountManager::batchQuery, &AccountManager::CreateNewAccount, new CheckAcct(strName, strPwd, channel,t ,p), s);
 	}
 	
 }

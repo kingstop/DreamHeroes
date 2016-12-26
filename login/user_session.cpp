@@ -91,7 +91,7 @@ void UserLoginSession::parseLoginGame(google::protobuf::Message* p, pb_flag_type
 			}
 			else
 			{
-				gLGAccountMgr.checkAccount(msg->name(), msg->pwd(), this, CheckAcct::_login_check_, "check account");
+				gLGAccountMgr.checkAccount(msg->name(), msg->pwd(), msg->channel(),this, CheckAcct::_login_check_, "check account");
 			}
 
 
@@ -109,7 +109,7 @@ void UserLoginSession::parseRegister(google::protobuf::Message* p, pb_flag_type 
 	message::RegisterAccountRequest* msg = (message::RegisterAccountRequest *)p;
 	if (msg)
 	{
-		gLGAccountMgr.checkAccount(msg->name(), msg->pwd(), this, CheckAcct::_new_acc_check_, "new account");
+		gLGAccountMgr.checkAccount(msg->name(), msg->pwd(), 0,this, CheckAcct::_new_acc_check_, "new account");
 	}
 	
 
