@@ -90,14 +90,23 @@ bool LoginHttpTask::logicExcute()
 {
 	
 	bool success = false;
-	//if (strcmp(_session->getPlatformUserId(), _user_id.c_str()) == 0)
+	if (_session->getState() == UserLoginSession::_wait_platform_)
 	{
 		if (_status == 0)
 		{
 			_session->setState(UserLoginSession::_platform_success_);
 			success = true;
-		}		
+		}
 	}
+	
+	//if (strcmp(_session->getPlatformUserId(), _user_id.c_str()) == 0)
+	//{
+	//	if (_status == 0)
+	//	{
+	//		_session->setState(UserLoginSession::_platform_success_);
+	//		success = true;
+	//	}		
+	//}
 	message::S2CPlatformVerifyACK msg;
 	msg.set_nick_name(_nick_name.c_str());
 	msg.set_user_id(_user_id.c_str());

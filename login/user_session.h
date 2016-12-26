@@ -27,6 +27,7 @@ public:
 public:
     void setAccount(account_type acc){m_accid = acc;}
     void setState(u8 s);
+	u8 getState();
     void setClose(){/*close();*/}
 public:
 	virtual void on_accept( tcp_server* p );

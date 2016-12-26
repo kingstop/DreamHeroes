@@ -126,6 +126,12 @@ UserLoginSession::UserLoginSession(void) : tcp_session( *net_global::get_io_serv
 UserLoginSession::~UserLoginSession(void)
 {
 }
+
+u8 UserLoginSession::getState()
+{
+	return m_state;
+}
+
 void UserLoginSession::setState(u8 s)
 {
     m_state = s;

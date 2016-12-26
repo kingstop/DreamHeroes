@@ -47,6 +47,7 @@ void LoginServer::runOnce(u32 nDiff)
     gLGCenterDB.run(nDiff);
 	gLGUserServer.run_no_wait();
 	gLGGateServer.run_no_wait();
+	gHttpManager.logicUpdate();
     m_EventHold.update(nDiff);
 
     if (nDiff > 800)
