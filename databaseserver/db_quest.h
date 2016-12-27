@@ -19,6 +19,7 @@ private:
 protected:
 	void dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s);
 	void dbDoQueryHeroDeals(const SDBResult* r, const void* d, bool s);
+	void dbDoQueryHeroDealInfos(const SDBResult* r, const void* d, bool s);
 	//void dbDoQueryHeroEquips(const SDBResult* r, const void* d, bool s);
 	//void dbDoQuerryHeroToys(const SDBResult* r, const void* d, bool s);
 	//void dbDoQuerryToyVerify(const SDBResult* r, const void* d, bool s);

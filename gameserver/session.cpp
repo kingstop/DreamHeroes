@@ -59,6 +59,12 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqDayLottery), &Session::parseReqDayLottery);
 }
 
+
+void Session::parseReqApplyDeal(google::protobuf::Message* p)
+{
+
+}
+
 void Session::parseReqDayLottery(google::protobuf::Message* p)
 {
 	if (_dream_hero != NULL)

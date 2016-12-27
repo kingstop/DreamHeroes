@@ -112,7 +112,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgDealInfo, _internal_metadata_),
       -1);
   MsgHeroDataDB2GS_descriptor_ = file->message_type(3);
-  static const int MsgHeroDataDB2GS_offsets_[13] = {
+  static const int MsgHeroDataDB2GS_offsets_[14] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, current_chapter_),
@@ -126,6 +126,7 @@ void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, last_recover_spirit_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, last_buy_spirit_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, last_lottery_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDataDB2GS, hero_deal_infos_),
   };
   MsgHeroDataDB2GS_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -300,7 +301,7 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
     ".message.MsgObjConfig\"n\n\013MsgDealInfo\022\r\n\005"
     "order\030\001 \002(\005\022\022\n\nproduct_id\030\002 \002(\t\022\016\n\006statu"
     "s\030\003 \002(\005\022\027\n\017complete_status\030\004 \002(\005\022\023\n\013cur_"
-    "receipt\030\005 \002(\t\"\255\003\n\020MsgHeroDataDB2GS\022\017\n\007ac"
+    "receipt\030\005 \002(\t\"\340\003\n\020MsgHeroDataDB2GS\022\017\n\007ac"
     "count\030\001 \002(\004\022\"\n\004Data\030\002 \002(\0132\024.message.MsgH"
     "eroData\022\027\n\017current_chapter\030\003 \002(\005\022\027\n\017curr"
     "ent_section\030\004 \002(\005\022\027\n\017free_task_count\030\005 \002"
@@ -311,12 +312,13 @@ void protobuf_AddDesc_msg_5fgame_5fdb_2eproto() {
     "eatures\030\n \003(\0132\023.message.MsgIntPair\022 \n\030la"
     "st_recover_spirit_time\030\013 \002(\005\022\034\n\024last_buy"
     "_spirit_time\030\014 \002(\005\022\031\n\021last_lottery_time\030"
-    "\r \002(\r\"\030\n\026MsgNeedCreateHeroDB2GS\"K\n\024MsgSa"
-    "veHeroDataGS2DB\022\017\n\007account\030\001 \002(\004\022\"\n\004Data"
-    "\030\002 \002(\0132\024.message.MsgHeroData\"\037\n\020MsgSaveD"
-    "ataGS2DB\022\013\n\003sql\030\001 \002(\014\" \n\021MsgRecordSqlGS2"
-    "DB\022\013\n\003sql\030\001 \002(\014\"\027\n\025MsgSaveAllHeroesGS2DB"
-    "\"\027\n\025MsgSaveAllHeroesDB2GS", 945);
+    "\r \002(\r\0221\n\017hero_deal_infos\030\016 \003(\0132\030.message"
+    ".MsgHeroDealInfo\"\030\n\026MsgNeedCreateHeroDB2"
+    "GS\"K\n\024MsgSaveHeroDataGS2DB\022\017\n\007account\030\001 "
+    "\002(\004\022\"\n\004Data\030\002 \002(\0132\024.message.MsgHeroData\""
+    "\037\n\020MsgSaveDataGS2DB\022\013\n\003sql\030\001 \002(\014\" \n\021MsgR"
+    "ecordSqlGS2DB\022\013\n\003sql\030\001 \002(\014\"\027\n\025MsgSaveAll"
+    "HeroesGS2DB\"\027\n\025MsgSaveAllHeroesDB2GS", 996);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_db.proto", &protobuf_RegisterTypes);
   MsgReqHeroDataGS2DB::default_instance_ = new MsgReqHeroDataGS2DB();
@@ -1709,6 +1711,7 @@ const int MsgHeroDataDB2GS::kSpecialCreaturesFieldNumber;
 const int MsgHeroDataDB2GS::kLastRecoverSpiritTimeFieldNumber;
 const int MsgHeroDataDB2GS::kLastBuySpiritTimeFieldNumber;
 const int MsgHeroDataDB2GS::kLastLotteryTimeFieldNumber;
+const int MsgHeroDataDB2GS::kHeroDealInfosFieldNumber;
 #endif  // !_MSC_VER
 
 MsgHeroDataDB2GS::MsgHeroDataDB2GS()
@@ -1808,6 +1811,7 @@ void MsgHeroDataDB2GS::Clear() {
   special_kills_.Clear();
   deals_.Clear();
   special_creatures_.Clear();
+  hero_deal_infos_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -2009,6 +2013,20 @@ bool MsgHeroDataDB2GS::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(114)) goto parse_hero_deal_infos;
+        break;
+      }
+
+      // repeated .message.MsgHeroDealInfo hero_deal_infos = 14;
+      case 14: {
+        if (tag == 114) {
+         parse_hero_deal_infos:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_hero_deal_infos()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(114)) goto parse_hero_deal_infos;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2107,6 +2125,12 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->last_lottery_time(), output);
   }
 
+  // repeated .message.MsgHeroDealInfo hero_deal_infos = 14;
+  for (unsigned int i = 0, n = this->hero_deal_infos_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      14, this->hero_deal_infos(i), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2188,6 +2212,13 @@ void MsgHeroDataDB2GS::SerializeWithCachedSizes(
   // required uint32 last_lottery_time = 13;
   if (has_last_lottery_time()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->last_lottery_time(), target);
+  }
+
+  // repeated .message.MsgHeroDealInfo hero_deal_infos = 14;
+  for (unsigned int i = 0, n = this->hero_deal_infos_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        14, this->hero_deal_infos(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2354,6 +2385,14 @@ int MsgHeroDataDB2GS::ByteSize() const {
         this->special_creatures(i));
   }
 
+  // repeated .message.MsgHeroDealInfo hero_deal_infos = 14;
+  total_size += 1 * this->hero_deal_infos_size();
+  for (int i = 0; i < this->hero_deal_infos_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->hero_deal_infos(i));
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -2382,6 +2421,7 @@ void MsgHeroDataDB2GS::MergeFrom(const MsgHeroDataDB2GS& from) {
   special_kills_.MergeFrom(from.special_kills_);
   deals_.MergeFrom(from.deals_);
   special_creatures_.MergeFrom(from.special_creatures_);
+  hero_deal_infos_.MergeFrom(from.hero_deal_infos_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_account()) {
       set_account(from.account());
@@ -2442,6 +2482,7 @@ bool MsgHeroDataDB2GS::IsInitialized() const {
   if (!::google::protobuf::internal::AllAreInitialized(this->special_kills())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->deals())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->special_creatures())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->hero_deal_infos())) return false;
   return true;
 }
 
@@ -2463,6 +2504,7 @@ void MsgHeroDataDB2GS::InternalSwap(MsgHeroDataDB2GS* other) {
   std::swap(last_recover_spirit_time_, other->last_recover_spirit_time_);
   std::swap(last_buy_spirit_time_, other->last_buy_spirit_time_);
   std::swap(last_lottery_time_, other->last_lottery_time_);
+  hero_deal_infos_.UnsafeArenaSwap(&other->hero_deal_infos_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2826,6 +2868,36 @@ MsgHeroDataDB2GS::mutable_special_creatures() {
   set_has_last_lottery_time();
   last_lottery_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_lottery_time)
+}
+
+// repeated .message.MsgHeroDealInfo hero_deal_infos = 14;
+ int MsgHeroDataDB2GS::hero_deal_infos_size() const {
+  return hero_deal_infos_.size();
+}
+ void MsgHeroDataDB2GS::clear_hero_deal_infos() {
+  hero_deal_infos_.Clear();
+}
+ const ::message::MsgHeroDealInfo& MsgHeroDataDB2GS::hero_deal_infos(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return hero_deal_infos_.Get(index);
+}
+ ::message::MsgHeroDealInfo* MsgHeroDataDB2GS::mutable_hero_deal_infos(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return hero_deal_infos_.Mutable(index);
+}
+ ::message::MsgHeroDealInfo* MsgHeroDataDB2GS::add_hero_deal_infos() {
+  // @@protoc_insertion_point(field_add:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return hero_deal_infos_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo >&
+MsgHeroDataDB2GS::hero_deal_infos() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return hero_deal_infos_;
+}
+ ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo >*
+MsgHeroDataDB2GS::mutable_hero_deal_infos() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return &hero_deal_infos_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

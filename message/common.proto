@@ -121,6 +121,20 @@ message MsgGoldShopConfigInfo
 	required int32 jewel = 6;
 }
 
+enum HeroDealType
+{
+	HeroDealTypApplyOrder = 0;
+	HeroDealTypeWaitToPay = 1;
+	HeroDealTypeComplete = 2;
+}
+
+message MsgHeroDealInfo
+{
+	required string order_id = 1;
+	required string product_id = 2;
+	required HeroDealType type = 3;	
+	required uint32 createtime = 4;
+}
 
 
 

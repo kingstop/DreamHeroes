@@ -22,6 +22,7 @@
 #include "message/msg_gate_game.pb.h"
 #include "message/msg_game_db.pb.h"
 #include "message/dream_heroes.pb.h"
+#include "message/msg_game_platform.pb.h"
 #include "server.h"
 #include "gate_manager.h"
 #include "gate_tcp_server.h"
@@ -31,6 +32,7 @@
 #include "GameConfig.h"
 #include "RecordManager.h"
 #include "GSHttpManager.h"
+#include "platform_client.h"
 /*#include "ObjectManager.h"
 #include "FRWorld.h*"
 */
@@ -65,6 +67,7 @@ struct FuGameFather
 	GameServer      sGameServer;
 	GateManager     sGateManager;
 	GateTcpServer   sGateTcpServer;
+	PlatformClient  sPlatformClient;
 	GameDBClient    sGameConnDB;
 	Database        sCharacterDB;
 	Database		sCenterDB;
@@ -74,6 +77,7 @@ struct FuGameFather
 	ShopSalesPromotionManager sShopSalesPromotionManager;
 	RecordManager	sRecordManager;
 	HttpManager		sHttpManager;
+
 };
 
 extern FuGameFather* gFuGameFather;
@@ -91,6 +95,7 @@ extern FuGameFather* gFuGameFather;
 #define gShopSalesPromotionManager gFuGameFather->sShopSalesPromotionManager
 #define gRecordManager      gFuGameFather->sRecordManager
 #define gHttpManager		gFuGameFather->sHttpManager
+#define gPlatformClient     gFuGameFather->sPlatformClient
 enum
 {
 	_SAVE_GIRL_ = _NORMAL_THREAD + 1,

@@ -48,7 +48,8 @@ enum GameError
 	Error_FailedToLotteryNothingCanBeLotteried = 42;
 	Error_FailedToLotteryErrorRating = 43;
 	Error_FailedToLotteryErrorLotionConfig = 44;
-	Error_Unknow = 45;
+	Error_FailedToApplyDealOrderNotFooundConfig = 45;
+	Error_Unknow = 46;
 }
 
 
@@ -353,11 +354,24 @@ message MsgC2SReqApplyDeal
 	required int32 id = 1;
 }
 
+
+
+
 message MsgS2CApplyDealACK
 {
 	required int32 id = 1;
 	required string product_key = 2;
 	required string order_id = 3;
+	required GameError error = 4 [default=Error_NO];
+}
+
+
+message MsgS2CNotifyDealComplete
+{
+	required string order_id = 1;
+	required string product_id = 2;
+	required int32 current_jewel = 3;
+	required int32 current_gold = 4;
 }
 
 

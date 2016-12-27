@@ -223,9 +223,22 @@ bool GameServer::initDataFromDatabase(DBQuery* p, const void* data)
 		std::string paltformHttpUrl = row["http_platform_url"].c_str();
 		gGameConfig.setPlatformHttpUrl(paltformHttpUrl.c_str());
 		gGameConfig.setServerOpenTime(open_time);
-		
 
+		std::string platformIp = row["platform_ip"].c_str();
+		int platform_port = row["platform_port"];
+		int need_connect_platform = row["need_connect_platform"];
+		gGameConfig.setNeedConnectPlatform((bool)need_connect_platform);
+		gGameConfig.setPlatformServerIp(platformIp.c_str());
+		gGameConfig.setPlatformServerPort(platform_port);
+		int game_id = row["game_id"];
+		int server_type = row["server_type"];
+		gGameConfig.setGameID(game_id);
+		gGameConfig.setServerType(server_type);
+	}
 
+	if (gGameConfig.isNeedConnectPlatform())
+	{
+		gPlatformClient.connect(gGameConfig.getPlatformServerIp(), gGameConfig.getPlatformServerPort());		
 	}
     return true;
 }

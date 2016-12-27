@@ -73,6 +73,14 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 			_special_kills[pair_entry].push_back(entry_config);
 		}		
 	}
+
+	int hero_deal_length = info->hero_deal_infos_size();
+	for (size_t i = 0; i < hero_deal_length; i++)
+	{
+		const message::MsgHeroDealInfo entry = info->hero_deal_infos(i);
+		_hero_deals[entry.order_id()] = entry;
+		gDreamHeroManager.AddHeroOrder(_account, entry.order_id().c_str());
+	}
 	int deal_length = info->deals_size();
 	for (size_t i = 0; i < deal_length; i++)
 	{
@@ -1457,6 +1465,37 @@ void DreamHero::LoadFromConfig()
 	SetGMLevel(1);
 }
 
+void DreamHero::ReqApplyHeroDeal(const message::MsgC2SReqApplyDeal* msg)
+{
+	message::MsgS2CApplyDealACK msgACK;
+	int id = msg->id();
+	msgACK.set_id(id);
+	msgACK.set_order_id("");
+	msgACK.set_product_key("");
+	msgACK.set_error(message::Error_NO);
+	const GoldShopConfigInfo* config_entry = gGameConfig.getGoldShopConfigInfo(id);
+	if (config_entry != NULL)
+	{
+		std::string order_id = gDreamHeroManager.generateDealOrderID(_account);
+		
+		msgACK.set_order_id(order_id.c_str());
+		msgACK.set_product_key(config_entry->appstore_product_id_.c_str());
+		message::MsgHeroDealInfo entry;
+		entry.set_createtime(g_server_time);
+		entry.set_order_id(order_id.c_str());
+		entry.set_product_id(config_entry->appstore_product_id_.c_str());
+		entry.set_type(message::HeroDealTypeWaitToPay);
+		
+		_hero_deals[entry.order_id()] = entry;
+
+	}
+	else
+	{
+		msgACK.set_error(message::Error_FailedToApplyDealOrderNotFooundConfig);
+	}
+	sendPBMessage(&msgACK);
+}
+
 void DreamHero::ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg)
 {
 	message::GameError error = message::Error_NO;
@@ -1706,6 +1745,33 @@ void DreamHero::ReqSetSpecialCreatureList(int creature_id, int status)
 	sendPBMessage(&msg);	
 }
 
+void DreamHero::completeDealByOrder(const char* order_id, bool needmsg)
+{
+	std::map<std::string, message::MsgHeroDealInfo>::iterator it = _hero_deals.find(order_id);
+	if (it != _hero_deals.end())
+	{
+		message::MsgHeroDealInfo& entry = it->second;
+		entry.set_type(message::HeroDealTypeComplete);
+		const GoldShopConfigInfo* config = gGameConfig.getGoldShopConfigInfo(entry.product_id().c_str());
+		if (config != NULL)
+		{
+			int gold = _info.gold() + config->info_.gold();
+			int jewel = _info.jewel() + config->info_.jewel();
+			_info.set_gold(gold);
+			_info.set_jewel(jewel);
+			message::MsgS2CNotifyDealComplete msg;
+			msg.set_product_id(entry.product_id().c_str());
+			msg.set_order_id(order_id);
+			msg.set_current_gold(_info.gold());
+			msg.set_current_jewel(_info.jewel());
+			sendPBMessage(&msg);
+		}
+	}
+	else
+	{
+
+	}
+}
 
 void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 {

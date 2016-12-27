@@ -568,6 +568,18 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::uint32 last_lottery_time() const;
   void set_last_lottery_time(::google::protobuf::uint32 value);
 
+  // repeated .message.MsgHeroDealInfo hero_deal_infos = 14;
+  int hero_deal_infos_size() const;
+  void clear_hero_deal_infos();
+  static const int kHeroDealInfosFieldNumber = 14;
+  const ::message::MsgHeroDealInfo& hero_deal_infos(int index) const;
+  ::message::MsgHeroDealInfo* mutable_hero_deal_infos(int index);
+  ::message::MsgHeroDealInfo* add_hero_deal_infos();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo >&
+      hero_deal_infos() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo >*
+      mutable_hero_deal_infos();
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroDataDB2GS)
  private:
   inline void set_has_account();
@@ -610,6 +622,7 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
   ::google::protobuf::int32 last_buy_spirit_time_;
   ::google::protobuf::uint32 last_lottery_time_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo > hero_deal_infos_;
   friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto();
@@ -1793,6 +1806,36 @@ inline void MsgHeroDataDB2GS::set_last_lottery_time(::google::protobuf::uint32 v
   set_has_last_lottery_time();
   last_lottery_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_lottery_time)
+}
+
+// repeated .message.MsgHeroDealInfo hero_deal_infos = 14;
+inline int MsgHeroDataDB2GS::hero_deal_infos_size() const {
+  return hero_deal_infos_.size();
+}
+inline void MsgHeroDataDB2GS::clear_hero_deal_infos() {
+  hero_deal_infos_.Clear();
+}
+inline const ::message::MsgHeroDealInfo& MsgHeroDataDB2GS::hero_deal_infos(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return hero_deal_infos_.Get(index);
+}
+inline ::message::MsgHeroDealInfo* MsgHeroDataDB2GS::mutable_hero_deal_infos(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return hero_deal_infos_.Mutable(index);
+}
+inline ::message::MsgHeroDealInfo* MsgHeroDataDB2GS::add_hero_deal_infos() {
+  // @@protoc_insertion_point(field_add:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return hero_deal_infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo >&
+MsgHeroDataDB2GS::hero_deal_infos() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return hero_deal_infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo >*
+MsgHeroDataDB2GS::mutable_hero_deal_infos() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.hero_deal_infos)
+  return &hero_deal_infos_;
 }
 
 // -------------------------------------------------------------------

@@ -48,6 +48,7 @@ class MsgShopConfigInfo;
 class MsgTaskInfo;
 class MsgChapterConfigInfo;
 class MsgGoldShopConfigInfo;
+class MsgHeroDealInfo;
 
 enum SubType {
   DEFAULT = 0,
@@ -93,6 +94,26 @@ inline bool TaskType_Parse(
     const ::std::string& name, TaskType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<TaskType>(
     TaskType_descriptor(), name, value);
+}
+enum HeroDealType {
+  HeroDealTypApplyOrder = 0,
+  HeroDealTypeWaitToPay = 1,
+  HeroDealTypeComplete = 2
+};
+bool HeroDealType_IsValid(int value);
+const HeroDealType HeroDealType_MIN = HeroDealTypApplyOrder;
+const HeroDealType HeroDealType_MAX = HeroDealTypeComplete;
+const int HeroDealType_ARRAYSIZE = HeroDealType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* HeroDealType_descriptor();
+inline const ::std::string& HeroDealType_Name(HeroDealType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    HeroDealType_descriptor(), value);
+}
+inline bool HeroDealType_Parse(
+    const ::std::string& name, HeroDealType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<HeroDealType>(
+    HeroDealType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1582,6 +1603,138 @@ class MsgGoldShopConfigInfo : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgGoldShopConfigInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgHeroDealInfo : public ::google::protobuf::Message {
+ public:
+  MsgHeroDealInfo();
+  virtual ~MsgHeroDealInfo();
+
+  MsgHeroDealInfo(const MsgHeroDealInfo& from);
+
+  inline MsgHeroDealInfo& operator=(const MsgHeroDealInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgHeroDealInfo& default_instance();
+
+  void Swap(MsgHeroDealInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgHeroDealInfo* New() const { return New(NULL); }
+
+  MsgHeroDealInfo* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgHeroDealInfo& from);
+  void MergeFrom(const MsgHeroDealInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgHeroDealInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string order_id = 1;
+  bool has_order_id() const;
+  void clear_order_id();
+  static const int kOrderIdFieldNumber = 1;
+  const ::std::string& order_id() const;
+  void set_order_id(const ::std::string& value);
+  void set_order_id(const char* value);
+  void set_order_id(const char* value, size_t size);
+  ::std::string* mutable_order_id();
+  ::std::string* release_order_id();
+  void set_allocated_order_id(::std::string* order_id);
+
+  // required string product_id = 2;
+  bool has_product_id() const;
+  void clear_product_id();
+  static const int kProductIdFieldNumber = 2;
+  const ::std::string& product_id() const;
+  void set_product_id(const ::std::string& value);
+  void set_product_id(const char* value);
+  void set_product_id(const char* value, size_t size);
+  ::std::string* mutable_product_id();
+  ::std::string* release_product_id();
+  void set_allocated_product_id(::std::string* product_id);
+
+  // required .message.HeroDealType type = 3;
+  bool has_type() const;
+  void clear_type();
+  static const int kTypeFieldNumber = 3;
+  ::message::HeroDealType type() const;
+  void set_type(::message::HeroDealType value);
+
+  // required uint32 createtime = 4;
+  bool has_createtime() const;
+  void clear_createtime();
+  static const int kCreatetimeFieldNumber = 4;
+  ::google::protobuf::uint32 createtime() const;
+  void set_createtime(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgHeroDealInfo)
+ private:
+  inline void set_has_order_id();
+  inline void clear_has_order_id();
+  inline void set_has_product_id();
+  inline void clear_has_product_id();
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_createtime();
+  inline void clear_has_createtime();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr order_id_;
+  ::google::protobuf::internal::ArenaStringPtr product_id_;
+  int type_;
+  ::google::protobuf::uint32 createtime_;
+  friend void  protobuf_AddDesc_common_2eproto();
+  friend void protobuf_AssignDesc_common_2eproto();
+  friend void protobuf_ShutdownFile_common_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgHeroDealInfo* default_instance_;
 };
 // ===================================================================
 
@@ -3118,6 +3271,165 @@ inline void MsgGoldShopConfigInfo::set_jewel(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.jewel)
 }
 
+// -------------------------------------------------------------------
+
+// MsgHeroDealInfo
+
+// required string order_id = 1;
+inline bool MsgHeroDealInfo::has_order_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgHeroDealInfo::set_has_order_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgHeroDealInfo::clear_has_order_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgHeroDealInfo::clear_order_id() {
+  order_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_order_id();
+}
+inline const ::std::string& MsgHeroDealInfo::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDealInfo.order_id)
+  return order_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgHeroDealInfo::set_order_id(const ::std::string& value) {
+  set_has_order_id();
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgHeroDealInfo.order_id)
+}
+inline void MsgHeroDealInfo::set_order_id(const char* value) {
+  set_has_order_id();
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgHeroDealInfo.order_id)
+}
+inline void MsgHeroDealInfo::set_order_id(const char* value, size_t size) {
+  set_has_order_id();
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgHeroDealInfo.order_id)
+}
+inline ::std::string* MsgHeroDealInfo::mutable_order_id() {
+  set_has_order_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDealInfo.order_id)
+  return order_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgHeroDealInfo::release_order_id() {
+  clear_has_order_id();
+  return order_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgHeroDealInfo::set_allocated_order_id(::std::string* order_id) {
+  if (order_id != NULL) {
+    set_has_order_id();
+  } else {
+    clear_has_order_id();
+  }
+  order_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgHeroDealInfo.order_id)
+}
+
+// required string product_id = 2;
+inline bool MsgHeroDealInfo::has_product_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgHeroDealInfo::set_has_product_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgHeroDealInfo::clear_has_product_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgHeroDealInfo::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_id();
+}
+inline const ::std::string& MsgHeroDealInfo::product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDealInfo.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgHeroDealInfo::set_product_id(const ::std::string& value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgHeroDealInfo.product_id)
+}
+inline void MsgHeroDealInfo::set_product_id(const char* value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgHeroDealInfo.product_id)
+}
+inline void MsgHeroDealInfo::set_product_id(const char* value, size_t size) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgHeroDealInfo.product_id)
+}
+inline ::std::string* MsgHeroDealInfo::mutable_product_id() {
+  set_has_product_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDealInfo.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgHeroDealInfo::release_product_id() {
+  clear_has_product_id();
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgHeroDealInfo::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    set_has_product_id();
+  } else {
+    clear_has_product_id();
+  }
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgHeroDealInfo.product_id)
+}
+
+// required .message.HeroDealType type = 3;
+inline bool MsgHeroDealInfo::has_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgHeroDealInfo::set_has_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgHeroDealInfo::clear_has_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgHeroDealInfo::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::message::HeroDealType MsgHeroDealInfo::type() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDealInfo.type)
+  return static_cast< ::message::HeroDealType >(type_);
+}
+inline void MsgHeroDealInfo::set_type(::message::HeroDealType value) {
+  assert(::message::HeroDealType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDealInfo.type)
+}
+
+// required uint32 createtime = 4;
+inline bool MsgHeroDealInfo::has_createtime() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgHeroDealInfo::set_has_createtime() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgHeroDealInfo::clear_has_createtime() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgHeroDealInfo::clear_createtime() {
+  createtime_ = 0u;
+  clear_has_createtime();
+}
+inline ::google::protobuf::uint32 MsgHeroDealInfo::createtime() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDealInfo.createtime)
+  return createtime_;
+}
+inline void MsgHeroDealInfo::set_createtime(::google::protobuf::uint32 value) {
+  set_has_createtime();
+  createtime_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDealInfo.createtime)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
@@ -3137,6 +3449,11 @@ template <> struct is_proto_enum< ::message::TaskType> : ::google::protobuf::int
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::message::TaskType>() {
   return ::message::TaskType_descriptor();
+}
+template <> struct is_proto_enum< ::message::HeroDealType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::message::HeroDealType>() {
+  return ::message::HeroDealType_descriptor();
 }
 
 }  // namespace protobuf

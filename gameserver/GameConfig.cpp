@@ -181,6 +181,52 @@ const globalConfig& GameConfig::getGlobalConfig()
 {
 	return _global_config;
 }
+void GameConfig::setNeedConnectPlatform(bool b)
+{
+	_need_connect_platform = b;
+}
+void GameConfig::setPlatformServerIp(const char* ip)
+{
+	_platform_ip = ip;
+}
+void GameConfig::setPlatformServerPort(int port)
+{
+	_platform_port = port;
+}
+
+void GameConfig::setGameID(int game_id)
+{
+	_game_id = game_id;
+}
+int GameConfig::getGameID()
+{
+	return _game_id;
+}
+
+
+void GameConfig::setServerType(int t)
+{
+	_server_type = t;
+}
+int GameConfig::getServerType()
+{
+	return _server_type;
+}
+
+bool GameConfig::isNeedConnectPlatform()
+{
+	return _need_connect_platform;
+}
+const char* GameConfig::getPlatformServerIp()
+{
+	return _platform_ip.c_str();
+}
+int GameConfig::getPlatformServerPort()
+{
+	return _platform_port;
+}
+
+
 
 
 void GameConfig::setPlatformHttpUrl(const char* http)

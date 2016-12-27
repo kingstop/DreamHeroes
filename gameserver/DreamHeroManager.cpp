@@ -15,6 +15,29 @@ DreamHeroManager::DreamHeroManager()
 	_deal_order_id = 0;
 }
 
+bool DreamHeroManager::AddHeroOrder(account_type acc, const char* order)
+{
+	bool ret = false;
+	MAPSTRACCPAIR::iterator it = _heroes_orders.find(order);
+	if (it == _heroes_orders.end())
+	{
+		ret = true;
+		_heroes_orders[order] = acc;		
+	}
+	return ret;
+}
+
+account_type DreamHeroManager::getOrderAcc(const char* order)
+{
+	account_type acc = 0;
+	MAPSTRACCPAIR::iterator it = _heroes_orders.find(order);
+	if (it != _heroes_orders.end())
+	{
+		acc = it->second;	
+	}
+	return acc;
+}
+
 
 DreamHeroManager::~DreamHeroManager()
 {
@@ -204,10 +227,12 @@ std::string DreamHeroManager::generateName()
 	return generateStr(_day_create_heroes_count, "");
 }
 
-std::string DreamHeroManager::generateDealOrderID()
+std::string DreamHeroManager::generateDealOrderID(account_type acc)
 {
 	_deal_order_id++;
-	return generateStr(_deal_order_id, "order");
+	std::string order = generateStr(_deal_order_id, "order");
+	AddHeroOrder(acc, order.c_str());
+	return order;
 }
 
 void DreamHeroManager::refrashHeroTitle()

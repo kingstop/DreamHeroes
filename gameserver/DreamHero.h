@@ -62,8 +62,7 @@ public:
 	void ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg);
 	void ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg);
 	void ReqDayLottery(const message::MsgC2SReqDayLottery* msg);
-
-
+	void ReqApplyHeroDeal(const message::MsgC2SReqApplyDeal* msg);
 	void ReqRemoveAllSpecialCreatureList();
 	void ReqSetSpecialCreatureList(int creature_id, int status);
 	void ReqModifyCurrentHero(int grid_id);
@@ -74,6 +73,7 @@ public:
 public:
 	void addDealWaitToPay(std::string key_code, int status, int price, int order_id, message::GameError error);
 	void addDealPay(std::string key_code, int status, int order_id, message::GameError error, bool send_msg = true);
+	void completeDealByOrder(const char* order_id, bool needmsg = false);
 
 public:
 	int	getSpirit();
@@ -84,6 +84,7 @@ public:
 protected:
 	message::MsgTaskConfigInfo RadnomTaskInfo(int give_up_task = 0);
 	void RefreshTask(int give_up_task_id, bool gold);	
+	
 	void Destroy();
 protected:
 	void fillSpecialCreatureList(::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >* list);
@@ -108,8 +109,8 @@ protected:
 	u32 _last_recover_spirit_time;
 	u32 _last_buy_spirit_time;
 	u32 _last_day_lottery_time;
-
 	bool _destroy_clock;
+	std::map<std::string, message::MsgHeroDealInfo> _hero_deals;
 	
 };
 

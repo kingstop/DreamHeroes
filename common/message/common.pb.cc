@@ -53,8 +53,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgGoldShopConfigInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgGoldShopConfigInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgHeroDealInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgHeroDealInfo_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* SubType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* TaskType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* HeroDealType_descriptor_ = NULL;
 
 }  // namespace
 
@@ -274,8 +278,27 @@ void protobuf_AssignDesc_common_2eproto() {
       sizeof(MsgGoldShopConfigInfo),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, _internal_metadata_),
       -1);
+  MsgHeroDealInfo_descriptor_ = file->message_type(11);
+  static const int MsgHeroDealInfo_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDealInfo, order_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDealInfo, product_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDealInfo, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDealInfo, createtime_),
+  };
+  MsgHeroDealInfo_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgHeroDealInfo_descriptor_,
+      MsgHeroDealInfo::default_instance_,
+      MsgHeroDealInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDealInfo, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgHeroDealInfo),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroDealInfo, _internal_metadata_),
+      -1);
   SubType_descriptor_ = file->enum_type(0);
   TaskType_descriptor_ = file->enum_type(1);
+  HeroDealType_descriptor_ = file->enum_type(2);
 }
 
 namespace {
@@ -310,6 +333,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
       MsgChapterConfigInfo_descriptor_, &MsgChapterConfigInfo::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgGoldShopConfigInfo_descriptor_, &MsgGoldShopConfigInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgHeroDealInfo_descriptor_, &MsgHeroDealInfo::default_instance());
 }
 
 }  // namespace
@@ -337,6 +362,8 @@ void protobuf_ShutdownFile_common_2eproto() {
   delete MsgChapterConfigInfo_reflection_;
   delete MsgGoldShopConfigInfo::default_instance_;
   delete MsgGoldShopConfigInfo_reflection_;
+  delete MsgHeroDealInfo::default_instance_;
+  delete MsgHeroDealInfo_reflection_;
 }
 
 void protobuf_AddDesc_common_2eproto() {
@@ -383,14 +410,20 @@ void protobuf_AddDesc_common_2eproto() {
     "d\030\005 \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"v\n\025Ms"
     "gGoldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013resou"
     "rce_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 \002("
-    "\002\022\020\n\010describe\030\005 \002(\t\022\r\n\005jewel\030\006 \002(\005*4\n\007Su"
-    "bType\022\013\n\007DEFAULT\020\000\022\013\n\007MONSTER\020\001\022\017\n\013INTER"
-    "ACTIVE\020\002*\340\001\n\010TaskType\022\021\n\rTaskType_NULL\020\000"
-    "\022\030\n\024TaskType_KillMonster\020\001\022\025\n\021TaskType_P"
-    "assGame\020\002\022\024\n\020TaskType_UnKnown\020\003\022\027\n\023TaskT"
-    "ype_LimitLevel\020\004\022\030\n\024TaskType_LimitRevive"
-    "\020\005\022\"\n\036TaskType_LimitTime_KillMonster\020\006\022#"
-    "\n\037TaskType_Accumulate_KillMonster\020\007", 1795);
+    "\002\022\020\n\010describe\030\005 \002(\t\022\r\n\005jewel\030\006 \002(\005\"p\n\017Ms"
+    "gHeroDealInfo\022\020\n\010order_id\030\001 \002(\t\022\022\n\nprodu"
+    "ct_id\030\002 \002(\t\022#\n\004type\030\003 \002(\0162\025.message.Hero"
+    "DealType\022\022\n\ncreatetime\030\004 \002(\r*4\n\007SubType\022"
+    "\013\n\007DEFAULT\020\000\022\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE"
+    "\020\002*\340\001\n\010TaskType\022\021\n\rTaskType_NULL\020\000\022\030\n\024Ta"
+    "skType_KillMonster\020\001\022\025\n\021TaskType_PassGam"
+    "e\020\002\022\024\n\020TaskType_UnKnown\020\003\022\027\n\023TaskType_Li"
+    "mitLevel\020\004\022\030\n\024TaskType_LimitRevive\020\005\022\"\n\036"
+    "TaskType_LimitTime_KillMonster\020\006\022#\n\037Task"
+    "Type_Accumulate_KillMonster\020\007*^\n\014HeroDea"
+    "lType\022\031\n\025HeroDealTypApplyOrder\020\000\022\031\n\025Hero"
+    "DealTypeWaitToPay\020\001\022\030\n\024HeroDealTypeCompl"
+    "ete\020\002", 2005);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   MsgObjConfig::default_instance_ = new MsgObjConfig();
@@ -404,6 +437,7 @@ void protobuf_AddDesc_common_2eproto() {
   MsgTaskInfo::default_instance_ = new MsgTaskInfo();
   MsgChapterConfigInfo::default_instance_ = new MsgChapterConfigInfo();
   MsgGoldShopConfigInfo::default_instance_ = new MsgGoldShopConfigInfo();
+  MsgHeroDealInfo::default_instance_ = new MsgHeroDealInfo();
   MsgObjConfig::default_instance_->InitAsDefaultInstance();
   MsgDropBoxConfig::default_instance_->InitAsDefaultInstance();
   MsgIntPair::default_instance_->InitAsDefaultInstance();
@@ -415,6 +449,7 @@ void protobuf_AddDesc_common_2eproto() {
   MsgTaskInfo::default_instance_->InitAsDefaultInstance();
   MsgChapterConfigInfo::default_instance_->InitAsDefaultInstance();
   MsgGoldShopConfigInfo::default_instance_->InitAsDefaultInstance();
+  MsgHeroDealInfo::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_common_2eproto);
 }
 
@@ -453,6 +488,21 @@ bool TaskType_IsValid(int value) {
     case 5:
     case 6:
     case 7:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* HeroDealType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return HeroDealType_descriptor_;
+}
+bool HeroDealType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
       return true;
     default:
       return false;
@@ -6829,6 +6879,596 @@ void MsgGoldShopConfigInfo::InternalSwap(MsgGoldShopConfigInfo* other) {
   set_has_jewel();
   jewel_ = value;
   // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.jewel)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgHeroDealInfo::kOrderIdFieldNumber;
+const int MsgHeroDealInfo::kProductIdFieldNumber;
+const int MsgHeroDealInfo::kTypeFieldNumber;
+const int MsgHeroDealInfo::kCreatetimeFieldNumber;
+#endif  // !_MSC_VER
+
+MsgHeroDealInfo::MsgHeroDealInfo()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgHeroDealInfo)
+}
+
+void MsgHeroDealInfo::InitAsDefaultInstance() {
+}
+
+MsgHeroDealInfo::MsgHeroDealInfo(const MsgHeroDealInfo& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgHeroDealInfo)
+}
+
+void MsgHeroDealInfo::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  order_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  product_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_ = 0;
+  createtime_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgHeroDealInfo::~MsgHeroDealInfo() {
+  // @@protoc_insertion_point(destructor:message.MsgHeroDealInfo)
+  SharedDtor();
+}
+
+void MsgHeroDealInfo::SharedDtor() {
+  order_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  product_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void MsgHeroDealInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgHeroDealInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgHeroDealInfo_descriptor_;
+}
+
+const MsgHeroDealInfo& MsgHeroDealInfo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
+  return *default_instance_;
+}
+
+MsgHeroDealInfo* MsgHeroDealInfo::default_instance_ = NULL;
+
+MsgHeroDealInfo* MsgHeroDealInfo::New(::google::protobuf::Arena* arena) const {
+  MsgHeroDealInfo* n = new MsgHeroDealInfo;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgHeroDealInfo::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgHeroDealInfo*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  if (_has_bits_[0 / 32] & 15) {
+    ZR_(type_, createtime_);
+    if (has_order_id()) {
+      order_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_product_id()) {
+      product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+  }
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgHeroDealInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgHeroDealInfo)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string order_id = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_order_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->order_id().data(), this->order_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgHeroDealInfo.order_id");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_product_id;
+        break;
+      }
+
+      // required string product_id = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_product_id:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_product_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->product_id().data(), this->product_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgHeroDealInfo.product_id");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_type;
+        break;
+      }
+
+      // required .message.HeroDealType type = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_type:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::message::HeroDealType_IsValid(value)) {
+            set_type(static_cast< ::message::HeroDealType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(3, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_createtime;
+        break;
+      }
+
+      // required uint32 createtime = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_createtime:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &createtime_)));
+          set_has_createtime();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgHeroDealInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgHeroDealInfo)
+  return false;
+#undef DO_
+}
+
+void MsgHeroDealInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgHeroDealInfo)
+  // required string order_id = 1;
+  if (has_order_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->order_id().data(), this->order_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgHeroDealInfo.order_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->order_id(), output);
+  }
+
+  // required string product_id = 2;
+  if (has_product_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->product_id().data(), this->product_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgHeroDealInfo.product_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->product_id(), output);
+  }
+
+  // required .message.HeroDealType type = 3;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->type(), output);
+  }
+
+  // required uint32 createtime = 4;
+  if (has_createtime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->createtime(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgHeroDealInfo)
+}
+
+::google::protobuf::uint8* MsgHeroDealInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgHeroDealInfo)
+  // required string order_id = 1;
+  if (has_order_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->order_id().data(), this->order_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgHeroDealInfo.order_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->order_id(), target);
+  }
+
+  // required string product_id = 2;
+  if (has_product_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->product_id().data(), this->product_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgHeroDealInfo.product_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->product_id(), target);
+  }
+
+  // required .message.HeroDealType type = 3;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->type(), target);
+  }
+
+  // required uint32 createtime = 4;
+  if (has_createtime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->createtime(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgHeroDealInfo)
+  return target;
+}
+
+int MsgHeroDealInfo::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_order_id()) {
+    // required string order_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->order_id());
+  }
+
+  if (has_product_id()) {
+    // required string product_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->product_id());
+  }
+
+  if (has_type()) {
+    // required .message.HeroDealType type = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
+  if (has_createtime()) {
+    // required uint32 createtime = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->createtime());
+  }
+
+  return total_size;
+}
+int MsgHeroDealInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+    // required string order_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->order_id());
+
+    // required string product_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->product_id());
+
+    // required .message.HeroDealType type = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+
+    // required uint32 createtime = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->createtime());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgHeroDealInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgHeroDealInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgHeroDealInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgHeroDealInfo::MergeFrom(const MsgHeroDealInfo& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_order_id()) {
+      set_has_order_id();
+      order_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.order_id_);
+    }
+    if (from.has_product_id()) {
+      set_has_product_id();
+      product_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.product_id_);
+    }
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_createtime()) {
+      set_createtime(from.createtime());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgHeroDealInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgHeroDealInfo::CopyFrom(const MsgHeroDealInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgHeroDealInfo::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+
+  return true;
+}
+
+void MsgHeroDealInfo::Swap(MsgHeroDealInfo* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgHeroDealInfo::InternalSwap(MsgHeroDealInfo* other) {
+  order_id_.Swap(&other->order_id_);
+  product_id_.Swap(&other->product_id_);
+  std::swap(type_, other->type_);
+  std::swap(createtime_, other->createtime_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgHeroDealInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgHeroDealInfo_descriptor_;
+  metadata.reflection = MsgHeroDealInfo_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgHeroDealInfo
+
+// required string order_id = 1;
+ bool MsgHeroDealInfo::has_order_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgHeroDealInfo::set_has_order_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgHeroDealInfo::clear_has_order_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgHeroDealInfo::clear_order_id() {
+  order_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_order_id();
+}
+ const ::std::string& MsgHeroDealInfo::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDealInfo.order_id)
+  return order_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgHeroDealInfo::set_order_id(const ::std::string& value) {
+  set_has_order_id();
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgHeroDealInfo.order_id)
+}
+ void MsgHeroDealInfo::set_order_id(const char* value) {
+  set_has_order_id();
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgHeroDealInfo.order_id)
+}
+ void MsgHeroDealInfo::set_order_id(const char* value, size_t size) {
+  set_has_order_id();
+  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgHeroDealInfo.order_id)
+}
+ ::std::string* MsgHeroDealInfo::mutable_order_id() {
+  set_has_order_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDealInfo.order_id)
+  return order_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgHeroDealInfo::release_order_id() {
+  clear_has_order_id();
+  return order_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgHeroDealInfo::set_allocated_order_id(::std::string* order_id) {
+  if (order_id != NULL) {
+    set_has_order_id();
+  } else {
+    clear_has_order_id();
+  }
+  order_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgHeroDealInfo.order_id)
+}
+
+// required string product_id = 2;
+ bool MsgHeroDealInfo::has_product_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgHeroDealInfo::set_has_product_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgHeroDealInfo::clear_has_product_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgHeroDealInfo::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_id();
+}
+ const ::std::string& MsgHeroDealInfo::product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDealInfo.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgHeroDealInfo::set_product_id(const ::std::string& value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgHeroDealInfo.product_id)
+}
+ void MsgHeroDealInfo::set_product_id(const char* value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgHeroDealInfo.product_id)
+}
+ void MsgHeroDealInfo::set_product_id(const char* value, size_t size) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgHeroDealInfo.product_id)
+}
+ ::std::string* MsgHeroDealInfo::mutable_product_id() {
+  set_has_product_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroDealInfo.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgHeroDealInfo::release_product_id() {
+  clear_has_product_id();
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgHeroDealInfo::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    set_has_product_id();
+  } else {
+    clear_has_product_id();
+  }
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgHeroDealInfo.product_id)
+}
+
+// required .message.HeroDealType type = 3;
+ bool MsgHeroDealInfo::has_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgHeroDealInfo::set_has_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgHeroDealInfo::clear_has_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgHeroDealInfo::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+ ::message::HeroDealType MsgHeroDealInfo::type() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDealInfo.type)
+  return static_cast< ::message::HeroDealType >(type_);
+}
+ void MsgHeroDealInfo::set_type(::message::HeroDealType value) {
+  assert(::message::HeroDealType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDealInfo.type)
+}
+
+// required uint32 createtime = 4;
+ bool MsgHeroDealInfo::has_createtime() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void MsgHeroDealInfo::set_has_createtime() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void MsgHeroDealInfo::clear_has_createtime() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+ void MsgHeroDealInfo::clear_createtime() {
+  createtime_ = 0u;
+  clear_has_createtime();
+}
+ ::google::protobuf::uint32 MsgHeroDealInfo::createtime() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDealInfo.createtime)
+  return createtime_;
+}
+ void MsgHeroDealInfo::set_createtime(::google::protobuf::uint32 value) {
+  set_has_createtime();
+  createtime_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDealInfo.createtime)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

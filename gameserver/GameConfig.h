@@ -157,6 +157,21 @@ public:
 	void setPlatformHttpUrl(const char* http);
 	const char* getPlatformHttpUrl();
 
+	void setNeedConnectPlatform(bool b);
+	void setPlatformServerIp(const char* ip);
+	void setPlatformServerPort(int port);
+
+	bool isNeedConnectPlatform( );
+	const char* getPlatformServerIp();
+	int getPlatformServerPort();
+	void setGameID(int game_id);
+	int getGameID();
+
+	void setServerType(int t);
+	int getServerType();
+
+
+
 protected:
 	MAPTASKS _tasks;
 	MAPSHOPHEROCONFIGS _shop_heroes;
@@ -174,5 +189,10 @@ protected:
 	u64 _server_open_time;
 	char _server_char;
 	std::string _platform_http;
+	bool _need_connect_platform;
+	std::string _platform_ip;
+	int _platform_port;
+	int _game_id;
+	int _server_type;
 };
 

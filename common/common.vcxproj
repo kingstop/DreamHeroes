@@ -181,6 +181,7 @@
     <ClInclude Include="message\login.pb.h" />
     <ClInclude Include="message\msgs2s.pb.h" />
     <ClInclude Include="message\msg_game_db.pb.h" />
+    <ClInclude Include="message\msg_game_platform.pb.h" />
     <ClInclude Include="message\msg_gate_game.pb.h" />
     <ClInclude Include="message\msg_gate_login.pb.h" />
     <ClInclude Include="message\server_define.h" />
@@ -225,6 +226,7 @@
     <ClCompile Include="message\login.pb.cc" />
     <ClCompile Include="message\msgs2s.pb.cc" />
     <ClCompile Include="message\msg_game_db.pb.cc" />
+    <ClCompile Include="message\msg_game_platform.pb.cc" />
     <ClCompile Include="message\msg_gate_game.pb.cc" />
     <ClCompile Include="message\msg_gate_login.pb.cc" />
     <ClCompile Include="message_interface.cpp" />
