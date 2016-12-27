@@ -1,6 +1,13 @@
 package message;
 import "common.proto";
 
+enum PlatformError
+{
+	PlatformError_NO = 0;
+	PlatformError_Unknow = 1;
+	PlatformError_AlreadyRegister = 2;
+
+}
 message MsgS2PRegisterServer
 {
 	required int32 server_id = 1;
@@ -8,10 +15,17 @@ message MsgS2PRegisterServer
 	required int32 server_type = 3;
 }
 
+message MsgP2SRegisterACK
+{
+	required PlatformError error = 1[default=PlatformError_NO];
+	required string describe = 2;
+}
+
 message MsgP2SClinchADealNotify
 {
 	required string product_key = 1;
 	required string order_id = 2;
+	required bool success = 3;
 }
 message MsgS2PCloseDealMptify
 {

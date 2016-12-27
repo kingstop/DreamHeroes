@@ -227,7 +227,10 @@ int GameConfig::getPlatformServerPort()
 }
 
 
-
+const DAILYGAMEPRIZECONFIGS* GameConfig::getDailyGamePrizeConfigs()
+{
+	return &_daily_game_prize_configs;
+}
 
 void GameConfig::setPlatformHttpUrl(const char* http)
 {
@@ -243,7 +246,18 @@ const VCLOTTERYDRAWBOXSCONFIGS* GameConfig::getLotteryDrawBoxs()
 {
 	return &_lottery_draw_configs;
 }
-
+bool GameConfig::isInToday(u32 time)
+{
+	
+	int day_offset_time = _global_config.day_Refresh_time_ * 60 * 60;
+	bool ret = false;
+	u64 temp_time = g_server_time - day_offset_time;
+	if (same_day(temp_time, time) == true)
+	{
+		ret = true;
+	}
+	return ret;
+}
 void GameConfig::Load(DBQuery* p)
 {
 
@@ -561,5 +575,28 @@ void GameConfig::Load(DBQuery* p)
 		}
 		gHttpManager.setChannel(_global_config.channel_id_);
 		gHttpManager.setGameID(_global_config.game_id_);
+
+		query.reset();
+		sResult.clear();
+		query << "select * from gold_shop_config_info;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			DBRow& row = sResult[i];
+			DailyGamePrizeConfig entry;
+			entry.begin_rank_ = row["rank_begin"];
+			entry.end_rank_ = row["rank_end"];
+			entry.prize_gold_ = row["gold"];
+			_daily_game_prize_configs.push_back(entry);
+		}
 	}	
+	char sz_temp[512];
+	sprintf(sz_temp, "%d;%d;%d", _game_id, _server_char, _server_type);
+	_server_title = sz_temp;
+}
+
+const char* GameConfig::getServerTitle()
+{
+	return _server_title.c_str();
 }

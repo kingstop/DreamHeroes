@@ -547,26 +547,26 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >*
       mutable_special_creatures();
 
-  // required int32 last_recover_spirit_time = 11;
+  // required uint64 last_recover_spirit_time = 11;
   bool has_last_recover_spirit_time() const;
   void clear_last_recover_spirit_time();
   static const int kLastRecoverSpiritTimeFieldNumber = 11;
-  ::google::protobuf::int32 last_recover_spirit_time() const;
-  void set_last_recover_spirit_time(::google::protobuf::int32 value);
+  ::google::protobuf::uint64 last_recover_spirit_time() const;
+  void set_last_recover_spirit_time(::google::protobuf::uint64 value);
 
-  // required int32 last_buy_spirit_time = 12;
+  // required uint64 last_buy_spirit_time = 12;
   bool has_last_buy_spirit_time() const;
   void clear_last_buy_spirit_time();
   static const int kLastBuySpiritTimeFieldNumber = 12;
-  ::google::protobuf::int32 last_buy_spirit_time() const;
-  void set_last_buy_spirit_time(::google::protobuf::int32 value);
+  ::google::protobuf::uint64 last_buy_spirit_time() const;
+  void set_last_buy_spirit_time(::google::protobuf::uint64 value);
 
-  // required uint32 last_lottery_time = 13;
+  // required uint64 last_lottery_time = 13;
   bool has_last_lottery_time() const;
   void clear_last_lottery_time();
   static const int kLastLotteryTimeFieldNumber = 13;
-  ::google::protobuf::uint32 last_lottery_time() const;
-  void set_last_lottery_time(::google::protobuf::uint32 value);
+  ::google::protobuf::uint64 last_lottery_time() const;
+  void set_last_lottery_time(::google::protobuf::uint64 value);
 
   // repeated .message.MsgHeroDealInfo hero_deal_infos = 14;
   int hero_deal_infos_size() const;
@@ -579,6 +579,20 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
       hero_deal_infos() const;
   ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo >*
       mutable_hero_deal_infos();
+
+  // required uint64 daily_game_time = 15;
+  bool has_daily_game_time() const;
+  void clear_daily_game_time();
+  static const int kDailyGameTimeFieldNumber = 15;
+  ::google::protobuf::uint64 daily_game_time() const;
+  void set_daily_game_time(::google::protobuf::uint64 value);
+
+  // required uint64 daily_game_prize_time = 16;
+  bool has_daily_game_prize_time() const;
+  void clear_daily_game_prize_time();
+  static const int kDailyGamePrizeTimeFieldNumber = 16;
+  ::google::protobuf::uint64 daily_game_prize_time() const;
+  void set_daily_game_prize_time(::google::protobuf::uint64 value);
 
   // @@protoc_insertion_point(class_scope:message.MsgHeroDataDB2GS)
  private:
@@ -602,6 +616,10 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   inline void clear_has_last_buy_spirit_time();
   inline void set_has_last_lottery_time();
   inline void clear_has_last_lottery_time();
+  inline void set_has_daily_game_time();
+  inline void clear_has_daily_game_time();
+  inline void set_has_daily_game_prize_time();
+  inline void clear_has_daily_game_prize_time();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -617,12 +635,14 @@ class MsgHeroDataDB2GS : public ::google::protobuf::Message {
   ::google::protobuf::int32 last_task_advertisement_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgMapSpecialKill > special_kills_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgDealInfo > deals_;
-  ::google::protobuf::int32 gm_level_;
-  ::google::protobuf::int32 last_recover_spirit_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntPair > special_creatures_;
-  ::google::protobuf::int32 last_buy_spirit_time_;
-  ::google::protobuf::uint32 last_lottery_time_;
+  ::google::protobuf::uint64 last_recover_spirit_time_;
+  ::google::protobuf::uint64 last_buy_spirit_time_;
+  ::google::protobuf::uint64 last_lottery_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo > hero_deal_infos_;
+  ::google::protobuf::uint64 daily_game_time_;
+  ::google::protobuf::uint64 daily_game_prize_time_;
+  ::google::protobuf::int32 gm_level_;
   friend void  protobuf_AddDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fdb_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fdb_2eproto();
@@ -1736,7 +1756,7 @@ MsgHeroDataDB2GS::mutable_special_creatures() {
   return &special_creatures_;
 }
 
-// required int32 last_recover_spirit_time = 11;
+// required uint64 last_recover_spirit_time = 11;
 inline bool MsgHeroDataDB2GS::has_last_recover_spirit_time() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1747,20 +1767,20 @@ inline void MsgHeroDataDB2GS::clear_has_last_recover_spirit_time() {
   _has_bits_[0] &= ~0x00000400u;
 }
 inline void MsgHeroDataDB2GS::clear_last_recover_spirit_time() {
-  last_recover_spirit_time_ = 0;
+  last_recover_spirit_time_ = GOOGLE_ULONGLONG(0);
   clear_has_last_recover_spirit_time();
 }
-inline ::google::protobuf::int32 MsgHeroDataDB2GS::last_recover_spirit_time() const {
+inline ::google::protobuf::uint64 MsgHeroDataDB2GS::last_recover_spirit_time() const {
   // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.last_recover_spirit_time)
   return last_recover_spirit_time_;
 }
-inline void MsgHeroDataDB2GS::set_last_recover_spirit_time(::google::protobuf::int32 value) {
+inline void MsgHeroDataDB2GS::set_last_recover_spirit_time(::google::protobuf::uint64 value) {
   set_has_last_recover_spirit_time();
   last_recover_spirit_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_recover_spirit_time)
 }
 
-// required int32 last_buy_spirit_time = 12;
+// required uint64 last_buy_spirit_time = 12;
 inline bool MsgHeroDataDB2GS::has_last_buy_spirit_time() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -1771,20 +1791,20 @@ inline void MsgHeroDataDB2GS::clear_has_last_buy_spirit_time() {
   _has_bits_[0] &= ~0x00000800u;
 }
 inline void MsgHeroDataDB2GS::clear_last_buy_spirit_time() {
-  last_buy_spirit_time_ = 0;
+  last_buy_spirit_time_ = GOOGLE_ULONGLONG(0);
   clear_has_last_buy_spirit_time();
 }
-inline ::google::protobuf::int32 MsgHeroDataDB2GS::last_buy_spirit_time() const {
+inline ::google::protobuf::uint64 MsgHeroDataDB2GS::last_buy_spirit_time() const {
   // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.last_buy_spirit_time)
   return last_buy_spirit_time_;
 }
-inline void MsgHeroDataDB2GS::set_last_buy_spirit_time(::google::protobuf::int32 value) {
+inline void MsgHeroDataDB2GS::set_last_buy_spirit_time(::google::protobuf::uint64 value) {
   set_has_last_buy_spirit_time();
   last_buy_spirit_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_buy_spirit_time)
 }
 
-// required uint32 last_lottery_time = 13;
+// required uint64 last_lottery_time = 13;
 inline bool MsgHeroDataDB2GS::has_last_lottery_time() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1795,14 +1815,14 @@ inline void MsgHeroDataDB2GS::clear_has_last_lottery_time() {
   _has_bits_[0] &= ~0x00001000u;
 }
 inline void MsgHeroDataDB2GS::clear_last_lottery_time() {
-  last_lottery_time_ = 0u;
+  last_lottery_time_ = GOOGLE_ULONGLONG(0);
   clear_has_last_lottery_time();
 }
-inline ::google::protobuf::uint32 MsgHeroDataDB2GS::last_lottery_time() const {
+inline ::google::protobuf::uint64 MsgHeroDataDB2GS::last_lottery_time() const {
   // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.last_lottery_time)
   return last_lottery_time_;
 }
-inline void MsgHeroDataDB2GS::set_last_lottery_time(::google::protobuf::uint32 value) {
+inline void MsgHeroDataDB2GS::set_last_lottery_time(::google::protobuf::uint64 value) {
   set_has_last_lottery_time();
   last_lottery_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.last_lottery_time)
@@ -1836,6 +1856,54 @@ inline ::google::protobuf::RepeatedPtrField< ::message::MsgHeroDealInfo >*
 MsgHeroDataDB2GS::mutable_hero_deal_infos() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgHeroDataDB2GS.hero_deal_infos)
   return &hero_deal_infos_;
+}
+
+// required uint64 daily_game_time = 15;
+inline bool MsgHeroDataDB2GS::has_daily_game_time() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void MsgHeroDataDB2GS::set_has_daily_game_time() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void MsgHeroDataDB2GS::clear_has_daily_game_time() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void MsgHeroDataDB2GS::clear_daily_game_time() {
+  daily_game_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_daily_game_time();
+}
+inline ::google::protobuf::uint64 MsgHeroDataDB2GS::daily_game_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.daily_game_time)
+  return daily_game_time_;
+}
+inline void MsgHeroDataDB2GS::set_daily_game_time(::google::protobuf::uint64 value) {
+  set_has_daily_game_time();
+  daily_game_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.daily_game_time)
+}
+
+// required uint64 daily_game_prize_time = 16;
+inline bool MsgHeroDataDB2GS::has_daily_game_prize_time() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void MsgHeroDataDB2GS::set_has_daily_game_prize_time() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void MsgHeroDataDB2GS::clear_has_daily_game_prize_time() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void MsgHeroDataDB2GS::clear_daily_game_prize_time() {
+  daily_game_prize_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_daily_game_prize_time();
+}
+inline ::google::protobuf::uint64 MsgHeroDataDB2GS::daily_game_prize_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroDataDB2GS.daily_game_prize_time)
+  return daily_game_prize_time_;
+}
+inline void MsgHeroDataDB2GS::set_daily_game_prize_time(::google::protobuf::uint64 value) {
+  set_has_daily_game_prize_time();
+  daily_game_prize_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroDataDB2GS.daily_game_prize_time)
 }
 
 // -------------------------------------------------------------------

@@ -23,12 +23,16 @@ namespace {
 const ::google::protobuf::Descriptor* MsgS2PRegisterServer_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2PRegisterServer_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgP2SRegisterACK_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgP2SRegisterACK_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgP2SClinchADealNotify_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgP2SClinchADealNotify_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgS2PCloseDealMptify_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2PCloseDealMptify_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* PlatformError_descriptor_ = NULL;
 
 }  // namespace
 
@@ -56,10 +60,27 @@ void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto() {
       sizeof(MsgS2PRegisterServer),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2PRegisterServer, _internal_metadata_),
       -1);
-  MsgP2SClinchADealNotify_descriptor_ = file->message_type(1);
-  static const int MsgP2SClinchADealNotify_offsets_[2] = {
+  MsgP2SRegisterACK_descriptor_ = file->message_type(1);
+  static const int MsgP2SRegisterACK_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SRegisterACK, error_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SRegisterACK, describe_),
+  };
+  MsgP2SRegisterACK_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgP2SRegisterACK_descriptor_,
+      MsgP2SRegisterACK::default_instance_,
+      MsgP2SRegisterACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SRegisterACK, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgP2SRegisterACK),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SRegisterACK, _internal_metadata_),
+      -1);
+  MsgP2SClinchADealNotify_descriptor_ = file->message_type(2);
+  static const int MsgP2SClinchADealNotify_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, product_key_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, order_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, success_),
   };
   MsgP2SClinchADealNotify_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -72,7 +93,7 @@ void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto() {
       sizeof(MsgP2SClinchADealNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, _internal_metadata_),
       -1);
-  MsgS2PCloseDealMptify_descriptor_ = file->message_type(2);
+  MsgS2PCloseDealMptify_descriptor_ = file->message_type(3);
   static const int MsgS2PCloseDealMptify_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2PCloseDealMptify, product_key_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2PCloseDealMptify, order_id_),
@@ -88,6 +109,7 @@ void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto() {
       sizeof(MsgS2PCloseDealMptify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2PCloseDealMptify, _internal_metadata_),
       -1);
+  PlatformError_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -103,6 +125,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2PRegisterServer_descriptor_, &MsgS2PRegisterServer::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgP2SRegisterACK_descriptor_, &MsgP2SRegisterACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgP2SClinchADealNotify_descriptor_, &MsgP2SClinchADealNotify::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2PCloseDealMptify_descriptor_, &MsgS2PCloseDealMptify::default_instance());
@@ -113,6 +137,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto() {
   delete MsgS2PRegisterServer::default_instance_;
   delete MsgS2PRegisterServer_reflection_;
+  delete MsgP2SRegisterACK::default_instance_;
+  delete MsgP2SRegisterACK_reflection_;
   delete MsgP2SClinchADealNotify::default_instance_;
   delete MsgP2SClinchADealNotify_reflection_;
   delete MsgS2PCloseDealMptify::default_instance_;
@@ -130,16 +156,23 @@ void protobuf_AddDesc_msg_5fgame_5fplatform_2eproto() {
     "\n\027msg_game_platform.proto\022\007message\032\014comm"
     "on.proto\"O\n\024MsgS2PRegisterServer\022\021\n\tserv"
     "er_id\030\001 \002(\005\022\017\n\007game_id\030\002 \002(\005\022\023\n\013server_t"
-    "ype\030\003 \002(\005\"@\n\027MsgP2SClinchADealNotify\022\023\n\013"
-    "product_key\030\001 \002(\t\022\020\n\010order_id\030\002 \002(\t\">\n\025M"
-    "sgS2PCloseDealMptify\022\023\n\013product_key\030\001 \002("
-    "\t\022\020\n\010order_id\030\002 \002(\t", 259);
+    "ype\030\003 \002(\005\"^\n\021MsgP2SRegisterACK\0227\n\005error\030"
+    "\001 \002(\0162\026.message.PlatformError:\020PlatformE"
+    "rror_NO\022\020\n\010describe\030\002 \002(\t\"Q\n\027MsgP2SClinc"
+    "hADealNotify\022\023\n\013product_key\030\001 \002(\t\022\020\n\010ord"
+    "er_id\030\002 \002(\t\022\017\n\007success\030\003 \002(\010\">\n\025MsgS2PCl"
+    "oseDealMptify\022\023\n\013product_key\030\001 \002(\t\022\020\n\010or"
+    "der_id\030\002 \002(\t*b\n\rPlatformError\022\024\n\020Platfor"
+    "mError_NO\020\000\022\030\n\024PlatformError_Unknow\020\001\022!\n"
+    "\035PlatformError_AlreadyRegister\020\002", 472);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_platform.proto", &protobuf_RegisterTypes);
   MsgS2PRegisterServer::default_instance_ = new MsgS2PRegisterServer();
+  MsgP2SRegisterACK::default_instance_ = new MsgP2SRegisterACK();
   MsgP2SClinchADealNotify::default_instance_ = new MsgP2SClinchADealNotify();
   MsgS2PCloseDealMptify::default_instance_ = new MsgS2PCloseDealMptify();
   MsgS2PRegisterServer::default_instance_->InitAsDefaultInstance();
+  MsgP2SRegisterACK::default_instance_->InitAsDefaultInstance();
   MsgP2SClinchADealNotify::default_instance_->InitAsDefaultInstance();
   MsgS2PCloseDealMptify::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto);
@@ -151,6 +184,21 @@ struct StaticDescriptorInitializer_msg_5fgame_5fplatform_2eproto {
     protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   }
 } static_descriptor_initializer_msg_5fgame_5fplatform_2eproto_;
+const ::google::protobuf::EnumDescriptor* PlatformError_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PlatformError_descriptor_;
+}
+bool PlatformError_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 namespace {
 
@@ -585,8 +633,406 @@ void MsgS2PRegisterServer::InternalSwap(MsgS2PRegisterServer* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int MsgP2SRegisterACK::kErrorFieldNumber;
+const int MsgP2SRegisterACK::kDescribeFieldNumber;
+#endif  // !_MSC_VER
+
+MsgP2SRegisterACK::MsgP2SRegisterACK()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgP2SRegisterACK)
+}
+
+void MsgP2SRegisterACK::InitAsDefaultInstance() {
+}
+
+MsgP2SRegisterACK::MsgP2SRegisterACK(const MsgP2SRegisterACK& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgP2SRegisterACK)
+}
+
+void MsgP2SRegisterACK::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  error_ = 0;
+  describe_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgP2SRegisterACK::~MsgP2SRegisterACK() {
+  // @@protoc_insertion_point(destructor:message.MsgP2SRegisterACK)
+  SharedDtor();
+}
+
+void MsgP2SRegisterACK::SharedDtor() {
+  describe_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void MsgP2SRegisterACK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgP2SRegisterACK::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgP2SRegisterACK_descriptor_;
+}
+
+const MsgP2SRegisterACK& MsgP2SRegisterACK::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
+  return *default_instance_;
+}
+
+MsgP2SRegisterACK* MsgP2SRegisterACK::default_instance_ = NULL;
+
+MsgP2SRegisterACK* MsgP2SRegisterACK::New(::google::protobuf::Arena* arena) const {
+  MsgP2SRegisterACK* n = new MsgP2SRegisterACK;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgP2SRegisterACK::Clear() {
+  if (_has_bits_[0 / 32] & 3) {
+    error_ = 0;
+    if (has_describe()) {
+      describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgP2SRegisterACK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgP2SRegisterACK)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .message.PlatformError error = 1 [default = PlatformError_NO];
+      case 1: {
+        if (tag == 8) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::message::PlatformError_IsValid(value)) {
+            set_error(static_cast< ::message::PlatformError >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_describe;
+        break;
+      }
+
+      // required string describe = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_describe:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_describe()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->describe().data(), this->describe().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgP2SRegisterACK.describe");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgP2SRegisterACK)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgP2SRegisterACK)
+  return false;
+#undef DO_
+}
+
+void MsgP2SRegisterACK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgP2SRegisterACK)
+  // required .message.PlatformError error = 1 [default = PlatformError_NO];
+  if (has_error()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->error(), output);
+  }
+
+  // required string describe = 2;
+  if (has_describe()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->describe().data(), this->describe().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgP2SRegisterACK.describe");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->describe(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgP2SRegisterACK)
+}
+
+::google::protobuf::uint8* MsgP2SRegisterACK::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgP2SRegisterACK)
+  // required .message.PlatformError error = 1 [default = PlatformError_NO];
+  if (has_error()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->error(), target);
+  }
+
+  // required string describe = 2;
+  if (has_describe()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->describe().data(), this->describe().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgP2SRegisterACK.describe");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->describe(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgP2SRegisterACK)
+  return target;
+}
+
+int MsgP2SRegisterACK::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_error()) {
+    // required .message.PlatformError error = 1 [default = PlatformError_NO];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
+  }
+
+  if (has_describe()) {
+    // required string describe = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->describe());
+  }
+
+  return total_size;
+}
+int MsgP2SRegisterACK::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required .message.PlatformError error = 1 [default = PlatformError_NO];
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
+
+    // required string describe = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->describe());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgP2SRegisterACK::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgP2SRegisterACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgP2SRegisterACK*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgP2SRegisterACK::MergeFrom(const MsgP2SRegisterACK& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_error()) {
+      set_error(from.error());
+    }
+    if (from.has_describe()) {
+      set_has_describe();
+      describe_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.describe_);
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgP2SRegisterACK::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgP2SRegisterACK::CopyFrom(const MsgP2SRegisterACK& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgP2SRegisterACK::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  return true;
+}
+
+void MsgP2SRegisterACK::Swap(MsgP2SRegisterACK* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgP2SRegisterACK::InternalSwap(MsgP2SRegisterACK* other) {
+  std::swap(error_, other->error_);
+  describe_.Swap(&other->describe_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgP2SRegisterACK::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgP2SRegisterACK_descriptor_;
+  metadata.reflection = MsgP2SRegisterACK_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgP2SRegisterACK
+
+// required .message.PlatformError error = 1 [default = PlatformError_NO];
+ bool MsgP2SRegisterACK::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgP2SRegisterACK::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgP2SRegisterACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgP2SRegisterACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+ ::message::PlatformError MsgP2SRegisterACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SRegisterACK.error)
+  return static_cast< ::message::PlatformError >(error_);
+}
+ void MsgP2SRegisterACK::set_error(::message::PlatformError value) {
+  assert(::message::PlatformError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgP2SRegisterACK.error)
+}
+
+// required string describe = 2;
+ bool MsgP2SRegisterACK::has_describe() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgP2SRegisterACK::set_has_describe() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgP2SRegisterACK::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgP2SRegisterACK::clear_describe() {
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_describe();
+}
+ const ::std::string& MsgP2SRegisterACK::describe() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SRegisterACK.describe)
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgP2SRegisterACK::set_describe(const ::std::string& value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgP2SRegisterACK.describe)
+}
+ void MsgP2SRegisterACK::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgP2SRegisterACK.describe)
+}
+ void MsgP2SRegisterACK::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgP2SRegisterACK.describe)
+}
+ ::std::string* MsgP2SRegisterACK::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgP2SRegisterACK.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgP2SRegisterACK::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgP2SRegisterACK::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
+  } else {
+    clear_has_describe();
+  }
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgP2SRegisterACK.describe)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int MsgP2SClinchADealNotify::kProductKeyFieldNumber;
 const int MsgP2SClinchADealNotify::kOrderIdFieldNumber;
+const int MsgP2SClinchADealNotify::kSuccessFieldNumber;
 #endif  // !_MSC_VER
 
 MsgP2SClinchADealNotify::MsgP2SClinchADealNotify()
@@ -611,6 +1057,7 @@ void MsgP2SClinchADealNotify::SharedCtor() {
   _cached_size_ = 0;
   product_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   order_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  success_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -652,13 +1099,14 @@ MsgP2SClinchADealNotify* MsgP2SClinchADealNotify::New(::google::protobuf::Arena*
 }
 
 void MsgP2SClinchADealNotify::Clear() {
-  if (_has_bits_[0 / 32] & 3) {
+  if (_has_bits_[0 / 32] & 7) {
     if (has_product_key()) {
       product_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_order_id()) {
       order_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
+    success_ = false;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -702,6 +1150,21 @@ bool MsgP2SClinchADealNotify::MergePartialFromCodedStream(
             this->order_id().data(), this->order_id().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "message.MsgP2SClinchADealNotify.order_id");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_success;
+        break;
+      }
+
+      // required bool success = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_success:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &success_)));
+          set_has_success();
         } else {
           goto handle_unusual;
         }
@@ -754,6 +1217,11 @@ void MsgP2SClinchADealNotify::SerializeWithCachedSizes(
       2, this->order_id(), output);
   }
 
+  // required bool success = 3;
+  if (has_success()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->success(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -786,6 +1254,11 @@ void MsgP2SClinchADealNotify::SerializeWithCachedSizes(
         2, this->order_id(), target);
   }
 
+  // required bool success = 3;
+  if (has_success()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->success(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -811,12 +1284,17 @@ int MsgP2SClinchADealNotify::RequiredFieldsByteSizeFallback() const {
         this->order_id());
   }
 
+  if (has_success()) {
+    // required bool success = 3;
+    total_size += 1 + 1;
+  }
+
   return total_size;
 }
 int MsgP2SClinchADealNotify::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
     // required string product_key = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -826,6 +1304,9 @@ int MsgP2SClinchADealNotify::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->order_id());
+
+    // required bool success = 3;
+    total_size += 1 + 1;
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -864,6 +1345,9 @@ void MsgP2SClinchADealNotify::MergeFrom(const MsgP2SClinchADealNotify& from) {
       set_has_order_id();
       order_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.order_id_);
     }
+    if (from.has_success()) {
+      set_success(from.success());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -883,7 +1367,7 @@ void MsgP2SClinchADealNotify::CopyFrom(const MsgP2SClinchADealNotify& from) {
 }
 
 bool MsgP2SClinchADealNotify::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
@@ -895,6 +1379,7 @@ void MsgP2SClinchADealNotify::Swap(MsgP2SClinchADealNotify* other) {
 void MsgP2SClinchADealNotify::InternalSwap(MsgP2SClinchADealNotify* other) {
   product_key_.Swap(&other->product_key_);
   order_id_.Swap(&other->order_id_);
+  std::swap(success_, other->success_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1015,6 +1500,30 @@ void MsgP2SClinchADealNotify::InternalSwap(MsgP2SClinchADealNotify* other) {
   }
   order_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_id);
   // @@protoc_insertion_point(field_set_allocated:message.MsgP2SClinchADealNotify.order_id)
+}
+
+// required bool success = 3;
+ bool MsgP2SClinchADealNotify::has_success() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgP2SClinchADealNotify::set_has_success() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgP2SClinchADealNotify::clear_has_success() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgP2SClinchADealNotify::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+ bool MsgP2SClinchADealNotify::success() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.success)
+  return success_;
+}
+ void MsgP2SClinchADealNotify::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.success)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

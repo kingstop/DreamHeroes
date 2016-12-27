@@ -86,7 +86,9 @@ void DBQuestManager::saveHeroMap(message::MsgSaveHeroDataGS2DB* msg)
 void DBQuestManager::queryHeroInfo(account_type a, tran_id_type t, u16 gs)
 {
 	char sz_sql[256];
-	sprintf(sz_sql, "select * ,UNIX_TIMESTAMP(`last_lottery_time`),UNIX_TIMESTAMP(`last_recover_spirit_time`), UNIX_TIMESTAMP(`last_buy_spirit_time`), UNIX_TIMESTAMP(`last_task_advertisement_time`) from `character` where `account_id`=%llu;",a);
+	sprintf(sz_sql, "select * ,UNIX_TIMESTAMP(`last_lottery_time`),UNIX_TIMESTAMP(`last_recover_spirit_time`),\
+	 UNIX_TIMESTAMP(`last_buy_spirit_time`), UNIX_TIMESTAMP(`last_task_advertisement_time`), UNIX_TIMESTAMP(`daily_game_time`),\
+	UNIX_TIMESTAMP(`daily_game_prize_time`) from `character` where `account_id`=%llu;",a);
 	gDBCharDatabase.addSQueryTask(this, &DBQuestManager::dbDoQueryHeroInfo, sz_sql, 0, new tgHeroData(a, t, gs), _QUERY_HERO_INFO_);
 }
 
@@ -226,6 +228,10 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			data->set_jewel(row["jewel"]);
 			data->set_spirit(row["spirit"]);
 			data->set_day_buy_spirit(row["day_buy_spirit"]);
+			data->set_daily_game_gold(row["daily_game_gold"]);
+			data->set_daily_game_progress(row["daily_game_progress"]);
+			data->set_daily_game_score(row["daily_game_score"]);
+
 			pkParm->info.set_current_section(row["current_section"]);
 			pkParm->info.set_current_chapter(row["current_chapter"]);
 			pkParm->info.set_free_task_count(row["free_task_count"]);
@@ -234,6 +240,8 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			pkParm->info.set_last_recover_spirit_time(row["UNIX_TIMESTAMP(`last_recover_spirit_time`)"]);
 			pkParm->info.set_gm_level(row["gm_level"]);	
 			pkParm->info.set_last_lottery_time(row["UNIX_TIMESTAMP(`last_lottery_time`)"]);//last_lottery_time
+			pkParm->info.set_daily_game_time(row["UNIX_TIMESTAMP(`daily_game_time`)"]);
+			pkParm->info.set_daily_game_prize_time(row["UNIX_TIMESTAMP(`daily_game_prize_time`)"]);
 			std::string records_str;
 			records_str = row["record_his"].c_str();
 			std::vector<std::string> outVC;

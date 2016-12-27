@@ -38,6 +38,13 @@ void protobuf_AddDesc_dream_5fheroes_2eproto();
 void protobuf_AssignDesc_dream_5fheroes_2eproto();
 void protobuf_ShutdownFile_dream_5fheroes_2eproto();
 
+class MsgC2SReqEnterDailyGame;
+class MsgS2CEnterDailyGameACK;
+class MsgC2SReqUpdateDailyGameProgress;
+class MsgS2CUpdateDailyGameProgressACK;
+class MsgS2CNotifyDailyGamePrize;
+class MsgC2SReqReceiveDailyGamePrize;
+class MsgS2CReceiveDailyGamePrizeACK;
 class MsgS2CNotifyError;
 class MsgC2SReqShopConfig;
 class MsgS2CShopConfigACK;
@@ -154,7 +161,11 @@ enum GameError {
   Error_FailedToLotteryErrorRating = 43,
   Error_FailedToLotteryErrorLotionConfig = 44,
   Error_FailedToApplyDealOrderNotFooundConfig = 45,
-  Error_Unknow = 46
+  Error_FailedToEnterDailyGameYouHaveBeenAlreadyBeginGame = 46,
+  Error_FailedToUpdateDailyProgressErrorProgress = 47,
+  Error_FailedToUpdateDailyProgressTheGameNotBegin = 48,
+  Error_FailedToReceivedDailyGamePrizeNOPrize = 49,
+  Error_Unknow = 50
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
@@ -211,6 +222,714 @@ inline bool enLotteryBox_Parse(
     enLotteryBox_descriptor(), name, value);
 }
 // ===================================================================
+
+class MsgC2SReqEnterDailyGame : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqEnterDailyGame();
+  virtual ~MsgC2SReqEnterDailyGame();
+
+  MsgC2SReqEnterDailyGame(const MsgC2SReqEnterDailyGame& from);
+
+  inline MsgC2SReqEnterDailyGame& operator=(const MsgC2SReqEnterDailyGame& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqEnterDailyGame& default_instance();
+
+  void Swap(MsgC2SReqEnterDailyGame* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqEnterDailyGame* New() const { return New(NULL); }
+
+  MsgC2SReqEnterDailyGame* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqEnterDailyGame& from);
+  void MergeFrom(const MsgC2SReqEnterDailyGame& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqEnterDailyGame* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqEnterDailyGame)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqEnterDailyGame* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CEnterDailyGameACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CEnterDailyGameACK();
+  virtual ~MsgS2CEnterDailyGameACK();
+
+  MsgS2CEnterDailyGameACK(const MsgS2CEnterDailyGameACK& from);
+
+  inline MsgS2CEnterDailyGameACK& operator=(const MsgS2CEnterDailyGameACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CEnterDailyGameACK& default_instance();
+
+  void Swap(MsgS2CEnterDailyGameACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CEnterDailyGameACK* New() const { return New(NULL); }
+
+  MsgS2CEnterDailyGameACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CEnterDailyGameACK& from);
+  void MergeFrom(const MsgS2CEnterDailyGameACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CEnterDailyGameACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .message.GameError error = 1 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // required uint64 daily_game_time = 2;
+  bool has_daily_game_time() const;
+  void clear_daily_game_time();
+  static const int kDailyGameTimeFieldNumber = 2;
+  ::google::protobuf::uint64 daily_game_time() const;
+  void set_daily_game_time(::google::protobuf::uint64 value);
+
+  // required int32 daily_game_progress = 3;
+  bool has_daily_game_progress() const;
+  void clear_daily_game_progress();
+  static const int kDailyGameProgressFieldNumber = 3;
+  ::google::protobuf::int32 daily_game_progress() const;
+  void set_daily_game_progress(::google::protobuf::int32 value);
+
+  // required int32 score = 4;
+  bool has_score() const;
+  void clear_score();
+  static const int kScoreFieldNumber = 4;
+  ::google::protobuf::int32 score() const;
+  void set_score(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CEnterDailyGameACK)
+ private:
+  inline void set_has_error();
+  inline void clear_has_error();
+  inline void set_has_daily_game_time();
+  inline void clear_has_daily_game_time();
+  inline void set_has_daily_game_progress();
+  inline void clear_has_daily_game_progress();
+  inline void set_has_score();
+  inline void clear_has_score();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 daily_game_time_;
+  int error_;
+  ::google::protobuf::int32 daily_game_progress_;
+  ::google::protobuf::int32 score_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CEnterDailyGameACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqUpdateDailyGameProgress : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqUpdateDailyGameProgress();
+  virtual ~MsgC2SReqUpdateDailyGameProgress();
+
+  MsgC2SReqUpdateDailyGameProgress(const MsgC2SReqUpdateDailyGameProgress& from);
+
+  inline MsgC2SReqUpdateDailyGameProgress& operator=(const MsgC2SReqUpdateDailyGameProgress& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqUpdateDailyGameProgress& default_instance();
+
+  void Swap(MsgC2SReqUpdateDailyGameProgress* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqUpdateDailyGameProgress* New() const { return New(NULL); }
+
+  MsgC2SReqUpdateDailyGameProgress* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqUpdateDailyGameProgress& from);
+  void MergeFrom(const MsgC2SReqUpdateDailyGameProgress& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqUpdateDailyGameProgress* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 daily_game_progress = 1;
+  bool has_daily_game_progress() const;
+  void clear_daily_game_progress();
+  static const int kDailyGameProgressFieldNumber = 1;
+  ::google::protobuf::int32 daily_game_progress() const;
+  void set_daily_game_progress(::google::protobuf::int32 value);
+
+  // required int32 score = 2;
+  bool has_score() const;
+  void clear_score();
+  static const int kScoreFieldNumber = 2;
+  ::google::protobuf::int32 score() const;
+  void set_score(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqUpdateDailyGameProgress)
+ private:
+  inline void set_has_daily_game_progress();
+  inline void clear_has_daily_game_progress();
+  inline void set_has_score();
+  inline void clear_has_score();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 daily_game_progress_;
+  ::google::protobuf::int32 score_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqUpdateDailyGameProgress* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CUpdateDailyGameProgressACK();
+  virtual ~MsgS2CUpdateDailyGameProgressACK();
+
+  MsgS2CUpdateDailyGameProgressACK(const MsgS2CUpdateDailyGameProgressACK& from);
+
+  inline MsgS2CUpdateDailyGameProgressACK& operator=(const MsgS2CUpdateDailyGameProgressACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CUpdateDailyGameProgressACK& default_instance();
+
+  void Swap(MsgS2CUpdateDailyGameProgressACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CUpdateDailyGameProgressACK* New() const { return New(NULL); }
+
+  MsgS2CUpdateDailyGameProgressACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CUpdateDailyGameProgressACK& from);
+  void MergeFrom(const MsgS2CUpdateDailyGameProgressACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CUpdateDailyGameProgressACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 daily_game_progress = 1;
+  bool has_daily_game_progress() const;
+  void clear_daily_game_progress();
+  static const int kDailyGameProgressFieldNumber = 1;
+  ::google::protobuf::int32 daily_game_progress() const;
+  void set_daily_game_progress(::google::protobuf::int32 value);
+
+  // required int32 score = 2;
+  bool has_score() const;
+  void clear_score();
+  static const int kScoreFieldNumber = 2;
+  ::google::protobuf::int32 score() const;
+  void set_score(::google::protobuf::int32 value);
+
+  // required int32 rank = 3;
+  bool has_rank() const;
+  void clear_rank();
+  static const int kRankFieldNumber = 3;
+  ::google::protobuf::int32 rank() const;
+  void set_rank(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 4 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 4;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CUpdateDailyGameProgressACK)
+ private:
+  inline void set_has_daily_game_progress();
+  inline void clear_has_daily_game_progress();
+  inline void set_has_score();
+  inline void clear_has_score();
+  inline void set_has_rank();
+  inline void clear_has_rank();
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 daily_game_progress_;
+  ::google::protobuf::int32 score_;
+  ::google::protobuf::int32 rank_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CUpdateDailyGameProgressACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CNotifyDailyGamePrize : public ::google::protobuf::Message {
+ public:
+  MsgS2CNotifyDailyGamePrize();
+  virtual ~MsgS2CNotifyDailyGamePrize();
+
+  MsgS2CNotifyDailyGamePrize(const MsgS2CNotifyDailyGamePrize& from);
+
+  inline MsgS2CNotifyDailyGamePrize& operator=(const MsgS2CNotifyDailyGamePrize& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CNotifyDailyGamePrize& default_instance();
+
+  void Swap(MsgS2CNotifyDailyGamePrize* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CNotifyDailyGamePrize* New() const { return New(NULL); }
+
+  MsgS2CNotifyDailyGamePrize* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CNotifyDailyGamePrize& from);
+  void MergeFrom(const MsgS2CNotifyDailyGamePrize& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CNotifyDailyGamePrize* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 time = 1;
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 1;
+  ::google::protobuf::uint64 time() const;
+  void set_time(::google::protobuf::uint64 value);
+
+  // required int32 gold = 2;
+  bool has_gold() const;
+  void clear_gold();
+  static const int kGoldFieldNumber = 2;
+  ::google::protobuf::int32 gold() const;
+  void set_gold(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CNotifyDailyGamePrize)
+ private:
+  inline void set_has_time();
+  inline void clear_has_time();
+  inline void set_has_gold();
+  inline void clear_has_gold();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int32 gold_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CNotifyDailyGamePrize* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqReceiveDailyGamePrize : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqReceiveDailyGamePrize();
+  virtual ~MsgC2SReqReceiveDailyGamePrize();
+
+  MsgC2SReqReceiveDailyGamePrize(const MsgC2SReqReceiveDailyGamePrize& from);
+
+  inline MsgC2SReqReceiveDailyGamePrize& operator=(const MsgC2SReqReceiveDailyGamePrize& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqReceiveDailyGamePrize& default_instance();
+
+  void Swap(MsgC2SReqReceiveDailyGamePrize* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqReceiveDailyGamePrize* New() const { return New(NULL); }
+
+  MsgC2SReqReceiveDailyGamePrize* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqReceiveDailyGamePrize& from);
+  void MergeFrom(const MsgC2SReqReceiveDailyGamePrize& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqReceiveDailyGamePrize* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqReceiveDailyGamePrize)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqReceiveDailyGamePrize* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CReceiveDailyGamePrizeACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CReceiveDailyGamePrizeACK();
+  virtual ~MsgS2CReceiveDailyGamePrizeACK();
+
+  MsgS2CReceiveDailyGamePrizeACK(const MsgS2CReceiveDailyGamePrizeACK& from);
+
+  inline MsgS2CReceiveDailyGamePrizeACK& operator=(const MsgS2CReceiveDailyGamePrizeACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CReceiveDailyGamePrizeACK& default_instance();
+
+  void Swap(MsgS2CReceiveDailyGamePrizeACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CReceiveDailyGamePrizeACK* New() const { return New(NULL); }
+
+  MsgS2CReceiveDailyGamePrizeACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CReceiveDailyGamePrizeACK& from);
+  void MergeFrom(const MsgS2CReceiveDailyGamePrizeACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CReceiveDailyGamePrizeACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 current_gold = 1;
+  bool has_current_gold() const;
+  void clear_current_gold();
+  static const int kCurrentGoldFieldNumber = 1;
+  ::google::protobuf::int32 current_gold() const;
+  void set_current_gold(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 2 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 2;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CReceiveDailyGamePrizeACK)
+ private:
+  inline void set_has_current_gold();
+  inline void clear_has_current_gold();
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 current_gold_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CReceiveDailyGamePrizeACK* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class MsgS2CNotifyError : public ::google::protobuf::Message {
  public:
@@ -1201,19 +1920,19 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int32 config_day_buy_spirit() const;
   void set_config_day_buy_spirit(::google::protobuf::int32 value);
 
-  // required int32 last_recover_spirit_time = 17;
+  // required uint64 last_recover_spirit_time = 17;
   bool has_last_recover_spirit_time() const;
   void clear_last_recover_spirit_time();
   static const int kLastRecoverSpiritTimeFieldNumber = 17;
-  ::google::protobuf::int32 last_recover_spirit_time() const;
-  void set_last_recover_spirit_time(::google::protobuf::int32 value);
+  ::google::protobuf::uint64 last_recover_spirit_time() const;
+  void set_last_recover_spirit_time(::google::protobuf::uint64 value);
 
-  // required int32 last_buy_spirit_time = 18;
+  // required uint64 last_buy_spirit_time = 18;
   bool has_last_buy_spirit_time() const;
   void clear_last_buy_spirit_time();
   static const int kLastBuySpiritTimeFieldNumber = 18;
-  ::google::protobuf::int32 last_buy_spirit_time() const;
-  void set_last_buy_spirit_time(::google::protobuf::int32 value);
+  ::google::protobuf::uint64 last_buy_spirit_time() const;
+  void set_last_buy_spirit_time(::google::protobuf::uint64 value);
 
   // required int32 day_refresh_time = 19;
   bool has_day_refresh_time() const;
@@ -1234,19 +1953,26 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo >*
       mutable_lotion_shop_configs();
 
-  // required uint32 last_lottery_time = 21;
+  // required uint64 last_lottery_time = 21;
   bool has_last_lottery_time() const;
   void clear_last_lottery_time();
   static const int kLastLotteryTimeFieldNumber = 21;
-  ::google::protobuf::uint32 last_lottery_time() const;
-  void set_last_lottery_time(::google::protobuf::uint32 value);
+  ::google::protobuf::uint64 last_lottery_time() const;
+  void set_last_lottery_time(::google::protobuf::uint64 value);
 
-  // required uint32 server_time = 22;
+  // required uint64 server_time = 22;
   bool has_server_time() const;
   void clear_server_time();
   static const int kServerTimeFieldNumber = 22;
-  ::google::protobuf::uint32 server_time() const;
-  void set_server_time(::google::protobuf::uint32 value);
+  ::google::protobuf::uint64 server_time() const;
+  void set_server_time(::google::protobuf::uint64 value);
+
+  // required uint64 daily_game_time = 23;
+  bool has_daily_game_time() const;
+  void clear_daily_game_time();
+  static const int kDailyGameTimeFieldNumber = 23;
+  ::google::protobuf::uint64 daily_game_time() const;
+  void set_daily_game_time(::google::protobuf::uint64 value);
 
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
@@ -1286,6 +2012,8 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   inline void clear_has_last_lottery_time();
   inline void set_has_server_time();
   inline void clear_has_server_time();
+  inline void set_has_daily_game_time();
+  inline void clear_has_daily_game_time();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1308,13 +2036,14 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int32 config_recover_spirit_;
   ::google::protobuf::int32 config_enter_game_use_spirit_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgSpiritShopInfo > sprit_shop_infos_;
+  ::google::protobuf::uint64 last_recover_spirit_time_;
   ::google::protobuf::int32 config_day_buy_spirit_;
-  ::google::protobuf::int32 last_recover_spirit_time_;
-  ::google::protobuf::int32 last_buy_spirit_time_;
   ::google::protobuf::int32 day_refresh_time_;
+  ::google::protobuf::uint64 last_buy_spirit_time_;
   ::google::protobuf::RepeatedPtrField< ::message::MsgLotionShopConfigInfo > lotion_shop_configs_;
-  ::google::protobuf::uint32 last_lottery_time_;
-  ::google::protobuf::uint32 server_time_;
+  ::google::protobuf::uint64 last_lottery_time_;
+  ::google::protobuf::uint64 server_time_;
+  ::google::protobuf::uint64 daily_game_time_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -4581,17 +5310,17 @@ class MsgS2CApplyDealACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 id() const;
   void set_id(::google::protobuf::int32 value);
 
-  // required string product_key = 2;
-  bool has_product_key() const;
-  void clear_product_key();
-  static const int kProductKeyFieldNumber = 2;
-  const ::std::string& product_key() const;
-  void set_product_key(const ::std::string& value);
-  void set_product_key(const char* value);
-  void set_product_key(const char* value, size_t size);
-  ::std::string* mutable_product_key();
-  ::std::string* release_product_key();
-  void set_allocated_product_key(::std::string* product_key);
+  // required string product_id = 2;
+  bool has_product_id() const;
+  void clear_product_id();
+  static const int kProductIdFieldNumber = 2;
+  const ::std::string& product_id() const;
+  void set_product_id(const ::std::string& value);
+  void set_product_id(const char* value);
+  void set_product_id(const char* value, size_t size);
+  ::std::string* mutable_product_id();
+  ::std::string* release_product_id();
+  void set_allocated_product_id(::std::string* product_id);
 
   // required string order_id = 3;
   bool has_order_id() const;
@@ -4612,16 +5341,30 @@ class MsgS2CApplyDealACK : public ::google::protobuf::Message {
   ::message::GameError error() const;
   void set_error(::message::GameError value);
 
+  // required string external = 5;
+  bool has_external() const;
+  void clear_external();
+  static const int kExternalFieldNumber = 5;
+  const ::std::string& external() const;
+  void set_external(const ::std::string& value);
+  void set_external(const char* value);
+  void set_external(const char* value, size_t size);
+  ::std::string* mutable_external();
+  ::std::string* release_external();
+  void set_allocated_external(::std::string* external);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CApplyDealACK)
  private:
   inline void set_has_id();
   inline void clear_has_id();
-  inline void set_has_product_key();
-  inline void clear_has_product_key();
+  inline void set_has_product_id();
+  inline void clear_has_product_id();
   inline void set_has_order_id();
   inline void clear_has_order_id();
   inline void set_has_error();
   inline void clear_has_error();
+  inline void set_has_external();
+  inline void clear_has_external();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -4629,10 +5372,11 @@ class MsgS2CApplyDealACK : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr product_key_;
+  ::google::protobuf::internal::ArenaStringPtr product_id_;
   ::google::protobuf::int32 id_;
   int error_;
   ::google::protobuf::internal::ArenaStringPtr order_id_;
+  ::google::protobuf::internal::ArenaStringPtr external_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -4744,6 +5488,13 @@ class MsgS2CNotifyDealComplete : public ::google::protobuf::Message {
   ::google::protobuf::int32 current_gold() const;
   void set_current_gold(::google::protobuf::int32 value);
 
+  // required bool success = 5;
+  bool has_success() const;
+  void clear_success();
+  static const int kSuccessFieldNumber = 5;
+  bool success() const;
+  void set_success(bool value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CNotifyDealComplete)
  private:
   inline void set_has_order_id();
@@ -4754,6 +5505,8 @@ class MsgS2CNotifyDealComplete : public ::google::protobuf::Message {
   inline void clear_has_current_jewel();
   inline void set_has_current_gold();
   inline void clear_has_current_gold();
+  inline void set_has_success();
+  inline void clear_has_success();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -4765,6 +5518,7 @@ class MsgS2CNotifyDealComplete : public ::google::protobuf::Message {
   ::google::protobuf::internal::ArenaStringPtr product_id_;
   ::google::protobuf::int32 current_jewel_;
   ::google::protobuf::int32 current_gold_;
+  bool success_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -7556,6 +8310,373 @@ class MsgS2CCmdModifySpiritACK : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgC2SReqEnterDailyGame
+
+// -------------------------------------------------------------------
+
+// MsgS2CEnterDailyGameACK
+
+// required .message.GameError error = 1 [default = Error_NO];
+inline bool MsgS2CEnterDailyGameACK::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CEnterDailyGameACK::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CEnterDailyGameACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CEnterDailyGameACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CEnterDailyGameACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CEnterDailyGameACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CEnterDailyGameACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CEnterDailyGameACK.error)
+}
+
+// required uint64 daily_game_time = 2;
+inline bool MsgS2CEnterDailyGameACK::has_daily_game_time() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CEnterDailyGameACK::set_has_daily_game_time() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CEnterDailyGameACK::clear_has_daily_game_time() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CEnterDailyGameACK::clear_daily_game_time() {
+  daily_game_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_daily_game_time();
+}
+inline ::google::protobuf::uint64 MsgS2CEnterDailyGameACK::daily_game_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CEnterDailyGameACK.daily_game_time)
+  return daily_game_time_;
+}
+inline void MsgS2CEnterDailyGameACK::set_daily_game_time(::google::protobuf::uint64 value) {
+  set_has_daily_game_time();
+  daily_game_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CEnterDailyGameACK.daily_game_time)
+}
+
+// required int32 daily_game_progress = 3;
+inline bool MsgS2CEnterDailyGameACK::has_daily_game_progress() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CEnterDailyGameACK::set_has_daily_game_progress() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CEnterDailyGameACK::clear_has_daily_game_progress() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CEnterDailyGameACK::clear_daily_game_progress() {
+  daily_game_progress_ = 0;
+  clear_has_daily_game_progress();
+}
+inline ::google::protobuf::int32 MsgS2CEnterDailyGameACK::daily_game_progress() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CEnterDailyGameACK.daily_game_progress)
+  return daily_game_progress_;
+}
+inline void MsgS2CEnterDailyGameACK::set_daily_game_progress(::google::protobuf::int32 value) {
+  set_has_daily_game_progress();
+  daily_game_progress_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CEnterDailyGameACK.daily_game_progress)
+}
+
+// required int32 score = 4;
+inline bool MsgS2CEnterDailyGameACK::has_score() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgS2CEnterDailyGameACK::set_has_score() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgS2CEnterDailyGameACK::clear_has_score() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgS2CEnterDailyGameACK::clear_score() {
+  score_ = 0;
+  clear_has_score();
+}
+inline ::google::protobuf::int32 MsgS2CEnterDailyGameACK::score() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CEnterDailyGameACK.score)
+  return score_;
+}
+inline void MsgS2CEnterDailyGameACK::set_score(::google::protobuf::int32 value) {
+  set_has_score();
+  score_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CEnterDailyGameACK.score)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqUpdateDailyGameProgress
+
+// required int32 daily_game_progress = 1;
+inline bool MsgC2SReqUpdateDailyGameProgress::has_daily_game_progress() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::set_has_daily_game_progress() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::clear_has_daily_game_progress() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::clear_daily_game_progress() {
+  daily_game_progress_ = 0;
+  clear_has_daily_game_progress();
+}
+inline ::google::protobuf::int32 MsgC2SReqUpdateDailyGameProgress::daily_game_progress() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqUpdateDailyGameProgress.daily_game_progress)
+  return daily_game_progress_;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::set_daily_game_progress(::google::protobuf::int32 value) {
+  set_has_daily_game_progress();
+  daily_game_progress_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqUpdateDailyGameProgress.daily_game_progress)
+}
+
+// required int32 score = 2;
+inline bool MsgC2SReqUpdateDailyGameProgress::has_score() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::set_has_score() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::clear_has_score() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::clear_score() {
+  score_ = 0;
+  clear_has_score();
+}
+inline ::google::protobuf::int32 MsgC2SReqUpdateDailyGameProgress::score() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqUpdateDailyGameProgress.score)
+  return score_;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::set_score(::google::protobuf::int32 value) {
+  set_has_score();
+  score_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqUpdateDailyGameProgress.score)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CUpdateDailyGameProgressACK
+
+// required int32 daily_game_progress = 1;
+inline bool MsgS2CUpdateDailyGameProgressACK::has_daily_game_progress() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_has_daily_game_progress() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_has_daily_game_progress() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_daily_game_progress() {
+  daily_game_progress_ = 0;
+  clear_has_daily_game_progress();
+}
+inline ::google::protobuf::int32 MsgS2CUpdateDailyGameProgressACK::daily_game_progress() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CUpdateDailyGameProgressACK.daily_game_progress)
+  return daily_game_progress_;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_daily_game_progress(::google::protobuf::int32 value) {
+  set_has_daily_game_progress();
+  daily_game_progress_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.daily_game_progress)
+}
+
+// required int32 score = 2;
+inline bool MsgS2CUpdateDailyGameProgressACK::has_score() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_has_score() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_has_score() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_score() {
+  score_ = 0;
+  clear_has_score();
+}
+inline ::google::protobuf::int32 MsgS2CUpdateDailyGameProgressACK::score() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CUpdateDailyGameProgressACK.score)
+  return score_;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_score(::google::protobuf::int32 value) {
+  set_has_score();
+  score_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.score)
+}
+
+// required int32 rank = 3;
+inline bool MsgS2CUpdateDailyGameProgressACK::has_rank() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_has_rank() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_has_rank() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_rank() {
+  rank_ = 0;
+  clear_has_rank();
+}
+inline ::google::protobuf::int32 MsgS2CUpdateDailyGameProgressACK::rank() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CUpdateDailyGameProgressACK.rank)
+  return rank_;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_rank(::google::protobuf::int32 value) {
+  set_has_rank();
+  rank_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.rank)
+}
+
+// required .message.GameError error = 4 [default = Error_NO];
+inline bool MsgS2CUpdateDailyGameProgressACK::has_error() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_has_error() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CUpdateDailyGameProgressACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CUpdateDailyGameProgressACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CNotifyDailyGamePrize
+
+// required uint64 time = 1;
+inline bool MsgS2CNotifyDailyGamePrize::has_time() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CNotifyDailyGamePrize::set_has_time() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CNotifyDailyGamePrize::clear_has_time() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CNotifyDailyGamePrize::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::uint64 MsgS2CNotifyDailyGamePrize::time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CNotifyDailyGamePrize.time)
+  return time_;
+}
+inline void MsgS2CNotifyDailyGamePrize::set_time(::google::protobuf::uint64 value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CNotifyDailyGamePrize.time)
+}
+
+// required int32 gold = 2;
+inline bool MsgS2CNotifyDailyGamePrize::has_gold() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CNotifyDailyGamePrize::set_has_gold() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CNotifyDailyGamePrize::clear_has_gold() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CNotifyDailyGamePrize::clear_gold() {
+  gold_ = 0;
+  clear_has_gold();
+}
+inline ::google::protobuf::int32 MsgS2CNotifyDailyGamePrize::gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CNotifyDailyGamePrize.gold)
+  return gold_;
+}
+inline void MsgS2CNotifyDailyGamePrize::set_gold(::google::protobuf::int32 value) {
+  set_has_gold();
+  gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CNotifyDailyGamePrize.gold)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqReceiveDailyGamePrize
+
+// -------------------------------------------------------------------
+
+// MsgS2CReceiveDailyGamePrizeACK
+
+// required int32 current_gold = 1;
+inline bool MsgS2CReceiveDailyGamePrizeACK::has_current_gold() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CReceiveDailyGamePrizeACK::set_has_current_gold() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CReceiveDailyGamePrizeACK::clear_has_current_gold() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CReceiveDailyGamePrizeACK::clear_current_gold() {
+  current_gold_ = 0;
+  clear_has_current_gold();
+}
+inline ::google::protobuf::int32 MsgS2CReceiveDailyGamePrizeACK::current_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CReceiveDailyGamePrizeACK.current_gold)
+  return current_gold_;
+}
+inline void MsgS2CReceiveDailyGamePrizeACK::set_current_gold(::google::protobuf::int32 value) {
+  set_has_current_gold();
+  current_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CReceiveDailyGamePrizeACK.current_gold)
+}
+
+// required .message.GameError error = 2 [default = Error_NO];
+inline bool MsgS2CReceiveDailyGamePrizeACK::has_error() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CReceiveDailyGamePrizeACK::set_has_error() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CReceiveDailyGamePrizeACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CReceiveDailyGamePrizeACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CReceiveDailyGamePrizeACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CReceiveDailyGamePrizeACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CReceiveDailyGamePrizeACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CReceiveDailyGamePrizeACK.error)
+}
+
+// -------------------------------------------------------------------
+
 // MsgS2CNotifyError
 
 // required .message.GameError error = 1 [default = Error_NO];
@@ -8438,7 +9559,7 @@ inline void MsgS2CHeroesInit::set_config_day_buy_spirit(::google::protobuf::int3
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.config_day_buy_spirit)
 }
 
-// required int32 last_recover_spirit_time = 17;
+// required uint64 last_recover_spirit_time = 17;
 inline bool MsgS2CHeroesInit::has_last_recover_spirit_time() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -8449,20 +9570,20 @@ inline void MsgS2CHeroesInit::clear_has_last_recover_spirit_time() {
   _has_bits_[0] &= ~0x00010000u;
 }
 inline void MsgS2CHeroesInit::clear_last_recover_spirit_time() {
-  last_recover_spirit_time_ = 0;
+  last_recover_spirit_time_ = GOOGLE_ULONGLONG(0);
   clear_has_last_recover_spirit_time();
 }
-inline ::google::protobuf::int32 MsgS2CHeroesInit::last_recover_spirit_time() const {
+inline ::google::protobuf::uint64 MsgS2CHeroesInit::last_recover_spirit_time() const {
   // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.last_recover_spirit_time)
   return last_recover_spirit_time_;
 }
-inline void MsgS2CHeroesInit::set_last_recover_spirit_time(::google::protobuf::int32 value) {
+inline void MsgS2CHeroesInit::set_last_recover_spirit_time(::google::protobuf::uint64 value) {
   set_has_last_recover_spirit_time();
   last_recover_spirit_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_recover_spirit_time)
 }
 
-// required int32 last_buy_spirit_time = 18;
+// required uint64 last_buy_spirit_time = 18;
 inline bool MsgS2CHeroesInit::has_last_buy_spirit_time() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -8473,14 +9594,14 @@ inline void MsgS2CHeroesInit::clear_has_last_buy_spirit_time() {
   _has_bits_[0] &= ~0x00020000u;
 }
 inline void MsgS2CHeroesInit::clear_last_buy_spirit_time() {
-  last_buy_spirit_time_ = 0;
+  last_buy_spirit_time_ = GOOGLE_ULONGLONG(0);
   clear_has_last_buy_spirit_time();
 }
-inline ::google::protobuf::int32 MsgS2CHeroesInit::last_buy_spirit_time() const {
+inline ::google::protobuf::uint64 MsgS2CHeroesInit::last_buy_spirit_time() const {
   // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.last_buy_spirit_time)
   return last_buy_spirit_time_;
 }
-inline void MsgS2CHeroesInit::set_last_buy_spirit_time(::google::protobuf::int32 value) {
+inline void MsgS2CHeroesInit::set_last_buy_spirit_time(::google::protobuf::uint64 value) {
   set_has_last_buy_spirit_time();
   last_buy_spirit_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_buy_spirit_time)
@@ -8540,7 +9661,7 @@ MsgS2CHeroesInit::mutable_lotion_shop_configs() {
   return &lotion_shop_configs_;
 }
 
-// required uint32 last_lottery_time = 21;
+// required uint64 last_lottery_time = 21;
 inline bool MsgS2CHeroesInit::has_last_lottery_time() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -8551,20 +9672,20 @@ inline void MsgS2CHeroesInit::clear_has_last_lottery_time() {
   _has_bits_[0] &= ~0x00100000u;
 }
 inline void MsgS2CHeroesInit::clear_last_lottery_time() {
-  last_lottery_time_ = 0u;
+  last_lottery_time_ = GOOGLE_ULONGLONG(0);
   clear_has_last_lottery_time();
 }
-inline ::google::protobuf::uint32 MsgS2CHeroesInit::last_lottery_time() const {
+inline ::google::protobuf::uint64 MsgS2CHeroesInit::last_lottery_time() const {
   // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.last_lottery_time)
   return last_lottery_time_;
 }
-inline void MsgS2CHeroesInit::set_last_lottery_time(::google::protobuf::uint32 value) {
+inline void MsgS2CHeroesInit::set_last_lottery_time(::google::protobuf::uint64 value) {
   set_has_last_lottery_time();
   last_lottery_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_lottery_time)
 }
 
-// required uint32 server_time = 22;
+// required uint64 server_time = 22;
 inline bool MsgS2CHeroesInit::has_server_time() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
@@ -8575,17 +9696,41 @@ inline void MsgS2CHeroesInit::clear_has_server_time() {
   _has_bits_[0] &= ~0x00200000u;
 }
 inline void MsgS2CHeroesInit::clear_server_time() {
-  server_time_ = 0u;
+  server_time_ = GOOGLE_ULONGLONG(0);
   clear_has_server_time();
 }
-inline ::google::protobuf::uint32 MsgS2CHeroesInit::server_time() const {
+inline ::google::protobuf::uint64 MsgS2CHeroesInit::server_time() const {
   // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.server_time)
   return server_time_;
 }
-inline void MsgS2CHeroesInit::set_server_time(::google::protobuf::uint32 value) {
+inline void MsgS2CHeroesInit::set_server_time(::google::protobuf::uint64 value) {
   set_has_server_time();
   server_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.server_time)
+}
+
+// required uint64 daily_game_time = 23;
+inline bool MsgS2CHeroesInit::has_daily_game_time() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_daily_game_time() {
+  _has_bits_[0] |= 0x00400000u;
+}
+inline void MsgS2CHeroesInit::clear_has_daily_game_time() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline void MsgS2CHeroesInit::clear_daily_game_time() {
+  daily_game_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_daily_game_time();
+}
+inline ::google::protobuf::uint64 MsgS2CHeroesInit::daily_game_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.daily_game_time)
+  return daily_game_time_;
+}
+inline void MsgS2CHeroesInit::set_daily_game_time(::google::protobuf::uint64 value) {
+  set_has_daily_game_time();
+  daily_game_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.daily_game_time)
 }
 
 // -------------------------------------------------------------------
@@ -11012,57 +12157,57 @@ inline void MsgS2CApplyDealACK::set_id(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:message.MsgS2CApplyDealACK.id)
 }
 
-// required string product_key = 2;
-inline bool MsgS2CApplyDealACK::has_product_key() const {
+// required string product_id = 2;
+inline bool MsgS2CApplyDealACK::has_product_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgS2CApplyDealACK::set_has_product_key() {
+inline void MsgS2CApplyDealACK::set_has_product_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgS2CApplyDealACK::clear_has_product_key() {
+inline void MsgS2CApplyDealACK::clear_has_product_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MsgS2CApplyDealACK::clear_product_key() {
-  product_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_product_key();
+inline void MsgS2CApplyDealACK::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_id();
 }
-inline const ::std::string& MsgS2CApplyDealACK::product_key() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CApplyDealACK.product_key)
-  return product_key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& MsgS2CApplyDealACK::product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CApplyDealACK.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgS2CApplyDealACK::set_product_key(const ::std::string& value) {
-  set_has_product_key();
-  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgS2CApplyDealACK.product_key)
+inline void MsgS2CApplyDealACK::set_product_id(const ::std::string& value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CApplyDealACK.product_id)
 }
-inline void MsgS2CApplyDealACK::set_product_key(const char* value) {
-  set_has_product_key();
-  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgS2CApplyDealACK.product_key)
+inline void MsgS2CApplyDealACK::set_product_id(const char* value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CApplyDealACK.product_id)
 }
-inline void MsgS2CApplyDealACK::set_product_key(const char* value, size_t size) {
-  set_has_product_key();
-  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void MsgS2CApplyDealACK::set_product_id(const char* value, size_t size) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CApplyDealACK.product_key)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CApplyDealACK.product_id)
 }
-inline ::std::string* MsgS2CApplyDealACK::mutable_product_key() {
-  set_has_product_key();
-  // @@protoc_insertion_point(field_mutable:message.MsgS2CApplyDealACK.product_key)
-  return product_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* MsgS2CApplyDealACK::mutable_product_id() {
+  set_has_product_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CApplyDealACK.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* MsgS2CApplyDealACK::release_product_key() {
-  clear_has_product_key();
-  return product_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* MsgS2CApplyDealACK::release_product_id() {
+  clear_has_product_id();
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgS2CApplyDealACK::set_allocated_product_key(::std::string* product_key) {
-  if (product_key != NULL) {
-    set_has_product_key();
+inline void MsgS2CApplyDealACK::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    set_has_product_id();
   } else {
-    clear_has_product_key();
+    clear_has_product_id();
   }
-  product_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_key);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CApplyDealACK.product_key)
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CApplyDealACK.product_id)
 }
 
 // required string order_id = 3;
@@ -11141,6 +12286,59 @@ inline void MsgS2CApplyDealACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CApplyDealACK.error)
+}
+
+// required string external = 5;
+inline bool MsgS2CApplyDealACK::has_external() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgS2CApplyDealACK::set_has_external() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgS2CApplyDealACK::clear_has_external() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgS2CApplyDealACK::clear_external() {
+  external_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_external();
+}
+inline const ::std::string& MsgS2CApplyDealACK::external() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CApplyDealACK.external)
+  return external_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CApplyDealACK::set_external(const ::std::string& value) {
+  set_has_external();
+  external_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CApplyDealACK.external)
+}
+inline void MsgS2CApplyDealACK::set_external(const char* value) {
+  set_has_external();
+  external_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CApplyDealACK.external)
+}
+inline void MsgS2CApplyDealACK::set_external(const char* value, size_t size) {
+  set_has_external();
+  external_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CApplyDealACK.external)
+}
+inline ::std::string* MsgS2CApplyDealACK::mutable_external() {
+  set_has_external();
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CApplyDealACK.external)
+  return external_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgS2CApplyDealACK::release_external() {
+  clear_has_external();
+  return external_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CApplyDealACK::set_allocated_external(::std::string* external) {
+  if (external != NULL) {
+    set_has_external();
+  } else {
+    clear_has_external();
+  }
+  external_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), external);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CApplyDealACK.external)
 }
 
 // -------------------------------------------------------------------
@@ -11299,6 +12497,30 @@ inline void MsgS2CNotifyDealComplete::set_current_gold(::google::protobuf::int32
   set_has_current_gold();
   current_gold_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CNotifyDealComplete.current_gold)
+}
+
+// required bool success = 5;
+inline bool MsgS2CNotifyDealComplete::has_success() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgS2CNotifyDealComplete::set_has_success() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgS2CNotifyDealComplete::clear_has_success() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgS2CNotifyDealComplete::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+inline bool MsgS2CNotifyDealComplete::success() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CNotifyDealComplete.success)
+  return success_;
+}
+inline void MsgS2CNotifyDealComplete::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CNotifyDealComplete.success)
 }
 
 // -------------------------------------------------------------------

@@ -17,6 +17,7 @@ public:
 	DreamHero* CreateHero(account_type acc, Session* session);
 	DreamHero* GetHeroByName(const char* name);
 	DreamHero* GetHero(account_type account);
+	MAPHEROS* GetHeroes();
 	void DestroyHero(DreamHero* p);
 	bool AddHeroOrder(account_type acc, const char* order);
 	account_type getOrderAcc(const char* order);

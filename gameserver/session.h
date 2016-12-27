@@ -48,6 +48,9 @@ public:
 	void parseReqBuyLotion(google::protobuf::Message* p);
 	void parseReqDayLottery(google::protobuf::Message* p);
 	void parseReqApplyDeal(google::protobuf::Message* p);
+	void parseReqEnterDailyGame(google::protobuf::Message* p);
+	void parseReqUpdateDailyGameProgress(google::protobuf::Message* p);
+	void parseReqReceiveDailyGamePrize(google::protobuf::Message* p);
 public:
 	void parseCmdReqMdodifyGMLevel(google::protobuf::Message* p);
 	void parseCmdReqEnterGame(google::protobuf::Message* p);

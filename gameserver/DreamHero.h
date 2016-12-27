@@ -63,6 +63,11 @@ public:
 	void ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg);
 	void ReqDayLottery(const message::MsgC2SReqDayLottery* msg);
 	void ReqApplyHeroDeal(const message::MsgC2SReqApplyDeal* msg);
+	void ReqReqEnterDailyGame(const message::MsgC2SReqEnterDailyGame* msg);
+	void ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGameProgress* msg);
+	void ReqReceiveDailyGamePrize();
+
+
 	void ReqRemoveAllSpecialCreatureList();
 	void ReqSetSpecialCreatureList(int creature_id, int status);
 	void ReqModifyCurrentHero(int grid_id);
@@ -70,10 +75,13 @@ public:
 	void EnterGame(int chapter_id, int section_id, bool admin = false);
 	void ResetGame();
 	void SendResetGameACK(message::GameError en);
+	void DailyGamePrize(int gold);
+	void TryToGetGamePrize(bool sendmsg);
 public:
 	void addDealWaitToPay(std::string key_code, int status, int price, int order_id, message::GameError error);
 	void addDealPay(std::string key_code, int status, int order_id, message::GameError error, bool send_msg = true);
-	void completeDealByOrder(const char* order_id, bool needmsg = false);
+	void completeDealByOrder(const char* order_id, bool success ,bool needmsg);
+	
 
 public:
 	int	getSpirit();
@@ -89,6 +97,7 @@ protected:
 protected:
 	void fillSpecialCreatureList(::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >* list);
 	void sendPBMessage(google::protobuf::Message* p);
+	bool isInToday(u32 time);
 	//void pingNotify();
 protected:
 	SPECIALKILLS _special_kills;
@@ -110,6 +119,8 @@ protected:
 	u32 _last_buy_spirit_time;
 	u32 _last_day_lottery_time;
 	bool _destroy_clock;
+	u32 _daily_game_time;
+	u32 _daily_game_prize_time;
 	std::map<std::string, message::MsgHeroDealInfo> _hero_deals;
 	
 };

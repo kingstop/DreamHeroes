@@ -279,12 +279,20 @@ void DreamHeroManager::refrashDayNumber()
 }
 
 void DreamHeroManager::dayRefresh()
-{			
+{	
+	gRankManager.DailyGameUpdate();
 	MAPHEROS::iterator it = _heroes.begin();
 	for (; it != _heroes.end() ; ++ it)
 	{
 		it->second->dayRefresh();
 	}
+
+	
+}
+
+DreamHeroManager::MAPHEROS* DreamHeroManager::GetHeroes()
+{
+	return &_heroes;
 }
 
 DreamHero* DreamHeroManager::GetHero(account_type account)

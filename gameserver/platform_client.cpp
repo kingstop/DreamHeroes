@@ -56,7 +56,7 @@ void PlatformClient::parseClinchADealNotify(google::protobuf::Message* p, pb_fla
 		DreamHero* hero = gDreamHeroManager.GetHero(acc);
 		if (hero)
 		{
-			hero->completeDealByOrder(order_id.c_str(), true);
+			hero->completeDealByOrder(order_id.c_str(), true, msg->success());
 			find_user = true;
 		}
 	}

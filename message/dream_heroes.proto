@@ -49,9 +49,62 @@ enum GameError
 	Error_FailedToLotteryErrorRating = 43;
 	Error_FailedToLotteryErrorLotionConfig = 44;
 	Error_FailedToApplyDealOrderNotFooundConfig = 45;
-	Error_Unknow = 46;
+	Error_FailedToEnterDailyGameYouHaveBeenAlreadyBeginGame = 46;
+	Error_FailedToUpdateDailyProgressErrorProgress = 47;
+	Error_FailedToUpdateDailyProgressTheGameNotBegin = 48;
+	Error_FailedToReceivedDailyGamePrizeNOPrize = 49;
+	Error_Unknow = 50;
 }
 
+
+message MsgC2SReqEnterDailyGame
+{
+	
+}
+
+message MsgS2CEnterDailyGameACK
+{
+	required GameError error = 1 [default=Error_NO];	
+	required uint64 daily_game_time = 2;
+	required int32 daily_game_progress = 3;
+	required int32 score = 4;
+
+}
+
+
+
+message MsgC2SReqUpdateDailyGameProgress
+{
+	required int32 daily_game_progress = 1;
+	required int32 score = 2;
+}
+
+message MsgS2CUpdateDailyGameProgressACK
+{
+	required int32 daily_game_progress = 1;
+	required int32 score = 2;
+	required int32 rank = 3;
+	required GameError error = 4 [default=Error_NO];	
+}
+
+
+message MsgS2CNotifyDailyGamePrize
+{
+	required uint64 time = 1;
+	required int32 gold = 2;
+}
+
+message MsgC2SReqReceiveDailyGamePrize
+{
+	
+}
+
+message MsgS2CReceiveDailyGamePrizeACK
+{
+	required int32 current_gold = 1;
+	required GameError error = 2 [default=Error_NO];
+	
+}
 
 
 message MsgS2CNotifyError
@@ -128,12 +181,13 @@ message MsgS2CHeroesInit
 	required int32 config_enter_game_use_spirit = 14;
 	repeated MsgSpiritShopInfo sprit_shop_infos = 15;
 	required int32 config_day_buy_spirit = 16;
-	required int32 last_recover_spirit_time = 17;	
-	required int32 last_buy_spirit_time = 18;
+	required uint64 last_recover_spirit_time = 17;	
+	required uint64 last_buy_spirit_time = 18;
 	required int32 day_refresh_time = 19;
 	repeated MsgLotionShopConfigInfo lotion_shop_configs = 20;
-	required uint32 last_lottery_time = 21;
-	required uint32 server_time = 22;
+	required uint64 last_lottery_time = 21;
+	required uint64 server_time = 22;
+	required uint64 daily_game_time = 23;
 
 }
 
@@ -357,12 +411,15 @@ message MsgC2SReqApplyDeal
 
 
 
+
+
 message MsgS2CApplyDealACK
 {
 	required int32 id = 1;
-	required string product_key = 2;
+	required string product_id = 2;
 	required string order_id = 3;
 	required GameError error = 4 [default=Error_NO];
+	required string external =5;
 }
 
 
@@ -372,6 +429,7 @@ message MsgS2CNotifyDealComplete
 	required string product_id = 2;
 	required int32 current_jewel = 3;
 	required int32 current_gold = 4;
+	required bool success = 5;
 }
 
 

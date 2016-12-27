@@ -33,6 +33,7 @@
 #include "RecordManager.h"
 #include "GSHttpManager.h"
 #include "platform_client.h"
+#include "RankManager.h"
 /*#include "ObjectManager.h"
 #include "FRWorld.h*"
 */
@@ -77,6 +78,7 @@ struct FuGameFather
 	ShopSalesPromotionManager sShopSalesPromotionManager;
 	RecordManager	sRecordManager;
 	HttpManager		sHttpManager;
+	RankManager		sRankManager;
 
 };
 
@@ -96,6 +98,7 @@ extern FuGameFather* gFuGameFather;
 #define gRecordManager      gFuGameFather->sRecordManager
 #define gHttpManager		gFuGameFather->sHttpManager
 #define gPlatformClient     gFuGameFather->sPlatformClient
+#define gRankManager		gFuGameFather->sRankManager
 enum
 {
 	_SAVE_GIRL_ = _NORMAL_THREAD + 1,

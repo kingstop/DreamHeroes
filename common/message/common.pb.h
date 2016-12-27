@@ -98,11 +98,12 @@ inline bool TaskType_Parse(
 enum HeroDealType {
   HeroDealTypApplyOrder = 0,
   HeroDealTypeWaitToPay = 1,
-  HeroDealTypeComplete = 2
+  HeroDealTypeComplete = 2,
+  HeroDealTypeFailed = 3
 };
 bool HeroDealType_IsValid(int value);
 const HeroDealType HeroDealType_MIN = HeroDealTypApplyOrder;
-const HeroDealType HeroDealType_MAX = HeroDealTypeComplete;
+const HeroDealType HeroDealType_MAX = HeroDealTypeFailed;
 const int HeroDealType_ARRAYSIZE = HeroDealType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* HeroDealType_descriptor();
@@ -710,6 +711,27 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_lotions();
 
+  // required int32 daily_game_progress = 13;
+  bool has_daily_game_progress() const;
+  void clear_daily_game_progress();
+  static const int kDailyGameProgressFieldNumber = 13;
+  ::google::protobuf::int32 daily_game_progress() const;
+  void set_daily_game_progress(::google::protobuf::int32 value);
+
+  // required int32 daily_game_gold = 14;
+  bool has_daily_game_gold() const;
+  void clear_daily_game_gold();
+  static const int kDailyGameGoldFieldNumber = 14;
+  ::google::protobuf::int32 daily_game_gold() const;
+  void set_daily_game_gold(::google::protobuf::int32 value);
+
+  // required int32 daily_game_score = 15;
+  bool has_daily_game_score() const;
+  void clear_daily_game_score();
+  static const int kDailyGameScoreFieldNumber = 15;
+  ::google::protobuf::int32 daily_game_score() const;
+  void set_daily_game_score(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -728,6 +750,12 @@ class MsgHeroData : public ::google::protobuf::Message {
   inline void clear_has_spirit();
   inline void set_has_day_buy_spirit();
   inline void clear_has_day_buy_spirit();
+  inline void set_has_daily_game_progress();
+  inline void clear_has_daily_game_progress();
+  inline void set_has_daily_game_gold();
+  inline void clear_has_daily_game_gold();
+  inline void set_has_daily_game_score();
+  inline void clear_has_daily_game_score();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -747,6 +775,9 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 spirit_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > lotions_;
   ::google::protobuf::int32 day_buy_spirit_;
+  ::google::protobuf::int32 daily_game_progress_;
+  ::google::protobuf::int32 daily_game_gold_;
+  ::google::protobuf::int32 daily_game_score_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2335,6 +2366,78 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 MsgHeroData::mutable_lotions() {
   // @@protoc_insertion_point(field_mutable_list:message.MsgHeroData.lotions)
   return &lotions_;
+}
+
+// required int32 daily_game_progress = 13;
+inline bool MsgHeroData::has_daily_game_progress() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void MsgHeroData::set_has_daily_game_progress() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void MsgHeroData::clear_has_daily_game_progress() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void MsgHeroData::clear_daily_game_progress() {
+  daily_game_progress_ = 0;
+  clear_has_daily_game_progress();
+}
+inline ::google::protobuf::int32 MsgHeroData::daily_game_progress() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_game_progress)
+  return daily_game_progress_;
+}
+inline void MsgHeroData::set_daily_game_progress(::google::protobuf::int32 value) {
+  set_has_daily_game_progress();
+  daily_game_progress_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_progress)
+}
+
+// required int32 daily_game_gold = 14;
+inline bool MsgHeroData::has_daily_game_gold() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void MsgHeroData::set_has_daily_game_gold() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void MsgHeroData::clear_has_daily_game_gold() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void MsgHeroData::clear_daily_game_gold() {
+  daily_game_gold_ = 0;
+  clear_has_daily_game_gold();
+}
+inline ::google::protobuf::int32 MsgHeroData::daily_game_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_game_gold)
+  return daily_game_gold_;
+}
+inline void MsgHeroData::set_daily_game_gold(::google::protobuf::int32 value) {
+  set_has_daily_game_gold();
+  daily_game_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_gold)
+}
+
+// required int32 daily_game_score = 15;
+inline bool MsgHeroData::has_daily_game_score() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void MsgHeroData::set_has_daily_game_score() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void MsgHeroData::clear_has_daily_game_score() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void MsgHeroData::clear_daily_game_score() {
+  daily_game_score_ = 0;
+  clear_has_daily_game_score();
+}
+inline ::google::protobuf::int32 MsgHeroData::daily_game_score() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_game_score)
+  return daily_game_score_;
+}
+inline void MsgHeroData::set_daily_game_score(::google::protobuf::int32 value) {
+  set_has_daily_game_score();
+  daily_game_score_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_score)
 }
 
 // -------------------------------------------------------------------

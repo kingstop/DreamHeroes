@@ -26,6 +26,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "common.pb.h"
 // @@protoc_insertion_point(includes)
@@ -38,9 +39,30 @@ void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
 void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
 
 class MsgS2PRegisterServer;
+class MsgP2SRegisterACK;
 class MsgP2SClinchADealNotify;
 class MsgS2PCloseDealMptify;
 
+enum PlatformError {
+  PlatformError_NO = 0,
+  PlatformError_Unknow = 1,
+  PlatformError_AlreadyRegister = 2
+};
+bool PlatformError_IsValid(int value);
+const PlatformError PlatformError_MIN = PlatformError_NO;
+const PlatformError PlatformError_MAX = PlatformError_AlreadyRegister;
+const int PlatformError_ARRAYSIZE = PlatformError_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* PlatformError_descriptor();
+inline const ::std::string& PlatformError_Name(PlatformError value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    PlatformError_descriptor(), value);
+}
+inline bool PlatformError_Parse(
+    const ::std::string& name, PlatformError* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<PlatformError>(
+    PlatformError_descriptor(), name, value);
+}
 // ===================================================================
 
 class MsgS2PRegisterServer : public ::google::protobuf::Message {
@@ -155,6 +177,113 @@ class MsgS2PRegisterServer : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MsgP2SRegisterACK : public ::google::protobuf::Message {
+ public:
+  MsgP2SRegisterACK();
+  virtual ~MsgP2SRegisterACK();
+
+  MsgP2SRegisterACK(const MsgP2SRegisterACK& from);
+
+  inline MsgP2SRegisterACK& operator=(const MsgP2SRegisterACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgP2SRegisterACK& default_instance();
+
+  void Swap(MsgP2SRegisterACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgP2SRegisterACK* New() const { return New(NULL); }
+
+  MsgP2SRegisterACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgP2SRegisterACK& from);
+  void MergeFrom(const MsgP2SRegisterACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgP2SRegisterACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .message.PlatformError error = 1 [default = PlatformError_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  ::message::PlatformError error() const;
+  void set_error(::message::PlatformError value);
+
+  // required string describe = 2;
+  bool has_describe() const;
+  void clear_describe();
+  static const int kDescribeFieldNumber = 2;
+  const ::std::string& describe() const;
+  void set_describe(const ::std::string& value);
+  void set_describe(const char* value);
+  void set_describe(const char* value, size_t size);
+  ::std::string* mutable_describe();
+  ::std::string* release_describe();
+  void set_allocated_describe(::std::string* describe);
+
+  // @@protoc_insertion_point(class_scope:message.MsgP2SRegisterACK)
+ private:
+  inline void set_has_error();
+  inline void clear_has_error();
+  inline void set_has_describe();
+  inline void clear_has_describe();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr describe_;
+  int error_;
+  friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
+  friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
+  friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgP2SRegisterACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
  public:
   MsgP2SClinchADealNotify();
@@ -243,12 +372,21 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
   ::std::string* release_order_id();
   void set_allocated_order_id(::std::string* order_id);
 
+  // required bool success = 3;
+  bool has_success() const;
+  void clear_success();
+  static const int kSuccessFieldNumber = 3;
+  bool success() const;
+  void set_success(bool value);
+
   // @@protoc_insertion_point(class_scope:message.MsgP2SClinchADealNotify)
  private:
   inline void set_has_product_key();
   inline void clear_has_product_key();
   inline void set_has_order_id();
   inline void clear_has_order_id();
+  inline void set_has_success();
+  inline void clear_has_success();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -258,6 +396,7 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr product_key_;
   ::google::protobuf::internal::ArenaStringPtr order_id_;
+  bool success_;
   friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
@@ -459,6 +598,88 @@ inline void MsgS2PRegisterServer::set_server_type(::google::protobuf::int32 valu
 
 // -------------------------------------------------------------------
 
+// MsgP2SRegisterACK
+
+// required .message.PlatformError error = 1 [default = PlatformError_NO];
+inline bool MsgP2SRegisterACK::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgP2SRegisterACK::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgP2SRegisterACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgP2SRegisterACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::PlatformError MsgP2SRegisterACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SRegisterACK.error)
+  return static_cast< ::message::PlatformError >(error_);
+}
+inline void MsgP2SRegisterACK::set_error(::message::PlatformError value) {
+  assert(::message::PlatformError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgP2SRegisterACK.error)
+}
+
+// required string describe = 2;
+inline bool MsgP2SRegisterACK::has_describe() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgP2SRegisterACK::set_has_describe() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgP2SRegisterACK::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgP2SRegisterACK::clear_describe() {
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_describe();
+}
+inline const ::std::string& MsgP2SRegisterACK::describe() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SRegisterACK.describe)
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgP2SRegisterACK::set_describe(const ::std::string& value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgP2SRegisterACK.describe)
+}
+inline void MsgP2SRegisterACK::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgP2SRegisterACK.describe)
+}
+inline void MsgP2SRegisterACK::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgP2SRegisterACK.describe)
+}
+inline ::std::string* MsgP2SRegisterACK::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgP2SRegisterACK.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgP2SRegisterACK::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgP2SRegisterACK::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
+  } else {
+    clear_has_describe();
+  }
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgP2SRegisterACK.describe)
+}
+
+// -------------------------------------------------------------------
+
 // MsgP2SClinchADealNotify
 
 // required string product_key = 1;
@@ -565,6 +786,30 @@ inline void MsgP2SClinchADealNotify::set_allocated_order_id(::std::string* order
   }
   order_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_id);
   // @@protoc_insertion_point(field_set_allocated:message.MsgP2SClinchADealNotify.order_id)
+}
+
+// required bool success = 3;
+inline bool MsgP2SClinchADealNotify::has_success() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgP2SClinchADealNotify::set_has_success() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgP2SClinchADealNotify::clear_has_success() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgP2SClinchADealNotify::clear_success() {
+  success_ = false;
+  clear_has_success();
+}
+inline bool MsgP2SClinchADealNotify::success() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.success)
+  return success_;
+}
+inline void MsgP2SClinchADealNotify::set_success(bool value) {
+  set_has_success();
+  success_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.success)
 }
 
 // -------------------------------------------------------------------
@@ -682,6 +927,20 @@ inline void MsgS2PCloseDealMptify::set_allocated_order_id(::std::string* order_i
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace message
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::message::PlatformError> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::message::PlatformError>() {
+  return ::message::PlatformError_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

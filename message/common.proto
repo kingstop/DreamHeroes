@@ -48,6 +48,9 @@ message MsgHeroData
 	required int32 spirit = 10;
 	required int32 day_buy_spirit = 11;
 	repeated int32 lotions = 12;
+	required int32 daily_game_progress = 13;
+	required int32 daily_game_gold = 14;
+	required int32 daily_game_score = 15;
 }
 
 
@@ -126,6 +129,7 @@ enum HeroDealType
 	HeroDealTypApplyOrder = 0;
 	HeroDealTypeWaitToPay = 1;
 	HeroDealTypeComplete = 2;
+	HeroDealTypeFailed = 3;
 }
 
 message MsgHeroDealInfo

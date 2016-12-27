@@ -57,6 +57,38 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifySpirit), &Session::parseCmdReqModifySpirit);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuyLotion), &Session::parseReqBuyLotion);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqDayLottery), &Session::parseReqDayLottery);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqEnterDailyGame), &Session::parseReqEnterDailyGame);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqReceiveDailyGamePrize), &Session::parseReqUpdateDailyGameProgress);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqUpdateDailyGameProgress), &Session::parseReqUpdateDailyGameProgress);
+}
+
+void Session::parseReqEnterDailyGame(google::protobuf::Message* p)
+{
+	message::MsgC2SReqEnterDailyGame* msg = (message::MsgC2SReqEnterDailyGame*)p;
+	if (_dream_hero)
+	{
+		_dream_hero->ReqReqEnterDailyGame(msg);
+	}
+}
+
+void Session::parseReqReceiveDailyGamePrize(google::protobuf::Message* p)
+{
+	message::MsgC2SReqReceiveDailyGamePrize* msg = (message::MsgC2SReqReceiveDailyGamePrize*)p;
+	if (_dream_hero)
+	{
+		_dream_hero->ReqReceiveDailyGamePrize();
+	}
+
+}
+
+void Session::parseReqUpdateDailyGameProgress(google::protobuf::Message* p)
+{
+	message::MsgC2SReqUpdateDailyGameProgress* msg = (message::MsgC2SReqUpdateDailyGameProgress*)p;
+	if (_dream_hero)
+	{
+		_dream_hero->ReqUpdateDailyGameProgress(msg);
+	}
+
 }
 
 

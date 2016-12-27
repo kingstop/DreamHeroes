@@ -169,6 +169,7 @@
     <ClInclude Include="GSHttpManager.h" />
     <ClInclude Include="LocationVector.h" />
     <ClInclude Include="platform_client.h" />
+    <ClInclude Include="RankManager.h" />
     <ClInclude Include="RecordManager.h" />
     <ClInclude Include="server.h" />
     <ClInclude Include="session.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="GSHttpManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="platform_client.cpp" />
+    <ClCompile Include="RankManager.cpp" />
     <ClCompile Include="RecordManager.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="session.cpp" />

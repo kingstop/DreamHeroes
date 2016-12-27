@@ -109,6 +109,13 @@ struct LotteryDrawBoxConfig
 	int rating_;
 };
 
+struct DailyGamePrizeConfig
+{
+	int begin_rank_;
+	int end_rank_;
+	int prize_gold_;
+};
+
 typedef std::map<int, message::MsgTaskConfigInfo> MAPTASKS;
 typedef std::map<int, message::MsgShopConfigInfo> MAPSHOPHEROCONFIGS;
 typedef std::map<int, message::MsgChapterConfigInfo> MAPCHAPTERCONFIGINFOS;
@@ -124,6 +131,7 @@ typedef std::map<std::pair<int, int>, MAPTYPEDROPBOXCONFIGS> MAPMAPDROPBOXCONFIG
 typedef std::map<int, message::MsgLotionShopConfigInfo> MAPLOTIONSHOPCONFIGS;
 typedef std::map<int, message::MsgSpiritShopInfo> MAPSPIRITSHOP;
 typedef std::vector<LotteryDrawBoxConfig> VCLOTTERYDRAWBOXSCONFIGS;
+typedef std::vector<DailyGamePrizeConfig> DAILYGAMEPRIZECONFIGS;
 
 class GameConfig
 {
@@ -149,6 +157,7 @@ public:
 	const MAPLOTIONSHOPCONFIGS* getLotionShop();
 	const message::MsgLotionShopConfigInfo* getLotionShop(int index);
 	const VCLOTTERYDRAWBOXSCONFIGS* getLotteryDrawBoxs();
+	const DAILYGAMEPRIZECONFIGS* getDailyGamePrizeConfigs();
 
 	void setServerOpenTime(u64 time_open);
 	void setServerID(char server_id);
@@ -169,8 +178,8 @@ public:
 
 	void setServerType(int t);
 	int getServerType();
-
-
+	const char* getServerTitle();
+	bool isInToday(u32 time);
 
 protected:
 	MAPTASKS _tasks;
@@ -185,6 +194,7 @@ protected:
 	MAPSPIRITSHOP _map_spirit_shop;
 	MAPLOTIONSHOPCONFIGS _map_lotion_shop_configs;
 	VCLOTTERYDRAWBOXSCONFIGS _lottery_draw_configs;
+	DAILYGAMEPRIZECONFIGS _daily_game_prize_configs;
 	globalConfig _global_config;
 	u64 _server_open_time;
 	char _server_char;
@@ -194,5 +204,6 @@ protected:
 	int _platform_port;
 	int _game_id;
 	int _server_type;
+	std::string _server_title;
 };
 
