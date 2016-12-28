@@ -48,24 +48,37 @@ void PlatformClient::on_close(const boost::system::error_code& error)
 void PlatformClient::parseClinchADealNotify(google::protobuf::Message* p, pb_flag_type flag)
 {
 	message::MsgP2SClinchADealNotify* msg = (message::MsgP2SClinchADealNotify*)p;
-	std::string order_id = msg->order_id().c_str();
-	account_type acc = gDreamHeroManager.getOrderAcc(order_id.c_str());
-	bool find_user = false;
+	
+	
+	account_type acc = msg->user_id();
 	if (acc != 0)
 	{
 		DreamHero* hero = gDreamHeroManager.GetHero(acc);
 		if (hero)
 		{
-			hero->completeDealByOrder(order_id.c_str(), true, msg->success());
-			find_user = true;
+			hero->addDealPay(msg->product_id(),msg->status(), msg->order_id(), message::Error_NO);
 		}
+		else
+		{
+			gDreamHeroManager.OfflineHeroDealWaitToPay(msg->order_id(), acc, msg->product_id().c_str(), msg->status());
+		}
+	
+	}
+	
+
+
+	bool find_user = false;
+	if (acc != 0)
+	{
+		DreamHero* hero = gDreamHeroManager.GetHero(acc);
+		//if (hero)
+		//{
+		//	hero->completeDealByOrder(order_id.c_str(), true, msg->success());
+		//	find_user = true;
+		//}
 	}
 	if (find_user == false)
 	{
-		char sztemp[512];
-		sprintf(sztemp, "update heroes_deal set `status`=%d where `order_id`='%s';", (int)message::HeroDealTypeWaitToPay, order_id.c_str());
-		message::MsgSaveDataGS2DB msg_db;
-		msg_db.set_sql(sztemp);
-		gGSDBClient.sendPBMessage(&msg_db, 0);
+		//gDreamHeroManager.OfflineHeroDealWaitToPay()
 	}
 }

@@ -28,7 +28,6 @@
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
-#include "common.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace message {
@@ -41,7 +40,6 @@ void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
 class MsgS2PRegisterServer;
 class MsgP2SRegisterACK;
 class MsgP2SClinchADealNotify;
-class MsgS2PCloseDealMptify;
 
 enum PlatformError {
   PlatformError_NO = 0,
@@ -348,45 +346,49 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required string product_key = 1;
-  bool has_product_key() const;
-  void clear_product_key();
-  static const int kProductKeyFieldNumber = 1;
-  const ::std::string& product_key() const;
-  void set_product_key(const ::std::string& value);
-  void set_product_key(const char* value);
-  void set_product_key(const char* value, size_t size);
-  ::std::string* mutable_product_key();
-  ::std::string* release_product_key();
-  void set_allocated_product_key(::std::string* product_key);
+  // required int32 status = 1;
+  bool has_status() const;
+  void clear_status();
+  static const int kStatusFieldNumber = 1;
+  ::google::protobuf::int32 status() const;
+  void set_status(::google::protobuf::int32 value);
 
-  // required string order_id = 2;
+  // required string product_id = 2;
+  bool has_product_id() const;
+  void clear_product_id();
+  static const int kProductIdFieldNumber = 2;
+  const ::std::string& product_id() const;
+  void set_product_id(const ::std::string& value);
+  void set_product_id(const char* value);
+  void set_product_id(const char* value, size_t size);
+  ::std::string* mutable_product_id();
+  ::std::string* release_product_id();
+  void set_allocated_product_id(::std::string* product_id);
+
+  // required int32 order_id = 3;
   bool has_order_id() const;
   void clear_order_id();
-  static const int kOrderIdFieldNumber = 2;
-  const ::std::string& order_id() const;
-  void set_order_id(const ::std::string& value);
-  void set_order_id(const char* value);
-  void set_order_id(const char* value, size_t size);
-  ::std::string* mutable_order_id();
-  ::std::string* release_order_id();
-  void set_allocated_order_id(::std::string* order_id);
+  static const int kOrderIdFieldNumber = 3;
+  ::google::protobuf::int32 order_id() const;
+  void set_order_id(::google::protobuf::int32 value);
 
-  // required bool success = 3;
-  bool has_success() const;
-  void clear_success();
-  static const int kSuccessFieldNumber = 3;
-  bool success() const;
-  void set_success(bool value);
+  // required uint64 user_id = 4;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 4;
+  ::google::protobuf::uint64 user_id() const;
+  void set_user_id(::google::protobuf::uint64 value);
 
   // @@protoc_insertion_point(class_scope:message.MsgP2SClinchADealNotify)
  private:
-  inline void set_has_product_key();
-  inline void clear_has_product_key();
+  inline void set_has_status();
+  inline void clear_has_status();
+  inline void set_has_product_id();
+  inline void clear_has_product_id();
   inline void set_has_order_id();
   inline void clear_has_order_id();
-  inline void set_has_success();
-  inline void clear_has_success();
+  inline void set_has_user_id();
+  inline void clear_has_user_id();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -394,127 +396,16 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr product_key_;
-  ::google::protobuf::internal::ArenaStringPtr order_id_;
-  bool success_;
+  ::google::protobuf::internal::ArenaStringPtr product_id_;
+  ::google::protobuf::int32 status_;
+  ::google::protobuf::int32 order_id_;
+  ::google::protobuf::uint64 user_id_;
   friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
 
   void InitAsDefaultInstance();
   static MsgP2SClinchADealNotify* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class MsgS2PCloseDealMptify : public ::google::protobuf::Message {
- public:
-  MsgS2PCloseDealMptify();
-  virtual ~MsgS2PCloseDealMptify();
-
-  MsgS2PCloseDealMptify(const MsgS2PCloseDealMptify& from);
-
-  inline MsgS2PCloseDealMptify& operator=(const MsgS2PCloseDealMptify& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const MsgS2PCloseDealMptify& default_instance();
-
-  void Swap(MsgS2PCloseDealMptify* other);
-
-  // implements Message ----------------------------------------------
-
-  inline MsgS2PCloseDealMptify* New() const { return New(NULL); }
-
-  MsgS2PCloseDealMptify* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MsgS2PCloseDealMptify& from);
-  void MergeFrom(const MsgS2PCloseDealMptify& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(MsgS2PCloseDealMptify* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required string product_key = 1;
-  bool has_product_key() const;
-  void clear_product_key();
-  static const int kProductKeyFieldNumber = 1;
-  const ::std::string& product_key() const;
-  void set_product_key(const ::std::string& value);
-  void set_product_key(const char* value);
-  void set_product_key(const char* value, size_t size);
-  ::std::string* mutable_product_key();
-  ::std::string* release_product_key();
-  void set_allocated_product_key(::std::string* product_key);
-
-  // required string order_id = 2;
-  bool has_order_id() const;
-  void clear_order_id();
-  static const int kOrderIdFieldNumber = 2;
-  const ::std::string& order_id() const;
-  void set_order_id(const ::std::string& value);
-  void set_order_id(const char* value);
-  void set_order_id(const char* value, size_t size);
-  ::std::string* mutable_order_id();
-  ::std::string* release_order_id();
-  void set_allocated_order_id(::std::string* order_id);
-
-  // @@protoc_insertion_point(class_scope:message.MsgS2PCloseDealMptify)
- private:
-  inline void set_has_product_key();
-  inline void clear_has_product_key();
-  inline void set_has_order_id();
-  inline void clear_has_order_id();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr product_key_;
-  ::google::protobuf::internal::ArenaStringPtr order_id_;
-  friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
-  friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
-  friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
-
-  void InitAsDefaultInstance();
-  static MsgS2PCloseDealMptify* default_instance_;
 };
 // ===================================================================
 
@@ -682,244 +573,129 @@ inline void MsgP2SRegisterACK::set_allocated_describe(::std::string* describe) {
 
 // MsgP2SClinchADealNotify
 
-// required string product_key = 1;
-inline bool MsgP2SClinchADealNotify::has_product_key() const {
+// required int32 status = 1;
+inline bool MsgP2SClinchADealNotify::has_status() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MsgP2SClinchADealNotify::set_has_product_key() {
+inline void MsgP2SClinchADealNotify::set_has_status() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MsgP2SClinchADealNotify::clear_has_product_key() {
+inline void MsgP2SClinchADealNotify::clear_has_status() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void MsgP2SClinchADealNotify::clear_product_key() {
-  product_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_product_key();
+inline void MsgP2SClinchADealNotify::clear_status() {
+  status_ = 0;
+  clear_has_status();
 }
-inline const ::std::string& MsgP2SClinchADealNotify::product_key() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.product_key)
-  return product_key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::google::protobuf::int32 MsgP2SClinchADealNotify::status() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.status)
+  return status_;
 }
-inline void MsgP2SClinchADealNotify::set_product_key(const ::std::string& value) {
-  set_has_product_key();
-  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.product_key)
-}
-inline void MsgP2SClinchADealNotify::set_product_key(const char* value) {
-  set_has_product_key();
-  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgP2SClinchADealNotify.product_key)
-}
-inline void MsgP2SClinchADealNotify::set_product_key(const char* value, size_t size) {
-  set_has_product_key();
-  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgP2SClinchADealNotify.product_key)
-}
-inline ::std::string* MsgP2SClinchADealNotify::mutable_product_key() {
-  set_has_product_key();
-  // @@protoc_insertion_point(field_mutable:message.MsgP2SClinchADealNotify.product_key)
-  return product_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* MsgP2SClinchADealNotify::release_product_key() {
-  clear_has_product_key();
-  return product_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void MsgP2SClinchADealNotify::set_allocated_product_key(::std::string* product_key) {
-  if (product_key != NULL) {
-    set_has_product_key();
-  } else {
-    clear_has_product_key();
-  }
-  product_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_key);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgP2SClinchADealNotify.product_key)
+inline void MsgP2SClinchADealNotify::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.status)
 }
 
-// required string order_id = 2;
-inline bool MsgP2SClinchADealNotify::has_order_id() const {
+// required string product_id = 2;
+inline bool MsgP2SClinchADealNotify::has_product_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgP2SClinchADealNotify::set_has_order_id() {
+inline void MsgP2SClinchADealNotify::set_has_product_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgP2SClinchADealNotify::clear_has_order_id() {
+inline void MsgP2SClinchADealNotify::clear_has_product_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MsgP2SClinchADealNotify::clear_order_id() {
-  order_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_order_id();
+inline void MsgP2SClinchADealNotify::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_id();
 }
-inline const ::std::string& MsgP2SClinchADealNotify::order_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.order_id)
-  return order_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& MsgP2SClinchADealNotify::product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgP2SClinchADealNotify::set_order_id(const ::std::string& value) {
-  set_has_order_id();
-  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.order_id)
+inline void MsgP2SClinchADealNotify::set_product_id(const ::std::string& value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.product_id)
 }
-inline void MsgP2SClinchADealNotify::set_order_id(const char* value) {
-  set_has_order_id();
-  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgP2SClinchADealNotify.order_id)
+inline void MsgP2SClinchADealNotify::set_product_id(const char* value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgP2SClinchADealNotify.product_id)
 }
-inline void MsgP2SClinchADealNotify::set_order_id(const char* value, size_t size) {
-  set_has_order_id();
-  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void MsgP2SClinchADealNotify::set_product_id(const char* value, size_t size) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgP2SClinchADealNotify.order_id)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgP2SClinchADealNotify.product_id)
 }
-inline ::std::string* MsgP2SClinchADealNotify::mutable_order_id() {
-  set_has_order_id();
-  // @@protoc_insertion_point(field_mutable:message.MsgP2SClinchADealNotify.order_id)
-  return order_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* MsgP2SClinchADealNotify::mutable_product_id() {
+  set_has_product_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgP2SClinchADealNotify.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* MsgP2SClinchADealNotify::release_order_id() {
-  clear_has_order_id();
-  return order_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* MsgP2SClinchADealNotify::release_product_id() {
+  clear_has_product_id();
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgP2SClinchADealNotify::set_allocated_order_id(::std::string* order_id) {
-  if (order_id != NULL) {
-    set_has_order_id();
+inline void MsgP2SClinchADealNotify::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    set_has_product_id();
   } else {
-    clear_has_order_id();
+    clear_has_product_id();
   }
-  order_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_id);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgP2SClinchADealNotify.order_id)
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgP2SClinchADealNotify.product_id)
 }
 
-// required bool success = 3;
-inline bool MsgP2SClinchADealNotify::has_success() const {
+// required int32 order_id = 3;
+inline bool MsgP2SClinchADealNotify::has_order_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void MsgP2SClinchADealNotify::set_has_success() {
+inline void MsgP2SClinchADealNotify::set_has_order_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void MsgP2SClinchADealNotify::clear_has_success() {
+inline void MsgP2SClinchADealNotify::clear_has_order_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void MsgP2SClinchADealNotify::clear_success() {
-  success_ = false;
-  clear_has_success();
-}
-inline bool MsgP2SClinchADealNotify::success() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.success)
-  return success_;
-}
-inline void MsgP2SClinchADealNotify::set_success(bool value) {
-  set_has_success();
-  success_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.success)
-}
-
-// -------------------------------------------------------------------
-
-// MsgS2PCloseDealMptify
-
-// required string product_key = 1;
-inline bool MsgS2PCloseDealMptify::has_product_key() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void MsgS2PCloseDealMptify::set_has_product_key() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void MsgS2PCloseDealMptify::clear_has_product_key() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void MsgS2PCloseDealMptify::clear_product_key() {
-  product_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_product_key();
-}
-inline const ::std::string& MsgS2PCloseDealMptify::product_key() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2PCloseDealMptify.product_key)
-  return product_key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void MsgS2PCloseDealMptify::set_product_key(const ::std::string& value) {
-  set_has_product_key();
-  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgS2PCloseDealMptify.product_key)
-}
-inline void MsgS2PCloseDealMptify::set_product_key(const char* value) {
-  set_has_product_key();
-  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgS2PCloseDealMptify.product_key)
-}
-inline void MsgS2PCloseDealMptify::set_product_key(const char* value, size_t size) {
-  set_has_product_key();
-  product_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgS2PCloseDealMptify.product_key)
-}
-inline ::std::string* MsgS2PCloseDealMptify::mutable_product_key() {
-  set_has_product_key();
-  // @@protoc_insertion_point(field_mutable:message.MsgS2PCloseDealMptify.product_key)
-  return product_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* MsgS2PCloseDealMptify::release_product_key() {
-  clear_has_product_key();
-  return product_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void MsgS2PCloseDealMptify::set_allocated_product_key(::std::string* product_key) {
-  if (product_key != NULL) {
-    set_has_product_key();
-  } else {
-    clear_has_product_key();
-  }
-  product_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_key);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgS2PCloseDealMptify.product_key)
-}
-
-// required string order_id = 2;
-inline bool MsgS2PCloseDealMptify::has_order_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void MsgS2PCloseDealMptify::set_has_order_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void MsgS2PCloseDealMptify::clear_has_order_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void MsgS2PCloseDealMptify::clear_order_id() {
-  order_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline void MsgP2SClinchADealNotify::clear_order_id() {
+  order_id_ = 0;
   clear_has_order_id();
 }
-inline const ::std::string& MsgS2PCloseDealMptify::order_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2PCloseDealMptify.order_id)
-  return order_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::google::protobuf::int32 MsgP2SClinchADealNotify::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.order_id)
+  return order_id_;
 }
-inline void MsgS2PCloseDealMptify::set_order_id(const ::std::string& value) {
+inline void MsgP2SClinchADealNotify::set_order_id(::google::protobuf::int32 value) {
   set_has_order_id();
-  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgS2PCloseDealMptify.order_id)
+  order_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.order_id)
 }
-inline void MsgS2PCloseDealMptify::set_order_id(const char* value) {
-  set_has_order_id();
-  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgS2PCloseDealMptify.order_id)
+
+// required uint64 user_id = 4;
+inline bool MsgP2SClinchADealNotify::has_user_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void MsgS2PCloseDealMptify::set_order_id(const char* value, size_t size) {
-  set_has_order_id();
-  order_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgS2PCloseDealMptify.order_id)
+inline void MsgP2SClinchADealNotify::set_has_user_id() {
+  _has_bits_[0] |= 0x00000008u;
 }
-inline ::std::string* MsgS2PCloseDealMptify::mutable_order_id() {
-  set_has_order_id();
-  // @@protoc_insertion_point(field_mutable:message.MsgS2PCloseDealMptify.order_id)
-  return order_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline void MsgP2SClinchADealNotify::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000008u;
 }
-inline ::std::string* MsgS2PCloseDealMptify::release_order_id() {
-  clear_has_order_id();
-  return order_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline void MsgP2SClinchADealNotify::clear_user_id() {
+  user_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_id();
 }
-inline void MsgS2PCloseDealMptify::set_allocated_order_id(::std::string* order_id) {
-  if (order_id != NULL) {
-    set_has_order_id();
-  } else {
-    clear_has_order_id();
-  }
-  order_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), order_id);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgS2PCloseDealMptify.order_id)
+inline ::google::protobuf::uint64 MsgP2SClinchADealNotify::user_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.user_id)
+  return user_id_;
+}
+inline void MsgP2SClinchADealNotify::set_user_id(::google::protobuf::uint64 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.user_id)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

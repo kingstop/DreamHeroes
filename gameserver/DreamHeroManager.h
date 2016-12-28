@@ -28,6 +28,7 @@ public:
 	std::string generateName();
 	std::string generateDealOrderID(account_type acc);
 	void addSql(const char* sql);
+	void OfflineHeroDealWaitToPay(int order_id, account_type acc, const char* product_id, int status);
 protected:
 	std::string generateStr(int& key, const char* argu);
 	void eventPerHour();

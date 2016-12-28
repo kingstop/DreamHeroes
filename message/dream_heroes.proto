@@ -213,6 +213,7 @@ message MsgS2CHeroesInit
 	repeated int32 daily_game_record_configs = 25;
 	required uint64 last_reset_daily_game_time = 26;
 
+
 }
 
 
@@ -397,12 +398,13 @@ message MsgS2CGoldShopConfigsACK
 }
 
 
-message MsgC2SReqCrearteIOSDeal
+message MsgC2SReqCrearteDeal
 {
 	required string key_code = 1;
+	required int32 channel = 2;
 }
 
-message MsgS2CCrearteIOSDealACK
+message MsgS2CCrearteDealACK
 {
 	required string key_code = 1;
 	required int32 status = 2;
@@ -411,13 +413,13 @@ message MsgS2CCrearteIOSDealACK
 	required GameError error = 5 [default=Error_NO];
 }
 ////////IOS
-message MsgC2SReqVerifyDealIOS
+message MsgC2SReqVerifyDeal
 {
 	required string receipt = 1;
 	required int32 order_id = 2;
 }
 
-message MsgS2CVerifyDealIOSACK
+message MsgS2CVerifyDealACK
 {	
 	required string product_id = 1;
 	required int32 status = 2;
@@ -430,6 +432,7 @@ message MsgS2CVerifyDealIOSACK
 message MsgC2SReqApplyDeal
 {
 	required int32 id = 1;
+	required int32 channel = 2;
 }
 
 

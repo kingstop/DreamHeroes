@@ -1,5 +1,4 @@
 package message;
-import "common.proto";
 
 enum PlatformError
 {
@@ -23,12 +22,9 @@ message MsgP2SRegisterACK
 
 message MsgP2SClinchADealNotify
 {
-	required string product_key = 1;
-	required string order_id = 2;
-	required bool success = 3;
-}
-message MsgS2PCloseDealMptify
-{
-	required string product_key = 1;
-	required string order_id = 2;
+	required int32 status = 1;
+	required string	product_id = 2;
+	required int32 order_id = 3;
+	required uint64 user_id = 4;
+
 }

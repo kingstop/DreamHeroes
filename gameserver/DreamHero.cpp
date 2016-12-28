@@ -77,13 +77,13 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 		}		
 	}
 
-	int hero_deal_length = info->hero_deal_infos_size();
-	for (size_t i = 0; i < hero_deal_length; i++)
-	{
-		const message::MsgHeroDealInfo entry = info->hero_deal_infos(i);
-		_hero_deals[entry.order_id()] = entry;
-		gDreamHeroManager.AddHeroOrder(_account, entry.order_id().c_str());
-	}
+	//int hero_deal_length = info->hero_deal_infos_size();
+	//for (size_t i = 0; i < hero_deal_length; i++)
+	//{
+	//	const message::MsgHeroDealInfo entry = info->hero_deal_infos(i);
+	//	_hero_deals[entry.order_id()] = entry;
+	//	gDreamHeroManager.AddHeroOrder(_account, entry.order_id().c_str());
+	//}
 	int deal_length = info->deals_size();
 	for (size_t i = 0; i < deal_length; i++)
 	{
@@ -103,12 +103,12 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 		_deals_wait_to_pay.insert(DEALSWAITTOPAY::value_type(pay_entry.order_id_, pay_entry));
 	}
 
-	int deal_info_length = info->hero_deal_infos_size();
-	for (size_t i = 0; i < deal_info_length; i++)
-	{
-		const message::MsgHeroDealInfo& entry_deal = info->hero_deal_infos(i);
-		_hero_deals[entry_deal.order_id().c_str()] = entry_deal;
-	}
+	//int deal_info_length = info->hero_deal_infos_size();
+	//for (size_t i = 0; i < deal_info_length; i++)
+	//{
+	//	const message::MsgHeroDealInfo& entry_deal = info->hero_deal_infos(i);
+	//	_hero_deals[entry_deal.order_id().c_str()] = entry_deal;
+	//}
 
 
 	_special_creatures.clear();
@@ -157,15 +157,15 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 		}
 		_info.set_spirit(temp_spirit);
 	}
-	std::map<std::string, message::MsgHeroDealInfo>::iterator deal_it = _hero_deals.begin();
-	for (; deal_it != _hero_deals.end(); ++ deal_it)
-	{
-		const message::MsgHeroDealInfo& entry = deal_it->second;
-		if (entry.type() == message::HeroDealTypeWaitToPay)
-		{
-			completeDealByOrder(deal_it->first.c_str(), true,false);
-		}
-	}
+	//std::map<std::string, message::MsgHeroDealInfo>::iterator deal_it = _hero_deals.begin();
+	//for (; deal_it != _hero_deals.end(); ++ deal_it)
+	//{
+	//	const message::MsgHeroDealInfo& entry = deal_it->second;
+	//	if (entry.type() == message::HeroDealTypeWaitToPay)
+	//	{
+	//		completeDealByOrder(deal_it->first.c_str(), true,false);
+	//	}
+	//}
 	TryToGetGamePrize(false);
 
 }
@@ -1293,11 +1293,11 @@ void DreamHero::SendResetGameACK(message::GameError en)
 
 void DreamHero::addDealPay(std::string key_code, int status, int order_id, message::GameError error,bool send_msg)
 {
-	message::MsgS2CVerifyDealIOSACK msg;
+	message::MsgS2CVerifyDealACK msg;
 	//message::GameError error = message::Error_NO;
 	int add_gold = 0;
 	int current_gold = _info.gold();
-	if (error == message::Error_NO)
+	if (error == message::Error_NO )
 	{
 		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(key_code.c_str());
 		
@@ -1306,19 +1306,27 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 			DEALSWAITTOPAY::iterator it = _deals_wait_to_pay.find(order_id);
 			if (it != _deals_wait_to_pay.end())
 			{
-				if (_deals_wait_to_pay[order_id].type_ == DealStatusType_WaitToPay || _deals_wait_to_pay[order_id].type_ == DealStatusType_WaitPrepareToPay)
+				if (status == 0)
 				{
-					_deals_wait_to_pay[order_id].type_ = DealStatusType_Complete;
-					
-					add_gold = entry_config->info_.gold();
-					int gold_entry = current_gold + add_gold;
-					_info.set_gold(gold_entry);
-					error = message::Error_NO;
+					if (_deals_wait_to_pay[order_id].type_ == DealStatusType_WaitToPay || _deals_wait_to_pay[order_id].type_ == DealStatusType_WaitPrepareToPay)
+					{
+						_deals_wait_to_pay[order_id].type_ = DealStatusType_Complete;
+
+						add_gold = entry_config->info_.gold();
+						int gold_entry = current_gold + add_gold;
+						_info.set_gold(gold_entry);
+						error = message::Error_NO;
+					}
+					else
+					{
+						error = message::Error_BuyGoldFailedTheOrderHaveBeenCompleted;
+
+					}
 				}
 				else
 				{
-					error = message::Error_BuyGoldFailedTheOrderHaveBeenCompleted;
-
+					_deals_wait_to_pay[order_id].type_ = DealStatusType_Failed;
+					error = message::Error_Unknow;
 				}
 			}
 			else
@@ -1330,6 +1338,10 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 		{
 			error = message::Error_BuyGoldFailedNotFoundConfig;
 		}
+	}
+	else
+	{
+		error = message::Error_Unknow;
 	}
 
 	if (send_msg)
@@ -1371,7 +1383,7 @@ void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, in
 		}
 	}
 	
-	message::MsgS2CCrearteIOSDealACK msg;
+	message::MsgS2CCrearteDealACK msg;
 	msg.set_key_code(key_code.c_str());
 	msg.set_status(status);
 	msg.set_price(price);
@@ -1398,7 +1410,7 @@ void DreamHero::ReqEnterGame(const message::MsgC2SReqEnterGame* msg)
 	EnterGame(chapter_id_temp, section_id_temp, false);
 }
 
-void DreamHero::ReqCrearteIOSDeal(const message::MsgC2SReqCrearteIOSDeal* msg)
+void DreamHero::ReqCrearteDeal(const message::MsgC2SReqCrearteDeal* msg)
 {
 	DEALSWAITTOPAY::iterator it_deal = _deals_wait_to_pay.begin();
 	while (it_deal != _deals_wait_to_pay.end())
@@ -1422,11 +1434,11 @@ void DreamHero::ReqCrearteIOSDeal(const message::MsgC2SReqCrearteIOSDeal* msg)
 
 	}
 	std::string key_code = msg->key_code();
-	CreateDealHttpTaskIOS* entry = new CreateDealHttpTaskIOS();
-	entry->init(_account, _info.name().c_str(), key_code.c_str());
+	CreateDealHttpTask* entry = new CreateDealHttpTask();
+	entry->init(_account, _info.name().c_str(), key_code.c_str(), msg->channel());
 	gHttpManager.addHttpTask(entry);
 }
-void DreamHero::ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg)
+void DreamHero::ReqVerifyDeal(const message::MsgC2SReqVerifyDeal* msg)
 {
 	std::string receipt = msg->receipt().c_str();
 	VerifyDealHttpTaskIOS* entry = new VerifyDealHttpTaskIOS();
@@ -1588,17 +1600,9 @@ void DreamHero::ReqApplyHeroDeal(const message::MsgC2SReqApplyDeal* msg)
 	if (config_entry != NULL)
 	{
 		std::string order_id = gDreamHeroManager.generateDealOrderID(_account);
-		
-		msgACK.set_order_id(order_id.c_str());
-		msgACK.set_product_id(config_entry->appstore_product_id_.c_str());
-		message::MsgHeroDealInfo entry;
-		entry.set_createtime(g_server_time);
-		entry.set_order_id(order_id.c_str());
-		entry.set_product_id(config_entry->appstore_product_id_.c_str());
-		entry.set_type(message::HeroDealTypeWaitToPay);
-		msgACK.set_external(gGameConfig.getServerTitle());
-		_hero_deals[entry.order_id()] = entry;
-
+		CreateDealHttpTask* entry = new CreateDealHttpTask();
+		entry->init(_account, _info.name().c_str(), config_entry->appstore_product_id_.c_str(), gHttpManager.getChannel());
+		gHttpManager.addHttpTask(entry);		
 	}
 	else
 	{
@@ -1861,39 +1865,7 @@ void DreamHero::SaveHero()
 				++it_deal;
 			}
 		}
-		std::string deal_create_time;
-		std::string deal_infos_sql;
-		std::string deal_infos_head = "replace into `heroes_deal`(`order_id`, `product_key`, `status`, `account_id`, `create_time`) values";
-		std::map<std::string, message::MsgHeroDealInfo>::const_iterator hero_deal_it = _hero_deals.begin();
-		for (int i = 0; hero_deal_it != _hero_deals.end(); ++ hero_deal_it, i ++)
-		{
-			const message::MsgHeroDealInfo& entry = hero_deal_it->second;
-			if (i == 0)
-			{
-				deal_infos_sql = deal_infos_head;
-			}
-			else
-			{
-				deal_infos_sql += ",";
-			}
-			build_unix_time_to_string(entry.createtime(), deal_create_time);
-			sprintf(sz_temp, "('%s', '%s', %d, %llu, '%s')", entry.order_id().c_str(),
-				entry.product_id().c_str(), (int)entry.type(), _account, deal_create_time.c_str());
-			deal_infos_sql += sz_temp;
-			if (i >= 5)
-			{
-				msg_db.set_sql(deal_infos_sql.c_str());
-				gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
-				deal_infos_sql.clear();
-				i = 0;
-			}
-		}
-		if (deal_infos_sql.empty() == false)
-		{
-			msg_db.set_sql(deal_infos_sql.c_str());
-			gGSDBClient.sendPBMessage(&msg_db, _session->getTranId());
-			deal_infos_sql.clear();
-		}
+
 
 	}
 }
@@ -1919,41 +1891,41 @@ void DreamHero::ReqSetSpecialCreatureList(int creature_id, int status)
 	sendPBMessage(&msg);	
 }
 
-void DreamHero::completeDealByOrder(const char* order_id, bool success,bool needmsg)
-{
-	std::map<std::string, message::MsgHeroDealInfo>::iterator it = _hero_deals.find(order_id);
-	if (it != _hero_deals.end())
-	{
-		message::MsgHeroDealInfo& entry = it->second;
-		entry.set_type(message::HeroDealTypeComplete);
-		const GoldShopConfigInfo* config = gGameConfig.getGoldShopConfigInfo(entry.product_id().c_str());
-		if (config != NULL)
-		{
-			if (success)
-			{
-				int gold = _info.gold() + config->info_.gold();
-				int jewel = _info.jewel() + config->info_.jewel();
-				_info.set_gold(gold);
-				_info.set_jewel(jewel);
-			}
-			if (needmsg)
-			{
-				message::MsgS2CNotifyDealComplete msg;
-				msg.set_product_id(entry.product_id().c_str());
-				msg.set_order_id(order_id);
-				msg.set_current_gold(_info.gold());
-				msg.set_current_jewel(_info.jewel());
-				msg.set_success(success);
-				sendPBMessage(&msg);
-
-			}
-		}
-	}
-	else
-	{
-
-	}
-}
+//void DreamHero::completeDealByOrder(const char* order_id, bool success,bool needmsg)
+//{
+//	std::map<std::string, message::MsgHeroDealInfo>::iterator it = _hero_deals.find(order_id);
+//	if (it != _hero_deals.end())
+//	{
+//		message::MsgHeroDealInfo& entry = it->second;
+//		entry.set_type(message::HeroDealTypeComplete);
+//		const GoldShopConfigInfo* config = gGameConfig.getGoldShopConfigInfo(entry.product_id().c_str());
+//		if (config != NULL)
+//		{
+//			if (success)
+//			{
+//				int gold = _info.gold() + config->info_.gold();
+//				int jewel = _info.jewel() + config->info_.jewel();
+//				_info.set_gold(gold);
+//				_info.set_jewel(jewel);
+//			}
+//			if (needmsg)
+//			{
+//				message::MsgS2CNotifyDealComplete msg;
+//				msg.set_product_id(entry.product_id().c_str());
+//				msg.set_order_id(order_id);
+//				msg.set_current_gold(_info.gold());
+//				msg.set_current_jewel(_info.jewel());
+//				msg.set_success(success);
+//				sendPBMessage(&msg);
+//
+//			}
+//		}
+//	}
+//	else
+//	{
+//
+//	}
+//}
 
 void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 {

@@ -37,8 +37,8 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqGoldShopConfigs), &Session::parseReqGoldShopConfigs);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuyHero), &Session::parseReqBuyHero);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyCurrentHero), &Session::parseReqModifyCurrentHero);
-	registerCBFun(PROTOCO_NAME(message::MsgC2SReqCrearteIOSDeal), &Session::parseReqCrearteIOSDeal);
-	registerCBFun(PROTOCO_NAME(message::MsgC2SReqVerifyDealIOS), &Session::parseReqVerifyDealIOS);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqCrearteDeal), &Session::parseReqCrearteDeal);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqVerifyDeal), &Session::parseReqVerifyDeal);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyNewTutorial), &Session::parseReqModifyTutorial);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReliveReq), &Session::parseReqRelive);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuySpirit), &Session::parseReqBuySpirit);
@@ -345,16 +345,16 @@ void Session::parseReqGameGlobalConfig(google::protobuf::Message* p)
 	sendPBMessage(&msg);
 }
 
-void Session::parseReqCrearteIOSDeal(google::protobuf::Message* p)
+void Session::parseReqCrearteDeal(google::protobuf::Message* p)
 {
-	message::MsgC2SReqCrearteIOSDeal* msg = (message::MsgC2SReqCrearteIOSDeal*)p;
-	_dream_hero->ReqCrearteIOSDeal(msg);
+	message::MsgC2SReqCrearteDeal* msg = (message::MsgC2SReqCrearteDeal*)p;
+	_dream_hero->ReqCrearteDeal(msg);
 }
 
-void Session::parseReqVerifyDealIOS(google::protobuf::Message* p)
+void Session::parseReqVerifyDeal(google::protobuf::Message* p)
 {
-	message::MsgC2SReqVerifyDealIOS* msg = (message::MsgC2SReqVerifyDealIOS*)p;
-	_dream_hero->ReqVerifyDealIOS(msg);
+	message::MsgC2SReqVerifyDeal* msg = (message::MsgC2SReqVerifyDeal*)p;
+	_dream_hero->ReqVerifyDeal(msg);
 }
 
 

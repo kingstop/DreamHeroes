@@ -40,8 +40,8 @@ public:
 	void parseReqBuyHero(google::protobuf::Message* p);
 	void parseReqGoldShopConfigs(google::protobuf::Message* p);
 	void parseReqModifyCurrentHero(google::protobuf::Message* p);
-	void parseReqCrearteIOSDeal(google::protobuf::Message* p);
-	void parseReqVerifyDealIOS(google::protobuf::Message* p);
+	void parseReqCrearteDeal(google::protobuf::Message* p);
+	void parseReqVerifyDeal(google::protobuf::Message* p);
 	void parseReqModifyTutorial(google::protobuf::Message* p);
 	void parseReqRelive(google::protobuf::Message* p);
 	void parseReqBuySpirit(google::protobuf::Message* p);

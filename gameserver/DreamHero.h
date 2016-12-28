@@ -55,8 +55,8 @@ public:
 	void ReqModifyGold(const message::MsgC2SCmdReqModifyGold* msg);
 	void ReqReplaceTask(const message::MsgS2CCmdReqReplaceTask* msg);
 	void ReqModifyTaskCompleteCount(const message::MsgC2SCmdReqModifyTaskCompleteCount* msg);
-	void ReqCrearteIOSDeal(const message::MsgC2SReqCrearteIOSDeal* msg);
-	void ReqVerifyDealIOS(const message::MsgC2SReqVerifyDealIOS* msg);
+	void ReqCrearteDeal(const message::MsgC2SReqCrearteDeal* msg);
+	void ReqVerifyDeal(const message::MsgC2SReqVerifyDeal* msg);
 	void ReqModifyTutorialFlag(const message::MsgC2SReqModifyNewTutorial* msg);
 	void ReqReliveReq(const message::MsgC2SReliveReq* msg);
 	void ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg);
@@ -83,7 +83,7 @@ public:
 public:
 	void addDealWaitToPay(std::string key_code, int status, int price, int order_id, message::GameError error);
 	void addDealPay(std::string key_code, int status, int order_id, message::GameError error, bool send_msg = true);
-	void completeDealByOrder(const char* order_id, bool success ,bool needmsg);
+	//void completeDealByOrder(const char* order_id, bool success ,bool needmsg);
 	
 
 public:
@@ -125,7 +125,7 @@ protected:
 	u32 _daily_game_time;
 	u32 _daily_game_prize_time;
 	u32 _last_daily_reset_game_time;
-	std::map<std::string, message::MsgHeroDealInfo> _hero_deals;
+	//std::map<std::string, message::MsgHeroDealInfo> _hero_deals;
 	
 };
 

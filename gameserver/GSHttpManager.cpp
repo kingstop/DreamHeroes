@@ -33,24 +33,25 @@ void BaseGSHttpTask::set_acc(account_type acc)
 }
 
 
-CreateDealHttpTaskIOS::CreateDealHttpTaskIOS()
+CreateDealHttpTask::CreateDealHttpTask()
 {
-	_en = HttpType_CreateDealIOS;
+	_en = HttpType_CreateDeal;
 }
-CreateDealHttpTaskIOS::~CreateDealHttpTaskIOS()
+CreateDealHttpTask::~CreateDealHttpTask()
 {
 
 }
 
-void CreateDealHttpTaskIOS::init(account_type acc, const char* name, const char* key_code)
+void CreateDealHttpTask::init(account_type acc, const char* name, const char* key_code, int channel)
 {
 	_acc = acc;
 	_name = name;
 	_key_code = key_code;
+	_channel = channel;
 
 }
 
-bool CreateDealHttpTaskIOS::logicExcute()
+bool CreateDealHttpTask::logicExcute()
 {
 	DreamHero* hero = gDreamHeroManager.GetHero(_acc);
 	if (hero)
@@ -75,17 +76,17 @@ bool CreateDealHttpTaskIOS::logicExcute()
 
 }
 
-bool CreateDealHttpTaskIOS::excute()
+bool CreateDealHttpTask::excute()
 {
-	int channel_id = gHttpManager.getChannel();
+	int channel_id = _channel;
 	int game_id = gHttpManager.getGameID();
 	
 	std::string post_url;
 	std::string respone_url;
 	char sz_temp[1024];
-	sprintf(sz_temp, "%s/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%s",
+	sprintf(sz_temp, "%s/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%sext_data=%s",
 		gGameConfig.getPlatformHttpUrl(),
-		channel_id, game_id, _acc, _name.c_str(), _key_code.c_str());
+		channel_id, game_id, _acc, _name.c_str(), _key_code.c_str(), gGameConfig.getServerTitle());
 	
 	gHttpManager.Posts(sz_temp, post_url, respone_url);
 	try
@@ -171,12 +172,7 @@ bool VerifyDealHttpTaskIOS::logicExcute()
 
 		if (_error == message::Error_NO)
 		{
-			char sz_temp[1024];
-			std::string create_pay_time;;
-			build_unix_time_to_string(g_server_time, create_pay_time);
-			sprintf(sz_temp, "replace into deal_wait_to_pay(`order_id`, `account_id`, `key_code`, `status`, `price`, `deal_time`,`complete_status`) \
-				values(%d, %llu, '%s', %d, %d, '%s', %d) ", _order_id, _acc, _product_id.c_str(), _status, 0, create_pay_time.c_str(), DealStatusType_WaitPrepareToPay);
-			gDreamHeroManager.addSql(sz_temp);
+			gDreamHeroManager.OfflineHeroDealWaitToPay(_order_id, _acc, _product_id.c_str(), _status);
 		}
 	}
 

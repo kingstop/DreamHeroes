@@ -143,18 +143,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgS2CGoldShopConfigsACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CGoldShopConfigsACK_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgC2SReqCrearteIOSDeal_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SReqCrearteDeal_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgC2SReqCrearteIOSDeal_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgS2CCrearteIOSDealACK_descriptor_ = NULL;
+  MsgC2SReqCrearteDeal_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgS2CCrearteDealACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgS2CCrearteIOSDealACK_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgC2SReqVerifyDealIOS_descriptor_ = NULL;
+  MsgS2CCrearteDealACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SReqVerifyDeal_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgC2SReqVerifyDealIOS_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgS2CVerifyDealIOSACK_descriptor_ = NULL;
+  MsgC2SReqVerifyDeal_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgS2CVerifyDealACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgS2CVerifyDealIOSACK_reflection_ = NULL;
+  MsgS2CVerifyDealACK_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgC2SReqApplyDeal_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgC2SReqApplyDeal_reflection_ = NULL;
@@ -982,78 +982,80 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CGoldShopConfigsACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CGoldShopConfigsACK, _internal_metadata_),
       -1);
-  MsgC2SReqCrearteIOSDeal_descriptor_ = file->message_type(41);
-  static const int MsgC2SReqCrearteIOSDeal_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteIOSDeal, key_code_),
+  MsgC2SReqCrearteDeal_descriptor_ = file->message_type(41);
+  static const int MsgC2SReqCrearteDeal_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteDeal, key_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteDeal, channel_),
   };
-  MsgC2SReqCrearteIOSDeal_reflection_ =
+  MsgC2SReqCrearteDeal_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgC2SReqCrearteIOSDeal_descriptor_,
-      MsgC2SReqCrearteIOSDeal::default_instance_,
-      MsgC2SReqCrearteIOSDeal_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteIOSDeal, _has_bits_[0]),
+      MsgC2SReqCrearteDeal_descriptor_,
+      MsgC2SReqCrearteDeal::default_instance_,
+      MsgC2SReqCrearteDeal_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteDeal, _has_bits_[0]),
       -1,
       -1,
-      sizeof(MsgC2SReqCrearteIOSDeal),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteIOSDeal, _internal_metadata_),
+      sizeof(MsgC2SReqCrearteDeal),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteDeal, _internal_metadata_),
       -1);
-  MsgS2CCrearteIOSDealACK_descriptor_ = file->message_type(42);
-  static const int MsgS2CCrearteIOSDealACK_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, key_code_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, status_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, price_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, order_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, error_),
+  MsgS2CCrearteDealACK_descriptor_ = file->message_type(42);
+  static const int MsgS2CCrearteDealACK_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, key_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, status_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, price_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, order_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, error_),
   };
-  MsgS2CCrearteIOSDealACK_reflection_ =
+  MsgS2CCrearteDealACK_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgS2CCrearteIOSDealACK_descriptor_,
-      MsgS2CCrearteIOSDealACK::default_instance_,
-      MsgS2CCrearteIOSDealACK_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, _has_bits_[0]),
+      MsgS2CCrearteDealACK_descriptor_,
+      MsgS2CCrearteDealACK::default_instance_,
+      MsgS2CCrearteDealACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, _has_bits_[0]),
       -1,
       -1,
-      sizeof(MsgS2CCrearteIOSDealACK),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteIOSDealACK, _internal_metadata_),
+      sizeof(MsgS2CCrearteDealACK),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, _internal_metadata_),
       -1);
-  MsgC2SReqVerifyDealIOS_descriptor_ = file->message_type(43);
-  static const int MsgC2SReqVerifyDealIOS_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, receipt_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, order_id_),
+  MsgC2SReqVerifyDeal_descriptor_ = file->message_type(43);
+  static const int MsgC2SReqVerifyDeal_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDeal, receipt_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDeal, order_id_),
   };
-  MsgC2SReqVerifyDealIOS_reflection_ =
+  MsgC2SReqVerifyDeal_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgC2SReqVerifyDealIOS_descriptor_,
-      MsgC2SReqVerifyDealIOS::default_instance_,
-      MsgC2SReqVerifyDealIOS_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, _has_bits_[0]),
+      MsgC2SReqVerifyDeal_descriptor_,
+      MsgC2SReqVerifyDeal::default_instance_,
+      MsgC2SReqVerifyDeal_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDeal, _has_bits_[0]),
       -1,
       -1,
-      sizeof(MsgC2SReqVerifyDealIOS),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDealIOS, _internal_metadata_),
+      sizeof(MsgC2SReqVerifyDeal),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDeal, _internal_metadata_),
       -1);
-  MsgS2CVerifyDealIOSACK_descriptor_ = file->message_type(44);
-  static const int MsgS2CVerifyDealIOSACK_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, product_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, status_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, order_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, current_gold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, error_),
+  MsgS2CVerifyDealACK_descriptor_ = file->message_type(44);
+  static const int MsgS2CVerifyDealACK_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, product_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, status_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, order_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, current_gold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, error_),
   };
-  MsgS2CVerifyDealIOSACK_reflection_ =
+  MsgS2CVerifyDealACK_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgS2CVerifyDealIOSACK_descriptor_,
-      MsgS2CVerifyDealIOSACK::default_instance_,
-      MsgS2CVerifyDealIOSACK_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, _has_bits_[0]),
+      MsgS2CVerifyDealACK_descriptor_,
+      MsgS2CVerifyDealACK::default_instance_,
+      MsgS2CVerifyDealACK_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, _has_bits_[0]),
       -1,
       -1,
-      sizeof(MsgS2CVerifyDealIOSACK),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealIOSACK, _internal_metadata_),
+      sizeof(MsgS2CVerifyDealACK),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, _internal_metadata_),
       -1);
   MsgC2SReqApplyDeal_descriptor_ = file->message_type(45);
-  static const int MsgC2SReqApplyDeal_offsets_[1] = {
+  static const int MsgC2SReqApplyDeal_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqApplyDeal, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqApplyDeal, channel_),
   };
   MsgC2SReqApplyDeal_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -1709,13 +1711,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CGoldShopConfigsACK_descriptor_, &MsgS2CGoldShopConfigsACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgC2SReqCrearteIOSDeal_descriptor_, &MsgC2SReqCrearteIOSDeal::default_instance());
+      MsgC2SReqCrearteDeal_descriptor_, &MsgC2SReqCrearteDeal::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgS2CCrearteIOSDealACK_descriptor_, &MsgS2CCrearteIOSDealACK::default_instance());
+      MsgS2CCrearteDealACK_descriptor_, &MsgS2CCrearteDealACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgC2SReqVerifyDealIOS_descriptor_, &MsgC2SReqVerifyDealIOS::default_instance());
+      MsgC2SReqVerifyDeal_descriptor_, &MsgC2SReqVerifyDeal::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgS2CVerifyDealIOSACK_descriptor_, &MsgS2CVerifyDealIOSACK::default_instance());
+      MsgS2CVerifyDealACK_descriptor_, &MsgS2CVerifyDealACK::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgC2SReqApplyDeal_descriptor_, &MsgC2SReqApplyDeal::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -1875,14 +1877,14 @@ void protobuf_ShutdownFile_dream_5fheroes_2eproto() {
   delete MsgC2SReqGoldShopConfigs_reflection_;
   delete MsgS2CGoldShopConfigsACK::default_instance_;
   delete MsgS2CGoldShopConfigsACK_reflection_;
-  delete MsgC2SReqCrearteIOSDeal::default_instance_;
-  delete MsgC2SReqCrearteIOSDeal_reflection_;
-  delete MsgS2CCrearteIOSDealACK::default_instance_;
-  delete MsgS2CCrearteIOSDealACK_reflection_;
-  delete MsgC2SReqVerifyDealIOS::default_instance_;
-  delete MsgC2SReqVerifyDealIOS_reflection_;
-  delete MsgS2CVerifyDealIOSACK::default_instance_;
-  delete MsgS2CVerifyDealIOSACK_reflection_;
+  delete MsgC2SReqCrearteDeal::default_instance_;
+  delete MsgC2SReqCrearteDeal_reflection_;
+  delete MsgS2CCrearteDealACK::default_instance_;
+  delete MsgS2CCrearteDealACK_reflection_;
+  delete MsgC2SReqVerifyDeal::default_instance_;
+  delete MsgC2SReqVerifyDeal_reflection_;
+  delete MsgS2CVerifyDealACK::default_instance_;
+  delete MsgS2CVerifyDealACK_reflection_;
   delete MsgC2SReqApplyDeal::default_instance_;
   delete MsgC2SReqApplyDeal_reflection_;
   delete MsgS2CApplyDealACK::default_instance_;
@@ -2090,144 +2092,144 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "\022+\n\005error\030\003 \002(\0162\022.message.GameError:\010Err"
     "or_NO\"\032\n\030MsgC2SReqGoldShopConfigs\"I\n\030Msg"
     "S2CGoldShopConfigsACK\022-\n\005infos\030\001 \003(\0132\036.m"
-    "essage.MsgGoldShopConfigInfo\"+\n\027MsgC2SRe"
-    "qCrearteIOSDeal\022\020\n\010key_code\030\001 \002(\t\"\211\001\n\027Ms"
-    "gS2CCrearteIOSDealACK\022\020\n\010key_code\030\001 \002(\t\022"
-    "\016\n\006status\030\002 \002(\005\022\r\n\005price\030\003 \002(\005\022\020\n\010order_"
-    "id\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.message.GameEr"
-    "ror:\010Error_NO\";\n\026MsgC2SReqVerifyDealIOS\022"
-    "\017\n\007receipt\030\001 \002(\t\022\020\n\010order_id\030\002 \002(\005\"\221\001\n\026M"
-    "sgS2CVerifyDealIOSACK\022\022\n\nproduct_id\030\001 \002("
-    "\t\022\016\n\006status\030\002 \002(\005\022\020\n\010order_id\030\003 \002(\005\022\024\n\014c"
-    "urrent_gold\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.messa"
-    "ge.GameError:\010Error_NO\" \n\022MsgC2SReqApply"
-    "Deal\022\n\n\002id\030\001 \002(\005\"\205\001\n\022MsgS2CApplyDealACK\022"
-    "\n\n\002id\030\001 \002(\005\022\022\n\nproduct_id\030\002 \002(\t\022\020\n\010order"
-    "_id\030\003 \002(\t\022+\n\005error\030\004 \002(\0162\022.message.GameE"
-    "rror:\010Error_NO\022\020\n\010external\030\005 \002(\t\"~\n\030MsgS"
-    "2CNotifyDealComplete\022\020\n\010order_id\030\001 \002(\t\022\022"
-    "\n\nproduct_id\030\002 \002(\t\022\025\n\rcurrent_jewel\030\003 \002("
-    "\005\022\024\n\014current_gold\030\004 \002(\005\022\017\n\007success\030\005 \002(\010"
-    "\"4\n\020MsgS2CPingNotify\022\022\n\nping_count\030\001 \002(\005"
-    "\022\014\n\004time\030\002 \002(\004\"3\n\031MsgS2CRecoverSpiritNot"
-    "ify\022\026\n\016current_spirit\030\001 \002(\005\"4\n\020MsgC2SPin"
-    "gNotify\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030\002 \002("
-    "\004\"*\n\032MsgC2SReqModifyNewTutorial\022\014\n\004flag\030"
-    "\001 \002(\005\"*\n\032MsgS2CModifyNewTutorialACK\022\014\n\004f"
-    "lag\030\001 \002(\005\"\021\n\017MsgC2SReliveReq\"T\n\017MsgS2CRe"
-    "liveACK\022\024\n\014current_gold\030\001 \002(\005\022+\n\005error\030\002"
-    " \002(\0162\022.message.GameError:\010Error_NO\"*\n(Ms"
-    "gC2SCmdReqRemoveSpecialCreatureListHis\"H"
-    "\n!MsgC2SCmdReqSetSpecialCreatureHis\022\023\n\013c"
-    "reature_id\030\001 \002(\005\022\016\n\006status\030\002 \002(\005\"Y\n\'MsgS"
-    "2CCmdNotifySpecialCreatureHisModify\022.\n\021s"
-    "pecial_creatures\030\001 \003(\0132\023.message.MsgIntP"
-    "air\"B\n#MsgC2SCmdReqModifyTaskCompleteCou"
-    "nt\022\033\n\023task_complete_count\030\001 \002(\005\"A\n#MsgS2"
-    "CCmdModifyTaskCompleteCountACK\022\032\n\022curren"
-    "t_task_count\030\001 \002(\005\"\031\n\027MsgC2SCmdReqShowGM"
-    "Level\"X\n\027MsgS2CCmdShowGMLevelACK\022\020\n\010gm_l"
-    "evel\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.Game"
-    "Error:\010Error_NO\"8\n\031MsgC2SCmdReqModifyGML"
-    "evel\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\"e\n\031Msg"
-    "S2CCmdModifyGMLevelACK\022\014\n\004name\030\001 \002(\t\022\r\n\005"
-    "level\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.Gam"
-    "eError:\010Error_NO\"\?\n\025MsgC2SCmdReqEnterGam"
-    "e\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002("
-    "\005\">\n\024MsgC2SCmdReqResetMap\022\022\n\nchapter_id\030"
-    "\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"k\n\024MsgS2CCmdRe"
-    "setMapACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection"
-    "_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.GameE"
-    "rror:\010Error_NO\"\027\n\025MsgC2SCmdReqResetGame\""
-    "\256\001\n\025MsgS2CCmdResetGameACK\022\"\n\004info\030\001 \002(\0132"
-    "\024.message.MsgHeroData\022#\n\033current_adverti"
-    "sement_count\030\002 \002(\005\022\037\n\027last_advertisement"
-    "_time\030\003 \002(\003\022+\n\005error\030\004 \002(\0162\022.message.Gam"
-    "eError:\010Error_NO\"&\n\026MsgC2SCmdReqModifyGo"
-    "ld\022\014\n\004gold\030\001 \002(\005\"&\n\026MsgS2CCmdModifyGoldA"
-    "CK\022\014\n\004gold\030\001 \002(\005\"-\n\027MsgS2CCmdReqReplaceT"
-    "ask\022\022\n\ntask_count\030\001 \002(\005\"q\n\027MsgS2CCmdRepl"
-    "aceTaskACK\022+\n\005error\030\001 \002(\0162\022.message.Game"
-    "Error:\010Error_NO\022)\n\005infos\030\002 \003(\0132\032.message"
-    ".MsgTaskConfigInfo\"(\n\027MsgC2SCmdReqModify"
-    "Jewel\022\r\n\005jewel\030\001 \002(\005\"]\n\027MsgS2CCmdModifyJ"
-    "ewelACK\022\025\n\rcurrent_jewel\030\001 \002(\005\022+\n\005error\030"
-    "\002 \002(\0162\022.message.GameError:\010Error_NO\"*\n\030M"
-    "sgC2SCmdReqModifySpirit\022\016\n\006spirit\030\001 \002(\005\""
-    "_\n\030MsgS2CCmdModifySpiritACK\022\026\n\016current_s"
-    "pirit\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.Gam"
-    "eError:\010Error_NO\"\037\n\035MsgC2SCmdReqResetDai"
-    "lyLottery\"L\n\035MsgS2CCmdResetDailyLotteryA"
-    "CK\022+\n\005error\030\001 \002(\0162\022.message.GameError:\010E"
-    "rror_NO\"\034\n\032MsgC2SCmdReqResetDailyGame\"I\n"
-    "\032MsgS2CCmdResetDailyGameACK\022+\n\005error\030\001 \002"
-    "(\0162\022.message.GameError:\010Error_NO*\251\023\n\tGam"
-    "eError\022\014\n\010Error_NO\020\000\022*\n&Error_CanNotEnte"
-    "rGameTheInstanceIsLock\020\001\022+\n\'Error_CanNot"
-    "EnterGameTheCharacterIsLock\020\002\022)\n%Error_C"
-    "anNotEnterGameTheSectionIsLock\020\003\022(\n$Erro"
-    "r_CanNotEnterGameNotEnoughSpirit\020\004\022$\n Er"
-    "ror_CanNotBuyHeroNotEnoughgold\020\005\0224\n0Erro"
-    "r_CanNotPassGameTheInstanceNotHaveEnough"
-    "Gold\020\006\022\035\n\031Error_NotEnterTheExitGame\020\007\022)\n"
-    "%Error_NotFoundTheChapterWhenEnterGame\020\010"
-    "\022\035\n\031Error_TheChapterIsNotLock\020\t\0225\n1Error"
-    "_UnlockChapterFailedNotFoundTheUnlockCha"
-    "pter\020\n\0226\n2Error_UnlockChapterFailedTheRe"
-    "quiredSectionNotPass\020\013\0229\n5Error_UnlockCh"
-    "apterFailedYouHaveToCompleteEnoughTasks\020"
-    "\014\0221\n-Error_UnlockChapterFailedYouNotHave"
-    "EnoughGold\020\r\022,\n(Error_RefreshAdvertiseme"
-    "ntTaskFailedInCD\020\016\022<\n8Error_RefreshAdver"
-    "tisementTaskFailedNotFoundGiveUpTaskID\020\017"
-    "\022.\n*Error_RefreshAdvertisementTaskFailed"
-    "Unknow\020\020\0225\n1Error_RefreshAdvertisementTa"
-    "skFailedNotEnoughGold\020\021\022$\n Error_BuyHero"
-    "FailedNotEnoughGold\020\022\022$\n Error_BuyHeroFa"
-    "iledThePriceIsOld\020\023\022#\n\037Error_BuyHeroFail"
-    "edNotFoundGrid\020\024\022-\n)Error_BuyHeroFailedN"
-    "otPassRequiredSection\020\025\022/\n+Error_ModifyC"
-    "urrentFailedTheCharacterIsLock\020\026\022%\n!Erro"
-    "r_BuyGoldFailedNotFoundConfig\020\027\022$\n Error"
-    "_BuyGoldFailedNotFoundOrder\020\030\0220\n,Error_B"
-    "uyGoldFailedTheOrderHaveBeenCompleted\020\031\022"
-    "-\n)Error_CreateDealFailedTheHttpErrorRes"
-    "pone\020\032\022.\n*Error_CreateDealFailedTheHttpR"
-    "esponeFailed\020\033\0227\n3Error_CreateDealDailed"
-    "TheHttpResponeErrorProduct_id\020\034\022-\n)Error"
-    "_VerifyDealFailedTheHttpErrorRespone\020\035\022."
-    "\n*Error_VerifyDealFailedTheHttpResponeFa"
-    "iled\020\036\022\'\n#Error_BuySpiritFailedNotEnough"
-    "Jewel\020\037\022,\n(Error_BuySpiritFailedCanNotBu"
-    "yMoreSpirit\020 \022\'\n#Error_BuySpiritFailedNo"
-    "tFoundConfig\020!\022\"\n\036Error_CmdFailedRequire"
-    "dGMLevel\020\"\022\"\n\036Error_ReliveFailedNotEnoug"
-    "hGod\020#\022(\n$Error_FailedToBuyLotionNotEnou"
-    "ghGold\020$\022)\n%Error_FailedToBuyLotionNotEn"
-    "oughJewel\020%\022,\n(Error_FailedToBuyLotionAl"
-    "readyHaveLotion\020&\022\'\n#Error_FailedToBuyNo"
-    "tFoundThisLotion\020\'\022,\n(Error_FailedExitGa"
-    "meNotFoundTheUseLotion\020(\022/\n+Error_Failed"
-    "ToLotteryTodayHaveBeenLotteried\020)\022.\n*Err"
-    "or_FailedToLotteryNothingCanBeLotteried\020"
-    "*\022$\n Error_FailedToLotteryErrorRating\020+\022"
-    "*\n&Error_FailedToLotteryErrorLotionConfi"
-    "g\020,\022/\n+Error_FailedToApplyDealOrderNotFo"
-    "oundConfig\020-\022;\n7Error_FailedToEnterDaily"
-    "GameYouHaveBeenAlreadyBeginGame\020.\0222\n.Err"
-    "or_FailedToUpdateDailyProgressErrorProgr"
-    "ess\020/\0224\n0Error_FailedToUpdateDailyProgre"
-    "ssTheGameNotBegin\0200\022)\n%Error_FailedToUpd"
-    "ateDailyProgressNoHp\0201\022/\n+Error_FailedTo"
-    "ReceivedDailyGamePrizeNOPrize\0202\022.\n*Error"
-    "_FailedToResetDailyGameNotEnoughJewel\0203\022"
-    "&\n\"Error_FailedToResetDailyGameUseOut\0204\022"
-    "1\n-Error_FailedToResetDailyGameTheProgre"
-    "ssIsZero\0205\022\020\n\014Error_Unknow\0206*@\n\rLotionUs"
-    "eType\022\026\n\022LotionUseType_gold\020\001\022\027\n\023LotionU"
-    "seType_jewel\020\002*G\n\014enLotteryBox\022\021\n\rLotter"
-    "y_Jewel\020\000\022\020\n\014Lottery_Gold\020\001\022\022\n\016Lottery_L"
-    "otion\020\002", 10487);
+    "essage.MsgGoldShopConfigInfo\"9\n\024MsgC2SRe"
+    "qCrearteDeal\022\020\n\010key_code\030\001 \002(\t\022\017\n\007channe"
+    "l\030\002 \002(\005\"\206\001\n\024MsgS2CCrearteDealACK\022\020\n\010key_"
+    "code\030\001 \002(\t\022\016\n\006status\030\002 \002(\005\022\r\n\005price\030\003 \002("
+    "\005\022\020\n\010order_id\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.mes"
+    "sage.GameError:\010Error_NO\"8\n\023MsgC2SReqVer"
+    "ifyDeal\022\017\n\007receipt\030\001 \002(\t\022\020\n\010order_id\030\002 \002"
+    "(\005\"\216\001\n\023MsgS2CVerifyDealACK\022\022\n\nproduct_id"
+    "\030\001 \002(\t\022\016\n\006status\030\002 \002(\005\022\020\n\010order_id\030\003 \002(\005"
+    "\022\024\n\014current_gold\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022."
+    "message.GameError:\010Error_NO\"1\n\022MsgC2SReq"
+    "ApplyDeal\022\n\n\002id\030\001 \002(\005\022\017\n\007channel\030\002 \002(\005\"\205"
+    "\001\n\022MsgS2CApplyDealACK\022\n\n\002id\030\001 \002(\005\022\022\n\npro"
+    "duct_id\030\002 \002(\t\022\020\n\010order_id\030\003 \002(\t\022+\n\005error"
+    "\030\004 \002(\0162\022.message.GameError:\010Error_NO\022\020\n\010"
+    "external\030\005 \002(\t\"~\n\030MsgS2CNotifyDealComple"
+    "te\022\020\n\010order_id\030\001 \002(\t\022\022\n\nproduct_id\030\002 \002(\t"
+    "\022\025\n\rcurrent_jewel\030\003 \002(\005\022\024\n\014current_gold\030"
+    "\004 \002(\005\022\017\n\007success\030\005 \002(\010\"4\n\020MsgS2CPingNoti"
+    "fy\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"3\n\031"
+    "MsgS2CRecoverSpiritNotify\022\026\n\016current_spi"
+    "rit\030\001 \002(\005\"4\n\020MsgC2SPingNotify\022\022\n\nping_co"
+    "unt\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"*\n\032MsgC2SReqModi"
+    "fyNewTutorial\022\014\n\004flag\030\001 \002(\005\"*\n\032MsgS2CMod"
+    "ifyNewTutorialACK\022\014\n\004flag\030\001 \002(\005\"\021\n\017MsgC2"
+    "SReliveReq\"T\n\017MsgS2CReliveACK\022\024\n\014current"
+    "_gold\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.Gam"
+    "eError:\010Error_NO\"*\n(MsgC2SCmdReqRemoveSp"
+    "ecialCreatureListHis\"H\n!MsgC2SCmdReqSetS"
+    "pecialCreatureHis\022\023\n\013creature_id\030\001 \002(\005\022\016"
+    "\n\006status\030\002 \002(\005\"Y\n\'MsgS2CCmdNotifySpecial"
+    "CreatureHisModify\022.\n\021special_creatures\030\001"
+    " \003(\0132\023.message.MsgIntPair\"B\n#MsgC2SCmdRe"
+    "qModifyTaskCompleteCount\022\033\n\023task_complet"
+    "e_count\030\001 \002(\005\"A\n#MsgS2CCmdModifyTaskComp"
+    "leteCountACK\022\032\n\022current_task_count\030\001 \002(\005"
+    "\"\031\n\027MsgC2SCmdReqShowGMLevel\"X\n\027MsgS2CCmd"
+    "ShowGMLevelACK\022\020\n\010gm_level\030\001 \002(\005\022+\n\005erro"
+    "r\030\002 \002(\0162\022.message.GameError:\010Error_NO\"8\n"
+    "\031MsgC2SCmdReqModifyGMLevel\022\014\n\004name\030\001 \002(\t"
+    "\022\r\n\005level\030\002 \002(\005\"e\n\031MsgS2CCmdModifyGMLeve"
+    "lACK\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\022+\n\005err"
+    "or\030\003 \002(\0162\022.message.GameError:\010Error_NO\"\?"
+    "\n\025MsgC2SCmdReqEnterGame\022\022\n\nchapter_id\030\001 "
+    "\002(\005\022\022\n\nsection_id\030\002 \002(\005\">\n\024MsgC2SCmdReqR"
+    "esetMap\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_i"
+    "d\030\002 \002(\005\"k\n\024MsgS2CCmdResetMapACK\022\022\n\nchapt"
+    "er_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022+\n\005error"
+    "\030\003 \002(\0162\022.message.GameError:\010Error_NO\"\027\n\025"
+    "MsgC2SCmdReqResetGame\"\256\001\n\025MsgS2CCmdReset"
+    "GameACK\022\"\n\004info\030\001 \002(\0132\024.message.MsgHeroD"
+    "ata\022#\n\033current_advertisement_count\030\002 \002(\005"
+    "\022\037\n\027last_advertisement_time\030\003 \002(\003\022+\n\005err"
+    "or\030\004 \002(\0162\022.message.GameError:\010Error_NO\"&"
+    "\n\026MsgC2SCmdReqModifyGold\022\014\n\004gold\030\001 \002(\005\"&"
+    "\n\026MsgS2CCmdModifyGoldACK\022\014\n\004gold\030\001 \002(\005\"-"
+    "\n\027MsgS2CCmdReqReplaceTask\022\022\n\ntask_count\030"
+    "\001 \002(\005\"q\n\027MsgS2CCmdReplaceTaskACK\022+\n\005erro"
+    "r\030\001 \002(\0162\022.message.GameError:\010Error_NO\022)\n"
+    "\005infos\030\002 \003(\0132\032.message.MsgTaskConfigInfo"
+    "\"(\n\027MsgC2SCmdReqModifyJewel\022\r\n\005jewel\030\001 \002"
+    "(\005\"]\n\027MsgS2CCmdModifyJewelACK\022\025\n\rcurrent"
+    "_jewel\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.Ga"
+    "meError:\010Error_NO\"*\n\030MsgC2SCmdReqModifyS"
+    "pirit\022\016\n\006spirit\030\001 \002(\005\"_\n\030MsgS2CCmdModify"
+    "SpiritACK\022\026\n\016current_spirit\030\001 \002(\005\022+\n\005err"
+    "or\030\002 \002(\0162\022.message.GameError:\010Error_NO\"\037"
+    "\n\035MsgC2SCmdReqResetDailyLottery\"L\n\035MsgS2"
+    "CCmdResetDailyLotteryACK\022+\n\005error\030\001 \002(\0162"
+    "\022.message.GameError:\010Error_NO\"\034\n\032MsgC2SC"
+    "mdReqResetDailyGame\"I\n\032MsgS2CCmdResetDai"
+    "lyGameACK\022+\n\005error\030\001 \002(\0162\022.message.GameE"
+    "rror:\010Error_NO*\251\023\n\tGameError\022\014\n\010Error_NO"
+    "\020\000\022*\n&Error_CanNotEnterGameTheInstanceIs"
+    "Lock\020\001\022+\n\'Error_CanNotEnterGameTheCharac"
+    "terIsLock\020\002\022)\n%Error_CanNotEnterGameTheS"
+    "ectionIsLock\020\003\022(\n$Error_CanNotEnterGameN"
+    "otEnoughSpirit\020\004\022$\n Error_CanNotBuyHeroN"
+    "otEnoughgold\020\005\0224\n0Error_CanNotPassGameTh"
+    "eInstanceNotHaveEnoughGold\020\006\022\035\n\031Error_No"
+    "tEnterTheExitGame\020\007\022)\n%Error_NotFoundThe"
+    "ChapterWhenEnterGame\020\010\022\035\n\031Error_TheChapt"
+    "erIsNotLock\020\t\0225\n1Error_UnlockChapterFail"
+    "edNotFoundTheUnlockChapter\020\n\0226\n2Error_Un"
+    "lockChapterFailedTheRequiredSectionNotPa"
+    "ss\020\013\0229\n5Error_UnlockChapterFailedYouHave"
+    "ToCompleteEnoughTasks\020\014\0221\n-Error_UnlockC"
+    "hapterFailedYouNotHaveEnoughGold\020\r\022,\n(Er"
+    "ror_RefreshAdvertisementTaskFailedInCD\020\016"
+    "\022<\n8Error_RefreshAdvertisementTaskFailed"
+    "NotFoundGiveUpTaskID\020\017\022.\n*Error_RefreshA"
+    "dvertisementTaskFailedUnknow\020\020\0225\n1Error_"
+    "RefreshAdvertisementTaskFailedNotEnoughG"
+    "old\020\021\022$\n Error_BuyHeroFailedNotEnoughGol"
+    "d\020\022\022$\n Error_BuyHeroFailedThePriceIsOld\020"
+    "\023\022#\n\037Error_BuyHeroFailedNotFoundGrid\020\024\022-"
+    "\n)Error_BuyHeroFailedNotPassRequiredSect"
+    "ion\020\025\022/\n+Error_ModifyCurrentFailedTheCha"
+    "racterIsLock\020\026\022%\n!Error_BuyGoldFailedNot"
+    "FoundConfig\020\027\022$\n Error_BuyGoldFailedNotF"
+    "oundOrder\020\030\0220\n,Error_BuyGoldFailedTheOrd"
+    "erHaveBeenCompleted\020\031\022-\n)Error_CreateDea"
+    "lFailedTheHttpErrorRespone\020\032\022.\n*Error_Cr"
+    "eateDealFailedTheHttpResponeFailed\020\033\0227\n3"
+    "Error_CreateDealDailedTheHttpResponeErro"
+    "rProduct_id\020\034\022-\n)Error_VerifyDealFailedT"
+    "heHttpErrorRespone\020\035\022.\n*Error_VerifyDeal"
+    "FailedTheHttpResponeFailed\020\036\022\'\n#Error_Bu"
+    "ySpiritFailedNotEnoughJewel\020\037\022,\n(Error_B"
+    "uySpiritFailedCanNotBuyMoreSpirit\020 \022\'\n#E"
+    "rror_BuySpiritFailedNotFoundConfig\020!\022\"\n\036"
+    "Error_CmdFailedRequiredGMLevel\020\"\022\"\n\036Erro"
+    "r_ReliveFailedNotEnoughGod\020#\022(\n$Error_Fa"
+    "iledToBuyLotionNotEnoughGold\020$\022)\n%Error_"
+    "FailedToBuyLotionNotEnoughJewel\020%\022,\n(Err"
+    "or_FailedToBuyLotionAlreadyHaveLotion\020&\022"
+    "\'\n#Error_FailedToBuyNotFoundThisLotion\020\'"
+    "\022,\n(Error_FailedExitGameNotFoundTheUseLo"
+    "tion\020(\022/\n+Error_FailedToLotteryTodayHave"
+    "BeenLotteried\020)\022.\n*Error_FailedToLottery"
+    "NothingCanBeLotteried\020*\022$\n Error_FailedT"
+    "oLotteryErrorRating\020+\022*\n&Error_FailedToL"
+    "otteryErrorLotionConfig\020,\022/\n+Error_Faile"
+    "dToApplyDealOrderNotFooundConfig\020-\022;\n7Er"
+    "ror_FailedToEnterDailyGameYouHaveBeenAlr"
+    "eadyBeginGame\020.\0222\n.Error_FailedToUpdateD"
+    "ailyProgressErrorProgress\020/\0224\n0Error_Fai"
+    "ledToUpdateDailyProgressTheGameNotBegin\020"
+    "0\022)\n%Error_FailedToUpdateDailyProgressNo"
+    "Hp\0201\022/\n+Error_FailedToReceivedDailyGameP"
+    "rizeNOPrize\0202\022.\n*Error_FailedToResetDail"
+    "yGameNotEnoughJewel\0203\022&\n\"Error_FailedToR"
+    "esetDailyGameUseOut\0204\0221\n-Error_FailedToR"
+    "esetDailyGameTheProgressIsZero\0205\022\020\n\014Erro"
+    "r_Unknow\0206*@\n\rLotionUseType\022\026\n\022LotionUse"
+    "Type_gold\020\001\022\027\n\023LotionUseType_jewel\020\002*G\n\014"
+    "enLotteryBox\022\021\n\rLottery_Jewel\020\000\022\020\n\014Lotte"
+    "ry_Gold\020\001\022\022\n\016Lottery_Lotion\020\002", 10509);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgC2SReqEnterDailyGame::default_instance_ = new MsgC2SReqEnterDailyGame();
@@ -2271,10 +2273,10 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CBuyHeroACK::default_instance_ = new MsgS2CBuyHeroACK();
   MsgC2SReqGoldShopConfigs::default_instance_ = new MsgC2SReqGoldShopConfigs();
   MsgS2CGoldShopConfigsACK::default_instance_ = new MsgS2CGoldShopConfigsACK();
-  MsgC2SReqCrearteIOSDeal::default_instance_ = new MsgC2SReqCrearteIOSDeal();
-  MsgS2CCrearteIOSDealACK::default_instance_ = new MsgS2CCrearteIOSDealACK();
-  MsgC2SReqVerifyDealIOS::default_instance_ = new MsgC2SReqVerifyDealIOS();
-  MsgS2CVerifyDealIOSACK::default_instance_ = new MsgS2CVerifyDealIOSACK();
+  MsgC2SReqCrearteDeal::default_instance_ = new MsgC2SReqCrearteDeal();
+  MsgS2CCrearteDealACK::default_instance_ = new MsgS2CCrearteDealACK();
+  MsgC2SReqVerifyDeal::default_instance_ = new MsgC2SReqVerifyDeal();
+  MsgS2CVerifyDealACK::default_instance_ = new MsgS2CVerifyDealACK();
   MsgC2SReqApplyDeal::default_instance_ = new MsgC2SReqApplyDeal();
   MsgS2CApplyDealACK::default_instance_ = new MsgS2CApplyDealACK();
   MsgS2CNotifyDealComplete::default_instance_ = new MsgS2CNotifyDealComplete();
@@ -2352,10 +2354,10 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CBuyHeroACK::default_instance_->InitAsDefaultInstance();
   MsgC2SReqGoldShopConfigs::default_instance_->InitAsDefaultInstance();
   MsgS2CGoldShopConfigsACK::default_instance_->InitAsDefaultInstance();
-  MsgC2SReqCrearteIOSDeal::default_instance_->InitAsDefaultInstance();
-  MsgS2CCrearteIOSDealACK::default_instance_->InitAsDefaultInstance();
-  MsgC2SReqVerifyDealIOS::default_instance_->InitAsDefaultInstance();
-  MsgS2CVerifyDealIOSACK::default_instance_->InitAsDefaultInstance();
+  MsgC2SReqCrearteDeal::default_instance_->InitAsDefaultInstance();
+  MsgS2CCrearteDealACK::default_instance_->InitAsDefaultInstance();
+  MsgC2SReqVerifyDeal::default_instance_->InitAsDefaultInstance();
+  MsgS2CVerifyDealACK::default_instance_->InitAsDefaultInstance();
   MsgC2SReqApplyDeal::default_instance_->InitAsDefaultInstance();
   MsgS2CApplyDealACK::default_instance_->InitAsDefaultInstance();
   MsgS2CNotifyDealComplete::default_instance_->InitAsDefaultInstance();
@@ -20260,72 +20262,77 @@ MsgS2CGoldShopConfigsACK::mutable_infos() {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgC2SReqCrearteIOSDeal::kKeyCodeFieldNumber;
+const int MsgC2SReqCrearteDeal::kKeyCodeFieldNumber;
+const int MsgC2SReqCrearteDeal::kChannelFieldNumber;
 #endif  // !_MSC_VER
 
-MsgC2SReqCrearteIOSDeal::MsgC2SReqCrearteIOSDeal()
+MsgC2SReqCrearteDeal::MsgC2SReqCrearteDeal()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgC2SReqCrearteIOSDeal)
+  // @@protoc_insertion_point(constructor:message.MsgC2SReqCrearteDeal)
 }
 
-void MsgC2SReqCrearteIOSDeal::InitAsDefaultInstance() {
+void MsgC2SReqCrearteDeal::InitAsDefaultInstance() {
 }
 
-MsgC2SReqCrearteIOSDeal::MsgC2SReqCrearteIOSDeal(const MsgC2SReqCrearteIOSDeal& from)
+MsgC2SReqCrearteDeal::MsgC2SReqCrearteDeal(const MsgC2SReqCrearteDeal& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgC2SReqCrearteIOSDeal)
+  // @@protoc_insertion_point(copy_constructor:message.MsgC2SReqCrearteDeal)
 }
 
-void MsgC2SReqCrearteIOSDeal::SharedCtor() {
+void MsgC2SReqCrearteDeal::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   key_code_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  channel_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgC2SReqCrearteIOSDeal::~MsgC2SReqCrearteIOSDeal() {
-  // @@protoc_insertion_point(destructor:message.MsgC2SReqCrearteIOSDeal)
+MsgC2SReqCrearteDeal::~MsgC2SReqCrearteDeal() {
+  // @@protoc_insertion_point(destructor:message.MsgC2SReqCrearteDeal)
   SharedDtor();
 }
 
-void MsgC2SReqCrearteIOSDeal::SharedDtor() {
+void MsgC2SReqCrearteDeal::SharedDtor() {
   key_code_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void MsgC2SReqCrearteIOSDeal::SetCachedSize(int size) const {
+void MsgC2SReqCrearteDeal::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgC2SReqCrearteIOSDeal::descriptor() {
+const ::google::protobuf::Descriptor* MsgC2SReqCrearteDeal::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgC2SReqCrearteIOSDeal_descriptor_;
+  return MsgC2SReqCrearteDeal_descriptor_;
 }
 
-const MsgC2SReqCrearteIOSDeal& MsgC2SReqCrearteIOSDeal::default_instance() {
+const MsgC2SReqCrearteDeal& MsgC2SReqCrearteDeal::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
   return *default_instance_;
 }
 
-MsgC2SReqCrearteIOSDeal* MsgC2SReqCrearteIOSDeal::default_instance_ = NULL;
+MsgC2SReqCrearteDeal* MsgC2SReqCrearteDeal::default_instance_ = NULL;
 
-MsgC2SReqCrearteIOSDeal* MsgC2SReqCrearteIOSDeal::New(::google::protobuf::Arena* arena) const {
-  MsgC2SReqCrearteIOSDeal* n = new MsgC2SReqCrearteIOSDeal;
+MsgC2SReqCrearteDeal* MsgC2SReqCrearteDeal::New(::google::protobuf::Arena* arena) const {
+  MsgC2SReqCrearteDeal* n = new MsgC2SReqCrearteDeal;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void MsgC2SReqCrearteIOSDeal::Clear() {
-  if (has_key_code()) {
-    key_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void MsgC2SReqCrearteDeal::Clear() {
+  if (_has_bits_[0 / 32] & 3) {
+    if (has_key_code()) {
+      key_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    channel_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -20333,11 +20340,11 @@ void MsgC2SReqCrearteIOSDeal::Clear() {
   }
 }
 
-bool MsgC2SReqCrearteIOSDeal::MergePartialFromCodedStream(
+bool MsgC2SReqCrearteDeal::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgC2SReqCrearteIOSDeal)
+  // @@protoc_insertion_point(parse_start:message.MsgC2SReqCrearteDeal)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -20351,7 +20358,22 @@ bool MsgC2SReqCrearteIOSDeal::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->key_code().data(), this->key_code().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "message.MsgC2SReqCrearteIOSDeal.key_code");
+            "message.MsgC2SReqCrearteDeal.key_code");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_channel;
+        break;
+      }
+
+      // required int32 channel = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_channel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &channel_)));
+          set_has_channel();
         } else {
           goto handle_unusual;
         }
@@ -20373,64 +20395,101 @@ bool MsgC2SReqCrearteIOSDeal::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:message.MsgC2SReqCrearteIOSDeal)
+  // @@protoc_insertion_point(parse_success:message.MsgC2SReqCrearteDeal)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgC2SReqCrearteIOSDeal)
+  // @@protoc_insertion_point(parse_failure:message.MsgC2SReqCrearteDeal)
   return false;
 #undef DO_
 }
 
-void MsgC2SReqCrearteIOSDeal::SerializeWithCachedSizes(
+void MsgC2SReqCrearteDeal::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgC2SReqCrearteIOSDeal)
+  // @@protoc_insertion_point(serialize_start:message.MsgC2SReqCrearteDeal)
   // required string key_code = 1;
   if (has_key_code()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->key_code().data(), this->key_code().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgC2SReqCrearteIOSDeal.key_code");
+      "message.MsgC2SReqCrearteDeal.key_code");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->key_code(), output);
+  }
+
+  // required int32 channel = 2;
+  if (has_channel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->channel(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:message.MsgC2SReqCrearteIOSDeal)
+  // @@protoc_insertion_point(serialize_end:message.MsgC2SReqCrearteDeal)
 }
 
-::google::protobuf::uint8* MsgC2SReqCrearteIOSDeal::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgC2SReqCrearteDeal::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SReqCrearteIOSDeal)
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SReqCrearteDeal)
   // required string key_code = 1;
   if (has_key_code()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->key_code().data(), this->key_code().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgC2SReqCrearteIOSDeal.key_code");
+      "message.MsgC2SReqCrearteDeal.key_code");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->key_code(), target);
+  }
+
+  // required int32 channel = 2;
+  if (has_channel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->channel(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SReqCrearteIOSDeal)
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SReqCrearteDeal)
   return target;
 }
 
-int MsgC2SReqCrearteIOSDeal::ByteSize() const {
+int MsgC2SReqCrearteDeal::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
-  // required string key_code = 1;
   if (has_key_code()) {
+    // required string key_code = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->key_code());
+  }
+
+  if (has_channel()) {
+    // required int32 channel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->channel());
+  }
+
+  return total_size;
+}
+int MsgC2SReqCrearteDeal::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required string key_code = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key_code());
+
+    // required int32 channel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->channel());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -20443,10 +20502,10 @@ int MsgC2SReqCrearteIOSDeal::ByteSize() const {
   return total_size;
 }
 
-void MsgC2SReqCrearteIOSDeal::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgC2SReqCrearteDeal::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgC2SReqCrearteIOSDeal* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SReqCrearteIOSDeal*>(
+  const MsgC2SReqCrearteDeal* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SReqCrearteDeal*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -20455,12 +20514,15 @@ void MsgC2SReqCrearteIOSDeal::MergeFrom(const ::google::protobuf::Message& from)
   }
 }
 
-void MsgC2SReqCrearteIOSDeal::MergeFrom(const MsgC2SReqCrearteIOSDeal& from) {
+void MsgC2SReqCrearteDeal::MergeFrom(const MsgC2SReqCrearteDeal& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_key_code()) {
       set_has_key_code();
       key_code_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_code_);
+    }
+    if (from.has_channel()) {
+      set_channel(from.channel());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -20468,97 +20530,122 @@ void MsgC2SReqCrearteIOSDeal::MergeFrom(const MsgC2SReqCrearteIOSDeal& from) {
   }
 }
 
-void MsgC2SReqCrearteIOSDeal::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgC2SReqCrearteDeal::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgC2SReqCrearteIOSDeal::CopyFrom(const MsgC2SReqCrearteIOSDeal& from) {
+void MsgC2SReqCrearteDeal::CopyFrom(const MsgC2SReqCrearteDeal& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgC2SReqCrearteIOSDeal::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+bool MsgC2SReqCrearteDeal::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
-void MsgC2SReqCrearteIOSDeal::Swap(MsgC2SReqCrearteIOSDeal* other) {
+void MsgC2SReqCrearteDeal::Swap(MsgC2SReqCrearteDeal* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgC2SReqCrearteIOSDeal::InternalSwap(MsgC2SReqCrearteIOSDeal* other) {
+void MsgC2SReqCrearteDeal::InternalSwap(MsgC2SReqCrearteDeal* other) {
   key_code_.Swap(&other->key_code_);
+  std::swap(channel_, other->channel_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata MsgC2SReqCrearteIOSDeal::GetMetadata() const {
+::google::protobuf::Metadata MsgC2SReqCrearteDeal::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgC2SReqCrearteIOSDeal_descriptor_;
-  metadata.reflection = MsgC2SReqCrearteIOSDeal_reflection_;
+  metadata.descriptor = MsgC2SReqCrearteDeal_descriptor_;
+  metadata.reflection = MsgC2SReqCrearteDeal_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgC2SReqCrearteIOSDeal
+// MsgC2SReqCrearteDeal
 
 // required string key_code = 1;
- bool MsgC2SReqCrearteIOSDeal::has_key_code() const {
+ bool MsgC2SReqCrearteDeal::has_key_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgC2SReqCrearteIOSDeal::set_has_key_code() {
+ void MsgC2SReqCrearteDeal::set_has_key_code() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgC2SReqCrearteIOSDeal::clear_has_key_code() {
+ void MsgC2SReqCrearteDeal::clear_has_key_code() {
   _has_bits_[0] &= ~0x00000001u;
 }
- void MsgC2SReqCrearteIOSDeal::clear_key_code() {
+ void MsgC2SReqCrearteDeal::clear_key_code() {
   key_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_key_code();
 }
- const ::std::string& MsgC2SReqCrearteIOSDeal::key_code() const {
-  // @@protoc_insertion_point(field_get:message.MsgC2SReqCrearteIOSDeal.key_code)
+ const ::std::string& MsgC2SReqCrearteDeal::key_code() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqCrearteDeal.key_code)
   return key_code_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgC2SReqCrearteIOSDeal::set_key_code(const ::std::string& value) {
+ void MsgC2SReqCrearteDeal::set_key_code(const ::std::string& value) {
   set_has_key_code();
   key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgC2SReqCrearteIOSDeal.key_code)
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqCrearteDeal.key_code)
 }
- void MsgC2SReqCrearteIOSDeal::set_key_code(const char* value) {
+ void MsgC2SReqCrearteDeal::set_key_code(const char* value) {
   set_has_key_code();
   key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgC2SReqCrearteIOSDeal.key_code)
+  // @@protoc_insertion_point(field_set_char:message.MsgC2SReqCrearteDeal.key_code)
 }
- void MsgC2SReqCrearteIOSDeal::set_key_code(const char* value, size_t size) {
+ void MsgC2SReqCrearteDeal::set_key_code(const char* value, size_t size) {
   set_has_key_code();
   key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgC2SReqCrearteIOSDeal.key_code)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgC2SReqCrearteDeal.key_code)
 }
- ::std::string* MsgC2SReqCrearteIOSDeal::mutable_key_code() {
+ ::std::string* MsgC2SReqCrearteDeal::mutable_key_code() {
   set_has_key_code();
-  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqCrearteIOSDeal.key_code)
+  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqCrearteDeal.key_code)
   return key_code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* MsgC2SReqCrearteIOSDeal::release_key_code() {
+ ::std::string* MsgC2SReqCrearteDeal::release_key_code() {
   clear_has_key_code();
   return key_code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgC2SReqCrearteIOSDeal::set_allocated_key_code(::std::string* key_code) {
+ void MsgC2SReqCrearteDeal::set_allocated_key_code(::std::string* key_code) {
   if (key_code != NULL) {
     set_has_key_code();
   } else {
     clear_has_key_code();
   }
   key_code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key_code);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgC2SReqCrearteIOSDeal.key_code)
+  // @@protoc_insertion_point(field_set_allocated:message.MsgC2SReqCrearteDeal.key_code)
+}
+
+// required int32 channel = 2;
+ bool MsgC2SReqCrearteDeal::has_channel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgC2SReqCrearteDeal::set_has_channel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgC2SReqCrearteDeal::clear_has_channel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgC2SReqCrearteDeal::clear_channel() {
+  channel_ = 0;
+  clear_has_channel();
+}
+ ::google::protobuf::int32 MsgC2SReqCrearteDeal::channel() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqCrearteDeal.channel)
+  return channel_;
+}
+ void MsgC2SReqCrearteDeal::set_channel(::google::protobuf::int32 value) {
+  set_has_channel();
+  channel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqCrearteDeal.channel)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -20566,31 +20653,31 @@ void MsgC2SReqCrearteIOSDeal::InternalSwap(MsgC2SReqCrearteIOSDeal* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgS2CCrearteIOSDealACK::kKeyCodeFieldNumber;
-const int MsgS2CCrearteIOSDealACK::kStatusFieldNumber;
-const int MsgS2CCrearteIOSDealACK::kPriceFieldNumber;
-const int MsgS2CCrearteIOSDealACK::kOrderIdFieldNumber;
-const int MsgS2CCrearteIOSDealACK::kErrorFieldNumber;
+const int MsgS2CCrearteDealACK::kKeyCodeFieldNumber;
+const int MsgS2CCrearteDealACK::kStatusFieldNumber;
+const int MsgS2CCrearteDealACK::kPriceFieldNumber;
+const int MsgS2CCrearteDealACK::kOrderIdFieldNumber;
+const int MsgS2CCrearteDealACK::kErrorFieldNumber;
 #endif  // !_MSC_VER
 
-MsgS2CCrearteIOSDealACK::MsgS2CCrearteIOSDealACK()
+MsgS2CCrearteDealACK::MsgS2CCrearteDealACK()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgS2CCrearteIOSDealACK)
+  // @@protoc_insertion_point(constructor:message.MsgS2CCrearteDealACK)
 }
 
-void MsgS2CCrearteIOSDealACK::InitAsDefaultInstance() {
+void MsgS2CCrearteDealACK::InitAsDefaultInstance() {
 }
 
-MsgS2CCrearteIOSDealACK::MsgS2CCrearteIOSDealACK(const MsgS2CCrearteIOSDealACK& from)
+MsgS2CCrearteDealACK::MsgS2CCrearteDealACK(const MsgS2CCrearteDealACK& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgS2CCrearteIOSDealACK)
+  // @@protoc_insertion_point(copy_constructor:message.MsgS2CCrearteDealACK)
 }
 
-void MsgS2CCrearteIOSDealACK::SharedCtor() {
+void MsgS2CCrearteDealACK::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   key_code_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -20601,45 +20688,45 @@ void MsgS2CCrearteIOSDealACK::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgS2CCrearteIOSDealACK::~MsgS2CCrearteIOSDealACK() {
-  // @@protoc_insertion_point(destructor:message.MsgS2CCrearteIOSDealACK)
+MsgS2CCrearteDealACK::~MsgS2CCrearteDealACK() {
+  // @@protoc_insertion_point(destructor:message.MsgS2CCrearteDealACK)
   SharedDtor();
 }
 
-void MsgS2CCrearteIOSDealACK::SharedDtor() {
+void MsgS2CCrearteDealACK::SharedDtor() {
   key_code_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void MsgS2CCrearteIOSDealACK::SetCachedSize(int size) const {
+void MsgS2CCrearteDealACK::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgS2CCrearteIOSDealACK::descriptor() {
+const ::google::protobuf::Descriptor* MsgS2CCrearteDealACK::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgS2CCrearteIOSDealACK_descriptor_;
+  return MsgS2CCrearteDealACK_descriptor_;
 }
 
-const MsgS2CCrearteIOSDealACK& MsgS2CCrearteIOSDealACK::default_instance() {
+const MsgS2CCrearteDealACK& MsgS2CCrearteDealACK::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
   return *default_instance_;
 }
 
-MsgS2CCrearteIOSDealACK* MsgS2CCrearteIOSDealACK::default_instance_ = NULL;
+MsgS2CCrearteDealACK* MsgS2CCrearteDealACK::default_instance_ = NULL;
 
-MsgS2CCrearteIOSDealACK* MsgS2CCrearteIOSDealACK::New(::google::protobuf::Arena* arena) const {
-  MsgS2CCrearteIOSDealACK* n = new MsgS2CCrearteIOSDealACK;
+MsgS2CCrearteDealACK* MsgS2CCrearteDealACK::New(::google::protobuf::Arena* arena) const {
+  MsgS2CCrearteDealACK* n = new MsgS2CCrearteDealACK;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void MsgS2CCrearteIOSDealACK::Clear() {
+void MsgS2CCrearteDealACK::Clear() {
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<MsgS2CCrearteIOSDealACK*>(16)->f)
+  &reinterpret_cast<MsgS2CCrearteDealACK*>(16)->f)
 
 #define ZR_(first, last) do {\
   ::memset(&first, 0,\
@@ -20662,11 +20749,11 @@ void MsgS2CCrearteIOSDealACK::Clear() {
   }
 }
 
-bool MsgS2CCrearteIOSDealACK::MergePartialFromCodedStream(
+bool MsgS2CCrearteDealACK::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgS2CCrearteIOSDealACK)
+  // @@protoc_insertion_point(parse_start:message.MsgS2CCrearteDealACK)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -20680,7 +20767,7 @@ bool MsgS2CCrearteIOSDealACK::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->key_code().data(), this->key_code().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "message.MsgS2CCrearteIOSDealACK.key_code");
+            "message.MsgS2CCrearteDealACK.key_code");
         } else {
           goto handle_unusual;
         }
@@ -20767,23 +20854,23 @@ bool MsgS2CCrearteIOSDealACK::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:message.MsgS2CCrearteIOSDealACK)
+  // @@protoc_insertion_point(parse_success:message.MsgS2CCrearteDealACK)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgS2CCrearteIOSDealACK)
+  // @@protoc_insertion_point(parse_failure:message.MsgS2CCrearteDealACK)
   return false;
 #undef DO_
 }
 
-void MsgS2CCrearteIOSDealACK::SerializeWithCachedSizes(
+void MsgS2CCrearteDealACK::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgS2CCrearteIOSDealACK)
+  // @@protoc_insertion_point(serialize_start:message.MsgS2CCrearteDealACK)
   // required string key_code = 1;
   if (has_key_code()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->key_code().data(), this->key_code().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgS2CCrearteIOSDealACK.key_code");
+      "message.MsgS2CCrearteDealACK.key_code");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->key_code(), output);
   }
@@ -20813,18 +20900,18 @@ void MsgS2CCrearteIOSDealACK::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:message.MsgS2CCrearteIOSDealACK)
+  // @@protoc_insertion_point(serialize_end:message.MsgS2CCrearteDealACK)
 }
 
-::google::protobuf::uint8* MsgS2CCrearteIOSDealACK::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgS2CCrearteDealACK::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CCrearteIOSDealACK)
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CCrearteDealACK)
   // required string key_code = 1;
   if (has_key_code()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->key_code().data(), this->key_code().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgS2CCrearteIOSDealACK.key_code");
+      "message.MsgS2CCrearteDealACK.key_code");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->key_code(), target);
@@ -20855,11 +20942,11 @@ void MsgS2CCrearteIOSDealACK::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CCrearteIOSDealACK)
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CCrearteDealACK)
   return target;
 }
 
-int MsgS2CCrearteIOSDealACK::RequiredFieldsByteSizeFallback() const {
+int MsgS2CCrearteDealACK::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_key_code()) {
@@ -20898,7 +20985,7 @@ int MsgS2CCrearteIOSDealACK::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-int MsgS2CCrearteIOSDealACK::ByteSize() const {
+int MsgS2CCrearteDealACK::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
@@ -20940,10 +21027,10 @@ int MsgS2CCrearteIOSDealACK::ByteSize() const {
   return total_size;
 }
 
-void MsgS2CCrearteIOSDealACK::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgS2CCrearteDealACK::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgS2CCrearteIOSDealACK* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CCrearteIOSDealACK*>(
+  const MsgS2CCrearteDealACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CCrearteDealACK*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -20952,7 +21039,7 @@ void MsgS2CCrearteIOSDealACK::MergeFrom(const ::google::protobuf::Message& from)
   }
 }
 
-void MsgS2CCrearteIOSDealACK::MergeFrom(const MsgS2CCrearteIOSDealACK& from) {
+void MsgS2CCrearteDealACK::MergeFrom(const MsgS2CCrearteDealACK& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_key_code()) {
@@ -20977,29 +21064,29 @@ void MsgS2CCrearteIOSDealACK::MergeFrom(const MsgS2CCrearteIOSDealACK& from) {
   }
 }
 
-void MsgS2CCrearteIOSDealACK::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgS2CCrearteDealACK::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgS2CCrearteIOSDealACK::CopyFrom(const MsgS2CCrearteIOSDealACK& from) {
+void MsgS2CCrearteDealACK::CopyFrom(const MsgS2CCrearteDealACK& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgS2CCrearteIOSDealACK::IsInitialized() const {
+bool MsgS2CCrearteDealACK::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
 
   return true;
 }
 
-void MsgS2CCrearteIOSDealACK::Swap(MsgS2CCrearteIOSDealACK* other) {
+void MsgS2CCrearteDealACK::Swap(MsgS2CCrearteDealACK* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgS2CCrearteIOSDealACK::InternalSwap(MsgS2CCrearteIOSDealACK* other) {
+void MsgS2CCrearteDealACK::InternalSwap(MsgS2CCrearteDealACK* other) {
   key_code_.Swap(&other->key_code_);
   std::swap(status_, other->status_);
   std::swap(price_, other->price_);
@@ -21010,165 +21097,165 @@ void MsgS2CCrearteIOSDealACK::InternalSwap(MsgS2CCrearteIOSDealACK* other) {
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata MsgS2CCrearteIOSDealACK::GetMetadata() const {
+::google::protobuf::Metadata MsgS2CCrearteDealACK::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgS2CCrearteIOSDealACK_descriptor_;
-  metadata.reflection = MsgS2CCrearteIOSDealACK_reflection_;
+  metadata.descriptor = MsgS2CCrearteDealACK_descriptor_;
+  metadata.reflection = MsgS2CCrearteDealACK_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgS2CCrearteIOSDealACK
+// MsgS2CCrearteDealACK
 
 // required string key_code = 1;
- bool MsgS2CCrearteIOSDealACK::has_key_code() const {
+ bool MsgS2CCrearteDealACK::has_key_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgS2CCrearteIOSDealACK::set_has_key_code() {
+ void MsgS2CCrearteDealACK::set_has_key_code() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgS2CCrearteIOSDealACK::clear_has_key_code() {
+ void MsgS2CCrearteDealACK::clear_has_key_code() {
   _has_bits_[0] &= ~0x00000001u;
 }
- void MsgS2CCrearteIOSDealACK::clear_key_code() {
+ void MsgS2CCrearteDealACK::clear_key_code() {
   key_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_key_code();
 }
- const ::std::string& MsgS2CCrearteIOSDealACK::key_code() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.key_code)
+ const ::std::string& MsgS2CCrearteDealACK::key_code() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteDealACK.key_code)
   return key_code_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgS2CCrearteIOSDealACK::set_key_code(const ::std::string& value) {
+ void MsgS2CCrearteDealACK::set_key_code(const ::std::string& value) {
   set_has_key_code();
   key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.key_code)
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.key_code)
 }
- void MsgS2CCrearteIOSDealACK::set_key_code(const char* value) {
+ void MsgS2CCrearteDealACK::set_key_code(const char* value) {
   set_has_key_code();
   key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgS2CCrearteIOSDealACK.key_code)
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CCrearteDealACK.key_code)
 }
- void MsgS2CCrearteIOSDealACK::set_key_code(const char* value, size_t size) {
+ void MsgS2CCrearteDealACK::set_key_code(const char* value, size_t size) {
   set_has_key_code();
   key_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CCrearteIOSDealACK.key_code)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CCrearteDealACK.key_code)
 }
- ::std::string* MsgS2CCrearteIOSDealACK::mutable_key_code() {
+ ::std::string* MsgS2CCrearteDealACK::mutable_key_code() {
   set_has_key_code();
-  // @@protoc_insertion_point(field_mutable:message.MsgS2CCrearteIOSDealACK.key_code)
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CCrearteDealACK.key_code)
   return key_code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* MsgS2CCrearteIOSDealACK::release_key_code() {
+ ::std::string* MsgS2CCrearteDealACK::release_key_code() {
   clear_has_key_code();
   return key_code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgS2CCrearteIOSDealACK::set_allocated_key_code(::std::string* key_code) {
+ void MsgS2CCrearteDealACK::set_allocated_key_code(::std::string* key_code) {
   if (key_code != NULL) {
     set_has_key_code();
   } else {
     clear_has_key_code();
   }
   key_code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key_code);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CCrearteIOSDealACK.key_code)
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CCrearteDealACK.key_code)
 }
 
 // required int32 status = 2;
- bool MsgS2CCrearteIOSDealACK::has_status() const {
+ bool MsgS2CCrearteDealACK::has_status() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
- void MsgS2CCrearteIOSDealACK::set_has_status() {
+ void MsgS2CCrearteDealACK::set_has_status() {
   _has_bits_[0] |= 0x00000002u;
 }
- void MsgS2CCrearteIOSDealACK::clear_has_status() {
+ void MsgS2CCrearteDealACK::clear_has_status() {
   _has_bits_[0] &= ~0x00000002u;
 }
- void MsgS2CCrearteIOSDealACK::clear_status() {
+ void MsgS2CCrearteDealACK::clear_status() {
   status_ = 0;
   clear_has_status();
 }
- ::google::protobuf::int32 MsgS2CCrearteIOSDealACK::status() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.status)
+ ::google::protobuf::int32 MsgS2CCrearteDealACK::status() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteDealACK.status)
   return status_;
 }
- void MsgS2CCrearteIOSDealACK::set_status(::google::protobuf::int32 value) {
+ void MsgS2CCrearteDealACK::set_status(::google::protobuf::int32 value) {
   set_has_status();
   status_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.status)
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.status)
 }
 
 // required int32 price = 3;
- bool MsgS2CCrearteIOSDealACK::has_price() const {
+ bool MsgS2CCrearteDealACK::has_price() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
- void MsgS2CCrearteIOSDealACK::set_has_price() {
+ void MsgS2CCrearteDealACK::set_has_price() {
   _has_bits_[0] |= 0x00000004u;
 }
- void MsgS2CCrearteIOSDealACK::clear_has_price() {
+ void MsgS2CCrearteDealACK::clear_has_price() {
   _has_bits_[0] &= ~0x00000004u;
 }
- void MsgS2CCrearteIOSDealACK::clear_price() {
+ void MsgS2CCrearteDealACK::clear_price() {
   price_ = 0;
   clear_has_price();
 }
- ::google::protobuf::int32 MsgS2CCrearteIOSDealACK::price() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.price)
+ ::google::protobuf::int32 MsgS2CCrearteDealACK::price() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteDealACK.price)
   return price_;
 }
- void MsgS2CCrearteIOSDealACK::set_price(::google::protobuf::int32 value) {
+ void MsgS2CCrearteDealACK::set_price(::google::protobuf::int32 value) {
   set_has_price();
   price_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.price)
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.price)
 }
 
 // required int32 order_id = 4;
- bool MsgS2CCrearteIOSDealACK::has_order_id() const {
+ bool MsgS2CCrearteDealACK::has_order_id() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
- void MsgS2CCrearteIOSDealACK::set_has_order_id() {
+ void MsgS2CCrearteDealACK::set_has_order_id() {
   _has_bits_[0] |= 0x00000008u;
 }
- void MsgS2CCrearteIOSDealACK::clear_has_order_id() {
+ void MsgS2CCrearteDealACK::clear_has_order_id() {
   _has_bits_[0] &= ~0x00000008u;
 }
- void MsgS2CCrearteIOSDealACK::clear_order_id() {
+ void MsgS2CCrearteDealACK::clear_order_id() {
   order_id_ = 0;
   clear_has_order_id();
 }
- ::google::protobuf::int32 MsgS2CCrearteIOSDealACK::order_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.order_id)
+ ::google::protobuf::int32 MsgS2CCrearteDealACK::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteDealACK.order_id)
   return order_id_;
 }
- void MsgS2CCrearteIOSDealACK::set_order_id(::google::protobuf::int32 value) {
+ void MsgS2CCrearteDealACK::set_order_id(::google::protobuf::int32 value) {
   set_has_order_id();
   order_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.order_id)
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.order_id)
 }
 
 // required .message.GameError error = 5 [default = Error_NO];
- bool MsgS2CCrearteIOSDealACK::has_error() const {
+ bool MsgS2CCrearteDealACK::has_error() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
- void MsgS2CCrearteIOSDealACK::set_has_error() {
+ void MsgS2CCrearteDealACK::set_has_error() {
   _has_bits_[0] |= 0x00000010u;
 }
- void MsgS2CCrearteIOSDealACK::clear_has_error() {
+ void MsgS2CCrearteDealACK::clear_has_error() {
   _has_bits_[0] &= ~0x00000010u;
 }
- void MsgS2CCrearteIOSDealACK::clear_error() {
+ void MsgS2CCrearteDealACK::clear_error() {
   error_ = 0;
   clear_has_error();
 }
- ::message::GameError MsgS2CCrearteIOSDealACK::error() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteIOSDealACK.error)
+ ::message::GameError MsgS2CCrearteDealACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteDealACK.error)
   return static_cast< ::message::GameError >(error_);
 }
- void MsgS2CCrearteIOSDealACK::set_error(::message::GameError value) {
+ void MsgS2CCrearteDealACK::set_error(::message::GameError value) {
   assert(::message::GameError_IsValid(value));
   set_has_error();
   error_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteIOSDealACK.error)
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.error)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -21176,28 +21263,28 @@ void MsgS2CCrearteIOSDealACK::InternalSwap(MsgS2CCrearteIOSDealACK* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgC2SReqVerifyDealIOS::kReceiptFieldNumber;
-const int MsgC2SReqVerifyDealIOS::kOrderIdFieldNumber;
+const int MsgC2SReqVerifyDeal::kReceiptFieldNumber;
+const int MsgC2SReqVerifyDeal::kOrderIdFieldNumber;
 #endif  // !_MSC_VER
 
-MsgC2SReqVerifyDealIOS::MsgC2SReqVerifyDealIOS()
+MsgC2SReqVerifyDeal::MsgC2SReqVerifyDeal()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgC2SReqVerifyDealIOS)
+  // @@protoc_insertion_point(constructor:message.MsgC2SReqVerifyDeal)
 }
 
-void MsgC2SReqVerifyDealIOS::InitAsDefaultInstance() {
+void MsgC2SReqVerifyDeal::InitAsDefaultInstance() {
 }
 
-MsgC2SReqVerifyDealIOS::MsgC2SReqVerifyDealIOS(const MsgC2SReqVerifyDealIOS& from)
+MsgC2SReqVerifyDeal::MsgC2SReqVerifyDeal(const MsgC2SReqVerifyDeal& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgC2SReqVerifyDealIOS)
+  // @@protoc_insertion_point(copy_constructor:message.MsgC2SReqVerifyDeal)
 }
 
-void MsgC2SReqVerifyDealIOS::SharedCtor() {
+void MsgC2SReqVerifyDeal::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   receipt_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -21205,43 +21292,43 @@ void MsgC2SReqVerifyDealIOS::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgC2SReqVerifyDealIOS::~MsgC2SReqVerifyDealIOS() {
-  // @@protoc_insertion_point(destructor:message.MsgC2SReqVerifyDealIOS)
+MsgC2SReqVerifyDeal::~MsgC2SReqVerifyDeal() {
+  // @@protoc_insertion_point(destructor:message.MsgC2SReqVerifyDeal)
   SharedDtor();
 }
 
-void MsgC2SReqVerifyDealIOS::SharedDtor() {
+void MsgC2SReqVerifyDeal::SharedDtor() {
   receipt_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void MsgC2SReqVerifyDealIOS::SetCachedSize(int size) const {
+void MsgC2SReqVerifyDeal::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgC2SReqVerifyDealIOS::descriptor() {
+const ::google::protobuf::Descriptor* MsgC2SReqVerifyDeal::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgC2SReqVerifyDealIOS_descriptor_;
+  return MsgC2SReqVerifyDeal_descriptor_;
 }
 
-const MsgC2SReqVerifyDealIOS& MsgC2SReqVerifyDealIOS::default_instance() {
+const MsgC2SReqVerifyDeal& MsgC2SReqVerifyDeal::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
   return *default_instance_;
 }
 
-MsgC2SReqVerifyDealIOS* MsgC2SReqVerifyDealIOS::default_instance_ = NULL;
+MsgC2SReqVerifyDeal* MsgC2SReqVerifyDeal::default_instance_ = NULL;
 
-MsgC2SReqVerifyDealIOS* MsgC2SReqVerifyDealIOS::New(::google::protobuf::Arena* arena) const {
-  MsgC2SReqVerifyDealIOS* n = new MsgC2SReqVerifyDealIOS;
+MsgC2SReqVerifyDeal* MsgC2SReqVerifyDeal::New(::google::protobuf::Arena* arena) const {
+  MsgC2SReqVerifyDeal* n = new MsgC2SReqVerifyDeal;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void MsgC2SReqVerifyDealIOS::Clear() {
+void MsgC2SReqVerifyDeal::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     if (has_receipt()) {
       receipt_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -21254,11 +21341,11 @@ void MsgC2SReqVerifyDealIOS::Clear() {
   }
 }
 
-bool MsgC2SReqVerifyDealIOS::MergePartialFromCodedStream(
+bool MsgC2SReqVerifyDeal::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgC2SReqVerifyDealIOS)
+  // @@protoc_insertion_point(parse_start:message.MsgC2SReqVerifyDeal)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -21272,7 +21359,7 @@ bool MsgC2SReqVerifyDealIOS::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->receipt().data(), this->receipt().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "message.MsgC2SReqVerifyDealIOS.receipt");
+            "message.MsgC2SReqVerifyDeal.receipt");
         } else {
           goto handle_unusual;
         }
@@ -21309,23 +21396,23 @@ bool MsgC2SReqVerifyDealIOS::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:message.MsgC2SReqVerifyDealIOS)
+  // @@protoc_insertion_point(parse_success:message.MsgC2SReqVerifyDeal)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgC2SReqVerifyDealIOS)
+  // @@protoc_insertion_point(parse_failure:message.MsgC2SReqVerifyDeal)
   return false;
 #undef DO_
 }
 
-void MsgC2SReqVerifyDealIOS::SerializeWithCachedSizes(
+void MsgC2SReqVerifyDeal::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgC2SReqVerifyDealIOS)
+  // @@protoc_insertion_point(serialize_start:message.MsgC2SReqVerifyDeal)
   // required string receipt = 1;
   if (has_receipt()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->receipt().data(), this->receipt().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgC2SReqVerifyDealIOS.receipt");
+      "message.MsgC2SReqVerifyDeal.receipt");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->receipt(), output);
   }
@@ -21339,18 +21426,18 @@ void MsgC2SReqVerifyDealIOS::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:message.MsgC2SReqVerifyDealIOS)
+  // @@protoc_insertion_point(serialize_end:message.MsgC2SReqVerifyDeal)
 }
 
-::google::protobuf::uint8* MsgC2SReqVerifyDealIOS::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgC2SReqVerifyDeal::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SReqVerifyDealIOS)
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SReqVerifyDeal)
   // required string receipt = 1;
   if (has_receipt()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->receipt().data(), this->receipt().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgC2SReqVerifyDealIOS.receipt");
+      "message.MsgC2SReqVerifyDeal.receipt");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->receipt(), target);
@@ -21365,11 +21452,11 @@ void MsgC2SReqVerifyDealIOS::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SReqVerifyDealIOS)
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SReqVerifyDeal)
   return target;
 }
 
-int MsgC2SReqVerifyDealIOS::RequiredFieldsByteSizeFallback() const {
+int MsgC2SReqVerifyDeal::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_receipt()) {
@@ -21388,7 +21475,7 @@ int MsgC2SReqVerifyDealIOS::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-int MsgC2SReqVerifyDealIOS::ByteSize() const {
+int MsgC2SReqVerifyDeal::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
@@ -21416,10 +21503,10 @@ int MsgC2SReqVerifyDealIOS::ByteSize() const {
   return total_size;
 }
 
-void MsgC2SReqVerifyDealIOS::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgC2SReqVerifyDeal::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgC2SReqVerifyDealIOS* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SReqVerifyDealIOS*>(
+  const MsgC2SReqVerifyDeal* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SReqVerifyDeal*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -21428,7 +21515,7 @@ void MsgC2SReqVerifyDealIOS::MergeFrom(const ::google::protobuf::Message& from) 
   }
 }
 
-void MsgC2SReqVerifyDealIOS::MergeFrom(const MsgC2SReqVerifyDealIOS& from) {
+void MsgC2SReqVerifyDeal::MergeFrom(const MsgC2SReqVerifyDeal& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_receipt()) {
@@ -21444,29 +21531,29 @@ void MsgC2SReqVerifyDealIOS::MergeFrom(const MsgC2SReqVerifyDealIOS& from) {
   }
 }
 
-void MsgC2SReqVerifyDealIOS::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgC2SReqVerifyDeal::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgC2SReqVerifyDealIOS::CopyFrom(const MsgC2SReqVerifyDealIOS& from) {
+void MsgC2SReqVerifyDeal::CopyFrom(const MsgC2SReqVerifyDeal& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgC2SReqVerifyDealIOS::IsInitialized() const {
+bool MsgC2SReqVerifyDeal::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
-void MsgC2SReqVerifyDealIOS::Swap(MsgC2SReqVerifyDealIOS* other) {
+void MsgC2SReqVerifyDeal::Swap(MsgC2SReqVerifyDeal* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgC2SReqVerifyDealIOS::InternalSwap(MsgC2SReqVerifyDealIOS* other) {
+void MsgC2SReqVerifyDeal::InternalSwap(MsgC2SReqVerifyDeal* other) {
   receipt_.Swap(&other->receipt_);
   std::swap(order_id_, other->order_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -21474,92 +21561,92 @@ void MsgC2SReqVerifyDealIOS::InternalSwap(MsgC2SReqVerifyDealIOS* other) {
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata MsgC2SReqVerifyDealIOS::GetMetadata() const {
+::google::protobuf::Metadata MsgC2SReqVerifyDeal::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgC2SReqVerifyDealIOS_descriptor_;
-  metadata.reflection = MsgC2SReqVerifyDealIOS_reflection_;
+  metadata.descriptor = MsgC2SReqVerifyDeal_descriptor_;
+  metadata.reflection = MsgC2SReqVerifyDeal_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgC2SReqVerifyDealIOS
+// MsgC2SReqVerifyDeal
 
 // required string receipt = 1;
- bool MsgC2SReqVerifyDealIOS::has_receipt() const {
+ bool MsgC2SReqVerifyDeal::has_receipt() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgC2SReqVerifyDealIOS::set_has_receipt() {
+ void MsgC2SReqVerifyDeal::set_has_receipt() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgC2SReqVerifyDealIOS::clear_has_receipt() {
+ void MsgC2SReqVerifyDeal::clear_has_receipt() {
   _has_bits_[0] &= ~0x00000001u;
 }
- void MsgC2SReqVerifyDealIOS::clear_receipt() {
+ void MsgC2SReqVerifyDeal::clear_receipt() {
   receipt_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_receipt();
 }
- const ::std::string& MsgC2SReqVerifyDealIOS::receipt() const {
-  // @@protoc_insertion_point(field_get:message.MsgC2SReqVerifyDealIOS.receipt)
+ const ::std::string& MsgC2SReqVerifyDeal::receipt() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqVerifyDeal.receipt)
   return receipt_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgC2SReqVerifyDealIOS::set_receipt(const ::std::string& value) {
+ void MsgC2SReqVerifyDeal::set_receipt(const ::std::string& value) {
   set_has_receipt();
   receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgC2SReqVerifyDealIOS.receipt)
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqVerifyDeal.receipt)
 }
- void MsgC2SReqVerifyDealIOS::set_receipt(const char* value) {
+ void MsgC2SReqVerifyDeal::set_receipt(const char* value) {
   set_has_receipt();
   receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgC2SReqVerifyDealIOS.receipt)
+  // @@protoc_insertion_point(field_set_char:message.MsgC2SReqVerifyDeal.receipt)
 }
- void MsgC2SReqVerifyDealIOS::set_receipt(const char* value, size_t size) {
+ void MsgC2SReqVerifyDeal::set_receipt(const char* value, size_t size) {
   set_has_receipt();
   receipt_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgC2SReqVerifyDealIOS.receipt)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgC2SReqVerifyDeal.receipt)
 }
- ::std::string* MsgC2SReqVerifyDealIOS::mutable_receipt() {
+ ::std::string* MsgC2SReqVerifyDeal::mutable_receipt() {
   set_has_receipt();
-  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqVerifyDealIOS.receipt)
+  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqVerifyDeal.receipt)
   return receipt_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* MsgC2SReqVerifyDealIOS::release_receipt() {
+ ::std::string* MsgC2SReqVerifyDeal::release_receipt() {
   clear_has_receipt();
   return receipt_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgC2SReqVerifyDealIOS::set_allocated_receipt(::std::string* receipt) {
+ void MsgC2SReqVerifyDeal::set_allocated_receipt(::std::string* receipt) {
   if (receipt != NULL) {
     set_has_receipt();
   } else {
     clear_has_receipt();
   }
   receipt_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), receipt);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgC2SReqVerifyDealIOS.receipt)
+  // @@protoc_insertion_point(field_set_allocated:message.MsgC2SReqVerifyDeal.receipt)
 }
 
 // required int32 order_id = 2;
- bool MsgC2SReqVerifyDealIOS::has_order_id() const {
+ bool MsgC2SReqVerifyDeal::has_order_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
- void MsgC2SReqVerifyDealIOS::set_has_order_id() {
+ void MsgC2SReqVerifyDeal::set_has_order_id() {
   _has_bits_[0] |= 0x00000002u;
 }
- void MsgC2SReqVerifyDealIOS::clear_has_order_id() {
+ void MsgC2SReqVerifyDeal::clear_has_order_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
- void MsgC2SReqVerifyDealIOS::clear_order_id() {
+ void MsgC2SReqVerifyDeal::clear_order_id() {
   order_id_ = 0;
   clear_has_order_id();
 }
- ::google::protobuf::int32 MsgC2SReqVerifyDealIOS::order_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgC2SReqVerifyDealIOS.order_id)
+ ::google::protobuf::int32 MsgC2SReqVerifyDeal::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqVerifyDeal.order_id)
   return order_id_;
 }
- void MsgC2SReqVerifyDealIOS::set_order_id(::google::protobuf::int32 value) {
+ void MsgC2SReqVerifyDeal::set_order_id(::google::protobuf::int32 value) {
   set_has_order_id();
   order_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgC2SReqVerifyDealIOS.order_id)
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqVerifyDeal.order_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -21567,31 +21654,31 @@ void MsgC2SReqVerifyDealIOS::InternalSwap(MsgC2SReqVerifyDealIOS* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgS2CVerifyDealIOSACK::kProductIdFieldNumber;
-const int MsgS2CVerifyDealIOSACK::kStatusFieldNumber;
-const int MsgS2CVerifyDealIOSACK::kOrderIdFieldNumber;
-const int MsgS2CVerifyDealIOSACK::kCurrentGoldFieldNumber;
-const int MsgS2CVerifyDealIOSACK::kErrorFieldNumber;
+const int MsgS2CVerifyDealACK::kProductIdFieldNumber;
+const int MsgS2CVerifyDealACK::kStatusFieldNumber;
+const int MsgS2CVerifyDealACK::kOrderIdFieldNumber;
+const int MsgS2CVerifyDealACK::kCurrentGoldFieldNumber;
+const int MsgS2CVerifyDealACK::kErrorFieldNumber;
 #endif  // !_MSC_VER
 
-MsgS2CVerifyDealIOSACK::MsgS2CVerifyDealIOSACK()
+MsgS2CVerifyDealACK::MsgS2CVerifyDealACK()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgS2CVerifyDealIOSACK)
+  // @@protoc_insertion_point(constructor:message.MsgS2CVerifyDealACK)
 }
 
-void MsgS2CVerifyDealIOSACK::InitAsDefaultInstance() {
+void MsgS2CVerifyDealACK::InitAsDefaultInstance() {
 }
 
-MsgS2CVerifyDealIOSACK::MsgS2CVerifyDealIOSACK(const MsgS2CVerifyDealIOSACK& from)
+MsgS2CVerifyDealACK::MsgS2CVerifyDealACK(const MsgS2CVerifyDealACK& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgS2CVerifyDealIOSACK)
+  // @@protoc_insertion_point(copy_constructor:message.MsgS2CVerifyDealACK)
 }
 
-void MsgS2CVerifyDealIOSACK::SharedCtor() {
+void MsgS2CVerifyDealACK::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   product_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -21602,45 +21689,45 @@ void MsgS2CVerifyDealIOSACK::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgS2CVerifyDealIOSACK::~MsgS2CVerifyDealIOSACK() {
-  // @@protoc_insertion_point(destructor:message.MsgS2CVerifyDealIOSACK)
+MsgS2CVerifyDealACK::~MsgS2CVerifyDealACK() {
+  // @@protoc_insertion_point(destructor:message.MsgS2CVerifyDealACK)
   SharedDtor();
 }
 
-void MsgS2CVerifyDealIOSACK::SharedDtor() {
+void MsgS2CVerifyDealACK::SharedDtor() {
   product_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void MsgS2CVerifyDealIOSACK::SetCachedSize(int size) const {
+void MsgS2CVerifyDealACK::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgS2CVerifyDealIOSACK::descriptor() {
+const ::google::protobuf::Descriptor* MsgS2CVerifyDealACK::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgS2CVerifyDealIOSACK_descriptor_;
+  return MsgS2CVerifyDealACK_descriptor_;
 }
 
-const MsgS2CVerifyDealIOSACK& MsgS2CVerifyDealIOSACK::default_instance() {
+const MsgS2CVerifyDealACK& MsgS2CVerifyDealACK::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
   return *default_instance_;
 }
 
-MsgS2CVerifyDealIOSACK* MsgS2CVerifyDealIOSACK::default_instance_ = NULL;
+MsgS2CVerifyDealACK* MsgS2CVerifyDealACK::default_instance_ = NULL;
 
-MsgS2CVerifyDealIOSACK* MsgS2CVerifyDealIOSACK::New(::google::protobuf::Arena* arena) const {
-  MsgS2CVerifyDealIOSACK* n = new MsgS2CVerifyDealIOSACK;
+MsgS2CVerifyDealACK* MsgS2CVerifyDealACK::New(::google::protobuf::Arena* arena) const {
+  MsgS2CVerifyDealACK* n = new MsgS2CVerifyDealACK;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void MsgS2CVerifyDealIOSACK::Clear() {
+void MsgS2CVerifyDealACK::Clear() {
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<MsgS2CVerifyDealIOSACK*>(16)->f)
+  &reinterpret_cast<MsgS2CVerifyDealACK*>(16)->f)
 
 #define ZR_(first, last) do {\
   ::memset(&first, 0,\
@@ -21663,11 +21750,11 @@ void MsgS2CVerifyDealIOSACK::Clear() {
   }
 }
 
-bool MsgS2CVerifyDealIOSACK::MergePartialFromCodedStream(
+bool MsgS2CVerifyDealACK::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgS2CVerifyDealIOSACK)
+  // @@protoc_insertion_point(parse_start:message.MsgS2CVerifyDealACK)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -21681,7 +21768,7 @@ bool MsgS2CVerifyDealIOSACK::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->product_id().data(), this->product_id().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "message.MsgS2CVerifyDealIOSACK.product_id");
+            "message.MsgS2CVerifyDealACK.product_id");
         } else {
           goto handle_unusual;
         }
@@ -21768,23 +21855,23 @@ bool MsgS2CVerifyDealIOSACK::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:message.MsgS2CVerifyDealIOSACK)
+  // @@protoc_insertion_point(parse_success:message.MsgS2CVerifyDealACK)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgS2CVerifyDealIOSACK)
+  // @@protoc_insertion_point(parse_failure:message.MsgS2CVerifyDealACK)
   return false;
 #undef DO_
 }
 
-void MsgS2CVerifyDealIOSACK::SerializeWithCachedSizes(
+void MsgS2CVerifyDealACK::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgS2CVerifyDealIOSACK)
+  // @@protoc_insertion_point(serialize_start:message.MsgS2CVerifyDealACK)
   // required string product_id = 1;
   if (has_product_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->product_id().data(), this->product_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgS2CVerifyDealIOSACK.product_id");
+      "message.MsgS2CVerifyDealACK.product_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->product_id(), output);
   }
@@ -21814,18 +21901,18 @@ void MsgS2CVerifyDealIOSACK::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:message.MsgS2CVerifyDealIOSACK)
+  // @@protoc_insertion_point(serialize_end:message.MsgS2CVerifyDealACK)
 }
 
-::google::protobuf::uint8* MsgS2CVerifyDealIOSACK::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgS2CVerifyDealACK::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CVerifyDealIOSACK)
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2CVerifyDealACK)
   // required string product_id = 1;
   if (has_product_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->product_id().data(), this->product_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgS2CVerifyDealIOSACK.product_id");
+      "message.MsgS2CVerifyDealACK.product_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->product_id(), target);
@@ -21856,11 +21943,11 @@ void MsgS2CVerifyDealIOSACK::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CVerifyDealIOSACK)
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2CVerifyDealACK)
   return target;
 }
 
-int MsgS2CVerifyDealIOSACK::RequiredFieldsByteSizeFallback() const {
+int MsgS2CVerifyDealACK::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_product_id()) {
@@ -21899,7 +21986,7 @@ int MsgS2CVerifyDealIOSACK::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-int MsgS2CVerifyDealIOSACK::ByteSize() const {
+int MsgS2CVerifyDealACK::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
@@ -21941,10 +22028,10 @@ int MsgS2CVerifyDealIOSACK::ByteSize() const {
   return total_size;
 }
 
-void MsgS2CVerifyDealIOSACK::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgS2CVerifyDealACK::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgS2CVerifyDealIOSACK* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CVerifyDealIOSACK*>(
+  const MsgS2CVerifyDealACK* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2CVerifyDealACK*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -21953,7 +22040,7 @@ void MsgS2CVerifyDealIOSACK::MergeFrom(const ::google::protobuf::Message& from) 
   }
 }
 
-void MsgS2CVerifyDealIOSACK::MergeFrom(const MsgS2CVerifyDealIOSACK& from) {
+void MsgS2CVerifyDealACK::MergeFrom(const MsgS2CVerifyDealACK& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_product_id()) {
@@ -21978,29 +22065,29 @@ void MsgS2CVerifyDealIOSACK::MergeFrom(const MsgS2CVerifyDealIOSACK& from) {
   }
 }
 
-void MsgS2CVerifyDealIOSACK::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgS2CVerifyDealACK::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgS2CVerifyDealIOSACK::CopyFrom(const MsgS2CVerifyDealIOSACK& from) {
+void MsgS2CVerifyDealACK::CopyFrom(const MsgS2CVerifyDealACK& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgS2CVerifyDealIOSACK::IsInitialized() const {
+bool MsgS2CVerifyDealACK::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
 
   return true;
 }
 
-void MsgS2CVerifyDealIOSACK::Swap(MsgS2CVerifyDealIOSACK* other) {
+void MsgS2CVerifyDealACK::Swap(MsgS2CVerifyDealACK* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgS2CVerifyDealIOSACK::InternalSwap(MsgS2CVerifyDealIOSACK* other) {
+void MsgS2CVerifyDealACK::InternalSwap(MsgS2CVerifyDealACK* other) {
   product_id_.Swap(&other->product_id_);
   std::swap(status_, other->status_);
   std::swap(order_id_, other->order_id_);
@@ -22011,165 +22098,165 @@ void MsgS2CVerifyDealIOSACK::InternalSwap(MsgS2CVerifyDealIOSACK* other) {
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata MsgS2CVerifyDealIOSACK::GetMetadata() const {
+::google::protobuf::Metadata MsgS2CVerifyDealACK::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgS2CVerifyDealIOSACK_descriptor_;
-  metadata.reflection = MsgS2CVerifyDealIOSACK_reflection_;
+  metadata.descriptor = MsgS2CVerifyDealACK_descriptor_;
+  metadata.reflection = MsgS2CVerifyDealACK_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgS2CVerifyDealIOSACK
+// MsgS2CVerifyDealACK
 
 // required string product_id = 1;
- bool MsgS2CVerifyDealIOSACK::has_product_id() const {
+ bool MsgS2CVerifyDealACK::has_product_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgS2CVerifyDealIOSACK::set_has_product_id() {
+ void MsgS2CVerifyDealACK::set_has_product_id() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgS2CVerifyDealIOSACK::clear_has_product_id() {
+ void MsgS2CVerifyDealACK::clear_has_product_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
- void MsgS2CVerifyDealIOSACK::clear_product_id() {
+ void MsgS2CVerifyDealACK::clear_product_id() {
   product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_product_id();
 }
- const ::std::string& MsgS2CVerifyDealIOSACK::product_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.product_id)
+ const ::std::string& MsgS2CVerifyDealACK::product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealACK.product_id)
   return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgS2CVerifyDealIOSACK::set_product_id(const ::std::string& value) {
+ void MsgS2CVerifyDealACK::set_product_id(const ::std::string& value) {
   set_has_product_id();
   product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.product_id)
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealACK.product_id)
 }
- void MsgS2CVerifyDealIOSACK::set_product_id(const char* value) {
+ void MsgS2CVerifyDealACK::set_product_id(const char* value) {
   set_has_product_id();
   product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgS2CVerifyDealIOSACK.product_id)
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CVerifyDealACK.product_id)
 }
- void MsgS2CVerifyDealIOSACK::set_product_id(const char* value, size_t size) {
+ void MsgS2CVerifyDealACK::set_product_id(const char* value, size_t size) {
   set_has_product_id();
   product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CVerifyDealIOSACK.product_id)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CVerifyDealACK.product_id)
 }
- ::std::string* MsgS2CVerifyDealIOSACK::mutable_product_id() {
+ ::std::string* MsgS2CVerifyDealACK::mutable_product_id() {
   set_has_product_id();
-  // @@protoc_insertion_point(field_mutable:message.MsgS2CVerifyDealIOSACK.product_id)
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CVerifyDealACK.product_id)
   return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* MsgS2CVerifyDealIOSACK::release_product_id() {
+ ::std::string* MsgS2CVerifyDealACK::release_product_id() {
   clear_has_product_id();
   return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgS2CVerifyDealIOSACK::set_allocated_product_id(::std::string* product_id) {
+ void MsgS2CVerifyDealACK::set_allocated_product_id(::std::string* product_id) {
   if (product_id != NULL) {
     set_has_product_id();
   } else {
     clear_has_product_id();
   }
   product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CVerifyDealIOSACK.product_id)
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CVerifyDealACK.product_id)
 }
 
 // required int32 status = 2;
- bool MsgS2CVerifyDealIOSACK::has_status() const {
+ bool MsgS2CVerifyDealACK::has_status() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
- void MsgS2CVerifyDealIOSACK::set_has_status() {
+ void MsgS2CVerifyDealACK::set_has_status() {
   _has_bits_[0] |= 0x00000002u;
 }
- void MsgS2CVerifyDealIOSACK::clear_has_status() {
+ void MsgS2CVerifyDealACK::clear_has_status() {
   _has_bits_[0] &= ~0x00000002u;
 }
- void MsgS2CVerifyDealIOSACK::clear_status() {
+ void MsgS2CVerifyDealACK::clear_status() {
   status_ = 0;
   clear_has_status();
 }
- ::google::protobuf::int32 MsgS2CVerifyDealIOSACK::status() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.status)
+ ::google::protobuf::int32 MsgS2CVerifyDealACK::status() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealACK.status)
   return status_;
 }
- void MsgS2CVerifyDealIOSACK::set_status(::google::protobuf::int32 value) {
+ void MsgS2CVerifyDealACK::set_status(::google::protobuf::int32 value) {
   set_has_status();
   status_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.status)
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealACK.status)
 }
 
 // required int32 order_id = 3;
- bool MsgS2CVerifyDealIOSACK::has_order_id() const {
+ bool MsgS2CVerifyDealACK::has_order_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
- void MsgS2CVerifyDealIOSACK::set_has_order_id() {
+ void MsgS2CVerifyDealACK::set_has_order_id() {
   _has_bits_[0] |= 0x00000004u;
 }
- void MsgS2CVerifyDealIOSACK::clear_has_order_id() {
+ void MsgS2CVerifyDealACK::clear_has_order_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
- void MsgS2CVerifyDealIOSACK::clear_order_id() {
+ void MsgS2CVerifyDealACK::clear_order_id() {
   order_id_ = 0;
   clear_has_order_id();
 }
- ::google::protobuf::int32 MsgS2CVerifyDealIOSACK::order_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.order_id)
+ ::google::protobuf::int32 MsgS2CVerifyDealACK::order_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealACK.order_id)
   return order_id_;
 }
- void MsgS2CVerifyDealIOSACK::set_order_id(::google::protobuf::int32 value) {
+ void MsgS2CVerifyDealACK::set_order_id(::google::protobuf::int32 value) {
   set_has_order_id();
   order_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.order_id)
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealACK.order_id)
 }
 
 // required int32 current_gold = 4;
- bool MsgS2CVerifyDealIOSACK::has_current_gold() const {
+ bool MsgS2CVerifyDealACK::has_current_gold() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
- void MsgS2CVerifyDealIOSACK::set_has_current_gold() {
+ void MsgS2CVerifyDealACK::set_has_current_gold() {
   _has_bits_[0] |= 0x00000008u;
 }
- void MsgS2CVerifyDealIOSACK::clear_has_current_gold() {
+ void MsgS2CVerifyDealACK::clear_has_current_gold() {
   _has_bits_[0] &= ~0x00000008u;
 }
- void MsgS2CVerifyDealIOSACK::clear_current_gold() {
+ void MsgS2CVerifyDealACK::clear_current_gold() {
   current_gold_ = 0;
   clear_has_current_gold();
 }
- ::google::protobuf::int32 MsgS2CVerifyDealIOSACK::current_gold() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.current_gold)
+ ::google::protobuf::int32 MsgS2CVerifyDealACK::current_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealACK.current_gold)
   return current_gold_;
 }
- void MsgS2CVerifyDealIOSACK::set_current_gold(::google::protobuf::int32 value) {
+ void MsgS2CVerifyDealACK::set_current_gold(::google::protobuf::int32 value) {
   set_has_current_gold();
   current_gold_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.current_gold)
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealACK.current_gold)
 }
 
 // required .message.GameError error = 5 [default = Error_NO];
- bool MsgS2CVerifyDealIOSACK::has_error() const {
+ bool MsgS2CVerifyDealACK::has_error() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
- void MsgS2CVerifyDealIOSACK::set_has_error() {
+ void MsgS2CVerifyDealACK::set_has_error() {
   _has_bits_[0] |= 0x00000010u;
 }
- void MsgS2CVerifyDealIOSACK::clear_has_error() {
+ void MsgS2CVerifyDealACK::clear_has_error() {
   _has_bits_[0] &= ~0x00000010u;
 }
- void MsgS2CVerifyDealIOSACK::clear_error() {
+ void MsgS2CVerifyDealACK::clear_error() {
   error_ = 0;
   clear_has_error();
 }
- ::message::GameError MsgS2CVerifyDealIOSACK::error() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealIOSACK.error)
+ ::message::GameError MsgS2CVerifyDealACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealACK.error)
   return static_cast< ::message::GameError >(error_);
 }
- void MsgS2CVerifyDealIOSACK::set_error(::message::GameError value) {
+ void MsgS2CVerifyDealACK::set_error(::message::GameError value) {
   assert(::message::GameError_IsValid(value));
   set_has_error();
   error_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealIOSACK.error)
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealACK.error)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -22178,6 +22265,7 @@ void MsgS2CVerifyDealIOSACK::InternalSwap(MsgS2CVerifyDealIOSACK* other) {
 
 #ifndef _MSC_VER
 const int MsgC2SReqApplyDeal::kIdFieldNumber;
+const int MsgC2SReqApplyDeal::kChannelFieldNumber;
 #endif  // !_MSC_VER
 
 MsgC2SReqApplyDeal::MsgC2SReqApplyDeal()
@@ -22200,6 +22288,7 @@ MsgC2SReqApplyDeal::MsgC2SReqApplyDeal(const MsgC2SReqApplyDeal& from)
 void MsgC2SReqApplyDeal::SharedCtor() {
   _cached_size_ = 0;
   id_ = 0;
+  channel_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -22239,7 +22328,19 @@ MsgC2SReqApplyDeal* MsgC2SReqApplyDeal::New(::google::protobuf::Arena* arena) co
 }
 
 void MsgC2SReqApplyDeal::Clear() {
-  id_ = 0;
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgC2SReqApplyDeal*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(id_, channel_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -22263,6 +22364,21 @@ bool MsgC2SReqApplyDeal::MergePartialFromCodedStream(
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &id_)));
           set_has_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_channel;
+        break;
+      }
+
+      // required int32 channel = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_channel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &channel_)));
+          set_has_channel();
         } else {
           goto handle_unusual;
         }
@@ -22300,6 +22416,11 @@ void MsgC2SReqApplyDeal::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
   }
 
+  // required int32 channel = 2;
+  if (has_channel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->channel(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -22315,6 +22436,11 @@ void MsgC2SReqApplyDeal::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
   }
 
+  // required int32 channel = 2;
+  if (has_channel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->channel(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -22323,14 +22449,41 @@ void MsgC2SReqApplyDeal::SerializeWithCachedSizes(
   return target;
 }
 
-int MsgC2SReqApplyDeal::ByteSize() const {
+int MsgC2SReqApplyDeal::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
-  // required int32 id = 1;
   if (has_id()) {
+    // required int32 id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->id());
+  }
+
+  if (has_channel()) {
+    // required int32 channel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->channel());
+  }
+
+  return total_size;
+}
+int MsgC2SReqApplyDeal::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required int32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->id());
+
+    // required int32 channel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->channel());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -22361,6 +22514,9 @@ void MsgC2SReqApplyDeal::MergeFrom(const MsgC2SReqApplyDeal& from) {
     if (from.has_id()) {
       set_id(from.id());
     }
+    if (from.has_channel()) {
+      set_channel(from.channel());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -22380,7 +22536,7 @@ void MsgC2SReqApplyDeal::CopyFrom(const MsgC2SReqApplyDeal& from) {
 }
 
 bool MsgC2SReqApplyDeal::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
@@ -22391,6 +22547,7 @@ void MsgC2SReqApplyDeal::Swap(MsgC2SReqApplyDeal* other) {
 }
 void MsgC2SReqApplyDeal::InternalSwap(MsgC2SReqApplyDeal* other) {
   std::swap(id_, other->id_);
+  std::swap(channel_, other->channel_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -22429,6 +22586,30 @@ void MsgC2SReqApplyDeal::InternalSwap(MsgC2SReqApplyDeal* other) {
   set_has_id();
   id_ = value;
   // @@protoc_insertion_point(field_set:message.MsgC2SReqApplyDeal.id)
+}
+
+// required int32 channel = 2;
+ bool MsgC2SReqApplyDeal::has_channel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgC2SReqApplyDeal::set_has_channel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgC2SReqApplyDeal::clear_has_channel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgC2SReqApplyDeal::clear_channel() {
+  channel_ = 0;
+  clear_has_channel();
+}
+ ::google::protobuf::int32 MsgC2SReqApplyDeal::channel() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqApplyDeal.channel)
+  return channel_;
+}
+ void MsgC2SReqApplyDeal::set_channel(::google::protobuf::int32 value) {
+  set_has_channel();
+  channel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqApplyDeal.channel)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

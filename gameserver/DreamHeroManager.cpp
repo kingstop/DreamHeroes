@@ -310,6 +310,26 @@ DreamHero* DreamHeroManager::GetHero(account_type account)
 	return hero;
 }
 
+void DreamHeroManager::OfflineHeroDealWaitToPay(int order_id, account_type acc, const char* product_id, int status)
+{
+	std::string create_pay_time;;
+	build_unix_time_to_string(g_server_time, create_pay_time);
+	char sz_tem[2048];
+	DealStatusType type = DealStatusType_WaitPrepareToPay;
+	if (status != 0) 
+	{
+		type = DealStatusType_Failed;
+	}
+	sprintf(sz_tem, "replace into deal_wait_to_pay(`order_id`, `account_id`, `key_code`, `status`, `price`, `deal_time`,`complete_status`) \
+				values(%d, %llu, '%s', %d, %d, '%s', %d) ", order_id, acc, product_id, status, 0, create_pay_time.c_str(), type);
+	message::MsgSaveDataGS2DB msg_db;
+	msg_db.set_sql(sz_tem);
+	gGSDBClient.sendPBMessage(&msg_db, 0);
+
+}
+
+
+
 DreamHero* DreamHeroManager::CreateHero(message::MsgHeroDataDB2GS* HeroDataMsg, account_type acc, Session* session)
 {
 	DreamHero* hero = GetHero(acc);

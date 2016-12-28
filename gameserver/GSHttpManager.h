@@ -9,7 +9,7 @@ void HttpProcess();
 enum HttpType
 {
 	HttpType_NO,
-	HttpType_CreateDealIOS,
+	HttpType_CreateDeal,
 	HttpType_DealIOS,
 };
 
@@ -19,6 +19,7 @@ enum DealStatusType
 	DealStatusType_WaitPrepareToPay,
 	DealStatusType_Complete,
 	DealStatusType_WaitPrepareToVerify,
+	DealStatusType_Failed
 };
 
 class BaseGSHttpTask : public BaseHttpTask
@@ -36,12 +37,12 @@ protected:
 };
 
 
-class CreateDealHttpTaskIOS : public BaseGSHttpTask
+class CreateDealHttpTask : public BaseGSHttpTask
 {
 public:
-	CreateDealHttpTaskIOS();
-	void init(account_type acc, const char* name, const char* key_code);
-	virtual ~CreateDealHttpTaskIOS();
+	CreateDealHttpTask();
+	void init(account_type acc, const char* name, const char* key_code, int channel);
+	virtual ~CreateDealHttpTask();
 	virtual bool excute();
 	virtual bool logicExcute();
 
@@ -52,6 +53,7 @@ protected:
 	int _status;
 	int _price;
 	int _order_id;
+	int _channel;
 };
 
 class VerifyDealHttpTaskIOS : public BaseGSHttpTask
