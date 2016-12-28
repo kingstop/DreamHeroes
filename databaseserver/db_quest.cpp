@@ -85,7 +85,7 @@ void DBQuestManager::saveHeroMap(message::MsgSaveHeroDataGS2DB* msg)
 
 void DBQuestManager::queryHeroInfo(account_type a, tran_id_type t, u16 gs)
 {
-	char sz_sql[256];
+	char sz_sql[1024];
 	sprintf(sz_sql, "select * ,UNIX_TIMESTAMP(`last_lottery_time`),UNIX_TIMESTAMP(`last_recover_spirit_time`),\
 	 UNIX_TIMESTAMP(`last_buy_spirit_time`), UNIX_TIMESTAMP(`last_task_advertisement_time`), UNIX_TIMESTAMP(`daily_game_time`),\
 	UNIX_TIMESTAMP(`daily_game_prize_time`), UNIX_TIMESTAMP(`last_daily_reset_game_time`) from `character` where `account_id`=%llu;",a);
