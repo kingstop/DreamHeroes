@@ -2008,7 +2008,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 			std::map<int, LotteryDrawBoxConfig> map_random_lottery;
 			it = vc_lottery_random.begin();
 			int rating = 0;
-			for (; it != vc_lottery_random.begin(); ++it)
+			for (; it != vc_lottery_random.end(); ++it)
 			{
 				const LotteryDrawBoxConfig& entry = (*it);
 				map_random_lottery[rating] = entry;
