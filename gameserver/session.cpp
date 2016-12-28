@@ -94,7 +94,11 @@ void Session::parseReqUpdateDailyGameProgress(google::protobuf::Message* p)
 
 void Session::parseReqApplyDeal(google::protobuf::Message* p)
 {
-
+	message::MsgC2SReqApplyDeal* msg = (message::MsgC2SReqApplyDeal*)p;
+	if (_dream_hero)
+	{
+		_dream_hero->ReqApplyHeroDeal(msg);
+	}
 }
 
 void Session::parseReqDayLottery(google::protobuf::Message* p)

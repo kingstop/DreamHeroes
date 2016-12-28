@@ -732,6 +732,13 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_score() const;
   void set_daily_game_score(::google::protobuf::int32 value);
 
+  // required int32 daily_game_hp_pct = 16;
+  bool has_daily_game_hp_pct() const;
+  void clear_daily_game_hp_pct();
+  static const int kDailyGameHpPctFieldNumber = 16;
+  ::google::protobuf::int32 daily_game_hp_pct() const;
+  void set_daily_game_hp_pct(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -756,6 +763,8 @@ class MsgHeroData : public ::google::protobuf::Message {
   inline void clear_has_daily_game_gold();
   inline void set_has_daily_game_score();
   inline void clear_has_daily_game_score();
+  inline void set_has_daily_game_hp_pct();
+  inline void clear_has_daily_game_hp_pct();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -778,6 +787,7 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_progress_;
   ::google::protobuf::int32 daily_game_gold_;
   ::google::protobuf::int32 daily_game_score_;
+  ::google::protobuf::int32 daily_game_hp_pct_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2438,6 +2448,30 @@ inline void MsgHeroData::set_daily_game_score(::google::protobuf::int32 value) {
   set_has_daily_game_score();
   daily_game_score_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_score)
+}
+
+// required int32 daily_game_hp_pct = 16;
+inline bool MsgHeroData::has_daily_game_hp_pct() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void MsgHeroData::set_has_daily_game_hp_pct() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void MsgHeroData::clear_has_daily_game_hp_pct() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void MsgHeroData::clear_daily_game_hp_pct() {
+  daily_game_hp_pct_ = 0;
+  clear_has_daily_game_hp_pct();
+}
+inline ::google::protobuf::int32 MsgHeroData::daily_game_hp_pct() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_game_hp_pct)
+  return daily_game_hp_pct_;
+}
+inline void MsgHeroData::set_daily_game_hp_pct(::google::protobuf::int32 value) {
+  set_has_daily_game_hp_pct();
+  daily_game_hp_pct_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_hp_pct)
 }
 
 // -------------------------------------------------------------------

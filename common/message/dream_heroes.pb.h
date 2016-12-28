@@ -164,8 +164,9 @@ enum GameError {
   Error_FailedToEnterDailyGameYouHaveBeenAlreadyBeginGame = 46,
   Error_FailedToUpdateDailyProgressErrorProgress = 47,
   Error_FailedToUpdateDailyProgressTheGameNotBegin = 48,
-  Error_FailedToReceivedDailyGamePrizeNOPrize = 49,
-  Error_Unknow = 50
+  Error_FailedToUpdateDailyProgressNoHp = 49,
+  Error_FailedToReceivedDailyGamePrizeNOPrize = 50,
+  Error_Unknow = 51
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
@@ -502,12 +503,21 @@ class MsgC2SReqUpdateDailyGameProgress : public ::google::protobuf::Message {
   ::google::protobuf::int32 score() const;
   void set_score(::google::protobuf::int32 value);
 
+  // required int32 hp_pct = 3;
+  bool has_hp_pct() const;
+  void clear_hp_pct();
+  static const int kHpPctFieldNumber = 3;
+  ::google::protobuf::int32 hp_pct() const;
+  void set_hp_pct(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgC2SReqUpdateDailyGameProgress)
  private:
   inline void set_has_daily_game_progress();
   inline void clear_has_daily_game_progress();
   inline void set_has_score();
   inline void clear_has_score();
+  inline void set_has_hp_pct();
+  inline void clear_has_hp_pct();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -517,6 +527,7 @@ class MsgC2SReqUpdateDailyGameProgress : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 daily_game_progress_;
   ::google::protobuf::int32 score_;
+  ::google::protobuf::int32 hp_pct_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -611,10 +622,17 @@ class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 rank() const;
   void set_rank(::google::protobuf::int32 value);
 
-  // required .message.GameError error = 4 [default = Error_NO];
+  // required int32 hp_pct = 4;
+  bool has_hp_pct() const;
+  void clear_hp_pct();
+  static const int kHpPctFieldNumber = 4;
+  ::google::protobuf::int32 hp_pct() const;
+  void set_hp_pct(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 5 [default = Error_NO];
   bool has_error() const;
   void clear_error();
-  static const int kErrorFieldNumber = 4;
+  static const int kErrorFieldNumber = 5;
   ::message::GameError error() const;
   void set_error(::message::GameError value);
 
@@ -626,6 +644,8 @@ class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
   inline void clear_has_score();
   inline void set_has_rank();
   inline void clear_has_rank();
+  inline void set_has_hp_pct();
+  inline void clear_has_hp_pct();
   inline void set_has_error();
   inline void clear_has_error();
 
@@ -638,6 +658,7 @@ class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_progress_;
   ::google::protobuf::int32 score_;
   ::google::protobuf::int32 rank_;
+  ::google::protobuf::int32 hp_pct_;
   int error_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
@@ -8465,6 +8486,30 @@ inline void MsgC2SReqUpdateDailyGameProgress::set_score(::google::protobuf::int3
   // @@protoc_insertion_point(field_set:message.MsgC2SReqUpdateDailyGameProgress.score)
 }
 
+// required int32 hp_pct = 3;
+inline bool MsgC2SReqUpdateDailyGameProgress::has_hp_pct() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::set_has_hp_pct() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::clear_has_hp_pct() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::clear_hp_pct() {
+  hp_pct_ = 0;
+  clear_has_hp_pct();
+}
+inline ::google::protobuf::int32 MsgC2SReqUpdateDailyGameProgress::hp_pct() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqUpdateDailyGameProgress.hp_pct)
+  return hp_pct_;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::set_hp_pct(::google::protobuf::int32 value) {
+  set_has_hp_pct();
+  hp_pct_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqUpdateDailyGameProgress.hp_pct)
+}
+
 // -------------------------------------------------------------------
 
 // MsgS2CUpdateDailyGameProgressACK
@@ -8541,15 +8586,39 @@ inline void MsgS2CUpdateDailyGameProgressACK::set_rank(::google::protobuf::int32
   // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.rank)
 }
 
-// required .message.GameError error = 4 [default = Error_NO];
-inline bool MsgS2CUpdateDailyGameProgressACK::has_error() const {
+// required int32 hp_pct = 4;
+inline bool MsgS2CUpdateDailyGameProgressACK::has_hp_pct() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void MsgS2CUpdateDailyGameProgressACK::set_has_error() {
+inline void MsgS2CUpdateDailyGameProgressACK::set_has_hp_pct() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void MsgS2CUpdateDailyGameProgressACK::clear_has_error() {
+inline void MsgS2CUpdateDailyGameProgressACK::clear_has_hp_pct() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_hp_pct() {
+  hp_pct_ = 0;
+  clear_has_hp_pct();
+}
+inline ::google::protobuf::int32 MsgS2CUpdateDailyGameProgressACK::hp_pct() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CUpdateDailyGameProgressACK.hp_pct)
+  return hp_pct_;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_hp_pct(::google::protobuf::int32 value) {
+  set_has_hp_pct();
+  hp_pct_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.hp_pct)
+}
+
+// required .message.GameError error = 5 [default = Error_NO];
+inline bool MsgS2CUpdateDailyGameProgressACK::has_error() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_has_error() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void MsgS2CUpdateDailyGameProgressACK::clear_error() {
   error_ = 0;

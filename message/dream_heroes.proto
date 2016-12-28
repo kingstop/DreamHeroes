@@ -52,8 +52,9 @@ enum GameError
 	Error_FailedToEnterDailyGameYouHaveBeenAlreadyBeginGame = 46;
 	Error_FailedToUpdateDailyProgressErrorProgress = 47;
 	Error_FailedToUpdateDailyProgressTheGameNotBegin = 48;
-	Error_FailedToReceivedDailyGamePrizeNOPrize = 49;
-	Error_Unknow = 50;
+	Error_FailedToUpdateDailyProgressNoHp = 49;
+	Error_FailedToReceivedDailyGamePrizeNOPrize = 50;
+	Error_Unknow = 51;
 }
 
 
@@ -77,6 +78,7 @@ message MsgC2SReqUpdateDailyGameProgress
 {
 	required int32 daily_game_progress = 1;
 	required int32 score = 2;
+	required int32 hp_pct = 3;
 }
 
 message MsgS2CUpdateDailyGameProgressACK
@@ -84,7 +86,8 @@ message MsgS2CUpdateDailyGameProgressACK
 	required int32 daily_game_progress = 1;
 	required int32 score = 2;
 	required int32 rank = 3;
-	required GameError error = 4 [default=Error_NO];	
+	required int32 hp_pct = 4;
+	required GameError error = 5 [default=Error_NO];	
 }
 
 

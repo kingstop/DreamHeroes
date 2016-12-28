@@ -51,6 +51,8 @@ message MsgHeroData
 	required int32 daily_game_progress = 13;
 	required int32 daily_game_gold = 14;
 	required int32 daily_game_score = 15;
+	required int32 daily_game_hp_pct = 16;
+	
 }
 
 

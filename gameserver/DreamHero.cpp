@@ -1710,16 +1710,16 @@ void DreamHero::SaveHero()
 		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`, `special_creatures`, \
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`,\
 		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`, `lotions`, `last_lottery_time`\
-		 `daily_game_progress`, `daily_game_score`, `daily_game_gold`, `daily_game_time`, `daily_game_prize_time`) values \
+		 `daily_game_progress`, `daily_game_score`, `daily_game_gold`, `daily_game_time`, `daily_game_prize_time`,`daily_game_hp_pct`) values \
 		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d,\
-		 '%s', %d, '%s', '%s', '%s', %d, %d, %d, '%s','%s');",
+		 '%s', %d, '%s', '%s', '%s', %d, %d, %d, '%s','%s', %d);",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
 		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count, _info.new_tutorial(),
 		_info.jewel(), _info.spirit(), last_recover_spirit_time.c_str(), _info.day_buy_spirit(), 
 		last_buy_spirit_time.c_str(), str_lotion_status.c_str(), last_lottery_time.c_str(), _info.daily_game_progress(),
-		 _info.daily_game_score(), _info.daily_game_gold(), daily_game_time.c_str(), daily_game_prize_time.c_str());
+		 _info.daily_game_score(), _info.daily_game_gold(), daily_game_time.c_str(), daily_game_prize_time.c_str(), _info.daily_game_hp_pct());
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
@@ -2193,29 +2193,42 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	if (_daily_game_time == gRankManager.getDailyGameBeginTime())
 	{
 		int progress_temp = _info.daily_game_progress() + 1;
-		
-		if (progress_temp == msg->daily_game_progress())
+		if (_info.daily_game_hp_pct() != 0)
 		{
-			int score = msg->score();
-			_info.set_daily_game_score(score);
-			_info.set_daily_game_progress(msg->daily_game_progress());			
-			gRankManager.updateHeroDailyRank(_account, _info.name().c_str(), score, rank);
+			if (progress_temp == msg->daily_game_progress())
+			{
+				int score = msg->score();
+				_info.set_daily_game_score(score);
+				_info.set_daily_game_progress(msg->daily_game_progress());
+				_info.set_daily_game_hp_pct(msg->hp_pct());
+				gRankManager.updateHeroDailyRank(_account, _info.name().c_str(), score, rank);
 
+			}
+			else
+			{
+				error = message::Error_FailedToUpdateDailyProgressErrorProgress;
+				
+			}
 		}
 		else
 		{
-			error = message::Error_FailedToUpdateDailyProgressErrorProgress;
-			rank = gRankManager.getHeroDailyRank(_account);
+			error = message::Error_FailedToUpdateDailyProgressNoHp;
 		}
+
 	}
 	else
 	{
 		error = message::Error_FailedToUpdateDailyProgressTheGameNotBegin;
 	}
+	if (error != message::Error_NO)
+	{
+		rank = gRankManager.getHeroDailyRank(_account);
+	}
 	msgACK.set_score(_info.daily_game_score());
 	msgACK.set_error(error);
 	msgACK.set_rank(rank);
 	msgACK.set_daily_game_progress(_info.daily_game_progress());
+	msgACK.set_hp_pct(_info.daily_game_hp_pct());
 	sendPBMessage(&msgACK);
 }
 
