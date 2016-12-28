@@ -15,5 +15,6 @@ public:
 	void parseMsg(google::protobuf::Message* p, pb_flag_type flag);
 public:
 	void parseClinchADealNotify(google::protobuf::Message* p, pb_flag_type flag);
+	void registerRegisterACK(google::protobuf::Message* p, pb_flag_type flag);
 };
 

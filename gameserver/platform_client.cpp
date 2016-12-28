@@ -6,6 +6,7 @@ void PlatformClient::initPBModule()
 {
 	ProtocMsgBase<PlatformClient>::registerSDFun(&PlatformClient::send_message, &PlatformClient::parseMsg);
 	ProtocMsgBase<PlatformClient>::registerCBFun(PROTOCO_NAME(message::MsgP2SClinchADealNotify), &PlatformClient::parseClinchADealNotify);
+	ProtocMsgBase<PlatformClient>::registerCBFun(PROTOCO_NAME(message::MsgP2SRegisterACK), &PlatformClient::registerRegisterACK);
 
 }
 
@@ -28,6 +29,11 @@ void PlatformClient::on_connect()
 {
 	tcp_client::on_connect();
 	Mylog::log_server(LOG_INFO, "connect platform server [%s] success!", get_remote_address_string().c_str());
+	message::MsgS2PRegisterServer msg;
+	msg.set_game_id(gGameConfig.getGameID());
+	msg.set_server_id(gGameConfig.getServerID());
+	msg.set_server_type(gGameConfig.getServerType());
+	sendPBMessage(&msg, 0);
 }
 void PlatformClient::on_connect_failed(boost::system::error_code error)
 {
@@ -42,6 +48,12 @@ void PlatformClient::on_close(const boost::system::error_code& error)
 {
 	Mylog::log_server(LOG_INFO, "platform  client close");
 	tcp_session::on_close(error);
+
+}
+
+void PlatformClient::registerRegisterACK(google::protobuf::Message* p, pb_flag_type flag)
+{
+	message::MsgP2SRegisterACK* msg = (message::MsgP2SRegisterACK*)p;
 
 }
 
