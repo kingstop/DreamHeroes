@@ -33,7 +33,7 @@ void PlatformClient::on_connect()
 	msg.set_game_id(gGameConfig.getGameID());
 	msg.set_server_id(gGameConfig.getServerID());
 	msg.set_server_type(gGameConfig.getServerType());
-	sendPBMessage(&msg, 0);
+	sendPBMessage(&msg, gGameConfig.getGameID());
 }
 void PlatformClient::on_connect_failed(boost::system::error_code error)
 {
@@ -54,7 +54,7 @@ void PlatformClient::on_close(const boost::system::error_code& error)
 void PlatformClient::registerRegisterACK(google::protobuf::Message* p, pb_flag_type flag)
 {
 	message::MsgP2SRegisterACK* msg = (message::MsgP2SRegisterACK*)p;
-
+	Mylog::log_server(LOG_INFO, "Register platform server!");
 }
 
 void PlatformClient::parseClinchADealNotify(google::protobuf::Message* p, pb_flag_type flag)
