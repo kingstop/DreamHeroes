@@ -65,6 +65,7 @@ void GameServer::runOnce(u32 nDiff)
 	gGSServerTime = time(NULL);
     gGSGateServer.run_no_wait();
     gGSDBClient.run_no_wait();
+	gPlatformClient.run_no_wait();
     m_EventHold.update(nDiff);
     static u32 curtime = 0;
     curtime += nDiff;
