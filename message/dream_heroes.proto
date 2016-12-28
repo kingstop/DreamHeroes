@@ -54,7 +54,10 @@ enum GameError
 	Error_FailedToUpdateDailyProgressTheGameNotBegin = 48;
 	Error_FailedToUpdateDailyProgressNoHp = 49;
 	Error_FailedToReceivedDailyGamePrizeNOPrize = 50;
-	Error_Unknow = 51;
+	Error_FailedToResetDailyGameNotEnoughJewel = 51;
+	Error_FailedToResetDailyGameUseOut = 52;
+	Error_FailedToResetDailyGameTheProgressIsZero = 53;
+	Error_Unknow = 54;
 }
 
 
@@ -74,6 +77,20 @@ message MsgS2CEnterDailyGameACK
 
 
 
+message MsgC2SReqResetDailyGameProgress
+{
+	
+}
+
+
+message MsgS2CResetDailyGameProgressACK
+{
+	required GameError error = 1 [default=Error_NO];	
+	required int32 daily_game_progress = 2;
+	required int32 daily_reset_game_count = 3;
+	required uint64 last_reset_daily_game_time = 4;
+}
+
 message MsgC2SReqUpdateDailyGameProgress
 {
 	required int32 daily_game_progress = 1;
@@ -88,6 +105,7 @@ message MsgS2CUpdateDailyGameProgressACK
 	required int32 rank = 3;
 	required int32 hp_pct = 4;
 	required GameError error = 5 [default=Error_NO];	
+	required int32 daily_game_progress_record = 6;
 }
 
 
@@ -191,6 +209,9 @@ message MsgS2CHeroesInit
 	required uint64 last_lottery_time = 21;
 	required uint64 server_time = 22;
 	required uint64 daily_game_time = 23;
+	repeated int32 reset_jewel_configs = 24;
+	repeated int32 daily_game_record_configs = 25;
+	required uint64 last_reset_daily_game_time = 26;
 
 }
 
@@ -609,6 +630,30 @@ message MsgS2CCmdModifySpiritACK
 	required int32 current_spirit = 1;
 	required GameError error = 2 [default=Error_NO];
 }
+
+message MsgC2SCmdReqResetDailyLottery
+{
+
+}
+
+message MsgS2CCmdResetDailyLotteryACK
+{
+	required GameError error = 1 [default=Error_NO];
+}
+
+
+message MsgC2SCmdReqResetDailyGame
+{
+
+}
+
+message MsgS2CCmdResetDailyGameACK
+{
+	required GameError error = 1 [default=Error_NO];
+}
+
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

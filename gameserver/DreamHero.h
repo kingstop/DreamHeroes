@@ -65,6 +65,7 @@ public:
 	void ReqApplyHeroDeal(const message::MsgC2SReqApplyDeal* msg);
 	void ReqReqEnterDailyGame(const message::MsgC2SReqEnterDailyGame* msg);
 	void ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGameProgress* msg);
+	void ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGameProgress* msg);
 	void ReqReceiveDailyGamePrize();
 
 
@@ -74,6 +75,8 @@ public:
 	void ReqGoldShopConfigs();
 	void EnterGame(int chapter_id, int section_id, bool admin = false);
 	void ResetGame();
+	void ResetDailyGame();
+	void ResetDailyLottery();
 	void SendResetGameACK(message::GameError en);
 	void DailyGamePrize(int gold);
 	void TryToGetGamePrize(bool sendmsg);
@@ -121,6 +124,7 @@ protected:
 	bool _destroy_clock;
 	u32 _daily_game_time;
 	u32 _daily_game_prize_time;
+	u32 _last_daily_reset_game_time;
 	std::map<std::string, message::MsgHeroDealInfo> _hero_deals;
 	
 };

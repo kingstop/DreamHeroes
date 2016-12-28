@@ -51,6 +51,7 @@ public:
 	void parseReqEnterDailyGame(google::protobuf::Message* p);
 	void parseReqUpdateDailyGameProgress(google::protobuf::Message* p);
 	void parseReqReceiveDailyGamePrize(google::protobuf::Message* p);
+	void parseReqResetDailyGameProgress(google::protobuf::Message* p);
 public:
 	void parseCmdReqMdodifyGMLevel(google::protobuf::Message* p);
 	void parseCmdReqEnterGame(google::protobuf::Message* p);
@@ -63,6 +64,8 @@ public:
 	void parseCmdReqSetSpecialCreatureHis(google::protobuf::Message* p);
 	void parseCmdReqModifyJewel(google::protobuf::Message* p);
 	void parseCmdReqModifySpirit(google::protobuf::Message* p);
+	void parseCmdReqResetDailyLottery(google::protobuf::Message* p);
+	void parseCmdReqResetResetDailyGame(google::protobuf::Message* p);
 
 	int getState();
 

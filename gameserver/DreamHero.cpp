@@ -61,6 +61,7 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	_gm_level = info->gm_level();
 	_daily_game_time = info->daily_game_time();
 	_daily_game_prize_time = info->daily_game_prize_time();
+	_last_daily_reset_game_time = info->last_daily_reset_game_time();
 	_special_kills.clear();
 	for (int i = 0; i < size_special_kills; i ++)
 	{
@@ -349,6 +350,56 @@ void DreamHero::dayRefresh(bool need_send_msg)
 	}
 }
 
+
+void DreamHero::ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGameProgress* msg)
+{
+	int reset_game_count = _info.daily_reset_game_count();
+	message::GameError error = message::Error_NO;
+	if (gGameConfig.isInToday(_daily_game_time) == false || _info.daily_game_progress() == 0)
+	{
+		error = message::Error_FailedToResetDailyGameTheProgressIsZero;
+	}
+	else
+	{
+		if (gGameConfig.isInToday(_last_daily_reset_game_time) == false)
+		{
+			reset_game_count = 0;
+		}
+		else
+		{
+			reset_game_count += 1;
+		}
+		const globalConfig& global = gGameConfig.getGlobalConfig();
+		if (reset_game_count >= global.daily_game_reset_jewel_config_.size())
+		{
+			error = message::Error_FailedToResetDailyGameUseOut;
+		}
+		else
+		{
+			int jewel = global.daily_game_reset_jewel_config_[reset_game_count];
+			if (jewel > _info.jewel())
+			{
+				error = message::Error_FailedToResetDailyGameNotEnoughJewel;
+			}
+			else
+			{
+				_info.set_daily_game_progress(0);
+				_info.set_daily_game_record_progress(0);
+				_info.set_daily_game_hp_pct(100);
+				int cur_jewel = _info.jewel() - jewel;
+				_info.set_jewel(cur_jewel);
+				_last_daily_reset_game_time = g_server_time;
+			}
+		}
+	}
+	_info.set_daily_reset_game_count(reset_game_count);
+	message::MsgS2CResetDailyGameProgressACK msgACK;
+	msgACK.set_error(error);
+	msgACK.set_daily_game_progress(_info.daily_game_progress());
+	msgACK.set_daily_reset_game_count(_info.daily_reset_game_count());
+	msgACK.set_last_reset_daily_game_time(_last_daily_reset_game_time);
+	sendPBMessage(&msgACK);
+}
 
 message::MsgTaskConfigInfo DreamHero::RadnomTaskInfo(int give_up_task)
 {	
@@ -1448,8 +1499,22 @@ void DreamHero::SendClientInit()
 	msg.set_day_refresh_time(globalConfig.day_Refresh_time_);
 	msg.set_last_lottery_time(_last_day_lottery_time);
 	msg.set_server_time(g_server_time);
-	fillSpecialCreatureList(msg.mutable_special_creatures());	
+	fillSpecialCreatureList(msg.mutable_special_creatures());
+	int daily_jewel_sonfig_size = globalConfig.daily_game_reset_jewel_config_.size();
+	for (int i = 0; i < daily_jewel_sonfig_size; i ++)
+	{
+		msg.add_reset_jewel_configs(globalConfig.daily_game_reset_jewel_config_[i]);
+	}
+
+	int daily_game_record_size = globalConfig.daily_game_record_config_.size();
+	for (int i = 0; i < daily_game_record_size; i ++)
+	{
+		msg.add_daily_game_record_configs(globalConfig.daily_game_record_config_[i]);
+	}
+	
 	sendPBMessage(&msg);
+
+	
 	_online = true;
 	Mylog::log_player(LOG_INFO, "send account init account[%d] name[%s]", _account, _info.name().c_str());
 	//StartPing();
@@ -1492,6 +1557,23 @@ void DreamHero::LoadFromConfig()
 	_last_recover_spirit_time = g_server_time;
 	SetGMLevel(1);
 }
+
+
+void DreamHero::ResetDailyGame()
+{
+	_info.set_daily_game_hp_pct(100);
+	_info.set_daily_game_gold(0);
+	_info.set_daily_game_progress(0);
+	_info.set_daily_game_record_progress(0);
+	_daily_game_time = 0;
+	_daily_game_prize_time = 0;
+	_last_daily_reset_game_time = 0;
+}
+void DreamHero::ResetDailyLottery()
+{
+	_last_day_lottery_time = 0;
+}
+
 
 void DreamHero::ReqApplyHeroDeal(const message::MsgC2SReqApplyDeal* msg)
 {
@@ -1672,6 +1754,7 @@ void DreamHero::SaveHero()
 	std::string last_lottery_time;
 	std::string daily_game_time;
 	std::string daily_game_prize_time;
+	std::string last_reset_daily_game_time;
 
 	SPECIALCREATURES::iterator it_special_creatures = _special_creatures.begin();
 	for (int i = 0; it_special_creatures != _special_creatures.end(); ++ it_special_creatures, i ++)
@@ -1683,7 +1766,7 @@ void DreamHero::SaveHero()
 		sprintf(sz_temp_1, "%d,%d", it_special_creatures->first, it_special_creatures->second);
 		special_creatures += sz_temp_1;
 	}
-
+	build_unix_time_to_string(_last_daily_reset_game_time, last_reset_daily_game_time);
 	build_unix_time_to_string(_last_task_advertisement_time, last_task_advertisement_time_temp);
 	build_unix_time_to_string(_last_recover_spirit_time, last_recover_spirit_time);
 	build_unix_time_to_string(_last_buy_spirit_time, last_buy_spirit_time);
@@ -1710,16 +1793,18 @@ void DreamHero::SaveHero()
 		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`, `special_creatures`, \
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`,\
 		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`, `lotions`, `last_lottery_time`\
-		 `daily_game_progress`, `daily_game_score`, `daily_game_gold`, `daily_game_time`, `daily_game_prize_time`,`daily_game_hp_pct`) values \
+		 `daily_game_progress`, `daily_game_score`, `daily_game_gold`, `daily_game_time`, `daily_game_prize_time`,`daily_game_hp_pct`\
+			`daily_game_hp_pct`, `daily_game_record_progress`, `daily_reset_game_count`, `last_daily_reset_game_time`) values \
 		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d,\
-		 '%s', %d, '%s', '%s', '%s', %d, %d, %d, '%s','%s', %d);",
+		 '%s', %d, '%s', '%s', '%s', %d, %d, %d, '%s','%s', %d, %d, %d, '%s');",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
 		last_task_advertisement_time_temp.c_str(), _gm_level, _current_task_count, _info.new_tutorial(),
 		_info.jewel(), _info.spirit(), last_recover_spirit_time.c_str(), _info.day_buy_spirit(), 
 		last_buy_spirit_time.c_str(), str_lotion_status.c_str(), last_lottery_time.c_str(), _info.daily_game_progress(),
-		 _info.daily_game_score(), _info.daily_game_gold(), daily_game_time.c_str(), daily_game_prize_time.c_str(), _info.daily_game_hp_pct());
+		 _info.daily_game_score(), _info.daily_game_gold(), daily_game_time.c_str(), daily_game_prize_time.c_str(), _info.daily_game_hp_pct(),
+		_info.daily_game_record_progress(), _info.daily_reset_game_count(), last_reset_daily_game_time.c_str());
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
@@ -1871,7 +1956,7 @@ void DreamHero::completeDealByOrder(const char* order_id, bool success,bool need
 
 void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 {
-	u64 temp_time = g_server_time - _day_offset_time;
+	//u64 temp_time = g_server_time - _day_offset_time;
 	message::MsgS2CDayLotteryACK msgACK;
 	msgACK.set_count(0);
 	msgACK.set_current_gold(_info.gold());
@@ -1885,7 +1970,8 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 		msgACK.add_current_lotions(_info.lotions(i));
 	}
 
-	if (same_day(temp_time, _last_day_lottery_time) == false)
+	
+	if (gGameConfig.isInToday(_last_day_lottery_time) == false)
 	{
 		const VCLOTTERYDRAWBOXSCONFIGS* configs = gGameConfig.getLotteryDrawBoxs();
 		VCLOTTERYDRAWBOXSCONFIGS vc_lottery_random;
@@ -2142,6 +2228,7 @@ void DreamHero::ReqReqEnterDailyGame(const message::MsgC2SReqEnterDailyGame* msg
 		_daily_game_time = gRankManager.getDailyGameBeginTime();
 		_info.set_daily_game_score(0);
 		_info.set_daily_game_progress(0);
+		_info.set_daily_game_hp_pct(100);
 		
 	}
 	else
@@ -2222,12 +2309,24 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	}
 	if (error != message::Error_NO)
 	{
+		const globalConfig global_config = gGameConfig.getGlobalConfig();
+		int record_size = global_config.daily_game_record_config_.size();
+		for (size_t i = record_size - 1; i >= 0; i++)
+		{
+			if (global_config.daily_game_record_config_[i] == _info.daily_game_progress())
+			{
+				_info.set_daily_game_record_progress(_info.daily_game_progress());
+				break;
+			}
+		}
+		_info.set_daily_game_hp_pct(msg->hp_pct());
 		rank = gRankManager.getHeroDailyRank(_account);
 	}
 	msgACK.set_score(_info.daily_game_score());
 	msgACK.set_error(error);
 	msgACK.set_rank(rank);
 	msgACK.set_daily_game_progress(_info.daily_game_progress());
+	msgACK.set_daily_game_progress_record(_info.daily_game_record_progress());
 	msgACK.set_hp_pct(_info.daily_game_hp_pct());
 	sendPBMessage(&msgACK);
 }

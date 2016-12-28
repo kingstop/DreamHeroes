@@ -41,6 +41,7 @@ message MsgHeroDataDB2GS
 	repeated MsgHeroDealInfo hero_deal_infos = 14;
 	required uint64 daily_game_time = 15;
 	required uint64 daily_game_prize_time = 16;
+	required uint64 last_daily_reset_game_time = 17;
 	
 }
 

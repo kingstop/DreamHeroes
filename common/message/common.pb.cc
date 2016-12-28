@@ -135,7 +135,7 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgIntBoolPair, _internal_metadata_),
       -1);
   MsgHeroData_descriptor_ = file->message_type(4);
-  static const int MsgHeroData_offsets_[16] = {
+  static const int MsgHeroData_offsets_[18] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, records_),
@@ -152,6 +152,8 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_game_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_game_score_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_game_hp_pct_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_game_record_progress_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_reset_game_count_),
   };
   MsgHeroData_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -384,7 +386,7 @@ void protobuf_AddDesc_common_2eproto() {
     "d\030\002 \002(\005\022\023\n\013random_gold\030\003 \002(\005\"0\n\nMsgIntPa"
     "ir\022\020\n\010number_1\030\001 \002(\005\022\020\n\010number_2\030\002 \002(\005\"/"
     "\n\016MsgIntBoolPair\022\016\n\006number\030\001 \002(\005\022\r\n\005vali"
-    "d\030\002 \002(\010\"\200\003\n\013MsgHeroData\022\014\n\004name\030\001 \002(\t\022\014\n"
+    "d\030\002 \002(\010\"\304\003\n\013MsgHeroData\022\014\n\004name\030\001 \002(\t\022\014\n"
     "\004gold\030\002 \002(\005\022$\n\007records\030\003 \003(\0132\023.message.M"
     "sgIntPair\022\016\n\006heroes\030\004 \003(\010\022#\n\005tasks\030\005 \003(\013"
     "2\024.message.MsgTaskInfo\022\024\n\014current_hero\030\006"
@@ -393,44 +395,46 @@ void protobuf_AddDesc_common_2eproto() {
     "\030\n \002(\005\022\026\n\016day_buy_spirit\030\013 \002(\005\022\017\n\007lotion"
     "s\030\014 \003(\005\022\033\n\023daily_game_progress\030\r \002(\005\022\027\n\017"
     "daily_game_gold\030\016 \002(\005\022\030\n\020daily_game_scor"
-    "e\030\017 \002(\005\022\031\n\021daily_game_hp_pct\030\020 \002(\005\"r\n\024Ms"
-    "gTaskConditionInfo\0222\n\010taskType\030\001 \002(\0162\021.m"
-    "essage.TaskType:\rTaskType_NULL\022\022\n\nargume"
-    "nt_1\030\002 \002(\005\022\022\n\nargument_2\030\003 \002(\005\"\225\002\n\021MsgTa"
-    "skConfigInfo\022\016\n\006taskID\030\001 \002(\005\0225\n\016task_con"
-    "dition\030\002 \003(\0132\035.message.MsgTaskConditionI"
-    "nfo\022\024\n\014require_time\030\003 \002(\005\022\036\n\026require_unl"
-    "ock_chapter\030\004 \002(\005\022\036\n\026require_unlock_sect"
-    "ion\030\005 \002(\005\022*\n\"require_unlock_complete_tas"
-    "k_count\030\006 \002(\005\022\021\n\tgift_gold\030\007 \002(\005\022\022\n\ndiff"
-    "iculty\030\010 \002(\005\022\020\n\010describe\030\t \002(\t\"\252\001\n\021MsgSh"
-    "opConfigInfo\022\017\n\007grid_id\030\001 \002(\005\022\017\n\007hero_id"
-    "\030\002 \002(\005\022\024\n\014require_gold\030\003 \002(\005\022\023\n\013cheape_g"
-    "old\030\004 \002(\005\022\032\n\022require_chapter_id\030\005 \002(\005\022\032\n"
-    "\022require_section_id\030\006 \002(\005\022\020\n\010describe\030\007 "
-    "\002(\t\"B\n\013MsgTaskInfo\022\016\n\006TaskID\030\001 \002(\005\022\022\n\nar"
-    "gument_1\030\002 \002(\005\022\017\n\007useTime\030\003 \002(\005\"\273\001\n\024MsgC"
-    "hapterConfigInfo\022\022\n\nchapter_id\030\001 \002(\005\022\033\n\023"
-    "required_chapter_id\030\002 \002(\005\022\033\n\023required_se"
-    "ction_id\030\003 \002(\005\022$\n\034required_task_complete"
-    "_count\030\004 \002(\005\022\024\n\014require_gold\030\005 \002(\005\022\031\n\021ma"
-    "x_section_count\030\006 \002(\005\"v\n\025MsgGoldShopConf"
-    "igInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013resource_id\030\002 \002(\005\022"
-    "\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 \002(\002\022\020\n\010describe"
-    "\030\005 \002(\t\022\r\n\005jewel\030\006 \002(\005\"p\n\017MsgHeroDealInfo"
-    "\022\020\n\010order_id\030\001 \002(\t\022\022\n\nproduct_id\030\002 \002(\t\022#"
-    "\n\004type\030\003 \002(\0162\025.message.HeroDealType\022\022\n\nc"
-    "reatetime\030\004 \002(\r*4\n\007SubType\022\013\n\007DEFAULT\020\000\022"
-    "\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010TaskTy"
-    "pe\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_KillMo"
-    "nster\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020TaskTy"
-    "pe_UnKnown\020\003\022\027\n\023TaskType_LimitLevel\020\004\022\030\n"
-    "\024TaskType_LimitRevive\020\005\022\"\n\036TaskType_Limi"
-    "tTime_KillMonster\020\006\022#\n\037TaskType_Accumula"
-    "te_KillMonster\020\007*v\n\014HeroDealType\022\031\n\025Hero"
-    "DealTypApplyOrder\020\000\022\031\n\025HeroDealTypeWaitT"
-    "oPay\020\001\022\030\n\024HeroDealTypeComplete\020\002\022\026\n\022Hero"
-    "DealTypeFailed\020\003", 2136);
+    "e\030\017 \002(\005\022\031\n\021daily_game_hp_pct\030\020 \002(\005\022\"\n\032da"
+    "ily_game_record_progress\030\021 \002(\005\022\036\n\026daily_"
+    "reset_game_count\030\022 \002(\005\"r\n\024MsgTaskConditi"
+    "onInfo\0222\n\010taskType\030\001 \002(\0162\021.message.TaskT"
+    "ype:\rTaskType_NULL\022\022\n\nargument_1\030\002 \002(\005\022\022"
+    "\n\nargument_2\030\003 \002(\005\"\225\002\n\021MsgTaskConfigInfo"
+    "\022\016\n\006taskID\030\001 \002(\005\0225\n\016task_condition\030\002 \003(\013"
+    "2\035.message.MsgTaskConditionInfo\022\024\n\014requi"
+    "re_time\030\003 \002(\005\022\036\n\026require_unlock_chapter\030"
+    "\004 \002(\005\022\036\n\026require_unlock_section\030\005 \002(\005\022*\n"
+    "\"require_unlock_complete_task_count\030\006 \002("
+    "\005\022\021\n\tgift_gold\030\007 \002(\005\022\022\n\ndifficulty\030\010 \002(\005"
+    "\022\020\n\010describe\030\t \002(\t\"\252\001\n\021MsgShopConfigInfo"
+    "\022\017\n\007grid_id\030\001 \002(\005\022\017\n\007hero_id\030\002 \002(\005\022\024\n\014re"
+    "quire_gold\030\003 \002(\005\022\023\n\013cheape_gold\030\004 \002(\005\022\032\n"
+    "\022require_chapter_id\030\005 \002(\005\022\032\n\022require_sec"
+    "tion_id\030\006 \002(\005\022\020\n\010describe\030\007 \002(\t\"B\n\013MsgTa"
+    "skInfo\022\016\n\006TaskID\030\001 \002(\005\022\022\n\nargument_1\030\002 \002"
+    "(\005\022\017\n\007useTime\030\003 \002(\005\"\273\001\n\024MsgChapterConfig"
+    "Info\022\022\n\nchapter_id\030\001 \002(\005\022\033\n\023required_cha"
+    "pter_id\030\002 \002(\005\022\033\n\023required_section_id\030\003 \002"
+    "(\005\022$\n\034required_task_complete_count\030\004 \002(\005"
+    "\022\024\n\014require_gold\030\005 \002(\005\022\031\n\021max_section_co"
+    "unt\030\006 \002(\005\"v\n\025MsgGoldShopConfigInfo\022\n\n\002id"
+    "\030\001 \002(\005\022\023\n\013resource_id\030\002 \002(\005\022\014\n\004gold\030\003 \002("
+    "\005\022\r\n\005money\030\004 \002(\002\022\020\n\010describe\030\005 \002(\t\022\r\n\005je"
+    "wel\030\006 \002(\005\"p\n\017MsgHeroDealInfo\022\020\n\010order_id"
+    "\030\001 \002(\t\022\022\n\nproduct_id\030\002 \002(\t\022#\n\004type\030\003 \002(\016"
+    "2\025.message.HeroDealType\022\022\n\ncreatetime\030\004 "
+    "\002(\r*4\n\007SubType\022\013\n\007DEFAULT\020\000\022\013\n\007MONSTER\020\001"
+    "\022\017\n\013INTERACTIVE\020\002*\340\001\n\010TaskType\022\021\n\rTaskTy"
+    "pe_NULL\020\000\022\030\n\024TaskType_KillMonster\020\001\022\025\n\021T"
+    "askType_PassGame\020\002\022\024\n\020TaskType_UnKnown\020\003"
+    "\022\027\n\023TaskType_LimitLevel\020\004\022\030\n\024TaskType_Li"
+    "mitRevive\020\005\022\"\n\036TaskType_LimitTime_KillMo"
+    "nster\020\006\022#\n\037TaskType_Accumulate_KillMonst"
+    "er\020\007*v\n\014HeroDealType\022\031\n\025HeroDealTypApply"
+    "Order\020\000\022\031\n\025HeroDealTypeWaitToPay\020\001\022\030\n\024He"
+    "roDealTypeComplete\020\002\022\026\n\022HeroDealTypeFail"
+    "ed\020\003", 2204);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   MsgObjConfig::default_instance_ = new MsgObjConfig();
@@ -2058,6 +2062,8 @@ const int MsgHeroData::kDailyGameProgressFieldNumber;
 const int MsgHeroData::kDailyGameGoldFieldNumber;
 const int MsgHeroData::kDailyGameScoreFieldNumber;
 const int MsgHeroData::kDailyGameHpPctFieldNumber;
+const int MsgHeroData::kDailyGameRecordProgressFieldNumber;
+const int MsgHeroData::kDailyResetGameCountFieldNumber;
 #endif  // !_MSC_VER
 
 MsgHeroData::MsgHeroData()
@@ -2092,6 +2098,8 @@ void MsgHeroData::SharedCtor() {
   daily_game_gold_ = 0;
   daily_game_score_ = 0;
   daily_game_hp_pct_ = 0;
+  daily_game_record_progress_ = 0;
+  daily_reset_game_count_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2151,6 +2159,7 @@ void MsgHeroData::Clear() {
     ZR_(jewel_, spirit_);
     ZR_(day_buy_spirit_, daily_game_hp_pct_);
   }
+  ZR_(daily_game_record_progress_, daily_reset_game_count_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -2418,6 +2427,36 @@ bool MsgHeroData::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(136)) goto parse_daily_game_record_progress;
+        break;
+      }
+
+      // required int32 daily_game_record_progress = 17;
+      case 17: {
+        if (tag == 136) {
+         parse_daily_game_record_progress:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &daily_game_record_progress_)));
+          set_has_daily_game_record_progress();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(144)) goto parse_daily_reset_game_count;
+        break;
+      }
+
+      // required int32 daily_reset_game_count = 18;
+      case 18: {
+        if (tag == 144) {
+         parse_daily_reset_game_count:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &daily_reset_game_count_)));
+          set_has_daily_reset_game_count();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2536,6 +2575,16 @@ void MsgHeroData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->daily_game_hp_pct(), output);
   }
 
+  // required int32 daily_game_record_progress = 17;
+  if (has_daily_game_record_progress()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->daily_game_record_progress(), output);
+  }
+
+  // required int32 daily_reset_game_count = 18;
+  if (has_daily_reset_game_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->daily_reset_game_count(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2638,6 +2687,16 @@ void MsgHeroData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->daily_game_hp_pct(), target);
   }
 
+  // required int32 daily_game_record_progress = 17;
+  if (has_daily_game_record_progress()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->daily_game_record_progress(), target);
+  }
+
+  // required int32 daily_reset_game_count = 18;
+  if (has_daily_reset_game_count()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->daily_reset_game_count(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -2733,12 +2792,26 @@ int MsgHeroData::RequiredFieldsByteSizeFallback() const {
         this->daily_game_hp_pct());
   }
 
+  if (has_daily_game_record_progress()) {
+    // required int32 daily_game_record_progress = 17;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->daily_game_record_progress());
+  }
+
+  if (has_daily_reset_game_count()) {
+    // required int32 daily_reset_game_count = 18;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->daily_reset_game_count());
+  }
+
   return total_size;
 }
 int MsgHeroData::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000f7e3) ^ 0x0000f7e3) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0003f7e3) ^ 0x0003f7e3) == 0) {  // All required fields are present.
     // required string name = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2798,6 +2871,16 @@ int MsgHeroData::ByteSize() const {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->daily_game_hp_pct());
+
+    // required int32 daily_game_record_progress = 17;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->daily_game_record_progress());
+
+    // required int32 daily_reset_game_count = 18;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->daily_reset_game_count());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -2905,6 +2988,14 @@ void MsgHeroData::MergeFrom(const MsgHeroData& from) {
       set_daily_game_hp_pct(from.daily_game_hp_pct());
     }
   }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_daily_game_record_progress()) {
+      set_daily_game_record_progress(from.daily_game_record_progress());
+    }
+    if (from.has_daily_reset_game_count()) {
+      set_daily_reset_game_count(from.daily_reset_game_count());
+    }
+  }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
   }
@@ -2923,7 +3014,7 @@ void MsgHeroData::CopyFrom(const MsgHeroData& from) {
 }
 
 bool MsgHeroData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000f7e3) != 0x0000f7e3) return false;
+  if ((_has_bits_[0] & 0x0003f7e3) != 0x0003f7e3) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->records())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->tasks())) return false;
@@ -2951,6 +3042,8 @@ void MsgHeroData::InternalSwap(MsgHeroData* other) {
   std::swap(daily_game_gold_, other->daily_game_gold_);
   std::swap(daily_game_score_, other->daily_game_score_);
   std::swap(daily_game_hp_pct_, other->daily_game_hp_pct_);
+  std::swap(daily_game_record_progress_, other->daily_game_record_progress_);
+  std::swap(daily_reset_game_count_, other->daily_reset_game_count_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -3402,6 +3495,54 @@ MsgHeroData::mutable_lotions() {
   set_has_daily_game_hp_pct();
   daily_game_hp_pct_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_hp_pct)
+}
+
+// required int32 daily_game_record_progress = 17;
+ bool MsgHeroData::has_daily_game_record_progress() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+ void MsgHeroData::set_has_daily_game_record_progress() {
+  _has_bits_[0] |= 0x00010000u;
+}
+ void MsgHeroData::clear_has_daily_game_record_progress() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+ void MsgHeroData::clear_daily_game_record_progress() {
+  daily_game_record_progress_ = 0;
+  clear_has_daily_game_record_progress();
+}
+ ::google::protobuf::int32 MsgHeroData::daily_game_record_progress() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_game_record_progress)
+  return daily_game_record_progress_;
+}
+ void MsgHeroData::set_daily_game_record_progress(::google::protobuf::int32 value) {
+  set_has_daily_game_record_progress();
+  daily_game_record_progress_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_record_progress)
+}
+
+// required int32 daily_reset_game_count = 18;
+ bool MsgHeroData::has_daily_reset_game_count() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+ void MsgHeroData::set_has_daily_reset_game_count() {
+  _has_bits_[0] |= 0x00020000u;
+}
+ void MsgHeroData::clear_has_daily_reset_game_count() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+ void MsgHeroData::clear_daily_reset_game_count() {
+  daily_reset_game_count_ = 0;
+  clear_has_daily_reset_game_count();
+}
+ ::google::protobuf::int32 MsgHeroData::daily_reset_game_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_reset_game_count)
+  return daily_reset_game_count_;
+}
+ void MsgHeroData::set_daily_reset_game_count(::google::protobuf::int32 value) {
+  set_has_daily_reset_game_count();
+  daily_reset_game_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_reset_game_count)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -34,6 +34,8 @@ struct globalConfig
 	int config_recover_spirit_;
 	int config_enter_game_use_spirit_;
 	int config_day_buy_spirit_;
+	std::vector<int> daily_game_record_config_;
+	std::vector<int> daily_game_reset_jewel_config_;
 
 };
 struct ShopSalesPromotionConfig
@@ -115,6 +117,8 @@ struct DailyGamePrizeConfig
 	int end_rank_;
 	int prize_gold_;
 };
+
+
 
 typedef std::map<int, message::MsgTaskConfigInfo> MAPTASKS;
 typedef std::map<int, message::MsgShopConfigInfo> MAPSHOPHEROCONFIGS;

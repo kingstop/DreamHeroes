@@ -590,6 +590,34 @@ void GameConfig::Load(DBQuery* p)
 			entry.prize_gold_ = row["gold"];
 			_daily_game_prize_configs.push_back(entry);
 		}
+
+		query.reset();
+		sResult.clear();
+		query << "select * from daily_game_record_config ORDER by daily_game_record_progress ASC;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			DBRow& row = sResult[i];
+			int daily_game_record_progress = row["daily_game_record_progress"];
+			_global_config.daily_game_record_config_.push_back(daily_game_record_progress);
+		}
+
+		query.reset();
+		sResult.clear();
+		query << "select * from daily_game_reset_config ORDER by reset_jewel ASC;";
+		sResult = query.store();
+		rows_length = sResult.num_rows();
+		for (int i = 0; i < rows_length; i++)
+		{
+			DBRow& row = sResult[i];
+			int reset_jewel = row["reset_jewel"];
+			_global_config.daily_game_reset_jewel_config_.push_back(reset_jewel);
+		}
+
+
+
+
 	}	
 	char sz_temp[512];
 	sprintf(sz_temp, "%d;%d;%d", _game_id, _server_char, _server_type);

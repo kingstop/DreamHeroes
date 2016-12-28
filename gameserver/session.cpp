@@ -60,6 +60,24 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqEnterDailyGame), &Session::parseReqEnterDailyGame);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqReceiveDailyGamePrize), &Session::parseReqUpdateDailyGameProgress);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqUpdateDailyGameProgress), &Session::parseReqUpdateDailyGameProgress);
+
+	///
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetDailyLottery), &Session::parseCmdReqResetDailyLottery);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetDailyGame), &Session::parseCmdReqResetResetDailyGame);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqResetDailyGameProgress), &Session::parseReqResetDailyGameProgress);
+
+
+	//
+
+}
+
+void Session::parseReqResetDailyGameProgress(google::protobuf::Message* p)
+{
+	message::MsgC2SReqResetDailyGameProgress* msg = (message::MsgC2SReqResetDailyGameProgress*)p;
+	if (_dream_hero)
+	{
+		_dream_hero->ReqResetDailyGameProgress(msg);
+	}
 }
 
 void Session::parseReqEnterDailyGame(google::protobuf::Message* p)
@@ -160,6 +178,39 @@ void Session::parseCmdReqModifyJewel(google::protobuf::Message* p)
 	sendPBMessage(&msgACK);
 
 }
+
+void Session::parseCmdReqResetDailyLottery(google::protobuf::Message* p)
+{
+	message::GameError error = message::Error_NO;
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		_dream_hero->ResetDailyLottery();
+	}
+	else
+	{
+		error = message::Error_CmdFailedRequiredGMLevel;
+	}
+	message::MsgS2CCmdResetDailyLotteryACK msg;
+	msg.set_error(error);
+	sendPBMessage(&msg);
+}
+void Session::parseCmdReqResetResetDailyGame(google::protobuf::Message* p)
+{
+	message::GameError error = message::Error_NO;
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		_dream_hero->ResetDailyGame();
+	}
+	else
+	{
+		error = message::Error_CmdFailedRequiredGMLevel;
+	}
+	message::MsgS2CCmdResetDailyGameACK msg;
+	msg.set_error(error);
+	sendPBMessage(&msg);
+
+}
+
 void Session::parseCmdReqModifySpirit(google::protobuf::Message* p)
 {
 	message::MsgS2CCmdModifySpiritACK msgACK;

@@ -739,6 +739,20 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_hp_pct() const;
   void set_daily_game_hp_pct(::google::protobuf::int32 value);
 
+  // required int32 daily_game_record_progress = 17;
+  bool has_daily_game_record_progress() const;
+  void clear_daily_game_record_progress();
+  static const int kDailyGameRecordProgressFieldNumber = 17;
+  ::google::protobuf::int32 daily_game_record_progress() const;
+  void set_daily_game_record_progress(::google::protobuf::int32 value);
+
+  // required int32 daily_reset_game_count = 18;
+  bool has_daily_reset_game_count() const;
+  void clear_daily_reset_game_count();
+  static const int kDailyResetGameCountFieldNumber = 18;
+  ::google::protobuf::int32 daily_reset_game_count() const;
+  void set_daily_reset_game_count(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -765,6 +779,10 @@ class MsgHeroData : public ::google::protobuf::Message {
   inline void clear_has_daily_game_score();
   inline void set_has_daily_game_hp_pct();
   inline void clear_has_daily_game_hp_pct();
+  inline void set_has_daily_game_record_progress();
+  inline void clear_has_daily_game_record_progress();
+  inline void set_has_daily_reset_game_count();
+  inline void clear_has_daily_reset_game_count();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -788,6 +806,8 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_gold_;
   ::google::protobuf::int32 daily_game_score_;
   ::google::protobuf::int32 daily_game_hp_pct_;
+  ::google::protobuf::int32 daily_game_record_progress_;
+  ::google::protobuf::int32 daily_reset_game_count_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2472,6 +2492,54 @@ inline void MsgHeroData::set_daily_game_hp_pct(::google::protobuf::int32 value) 
   set_has_daily_game_hp_pct();
   daily_game_hp_pct_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_hp_pct)
+}
+
+// required int32 daily_game_record_progress = 17;
+inline bool MsgHeroData::has_daily_game_record_progress() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void MsgHeroData::set_has_daily_game_record_progress() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void MsgHeroData::clear_has_daily_game_record_progress() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline void MsgHeroData::clear_daily_game_record_progress() {
+  daily_game_record_progress_ = 0;
+  clear_has_daily_game_record_progress();
+}
+inline ::google::protobuf::int32 MsgHeroData::daily_game_record_progress() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_game_record_progress)
+  return daily_game_record_progress_;
+}
+inline void MsgHeroData::set_daily_game_record_progress(::google::protobuf::int32 value) {
+  set_has_daily_game_record_progress();
+  daily_game_record_progress_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_record_progress)
+}
+
+// required int32 daily_reset_game_count = 18;
+inline bool MsgHeroData::has_daily_reset_game_count() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void MsgHeroData::set_has_daily_reset_game_count() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void MsgHeroData::clear_has_daily_reset_game_count() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void MsgHeroData::clear_daily_reset_game_count() {
+  daily_reset_game_count_ = 0;
+  clear_has_daily_reset_game_count();
+}
+inline ::google::protobuf::int32 MsgHeroData::daily_reset_game_count() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_reset_game_count)
+  return daily_reset_game_count_;
+}
+inline void MsgHeroData::set_daily_reset_game_count(::google::protobuf::int32 value) {
+  set_has_daily_reset_game_count();
+  daily_reset_game_count_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_reset_game_count)
 }
 
 // -------------------------------------------------------------------
