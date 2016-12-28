@@ -1499,6 +1499,7 @@ void DreamHero::SendClientInit()
 	msg.set_day_refresh_time(globalConfig.day_Refresh_time_);
 	msg.set_last_lottery_time(_last_day_lottery_time);
 	msg.set_server_time(g_server_time);
+	msg.set_last_reset_daily_game_time(_last_daily_reset_game_time);
 	fillSpecialCreatureList(msg.mutable_special_creatures());
 	int daily_jewel_sonfig_size = globalConfig.daily_game_reset_jewel_config_.size();
 	for (int i = 0; i < daily_jewel_sonfig_size; i ++)
