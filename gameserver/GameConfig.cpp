@@ -578,7 +578,7 @@ void GameConfig::Load(DBQuery* p)
 
 		query.reset();
 		sResult.clear();
-		query << "select * from gold_shop_config_info;";
+		query << "select * from daily_game_prize;";
 		sResult = query.store();
 		rows_length = sResult.num_rows();
 		for (int i = 0; i < rows_length; i++)
