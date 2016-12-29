@@ -363,7 +363,7 @@ void DreamHero::ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGame
 	{
 		if (gGameConfig.isInToday(_last_daily_reset_game_time) == false)
 		{
-			reset_game_count = 0;
+			reset_game_count = 1;
 		}
 		else
 		{
