@@ -92,6 +92,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgS2CBuySpiritACK_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgS2CBuySpiritACK_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgC2SReqDailyGameRankList_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgC2SReqDailyGameRankList_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgC2SReqEnterGame_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgC2SReqEnterGame_reflection_ = NULL;
@@ -691,7 +694,21 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CBuySpiritACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuySpiritACK, _internal_metadata_),
       -1);
-  MsgC2SReqEnterGame_descriptor_ = file->message_type(24);
+  MsgC2SReqDailyGameRankList_descriptor_ = file->message_type(24);
+  static const int MsgC2SReqDailyGameRankList_offsets_[1] = {
+  };
+  MsgC2SReqDailyGameRankList_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgC2SReqDailyGameRankList_descriptor_,
+      MsgC2SReqDailyGameRankList::default_instance_,
+      MsgC2SReqDailyGameRankList_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqDailyGameRankList, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgC2SReqDailyGameRankList),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqDailyGameRankList, _internal_metadata_),
+      -1);
+  MsgC2SReqEnterGame_descriptor_ = file->message_type(25);
   static const int MsgC2SReqEnterGame_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, section_id_),
@@ -707,7 +724,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqEnterGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqEnterGame, _internal_metadata_),
       -1);
-  MsgS2CEnterGameACK_descriptor_ = file->message_type(25);
+  MsgS2CEnterGameACK_descriptor_ = file->message_type(26);
   static const int MsgS2CEnterGameACK_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, section_id_),
@@ -727,7 +744,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CEnterGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CEnterGameACK, _internal_metadata_),
       -1);
-  MsgKillHistroy_descriptor_ = file->message_type(26);
+  MsgKillHistroy_descriptor_ = file->message_type(27);
   static const int MsgKillHistroy_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgKillHistroy, obj_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgKillHistroy, count_),
@@ -743,7 +760,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgKillHistroy),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgKillHistroy, _internal_metadata_),
       -1);
-  MsgC2SReqExitGame_descriptor_ = file->message_type(27);
+  MsgC2SReqExitGame_descriptor_ = file->message_type(28);
   static const int MsgC2SReqExitGame_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, section_id_),
@@ -767,7 +784,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqExitGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqExitGame, _internal_metadata_),
       -1);
-  MsgS2CExitGameACK_descriptor_ = file->message_type(28);
+  MsgS2CExitGameACK_descriptor_ = file->message_type(29);
   static const int MsgS2CExitGameACK_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, section_id_),
@@ -791,7 +808,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CExitGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CExitGameACK, _internal_metadata_),
       -1);
-  MsgC2SReqUnlockChapter_descriptor_ = file->message_type(29);
+  MsgC2SReqUnlockChapter_descriptor_ = file->message_type(30);
   static const int MsgC2SReqUnlockChapter_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqUnlockChapter, chapter_id_),
   };
@@ -806,7 +823,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqUnlockChapter),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqUnlockChapter, _internal_metadata_),
       -1);
-  MsgC2SReqAdvertisementApplyTask_descriptor_ = file->message_type(30);
+  MsgC2SReqAdvertisementApplyTask_descriptor_ = file->message_type(31);
   static const int MsgC2SReqAdvertisementApplyTask_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementApplyTask, gold_),
   };
@@ -821,7 +838,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqAdvertisementApplyTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementApplyTask, _internal_metadata_),
       -1);
-  MsgS2CAdvertisementApplyTaskACK_descriptor_ = file->message_type(31);
+  MsgS2CAdvertisementApplyTaskACK_descriptor_ = file->message_type(32);
   static const int MsgS2CAdvertisementApplyTaskACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementApplyTaskACK, error_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementApplyTaskACK, infos_),
@@ -838,7 +855,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CAdvertisementApplyTaskACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementApplyTaskACK, _internal_metadata_),
       -1);
-  MsgC2SReqAdvertisementRefreshTask_descriptor_ = file->message_type(32);
+  MsgC2SReqAdvertisementRefreshTask_descriptor_ = file->message_type(33);
   static const int MsgC2SReqAdvertisementRefreshTask_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementRefreshTask, give_up_task_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementRefreshTask, gold_),
@@ -854,7 +871,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqAdvertisementRefreshTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqAdvertisementRefreshTask, _internal_metadata_),
       -1);
-  MsgS2CAdvertisementRefreshTaskACK_descriptor_ = file->message_type(33);
+  MsgS2CAdvertisementRefreshTaskACK_descriptor_ = file->message_type(34);
   static const int MsgS2CAdvertisementRefreshTaskACK_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, give_up_task_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, error_),
@@ -872,7 +889,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CAdvertisementRefreshTaskACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CAdvertisementRefreshTaskACK, _internal_metadata_),
       -1);
-  MsgC2SReqModifyCurrentHero_descriptor_ = file->message_type(34);
+  MsgC2SReqModifyCurrentHero_descriptor_ = file->message_type(35);
   static const int MsgC2SReqModifyCurrentHero_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyCurrentHero, current_grid_),
   };
@@ -887,7 +904,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqModifyCurrentHero),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyCurrentHero, _internal_metadata_),
       -1);
-  MsgS2CModifyCurrentHeroACK_descriptor_ = file->message_type(35);
+  MsgS2CModifyCurrentHeroACK_descriptor_ = file->message_type(36);
   static const int MsgS2CModifyCurrentHeroACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, current_grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, error_),
@@ -903,7 +920,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CModifyCurrentHeroACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyCurrentHeroACK, _internal_metadata_),
       -1);
-  MsgS2CUnlockChapterACK_descriptor_ = file->message_type(36);
+  MsgS2CUnlockChapterACK_descriptor_ = file->message_type(37);
   static const int MsgS2CUnlockChapterACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, current_gold_),
@@ -920,7 +937,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CUnlockChapterACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CUnlockChapterACK, _internal_metadata_),
       -1);
-  MsgC2SReqBuyHero_descriptor_ = file->message_type(37);
+  MsgC2SReqBuyHero_descriptor_ = file->message_type(38);
   static const int MsgC2SReqBuyHero_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, gold_),
@@ -936,7 +953,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqBuyHero),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqBuyHero, _internal_metadata_),
       -1);
-  MsgS2CBuyHeroACK_descriptor_ = file->message_type(38);
+  MsgS2CBuyHeroACK_descriptor_ = file->message_type(39);
   static const int MsgS2CBuyHeroACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, grid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, current_gold_),
@@ -953,7 +970,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CBuyHeroACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CBuyHeroACK, _internal_metadata_),
       -1);
-  MsgC2SReqGoldShopConfigs_descriptor_ = file->message_type(39);
+  MsgC2SReqGoldShopConfigs_descriptor_ = file->message_type(40);
   static const int MsgC2SReqGoldShopConfigs_offsets_[1] = {
   };
   MsgC2SReqGoldShopConfigs_reflection_ =
@@ -967,7 +984,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqGoldShopConfigs),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqGoldShopConfigs, _internal_metadata_),
       -1);
-  MsgS2CGoldShopConfigsACK_descriptor_ = file->message_type(40);
+  MsgS2CGoldShopConfigsACK_descriptor_ = file->message_type(41);
   static const int MsgS2CGoldShopConfigsACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CGoldShopConfigsACK, infos_),
   };
@@ -982,7 +999,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CGoldShopConfigsACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CGoldShopConfigsACK, _internal_metadata_),
       -1);
-  MsgC2SReqCrearteDeal_descriptor_ = file->message_type(41);
+  MsgC2SReqCrearteDeal_descriptor_ = file->message_type(42);
   static const int MsgC2SReqCrearteDeal_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteDeal, key_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteDeal, channel_),
@@ -998,7 +1015,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqCrearteDeal),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqCrearteDeal, _internal_metadata_),
       -1);
-  MsgS2CCrearteDealACK_descriptor_ = file->message_type(42);
+  MsgS2CCrearteDealACK_descriptor_ = file->message_type(43);
   static const int MsgS2CCrearteDealACK_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, key_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, status_),
@@ -1018,7 +1035,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCrearteDealACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCrearteDealACK, _internal_metadata_),
       -1);
-  MsgC2SReqVerifyDeal_descriptor_ = file->message_type(43);
+  MsgC2SReqVerifyDeal_descriptor_ = file->message_type(44);
   static const int MsgC2SReqVerifyDeal_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDeal, receipt_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDeal, order_id_),
@@ -1034,7 +1051,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqVerifyDeal),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqVerifyDeal, _internal_metadata_),
       -1);
-  MsgS2CVerifyDealACK_descriptor_ = file->message_type(44);
+  MsgS2CVerifyDealACK_descriptor_ = file->message_type(45);
   static const int MsgS2CVerifyDealACK_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, product_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, status_),
@@ -1053,7 +1070,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CVerifyDealACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CVerifyDealACK, _internal_metadata_),
       -1);
-  MsgC2SReqApplyDeal_descriptor_ = file->message_type(45);
+  MsgC2SReqApplyDeal_descriptor_ = file->message_type(46);
   static const int MsgC2SReqApplyDeal_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqApplyDeal, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqApplyDeal, channel_),
@@ -1069,7 +1086,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqApplyDeal),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqApplyDeal, _internal_metadata_),
       -1);
-  MsgS2CApplyDealACK_descriptor_ = file->message_type(46);
+  MsgS2CApplyDealACK_descriptor_ = file->message_type(47);
   static const int MsgS2CApplyDealACK_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CApplyDealACK, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CApplyDealACK, product_id_),
@@ -1088,7 +1105,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CApplyDealACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CApplyDealACK, _internal_metadata_),
       -1);
-  MsgS2CNotifyDealComplete_descriptor_ = file->message_type(47);
+  MsgS2CNotifyDealComplete_descriptor_ = file->message_type(48);
   static const int MsgS2CNotifyDealComplete_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CNotifyDealComplete, order_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CNotifyDealComplete, product_id_),
@@ -1107,7 +1124,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CNotifyDealComplete),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CNotifyDealComplete, _internal_metadata_),
       -1);
-  MsgS2CPingNotify_descriptor_ = file->message_type(48);
+  MsgS2CPingNotify_descriptor_ = file->message_type(49);
   static const int MsgS2CPingNotify_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CPingNotify, ping_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CPingNotify, time_),
@@ -1123,7 +1140,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CPingNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CPingNotify, _internal_metadata_),
       -1);
-  MsgS2CRecoverSpiritNotify_descriptor_ = file->message_type(49);
+  MsgS2CRecoverSpiritNotify_descriptor_ = file->message_type(50);
   static const int MsgS2CRecoverSpiritNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CRecoverSpiritNotify, current_spirit_),
   };
@@ -1138,7 +1155,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CRecoverSpiritNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CRecoverSpiritNotify, _internal_metadata_),
       -1);
-  MsgC2SPingNotify_descriptor_ = file->message_type(50);
+  MsgC2SPingNotify_descriptor_ = file->message_type(51);
   static const int MsgC2SPingNotify_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SPingNotify, ping_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SPingNotify, time_),
@@ -1154,7 +1171,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SPingNotify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SPingNotify, _internal_metadata_),
       -1);
-  MsgC2SReqModifyNewTutorial_descriptor_ = file->message_type(51);
+  MsgC2SReqModifyNewTutorial_descriptor_ = file->message_type(52);
   static const int MsgC2SReqModifyNewTutorial_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyNewTutorial, flag_),
   };
@@ -1169,7 +1186,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReqModifyNewTutorial),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReqModifyNewTutorial, _internal_metadata_),
       -1);
-  MsgS2CModifyNewTutorialACK_descriptor_ = file->message_type(52);
+  MsgS2CModifyNewTutorialACK_descriptor_ = file->message_type(53);
   static const int MsgS2CModifyNewTutorialACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyNewTutorialACK, flag_),
   };
@@ -1184,7 +1201,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CModifyNewTutorialACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CModifyNewTutorialACK, _internal_metadata_),
       -1);
-  MsgC2SReliveReq_descriptor_ = file->message_type(53);
+  MsgC2SReliveReq_descriptor_ = file->message_type(54);
   static const int MsgC2SReliveReq_offsets_[1] = {
   };
   MsgC2SReliveReq_reflection_ =
@@ -1198,7 +1215,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SReliveReq),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SReliveReq, _internal_metadata_),
       -1);
-  MsgS2CReliveACK_descriptor_ = file->message_type(54);
+  MsgS2CReliveACK_descriptor_ = file->message_type(55);
   static const int MsgS2CReliveACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CReliveACK, current_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CReliveACK, error_),
@@ -1214,7 +1231,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CReliveACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CReliveACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqRemoveSpecialCreatureListHis_descriptor_ = file->message_type(55);
+  MsgC2SCmdReqRemoveSpecialCreatureListHis_descriptor_ = file->message_type(56);
   static const int MsgC2SCmdReqRemoveSpecialCreatureListHis_offsets_[1] = {
   };
   MsgC2SCmdReqRemoveSpecialCreatureListHis_reflection_ =
@@ -1228,7 +1245,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqRemoveSpecialCreatureListHis),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqRemoveSpecialCreatureListHis, _internal_metadata_),
       -1);
-  MsgC2SCmdReqSetSpecialCreatureHis_descriptor_ = file->message_type(56);
+  MsgC2SCmdReqSetSpecialCreatureHis_descriptor_ = file->message_type(57);
   static const int MsgC2SCmdReqSetSpecialCreatureHis_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqSetSpecialCreatureHis, creature_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqSetSpecialCreatureHis, status_),
@@ -1244,7 +1261,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqSetSpecialCreatureHis),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqSetSpecialCreatureHis, _internal_metadata_),
       -1);
-  MsgS2CCmdNotifySpecialCreatureHisModify_descriptor_ = file->message_type(57);
+  MsgS2CCmdNotifySpecialCreatureHisModify_descriptor_ = file->message_type(58);
   static const int MsgS2CCmdNotifySpecialCreatureHisModify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdNotifySpecialCreatureHisModify, special_creatures_),
   };
@@ -1259,7 +1276,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdNotifySpecialCreatureHisModify),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdNotifySpecialCreatureHisModify, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyTaskCompleteCount_descriptor_ = file->message_type(58);
+  MsgC2SCmdReqModifyTaskCompleteCount_descriptor_ = file->message_type(59);
   static const int MsgC2SCmdReqModifyTaskCompleteCount_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyTaskCompleteCount, task_complete_count_),
   };
@@ -1274,7 +1291,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyTaskCompleteCount),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyTaskCompleteCount, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyTaskCompleteCountACK_descriptor_ = file->message_type(59);
+  MsgS2CCmdModifyTaskCompleteCountACK_descriptor_ = file->message_type(60);
   static const int MsgS2CCmdModifyTaskCompleteCountACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyTaskCompleteCountACK, current_task_count_),
   };
@@ -1289,7 +1306,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyTaskCompleteCountACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyTaskCompleteCountACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqShowGMLevel_descriptor_ = file->message_type(60);
+  MsgC2SCmdReqShowGMLevel_descriptor_ = file->message_type(61);
   static const int MsgC2SCmdReqShowGMLevel_offsets_[1] = {
   };
   MsgC2SCmdReqShowGMLevel_reflection_ =
@@ -1303,7 +1320,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqShowGMLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqShowGMLevel, _internal_metadata_),
       -1);
-  MsgS2CCmdShowGMLevelACK_descriptor_ = file->message_type(61);
+  MsgS2CCmdShowGMLevelACK_descriptor_ = file->message_type(62);
   static const int MsgS2CCmdShowGMLevelACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, gm_level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, error_),
@@ -1319,7 +1336,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdShowGMLevelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdShowGMLevelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyGMLevel_descriptor_ = file->message_type(62);
+  MsgC2SCmdReqModifyGMLevel_descriptor_ = file->message_type(63);
   static const int MsgC2SCmdReqModifyGMLevel_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, level_),
@@ -1335,7 +1352,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyGMLevel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGMLevel, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyGMLevelACK_descriptor_ = file->message_type(63);
+  MsgS2CCmdModifyGMLevelACK_descriptor_ = file->message_type(64);
   static const int MsgS2CCmdModifyGMLevelACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, level_),
@@ -1352,7 +1369,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyGMLevelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGMLevelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqEnterGame_descriptor_ = file->message_type(64);
+  MsgC2SCmdReqEnterGame_descriptor_ = file->message_type(65);
   static const int MsgC2SCmdReqEnterGame_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, section_id_),
@@ -1368,7 +1385,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqEnterGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqEnterGame, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetMap_descriptor_ = file->message_type(65);
+  MsgC2SCmdReqResetMap_descriptor_ = file->message_type(66);
   static const int MsgC2SCmdReqResetMap_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, section_id_),
@@ -1384,7 +1401,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetMap),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetMap, _internal_metadata_),
       -1);
-  MsgS2CCmdResetMapACK_descriptor_ = file->message_type(66);
+  MsgS2CCmdResetMapACK_descriptor_ = file->message_type(67);
   static const int MsgS2CCmdResetMapACK_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, section_id_),
@@ -1401,7 +1418,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdResetMapACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetMapACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetGame_descriptor_ = file->message_type(67);
+  MsgC2SCmdReqResetGame_descriptor_ = file->message_type(68);
   static const int MsgC2SCmdReqResetGame_offsets_[1] = {
   };
   MsgC2SCmdReqResetGame_reflection_ =
@@ -1415,7 +1432,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetGame, _internal_metadata_),
       -1);
-  MsgS2CCmdResetGameACK_descriptor_ = file->message_type(68);
+  MsgS2CCmdResetGameACK_descriptor_ = file->message_type(69);
   static const int MsgS2CCmdResetGameACK_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, current_advertisement_count_),
@@ -1433,7 +1450,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdResetGameACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetGameACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyGold_descriptor_ = file->message_type(69);
+  MsgC2SCmdReqModifyGold_descriptor_ = file->message_type(70);
   static const int MsgC2SCmdReqModifyGold_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGold, gold_),
   };
@@ -1448,7 +1465,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyGold),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyGold, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyGoldACK_descriptor_ = file->message_type(70);
+  MsgS2CCmdModifyGoldACK_descriptor_ = file->message_type(71);
   static const int MsgS2CCmdModifyGoldACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGoldACK, gold_),
   };
@@ -1463,7 +1480,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyGoldACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyGoldACK, _internal_metadata_),
       -1);
-  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(71);
+  MsgS2CCmdReqReplaceTask_descriptor_ = file->message_type(72);
   static const int MsgS2CCmdReqReplaceTask_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, task_count_),
   };
@@ -1478,7 +1495,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdReqReplaceTask),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReqReplaceTask, _internal_metadata_),
       -1);
-  MsgS2CCmdReplaceTaskACK_descriptor_ = file->message_type(72);
+  MsgS2CCmdReplaceTaskACK_descriptor_ = file->message_type(73);
   static const int MsgS2CCmdReplaceTaskACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, error_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, infos_),
@@ -1494,7 +1511,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdReplaceTaskACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdReplaceTaskACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifyJewel_descriptor_ = file->message_type(73);
+  MsgC2SCmdReqModifyJewel_descriptor_ = file->message_type(74);
   static const int MsgC2SCmdReqModifyJewel_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyJewel, jewel_),
   };
@@ -1509,7 +1526,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifyJewel),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifyJewel, _internal_metadata_),
       -1);
-  MsgS2CCmdModifyJewelACK_descriptor_ = file->message_type(74);
+  MsgS2CCmdModifyJewelACK_descriptor_ = file->message_type(75);
   static const int MsgS2CCmdModifyJewelACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyJewelACK, current_jewel_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyJewelACK, error_),
@@ -1525,7 +1542,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifyJewelACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifyJewelACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqModifySpirit_descriptor_ = file->message_type(75);
+  MsgC2SCmdReqModifySpirit_descriptor_ = file->message_type(76);
   static const int MsgC2SCmdReqModifySpirit_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifySpirit, spirit_),
   };
@@ -1540,7 +1557,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqModifySpirit),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqModifySpirit, _internal_metadata_),
       -1);
-  MsgS2CCmdModifySpiritACK_descriptor_ = file->message_type(76);
+  MsgS2CCmdModifySpiritACK_descriptor_ = file->message_type(77);
   static const int MsgS2CCmdModifySpiritACK_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifySpiritACK, current_spirit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifySpiritACK, error_),
@@ -1556,7 +1573,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdModifySpiritACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdModifySpiritACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetDailyLottery_descriptor_ = file->message_type(77);
+  MsgC2SCmdReqResetDailyLottery_descriptor_ = file->message_type(78);
   static const int MsgC2SCmdReqResetDailyLottery_offsets_[1] = {
   };
   MsgC2SCmdReqResetDailyLottery_reflection_ =
@@ -1570,7 +1587,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetDailyLottery),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetDailyLottery, _internal_metadata_),
       -1);
-  MsgS2CCmdResetDailyLotteryACK_descriptor_ = file->message_type(78);
+  MsgS2CCmdResetDailyLotteryACK_descriptor_ = file->message_type(79);
   static const int MsgS2CCmdResetDailyLotteryACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetDailyLotteryACK, error_),
   };
@@ -1585,7 +1602,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgS2CCmdResetDailyLotteryACK),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetDailyLotteryACK, _internal_metadata_),
       -1);
-  MsgC2SCmdReqResetDailyGame_descriptor_ = file->message_type(79);
+  MsgC2SCmdReqResetDailyGame_descriptor_ = file->message_type(80);
   static const int MsgC2SCmdReqResetDailyGame_offsets_[1] = {
   };
   MsgC2SCmdReqResetDailyGame_reflection_ =
@@ -1599,7 +1616,7 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       sizeof(MsgC2SCmdReqResetDailyGame),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgC2SCmdReqResetDailyGame, _internal_metadata_),
       -1);
-  MsgS2CCmdResetDailyGameACK_descriptor_ = file->message_type(80);
+  MsgS2CCmdResetDailyGameACK_descriptor_ = file->message_type(81);
   static const int MsgS2CCmdResetDailyGameACK_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2CCmdResetDailyGameACK, error_),
   };
@@ -1677,6 +1694,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
       MsgC2SReqBuySpirit_descriptor_, &MsgC2SReqBuySpirit::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgS2CBuySpiritACK_descriptor_, &MsgS2CBuySpiritACK::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgC2SReqDailyGameRankList_descriptor_, &MsgC2SReqDailyGameRankList::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgC2SReqEnterGame_descriptor_, &MsgC2SReqEnterGame::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -1844,6 +1863,8 @@ void protobuf_ShutdownFile_dream_5fheroes_2eproto() {
   delete MsgC2SReqBuySpirit_reflection_;
   delete MsgS2CBuySpiritACK::default_instance_;
   delete MsgS2CBuySpiritACK_reflection_;
+  delete MsgC2SReqDailyGameRankList::default_instance_;
+  delete MsgC2SReqDailyGameRankList_reflection_;
   delete MsgC2SReqEnterGame::default_instance_;
   delete MsgC2SReqEnterGame_reflection_;
   delete MsgS2CEnterGameACK::default_instance_;
@@ -2043,195 +2064,196 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "2SReqBuySpirit\022\r\n\005index\030\001 \002(\005\"o\n\022MsgS2CB"
     "uySpiritACK\022\r\n\005index\030\001 \002(\005\022\r\n\005jewel\030\002 \002("
     "\005\022\016\n\006spirit\030\003 \002(\005\022+\n\005error\030\004 \002(\0162\022.messa"
-    "ge.GameError:\010Error_NO\"<\n\022MsgC2SReqEnter"
-    "Game\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002"
-    " \002(\005\"\330\001\n\022MsgS2CEnterGameACK\022\022\n\nchapter_i"
-    "d\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\0223\n\020drop_box_"
-    "configs\030\003 \003(\0132\031.message.MsgDropBoxConfig"
-    "\022(\n\tkill_list\030\004 \003(\0132\025.message.MsgObjConf"
-    "ig\022+\n\005error\030\005 \002(\0162\022.message.GameError:\010E"
-    "rror_NO\022\016\n\006spirit\030\006 \002(\005\"C\n\016MsgKillHistro"
-    "y\022\"\n\003obj\030\001 \002(\0132\025.message.MsgObjConfig\022\r\n"
-    "\005count\030\002 \002(\005\"\277\002\n\021MsgC2SReqExitGame\022\022\n\nch"
-    "apter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022(\n\nta"
-    "sk_infos\030\003 \003(\0132\024.message.MsgTaskInfo\022\014\n\004"
-    "gold\030\004 \002(\005\022\017\n\007success\030\005 \002(\010\022\026\n\016complete_"
-    "tasks\030\006 \003(\005\0220\n\021special_kill_list\030\007 \003(\0132\025"
-    ".message.MsgObjConfig\022*\n\tkill_list\030\010 \003(\013"
-    "2\027.message.MsgKillHistroy\022.\n\021special_cre"
-    "atures\030\t \003(\0132\023.message.MsgIntPair\022\023\n\013use"
-    "_lotions\030\n \003(\005\"\307\002\n\021MsgS2CExitGameACK\022\022\n\n"
-    "chapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022(\n\n"
-    "task_infos\030\003 \003(\0132\024.message.MsgTaskInfo\022\024"
-    "\n\014current_gold\030\004 \002(\005\022&\n\ttask_gift\030\005 \003(\0132"
-    "\023.message.MsgIntPair\022\017\n\007success\030\006 \002(\010\022\033\n"
-    "\023complete_task_count\030\007 \002(\005\022+\n\005error\030\010 \002("
-    "\0162\022.message.GameError:\010Error_NO\022.\n\021speci"
-    "al_creatures\030\t \003(\0132\023.message.MsgIntPair\022"
-    "\027\n\017current_lotions\030\n \003(\005\",\n\026MsgC2SReqUnl"
-    "ockChapter\022\022\n\nchapter_id\030\001 \002(\005\"/\n\037MsgC2S"
-    "ReqAdvertisementApplyTask\022\014\n\004gold\030\001 \002(\010\""
-    "\217\001\n\037MsgS2CAdvertisementApplyTaskACK\022+\n\005e"
-    "rror\030\001 \002(\0162\022.message.GameError:\010Error_NO"
-    "\022)\n\005infos\030\002 \003(\0132\032.message.MsgTaskConfigI"
-    "nfo\022\024\n\014current_gold\030\003 \002(\005\"J\n!MsgC2SReqAd"
-    "vertisementRefreshTask\022\027\n\017give_up_task_i"
-    "d\030\001 \002(\005\022\014\n\004gold\030\002 \002(\010\"\252\001\n!MsgS2CAdvertis"
-    "ementRefreshTaskACK\022\027\n\017give_up_task_id\030\001"
+    "ge.GameError:\010Error_NO\"\034\n\032MsgC2SReqDaily"
+    "GameRankList\"<\n\022MsgC2SReqEnterGame\022\022\n\nch"
+    "apter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"\330\001\n\022M"
+    "sgS2CEnterGameACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n"
+    "\nsection_id\030\002 \002(\005\0223\n\020drop_box_configs\030\003 "
+    "\003(\0132\031.message.MsgDropBoxConfig\022(\n\tkill_l"
+    "ist\030\004 \003(\0132\025.message.MsgObjConfig\022+\n\005erro"
+    "r\030\005 \002(\0162\022.message.GameError:\010Error_NO\022\016\n"
+    "\006spirit\030\006 \002(\005\"C\n\016MsgKillHistroy\022\"\n\003obj\030\001"
+    " \002(\0132\025.message.MsgObjConfig\022\r\n\005count\030\002 \002"
+    "(\005\"\277\002\n\021MsgC2SReqExitGame\022\022\n\nchapter_id\030\001"
+    " \002(\005\022\022\n\nsection_id\030\002 \002(\005\022(\n\ntask_infos\030\003"
+    " \003(\0132\024.message.MsgTaskInfo\022\014\n\004gold\030\004 \002(\005"
+    "\022\017\n\007success\030\005 \002(\010\022\026\n\016complete_tasks\030\006 \003("
+    "\005\0220\n\021special_kill_list\030\007 \003(\0132\025.message.M"
+    "sgObjConfig\022*\n\tkill_list\030\010 \003(\0132\027.message"
+    ".MsgKillHistroy\022.\n\021special_creatures\030\t \003"
+    "(\0132\023.message.MsgIntPair\022\023\n\013use_lotions\030\n"
+    " \003(\005\"\307\002\n\021MsgS2CExitGameACK\022\022\n\nchapter_id"
+    "\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\022(\n\ntask_infos"
+    "\030\003 \003(\0132\024.message.MsgTaskInfo\022\024\n\014current_"
+    "gold\030\004 \002(\005\022&\n\ttask_gift\030\005 \003(\0132\023.message."
+    "MsgIntPair\022\017\n\007success\030\006 \002(\010\022\033\n\023complete_"
+    "task_count\030\007 \002(\005\022+\n\005error\030\010 \002(\0162\022.messag"
+    "e.GameError:\010Error_NO\022.\n\021special_creatur"
+    "es\030\t \003(\0132\023.message.MsgIntPair\022\027\n\017current"
+    "_lotions\030\n \003(\005\",\n\026MsgC2SReqUnlockChapter"
+    "\022\022\n\nchapter_id\030\001 \002(\005\"/\n\037MsgC2SReqAdverti"
+    "sementApplyTask\022\014\n\004gold\030\001 \002(\010\"\217\001\n\037MsgS2C"
+    "AdvertisementApplyTaskACK\022+\n\005error\030\001 \002(\016"
+    "2\022.message.GameError:\010Error_NO\022)\n\005infos\030"
+    "\002 \003(\0132\032.message.MsgTaskConfigInfo\022\024\n\014cur"
+    "rent_gold\030\003 \002(\005\"J\n!MsgC2SReqAdvertisemen"
+    "tRefreshTask\022\027\n\017give_up_task_id\030\001 \002(\005\022\014\n"
+    "\004gold\030\002 \002(\010\"\252\001\n!MsgS2CAdvertisementRefre"
+    "shTaskACK\022\027\n\017give_up_task_id\030\001 \002(\005\022+\n\005er"
+    "ror\030\002 \002(\0162\022.message.GameError:\010Error_NO\022"
+    ")\n\005infos\030\003 \003(\0132\032.message.MsgTaskConfigIn"
+    "fo\022\024\n\014current_gold\030\004 \002(\005\"2\n\032MsgC2SReqMod"
+    "ifyCurrentHero\022\024\n\014current_grid\030\001 \002(\005\"_\n\032"
+    "MsgS2CModifyCurrentHeroACK\022\024\n\014current_gr"
+    "id\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameEr"
+    "ror:\010Error_NO\"o\n\026MsgS2CUnlockChapterACK\022"
+    "\022\n\nchapter_id\030\001 \002(\005\022\024\n\014current_gold\030\002 \002("
+    "\005\022+\n\005error\030\003 \002(\0162\022.message.GameError:\010Er"
+    "ror_NO\".\n\020MsgC2SReqBuyHero\022\014\n\004grid\030\001 \002(\005"
+    "\022\014\n\004gold\030\002 \002(\005\"c\n\020MsgS2CBuyHeroACK\022\014\n\004gr"
+    "id\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005\022+\n\005error\030"
+    "\003 \002(\0162\022.message.GameError:\010Error_NO\"\032\n\030M"
+    "sgC2SReqGoldShopConfigs\"I\n\030MsgS2CGoldSho"
+    "pConfigsACK\022-\n\005infos\030\001 \003(\0132\036.message.Msg"
+    "GoldShopConfigInfo\"9\n\024MsgC2SReqCrearteDe"
+    "al\022\020\n\010key_code\030\001 \002(\t\022\017\n\007channel\030\002 \002(\005\"\234\001"
+    "\n\024MsgS2CCrearteDealACK\022\020\n\010key_code\030\001 \002(\t"
+    "\022\016\n\006status\030\002 \002(\005\022\r\n\005price\030\003 \002(\005\022\020\n\010order"
+    "_id\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.message.GameE"
+    "rror:\010Error_NO\022\024\n\014platform_url\030\006 \002(\t\"8\n\023"
+    "MsgC2SReqVerifyDeal\022\017\n\007receipt\030\001 \002(\t\022\020\n\010"
+    "order_id\030\002 \002(\005\"\216\001\n\023MsgS2CVerifyDealACK\022\022"
+    "\n\nproduct_id\030\001 \002(\t\022\016\n\006status\030\002 \002(\005\022\020\n\010or"
+    "der_id\030\003 \002(\005\022\024\n\014current_gold\030\004 \002(\005\022+\n\005er"
+    "ror\030\005 \002(\0162\022.message.GameError:\010Error_NO\""
+    "1\n\022MsgC2SReqApplyDeal\022\n\n\002id\030\001 \002(\005\022\017\n\007cha"
+    "nnel\030\002 \002(\005\"\205\001\n\022MsgS2CApplyDealACK\022\n\n\002id\030"
+    "\001 \002(\005\022\022\n\nproduct_id\030\002 \002(\t\022\020\n\010order_id\030\003 "
+    "\002(\t\022+\n\005error\030\004 \002(\0162\022.message.GameError:\010"
+    "Error_NO\022\020\n\010external\030\005 \002(\t\"~\n\030MsgS2CNoti"
+    "fyDealComplete\022\020\n\010order_id\030\001 \002(\t\022\022\n\nprod"
+    "uct_id\030\002 \002(\t\022\025\n\rcurrent_jewel\030\003 \002(\005\022\024\n\014c"
+    "urrent_gold\030\004 \002(\005\022\017\n\007success\030\005 \002(\010\"4\n\020Ms"
+    "gS2CPingNotify\022\022\n\nping_count\030\001 \002(\005\022\014\n\004ti"
+    "me\030\002 \002(\004\"3\n\031MsgS2CRecoverSpiritNotify\022\026\n"
+    "\016current_spirit\030\001 \002(\005\"4\n\020MsgC2SPingNotif"
+    "y\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"*\n\032M"
+    "sgC2SReqModifyNewTutorial\022\014\n\004flag\030\001 \002(\005\""
+    "*\n\032MsgS2CModifyNewTutorialACK\022\014\n\004flag\030\001 "
+    "\002(\005\"\021\n\017MsgC2SReliveReq\"T\n\017MsgS2CReliveAC"
+    "K\022\024\n\014current_gold\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022"
+    ".message.GameError:\010Error_NO\"*\n(MsgC2SCm"
+    "dReqRemoveSpecialCreatureListHis\"H\n!MsgC"
+    "2SCmdReqSetSpecialCreatureHis\022\023\n\013creatur"
+    "e_id\030\001 \002(\005\022\016\n\006status\030\002 \002(\005\"Y\n\'MsgS2CCmdN"
+    "otifySpecialCreatureHisModify\022.\n\021special"
+    "_creatures\030\001 \003(\0132\023.message.MsgIntPair\"B\n"
+    "#MsgC2SCmdReqModifyTaskCompleteCount\022\033\n\023"
+    "task_complete_count\030\001 \002(\005\"A\n#MsgS2CCmdMo"
+    "difyTaskCompleteCountACK\022\032\n\022current_task"
+    "_count\030\001 \002(\005\"\031\n\027MsgC2SCmdReqShowGMLevel\""
+    "X\n\027MsgS2CCmdShowGMLevelACK\022\020\n\010gm_level\030\001"
     " \002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameError:"
-    "\010Error_NO\022)\n\005infos\030\003 \003(\0132\032.message.MsgTa"
-    "skConfigInfo\022\024\n\014current_gold\030\004 \002(\005\"2\n\032Ms"
-    "gC2SReqModifyCurrentHero\022\024\n\014current_grid"
-    "\030\001 \002(\005\"_\n\032MsgS2CModifyCurrentHeroACK\022\024\n\014"
-    "current_grid\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.mess"
-    "age.GameError:\010Error_NO\"o\n\026MsgS2CUnlockC"
-    "hapterACK\022\022\n\nchapter_id\030\001 \002(\005\022\024\n\014current"
-    "_gold\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.Gam"
-    "eError:\010Error_NO\".\n\020MsgC2SReqBuyHero\022\014\n\004"
-    "grid\030\001 \002(\005\022\014\n\004gold\030\002 \002(\005\"c\n\020MsgS2CBuyHer"
-    "oACK\022\014\n\004grid\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005"
-    "\022+\n\005error\030\003 \002(\0162\022.message.GameError:\010Err"
-    "or_NO\"\032\n\030MsgC2SReqGoldShopConfigs\"I\n\030Msg"
-    "S2CGoldShopConfigsACK\022-\n\005infos\030\001 \003(\0132\036.m"
-    "essage.MsgGoldShopConfigInfo\"9\n\024MsgC2SRe"
-    "qCrearteDeal\022\020\n\010key_code\030\001 \002(\t\022\017\n\007channe"
-    "l\030\002 \002(\005\"\234\001\n\024MsgS2CCrearteDealACK\022\020\n\010key_"
-    "code\030\001 \002(\t\022\016\n\006status\030\002 \002(\005\022\r\n\005price\030\003 \002("
-    "\005\022\020\n\010order_id\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022.mes"
-    "sage.GameError:\010Error_NO\022\024\n\014platform_url"
-    "\030\006 \002(\t\"8\n\023MsgC2SReqVerifyDeal\022\017\n\007receipt"
-    "\030\001 \002(\t\022\020\n\010order_id\030\002 \002(\005\"\216\001\n\023MsgS2CVerif"
-    "yDealACK\022\022\n\nproduct_id\030\001 \002(\t\022\016\n\006status\030\002"
-    " \002(\005\022\020\n\010order_id\030\003 \002(\005\022\024\n\014current_gold\030\004"
-    " \002(\005\022+\n\005error\030\005 \002(\0162\022.message.GameError:"
-    "\010Error_NO\"1\n\022MsgC2SReqApplyDeal\022\n\n\002id\030\001 "
-    "\002(\005\022\017\n\007channel\030\002 \002(\005\"\205\001\n\022MsgS2CApplyDeal"
-    "ACK\022\n\n\002id\030\001 \002(\005\022\022\n\nproduct_id\030\002 \002(\t\022\020\n\010o"
-    "rder_id\030\003 \002(\t\022+\n\005error\030\004 \002(\0162\022.message.G"
-    "ameError:\010Error_NO\022\020\n\010external\030\005 \002(\t\"~\n\030"
-    "MsgS2CNotifyDealComplete\022\020\n\010order_id\030\001 \002"
-    "(\t\022\022\n\nproduct_id\030\002 \002(\t\022\025\n\rcurrent_jewel\030"
-    "\003 \002(\005\022\024\n\014current_gold\030\004 \002(\005\022\017\n\007success\030\005"
-    " \002(\010\"4\n\020MsgS2CPingNotify\022\022\n\nping_count\030\001"
-    " \002(\005\022\014\n\004time\030\002 \002(\004\"3\n\031MsgS2CRecoverSpiri"
-    "tNotify\022\026\n\016current_spirit\030\001 \002(\005\"4\n\020MsgC2"
-    "SPingNotify\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030"
-    "\002 \002(\004\"*\n\032MsgC2SReqModifyNewTutorial\022\014\n\004f"
-    "lag\030\001 \002(\005\"*\n\032MsgS2CModifyNewTutorialACK\022"
-    "\014\n\004flag\030\001 \002(\005\"\021\n\017MsgC2SReliveReq\"T\n\017MsgS"
-    "2CReliveACK\022\024\n\014current_gold\030\001 \002(\005\022+\n\005err"
-    "or\030\002 \002(\0162\022.message.GameError:\010Error_NO\"*"
-    "\n(MsgC2SCmdReqRemoveSpecialCreatureListH"
-    "is\"H\n!MsgC2SCmdReqSetSpecialCreatureHis\022"
-    "\023\n\013creature_id\030\001 \002(\005\022\016\n\006status\030\002 \002(\005\"Y\n\'"
-    "MsgS2CCmdNotifySpecialCreatureHisModify\022"
-    ".\n\021special_creatures\030\001 \003(\0132\023.message.Msg"
-    "IntPair\"B\n#MsgC2SCmdReqModifyTaskComplet"
-    "eCount\022\033\n\023task_complete_count\030\001 \002(\005\"A\n#M"
-    "sgS2CCmdModifyTaskCompleteCountACK\022\032\n\022cu"
-    "rrent_task_count\030\001 \002(\005\"\031\n\027MsgC2SCmdReqSh"
-    "owGMLevel\"X\n\027MsgS2CCmdShowGMLevelACK\022\020\n\010"
-    "gm_level\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message."
-    "GameError:\010Error_NO\"8\n\031MsgC2SCmdReqModif"
-    "yGMLevel\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\"e\n"
-    "\031MsgS2CCmdModifyGMLevelACK\022\014\n\004name\030\001 \002(\t"
-    "\022\r\n\005level\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message"
-    ".GameError:\010Error_NO\"\?\n\025MsgC2SCmdReqEnte"
-    "rGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030"
-    "\002 \002(\005\">\n\024MsgC2SCmdReqResetMap\022\022\n\nchapter"
-    "_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"k\n\024MsgS2CC"
-    "mdResetMapACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsec"
-    "tion_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.G"
-    "ameError:\010Error_NO\"\027\n\025MsgC2SCmdReqResetG"
-    "ame\"\256\001\n\025MsgS2CCmdResetGameACK\022\"\n\004info\030\001 "
-    "\002(\0132\024.message.MsgHeroData\022#\n\033current_adv"
-    "ertisement_count\030\002 \002(\005\022\037\n\027last_advertise"
-    "ment_time\030\003 \002(\003\022+\n\005error\030\004 \002(\0162\022.message"
-    ".GameError:\010Error_NO\"&\n\026MsgC2SCmdReqModi"
-    "fyGold\022\014\n\004gold\030\001 \002(\005\"&\n\026MsgS2CCmdModifyG"
-    "oldACK\022\014\n\004gold\030\001 \002(\005\"-\n\027MsgS2CCmdReqRepl"
-    "aceTask\022\022\n\ntask_count\030\001 \002(\005\"q\n\027MsgS2CCmd"
-    "ReplaceTaskACK\022+\n\005error\030\001 \002(\0162\022.message."
-    "GameError:\010Error_NO\022)\n\005infos\030\002 \003(\0132\032.mes"
-    "sage.MsgTaskConfigInfo\"(\n\027MsgC2SCmdReqMo"
-    "difyJewel\022\r\n\005jewel\030\001 \002(\005\"]\n\027MsgS2CCmdMod"
-    "ifyJewelACK\022\025\n\rcurrent_jewel\030\001 \002(\005\022+\n\005er"
-    "ror\030\002 \002(\0162\022.message.GameError:\010Error_NO\""
-    "*\n\030MsgC2SCmdReqModifySpirit\022\016\n\006spirit\030\001 "
-    "\002(\005\"_\n\030MsgS2CCmdModifySpiritACK\022\026\n\016curre"
-    "nt_spirit\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message"
-    ".GameError:\010Error_NO\"\037\n\035MsgC2SCmdReqRese"
-    "tDailyLottery\"L\n\035MsgS2CCmdResetDailyLott"
-    "eryACK\022+\n\005error\030\001 \002(\0162\022.message.GameErro"
-    "r:\010Error_NO\"\034\n\032MsgC2SCmdReqResetDailyGam"
-    "e\"I\n\032MsgS2CCmdResetDailyGameACK\022+\n\005error"
-    "\030\001 \002(\0162\022.message.GameError:\010Error_NO*\251\023\n"
-    "\tGameError\022\014\n\010Error_NO\020\000\022*\n&Error_CanNot"
-    "EnterGameTheInstanceIsLock\020\001\022+\n\'Error_Ca"
-    "nNotEnterGameTheCharacterIsLock\020\002\022)\n%Err"
-    "or_CanNotEnterGameTheSectionIsLock\020\003\022(\n$"
-    "Error_CanNotEnterGameNotEnoughSpirit\020\004\022$"
-    "\n Error_CanNotBuyHeroNotEnoughgold\020\005\0224\n0"
-    "Error_CanNotPassGameTheInstanceNotHaveEn"
-    "oughGold\020\006\022\035\n\031Error_NotEnterTheExitGame\020"
-    "\007\022)\n%Error_NotFoundTheChapterWhenEnterGa"
-    "me\020\010\022\035\n\031Error_TheChapterIsNotLock\020\t\0225\n1E"
-    "rror_UnlockChapterFailedNotFoundTheUnloc"
-    "kChapter\020\n\0226\n2Error_UnlockChapterFailedT"
-    "heRequiredSectionNotPass\020\013\0229\n5Error_Unlo"
-    "ckChapterFailedYouHaveToCompleteEnoughTa"
-    "sks\020\014\0221\n-Error_UnlockChapterFailedYouNot"
-    "HaveEnoughGold\020\r\022,\n(Error_RefreshAdverti"
-    "sementTaskFailedInCD\020\016\022<\n8Error_RefreshA"
-    "dvertisementTaskFailedNotFoundGiveUpTask"
-    "ID\020\017\022.\n*Error_RefreshAdvertisementTaskFa"
-    "iledUnknow\020\020\0225\n1Error_RefreshAdvertiseme"
-    "ntTaskFailedNotEnoughGold\020\021\022$\n Error_Buy"
-    "HeroFailedNotEnoughGold\020\022\022$\n Error_BuyHe"
-    "roFailedThePriceIsOld\020\023\022#\n\037Error_BuyHero"
-    "FailedNotFoundGrid\020\024\022-\n)Error_BuyHeroFai"
-    "ledNotPassRequiredSection\020\025\022/\n+Error_Mod"
-    "ifyCurrentFailedTheCharacterIsLock\020\026\022%\n!"
-    "Error_BuyGoldFailedNotFoundConfig\020\027\022$\n E"
-    "rror_BuyGoldFailedNotFoundOrder\020\030\0220\n,Err"
-    "or_BuyGoldFailedTheOrderHaveBeenComplete"
-    "d\020\031\022-\n)Error_CreateDealFailedTheHttpErro"
-    "rRespone\020\032\022.\n*Error_CreateDealFailedTheH"
-    "ttpResponeFailed\020\033\0227\n3Error_CreateDealDa"
-    "iledTheHttpResponeErrorProduct_id\020\034\022-\n)E"
-    "rror_VerifyDealFailedTheHttpErrorRespone"
-    "\020\035\022.\n*Error_VerifyDealFailedTheHttpRespo"
-    "neFailed\020\036\022\'\n#Error_BuySpiritFailedNotEn"
-    "oughJewel\020\037\022,\n(Error_BuySpiritFailedCanN"
-    "otBuyMoreSpirit\020 \022\'\n#Error_BuySpiritFail"
-    "edNotFoundConfig\020!\022\"\n\036Error_CmdFailedReq"
-    "uiredGMLevel\020\"\022\"\n\036Error_ReliveFailedNotE"
-    "noughGod\020#\022(\n$Error_FailedToBuyLotionNot"
-    "EnoughGold\020$\022)\n%Error_FailedToBuyLotionN"
-    "otEnoughJewel\020%\022,\n(Error_FailedToBuyLoti"
-    "onAlreadyHaveLotion\020&\022\'\n#Error_FailedToB"
-    "uyNotFoundThisLotion\020\'\022,\n(Error_FailedEx"
-    "itGameNotFoundTheUseLotion\020(\022/\n+Error_Fa"
-    "iledToLotteryTodayHaveBeenLotteried\020)\022.\n"
-    "*Error_FailedToLotteryNothingCanBeLotter"
-    "ied\020*\022$\n Error_FailedToLotteryErrorRatin"
-    "g\020+\022*\n&Error_FailedToLotteryErrorLotionC"
-    "onfig\020,\022/\n+Error_FailedToApplyDealOrderN"
-    "otFooundConfig\020-\022;\n7Error_FailedToEnterD"
-    "ailyGameYouHaveBeenAlreadyBeginGame\020.\0222\n"
-    ".Error_FailedToUpdateDailyProgressErrorP"
-    "rogress\020/\0224\n0Error_FailedToUpdateDailyPr"
-    "ogressTheGameNotBegin\0200\022)\n%Error_FailedT"
-    "oUpdateDailyProgressNoHp\0201\022/\n+Error_Fail"
-    "edToReceivedDailyGamePrizeNOPrize\0202\022.\n*E"
-    "rror_FailedToResetDailyGameNotEnoughJewe"
-    "l\0203\022&\n\"Error_FailedToResetDailyGameUseOu"
-    "t\0204\0221\n-Error_FailedToResetDailyGameThePr"
-    "ogressIsZero\0205\022\020\n\014Error_Unknow\0206*@\n\rLoti"
-    "onUseType\022\026\n\022LotionUseType_gold\020\001\022\027\n\023Lot"
-    "ionUseType_jewel\020\002*G\n\014enLotteryBox\022\021\n\rLo"
-    "ttery_Jewel\020\000\022\020\n\014Lottery_Gold\020\001\022\022\n\016Lotte"
-    "ry_Lotion\020\002", 10531);
+    "\010Error_NO\"8\n\031MsgC2SCmdReqModifyGMLevel\022\014"
+    "\n\004name\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\"e\n\031MsgS2CCmd"
+    "ModifyGMLevelACK\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030"
+    "\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.message.GameError"
+    ":\010Error_NO\"\?\n\025MsgC2SCmdReqEnterGame\022\022\n\nc"
+    "hapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\">\n\024M"
+    "sgC2SCmdReqResetMap\022\022\n\nchapter_id\030\001 \002(\005\022"
+    "\022\n\nsection_id\030\002 \002(\005\"k\n\024MsgS2CCmdResetMap"
+    "ACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 "
+    "\002(\005\022+\n\005error\030\003 \002(\0162\022.message.GameError:\010"
+    "Error_NO\"\027\n\025MsgC2SCmdReqResetGame\"\256\001\n\025Ms"
+    "gS2CCmdResetGameACK\022\"\n\004info\030\001 \002(\0132\024.mess"
+    "age.MsgHeroData\022#\n\033current_advertisement"
+    "_count\030\002 \002(\005\022\037\n\027last_advertisement_time\030"
+    "\003 \002(\003\022+\n\005error\030\004 \002(\0162\022.message.GameError"
+    ":\010Error_NO\"&\n\026MsgC2SCmdReqModifyGold\022\014\n\004"
+    "gold\030\001 \002(\005\"&\n\026MsgS2CCmdModifyGoldACK\022\014\n\004"
+    "gold\030\001 \002(\005\"-\n\027MsgS2CCmdReqReplaceTask\022\022\n"
+    "\ntask_count\030\001 \002(\005\"q\n\027MsgS2CCmdReplaceTas"
+    "kACK\022+\n\005error\030\001 \002(\0162\022.message.GameError:"
+    "\010Error_NO\022)\n\005infos\030\002 \003(\0132\032.message.MsgTa"
+    "skConfigInfo\"(\n\027MsgC2SCmdReqModifyJewel\022"
+    "\r\n\005jewel\030\001 \002(\005\"]\n\027MsgS2CCmdModifyJewelAC"
+    "K\022\025\n\rcurrent_jewel\030\001 \002(\005\022+\n\005error\030\002 \002(\0162"
+    "\022.message.GameError:\010Error_NO\"*\n\030MsgC2SC"
+    "mdReqModifySpirit\022\016\n\006spirit\030\001 \002(\005\"_\n\030Msg"
+    "S2CCmdModifySpiritACK\022\026\n\016current_spirit\030"
+    "\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameError"
+    ":\010Error_NO\"\037\n\035MsgC2SCmdReqResetDailyLott"
+    "ery\"L\n\035MsgS2CCmdResetDailyLotteryACK\022+\n\005"
+    "error\030\001 \002(\0162\022.message.GameError:\010Error_N"
+    "O\"\034\n\032MsgC2SCmdReqResetDailyGame\"I\n\032MsgS2"
+    "CCmdResetDailyGameACK\022+\n\005error\030\001 \002(\0162\022.m"
+    "essage.GameError:\010Error_NO*\251\023\n\tGameError"
+    "\022\014\n\010Error_NO\020\000\022*\n&Error_CanNotEnterGameT"
+    "heInstanceIsLock\020\001\022+\n\'Error_CanNotEnterG"
+    "ameTheCharacterIsLock\020\002\022)\n%Error_CanNotE"
+    "nterGameTheSectionIsLock\020\003\022(\n$Error_CanN"
+    "otEnterGameNotEnoughSpirit\020\004\022$\n Error_Ca"
+    "nNotBuyHeroNotEnoughgold\020\005\0224\n0Error_CanN"
+    "otPassGameTheInstanceNotHaveEnoughGold\020\006"
+    "\022\035\n\031Error_NotEnterTheExitGame\020\007\022)\n%Error"
+    "_NotFoundTheChapterWhenEnterGame\020\010\022\035\n\031Er"
+    "ror_TheChapterIsNotLock\020\t\0225\n1Error_Unloc"
+    "kChapterFailedNotFoundTheUnlockChapter\020\n"
+    "\0226\n2Error_UnlockChapterFailedTheRequired"
+    "SectionNotPass\020\013\0229\n5Error_UnlockChapterF"
+    "ailedYouHaveToCompleteEnoughTasks\020\014\0221\n-E"
+    "rror_UnlockChapterFailedYouNotHaveEnough"
+    "Gold\020\r\022,\n(Error_RefreshAdvertisementTask"
+    "FailedInCD\020\016\022<\n8Error_RefreshAdvertiseme"
+    "ntTaskFailedNotFoundGiveUpTaskID\020\017\022.\n*Er"
+    "ror_RefreshAdvertisementTaskFailedUnknow"
+    "\020\020\0225\n1Error_RefreshAdvertisementTaskFail"
+    "edNotEnoughGold\020\021\022$\n Error_BuyHeroFailed"
+    "NotEnoughGold\020\022\022$\n Error_BuyHeroFailedTh"
+    "ePriceIsOld\020\023\022#\n\037Error_BuyHeroFailedNotF"
+    "oundGrid\020\024\022-\n)Error_BuyHeroFailedNotPass"
+    "RequiredSection\020\025\022/\n+Error_ModifyCurrent"
+    "FailedTheCharacterIsLock\020\026\022%\n!Error_BuyG"
+    "oldFailedNotFoundConfig\020\027\022$\n Error_BuyGo"
+    "ldFailedNotFoundOrder\020\030\0220\n,Error_BuyGold"
+    "FailedTheOrderHaveBeenCompleted\020\031\022-\n)Err"
+    "or_CreateDealFailedTheHttpErrorRespone\020\032"
+    "\022.\n*Error_CreateDealFailedTheHttpRespone"
+    "Failed\020\033\0227\n3Error_CreateDealDailedTheHtt"
+    "pResponeErrorProduct_id\020\034\022-\n)Error_Verif"
+    "yDealFailedTheHttpErrorRespone\020\035\022.\n*Erro"
+    "r_VerifyDealFailedTheHttpResponeFailed\020\036"
+    "\022\'\n#Error_BuySpiritFailedNotEnoughJewel\020"
+    "\037\022,\n(Error_BuySpiritFailedCanNotBuyMoreS"
+    "pirit\020 \022\'\n#Error_BuySpiritFailedNotFound"
+    "Config\020!\022\"\n\036Error_CmdFailedRequiredGMLev"
+    "el\020\"\022\"\n\036Error_ReliveFailedNotEnoughGod\020#"
+    "\022(\n$Error_FailedToBuyLotionNotEnoughGold"
+    "\020$\022)\n%Error_FailedToBuyLotionNotEnoughJe"
+    "wel\020%\022,\n(Error_FailedToBuyLotionAlreadyH"
+    "aveLotion\020&\022\'\n#Error_FailedToBuyNotFound"
+    "ThisLotion\020\'\022,\n(Error_FailedExitGameNotF"
+    "oundTheUseLotion\020(\022/\n+Error_FailedToLott"
+    "eryTodayHaveBeenLotteried\020)\022.\n*Error_Fai"
+    "ledToLotteryNothingCanBeLotteried\020*\022$\n E"
+    "rror_FailedToLotteryErrorRating\020+\022*\n&Err"
+    "or_FailedToLotteryErrorLotionConfig\020,\022/\n"
+    "+Error_FailedToApplyDealOrderNotFooundCo"
+    "nfig\020-\022;\n7Error_FailedToEnterDailyGameYo"
+    "uHaveBeenAlreadyBeginGame\020.\0222\n.Error_Fai"
+    "ledToUpdateDailyProgressErrorProgress\020/\022"
+    "4\n0Error_FailedToUpdateDailyProgressTheG"
+    "ameNotBegin\0200\022)\n%Error_FailedToUpdateDai"
+    "lyProgressNoHp\0201\022/\n+Error_FailedToReceiv"
+    "edDailyGamePrizeNOPrize\0202\022.\n*Error_Faile"
+    "dToResetDailyGameNotEnoughJewel\0203\022&\n\"Err"
+    "or_FailedToResetDailyGameUseOut\0204\0221\n-Err"
+    "or_FailedToResetDailyGameTheProgressIsZe"
+    "ro\0205\022\020\n\014Error_Unknow\0206*@\n\rLotionUseType\022"
+    "\026\n\022LotionUseType_gold\020\001\022\027\n\023LotionUseType"
+    "_jewel\020\002*G\n\014enLotteryBox\022\021\n\rLottery_Jewe"
+    "l\020\000\022\020\n\014Lottery_Gold\020\001\022\022\n\016Lottery_Lotion\020"
+    "\002", 10561);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgC2SReqEnterDailyGame::default_instance_ = new MsgC2SReqEnterDailyGame();
@@ -2258,6 +2280,7 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CBuyLotionACK::default_instance_ = new MsgS2CBuyLotionACK();
   MsgC2SReqBuySpirit::default_instance_ = new MsgC2SReqBuySpirit();
   MsgS2CBuySpiritACK::default_instance_ = new MsgS2CBuySpiritACK();
+  MsgC2SReqDailyGameRankList::default_instance_ = new MsgC2SReqDailyGameRankList();
   MsgC2SReqEnterGame::default_instance_ = new MsgC2SReqEnterGame();
   MsgS2CEnterGameACK::default_instance_ = new MsgS2CEnterGameACK();
   MsgKillHistroy::default_instance_ = new MsgKillHistroy();
@@ -2339,6 +2362,7 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
   MsgS2CBuyLotionACK::default_instance_->InitAsDefaultInstance();
   MsgC2SReqBuySpirit::default_instance_->InitAsDefaultInstance();
   MsgS2CBuySpiritACK::default_instance_->InitAsDefaultInstance();
+  MsgC2SReqDailyGameRankList::default_instance_->InitAsDefaultInstance();
   MsgC2SReqEnterGame::default_instance_->InitAsDefaultInstance();
   MsgS2CEnterGameACK::default_instance_->InitAsDefaultInstance();
   MsgKillHistroy::default_instance_->InitAsDefaultInstance();
@@ -13005,6 +13029,195 @@ void MsgS2CBuySpiritACK::InternalSwap(MsgS2CBuySpiritACK* other) {
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CBuySpiritACK.error)
 }
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+MsgC2SReqDailyGameRankList::MsgC2SReqDailyGameRankList()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:message.MsgC2SReqDailyGameRankList)
+}
+
+void MsgC2SReqDailyGameRankList::InitAsDefaultInstance() {
+}
+
+MsgC2SReqDailyGameRankList::MsgC2SReqDailyGameRankList(const MsgC2SReqDailyGameRankList& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:message.MsgC2SReqDailyGameRankList)
+}
+
+void MsgC2SReqDailyGameRankList::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgC2SReqDailyGameRankList::~MsgC2SReqDailyGameRankList() {
+  // @@protoc_insertion_point(destructor:message.MsgC2SReqDailyGameRankList)
+  SharedDtor();
+}
+
+void MsgC2SReqDailyGameRankList::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgC2SReqDailyGameRankList::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgC2SReqDailyGameRankList::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgC2SReqDailyGameRankList_descriptor_;
+}
+
+const MsgC2SReqDailyGameRankList& MsgC2SReqDailyGameRankList::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dream_5fheroes_2eproto();
+  return *default_instance_;
+}
+
+MsgC2SReqDailyGameRankList* MsgC2SReqDailyGameRankList::default_instance_ = NULL;
+
+MsgC2SReqDailyGameRankList* MsgC2SReqDailyGameRankList::New(::google::protobuf::Arena* arena) const {
+  MsgC2SReqDailyGameRankList* n = new MsgC2SReqDailyGameRankList;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgC2SReqDailyGameRankList::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgC2SReqDailyGameRankList::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:message.MsgC2SReqDailyGameRankList)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0 ||
+        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:message.MsgC2SReqDailyGameRankList)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:message.MsgC2SReqDailyGameRankList)
+  return false;
+#undef DO_
+}
+
+void MsgC2SReqDailyGameRankList::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:message.MsgC2SReqDailyGameRankList)
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:message.MsgC2SReqDailyGameRankList)
+}
+
+::google::protobuf::uint8* MsgC2SReqDailyGameRankList::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:message.MsgC2SReqDailyGameRankList)
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:message.MsgC2SReqDailyGameRankList)
+  return target;
+}
+
+int MsgC2SReqDailyGameRankList::ByteSize() const {
+  int total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgC2SReqDailyGameRankList::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgC2SReqDailyGameRankList* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgC2SReqDailyGameRankList*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgC2SReqDailyGameRankList::MergeFrom(const MsgC2SReqDailyGameRankList& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgC2SReqDailyGameRankList::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgC2SReqDailyGameRankList::CopyFrom(const MsgC2SReqDailyGameRankList& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgC2SReqDailyGameRankList::IsInitialized() const {
+
+  return true;
+}
+
+void MsgC2SReqDailyGameRankList::Swap(MsgC2SReqDailyGameRankList* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgC2SReqDailyGameRankList::InternalSwap(MsgC2SReqDailyGameRankList* other) {
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgC2SReqDailyGameRankList::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgC2SReqDailyGameRankList_descriptor_;
+  metadata.reflection = MsgC2SReqDailyGameRankList_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgC2SReqDailyGameRankList
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 

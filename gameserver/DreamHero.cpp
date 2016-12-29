@@ -383,11 +383,19 @@ void DreamHero::ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGame
 			}
 			else
 			{
-				_info.set_daily_game_progress(0);
-				_info.set_daily_game_record_progress(0);
-				_info.set_daily_game_hp_pct(100);
-				int cur_jewel = _info.jewel() - jewel;
-				_info.set_jewel(cur_jewel);
+				if (_info.daily_game_hp_pct() != 100)
+				{
+					_info.set_daily_game_progress(0);
+					_info.set_daily_game_record_progress(0);
+					_info.set_daily_game_hp_pct(100);
+					int cur_jewel = _info.jewel() - jewel;
+					_info.set_jewel(cur_jewel);
+				}
+				else
+				{
+
+				}
+
 				_last_daily_reset_game_time = g_server_time;
 			}
 		}
@@ -2200,7 +2208,7 @@ void DreamHero::ReqReqEnterDailyGame(const message::MsgC2SReqEnterDailyGame* msg
 	
 	if (gRankManager.getDailyGameBeginTime() != _daily_game_prize_time)
 	{
-		_daily_game_time = gRankManager.getDailyGameBeginTime();
+		//_daily_game_time = gRankManager.getDailyGameBeginTime();
 		_info.set_daily_game_score(0);
 		_info.set_daily_game_progress(0);
 		_info.set_daily_game_hp_pct(100);
@@ -2252,7 +2260,30 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	message::MsgS2CUpdateDailyGameProgressACK msgACK;
 	message::GameError error = message::Error_NO;
 	int rank = 101;
-	if (_daily_game_time == gRankManager.getDailyGameBeginTime())
+	if (msg->daily_game_progress() == 1)
+	{
+		
+		if (gRankManager.getDailyGameBeginTime() != _daily_game_prize_time)
+		{
+			_daily_game_time = gRankManager.getDailyGameBeginTime();
+			_info.set_daily_game_hp_pct(100);
+			_info.set_daily_game_progress(0);
+			_info.set_daily_game_hp_pct(100);
+		}
+		else if(_info.daily_game_hp_pct() != 0)
+		{
+			if (_info.daily_game_progress() == 0)
+			{
+
+			}
+		}
+		else
+		{
+			error = message::Error_FailedToUpdateDailyProgressNoHp;
+		}
+	}
+
+	if (_daily_game_time == message::Error_NO)
 	{
 		int progress_temp = _info.daily_game_progress() + 1;
 		if (_info.daily_game_hp_pct() != 0)
