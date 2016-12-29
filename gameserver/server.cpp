@@ -251,6 +251,7 @@ bool GameServer::initDataFromCharacterDB(DBQuery* p, const void* data)
 		return false;
 	}
 	gDreamHeroManager.Load(p);
+	gRankManager.Load(p);
 
 	return true;
 }

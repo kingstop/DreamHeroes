@@ -48,7 +48,7 @@ void DreamHeroManager::Load(DBQuery* p)
 	if (p)
 	{
 		DBQuery& query = *p;
-		query << "select *  ,UNIX_TIMESTAMP(`save_time`),UNIX_TIMESTAMP(`daily_game_begin_time`), from `heroes_status`;";
+		query << "select *  ,UNIX_TIMESTAMP(`save_time`),UNIX_TIMESTAMP(`daily_game_begin_time`) from `heroes_status`;";
 		SDBResult sResult = query.store();
 		int rows_length = sResult.num_rows();
 		if (sResult.size() > 0)
