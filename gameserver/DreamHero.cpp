@@ -646,7 +646,6 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 				{
 					int current_lotion_id = *it_current_lotions;
 					_info.add_lotions(current_lotion_id);
-					msgACK.add_current_lotions(current_lotion_id);
 				}
 
 			}
@@ -782,6 +781,11 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 	}
 	if (msgACK.error() == message::Error_NO)
 	{
+		int lotion_size = _info.lotions_size();
+		for (size_t i = 0; i < lotion_size; i++)
+		{
+			msgACK.add_current_lotions(_info.lotions(i));
+		}
 		int gold_modify_leave_record = _info.gold() - current_gold;
 		int monster_gold = gold_modify_leave_record - all_task_gold;
 		
