@@ -2030,6 +2030,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 							int gold = _info.gold();
 							gold += add_count;
 							_info.set_gold(gold);
+							
 							msgACK.set_current_gold(_info.gold());
 						}
 						else if (entry.lottery_type_ == message::Lottery_Jewel)
@@ -2039,7 +2040,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 							_info.set_jewel(jewel);
 							msgACK.set_current_jewel(_info.jewel());
 						}
-						
+						msgACK.set_count(add_count);
 					}
 					
 				}
