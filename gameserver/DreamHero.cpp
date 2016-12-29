@@ -2284,7 +2284,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		}
 	}
 
-	if (_daily_game_time == message::Error_NO)
+	if (error == message::Error_NO)
 	{
 		int progress_temp = _info.daily_game_progress() + 1;
 		if (_info.daily_game_hp_pct() != 0)
