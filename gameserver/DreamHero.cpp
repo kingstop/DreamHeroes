@@ -1800,9 +1800,9 @@ void DreamHero::SaveHero()
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`,\
 		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`, `lotions`, `last_lottery_time`\
 		 `daily_game_progress`, `daily_game_score`, `daily_game_gold`, `daily_game_time`, `daily_game_prize_time`,`daily_game_hp_pct`\
-			`daily_game_hp_pct`, `daily_game_record_progress`, `daily_reset_game_count`, `last_daily_reset_game_time`) values \
+			`daily_game_hp_pct`, `daily_game_record_progress`, `daily_reset_game_count`, `last_daily_reset_game_time`, `daily_top_grogress`) values \
 		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d,\
-		 '%s', %d, '%s', '%s', '%s', %d, %d, %d, '%s','%s', %d, %d, %d, '%s');",
+		 '%s', %d, '%s', '%s', '%s', %d, %d, %d, '%s','%s', %d, %d, %d, '%s', %d);",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
@@ -1810,7 +1810,7 @@ void DreamHero::SaveHero()
 		_info.jewel(), _info.spirit(), last_recover_spirit_time.c_str(), _info.day_buy_spirit(), 
 		last_buy_spirit_time.c_str(), str_lotion_status.c_str(), last_lottery_time.c_str(), _info.daily_game_progress(),
 		 _info.daily_game_score(), _info.daily_game_gold(), daily_game_time.c_str(), daily_game_prize_time.c_str(), _info.daily_game_hp_pct(),
-		_info.daily_game_record_progress(), _info.daily_reset_game_count(), last_reset_daily_game_time.c_str());
+		_info.daily_game_record_progress(), _info.daily_reset_game_count(), last_reset_daily_game_time.c_str(), _info.daily_top_grogress());
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
@@ -2283,6 +2283,11 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	}
 	if (error != message::Error_NO)
 	{
+		int daily_game_progress = msg->daily_game_progress();
+		if (daily_game_progress > _info.daily_top_grogress())
+		{
+			_info.set_daily_top_grogress(daily_game_progress);
+		}
 		const globalConfig global_config = gGameConfig.getGlobalConfig();
 		int record_size = global_config.daily_game_record_config_.size();
 		for (size_t i = record_size - 1; i >= 0; i++)

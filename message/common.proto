@@ -54,6 +54,7 @@ message MsgHeroData
 	required int32 daily_game_hp_pct = 16;
 	required int32 daily_game_record_progress = 17;
 	required int32 daily_reset_game_count = 18;
+	required int32 daily_top_grogress = 19;
 	
 }
 

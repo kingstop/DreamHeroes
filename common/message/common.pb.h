@@ -753,6 +753,13 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_reset_game_count() const;
   void set_daily_reset_game_count(::google::protobuf::int32 value);
 
+  // required int32 daily_top_grogress = 19;
+  bool has_daily_top_grogress() const;
+  void clear_daily_top_grogress();
+  static const int kDailyTopGrogressFieldNumber = 19;
+  ::google::protobuf::int32 daily_top_grogress() const;
+  void set_daily_top_grogress(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -783,6 +790,8 @@ class MsgHeroData : public ::google::protobuf::Message {
   inline void clear_has_daily_game_record_progress();
   inline void set_has_daily_reset_game_count();
   inline void clear_has_daily_reset_game_count();
+  inline void set_has_daily_top_grogress();
+  inline void clear_has_daily_top_grogress();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -808,6 +817,7 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_hp_pct_;
   ::google::protobuf::int32 daily_game_record_progress_;
   ::google::protobuf::int32 daily_reset_game_count_;
+  ::google::protobuf::int32 daily_top_grogress_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2540,6 +2550,30 @@ inline void MsgHeroData::set_daily_reset_game_count(::google::protobuf::int32 va
   set_has_daily_reset_game_count();
   daily_reset_game_count_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_reset_game_count)
+}
+
+// required int32 daily_top_grogress = 19;
+inline bool MsgHeroData::has_daily_top_grogress() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void MsgHeroData::set_has_daily_top_grogress() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void MsgHeroData::clear_has_daily_top_grogress() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void MsgHeroData::clear_daily_top_grogress() {
+  daily_top_grogress_ = 0;
+  clear_has_daily_top_grogress();
+}
+inline ::google::protobuf::int32 MsgHeroData::daily_top_grogress() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_top_grogress)
+  return daily_top_grogress_;
+}
+inline void MsgHeroData::set_daily_top_grogress(::google::protobuf::int32 value) {
+  set_has_daily_top_grogress();
+  daily_top_grogress_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_top_grogress)
 }
 
 // -------------------------------------------------------------------
