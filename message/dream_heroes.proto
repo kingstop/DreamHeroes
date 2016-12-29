@@ -411,6 +411,7 @@ message MsgS2CCrearteDealACK
 	required int32 price = 3;
 	required int32 order_id = 4;
 	required GameError error = 5 [default=Error_NO];
+	required string platform_url = 6;
 }
 ////////IOS
 message MsgC2SReqVerifyDeal

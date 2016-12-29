@@ -5,8 +5,8 @@
 void PlatformClient::initPBModule()
 {
 	ProtocMsgBase<PlatformClient>::registerSDFun(&PlatformClient::send_message, &PlatformClient::parseMsg);
-	ProtocMsgBase<PlatformClient>::registerCBFun(PROTOCO_NAME(message::MsgP2SClinchADealNotify), &PlatformClient::parseClinchADealNotify);
-	ProtocMsgBase<PlatformClient>::registerCBFun(PROTOCO_NAME(message::MsgP2SRegisterACK), &PlatformClient::registerRegisterACK);
+	ProtocMsgBase<PlatformClient>::registerCBFun(PROTOCO_NAME(IPlatformPayProto::MsgP2GOrderNotifyReq), &PlatformClient::parseClinchADealNotify);
+	ProtocMsgBase<PlatformClient>::registerCBFun(PROTOCO_NAME(IPlatformPayProto::MsgP2GRegisterRsp), &PlatformClient::registerRegisterACK);
 
 }
 
@@ -29,7 +29,7 @@ void PlatformClient::on_connect()
 {
 	tcp_client::on_connect();
 	Mylog::log_server(LOG_INFO, "connect platform server [%s] success!", get_remote_address_string().c_str());
-	message::MsgS2PRegisterServer msg;
+	IPlatformPayProto::MsgG2PRegisterReq msg;
 	msg.set_game_id(gGameConfig.getGameID());
 	msg.set_server_id(gGameConfig.getServerID());
 	msg.set_server_type(gGameConfig.getServerType());
@@ -53,13 +53,13 @@ void PlatformClient::on_close(const boost::system::error_code& error)
 
 void PlatformClient::registerRegisterACK(google::protobuf::Message* p, pb_flag_type flag)
 {
-	message::MsgP2SRegisterACK* msg = (message::MsgP2SRegisterACK*)p;
+	IPlatformPayProto::MsgP2GRegisterRsp* msg = (IPlatformPayProto::MsgP2GRegisterRsp*)p;
 	Mylog::log_server(LOG_INFO, "Register platform server!");
 }
 
 void PlatformClient::parseClinchADealNotify(google::protobuf::Message* p, pb_flag_type flag)
 {
-	message::MsgP2SClinchADealNotify* msg = (message::MsgP2SClinchADealNotify*)p;
+	IPlatformPayProto::MsgP2GOrderNotifyReq* msg = (IPlatformPayProto::MsgP2GOrderNotifyReq*)p;
 	
 	
 	account_type acc = msg->user_id();
@@ -68,11 +68,11 @@ void PlatformClient::parseClinchADealNotify(google::protobuf::Message* p, pb_fla
 		DreamHero* hero = gDreamHeroManager.GetHero(acc);
 		if (hero)
 		{
-			hero->addDealPay(msg->product_id(),msg->status(), msg->order_id(), message::Error_NO);
+			hero->addDealPay(msg->product_id(),0, msg->order_id(), message::Error_NO);
 		}
 		else
 		{
-			gDreamHeroManager.OfflineHeroDealWaitToPay(msg->order_id(), acc, msg->product_id().c_str(), msg->status());
+			gDreamHeroManager.OfflineHeroDealWaitToPay(msg->order_id(), acc, msg->product_id().c_str(), 0);
 		}
 	
 	}

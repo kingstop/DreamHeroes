@@ -16,20 +16,26 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace message {
+namespace IPlatformPayProto {
 
 namespace {
 
-const ::google::protobuf::Descriptor* MsgS2PRegisterServer_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* MsgG2PRegisterReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgS2PRegisterServer_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgP2SRegisterACK_descriptor_ = NULL;
+  MsgG2PRegisterReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgP2GRegisterRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgP2SRegisterACK_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MsgP2SClinchADealNotify_descriptor_ = NULL;
+  MsgP2GRegisterRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgP2GOrderNotifyReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  MsgP2SClinchADealNotify_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* PlatformError_descriptor_ = NULL;
+  MsgP2GOrderNotifyReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgG2POrderNotifyRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgG2POrderNotifyRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ErrorCodeAck_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ErrorCodeAck_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* ipay_err_code_t_descriptor_ = NULL;
 
 }  // namespace
 
@@ -40,58 +46,92 @@ void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "msg_game_platform.proto");
   GOOGLE_CHECK(file != NULL);
-  MsgS2PRegisterServer_descriptor_ = file->message_type(0);
-  static const int MsgS2PRegisterServer_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2PRegisterServer, server_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2PRegisterServer, game_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2PRegisterServer, server_type_),
+  MsgG2PRegisterReq_descriptor_ = file->message_type(0);
+  static const int MsgG2PRegisterReq_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2PRegisterReq, game_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2PRegisterReq, server_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2PRegisterReq, server_type_),
   };
-  MsgS2PRegisterServer_reflection_ =
+  MsgG2PRegisterReq_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgS2PRegisterServer_descriptor_,
-      MsgS2PRegisterServer::default_instance_,
-      MsgS2PRegisterServer_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2PRegisterServer, _has_bits_[0]),
+      MsgG2PRegisterReq_descriptor_,
+      MsgG2PRegisterReq::default_instance_,
+      MsgG2PRegisterReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2PRegisterReq, _has_bits_[0]),
       -1,
       -1,
-      sizeof(MsgS2PRegisterServer),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgS2PRegisterServer, _internal_metadata_),
+      sizeof(MsgG2PRegisterReq),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2PRegisterReq, _internal_metadata_),
       -1);
-  MsgP2SRegisterACK_descriptor_ = file->message_type(1);
-  static const int MsgP2SRegisterACK_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SRegisterACK, error_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SRegisterACK, describe_),
+  MsgP2GRegisterRsp_descriptor_ = file->message_type(1);
+  static const int MsgP2GRegisterRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GRegisterRsp, err_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GRegisterRsp, err_msg_),
   };
-  MsgP2SRegisterACK_reflection_ =
+  MsgP2GRegisterRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgP2SRegisterACK_descriptor_,
-      MsgP2SRegisterACK::default_instance_,
-      MsgP2SRegisterACK_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SRegisterACK, _has_bits_[0]),
+      MsgP2GRegisterRsp_descriptor_,
+      MsgP2GRegisterRsp::default_instance_,
+      MsgP2GRegisterRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GRegisterRsp, _has_bits_[0]),
       -1,
       -1,
-      sizeof(MsgP2SRegisterACK),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SRegisterACK, _internal_metadata_),
+      sizeof(MsgP2GRegisterRsp),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GRegisterRsp, _internal_metadata_),
       -1);
-  MsgP2SClinchADealNotify_descriptor_ = file->message_type(2);
-  static const int MsgP2SClinchADealNotify_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, status_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, product_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, order_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, user_id_),
+  MsgP2GOrderNotifyReq_descriptor_ = file->message_type(2);
+  static const int MsgP2GOrderNotifyReq_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, order_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, product_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, price_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, ext_data_),
   };
-  MsgP2SClinchADealNotify_reflection_ =
+  MsgP2GOrderNotifyReq_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MsgP2SClinchADealNotify_descriptor_,
-      MsgP2SClinchADealNotify::default_instance_,
-      MsgP2SClinchADealNotify_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, _has_bits_[0]),
+      MsgP2GOrderNotifyReq_descriptor_,
+      MsgP2GOrderNotifyReq::default_instance_,
+      MsgP2GOrderNotifyReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, _has_bits_[0]),
       -1,
       -1,
-      sizeof(MsgP2SClinchADealNotify),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2SClinchADealNotify, _internal_metadata_),
+      sizeof(MsgP2GOrderNotifyReq),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, _internal_metadata_),
       -1);
-  PlatformError_descriptor_ = file->enum_type(0);
+  MsgG2POrderNotifyRsp_descriptor_ = file->message_type(3);
+  static const int MsgG2POrderNotifyRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2POrderNotifyRsp, err_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2POrderNotifyRsp, order_id_),
+  };
+  MsgG2POrderNotifyRsp_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgG2POrderNotifyRsp_descriptor_,
+      MsgG2POrderNotifyRsp::default_instance_,
+      MsgG2POrderNotifyRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2POrderNotifyRsp, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgG2POrderNotifyRsp),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2POrderNotifyRsp, _internal_metadata_),
+      -1);
+  ErrorCodeAck_descriptor_ = file->message_type(4);
+  static const int ErrorCodeAck_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ErrorCodeAck, err_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ErrorCodeAck, err_msg_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ErrorCodeAck, ori_msg_typename_),
+  };
+  ErrorCodeAck_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      ErrorCodeAck_descriptor_,
+      ErrorCodeAck::default_instance_,
+      ErrorCodeAck_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ErrorCodeAck, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(ErrorCodeAck),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ErrorCodeAck, _internal_metadata_),
+      -1);
+  ipay_err_code_t_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -105,22 +145,32 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgS2PRegisterServer_descriptor_, &MsgS2PRegisterServer::default_instance());
+      MsgG2PRegisterReq_descriptor_, &MsgG2PRegisterReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgP2SRegisterACK_descriptor_, &MsgP2SRegisterACK::default_instance());
+      MsgP2GRegisterRsp_descriptor_, &MsgP2GRegisterRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MsgP2SClinchADealNotify_descriptor_, &MsgP2SClinchADealNotify::default_instance());
+      MsgP2GOrderNotifyReq_descriptor_, &MsgP2GOrderNotifyReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgG2POrderNotifyRsp_descriptor_, &MsgG2POrderNotifyRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      ErrorCodeAck_descriptor_, &ErrorCodeAck::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto() {
-  delete MsgS2PRegisterServer::default_instance_;
-  delete MsgS2PRegisterServer_reflection_;
-  delete MsgP2SRegisterACK::default_instance_;
-  delete MsgP2SRegisterACK_reflection_;
-  delete MsgP2SClinchADealNotify::default_instance_;
-  delete MsgP2SClinchADealNotify_reflection_;
+  delete MsgG2PRegisterReq::default_instance_;
+  delete MsgG2PRegisterReq_reflection_;
+  delete MsgP2GRegisterRsp::default_instance_;
+  delete MsgP2GRegisterRsp_reflection_;
+  delete MsgP2GOrderNotifyReq::default_instance_;
+  delete MsgP2GOrderNotifyReq_reflection_;
+  delete MsgG2POrderNotifyRsp::default_instance_;
+  delete MsgG2POrderNotifyRsp_reflection_;
+  delete ErrorCodeAck::default_instance_;
+  delete ErrorCodeAck_reflection_;
+  delete ErrorCodeAck::_default_err_msg_;
+  delete ErrorCodeAck::_default_ori_msg_typename_;
 }
 
 void protobuf_AddDesc_msg_5fgame_5fplatform_2eproto() {
@@ -130,25 +180,49 @@ void protobuf_AddDesc_msg_5fgame_5fplatform_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027msg_game_platform.proto\022\007message\"O\n\024Ms"
-    "gS2PRegisterServer\022\021\n\tserver_id\030\001 \002(\005\022\017\n"
-    "\007game_id\030\002 \002(\005\022\023\n\013server_type\030\003 \002(\005\"^\n\021M"
-    "sgP2SRegisterACK\0227\n\005error\030\001 \002(\0162\026.messag"
-    "e.PlatformError:\020PlatformError_NO\022\020\n\010des"
-    "cribe\030\002 \002(\t\"`\n\027MsgP2SClinchADealNotify\022\016"
-    "\n\006status\030\001 \002(\005\022\022\n\nproduct_id\030\002 \002(\t\022\020\n\010or"
-    "der_id\030\003 \002(\005\022\017\n\007user_id\030\004 \002(\004*b\n\rPlatfor"
-    "mError\022\024\n\020PlatformError_NO\020\000\022\030\n\024Platform"
-    "Error_Unknow\020\001\022!\n\035PlatformError_AlreadyR"
-    "egister\020\002", 409);
+    "\n\027msg_game_platform.proto\022\021IPlatformPayP"
+    "roto\"L\n\021MsgG2PRegisterReq\022\017\n\007game_id\030\001 \002"
+    "(\005\022\021\n\tserver_id\030\002 \002(\005\022\023\n\013server_type\030\003 \002"
+    "(\005\"8\n\021MsgP2GRegisterRsp\022\020\n\010err_code\030\001 \002("
+    "\005\022\021\n\007err_msg\030\002 \001(\t:\000\"n\n\024MsgP2GOrderNotif"
+    "yReq\022\017\n\007user_id\030\001 \002(\004\022\020\n\010order_id\030\002 \002(\r\022"
+    "\022\n\nproduct_id\030\003 \002(\t\022\r\n\005price\030\004 \002(\r\022\020\n\010ex"
+    "t_data\030\005 \001(\t\":\n\024MsgG2POrderNotifyRsp\022\020\n\010"
+    "err_code\030\001 \002(\005\022\020\n\010order_id\030\002 \002(\r\"c\n\014Erro"
+    "rCodeAck\022\020\n\010err_code\030\001 \002(\005\022\036\n\007err_msg\030\002 "
+    "\001(\t:\rdefault error\022!\n\020ori_msg_typename\030\003"
+    " \001(\t:\007Unknown*\320\004\n\017ipay_err_code_t\022\017\n\013IPA"
+    "Y_ERR_OK\020\000\022\026\n\021IPAY_ERR_SYS_BUSY\020\351\007\022\030\n\023IP"
+    "AY_ERR_INV_PKGLEN\020\352\007\022\035\n\030IPAY_ERR_UNSUPPO"
+    "RTED_MSG\020\353\007\022\034\n\027IPAY_ERR_NOT_ENOUGH_RES\020\354"
+    "\007\022\"\n\035IPAY_ERR_UNSUPPORTED_MSG_TYPE\020\355\007\022\034\n"
+    "\027IPAY_ERR_NOFOUND_SERVER\020\356\007\022\026\n\021IPAY_ERR_"
+    "INV_SIGN\020\357\007\022\034\n\027IPAY_ERR_HAS_REGISTERED\020\321"
+    "\017\022\031\n\024IPAY_ERR_REG_TIMEOUT\020\322\017\022\035\n\030IPAY_ERR"
+    "_NO_MATCH_REG_FD\020\323\017\022\031\n\024IPAY_ERR_WRONG_OR"
+    "DER\020\324\017\022\032\n\025IPAY_ERR_NO_SUCH_ITEM\020\325\017\022\037\n\032IP"
+    "AY_ERR_ORDER_IN_HANDLING\020\326\017\022\037\n\032IPAY_ERR_"
+    "ORDER_HAS_HANDLED\020\327\017\022\036\n\031IPAY_ERR_GAME_SE"
+    "RVER_DOWN\020\330\017\022\031\n\024IPAY_ERR_NO_REG_GAME\020\271\027\022"
+    "\032\n\025IPAY_ERR_NO_SUCH_USER\020\241\037\022\033\n\026IPAY_ERR_"
+    "NO_SUCH_ORDER\020\242\037\022\036\n\031IPAY_ERR_ITEM_DECODE"
+    "_FAIL\020\243\037", 1048);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_platform.proto", &protobuf_RegisterTypes);
-  MsgS2PRegisterServer::default_instance_ = new MsgS2PRegisterServer();
-  MsgP2SRegisterACK::default_instance_ = new MsgP2SRegisterACK();
-  MsgP2SClinchADealNotify::default_instance_ = new MsgP2SClinchADealNotify();
-  MsgS2PRegisterServer::default_instance_->InitAsDefaultInstance();
-  MsgP2SRegisterACK::default_instance_->InitAsDefaultInstance();
-  MsgP2SClinchADealNotify::default_instance_->InitAsDefaultInstance();
+  MsgG2PRegisterReq::default_instance_ = new MsgG2PRegisterReq();
+  MsgP2GRegisterRsp::default_instance_ = new MsgP2GRegisterRsp();
+  MsgP2GOrderNotifyReq::default_instance_ = new MsgP2GOrderNotifyReq();
+  MsgG2POrderNotifyRsp::default_instance_ = new MsgG2POrderNotifyRsp();
+  ErrorCodeAck::_default_err_msg_ =
+      new ::std::string("default error", 13);
+  ErrorCodeAck::_default_ori_msg_typename_ =
+      new ::std::string("Unknown", 7);
+  ErrorCodeAck::default_instance_ = new ErrorCodeAck();
+  MsgG2PRegisterReq::default_instance_->InitAsDefaultInstance();
+  MsgP2GRegisterRsp::default_instance_->InitAsDefaultInstance();
+  MsgP2GOrderNotifyReq::default_instance_->InitAsDefaultInstance();
+  MsgG2POrderNotifyRsp::default_instance_->InitAsDefaultInstance();
+  ErrorCodeAck::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto);
 }
 
@@ -158,15 +232,32 @@ struct StaticDescriptorInitializer_msg_5fgame_5fplatform_2eproto {
     protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   }
 } static_descriptor_initializer_msg_5fgame_5fplatform_2eproto_;
-const ::google::protobuf::EnumDescriptor* PlatformError_descriptor() {
+const ::google::protobuf::EnumDescriptor* ipay_err_code_t_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return PlatformError_descriptor_;
+  return ipay_err_code_t_descriptor_;
 }
-bool PlatformError_IsValid(int value) {
+bool ipay_err_code_t_IsValid(int value) {
   switch(value) {
     case 0:
-    case 1:
-    case 2:
+    case 1001:
+    case 1002:
+    case 1003:
+    case 1004:
+    case 1005:
+    case 1006:
+    case 1007:
+    case 2001:
+    case 2002:
+    case 2003:
+    case 2004:
+    case 2005:
+    case 2006:
+    case 2007:
+    case 2008:
+    case 3001:
+    case 4001:
+    case 4002:
+    case 4003:
       return true;
     default:
       return false;
@@ -187,81 +278,81 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgS2PRegisterServer::kServerIdFieldNumber;
-const int MsgS2PRegisterServer::kGameIdFieldNumber;
-const int MsgS2PRegisterServer::kServerTypeFieldNumber;
+const int MsgG2PRegisterReq::kGameIdFieldNumber;
+const int MsgG2PRegisterReq::kServerIdFieldNumber;
+const int MsgG2PRegisterReq::kServerTypeFieldNumber;
 #endif  // !_MSC_VER
 
-MsgS2PRegisterServer::MsgS2PRegisterServer()
+MsgG2PRegisterReq::MsgG2PRegisterReq()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgS2PRegisterServer)
+  // @@protoc_insertion_point(constructor:IPlatformPayProto.MsgG2PRegisterReq)
 }
 
-void MsgS2PRegisterServer::InitAsDefaultInstance() {
+void MsgG2PRegisterReq::InitAsDefaultInstance() {
 }
 
-MsgS2PRegisterServer::MsgS2PRegisterServer(const MsgS2PRegisterServer& from)
+MsgG2PRegisterReq::MsgG2PRegisterReq(const MsgG2PRegisterReq& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgS2PRegisterServer)
+  // @@protoc_insertion_point(copy_constructor:IPlatformPayProto.MsgG2PRegisterReq)
 }
 
-void MsgS2PRegisterServer::SharedCtor() {
+void MsgG2PRegisterReq::SharedCtor() {
   _cached_size_ = 0;
-  server_id_ = 0;
   game_id_ = 0;
+  server_id_ = 0;
   server_type_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgS2PRegisterServer::~MsgS2PRegisterServer() {
-  // @@protoc_insertion_point(destructor:message.MsgS2PRegisterServer)
+MsgG2PRegisterReq::~MsgG2PRegisterReq() {
+  // @@protoc_insertion_point(destructor:IPlatformPayProto.MsgG2PRegisterReq)
   SharedDtor();
 }
 
-void MsgS2PRegisterServer::SharedDtor() {
+void MsgG2PRegisterReq::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void MsgS2PRegisterServer::SetCachedSize(int size) const {
+void MsgG2PRegisterReq::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgS2PRegisterServer::descriptor() {
+const ::google::protobuf::Descriptor* MsgG2PRegisterReq::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgS2PRegisterServer_descriptor_;
+  return MsgG2PRegisterReq_descriptor_;
 }
 
-const MsgS2PRegisterServer& MsgS2PRegisterServer::default_instance() {
+const MsgG2PRegisterReq& MsgG2PRegisterReq::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   return *default_instance_;
 }
 
-MsgS2PRegisterServer* MsgS2PRegisterServer::default_instance_ = NULL;
+MsgG2PRegisterReq* MsgG2PRegisterReq::default_instance_ = NULL;
 
-MsgS2PRegisterServer* MsgS2PRegisterServer::New(::google::protobuf::Arena* arena) const {
-  MsgS2PRegisterServer* n = new MsgS2PRegisterServer;
+MsgG2PRegisterReq* MsgG2PRegisterReq::New(::google::protobuf::Arena* arena) const {
+  MsgG2PRegisterReq* n = new MsgG2PRegisterReq;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void MsgS2PRegisterServer::Clear() {
+void MsgG2PRegisterReq::Clear() {
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<MsgS2PRegisterServer*>(16)->f)
+  &reinterpret_cast<MsgG2PRegisterReq*>(16)->f)
 
 #define ZR_(first, last) do {\
   ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(server_id_, server_type_);
+  ZR_(game_id_, server_type_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -272,38 +363,38 @@ void MsgS2PRegisterServer::Clear() {
   }
 }
 
-bool MsgS2PRegisterServer::MergePartialFromCodedStream(
+bool MsgG2PRegisterReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgS2PRegisterServer)
+  // @@protoc_insertion_point(parse_start:IPlatformPayProto.MsgG2PRegisterReq)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 server_id = 1;
+      // required int32 game_id = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &server_id_)));
-          set_has_server_id();
+                 input, &game_id_)));
+          set_has_game_id();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_game_id;
+        if (input->ExpectTag(16)) goto parse_server_id;
         break;
       }
 
-      // required int32 game_id = 2;
+      // required int32 server_id = 2;
       case 2: {
         if (tag == 16) {
-         parse_game_id:
+         parse_server_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &game_id_)));
-          set_has_game_id();
+                 input, &server_id_)));
+          set_has_server_id();
         } else {
           goto handle_unusual;
         }
@@ -340,25 +431,25 @@ bool MsgS2PRegisterServer::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:message.MsgS2PRegisterServer)
+  // @@protoc_insertion_point(parse_success:IPlatformPayProto.MsgG2PRegisterReq)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgS2PRegisterServer)
+  // @@protoc_insertion_point(parse_failure:IPlatformPayProto.MsgG2PRegisterReq)
   return false;
 #undef DO_
 }
 
-void MsgS2PRegisterServer::SerializeWithCachedSizes(
+void MsgG2PRegisterReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgS2PRegisterServer)
-  // required int32 server_id = 1;
-  if (has_server_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->server_id(), output);
+  // @@protoc_insertion_point(serialize_start:IPlatformPayProto.MsgG2PRegisterReq)
+  // required int32 game_id = 1;
+  if (has_game_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->game_id(), output);
   }
 
-  // required int32 game_id = 2;
-  if (has_game_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->game_id(), output);
+  // required int32 server_id = 2;
+  if (has_server_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->server_id(), output);
   }
 
   // required int32 server_type = 3;
@@ -370,20 +461,20 @@ void MsgS2PRegisterServer::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:message.MsgS2PRegisterServer)
+  // @@protoc_insertion_point(serialize_end:IPlatformPayProto.MsgG2PRegisterReq)
 }
 
-::google::protobuf::uint8* MsgS2PRegisterServer::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgG2PRegisterReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgS2PRegisterServer)
-  // required int32 server_id = 1;
-  if (has_server_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->server_id(), target);
+  // @@protoc_insertion_point(serialize_to_array_start:IPlatformPayProto.MsgG2PRegisterReq)
+  // required int32 game_id = 1;
+  if (has_game_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->game_id(), target);
   }
 
-  // required int32 game_id = 2;
-  if (has_game_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->game_id(), target);
+  // required int32 server_id = 2;
+  if (has_server_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->server_id(), target);
   }
 
   // required int32 server_type = 3;
@@ -395,25 +486,25 @@ void MsgS2PRegisterServer::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgS2PRegisterServer)
+  // @@protoc_insertion_point(serialize_to_array_end:IPlatformPayProto.MsgG2PRegisterReq)
   return target;
 }
 
-int MsgS2PRegisterServer::RequiredFieldsByteSizeFallback() const {
+int MsgG2PRegisterReq::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
-  if (has_server_id()) {
-    // required int32 server_id = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->server_id());
-  }
-
   if (has_game_id()) {
-    // required int32 game_id = 2;
+    // required int32 game_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->game_id());
+  }
+
+  if (has_server_id()) {
+    // required int32 server_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->server_id());
   }
 
   if (has_server_type()) {
@@ -425,19 +516,19 @@ int MsgS2PRegisterServer::RequiredFieldsByteSizeFallback() const {
 
   return total_size;
 }
-int MsgS2PRegisterServer::ByteSize() const {
+int MsgG2PRegisterReq::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required int32 server_id = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->server_id());
-
-    // required int32 game_id = 2;
+    // required int32 game_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->game_id());
+
+    // required int32 server_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->server_id());
 
     // required int32 server_type = 3;
     total_size += 1 +
@@ -458,10 +549,10 @@ int MsgS2PRegisterServer::ByteSize() const {
   return total_size;
 }
 
-void MsgS2PRegisterServer::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgG2PRegisterReq::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgS2PRegisterServer* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgS2PRegisterServer*>(
+  const MsgG2PRegisterReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgG2PRegisterReq*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -470,14 +561,14 @@ void MsgS2PRegisterServer::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void MsgS2PRegisterServer::MergeFrom(const MsgS2PRegisterServer& from) {
+void MsgG2PRegisterReq::MergeFrom(const MsgG2PRegisterReq& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_server_id()) {
-      set_server_id(from.server_id());
-    }
     if (from.has_game_id()) {
       set_game_id(from.game_id());
+    }
+    if (from.has_server_id()) {
+      set_server_id(from.server_id());
     }
     if (from.has_server_type()) {
       set_server_type(from.server_type());
@@ -488,118 +579,118 @@ void MsgS2PRegisterServer::MergeFrom(const MsgS2PRegisterServer& from) {
   }
 }
 
-void MsgS2PRegisterServer::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgG2PRegisterReq::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgS2PRegisterServer::CopyFrom(const MsgS2PRegisterServer& from) {
+void MsgG2PRegisterReq::CopyFrom(const MsgG2PRegisterReq& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgS2PRegisterServer::IsInitialized() const {
+bool MsgG2PRegisterReq::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
 
-void MsgS2PRegisterServer::Swap(MsgS2PRegisterServer* other) {
+void MsgG2PRegisterReq::Swap(MsgG2PRegisterReq* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgS2PRegisterServer::InternalSwap(MsgS2PRegisterServer* other) {
-  std::swap(server_id_, other->server_id_);
+void MsgG2PRegisterReq::InternalSwap(MsgG2PRegisterReq* other) {
   std::swap(game_id_, other->game_id_);
+  std::swap(server_id_, other->server_id_);
   std::swap(server_type_, other->server_type_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata MsgS2PRegisterServer::GetMetadata() const {
+::google::protobuf::Metadata MsgG2PRegisterReq::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgS2PRegisterServer_descriptor_;
-  metadata.reflection = MsgS2PRegisterServer_reflection_;
+  metadata.descriptor = MsgG2PRegisterReq_descriptor_;
+  metadata.reflection = MsgG2PRegisterReq_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgS2PRegisterServer
+// MsgG2PRegisterReq
 
-// required int32 server_id = 1;
- bool MsgS2PRegisterServer::has_server_id() const {
+// required int32 game_id = 1;
+ bool MsgG2PRegisterReq::has_game_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgS2PRegisterServer::set_has_server_id() {
+ void MsgG2PRegisterReq::set_has_game_id() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgS2PRegisterServer::clear_has_server_id() {
+ void MsgG2PRegisterReq::clear_has_game_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
- void MsgS2PRegisterServer::clear_server_id() {
-  server_id_ = 0;
-  clear_has_server_id();
-}
- ::google::protobuf::int32 MsgS2PRegisterServer::server_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2PRegisterServer.server_id)
-  return server_id_;
-}
- void MsgS2PRegisterServer::set_server_id(::google::protobuf::int32 value) {
-  set_has_server_id();
-  server_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2PRegisterServer.server_id)
-}
-
-// required int32 game_id = 2;
- bool MsgS2PRegisterServer::has_game_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
- void MsgS2PRegisterServer::set_has_game_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
- void MsgS2PRegisterServer::clear_has_game_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
- void MsgS2PRegisterServer::clear_game_id() {
+ void MsgG2PRegisterReq::clear_game_id() {
   game_id_ = 0;
   clear_has_game_id();
 }
- ::google::protobuf::int32 MsgS2PRegisterServer::game_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2PRegisterServer.game_id)
+ ::google::protobuf::int32 MsgG2PRegisterReq::game_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.game_id)
   return game_id_;
 }
- void MsgS2PRegisterServer::set_game_id(::google::protobuf::int32 value) {
+ void MsgG2PRegisterReq::set_game_id(::google::protobuf::int32 value) {
   set_has_game_id();
   game_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2PRegisterServer.game_id)
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.game_id)
+}
+
+// required int32 server_id = 2;
+ bool MsgG2PRegisterReq::has_server_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgG2PRegisterReq::set_has_server_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgG2PRegisterReq::clear_has_server_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgG2PRegisterReq::clear_server_id() {
+  server_id_ = 0;
+  clear_has_server_id();
+}
+ ::google::protobuf::int32 MsgG2PRegisterReq::server_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_id)
+  return server_id_;
+}
+ void MsgG2PRegisterReq::set_server_id(::google::protobuf::int32 value) {
+  set_has_server_id();
+  server_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_id)
 }
 
 // required int32 server_type = 3;
- bool MsgS2PRegisterServer::has_server_type() const {
+ bool MsgG2PRegisterReq::has_server_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
- void MsgS2PRegisterServer::set_has_server_type() {
+ void MsgG2PRegisterReq::set_has_server_type() {
   _has_bits_[0] |= 0x00000004u;
 }
- void MsgS2PRegisterServer::clear_has_server_type() {
+ void MsgG2PRegisterReq::clear_has_server_type() {
   _has_bits_[0] &= ~0x00000004u;
 }
- void MsgS2PRegisterServer::clear_server_type() {
+ void MsgG2PRegisterReq::clear_server_type() {
   server_type_ = 0;
   clear_has_server_type();
 }
- ::google::protobuf::int32 MsgS2PRegisterServer::server_type() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2PRegisterServer.server_type)
+ ::google::protobuf::int32 MsgG2PRegisterReq::server_type() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_type)
   return server_type_;
 }
- void MsgS2PRegisterServer::set_server_type(::google::protobuf::int32 value) {
+ void MsgG2PRegisterReq::set_server_type(::google::protobuf::int32 value) {
   set_has_server_type();
   server_type_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2PRegisterServer.server_type)
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_type)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -607,76 +698,76 @@ void MsgS2PRegisterServer::InternalSwap(MsgS2PRegisterServer* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgP2SRegisterACK::kErrorFieldNumber;
-const int MsgP2SRegisterACK::kDescribeFieldNumber;
+const int MsgP2GRegisterRsp::kErrCodeFieldNumber;
+const int MsgP2GRegisterRsp::kErrMsgFieldNumber;
 #endif  // !_MSC_VER
 
-MsgP2SRegisterACK::MsgP2SRegisterACK()
+MsgP2GRegisterRsp::MsgP2GRegisterRsp()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgP2SRegisterACK)
+  // @@protoc_insertion_point(constructor:IPlatformPayProto.MsgP2GRegisterRsp)
 }
 
-void MsgP2SRegisterACK::InitAsDefaultInstance() {
+void MsgP2GRegisterRsp::InitAsDefaultInstance() {
 }
 
-MsgP2SRegisterACK::MsgP2SRegisterACK(const MsgP2SRegisterACK& from)
+MsgP2GRegisterRsp::MsgP2GRegisterRsp(const MsgP2GRegisterRsp& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgP2SRegisterACK)
+  // @@protoc_insertion_point(copy_constructor:IPlatformPayProto.MsgP2GRegisterRsp)
 }
 
-void MsgP2SRegisterACK::SharedCtor() {
+void MsgP2GRegisterRsp::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  error_ = 0;
-  describe_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  err_code_ = 0;
+  err_msg_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgP2SRegisterACK::~MsgP2SRegisterACK() {
-  // @@protoc_insertion_point(destructor:message.MsgP2SRegisterACK)
+MsgP2GRegisterRsp::~MsgP2GRegisterRsp() {
+  // @@protoc_insertion_point(destructor:IPlatformPayProto.MsgP2GRegisterRsp)
   SharedDtor();
 }
 
-void MsgP2SRegisterACK::SharedDtor() {
-  describe_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void MsgP2GRegisterRsp::SharedDtor() {
+  err_msg_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void MsgP2SRegisterACK::SetCachedSize(int size) const {
+void MsgP2GRegisterRsp::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgP2SRegisterACK::descriptor() {
+const ::google::protobuf::Descriptor* MsgP2GRegisterRsp::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgP2SRegisterACK_descriptor_;
+  return MsgP2GRegisterRsp_descriptor_;
 }
 
-const MsgP2SRegisterACK& MsgP2SRegisterACK::default_instance() {
+const MsgP2GRegisterRsp& MsgP2GRegisterRsp::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   return *default_instance_;
 }
 
-MsgP2SRegisterACK* MsgP2SRegisterACK::default_instance_ = NULL;
+MsgP2GRegisterRsp* MsgP2GRegisterRsp::default_instance_ = NULL;
 
-MsgP2SRegisterACK* MsgP2SRegisterACK::New(::google::protobuf::Arena* arena) const {
-  MsgP2SRegisterACK* n = new MsgP2SRegisterACK;
+MsgP2GRegisterRsp* MsgP2GRegisterRsp::New(::google::protobuf::Arena* arena) const {
+  MsgP2GRegisterRsp* n = new MsgP2GRegisterRsp;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void MsgP2SRegisterACK::Clear() {
+void MsgP2GRegisterRsp::Clear() {
   if (_has_bits_[0 / 32] & 3) {
-    error_ = 0;
-    if (has_describe()) {
-      describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    err_code_ = 0;
+    if (has_err_msg()) {
+      err_msg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -685,45 +776,40 @@ void MsgP2SRegisterACK::Clear() {
   }
 }
 
-bool MsgP2SRegisterACK::MergePartialFromCodedStream(
+bool MsgP2GRegisterRsp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgP2SRegisterACK)
+  // @@protoc_insertion_point(parse_start:IPlatformPayProto.MsgP2GRegisterRsp)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .message.PlatformError error = 1 [default = PlatformError_NO];
+      // required int32 err_code = 1;
       case 1: {
         if (tag == 8) {
-          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::message::PlatformError_IsValid(value)) {
-            set_error(static_cast< ::message::PlatformError >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &err_code_)));
+          set_has_err_code();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_describe;
+        if (input->ExpectTag(18)) goto parse_err_msg;
         break;
       }
 
-      // required string describe = 2;
+      // optional string err_msg = 2 [default = ""];
       case 2: {
         if (tag == 18) {
-         parse_describe:
+         parse_err_msg:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_describe()));
+                input, this->mutable_err_msg()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->describe().data(), this->describe().length(),
+            this->err_msg().data(), this->err_msg().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "message.MsgP2SRegisterACK.describe");
+            "IPlatformPayProto.MsgP2GRegisterRsp.err_msg");
         } else {
           goto handle_unusual;
         }
@@ -745,102 +831,82 @@ bool MsgP2SRegisterACK::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:message.MsgP2SRegisterACK)
+  // @@protoc_insertion_point(parse_success:IPlatformPayProto.MsgP2GRegisterRsp)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgP2SRegisterACK)
+  // @@protoc_insertion_point(parse_failure:IPlatformPayProto.MsgP2GRegisterRsp)
   return false;
 #undef DO_
 }
 
-void MsgP2SRegisterACK::SerializeWithCachedSizes(
+void MsgP2GRegisterRsp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgP2SRegisterACK)
-  // required .message.PlatformError error = 1 [default = PlatformError_NO];
-  if (has_error()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->error(), output);
+  // @@protoc_insertion_point(serialize_start:IPlatformPayProto.MsgP2GRegisterRsp)
+  // required int32 err_code = 1;
+  if (has_err_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->err_code(), output);
   }
 
-  // required string describe = 2;
-  if (has_describe()) {
+  // optional string err_msg = 2 [default = ""];
+  if (has_err_msg()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->describe().data(), this->describe().length(),
+      this->err_msg().data(), this->err_msg().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgP2SRegisterACK.describe");
+      "IPlatformPayProto.MsgP2GRegisterRsp.err_msg");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->describe(), output);
+      2, this->err_msg(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:message.MsgP2SRegisterACK)
+  // @@protoc_insertion_point(serialize_end:IPlatformPayProto.MsgP2GRegisterRsp)
 }
 
-::google::protobuf::uint8* MsgP2SRegisterACK::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgP2GRegisterRsp::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgP2SRegisterACK)
-  // required .message.PlatformError error = 1 [default = PlatformError_NO];
-  if (has_error()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->error(), target);
+  // @@protoc_insertion_point(serialize_to_array_start:IPlatformPayProto.MsgP2GRegisterRsp)
+  // required int32 err_code = 1;
+  if (has_err_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->err_code(), target);
   }
 
-  // required string describe = 2;
-  if (has_describe()) {
+  // optional string err_msg = 2 [default = ""];
+  if (has_err_msg()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->describe().data(), this->describe().length(),
+      this->err_msg().data(), this->err_msg().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgP2SRegisterACK.describe");
+      "IPlatformPayProto.MsgP2GRegisterRsp.err_msg");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->describe(), target);
+        2, this->err_msg(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgP2SRegisterACK)
+  // @@protoc_insertion_point(serialize_to_array_end:IPlatformPayProto.MsgP2GRegisterRsp)
   return target;
 }
 
-int MsgP2SRegisterACK::RequiredFieldsByteSizeFallback() const {
+int MsgP2GRegisterRsp::ByteSize() const {
   int total_size = 0;
 
-  if (has_error()) {
-    // required .message.PlatformError error = 1 [default = PlatformError_NO];
+  // required int32 err_code = 1;
+  if (has_err_code()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->err_code());
   }
-
-  if (has_describe()) {
-    // required string describe = 2;
+  // optional string err_msg = 2 [default = ""];
+  if (has_err_msg()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->describe());
+        this->err_msg());
   }
 
-  return total_size;
-}
-int MsgP2SRegisterACK::ByteSize() const {
-  int total_size = 0;
-
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .message.PlatformError error = 1 [default = PlatformError_NO];
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->error());
-
-    // required string describe = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->describe());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -852,10 +918,10 @@ int MsgP2SRegisterACK::ByteSize() const {
   return total_size;
 }
 
-void MsgP2SRegisterACK::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgP2GRegisterRsp::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgP2SRegisterACK* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgP2SRegisterACK*>(
+  const MsgP2GRegisterRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgP2GRegisterRsp*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -864,15 +930,15 @@ void MsgP2SRegisterACK::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void MsgP2SRegisterACK::MergeFrom(const MsgP2SRegisterACK& from) {
+void MsgP2GRegisterRsp::MergeFrom(const MsgP2GRegisterRsp& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_error()) {
-      set_error(from.error());
+    if (from.has_err_code()) {
+      set_err_code(from.err_code());
     }
-    if (from.has_describe()) {
-      set_has_describe();
-      describe_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.describe_);
+    if (from.has_err_msg()) {
+      set_has_err_msg();
+      err_msg_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.err_msg_);
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -880,123 +946,122 @@ void MsgP2SRegisterACK::MergeFrom(const MsgP2SRegisterACK& from) {
   }
 }
 
-void MsgP2SRegisterACK::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgP2GRegisterRsp::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgP2SRegisterACK::CopyFrom(const MsgP2SRegisterACK& from) {
+void MsgP2GRegisterRsp::CopyFrom(const MsgP2GRegisterRsp& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgP2SRegisterACK::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+bool MsgP2GRegisterRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
 
-void MsgP2SRegisterACK::Swap(MsgP2SRegisterACK* other) {
+void MsgP2GRegisterRsp::Swap(MsgP2GRegisterRsp* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgP2SRegisterACK::InternalSwap(MsgP2SRegisterACK* other) {
-  std::swap(error_, other->error_);
-  describe_.Swap(&other->describe_);
+void MsgP2GRegisterRsp::InternalSwap(MsgP2GRegisterRsp* other) {
+  std::swap(err_code_, other->err_code_);
+  err_msg_.Swap(&other->err_msg_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata MsgP2SRegisterACK::GetMetadata() const {
+::google::protobuf::Metadata MsgP2GRegisterRsp::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgP2SRegisterACK_descriptor_;
-  metadata.reflection = MsgP2SRegisterACK_reflection_;
+  metadata.descriptor = MsgP2GRegisterRsp_descriptor_;
+  metadata.reflection = MsgP2GRegisterRsp_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgP2SRegisterACK
+// MsgP2GRegisterRsp
 
-// required .message.PlatformError error = 1 [default = PlatformError_NO];
- bool MsgP2SRegisterACK::has_error() const {
+// required int32 err_code = 1;
+ bool MsgP2GRegisterRsp::has_err_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgP2SRegisterACK::set_has_error() {
+ void MsgP2GRegisterRsp::set_has_err_code() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgP2SRegisterACK::clear_has_error() {
+ void MsgP2GRegisterRsp::clear_has_err_code() {
   _has_bits_[0] &= ~0x00000001u;
 }
- void MsgP2SRegisterACK::clear_error() {
-  error_ = 0;
-  clear_has_error();
+ void MsgP2GRegisterRsp::clear_err_code() {
+  err_code_ = 0;
+  clear_has_err_code();
 }
- ::message::PlatformError MsgP2SRegisterACK::error() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SRegisterACK.error)
-  return static_cast< ::message::PlatformError >(error_);
+ ::google::protobuf::int32 MsgP2GRegisterRsp::err_code() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GRegisterRsp.err_code)
+  return err_code_;
 }
- void MsgP2SRegisterACK::set_error(::message::PlatformError value) {
-  assert(::message::PlatformError_IsValid(value));
-  set_has_error();
-  error_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgP2SRegisterACK.error)
+ void MsgP2GRegisterRsp::set_err_code(::google::protobuf::int32 value) {
+  set_has_err_code();
+  err_code_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GRegisterRsp.err_code)
 }
 
-// required string describe = 2;
- bool MsgP2SRegisterACK::has_describe() const {
+// optional string err_msg = 2 [default = ""];
+ bool MsgP2GRegisterRsp::has_err_msg() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
- void MsgP2SRegisterACK::set_has_describe() {
+ void MsgP2GRegisterRsp::set_has_err_msg() {
   _has_bits_[0] |= 0x00000002u;
 }
- void MsgP2SRegisterACK::clear_has_describe() {
+ void MsgP2GRegisterRsp::clear_has_err_msg() {
   _has_bits_[0] &= ~0x00000002u;
 }
- void MsgP2SRegisterACK::clear_describe() {
-  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_describe();
+ void MsgP2GRegisterRsp::clear_err_msg() {
+  err_msg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_err_msg();
 }
- const ::std::string& MsgP2SRegisterACK::describe() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SRegisterACK.describe)
-  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& MsgP2GRegisterRsp::err_msg() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
+  return err_msg_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgP2SRegisterACK::set_describe(const ::std::string& value) {
-  set_has_describe();
-  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgP2SRegisterACK.describe)
+ void MsgP2GRegisterRsp::set_err_msg(const ::std::string& value) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
 }
- void MsgP2SRegisterACK::set_describe(const char* value) {
-  set_has_describe();
-  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgP2SRegisterACK.describe)
+ void MsgP2GRegisterRsp::set_err_msg(const char* value) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
 }
- void MsgP2SRegisterACK::set_describe(const char* value, size_t size) {
-  set_has_describe();
-  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void MsgP2GRegisterRsp::set_err_msg(const char* value, size_t size) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgP2SRegisterACK.describe)
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
 }
- ::std::string* MsgP2SRegisterACK::mutable_describe() {
-  set_has_describe();
-  // @@protoc_insertion_point(field_mutable:message.MsgP2SRegisterACK.describe)
-  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* MsgP2GRegisterRsp::mutable_err_msg() {
+  set_has_err_msg();
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
+  return err_msg_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* MsgP2SRegisterACK::release_describe() {
-  clear_has_describe();
-  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* MsgP2GRegisterRsp::release_err_msg() {
+  clear_has_err_msg();
+  return err_msg_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgP2SRegisterACK::set_allocated_describe(::std::string* describe) {
-  if (describe != NULL) {
-    set_has_describe();
+ void MsgP2GRegisterRsp::set_allocated_err_msg(::std::string* err_msg) {
+  if (err_msg != NULL) {
+    set_has_err_msg();
   } else {
-    clear_has_describe();
+    clear_has_err_msg();
   }
-  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgP2SRegisterACK.describe)
+  err_msg_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), err_msg);
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1004,88 +1069,95 @@ void MsgP2SRegisterACK::InternalSwap(MsgP2SRegisterACK* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MsgP2SClinchADealNotify::kStatusFieldNumber;
-const int MsgP2SClinchADealNotify::kProductIdFieldNumber;
-const int MsgP2SClinchADealNotify::kOrderIdFieldNumber;
-const int MsgP2SClinchADealNotify::kUserIdFieldNumber;
+const int MsgP2GOrderNotifyReq::kUserIdFieldNumber;
+const int MsgP2GOrderNotifyReq::kOrderIdFieldNumber;
+const int MsgP2GOrderNotifyReq::kProductIdFieldNumber;
+const int MsgP2GOrderNotifyReq::kPriceFieldNumber;
+const int MsgP2GOrderNotifyReq::kExtDataFieldNumber;
 #endif  // !_MSC_VER
 
-MsgP2SClinchADealNotify::MsgP2SClinchADealNotify()
+MsgP2GOrderNotifyReq::MsgP2GOrderNotifyReq()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:message.MsgP2SClinchADealNotify)
+  // @@protoc_insertion_point(constructor:IPlatformPayProto.MsgP2GOrderNotifyReq)
 }
 
-void MsgP2SClinchADealNotify::InitAsDefaultInstance() {
+void MsgP2GOrderNotifyReq::InitAsDefaultInstance() {
 }
 
-MsgP2SClinchADealNotify::MsgP2SClinchADealNotify(const MsgP2SClinchADealNotify& from)
+MsgP2GOrderNotifyReq::MsgP2GOrderNotifyReq(const MsgP2GOrderNotifyReq& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:message.MsgP2SClinchADealNotify)
+  // @@protoc_insertion_point(copy_constructor:IPlatformPayProto.MsgP2GOrderNotifyReq)
 }
 
-void MsgP2SClinchADealNotify::SharedCtor() {
+void MsgP2GOrderNotifyReq::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  status_ = 0;
-  product_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  order_id_ = 0;
   user_id_ = GOOGLE_ULONGLONG(0);
+  order_id_ = 0u;
+  product_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  price_ = 0u;
+  ext_data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-MsgP2SClinchADealNotify::~MsgP2SClinchADealNotify() {
-  // @@protoc_insertion_point(destructor:message.MsgP2SClinchADealNotify)
+MsgP2GOrderNotifyReq::~MsgP2GOrderNotifyReq() {
+  // @@protoc_insertion_point(destructor:IPlatformPayProto.MsgP2GOrderNotifyReq)
   SharedDtor();
 }
 
-void MsgP2SClinchADealNotify::SharedDtor() {
+void MsgP2GOrderNotifyReq::SharedDtor() {
   product_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ext_data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void MsgP2SClinchADealNotify::SetCachedSize(int size) const {
+void MsgP2GOrderNotifyReq::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* MsgP2SClinchADealNotify::descriptor() {
+const ::google::protobuf::Descriptor* MsgP2GOrderNotifyReq::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return MsgP2SClinchADealNotify_descriptor_;
+  return MsgP2GOrderNotifyReq_descriptor_;
 }
 
-const MsgP2SClinchADealNotify& MsgP2SClinchADealNotify::default_instance() {
+const MsgP2GOrderNotifyReq& MsgP2GOrderNotifyReq::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   return *default_instance_;
 }
 
-MsgP2SClinchADealNotify* MsgP2SClinchADealNotify::default_instance_ = NULL;
+MsgP2GOrderNotifyReq* MsgP2GOrderNotifyReq::default_instance_ = NULL;
 
-MsgP2SClinchADealNotify* MsgP2SClinchADealNotify::New(::google::protobuf::Arena* arena) const {
-  MsgP2SClinchADealNotify* n = new MsgP2SClinchADealNotify;
+MsgP2GOrderNotifyReq* MsgP2GOrderNotifyReq::New(::google::protobuf::Arena* arena) const {
+  MsgP2GOrderNotifyReq* n = new MsgP2GOrderNotifyReq;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void MsgP2SClinchADealNotify::Clear() {
+void MsgP2GOrderNotifyReq::Clear() {
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<MsgP2SClinchADealNotify*>(16)->f)
+  &reinterpret_cast<MsgP2GOrderNotifyReq*>(16)->f)
 
 #define ZR_(first, last) do {\
   ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 15) {
-    ZR_(status_, user_id_);
+  if (_has_bits_[0 / 32] & 31) {
+    ZR_(order_id_, price_);
+    user_id_ = GOOGLE_ULONGLONG(0);
     if (has_product_id()) {
       product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_ext_data()) {
+      ext_data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
 
@@ -1098,70 +1170,87 @@ void MsgP2SClinchADealNotify::Clear() {
   }
 }
 
-bool MsgP2SClinchADealNotify::MergePartialFromCodedStream(
+bool MsgP2GOrderNotifyReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:message.MsgP2SClinchADealNotify)
+  // @@protoc_insertion_point(parse_start:IPlatformPayProto.MsgP2GOrderNotifyReq)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 status = 1;
+      // required uint64 user_id = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &status_)));
-          set_has_status();
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &user_id_)));
+          set_has_user_id();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_product_id;
+        if (input->ExpectTag(16)) goto parse_order_id;
         break;
       }
 
-      // required string product_id = 2;
+      // required uint32 order_id = 2;
       case 2: {
-        if (tag == 18) {
+        if (tag == 16) {
+         parse_order_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &order_id_)));
+          set_has_order_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_product_id;
+        break;
+      }
+
+      // required string product_id = 3;
+      case 3: {
+        if (tag == 26) {
          parse_product_id:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_product_id()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->product_id().data(), this->product_id().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "message.MsgP2SClinchADealNotify.product_id");
+            "IPlatformPayProto.MsgP2GOrderNotifyReq.product_id");
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_order_id;
+        if (input->ExpectTag(32)) goto parse_price;
         break;
       }
 
-      // required int32 order_id = 3;
-      case 3: {
-        if (tag == 24) {
-         parse_order_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &order_id_)));
-          set_has_order_id();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_user_id;
-        break;
-      }
-
-      // required uint64 user_id = 4;
+      // required uint32 price = 4;
       case 4: {
         if (tag == 32) {
-         parse_user_id:
+         parse_price:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &user_id_)));
-          set_has_user_id();
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &price_)));
+          set_has_price();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_ext_data;
+        break;
+      }
+
+      // optional string ext_data = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_ext_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_ext_data()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->ext_data().data(), this->ext_data().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data");
         } else {
           goto handle_unusual;
         }
@@ -1183,142 +1272,667 @@ bool MsgP2SClinchADealNotify::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:message.MsgP2SClinchADealNotify)
+  // @@protoc_insertion_point(parse_success:IPlatformPayProto.MsgP2GOrderNotifyReq)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:message.MsgP2SClinchADealNotify)
+  // @@protoc_insertion_point(parse_failure:IPlatformPayProto.MsgP2GOrderNotifyReq)
   return false;
 #undef DO_
 }
 
-void MsgP2SClinchADealNotify::SerializeWithCachedSizes(
+void MsgP2GOrderNotifyReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:message.MsgP2SClinchADealNotify)
-  // required int32 status = 1;
-  if (has_status()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->status(), output);
+  // @@protoc_insertion_point(serialize_start:IPlatformPayProto.MsgP2GOrderNotifyReq)
+  // required uint64 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->user_id(), output);
   }
 
-  // required string product_id = 2;
+  // required uint32 order_id = 2;
+  if (has_order_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->order_id(), output);
+  }
+
+  // required string product_id = 3;
   if (has_product_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->product_id().data(), this->product_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgP2SClinchADealNotify.product_id");
+      "IPlatformPayProto.MsgP2GOrderNotifyReq.product_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->product_id(), output);
+      3, this->product_id(), output);
   }
 
-  // required int32 order_id = 3;
-  if (has_order_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->order_id(), output);
+  // required uint32 price = 4;
+  if (has_price()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->price(), output);
   }
 
-  // required uint64 user_id = 4;
-  if (has_user_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->user_id(), output);
+  // optional string ext_data = 5;
+  if (has_ext_data()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->ext_data().data(), this->ext_data().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->ext_data(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:message.MsgP2SClinchADealNotify)
+  // @@protoc_insertion_point(serialize_end:IPlatformPayProto.MsgP2GOrderNotifyReq)
 }
 
-::google::protobuf::uint8* MsgP2SClinchADealNotify::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgP2GOrderNotifyReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:message.MsgP2SClinchADealNotify)
-  // required int32 status = 1;
-  if (has_status()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->status(), target);
+  // @@protoc_insertion_point(serialize_to_array_start:IPlatformPayProto.MsgP2GOrderNotifyReq)
+  // required uint64 user_id = 1;
+  if (has_user_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->user_id(), target);
   }
 
-  // required string product_id = 2;
+  // required uint32 order_id = 2;
+  if (has_order_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->order_id(), target);
+  }
+
+  // required string product_id = 3;
   if (has_product_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->product_id().data(), this->product_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgP2SClinchADealNotify.product_id");
+      "IPlatformPayProto.MsgP2GOrderNotifyReq.product_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->product_id(), target);
+        3, this->product_id(), target);
   }
 
-  // required int32 order_id = 3;
-  if (has_order_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->order_id(), target);
+  // required uint32 price = 4;
+  if (has_price()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->price(), target);
   }
 
-  // required uint64 user_id = 4;
-  if (has_user_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->user_id(), target);
+  // optional string ext_data = 5;
+  if (has_ext_data()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->ext_data().data(), this->ext_data().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->ext_data(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:message.MsgP2SClinchADealNotify)
+  // @@protoc_insertion_point(serialize_to_array_end:IPlatformPayProto.MsgP2GOrderNotifyReq)
   return target;
 }
 
-int MsgP2SClinchADealNotify::RequiredFieldsByteSizeFallback() const {
+int MsgP2GOrderNotifyReq::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
-  if (has_status()) {
-    // required int32 status = 1;
+  if (has_user_id()) {
+    // required uint64 user_id = 1;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->status());
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->user_id());
+  }
+
+  if (has_order_id()) {
+    // required uint32 order_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->order_id());
   }
 
   if (has_product_id()) {
-    // required string product_id = 2;
+    // required string product_id = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->product_id());
   }
 
-  if (has_order_id()) {
-    // required int32 order_id = 3;
+  if (has_price()) {
+    // required uint32 price = 4;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->order_id());
-  }
-
-  if (has_user_id()) {
-    // required uint64 user_id = 4;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->user_id());
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->price());
   }
 
   return total_size;
 }
-int MsgP2SClinchADealNotify::ByteSize() const {
+int MsgP2GOrderNotifyReq::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
-    // required int32 status = 1;
+    // required uint64 user_id = 1;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->status());
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->user_id());
 
-    // required string product_id = 2;
+    // required uint32 order_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->order_id());
+
+    // required string product_id = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->product_id());
 
-    // required int32 order_id = 3;
+    // required uint32 price = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->price());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  // optional string ext_data = 5;
+  if (has_ext_data()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->ext_data());
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgP2GOrderNotifyReq::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgP2GOrderNotifyReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgP2GOrderNotifyReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgP2GOrderNotifyReq::MergeFrom(const MsgP2GOrderNotifyReq& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_order_id()) {
+      set_order_id(from.order_id());
+    }
+    if (from.has_product_id()) {
+      set_has_product_id();
+      product_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.product_id_);
+    }
+    if (from.has_price()) {
+      set_price(from.price());
+    }
+    if (from.has_ext_data()) {
+      set_has_ext_data();
+      ext_data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ext_data_);
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgP2GOrderNotifyReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgP2GOrderNotifyReq::CopyFrom(const MsgP2GOrderNotifyReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgP2GOrderNotifyReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+
+  return true;
+}
+
+void MsgP2GOrderNotifyReq::Swap(MsgP2GOrderNotifyReq* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgP2GOrderNotifyReq::InternalSwap(MsgP2GOrderNotifyReq* other) {
+  std::swap(user_id_, other->user_id_);
+  std::swap(order_id_, other->order_id_);
+  product_id_.Swap(&other->product_id_);
+  std::swap(price_, other->price_);
+  ext_data_.Swap(&other->ext_data_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgP2GOrderNotifyReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgP2GOrderNotifyReq_descriptor_;
+  metadata.reflection = MsgP2GOrderNotifyReq_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgP2GOrderNotifyReq
+
+// required uint64 user_id = 1;
+ bool MsgP2GOrderNotifyReq::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgP2GOrderNotifyReq::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgP2GOrderNotifyReq::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgP2GOrderNotifyReq::clear_user_id() {
+  user_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_id();
+}
+ ::google::protobuf::uint64 MsgP2GOrderNotifyReq::user_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.user_id)
+  return user_id_;
+}
+ void MsgP2GOrderNotifyReq::set_user_id(::google::protobuf::uint64 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.user_id)
+}
+
+// required uint32 order_id = 2;
+ bool MsgP2GOrderNotifyReq::has_order_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgP2GOrderNotifyReq::set_has_order_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgP2GOrderNotifyReq::clear_has_order_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgP2GOrderNotifyReq::clear_order_id() {
+  order_id_ = 0u;
+  clear_has_order_id();
+}
+ ::google::protobuf::uint32 MsgP2GOrderNotifyReq::order_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.order_id)
+  return order_id_;
+}
+ void MsgP2GOrderNotifyReq::set_order_id(::google::protobuf::uint32 value) {
+  set_has_order_id();
+  order_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.order_id)
+}
+
+// required string product_id = 3;
+ bool MsgP2GOrderNotifyReq::has_product_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgP2GOrderNotifyReq::set_has_product_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgP2GOrderNotifyReq::clear_has_product_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgP2GOrderNotifyReq::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_id();
+}
+ const ::std::string& MsgP2GOrderNotifyReq::product_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgP2GOrderNotifyReq::set_product_id(const ::std::string& value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
+}
+ void MsgP2GOrderNotifyReq::set_product_id(const char* value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
+}
+ void MsgP2GOrderNotifyReq::set_product_id(const char* value, size_t size) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
+}
+ ::std::string* MsgP2GOrderNotifyReq::mutable_product_id() {
+  set_has_product_id();
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgP2GOrderNotifyReq::release_product_id() {
+  clear_has_product_id();
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgP2GOrderNotifyReq::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    set_has_product_id();
+  } else {
+    clear_has_product_id();
+  }
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
+}
+
+// required uint32 price = 4;
+ bool MsgP2GOrderNotifyReq::has_price() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void MsgP2GOrderNotifyReq::set_has_price() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void MsgP2GOrderNotifyReq::clear_has_price() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+ void MsgP2GOrderNotifyReq::clear_price() {
+  price_ = 0u;
+  clear_has_price();
+}
+ ::google::protobuf::uint32 MsgP2GOrderNotifyReq::price() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.price)
+  return price_;
+}
+ void MsgP2GOrderNotifyReq::set_price(::google::protobuf::uint32 value) {
+  set_has_price();
+  price_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.price)
+}
+
+// optional string ext_data = 5;
+ bool MsgP2GOrderNotifyReq::has_ext_data() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+ void MsgP2GOrderNotifyReq::set_has_ext_data() {
+  _has_bits_[0] |= 0x00000010u;
+}
+ void MsgP2GOrderNotifyReq::clear_has_ext_data() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+ void MsgP2GOrderNotifyReq::clear_ext_data() {
+  ext_data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_ext_data();
+}
+ const ::std::string& MsgP2GOrderNotifyReq::ext_data() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+  return ext_data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgP2GOrderNotifyReq::set_ext_data(const ::std::string& value) {
+  set_has_ext_data();
+  ext_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+}
+ void MsgP2GOrderNotifyReq::set_ext_data(const char* value) {
+  set_has_ext_data();
+  ext_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+}
+ void MsgP2GOrderNotifyReq::set_ext_data(const char* value, size_t size) {
+  set_has_ext_data();
+  ext_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+}
+ ::std::string* MsgP2GOrderNotifyReq::mutable_ext_data() {
+  set_has_ext_data();
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+  return ext_data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgP2GOrderNotifyReq::release_ext_data() {
+  clear_has_ext_data();
+  return ext_data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgP2GOrderNotifyReq::set_allocated_ext_data(::std::string* ext_data) {
+  if (ext_data != NULL) {
+    set_has_ext_data();
+  } else {
+    clear_has_ext_data();
+  }
+  ext_data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ext_data);
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgG2POrderNotifyRsp::kErrCodeFieldNumber;
+const int MsgG2POrderNotifyRsp::kOrderIdFieldNumber;
+#endif  // !_MSC_VER
+
+MsgG2POrderNotifyRsp::MsgG2POrderNotifyRsp()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IPlatformPayProto.MsgG2POrderNotifyRsp)
+}
+
+void MsgG2POrderNotifyRsp::InitAsDefaultInstance() {
+}
+
+MsgG2POrderNotifyRsp::MsgG2POrderNotifyRsp(const MsgG2POrderNotifyRsp& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IPlatformPayProto.MsgG2POrderNotifyRsp)
+}
+
+void MsgG2POrderNotifyRsp::SharedCtor() {
+  _cached_size_ = 0;
+  err_code_ = 0;
+  order_id_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgG2POrderNotifyRsp::~MsgG2POrderNotifyRsp() {
+  // @@protoc_insertion_point(destructor:IPlatformPayProto.MsgG2POrderNotifyRsp)
+  SharedDtor();
+}
+
+void MsgG2POrderNotifyRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgG2POrderNotifyRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgG2POrderNotifyRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgG2POrderNotifyRsp_descriptor_;
+}
+
+const MsgG2POrderNotifyRsp& MsgG2POrderNotifyRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
+  return *default_instance_;
+}
+
+MsgG2POrderNotifyRsp* MsgG2POrderNotifyRsp::default_instance_ = NULL;
+
+MsgG2POrderNotifyRsp* MsgG2POrderNotifyRsp::New(::google::protobuf::Arena* arena) const {
+  MsgG2POrderNotifyRsp* n = new MsgG2POrderNotifyRsp;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgG2POrderNotifyRsp::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MsgG2POrderNotifyRsp*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(err_code_, order_id_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgG2POrderNotifyRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:IPlatformPayProto.MsgG2POrderNotifyRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 err_code = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &err_code_)));
+          set_has_err_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_order_id;
+        break;
+      }
+
+      // required uint32 order_id = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_order_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &order_id_)));
+          set_has_order_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IPlatformPayProto.MsgG2POrderNotifyRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IPlatformPayProto.MsgG2POrderNotifyRsp)
+  return false;
+#undef DO_
+}
+
+void MsgG2POrderNotifyRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IPlatformPayProto.MsgG2POrderNotifyRsp)
+  // required int32 err_code = 1;
+  if (has_err_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->err_code(), output);
+  }
+
+  // required uint32 order_id = 2;
+  if (has_order_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->order_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:IPlatformPayProto.MsgG2POrderNotifyRsp)
+}
+
+::google::protobuf::uint8* MsgG2POrderNotifyRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IPlatformPayProto.MsgG2POrderNotifyRsp)
+  // required int32 err_code = 1;
+  if (has_err_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->err_code(), target);
+  }
+
+  // required uint32 order_id = 2;
+  if (has_order_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->order_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IPlatformPayProto.MsgG2POrderNotifyRsp)
+  return target;
+}
+
+int MsgG2POrderNotifyRsp::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_err_code()) {
+    // required int32 err_code = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->order_id());
+        this->err_code());
+  }
 
-    // required uint64 user_id = 4;
+  if (has_order_id()) {
+    // required uint32 order_id = 2;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->user_id());
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->order_id());
+  }
+
+  return total_size;
+}
+int MsgG2POrderNotifyRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required int32 err_code = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->err_code());
+
+    // required uint32 order_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->order_id());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -1334,10 +1948,10 @@ int MsgP2SClinchADealNotify::ByteSize() const {
   return total_size;
 }
 
-void MsgP2SClinchADealNotify::MergeFrom(const ::google::protobuf::Message& from) {
+void MsgG2POrderNotifyRsp::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const MsgP2SClinchADealNotify* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MsgP2SClinchADealNotify*>(
+  const MsgG2POrderNotifyRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgG2POrderNotifyRsp*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1346,21 +1960,14 @@ void MsgP2SClinchADealNotify::MergeFrom(const ::google::protobuf::Message& from)
   }
 }
 
-void MsgP2SClinchADealNotify::MergeFrom(const MsgP2SClinchADealNotify& from) {
+void MsgG2POrderNotifyRsp::MergeFrom(const MsgG2POrderNotifyRsp& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_status()) {
-      set_status(from.status());
-    }
-    if (from.has_product_id()) {
-      set_has_product_id();
-      product_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.product_id_);
+    if (from.has_err_code()) {
+      set_err_code(from.err_code());
     }
     if (from.has_order_id()) {
       set_order_id(from.order_id());
-    }
-    if (from.has_user_id()) {
-      set_user_id(from.user_id());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -1368,178 +1975,583 @@ void MsgP2SClinchADealNotify::MergeFrom(const MsgP2SClinchADealNotify& from) {
   }
 }
 
-void MsgP2SClinchADealNotify::CopyFrom(const ::google::protobuf::Message& from) {
+void MsgG2POrderNotifyRsp::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgP2SClinchADealNotify::CopyFrom(const MsgP2SClinchADealNotify& from) {
+void MsgG2POrderNotifyRsp::CopyFrom(const MsgG2POrderNotifyRsp& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgP2SClinchADealNotify::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+bool MsgG2POrderNotifyRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
-void MsgP2SClinchADealNotify::Swap(MsgP2SClinchADealNotify* other) {
+void MsgG2POrderNotifyRsp::Swap(MsgG2POrderNotifyRsp* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgP2SClinchADealNotify::InternalSwap(MsgP2SClinchADealNotify* other) {
-  std::swap(status_, other->status_);
-  product_id_.Swap(&other->product_id_);
+void MsgG2POrderNotifyRsp::InternalSwap(MsgG2POrderNotifyRsp* other) {
+  std::swap(err_code_, other->err_code_);
   std::swap(order_id_, other->order_id_);
-  std::swap(user_id_, other->user_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata MsgP2SClinchADealNotify::GetMetadata() const {
+::google::protobuf::Metadata MsgG2POrderNotifyRsp::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MsgP2SClinchADealNotify_descriptor_;
-  metadata.reflection = MsgP2SClinchADealNotify_reflection_;
+  metadata.descriptor = MsgG2POrderNotifyRsp_descriptor_;
+  metadata.reflection = MsgG2POrderNotifyRsp_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgP2SClinchADealNotify
+// MsgG2POrderNotifyRsp
 
-// required int32 status = 1;
- bool MsgP2SClinchADealNotify::has_status() const {
+// required int32 err_code = 1;
+ bool MsgG2POrderNotifyRsp::has_err_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgP2SClinchADealNotify::set_has_status() {
+ void MsgG2POrderNotifyRsp::set_has_err_code() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgP2SClinchADealNotify::clear_has_status() {
+ void MsgG2POrderNotifyRsp::clear_has_err_code() {
   _has_bits_[0] &= ~0x00000001u;
 }
- void MsgP2SClinchADealNotify::clear_status() {
-  status_ = 0;
-  clear_has_status();
+ void MsgG2POrderNotifyRsp::clear_err_code() {
+  err_code_ = 0;
+  clear_has_err_code();
 }
- ::google::protobuf::int32 MsgP2SClinchADealNotify::status() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.status)
-  return status_;
+ ::google::protobuf::int32 MsgG2POrderNotifyRsp::err_code() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2POrderNotifyRsp.err_code)
+  return err_code_;
 }
- void MsgP2SClinchADealNotify::set_status(::google::protobuf::int32 value) {
-  set_has_status();
-  status_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.status)
+ void MsgG2POrderNotifyRsp::set_err_code(::google::protobuf::int32 value) {
+  set_has_err_code();
+  err_code_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2POrderNotifyRsp.err_code)
 }
 
-// required string product_id = 2;
- bool MsgP2SClinchADealNotify::has_product_id() const {
+// required uint32 order_id = 2;
+ bool MsgG2POrderNotifyRsp::has_order_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
- void MsgP2SClinchADealNotify::set_has_product_id() {
+ void MsgG2POrderNotifyRsp::set_has_order_id() {
   _has_bits_[0] |= 0x00000002u;
 }
- void MsgP2SClinchADealNotify::clear_has_product_id() {
+ void MsgG2POrderNotifyRsp::clear_has_order_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
- void MsgP2SClinchADealNotify::clear_product_id() {
-  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_product_id();
-}
- const ::std::string& MsgP2SClinchADealNotify::product_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.product_id)
-  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void MsgP2SClinchADealNotify::set_product_id(const ::std::string& value) {
-  set_has_product_id();
-  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.product_id)
-}
- void MsgP2SClinchADealNotify::set_product_id(const char* value) {
-  set_has_product_id();
-  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgP2SClinchADealNotify.product_id)
-}
- void MsgP2SClinchADealNotify::set_product_id(const char* value, size_t size) {
-  set_has_product_id();
-  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgP2SClinchADealNotify.product_id)
-}
- ::std::string* MsgP2SClinchADealNotify::mutable_product_id() {
-  set_has_product_id();
-  // @@protoc_insertion_point(field_mutable:message.MsgP2SClinchADealNotify.product_id)
-  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* MsgP2SClinchADealNotify::release_product_id() {
-  clear_has_product_id();
-  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void MsgP2SClinchADealNotify::set_allocated_product_id(::std::string* product_id) {
-  if (product_id != NULL) {
-    set_has_product_id();
-  } else {
-    clear_has_product_id();
-  }
-  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgP2SClinchADealNotify.product_id)
-}
-
-// required int32 order_id = 3;
- bool MsgP2SClinchADealNotify::has_order_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
- void MsgP2SClinchADealNotify::set_has_order_id() {
-  _has_bits_[0] |= 0x00000004u;
-}
- void MsgP2SClinchADealNotify::clear_has_order_id() {
-  _has_bits_[0] &= ~0x00000004u;
-}
- void MsgP2SClinchADealNotify::clear_order_id() {
-  order_id_ = 0;
+ void MsgG2POrderNotifyRsp::clear_order_id() {
+  order_id_ = 0u;
   clear_has_order_id();
 }
- ::google::protobuf::int32 MsgP2SClinchADealNotify::order_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.order_id)
+ ::google::protobuf::uint32 MsgG2POrderNotifyRsp::order_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2POrderNotifyRsp.order_id)
   return order_id_;
 }
- void MsgP2SClinchADealNotify::set_order_id(::google::protobuf::int32 value) {
+ void MsgG2POrderNotifyRsp::set_order_id(::google::protobuf::uint32 value) {
   set_has_order_id();
   order_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.order_id)
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2POrderNotifyRsp.order_id)
 }
 
-// required uint64 user_id = 4;
- bool MsgP2SClinchADealNotify::has_user_id() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+::std::string* ErrorCodeAck::_default_err_msg_ = NULL;
+::std::string* ErrorCodeAck::_default_ori_msg_typename_ = NULL;
+#ifndef _MSC_VER
+const int ErrorCodeAck::kErrCodeFieldNumber;
+const int ErrorCodeAck::kErrMsgFieldNumber;
+const int ErrorCodeAck::kOriMsgTypenameFieldNumber;
+#endif  // !_MSC_VER
+
+ErrorCodeAck::ErrorCodeAck()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IPlatformPayProto.ErrorCodeAck)
 }
- void MsgP2SClinchADealNotify::set_has_user_id() {
-  _has_bits_[0] |= 0x00000008u;
+
+void ErrorCodeAck::InitAsDefaultInstance() {
 }
- void MsgP2SClinchADealNotify::clear_has_user_id() {
-  _has_bits_[0] &= ~0x00000008u;
+
+ErrorCodeAck::ErrorCodeAck(const ErrorCodeAck& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IPlatformPayProto.ErrorCodeAck)
 }
- void MsgP2SClinchADealNotify::clear_user_id() {
-  user_id_ = GOOGLE_ULONGLONG(0);
-  clear_has_user_id();
+
+void ErrorCodeAck::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  err_code_ = 0;
+  err_msg_.UnsafeSetDefault(_default_err_msg_);
+  ori_msg_typename_.UnsafeSetDefault(_default_ori_msg_typename_);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
- ::google::protobuf::uint64 MsgP2SClinchADealNotify::user_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.user_id)
-  return user_id_;
+
+ErrorCodeAck::~ErrorCodeAck() {
+  // @@protoc_insertion_point(destructor:IPlatformPayProto.ErrorCodeAck)
+  SharedDtor();
 }
- void MsgP2SClinchADealNotify::set_user_id(::google::protobuf::uint64 value) {
-  set_has_user_id();
-  user_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.user_id)
+
+void ErrorCodeAck::SharedDtor() {
+  err_msg_.DestroyNoArena(_default_err_msg_);
+  ori_msg_typename_.DestroyNoArena(_default_ori_msg_typename_);
+  if (this != default_instance_) {
+  }
+}
+
+void ErrorCodeAck::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ErrorCodeAck::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ErrorCodeAck_descriptor_;
+}
+
+const ErrorCodeAck& ErrorCodeAck::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
+  return *default_instance_;
+}
+
+ErrorCodeAck* ErrorCodeAck::default_instance_ = NULL;
+
+ErrorCodeAck* ErrorCodeAck::New(::google::protobuf::Arena* arena) const {
+  ErrorCodeAck* n = new ErrorCodeAck;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void ErrorCodeAck::Clear() {
+  if (_has_bits_[0 / 32] & 7) {
+    err_code_ = 0;
+    if (has_err_msg()) {
+      err_msg_.ClearToDefaultNoArena(_default_err_msg_);
+    }
+    if (has_ori_msg_typename()) {
+      ori_msg_typename_.ClearToDefaultNoArena(_default_ori_msg_typename_);
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool ErrorCodeAck::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:IPlatformPayProto.ErrorCodeAck)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 err_code = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &err_code_)));
+          set_has_err_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_err_msg;
+        break;
+      }
+
+      // optional string err_msg = 2 [default = "default error"];
+      case 2: {
+        if (tag == 18) {
+         parse_err_msg:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_err_msg()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->err_msg().data(), this->err_msg().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "IPlatformPayProto.ErrorCodeAck.err_msg");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_ori_msg_typename;
+        break;
+      }
+
+      // optional string ori_msg_typename = 3 [default = "Unknown"];
+      case 3: {
+        if (tag == 26) {
+         parse_ori_msg_typename:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_ori_msg_typename()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->ori_msg_typename().data(), this->ori_msg_typename().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "IPlatformPayProto.ErrorCodeAck.ori_msg_typename");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IPlatformPayProto.ErrorCodeAck)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IPlatformPayProto.ErrorCodeAck)
+  return false;
+#undef DO_
+}
+
+void ErrorCodeAck::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IPlatformPayProto.ErrorCodeAck)
+  // required int32 err_code = 1;
+  if (has_err_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->err_code(), output);
+  }
+
+  // optional string err_msg = 2 [default = "default error"];
+  if (has_err_msg()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->err_msg().data(), this->err_msg().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "IPlatformPayProto.ErrorCodeAck.err_msg");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->err_msg(), output);
+  }
+
+  // optional string ori_msg_typename = 3 [default = "Unknown"];
+  if (has_ori_msg_typename()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->ori_msg_typename().data(), this->ori_msg_typename().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "IPlatformPayProto.ErrorCodeAck.ori_msg_typename");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->ori_msg_typename(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:IPlatformPayProto.ErrorCodeAck)
+}
+
+::google::protobuf::uint8* ErrorCodeAck::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IPlatformPayProto.ErrorCodeAck)
+  // required int32 err_code = 1;
+  if (has_err_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->err_code(), target);
+  }
+
+  // optional string err_msg = 2 [default = "default error"];
+  if (has_err_msg()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->err_msg().data(), this->err_msg().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "IPlatformPayProto.ErrorCodeAck.err_msg");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->err_msg(), target);
+  }
+
+  // optional string ori_msg_typename = 3 [default = "Unknown"];
+  if (has_ori_msg_typename()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->ori_msg_typename().data(), this->ori_msg_typename().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "IPlatformPayProto.ErrorCodeAck.ori_msg_typename");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->ori_msg_typename(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IPlatformPayProto.ErrorCodeAck)
+  return target;
+}
+
+int ErrorCodeAck::ByteSize() const {
+  int total_size = 0;
+
+  // required int32 err_code = 1;
+  if (has_err_code()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->err_code());
+  }
+  if (_has_bits_[1 / 32] & 6) {
+    // optional string err_msg = 2 [default = "default error"];
+    if (has_err_msg()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->err_msg());
+    }
+
+    // optional string ori_msg_typename = 3 [default = "Unknown"];
+    if (has_ori_msg_typename()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->ori_msg_typename());
+    }
+
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ErrorCodeAck::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const ErrorCodeAck* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ErrorCodeAck*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ErrorCodeAck::MergeFrom(const ErrorCodeAck& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_err_code()) {
+      set_err_code(from.err_code());
+    }
+    if (from.has_err_msg()) {
+      set_has_err_msg();
+      err_msg_.AssignWithDefault(_default_err_msg_, from.err_msg_);
+    }
+    if (from.has_ori_msg_typename()) {
+      set_has_ori_msg_typename();
+      ori_msg_typename_.AssignWithDefault(_default_ori_msg_typename_, from.ori_msg_typename_);
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void ErrorCodeAck::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ErrorCodeAck::CopyFrom(const ErrorCodeAck& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ErrorCodeAck::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void ErrorCodeAck::Swap(ErrorCodeAck* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ErrorCodeAck::InternalSwap(ErrorCodeAck* other) {
+  std::swap(err_code_, other->err_code_);
+  err_msg_.Swap(&other->err_msg_);
+  ori_msg_typename_.Swap(&other->ori_msg_typename_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata ErrorCodeAck::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ErrorCodeAck_descriptor_;
+  metadata.reflection = ErrorCodeAck_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// ErrorCodeAck
+
+// required int32 err_code = 1;
+ bool ErrorCodeAck::has_err_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void ErrorCodeAck::set_has_err_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void ErrorCodeAck::clear_has_err_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void ErrorCodeAck::clear_err_code() {
+  err_code_ = 0;
+  clear_has_err_code();
+}
+ ::google::protobuf::int32 ErrorCodeAck::err_code() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.ErrorCodeAck.err_code)
+  return err_code_;
+}
+ void ErrorCodeAck::set_err_code(::google::protobuf::int32 value) {
+  set_has_err_code();
+  err_code_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.ErrorCodeAck.err_code)
+}
+
+// optional string err_msg = 2 [default = "default error"];
+ bool ErrorCodeAck::has_err_msg() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void ErrorCodeAck::set_has_err_msg() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void ErrorCodeAck::clear_has_err_msg() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void ErrorCodeAck::clear_err_msg() {
+  err_msg_.ClearToDefaultNoArena(_default_err_msg_);
+  clear_has_err_msg();
+}
+ const ::std::string& ErrorCodeAck::err_msg() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.ErrorCodeAck.err_msg)
+  return err_msg_.GetNoArena(_default_err_msg_);
+}
+ void ErrorCodeAck::set_err_msg(const ::std::string& value) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(_default_err_msg_, value);
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.ErrorCodeAck.err_msg)
+}
+ void ErrorCodeAck::set_err_msg(const char* value) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(_default_err_msg_, ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.ErrorCodeAck.err_msg)
+}
+ void ErrorCodeAck::set_err_msg(const char* value, size_t size) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(_default_err_msg_,
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.ErrorCodeAck.err_msg)
+}
+ ::std::string* ErrorCodeAck::mutable_err_msg() {
+  set_has_err_msg();
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.ErrorCodeAck.err_msg)
+  return err_msg_.MutableNoArena(_default_err_msg_);
+}
+ ::std::string* ErrorCodeAck::release_err_msg() {
+  clear_has_err_msg();
+  return err_msg_.ReleaseNoArena(_default_err_msg_);
+}
+ void ErrorCodeAck::set_allocated_err_msg(::std::string* err_msg) {
+  if (err_msg != NULL) {
+    set_has_err_msg();
+  } else {
+    clear_has_err_msg();
+  }
+  err_msg_.SetAllocatedNoArena(_default_err_msg_, err_msg);
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.ErrorCodeAck.err_msg)
+}
+
+// optional string ori_msg_typename = 3 [default = "Unknown"];
+ bool ErrorCodeAck::has_ori_msg_typename() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void ErrorCodeAck::set_has_ori_msg_typename() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void ErrorCodeAck::clear_has_ori_msg_typename() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void ErrorCodeAck::clear_ori_msg_typename() {
+  ori_msg_typename_.ClearToDefaultNoArena(_default_ori_msg_typename_);
+  clear_has_ori_msg_typename();
+}
+ const ::std::string& ErrorCodeAck::ori_msg_typename() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+  return ori_msg_typename_.GetNoArena(_default_ori_msg_typename_);
+}
+ void ErrorCodeAck::set_ori_msg_typename(const ::std::string& value) {
+  set_has_ori_msg_typename();
+  ori_msg_typename_.SetNoArena(_default_ori_msg_typename_, value);
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+}
+ void ErrorCodeAck::set_ori_msg_typename(const char* value) {
+  set_has_ori_msg_typename();
+  ori_msg_typename_.SetNoArena(_default_ori_msg_typename_, ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+}
+ void ErrorCodeAck::set_ori_msg_typename(const char* value, size_t size) {
+  set_has_ori_msg_typename();
+  ori_msg_typename_.SetNoArena(_default_ori_msg_typename_,
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+}
+ ::std::string* ErrorCodeAck::mutable_ori_msg_typename() {
+  set_has_ori_msg_typename();
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+  return ori_msg_typename_.MutableNoArena(_default_ori_msg_typename_);
+}
+ ::std::string* ErrorCodeAck::release_ori_msg_typename() {
+  clear_has_ori_msg_typename();
+  return ori_msg_typename_.ReleaseNoArena(_default_ori_msg_typename_);
+}
+ void ErrorCodeAck::set_allocated_ori_msg_typename(::std::string* ori_msg_typename) {
+  if (ori_msg_typename != NULL) {
+    set_has_ori_msg_typename();
+  } else {
+    clear_has_ori_msg_typename();
+  }
+  ori_msg_typename_.SetAllocatedNoArena(_default_ori_msg_typename_, ori_msg_typename);
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace message
+}  // namespace IPlatformPayProto
 
 // @@protoc_insertion_point(global_scope)

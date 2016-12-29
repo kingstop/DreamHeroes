@@ -30,47 +30,66 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
-namespace message {
+namespace IPlatformPayProto {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
 void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
 void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
 
-class MsgS2PRegisterServer;
-class MsgP2SRegisterACK;
-class MsgP2SClinchADealNotify;
+class MsgG2PRegisterReq;
+class MsgP2GRegisterRsp;
+class MsgP2GOrderNotifyReq;
+class MsgG2POrderNotifyRsp;
+class ErrorCodeAck;
 
-enum PlatformError {
-  PlatformError_NO = 0,
-  PlatformError_Unknow = 1,
-  PlatformError_AlreadyRegister = 2
+enum ipay_err_code_t {
+  IPAY_ERR_OK = 0,
+  IPAY_ERR_SYS_BUSY = 1001,
+  IPAY_ERR_INV_PKGLEN = 1002,
+  IPAY_ERR_UNSUPPORTED_MSG = 1003,
+  IPAY_ERR_NOT_ENOUGH_RES = 1004,
+  IPAY_ERR_UNSUPPORTED_MSG_TYPE = 1005,
+  IPAY_ERR_NOFOUND_SERVER = 1006,
+  IPAY_ERR_INV_SIGN = 1007,
+  IPAY_ERR_HAS_REGISTERED = 2001,
+  IPAY_ERR_REG_TIMEOUT = 2002,
+  IPAY_ERR_NO_MATCH_REG_FD = 2003,
+  IPAY_ERR_WRONG_ORDER = 2004,
+  IPAY_ERR_NO_SUCH_ITEM = 2005,
+  IPAY_ERR_ORDER_IN_HANDLING = 2006,
+  IPAY_ERR_ORDER_HAS_HANDLED = 2007,
+  IPAY_ERR_GAME_SERVER_DOWN = 2008,
+  IPAY_ERR_NO_REG_GAME = 3001,
+  IPAY_ERR_NO_SUCH_USER = 4001,
+  IPAY_ERR_NO_SUCH_ORDER = 4002,
+  IPAY_ERR_ITEM_DECODE_FAIL = 4003
 };
-bool PlatformError_IsValid(int value);
-const PlatformError PlatformError_MIN = PlatformError_NO;
-const PlatformError PlatformError_MAX = PlatformError_AlreadyRegister;
-const int PlatformError_ARRAYSIZE = PlatformError_MAX + 1;
+bool ipay_err_code_t_IsValid(int value);
+const ipay_err_code_t ipay_err_code_t_MIN = IPAY_ERR_OK;
+const ipay_err_code_t ipay_err_code_t_MAX = IPAY_ERR_ITEM_DECODE_FAIL;
+const int ipay_err_code_t_ARRAYSIZE = ipay_err_code_t_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* PlatformError_descriptor();
-inline const ::std::string& PlatformError_Name(PlatformError value) {
+const ::google::protobuf::EnumDescriptor* ipay_err_code_t_descriptor();
+inline const ::std::string& ipay_err_code_t_Name(ipay_err_code_t value) {
   return ::google::protobuf::internal::NameOfEnum(
-    PlatformError_descriptor(), value);
+    ipay_err_code_t_descriptor(), value);
 }
-inline bool PlatformError_Parse(
-    const ::std::string& name, PlatformError* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<PlatformError>(
-    PlatformError_descriptor(), name, value);
+inline bool ipay_err_code_t_Parse(
+    const ::std::string& name, ipay_err_code_t* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ipay_err_code_t>(
+    ipay_err_code_t_descriptor(), name, value);
 }
 // ===================================================================
 
-class MsgS2PRegisterServer : public ::google::protobuf::Message {
+class MsgG2PRegisterReq : public ::google::protobuf::Message {
  public:
-  MsgS2PRegisterServer();
-  virtual ~MsgS2PRegisterServer();
+  MsgG2PRegisterReq();
+  virtual ~MsgG2PRegisterReq();
 
-  MsgS2PRegisterServer(const MsgS2PRegisterServer& from);
+  MsgG2PRegisterReq(const MsgG2PRegisterReq& from);
 
-  inline MsgS2PRegisterServer& operator=(const MsgS2PRegisterServer& from) {
+  inline MsgG2PRegisterReq& operator=(const MsgG2PRegisterReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -84,19 +103,19 @@ class MsgS2PRegisterServer : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const MsgS2PRegisterServer& default_instance();
+  static const MsgG2PRegisterReq& default_instance();
 
-  void Swap(MsgS2PRegisterServer* other);
+  void Swap(MsgG2PRegisterReq* other);
 
   // implements Message ----------------------------------------------
 
-  inline MsgS2PRegisterServer* New() const { return New(NULL); }
+  inline MsgG2PRegisterReq* New() const { return New(NULL); }
 
-  MsgS2PRegisterServer* New(::google::protobuf::Arena* arena) const;
+  MsgG2PRegisterReq* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MsgS2PRegisterServer& from);
-  void MergeFrom(const MsgS2PRegisterServer& from);
+  void CopyFrom(const MsgG2PRegisterReq& from);
+  void MergeFrom(const MsgG2PRegisterReq& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -111,7 +130,7 @@ class MsgS2PRegisterServer : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(MsgS2PRegisterServer* other);
+  void InternalSwap(MsgG2PRegisterReq* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -127,19 +146,19 @@ class MsgS2PRegisterServer : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required int32 server_id = 1;
-  bool has_server_id() const;
-  void clear_server_id();
-  static const int kServerIdFieldNumber = 1;
-  ::google::protobuf::int32 server_id() const;
-  void set_server_id(::google::protobuf::int32 value);
-
-  // required int32 game_id = 2;
+  // required int32 game_id = 1;
   bool has_game_id() const;
   void clear_game_id();
-  static const int kGameIdFieldNumber = 2;
+  static const int kGameIdFieldNumber = 1;
   ::google::protobuf::int32 game_id() const;
   void set_game_id(::google::protobuf::int32 value);
+
+  // required int32 server_id = 2;
+  bool has_server_id() const;
+  void clear_server_id();
+  static const int kServerIdFieldNumber = 2;
+  ::google::protobuf::int32 server_id() const;
+  void set_server_id(::google::protobuf::int32 value);
 
   // required int32 server_type = 3;
   bool has_server_type() const;
@@ -148,12 +167,12 @@ class MsgS2PRegisterServer : public ::google::protobuf::Message {
   ::google::protobuf::int32 server_type() const;
   void set_server_type(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:message.MsgS2PRegisterServer)
+  // @@protoc_insertion_point(class_scope:IPlatformPayProto.MsgG2PRegisterReq)
  private:
-  inline void set_has_server_id();
-  inline void clear_has_server_id();
   inline void set_has_game_id();
   inline void clear_has_game_id();
+  inline void set_has_server_id();
+  inline void clear_has_server_id();
   inline void set_has_server_type();
   inline void clear_has_server_type();
 
@@ -163,26 +182,26 @@ class MsgS2PRegisterServer : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::int32 server_id_;
   ::google::protobuf::int32 game_id_;
+  ::google::protobuf::int32 server_id_;
   ::google::protobuf::int32 server_type_;
   friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
 
   void InitAsDefaultInstance();
-  static MsgS2PRegisterServer* default_instance_;
+  static MsgG2PRegisterReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class MsgP2SRegisterACK : public ::google::protobuf::Message {
+class MsgP2GRegisterRsp : public ::google::protobuf::Message {
  public:
-  MsgP2SRegisterACK();
-  virtual ~MsgP2SRegisterACK();
+  MsgP2GRegisterRsp();
+  virtual ~MsgP2GRegisterRsp();
 
-  MsgP2SRegisterACK(const MsgP2SRegisterACK& from);
+  MsgP2GRegisterRsp(const MsgP2GRegisterRsp& from);
 
-  inline MsgP2SRegisterACK& operator=(const MsgP2SRegisterACK& from) {
+  inline MsgP2GRegisterRsp& operator=(const MsgP2GRegisterRsp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -196,19 +215,19 @@ class MsgP2SRegisterACK : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const MsgP2SRegisterACK& default_instance();
+  static const MsgP2GRegisterRsp& default_instance();
 
-  void Swap(MsgP2SRegisterACK* other);
+  void Swap(MsgP2GRegisterRsp* other);
 
   // implements Message ----------------------------------------------
 
-  inline MsgP2SRegisterACK* New() const { return New(NULL); }
+  inline MsgP2GRegisterRsp* New() const { return New(NULL); }
 
-  MsgP2SRegisterACK* New(::google::protobuf::Arena* arena) const;
+  MsgP2GRegisterRsp* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MsgP2SRegisterACK& from);
-  void MergeFrom(const MsgP2SRegisterACK& from);
+  void CopyFrom(const MsgP2GRegisterRsp& from);
+  void MergeFrom(const MsgP2GRegisterRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -223,7 +242,7 @@ class MsgP2SRegisterACK : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(MsgP2SRegisterACK* other);
+  void InternalSwap(MsgP2GRegisterRsp* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -239,57 +258,54 @@ class MsgP2SRegisterACK : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .message.PlatformError error = 1 [default = PlatformError_NO];
-  bool has_error() const;
-  void clear_error();
-  static const int kErrorFieldNumber = 1;
-  ::message::PlatformError error() const;
-  void set_error(::message::PlatformError value);
+  // required int32 err_code = 1;
+  bool has_err_code() const;
+  void clear_err_code();
+  static const int kErrCodeFieldNumber = 1;
+  ::google::protobuf::int32 err_code() const;
+  void set_err_code(::google::protobuf::int32 value);
 
-  // required string describe = 2;
-  bool has_describe() const;
-  void clear_describe();
-  static const int kDescribeFieldNumber = 2;
-  const ::std::string& describe() const;
-  void set_describe(const ::std::string& value);
-  void set_describe(const char* value);
-  void set_describe(const char* value, size_t size);
-  ::std::string* mutable_describe();
-  ::std::string* release_describe();
-  void set_allocated_describe(::std::string* describe);
+  // optional string err_msg = 2 [default = ""];
+  bool has_err_msg() const;
+  void clear_err_msg();
+  static const int kErrMsgFieldNumber = 2;
+  const ::std::string& err_msg() const;
+  void set_err_msg(const ::std::string& value);
+  void set_err_msg(const char* value);
+  void set_err_msg(const char* value, size_t size);
+  ::std::string* mutable_err_msg();
+  ::std::string* release_err_msg();
+  void set_allocated_err_msg(::std::string* err_msg);
 
-  // @@protoc_insertion_point(class_scope:message.MsgP2SRegisterACK)
+  // @@protoc_insertion_point(class_scope:IPlatformPayProto.MsgP2GRegisterRsp)
  private:
-  inline void set_has_error();
-  inline void clear_has_error();
-  inline void set_has_describe();
-  inline void clear_has_describe();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
+  inline void set_has_err_code();
+  inline void clear_has_err_code();
+  inline void set_has_err_msg();
+  inline void clear_has_err_msg();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr describe_;
-  int error_;
+  ::google::protobuf::internal::ArenaStringPtr err_msg_;
+  ::google::protobuf::int32 err_code_;
   friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
 
   void InitAsDefaultInstance();
-  static MsgP2SRegisterACK* default_instance_;
+  static MsgP2GRegisterRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
+class MsgP2GOrderNotifyReq : public ::google::protobuf::Message {
  public:
-  MsgP2SClinchADealNotify();
-  virtual ~MsgP2SClinchADealNotify();
+  MsgP2GOrderNotifyReq();
+  virtual ~MsgP2GOrderNotifyReq();
 
-  MsgP2SClinchADealNotify(const MsgP2SClinchADealNotify& from);
+  MsgP2GOrderNotifyReq(const MsgP2GOrderNotifyReq& from);
 
-  inline MsgP2SClinchADealNotify& operator=(const MsgP2SClinchADealNotify& from) {
+  inline MsgP2GOrderNotifyReq& operator=(const MsgP2GOrderNotifyReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -303,19 +319,19 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const MsgP2SClinchADealNotify& default_instance();
+  static const MsgP2GOrderNotifyReq& default_instance();
 
-  void Swap(MsgP2SClinchADealNotify* other);
+  void Swap(MsgP2GOrderNotifyReq* other);
 
   // implements Message ----------------------------------------------
 
-  inline MsgP2SClinchADealNotify* New() const { return New(NULL); }
+  inline MsgP2GOrderNotifyReq* New() const { return New(NULL); }
 
-  MsgP2SClinchADealNotify* New(::google::protobuf::Arena* arena) const;
+  MsgP2GOrderNotifyReq* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MsgP2SClinchADealNotify& from);
-  void MergeFrom(const MsgP2SClinchADealNotify& from);
+  void CopyFrom(const MsgP2GOrderNotifyReq& from);
+  void MergeFrom(const MsgP2GOrderNotifyReq& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -330,7 +346,7 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(MsgP2SClinchADealNotify* other);
+  void InternalSwap(MsgP2GOrderNotifyReq* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -346,17 +362,24 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required int32 status = 1;
-  bool has_status() const;
-  void clear_status();
-  static const int kStatusFieldNumber = 1;
-  ::google::protobuf::int32 status() const;
-  void set_status(::google::protobuf::int32 value);
+  // required uint64 user_id = 1;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  ::google::protobuf::uint64 user_id() const;
+  void set_user_id(::google::protobuf::uint64 value);
 
-  // required string product_id = 2;
+  // required uint32 order_id = 2;
+  bool has_order_id() const;
+  void clear_order_id();
+  static const int kOrderIdFieldNumber = 2;
+  ::google::protobuf::uint32 order_id() const;
+  void set_order_id(::google::protobuf::uint32 value);
+
+  // required string product_id = 3;
   bool has_product_id() const;
   void clear_product_id();
-  static const int kProductIdFieldNumber = 2;
+  static const int kProductIdFieldNumber = 3;
   const ::std::string& product_id() const;
   void set_product_id(const ::std::string& value);
   void set_product_id(const char* value);
@@ -365,30 +388,37 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
   ::std::string* release_product_id();
   void set_allocated_product_id(::std::string* product_id);
 
-  // required int32 order_id = 3;
-  bool has_order_id() const;
-  void clear_order_id();
-  static const int kOrderIdFieldNumber = 3;
-  ::google::protobuf::int32 order_id() const;
-  void set_order_id(::google::protobuf::int32 value);
+  // required uint32 price = 4;
+  bool has_price() const;
+  void clear_price();
+  static const int kPriceFieldNumber = 4;
+  ::google::protobuf::uint32 price() const;
+  void set_price(::google::protobuf::uint32 value);
 
-  // required uint64 user_id = 4;
-  bool has_user_id() const;
-  void clear_user_id();
-  static const int kUserIdFieldNumber = 4;
-  ::google::protobuf::uint64 user_id() const;
-  void set_user_id(::google::protobuf::uint64 value);
+  // optional string ext_data = 5;
+  bool has_ext_data() const;
+  void clear_ext_data();
+  static const int kExtDataFieldNumber = 5;
+  const ::std::string& ext_data() const;
+  void set_ext_data(const ::std::string& value);
+  void set_ext_data(const char* value);
+  void set_ext_data(const char* value, size_t size);
+  ::std::string* mutable_ext_data();
+  ::std::string* release_ext_data();
+  void set_allocated_ext_data(::std::string* ext_data);
 
-  // @@protoc_insertion_point(class_scope:message.MsgP2SClinchADealNotify)
+  // @@protoc_insertion_point(class_scope:IPlatformPayProto.MsgP2GOrderNotifyReq)
  private:
-  inline void set_has_status();
-  inline void clear_has_status();
-  inline void set_has_product_id();
-  inline void clear_has_product_id();
-  inline void set_has_order_id();
-  inline void clear_has_order_id();
   inline void set_has_user_id();
   inline void clear_has_user_id();
+  inline void set_has_order_id();
+  inline void clear_has_order_id();
+  inline void set_has_product_id();
+  inline void clear_has_product_id();
+  inline void set_has_price();
+  inline void clear_has_price();
+  inline void set_has_ext_data();
+  inline void clear_has_ext_data();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -396,16 +426,240 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr product_id_;
-  ::google::protobuf::int32 status_;
-  ::google::protobuf::int32 order_id_;
   ::google::protobuf::uint64 user_id_;
+  ::google::protobuf::internal::ArenaStringPtr product_id_;
+  ::google::protobuf::uint32 order_id_;
+  ::google::protobuf::uint32 price_;
+  ::google::protobuf::internal::ArenaStringPtr ext_data_;
   friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
 
   void InitAsDefaultInstance();
-  static MsgP2SClinchADealNotify* default_instance_;
+  static MsgP2GOrderNotifyReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgG2POrderNotifyRsp : public ::google::protobuf::Message {
+ public:
+  MsgG2POrderNotifyRsp();
+  virtual ~MsgG2POrderNotifyRsp();
+
+  MsgG2POrderNotifyRsp(const MsgG2POrderNotifyRsp& from);
+
+  inline MsgG2POrderNotifyRsp& operator=(const MsgG2POrderNotifyRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgG2POrderNotifyRsp& default_instance();
+
+  void Swap(MsgG2POrderNotifyRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgG2POrderNotifyRsp* New() const { return New(NULL); }
+
+  MsgG2POrderNotifyRsp* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgG2POrderNotifyRsp& from);
+  void MergeFrom(const MsgG2POrderNotifyRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgG2POrderNotifyRsp* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 err_code = 1;
+  bool has_err_code() const;
+  void clear_err_code();
+  static const int kErrCodeFieldNumber = 1;
+  ::google::protobuf::int32 err_code() const;
+  void set_err_code(::google::protobuf::int32 value);
+
+  // required uint32 order_id = 2;
+  bool has_order_id() const;
+  void clear_order_id();
+  static const int kOrderIdFieldNumber = 2;
+  ::google::protobuf::uint32 order_id() const;
+  void set_order_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:IPlatformPayProto.MsgG2POrderNotifyRsp)
+ private:
+  inline void set_has_err_code();
+  inline void clear_has_err_code();
+  inline void set_has_order_id();
+  inline void clear_has_order_id();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 err_code_;
+  ::google::protobuf::uint32 order_id_;
+  friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
+  friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
+  friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgG2POrderNotifyRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ErrorCodeAck : public ::google::protobuf::Message {
+ public:
+  ErrorCodeAck();
+  virtual ~ErrorCodeAck();
+
+  ErrorCodeAck(const ErrorCodeAck& from);
+
+  inline ErrorCodeAck& operator=(const ErrorCodeAck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ErrorCodeAck& default_instance();
+
+  void Swap(ErrorCodeAck* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ErrorCodeAck* New() const { return New(NULL); }
+
+  ErrorCodeAck* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ErrorCodeAck& from);
+  void MergeFrom(const ErrorCodeAck& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ErrorCodeAck* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 err_code = 1;
+  bool has_err_code() const;
+  void clear_err_code();
+  static const int kErrCodeFieldNumber = 1;
+  ::google::protobuf::int32 err_code() const;
+  void set_err_code(::google::protobuf::int32 value);
+
+  // optional string err_msg = 2 [default = "default error"];
+  bool has_err_msg() const;
+  void clear_err_msg();
+  static const int kErrMsgFieldNumber = 2;
+  const ::std::string& err_msg() const;
+  void set_err_msg(const ::std::string& value);
+  void set_err_msg(const char* value);
+  void set_err_msg(const char* value, size_t size);
+  ::std::string* mutable_err_msg();
+  ::std::string* release_err_msg();
+  void set_allocated_err_msg(::std::string* err_msg);
+
+  // optional string ori_msg_typename = 3 [default = "Unknown"];
+  bool has_ori_msg_typename() const;
+  void clear_ori_msg_typename();
+  static const int kOriMsgTypenameFieldNumber = 3;
+  const ::std::string& ori_msg_typename() const;
+  void set_ori_msg_typename(const ::std::string& value);
+  void set_ori_msg_typename(const char* value);
+  void set_ori_msg_typename(const char* value, size_t size);
+  ::std::string* mutable_ori_msg_typename();
+  ::std::string* release_ori_msg_typename();
+  void set_allocated_ori_msg_typename(::std::string* ori_msg_typename);
+
+  // @@protoc_insertion_point(class_scope:IPlatformPayProto.ErrorCodeAck)
+ private:
+  inline void set_has_err_code();
+  inline void clear_has_err_code();
+  inline void set_has_err_msg();
+  inline void clear_has_err_msg();
+  inline void set_has_ori_msg_typename();
+  inline void clear_has_ori_msg_typename();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  static ::std::string* _default_err_msg_;
+  ::google::protobuf::internal::ArenaStringPtr err_msg_;
+  static ::std::string* _default_ori_msg_typename_;
+  ::google::protobuf::internal::ArenaStringPtr ori_msg_typename_;
+  ::google::protobuf::int32 err_code_;
+  friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
+  friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
+  friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
+
+  void InitAsDefaultInstance();
+  static ErrorCodeAck* default_instance_;
 };
 // ===================================================================
 
@@ -413,305 +667,543 @@ class MsgP2SClinchADealNotify : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// MsgS2PRegisterServer
+// MsgG2PRegisterReq
 
-// required int32 server_id = 1;
-inline bool MsgS2PRegisterServer::has_server_id() const {
+// required int32 game_id = 1;
+inline bool MsgG2PRegisterReq::has_game_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MsgS2PRegisterServer::set_has_server_id() {
+inline void MsgG2PRegisterReq::set_has_game_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MsgS2PRegisterServer::clear_has_server_id() {
+inline void MsgG2PRegisterReq::clear_has_game_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void MsgS2PRegisterServer::clear_server_id() {
-  server_id_ = 0;
-  clear_has_server_id();
-}
-inline ::google::protobuf::int32 MsgS2PRegisterServer::server_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2PRegisterServer.server_id)
-  return server_id_;
-}
-inline void MsgS2PRegisterServer::set_server_id(::google::protobuf::int32 value) {
-  set_has_server_id();
-  server_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2PRegisterServer.server_id)
-}
-
-// required int32 game_id = 2;
-inline bool MsgS2PRegisterServer::has_game_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void MsgS2PRegisterServer::set_has_game_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void MsgS2PRegisterServer::clear_has_game_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void MsgS2PRegisterServer::clear_game_id() {
+inline void MsgG2PRegisterReq::clear_game_id() {
   game_id_ = 0;
   clear_has_game_id();
 }
-inline ::google::protobuf::int32 MsgS2PRegisterServer::game_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2PRegisterServer.game_id)
+inline ::google::protobuf::int32 MsgG2PRegisterReq::game_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.game_id)
   return game_id_;
 }
-inline void MsgS2PRegisterServer::set_game_id(::google::protobuf::int32 value) {
+inline void MsgG2PRegisterReq::set_game_id(::google::protobuf::int32 value) {
   set_has_game_id();
   game_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2PRegisterServer.game_id)
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.game_id)
+}
+
+// required int32 server_id = 2;
+inline bool MsgG2PRegisterReq::has_server_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgG2PRegisterReq::set_has_server_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgG2PRegisterReq::clear_has_server_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgG2PRegisterReq::clear_server_id() {
+  server_id_ = 0;
+  clear_has_server_id();
+}
+inline ::google::protobuf::int32 MsgG2PRegisterReq::server_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_id)
+  return server_id_;
+}
+inline void MsgG2PRegisterReq::set_server_id(::google::protobuf::int32 value) {
+  set_has_server_id();
+  server_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_id)
 }
 
 // required int32 server_type = 3;
-inline bool MsgS2PRegisterServer::has_server_type() const {
+inline bool MsgG2PRegisterReq::has_server_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void MsgS2PRegisterServer::set_has_server_type() {
+inline void MsgG2PRegisterReq::set_has_server_type() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void MsgS2PRegisterServer::clear_has_server_type() {
+inline void MsgG2PRegisterReq::clear_has_server_type() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void MsgS2PRegisterServer::clear_server_type() {
+inline void MsgG2PRegisterReq::clear_server_type() {
   server_type_ = 0;
   clear_has_server_type();
 }
-inline ::google::protobuf::int32 MsgS2PRegisterServer::server_type() const {
-  // @@protoc_insertion_point(field_get:message.MsgS2PRegisterServer.server_type)
+inline ::google::protobuf::int32 MsgG2PRegisterReq::server_type() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_type)
   return server_type_;
 }
-inline void MsgS2PRegisterServer::set_server_type(::google::protobuf::int32 value) {
+inline void MsgG2PRegisterReq::set_server_type(::google::protobuf::int32 value) {
   set_has_server_type();
   server_type_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgS2PRegisterServer.server_type)
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_type)
 }
 
 // -------------------------------------------------------------------
 
-// MsgP2SRegisterACK
+// MsgP2GRegisterRsp
 
-// required .message.PlatformError error = 1 [default = PlatformError_NO];
-inline bool MsgP2SRegisterACK::has_error() const {
+// required int32 err_code = 1;
+inline bool MsgP2GRegisterRsp::has_err_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MsgP2SRegisterACK::set_has_error() {
+inline void MsgP2GRegisterRsp::set_has_err_code() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MsgP2SRegisterACK::clear_has_error() {
+inline void MsgP2GRegisterRsp::clear_has_err_code() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void MsgP2SRegisterACK::clear_error() {
-  error_ = 0;
-  clear_has_error();
+inline void MsgP2GRegisterRsp::clear_err_code() {
+  err_code_ = 0;
+  clear_has_err_code();
 }
-inline ::message::PlatformError MsgP2SRegisterACK::error() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SRegisterACK.error)
-  return static_cast< ::message::PlatformError >(error_);
+inline ::google::protobuf::int32 MsgP2GRegisterRsp::err_code() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GRegisterRsp.err_code)
+  return err_code_;
 }
-inline void MsgP2SRegisterACK::set_error(::message::PlatformError value) {
-  assert(::message::PlatformError_IsValid(value));
-  set_has_error();
-  error_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgP2SRegisterACK.error)
+inline void MsgP2GRegisterRsp::set_err_code(::google::protobuf::int32 value) {
+  set_has_err_code();
+  err_code_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GRegisterRsp.err_code)
 }
 
-// required string describe = 2;
-inline bool MsgP2SRegisterACK::has_describe() const {
+// optional string err_msg = 2 [default = ""];
+inline bool MsgP2GRegisterRsp::has_err_msg() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgP2SRegisterACK::set_has_describe() {
+inline void MsgP2GRegisterRsp::set_has_err_msg() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgP2SRegisterACK::clear_has_describe() {
+inline void MsgP2GRegisterRsp::clear_has_err_msg() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MsgP2SRegisterACK::clear_describe() {
-  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_describe();
+inline void MsgP2GRegisterRsp::clear_err_msg() {
+  err_msg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_err_msg();
 }
-inline const ::std::string& MsgP2SRegisterACK::describe() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SRegisterACK.describe)
-  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& MsgP2GRegisterRsp::err_msg() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
+  return err_msg_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgP2SRegisterACK::set_describe(const ::std::string& value) {
-  set_has_describe();
-  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgP2SRegisterACK.describe)
+inline void MsgP2GRegisterRsp::set_err_msg(const ::std::string& value) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
 }
-inline void MsgP2SRegisterACK::set_describe(const char* value) {
-  set_has_describe();
-  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgP2SRegisterACK.describe)
+inline void MsgP2GRegisterRsp::set_err_msg(const char* value) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
 }
-inline void MsgP2SRegisterACK::set_describe(const char* value, size_t size) {
-  set_has_describe();
-  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void MsgP2GRegisterRsp::set_err_msg(const char* value, size_t size) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgP2SRegisterACK.describe)
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
 }
-inline ::std::string* MsgP2SRegisterACK::mutable_describe() {
-  set_has_describe();
-  // @@protoc_insertion_point(field_mutable:message.MsgP2SRegisterACK.describe)
-  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* MsgP2GRegisterRsp::mutable_err_msg() {
+  set_has_err_msg();
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
+  return err_msg_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* MsgP2SRegisterACK::release_describe() {
-  clear_has_describe();
-  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* MsgP2GRegisterRsp::release_err_msg() {
+  clear_has_err_msg();
+  return err_msg_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgP2SRegisterACK::set_allocated_describe(::std::string* describe) {
-  if (describe != NULL) {
-    set_has_describe();
+inline void MsgP2GRegisterRsp::set_allocated_err_msg(::std::string* err_msg) {
+  if (err_msg != NULL) {
+    set_has_err_msg();
   } else {
-    clear_has_describe();
+    clear_has_err_msg();
   }
-  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgP2SRegisterACK.describe)
+  err_msg_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), err_msg);
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.MsgP2GRegisterRsp.err_msg)
 }
 
 // -------------------------------------------------------------------
 
-// MsgP2SClinchADealNotify
+// MsgP2GOrderNotifyReq
 
-// required int32 status = 1;
-inline bool MsgP2SClinchADealNotify::has_status() const {
+// required uint64 user_id = 1;
+inline bool MsgP2GOrderNotifyReq::has_user_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MsgP2SClinchADealNotify::set_has_status() {
+inline void MsgP2GOrderNotifyReq::set_has_user_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MsgP2SClinchADealNotify::clear_has_status() {
+inline void MsgP2GOrderNotifyReq::clear_has_user_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void MsgP2SClinchADealNotify::clear_status() {
-  status_ = 0;
-  clear_has_status();
+inline void MsgP2GOrderNotifyReq::clear_user_id() {
+  user_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_id();
 }
-inline ::google::protobuf::int32 MsgP2SClinchADealNotify::status() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.status)
-  return status_;
+inline ::google::protobuf::uint64 MsgP2GOrderNotifyReq::user_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.user_id)
+  return user_id_;
 }
-inline void MsgP2SClinchADealNotify::set_status(::google::protobuf::int32 value) {
-  set_has_status();
-  status_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.status)
+inline void MsgP2GOrderNotifyReq::set_user_id(::google::protobuf::uint64 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.user_id)
 }
 
-// required string product_id = 2;
-inline bool MsgP2SClinchADealNotify::has_product_id() const {
+// required uint32 order_id = 2;
+inline bool MsgP2GOrderNotifyReq::has_order_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgP2SClinchADealNotify::set_has_product_id() {
+inline void MsgP2GOrderNotifyReq::set_has_order_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgP2SClinchADealNotify::clear_has_product_id() {
+inline void MsgP2GOrderNotifyReq::clear_has_order_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void MsgP2SClinchADealNotify::clear_product_id() {
+inline void MsgP2GOrderNotifyReq::clear_order_id() {
+  order_id_ = 0u;
+  clear_has_order_id();
+}
+inline ::google::protobuf::uint32 MsgP2GOrderNotifyReq::order_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.order_id)
+  return order_id_;
+}
+inline void MsgP2GOrderNotifyReq::set_order_id(::google::protobuf::uint32 value) {
+  set_has_order_id();
+  order_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.order_id)
+}
+
+// required string product_id = 3;
+inline bool MsgP2GOrderNotifyReq::has_product_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgP2GOrderNotifyReq::set_has_product_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgP2GOrderNotifyReq::clear_has_product_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgP2GOrderNotifyReq::clear_product_id() {
   product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_product_id();
 }
-inline const ::std::string& MsgP2SClinchADealNotify::product_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.product_id)
+inline const ::std::string& MsgP2GOrderNotifyReq::product_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
   return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgP2SClinchADealNotify::set_product_id(const ::std::string& value) {
+inline void MsgP2GOrderNotifyReq::set_product_id(const ::std::string& value) {
   set_has_product_id();
   product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.product_id)
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
 }
-inline void MsgP2SClinchADealNotify::set_product_id(const char* value) {
+inline void MsgP2GOrderNotifyReq::set_product_id(const char* value) {
   set_has_product_id();
   product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgP2SClinchADealNotify.product_id)
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
 }
-inline void MsgP2SClinchADealNotify::set_product_id(const char* value, size_t size) {
+inline void MsgP2GOrderNotifyReq::set_product_id(const char* value, size_t size) {
   set_has_product_id();
   product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgP2SClinchADealNotify.product_id)
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
 }
-inline ::std::string* MsgP2SClinchADealNotify::mutable_product_id() {
+inline ::std::string* MsgP2GOrderNotifyReq::mutable_product_id() {
   set_has_product_id();
-  // @@protoc_insertion_point(field_mutable:message.MsgP2SClinchADealNotify.product_id)
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
   return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* MsgP2SClinchADealNotify::release_product_id() {
+inline ::std::string* MsgP2GOrderNotifyReq::release_product_id() {
   clear_has_product_id();
   return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void MsgP2SClinchADealNotify::set_allocated_product_id(::std::string* product_id) {
+inline void MsgP2GOrderNotifyReq::set_allocated_product_id(::std::string* product_id) {
   if (product_id != NULL) {
     set_has_product_id();
   } else {
     clear_has_product_id();
   }
   product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgP2SClinchADealNotify.product_id)
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
 }
 
-// required int32 order_id = 3;
-inline bool MsgP2SClinchADealNotify::has_order_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void MsgP2SClinchADealNotify::set_has_order_id() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void MsgP2SClinchADealNotify::clear_has_order_id() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void MsgP2SClinchADealNotify::clear_order_id() {
-  order_id_ = 0;
-  clear_has_order_id();
-}
-inline ::google::protobuf::int32 MsgP2SClinchADealNotify::order_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.order_id)
-  return order_id_;
-}
-inline void MsgP2SClinchADealNotify::set_order_id(::google::protobuf::int32 value) {
-  set_has_order_id();
-  order_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.order_id)
-}
-
-// required uint64 user_id = 4;
-inline bool MsgP2SClinchADealNotify::has_user_id() const {
+// required uint32 price = 4;
+inline bool MsgP2GOrderNotifyReq::has_price() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void MsgP2SClinchADealNotify::set_has_user_id() {
+inline void MsgP2GOrderNotifyReq::set_has_price() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void MsgP2SClinchADealNotify::clear_has_user_id() {
+inline void MsgP2GOrderNotifyReq::clear_has_price() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void MsgP2SClinchADealNotify::clear_user_id() {
-  user_id_ = GOOGLE_ULONGLONG(0);
-  clear_has_user_id();
+inline void MsgP2GOrderNotifyReq::clear_price() {
+  price_ = 0u;
+  clear_has_price();
 }
-inline ::google::protobuf::uint64 MsgP2SClinchADealNotify::user_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgP2SClinchADealNotify.user_id)
-  return user_id_;
+inline ::google::protobuf::uint32 MsgP2GOrderNotifyReq::price() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.price)
+  return price_;
 }
-inline void MsgP2SClinchADealNotify::set_user_id(::google::protobuf::uint64 value) {
-  set_has_user_id();
-  user_id_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgP2SClinchADealNotify.user_id)
+inline void MsgP2GOrderNotifyReq::set_price(::google::protobuf::uint32 value) {
+  set_has_price();
+  price_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.price)
+}
+
+// optional string ext_data = 5;
+inline bool MsgP2GOrderNotifyReq::has_ext_data() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgP2GOrderNotifyReq::set_has_ext_data() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgP2GOrderNotifyReq::clear_has_ext_data() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgP2GOrderNotifyReq::clear_ext_data() {
+  ext_data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_ext_data();
+}
+inline const ::std::string& MsgP2GOrderNotifyReq::ext_data() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+  return ext_data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgP2GOrderNotifyReq::set_ext_data(const ::std::string& value) {
+  set_has_ext_data();
+  ext_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+}
+inline void MsgP2GOrderNotifyReq::set_ext_data(const char* value) {
+  set_has_ext_data();
+  ext_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+}
+inline void MsgP2GOrderNotifyReq::set_ext_data(const char* value, size_t size) {
+  set_has_ext_data();
+  ext_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+}
+inline ::std::string* MsgP2GOrderNotifyReq::mutable_ext_data() {
+  set_has_ext_data();
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+  return ext_data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgP2GOrderNotifyReq::release_ext_data() {
+  clear_has_ext_data();
+  return ext_data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgP2GOrderNotifyReq::set_allocated_ext_data(::std::string* ext_data) {
+  if (ext_data != NULL) {
+    set_has_ext_data();
+  } else {
+    clear_has_ext_data();
+  }
+  ext_data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ext_data);
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data)
+}
+
+// -------------------------------------------------------------------
+
+// MsgG2POrderNotifyRsp
+
+// required int32 err_code = 1;
+inline bool MsgG2POrderNotifyRsp::has_err_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgG2POrderNotifyRsp::set_has_err_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgG2POrderNotifyRsp::clear_has_err_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgG2POrderNotifyRsp::clear_err_code() {
+  err_code_ = 0;
+  clear_has_err_code();
+}
+inline ::google::protobuf::int32 MsgG2POrderNotifyRsp::err_code() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2POrderNotifyRsp.err_code)
+  return err_code_;
+}
+inline void MsgG2POrderNotifyRsp::set_err_code(::google::protobuf::int32 value) {
+  set_has_err_code();
+  err_code_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2POrderNotifyRsp.err_code)
+}
+
+// required uint32 order_id = 2;
+inline bool MsgG2POrderNotifyRsp::has_order_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgG2POrderNotifyRsp::set_has_order_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgG2POrderNotifyRsp::clear_has_order_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgG2POrderNotifyRsp::clear_order_id() {
+  order_id_ = 0u;
+  clear_has_order_id();
+}
+inline ::google::protobuf::uint32 MsgG2POrderNotifyRsp::order_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2POrderNotifyRsp.order_id)
+  return order_id_;
+}
+inline void MsgG2POrderNotifyRsp::set_order_id(::google::protobuf::uint32 value) {
+  set_has_order_id();
+  order_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2POrderNotifyRsp.order_id)
+}
+
+// -------------------------------------------------------------------
+
+// ErrorCodeAck
+
+// required int32 err_code = 1;
+inline bool ErrorCodeAck::has_err_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ErrorCodeAck::set_has_err_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ErrorCodeAck::clear_has_err_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ErrorCodeAck::clear_err_code() {
+  err_code_ = 0;
+  clear_has_err_code();
+}
+inline ::google::protobuf::int32 ErrorCodeAck::err_code() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.ErrorCodeAck.err_code)
+  return err_code_;
+}
+inline void ErrorCodeAck::set_err_code(::google::protobuf::int32 value) {
+  set_has_err_code();
+  err_code_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.ErrorCodeAck.err_code)
+}
+
+// optional string err_msg = 2 [default = "default error"];
+inline bool ErrorCodeAck::has_err_msg() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ErrorCodeAck::set_has_err_msg() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ErrorCodeAck::clear_has_err_msg() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ErrorCodeAck::clear_err_msg() {
+  err_msg_.ClearToDefaultNoArena(_default_err_msg_);
+  clear_has_err_msg();
+}
+inline const ::std::string& ErrorCodeAck::err_msg() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.ErrorCodeAck.err_msg)
+  return err_msg_.GetNoArena(_default_err_msg_);
+}
+inline void ErrorCodeAck::set_err_msg(const ::std::string& value) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(_default_err_msg_, value);
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.ErrorCodeAck.err_msg)
+}
+inline void ErrorCodeAck::set_err_msg(const char* value) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(_default_err_msg_, ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.ErrorCodeAck.err_msg)
+}
+inline void ErrorCodeAck::set_err_msg(const char* value, size_t size) {
+  set_has_err_msg();
+  err_msg_.SetNoArena(_default_err_msg_,
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.ErrorCodeAck.err_msg)
+}
+inline ::std::string* ErrorCodeAck::mutable_err_msg() {
+  set_has_err_msg();
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.ErrorCodeAck.err_msg)
+  return err_msg_.MutableNoArena(_default_err_msg_);
+}
+inline ::std::string* ErrorCodeAck::release_err_msg() {
+  clear_has_err_msg();
+  return err_msg_.ReleaseNoArena(_default_err_msg_);
+}
+inline void ErrorCodeAck::set_allocated_err_msg(::std::string* err_msg) {
+  if (err_msg != NULL) {
+    set_has_err_msg();
+  } else {
+    clear_has_err_msg();
+  }
+  err_msg_.SetAllocatedNoArena(_default_err_msg_, err_msg);
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.ErrorCodeAck.err_msg)
+}
+
+// optional string ori_msg_typename = 3 [default = "Unknown"];
+inline bool ErrorCodeAck::has_ori_msg_typename() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ErrorCodeAck::set_has_ori_msg_typename() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ErrorCodeAck::clear_has_ori_msg_typename() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ErrorCodeAck::clear_ori_msg_typename() {
+  ori_msg_typename_.ClearToDefaultNoArena(_default_ori_msg_typename_);
+  clear_has_ori_msg_typename();
+}
+inline const ::std::string& ErrorCodeAck::ori_msg_typename() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+  return ori_msg_typename_.GetNoArena(_default_ori_msg_typename_);
+}
+inline void ErrorCodeAck::set_ori_msg_typename(const ::std::string& value) {
+  set_has_ori_msg_typename();
+  ori_msg_typename_.SetNoArena(_default_ori_msg_typename_, value);
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+}
+inline void ErrorCodeAck::set_ori_msg_typename(const char* value) {
+  set_has_ori_msg_typename();
+  ori_msg_typename_.SetNoArena(_default_ori_msg_typename_, ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+}
+inline void ErrorCodeAck::set_ori_msg_typename(const char* value, size_t size) {
+  set_has_ori_msg_typename();
+  ori_msg_typename_.SetNoArena(_default_ori_msg_typename_,
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+}
+inline ::std::string* ErrorCodeAck::mutable_ori_msg_typename() {
+  set_has_ori_msg_typename();
+  // @@protoc_insertion_point(field_mutable:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
+  return ori_msg_typename_.MutableNoArena(_default_ori_msg_typename_);
+}
+inline ::std::string* ErrorCodeAck::release_ori_msg_typename() {
+  clear_has_ori_msg_typename();
+  return ori_msg_typename_.ReleaseNoArena(_default_ori_msg_typename_);
+}
+inline void ErrorCodeAck::set_allocated_ori_msg_typename(::std::string* ori_msg_typename) {
+  if (ori_msg_typename != NULL) {
+    set_has_ori_msg_typename();
+  } else {
+    clear_has_ori_msg_typename();
+  }
+  ori_msg_typename_.SetAllocatedNoArena(_default_ori_msg_typename_, ori_msg_typename);
+  // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.ErrorCodeAck.ori_msg_typename)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace message
+}  // namespace IPlatformPayProto
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::message::PlatformError> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::IPlatformPayProto::ipay_err_code_t> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::message::PlatformError>() {
-  return ::message::PlatformError_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::IPlatformPayProto::ipay_err_code_t>() {
+  return ::IPlatformPayProto::ipay_err_code_t_descriptor();
 }
 
 }  // namespace protobuf

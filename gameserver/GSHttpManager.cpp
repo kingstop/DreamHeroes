@@ -56,19 +56,20 @@ bool CreateDealHttpTask::logicExcute()
 	DreamHero* hero = gDreamHeroManager.GetHero(_acc);
 	if (hero)
 	{
-		hero->addDealWaitToPay(_key_code.c_str(), _status, _price, _order_id, (message::GameError)_error);
+		hero->addDealWaitToPay(_key_code.c_str(), _status, _price, _order_id,
+			_url_platform_call_back.c_str(),(message::GameError)_error);
 	}
 	else
 	{
-		if (_error == message::Error_NO)
-		{
-			std::string create_pay_time;;
-			build_unix_time_to_string(g_server_time, create_pay_time);
-			char sz_temp[1024];
-			sprintf(sz_temp, "replace into deal_wait_to_pay(`order_id`, `account_id`, `key_code`, `status`, `price`, `deal_time`,`complete_status`) \
-				values(%d, %llu, '%s', %d, %d, '%s', %d) ", _order_id, _acc, _key_code.c_str(), _status, _price, create_pay_time.c_str(), DealStatusType_WaitToPay);
-			gDreamHeroManager.addSql(sz_temp);
-		}
+		//if (_error == message::Error_NO)
+		//{
+		//	std::string create_pay_time;;
+		//	build_unix_time_to_string(g_server_time, create_pay_time);
+		//	char sz_temp[1024];
+		//	sprintf(sz_temp, "replace into deal_wait_to_pay(`order_id`, `account_id`, `key_code`, `status`, `price`, `deal_time`,`complete_status`) \
+		//		values(%d, %llu, '%s', %d, %d, '%s', %d) ", _order_id, _acc, _key_code.c_str(), _status, _price, create_pay_time.c_str(), DealStatusType_WaitToPay);
+		//	gDreamHeroManager.addSql(sz_temp);
+		//}
 	}
 
 	return true;
@@ -84,7 +85,7 @@ bool CreateDealHttpTask::excute()
 	std::string post_url;
 	std::string respone_url;
 	char sz_temp[1024];
-	sprintf(sz_temp, "%s/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%sext_data=%s",
+	sprintf(sz_temp, "%s/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%sextra_data=%s",
 		gGameConfig.getPlatformHttpUrl(),
 		channel_id, game_id, _acc, _name.c_str(), _key_code.c_str(), gGameConfig.getServerTitle());
 	
@@ -109,6 +110,7 @@ bool CreateDealHttpTask::excute()
 			bool bret_product_id = value["product_id"].empty();
 			bool bret_price = value["price"].empty();
 			bool bret_order_id = value["order_id"].empty();
+			bool bret_url_platform_call_back = value["notify_url"].empty();
 			if (bret_status == false && bret_product_id == false && bret_price == false && bret_order_id == false)
 			{
 				_status = value["status"].asInt();
@@ -117,6 +119,10 @@ bool CreateDealHttpTask::excute()
 					std::string product_id = value["product_id"].asString();
 					_price = value["price"].asInt();
 					_order_id = value["order_id"].asInt();
+					if (bret_url_platform_call_back)
+					{
+						_url_platform_call_back = value["notify_url"].asString();
+					}
 					if (product_id == _key_code)
 					{
 

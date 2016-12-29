@@ -5163,6 +5163,18 @@ class MsgS2CCrearteDealACK : public ::google::protobuf::Message {
   ::message::GameError error() const;
   void set_error(::message::GameError value);
 
+  // required string platform_url = 6;
+  bool has_platform_url() const;
+  void clear_platform_url();
+  static const int kPlatformUrlFieldNumber = 6;
+  const ::std::string& platform_url() const;
+  void set_platform_url(const ::std::string& value);
+  void set_platform_url(const char* value);
+  void set_platform_url(const char* value, size_t size);
+  ::std::string* mutable_platform_url();
+  ::std::string* release_platform_url();
+  void set_allocated_platform_url(::std::string* platform_url);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CCrearteDealACK)
  private:
   inline void set_has_key_code();
@@ -5175,6 +5187,8 @@ class MsgS2CCrearteDealACK : public ::google::protobuf::Message {
   inline void clear_has_order_id();
   inline void set_has_error();
   inline void clear_has_error();
+  inline void set_has_platform_url();
+  inline void clear_has_platform_url();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -5187,6 +5201,7 @@ class MsgS2CCrearteDealACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 price_;
   ::google::protobuf::int32 order_id_;
   int error_;
+  ::google::protobuf::internal::ArenaStringPtr platform_url_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -12788,6 +12803,59 @@ inline void MsgS2CCrearteDealACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.error)
+}
+
+// required string platform_url = 6;
+inline bool MsgS2CCrearteDealACK::has_platform_url() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgS2CCrearteDealACK::set_has_platform_url() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgS2CCrearteDealACK::clear_has_platform_url() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MsgS2CCrearteDealACK::clear_platform_url() {
+  platform_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_platform_url();
+}
+inline const ::std::string& MsgS2CCrearteDealACK::platform_url() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteDealACK.platform_url)
+  return platform_url_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CCrearteDealACK::set_platform_url(const ::std::string& value) {
+  set_has_platform_url();
+  platform_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.platform_url)
+}
+inline void MsgS2CCrearteDealACK::set_platform_url(const char* value) {
+  set_has_platform_url();
+  platform_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CCrearteDealACK.platform_url)
+}
+inline void MsgS2CCrearteDealACK::set_platform_url(const char* value, size_t size) {
+  set_has_platform_url();
+  platform_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CCrearteDealACK.platform_url)
+}
+inline ::std::string* MsgS2CCrearteDealACK::mutable_platform_url() {
+  set_has_platform_url();
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CCrearteDealACK.platform_url)
+  return platform_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgS2CCrearteDealACK::release_platform_url() {
+  clear_has_platform_url();
+  return platform_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CCrearteDealACK::set_allocated_platform_url(::std::string* platform_url) {
+  if (platform_url != NULL) {
+    set_has_platform_url();
+  } else {
+    clear_has_platform_url();
+  }
+  platform_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), platform_url);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CCrearteDealACK.platform_url)
 }
 
 // -------------------------------------------------------------------

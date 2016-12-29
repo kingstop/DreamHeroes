@@ -1361,7 +1361,7 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 	}
 }
 
-void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, int order_id, message::GameError error)
+void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, int order_id, const char* notify_url, message::GameError error)
 {
 	if (error == message::Error_NO)
 	{
@@ -1389,6 +1389,7 @@ void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, in
 	msg.set_price(price);
 	msg.set_order_id(order_id);
 	msg.set_error(error);
+	msg.set_platform_url(notify_url);
 	sendPBMessage(&msg);
 	if (error == message::Error_NO)
 	{
