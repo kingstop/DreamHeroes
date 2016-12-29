@@ -1798,9 +1798,9 @@ void DreamHero::SaveHero()
 	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,`special_kill`,\
 		`current_hero`, `current_chapter`, `current_section`, `complete_task_count`, `special_creatures`, \
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`,\
-		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`, `lotions`, `last_lottery_time`\
+		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`, `lotions`, `last_lottery_time`,\
 		 `daily_game_progress`, `daily_game_score`, `daily_game_gold`, `daily_game_time`, `daily_game_prize_time`,`daily_game_hp_pct`,\
-			`daily_game_hp_pct`, `daily_game_record_progress`, `daily_reset_game_count`, `last_daily_reset_game_time`, `daily_top_grogress`) values \
+		 `daily_game_record_progress`, `daily_reset_game_count`, `last_daily_reset_game_time`, `daily_top_grogress`) values \
 		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d,\
 		 '%s', %d, '%s', '%s', '%s', %d, %d, %d, '%s','%s', %d, %d, %d, '%s', %d);",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
