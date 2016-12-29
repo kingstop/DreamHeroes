@@ -2206,23 +2206,23 @@ void DreamHero::ReqReqEnterDailyGame(const message::MsgC2SReqEnterDailyGame* msg
 	message::MsgS2CEnterDailyGameACK msgACK;
 	message::GameError error = message::Error_NO;
 	
-	if (gRankManager.getDailyGameBeginTime() != _daily_game_prize_time)
-	{
-		//_daily_game_time = gRankManager.getDailyGameBeginTime();
-		_info.set_daily_game_score(0);
-		_info.set_daily_game_progress(0);
-		_info.set_daily_game_hp_pct(100);
-		
-	}
-	else
-	{
-		error = message::Error_FailedToEnterDailyGameYouHaveBeenAlreadyBeginGame;
-	}
-	msgACK.set_error(error);
-	msgACK.set_daily_game_time(_daily_game_time);
-	msgACK.set_daily_game_progress(_info.daily_game_progress());
-	msgACK.set_score(_info.daily_game_score());		
-	sendPBMessage(&msgACK);
+	//if (gRankManager.getDailyGameBeginTime() != _daily_game_prize_time)
+	//{
+	//	_daily_game_time = gRankManager.getDailyGameBeginTime();
+	//	_info.set_daily_game_score(0);
+	//	_info.set_daily_game_progress(0);
+	//	_info.set_daily_game_hp_pct(100);
+	//	
+	//}
+	//else
+	//{
+	//	error = message::Error_FailedToEnterDailyGameYouHaveBeenAlreadyBeginGame;
+	//}
+	//msgACK.set_error(error);
+	//msgACK.set_daily_game_time(_daily_game_time);
+	//msgACK.set_daily_game_progress(_info.daily_game_progress());
+	//msgACK.set_score(_info.daily_game_score());		
+	//sendPBMessage(&msgACK);
 }
 
 void DreamHero::DailyGamePrize(int gold)
