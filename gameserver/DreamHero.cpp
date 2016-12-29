@@ -2311,7 +2311,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 
 	}
 
-	if (error != message::Error_NO)
+	if (error == message::Error_NO)
 	{
 		int daily_game_progress = msg->daily_game_progress();
 		if (daily_game_progress > _info.daily_top_grogress())
