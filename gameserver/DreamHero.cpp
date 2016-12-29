@@ -370,13 +370,13 @@ void DreamHero::ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGame
 			reset_game_count += 1;
 		}
 		const globalConfig& global = gGameConfig.getGlobalConfig();
-		if (reset_game_count >= global.daily_game_reset_jewel_config_.size())
+		if (reset_game_count -1 >= global.daily_game_reset_jewel_config_.size())
 		{
 			error = message::Error_FailedToResetDailyGameUseOut;
 		}
 		else
 		{
-			int jewel = global.daily_game_reset_jewel_config_[reset_game_count];
+			int jewel = global.daily_game_reset_jewel_config_[reset_game_count - 1];
 			if (jewel > _info.jewel())
 			{
 				error = message::Error_FailedToResetDailyGameNotEnoughJewel;
