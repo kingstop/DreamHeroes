@@ -2309,10 +2309,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		}
 
 	}
-	else
-	{
-		error = message::Error_FailedToUpdateDailyProgressTheGameNotBegin;
-	}
+
 	if (error != message::Error_NO)
 	{
 		int daily_game_progress = msg->daily_game_progress();
