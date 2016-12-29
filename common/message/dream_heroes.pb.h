@@ -62,7 +62,9 @@ class MsgC2SReqBuyLotion;
 class MsgS2CBuyLotionACK;
 class MsgC2SReqBuySpirit;
 class MsgS2CBuySpiritACK;
+class MsgDailyGameHeroInfo;
 class MsgC2SReqDailyGameRankList;
+class MsgS2CDailyGameRankListACK;
 class MsgC2SReqEnterGame;
 class MsgS2CEnterGameACK;
 class MsgKillHistroy;
@@ -2997,6 +2999,123 @@ class MsgS2CBuySpiritACK : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MsgDailyGameHeroInfo : public ::google::protobuf::Message {
+ public:
+  MsgDailyGameHeroInfo();
+  virtual ~MsgDailyGameHeroInfo();
+
+  MsgDailyGameHeroInfo(const MsgDailyGameHeroInfo& from);
+
+  inline MsgDailyGameHeroInfo& operator=(const MsgDailyGameHeroInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgDailyGameHeroInfo& default_instance();
+
+  void Swap(MsgDailyGameHeroInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgDailyGameHeroInfo* New() const { return New(NULL); }
+
+  MsgDailyGameHeroInfo* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgDailyGameHeroInfo& from);
+  void MergeFrom(const MsgDailyGameHeroInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgDailyGameHeroInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string name = 1;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 1;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // required int32 score = 2;
+  bool has_score() const;
+  void clear_score();
+  static const int kScoreFieldNumber = 2;
+  ::google::protobuf::int32 score() const;
+  void set_score(::google::protobuf::int32 value);
+
+  // required int32 rank = 3;
+  bool has_rank() const;
+  void clear_rank();
+  static const int kRankFieldNumber = 3;
+  ::google::protobuf::int32 rank() const;
+  void set_rank(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgDailyGameHeroInfo)
+ private:
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_score();
+  inline void clear_has_score();
+  inline void set_has_rank();
+  inline void clear_has_rank();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::int32 score_;
+  ::google::protobuf::int32 rank_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgDailyGameHeroInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MsgC2SReqDailyGameRankList : public ::google::protobuf::Message {
  public:
   MsgC2SReqDailyGameRankList();
@@ -3073,6 +3192,98 @@ class MsgC2SReqDailyGameRankList : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgC2SReqDailyGameRankList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CDailyGameRankListACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CDailyGameRankListACK();
+  virtual ~MsgS2CDailyGameRankListACK();
+
+  MsgS2CDailyGameRankListACK(const MsgS2CDailyGameRankListACK& from);
+
+  inline MsgS2CDailyGameRankListACK& operator=(const MsgS2CDailyGameRankListACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CDailyGameRankListACK& default_instance();
+
+  void Swap(MsgS2CDailyGameRankListACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CDailyGameRankListACK* New() const { return New(NULL); }
+
+  MsgS2CDailyGameRankListACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CDailyGameRankListACK& from);
+  void MergeFrom(const MsgS2CDailyGameRankListACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CDailyGameRankListACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .message.MsgDailyGameHeroInfo infos = 1;
+  int infos_size() const;
+  void clear_infos();
+  static const int kInfosFieldNumber = 1;
+  const ::message::MsgDailyGameHeroInfo& infos(int index) const;
+  ::message::MsgDailyGameHeroInfo* mutable_infos(int index);
+  ::message::MsgDailyGameHeroInfo* add_infos();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgDailyGameHeroInfo >&
+      infos() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgDailyGameHeroInfo >*
+      mutable_infos();
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CDailyGameRankListACK)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgDailyGameHeroInfo > infos_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CDailyGameRankListACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -11196,7 +11407,146 @@ inline void MsgS2CBuySpiritACK::set_error(::message::GameError value) {
 
 // -------------------------------------------------------------------
 
+// MsgDailyGameHeroInfo
+
+// required string name = 1;
+inline bool MsgDailyGameHeroInfo::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgDailyGameHeroInfo::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgDailyGameHeroInfo::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgDailyGameHeroInfo::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& MsgDailyGameHeroInfo::name() const {
+  // @@protoc_insertion_point(field_get:message.MsgDailyGameHeroInfo.name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgDailyGameHeroInfo::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgDailyGameHeroInfo.name)
+}
+inline void MsgDailyGameHeroInfo::set_name(const char* value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgDailyGameHeroInfo.name)
+}
+inline void MsgDailyGameHeroInfo::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgDailyGameHeroInfo.name)
+}
+inline ::std::string* MsgDailyGameHeroInfo::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:message.MsgDailyGameHeroInfo.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgDailyGameHeroInfo::release_name() {
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgDailyGameHeroInfo::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgDailyGameHeroInfo.name)
+}
+
+// required int32 score = 2;
+inline bool MsgDailyGameHeroInfo::has_score() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgDailyGameHeroInfo::set_has_score() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgDailyGameHeroInfo::clear_has_score() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgDailyGameHeroInfo::clear_score() {
+  score_ = 0;
+  clear_has_score();
+}
+inline ::google::protobuf::int32 MsgDailyGameHeroInfo::score() const {
+  // @@protoc_insertion_point(field_get:message.MsgDailyGameHeroInfo.score)
+  return score_;
+}
+inline void MsgDailyGameHeroInfo::set_score(::google::protobuf::int32 value) {
+  set_has_score();
+  score_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDailyGameHeroInfo.score)
+}
+
+// required int32 rank = 3;
+inline bool MsgDailyGameHeroInfo::has_rank() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgDailyGameHeroInfo::set_has_rank() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgDailyGameHeroInfo::clear_has_rank() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgDailyGameHeroInfo::clear_rank() {
+  rank_ = 0;
+  clear_has_rank();
+}
+inline ::google::protobuf::int32 MsgDailyGameHeroInfo::rank() const {
+  // @@protoc_insertion_point(field_get:message.MsgDailyGameHeroInfo.rank)
+  return rank_;
+}
+inline void MsgDailyGameHeroInfo::set_rank(::google::protobuf::int32 value) {
+  set_has_rank();
+  rank_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgDailyGameHeroInfo.rank)
+}
+
+// -------------------------------------------------------------------
+
 // MsgC2SReqDailyGameRankList
+
+// -------------------------------------------------------------------
+
+// MsgS2CDailyGameRankListACK
+
+// repeated .message.MsgDailyGameHeroInfo infos = 1;
+inline int MsgS2CDailyGameRankListACK::infos_size() const {
+  return infos_.size();
+}
+inline void MsgS2CDailyGameRankListACK::clear_infos() {
+  infos_.Clear();
+}
+inline const ::message::MsgDailyGameHeroInfo& MsgS2CDailyGameRankListACK::infos(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CDailyGameRankListACK.infos)
+  return infos_.Get(index);
+}
+inline ::message::MsgDailyGameHeroInfo* MsgS2CDailyGameRankListACK::mutable_infos(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CDailyGameRankListACK.infos)
+  return infos_.Mutable(index);
+}
+inline ::message::MsgDailyGameHeroInfo* MsgS2CDailyGameRankListACK::add_infos() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CDailyGameRankListACK.infos)
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgDailyGameHeroInfo >&
+MsgS2CDailyGameRankListACK::infos() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CDailyGameRankListACK.infos)
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgDailyGameHeroInfo >*
+MsgS2CDailyGameRankListACK::mutable_infos() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CDailyGameRankListACK.infos)
+  return &infos_;
+}
 
 // -------------------------------------------------------------------
 

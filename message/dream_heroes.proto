@@ -271,9 +271,24 @@ message MsgS2CBuySpiritACK
 }
 
 
+message MsgDailyGameHeroInfo
+{
+	required string name = 1;
+	required int32 score = 2;
+	required int32 rank = 3;
+	
+}
+
 message MsgC2SReqDailyGameRankList
 {
 
+}
+
+
+message MsgS2CDailyGameRankListACK
+{
+	repeated MsgDailyGameHeroInfo infos = 1;
+	
 }
 
 message MsgC2SReqEnterGame

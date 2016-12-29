@@ -65,6 +65,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetDailyLottery), &Session::parseCmdReqResetDailyLottery);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetDailyGame), &Session::parseCmdReqResetResetDailyGame);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqResetDailyGameProgress), &Session::parseReqResetDailyGameProgress);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqDailyGameRankList), &Session::parseReqDailyGameRankList);
 
 
 	//
@@ -345,6 +346,23 @@ void Session::parseReqGameGlobalConfig(google::protobuf::Message* p)
 	sendPBMessage(&msg);
 }
 
+void Session::parseReqDailyGameRankList(google::protobuf::Message* p)
+{
+	message::MsgC2SReqDailyGameRankList* msg = (message::MsgC2SReqDailyGameRankList*)p;
+	RankManager::HEROESDAILYRANK*  ranks = gRankManager.getHeroesRank();
+	RankManager::HEROESDAILYRANK::const_iterator it = ranks->begin();
+	message::MsgS2CDailyGameRankListACK msgACK;
+	for (; it != ranks->end(); ++it)
+	{
+		const DailyGameRankTg& entry = (*it);
+		message::MsgDailyGameHeroInfo* info = msgACK.add_infos();
+		info->set_name(entry.name_.c_str());
+		info->set_rank(entry.rank_);
+		info->set_score(entry.score_);
+	}
+	sendPBMessage(&msgACK);
+
+}
 void Session::parseReqCrearteDeal(google::protobuf::Message* p)
 {
 	message::MsgC2SReqCrearteDeal* msg = (message::MsgC2SReqCrearteDeal*)p;

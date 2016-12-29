@@ -40,6 +40,12 @@ void RankManager::Init()
 		DailyGameUpdate();
 	}
 }
+
+RankManager::HEROESDAILYRANK* RankManager::getHeroesRank()
+{
+	return &_heroes_daily_rank;
+}
+
 void RankManager::Load(DBQuery* p)
 {
 	if (p)

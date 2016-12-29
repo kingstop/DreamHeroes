@@ -760,13 +760,6 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_top_grogress() const;
   void set_daily_top_grogress(::google::protobuf::int32 value);
 
-  // required bool daily_game_have_been_reset = 20;
-  bool has_daily_game_have_been_reset() const;
-  void clear_daily_game_have_been_reset();
-  static const int kDailyGameHaveBeenResetFieldNumber = 20;
-  bool daily_game_have_been_reset() const;
-  void set_daily_game_have_been_reset(bool value);
-
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -799,8 +792,6 @@ class MsgHeroData : public ::google::protobuf::Message {
   inline void clear_has_daily_reset_game_count();
   inline void set_has_daily_top_grogress();
   inline void clear_has_daily_top_grogress();
-  inline void set_has_daily_game_have_been_reset();
-  inline void clear_has_daily_game_have_been_reset();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -827,7 +818,6 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_record_progress_;
   ::google::protobuf::int32 daily_reset_game_count_;
   ::google::protobuf::int32 daily_top_grogress_;
-  bool daily_game_have_been_reset_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2584,30 +2574,6 @@ inline void MsgHeroData::set_daily_top_grogress(::google::protobuf::int32 value)
   set_has_daily_top_grogress();
   daily_top_grogress_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_top_grogress)
-}
-
-// required bool daily_game_have_been_reset = 20;
-inline bool MsgHeroData::has_daily_game_have_been_reset() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
-}
-inline void MsgHeroData::set_has_daily_game_have_been_reset() {
-  _has_bits_[0] |= 0x00080000u;
-}
-inline void MsgHeroData::clear_has_daily_game_have_been_reset() {
-  _has_bits_[0] &= ~0x00080000u;
-}
-inline void MsgHeroData::clear_daily_game_have_been_reset() {
-  daily_game_have_been_reset_ = false;
-  clear_has_daily_game_have_been_reset();
-}
-inline bool MsgHeroData::daily_game_have_been_reset() const {
-  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_game_have_been_reset)
-  return daily_game_have_been_reset_;
-}
-inline void MsgHeroData::set_daily_game_have_been_reset(bool value) {
-  set_has_daily_game_have_been_reset();
-  daily_game_have_been_reset_ = value;
-  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_have_been_reset)
 }
 
 // -------------------------------------------------------------------
