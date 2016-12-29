@@ -48,7 +48,7 @@ void DreamHeroManager::Load(DBQuery* p)
 	if (p)
 	{
 		DBQuery& query = *p;
-		query << "select *  ,UNIX_TIMESTAMP(`save_time`) from `heroes_statu`;";
+		query << "select *  ,UNIX_TIMESTAMP(`save_time`),UNIX_TIMESTAMP(`daily_game_begin_time`), from `heroes_status`;";
 		SDBResult sResult = query.store();
 		int rows_length = sResult.num_rows();
 		if (sResult.size() > 0)
@@ -73,7 +73,7 @@ void DreamHeroManager::Load(DBQuery* p)
 			}
 			_last_save_time = row["UNIX_TIMESTAMP(`save_time`)"];
 			_deal_order_id = row["deal_order_id"];
-			
+			gRankManager.setDailyGameBeginTime(row["UNIX_TIMESTAMP(`daily_game_begin_time`)"]);
 		}
 
 	}
@@ -136,6 +136,7 @@ void DreamHeroManager::init()
 		refrashDayNumber();
 	}
 	
+	gRankManager.Init();
 
 }
 
@@ -169,12 +170,16 @@ void DreamHeroManager::save()
 	std::string last_time_temp;
 	build_unix_time_to_string(_last_save_time, last_time_temp);
 	char server_id = gGameConfig.getServerID();
+
+	std::string daily_game_begin_time;
+	build_unix_time_to_string(gRankManager.getDailyGameBeginTime(), daily_game_begin_time);
 	std::string str_server_id;
 	str_server_id.push_back(server_id);
 	str_server_id.push_back('\0');
-	sprintf(sz_sql, "replace into `heroes_statu`(`sid`, `server_id`, `day_create_heroes_count`, `day_number`, `heroes_online_count`, `save_time`, `deal_order_id`)\
-	 values (%d, '%s', %d, '%s', %d, '%s', %d);",0, str_server_id.c_str() , _day_create_heroes_count, number_str.c_str(),
-		count, last_time_temp.c_str(), _deal_order_id);
+	sprintf(sz_sql, "replace into `heroes_status`(`sid`, `server_id`, `day_create_heroes_count`, `day_number`, `heroes_online_count`, \
+					`save_time`, `deal_order_id`, `daily_game_begin_time`)\
+	 values (%d, '%s', %d, '%s', %d, '%s', %d, '%s');",0, str_server_id.c_str() , _day_create_heroes_count, number_str.c_str(),
+		count, last_time_temp.c_str(), _deal_order_id, daily_game_begin_time.c_str());
 	message::MsgSaveDataGS2DB msg_db;
 	msg_db.set_sql(sz_sql);
 	

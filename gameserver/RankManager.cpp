@@ -25,11 +25,20 @@ struct DailyRank
 };
 RankManager::RankManager()
 {
+	_daily_game_begin_time = 0;
 }
 
 
 RankManager::~RankManager()
 {
+}
+
+void RankManager::Init()
+{
+	if (_daily_game_begin_time == 0)
+	{
+		DailyGameUpdate();
+	}
 }
 void RankManager::Load(DBQuery* p)
 {
@@ -150,6 +159,11 @@ void RankManager::DailyGameUpdate()
 u32 RankManager::getDailyRankMaxSize()
 {
 	return _daily_max_rank_size;
+}
+
+void RankManager::setDailyGameBeginTime(u32 begin_time)
+{
+	_daily_game_begin_time = begin_time;
 }
 void RankManager::updateHeroDailyRank(account_type acc, const char* name, int score,int& rank)
 {

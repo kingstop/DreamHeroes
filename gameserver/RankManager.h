@@ -17,6 +17,7 @@ public:
 public:
 	RankManager();
 	virtual ~RankManager();
+	void Init();
 	void Load(DBQuery* p);
 	void setDailyMaxRankSize(int rank_size);
 	void updateHeroDailyRank(account_type acc, const char* name, int score,int& rank);
@@ -25,6 +26,7 @@ public:
 	int GetDailyGamePrize(int rank);
 	u32 getDailyGameBeginTime();
 	u32 getDailyRankMaxSize();
+	void setDailyGameBeginTime(u32 begin_time);
 public:
 	HEROESDAILYRANK _heroes_daily_rank;
 	std::map<account_type, int> _heroes_rank;
