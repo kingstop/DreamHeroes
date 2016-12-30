@@ -235,6 +235,8 @@ bool GameServer::initDataFromDatabase(DBQuery* p, const void* data)
 		int server_type = row["server_type"];
 		gGameConfig.setGameID(game_id);
 		gGameConfig.setServerType(server_type);
+		gGameConfig.generateTitle();
+
 	}
 
 	if (gGameConfig.isNeedConnectPlatform())

@@ -624,6 +624,13 @@ void GameConfig::Load(DBQuery* p)
 
 
 	}	
+	
+	//sprintf(sz_temp, "%d;%d;%d", _game_id, _server_char, _server_type);
+	//_server_title = sz_temp;
+}
+
+void GameConfig::generateTitle()
+{
 	char sz_temp[512];
 	sprintf(sz_temp, "%d;%d;%d", _game_id, _server_char, _server_type);
 	_server_title = sz_temp;

@@ -183,6 +183,7 @@ public:
 	void setServerType(int t);
 	int getServerType();
 	const char* getServerTitle();
+	void generateTitle();
 	bool isInToday(u32 time);
 
 protected:
