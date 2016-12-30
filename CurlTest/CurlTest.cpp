@@ -12,7 +12,7 @@
 
 int main()
 {
-	
+	IPlatformPayProto::protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
 	net_global::init_net_service(3, 1, NULL, true, 5123000);
 	PlatformClient g_plat_form;
 	g_plat_form.connect("121.196.203.220", 26000);
