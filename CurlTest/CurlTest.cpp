@@ -20,7 +20,11 @@ int main()
 	{
 		g_plat_form.run_no_wait();
 		net_global::update_net_service();
-		Sleep(5);
+#ifdef WIN32
+		Sleep(2);
+#else
+		usleep(2);
+#endif
 	}
 	//boost::asio::io_service service;
 	//HttpServer server(service, 2000);
