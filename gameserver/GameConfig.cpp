@@ -248,7 +248,12 @@ const VCLOTTERYDRAWBOXSCONFIGS* GameConfig::getLotteryDrawBoxs()
 }
 bool GameConfig::isInToday(u32 time)
 {
-	
+	std::string time_str;
+	std::string time_cur;
+	build_unix_time_to_string(time, time_str);
+	build_unix_time_to_string(g_server_time, time_cur);
+	Mylog::log_server(LOG_INFO, "server time[%s]  time1[%s]!", time_str.c_str(), time_cur.c_str());
+
 	int day_offset_time = _global_config.day_Refresh_time_ * 60 * 60;
 	bool ret = false;
 	u64 temp_time = g_server_time - day_offset_time;

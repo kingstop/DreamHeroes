@@ -660,7 +660,7 @@ bool same_day(unsigned int t1, unsigned int t2)
 	tm* p1 = localtime(&_t1);
 	int y1 = p1->tm_year;
 	int d1 = p1->tm_yday;
-
+	
 	time_t _t2 = t2;
 	tm* p2 = localtime(&_t2);
 	int y2 = p2->tm_year;
