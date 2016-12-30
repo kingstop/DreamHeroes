@@ -48,6 +48,7 @@ void CreateDealHttpTask::init(account_type acc, const char* name, const char* ke
 	_name = name;
 	_key_code = key_code;
 	_channel = channel;
+	_error = message::Error_NO;
 
 }
 

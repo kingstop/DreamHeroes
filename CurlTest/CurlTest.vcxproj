@@ -88,7 +88,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../../../../../../external/boost/boost_1_60_0/;../../../../../../external/protobuf/protobuf-3.0.0/src/;../../../../../../external/mysql/mysql-5.7.10-win32/include/;../../../../../../external/jsoncpp/jsoncpp-src-0.5.0/include/;../../../../../../external/log4cplus/log4cplus-1.2.0/include/;../../../../../../external/mysql++/mysql++-3.1.0/lib/;../common/;../../../../../../external/curl/include/</AdditionalIncludeDirectories>
     </ClCompile>
@@ -96,7 +96,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\..\bin\lib\;$(SolutionDir)..\..\..\..\..\bin\external_lib\;$(SolutionDir)..\..\..\..\..\bin\common\;E:\code\crashmo\crashmo\server\bin\common;$(SolutionDir)..\..\..\..\..\external\curl\curl</AdditionalLibraryDirectories>
-      <AdditionalDependencies>common_d.lib;libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>log4cplusSD.lib;libprotobuf_d.lib;common_d.lib;libmysqld.lib;mysqlclient.lib;mysqlpp_d.lib;libcurl.lib;json_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -150,11 +150,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="platform_client.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CurlTest.cpp" />
+    <ClCompile Include="platform_client.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

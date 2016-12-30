@@ -8,15 +8,25 @@
 #include "curl/curl.h"
 #include "curl/easy.h"
 #include "http_server.h"
+#include "platform_client.h"
 
 int main()
 {
 	
-	boost::asio::io_service service;
-	HttpServer server(service, 2000);
+	net_global::init_net_service(3, 1, NULL, true, 5123000);
+	PlatformClient g_plat_form;
+	g_plat_form.connect("121.196.203.220", 26000);
+	while (true)
+	{
+		g_plat_form.run_no_wait();
+		net_global::update_net_service();
+		Sleep(5);
+	}
+	//boost::asio::io_service service;
+	//HttpServer server(service, 2000);
 
-	server.start();
-	service.run();
+	//server.start();
+	//service.run();
 	
     return 0;
 }
