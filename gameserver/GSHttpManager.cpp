@@ -85,7 +85,7 @@ bool CreateDealHttpTask::excute()
 	std::string post_url;
 	std::string respone_url;
 	char sz_temp[1024];
-	sprintf(sz_temp, "%s/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%sextra_data=%s",
+	sprintf(sz_temp, "%s/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%s&extra_data=%s",
 		gGameConfig.getPlatformHttpUrl(),
 		channel_id, game_id, _acc, _name.c_str(), _key_code.c_str(), gGameConfig.getServerTitle());
 	
