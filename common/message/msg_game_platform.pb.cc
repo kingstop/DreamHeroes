@@ -26,6 +26,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MsgP2GRegisterRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgP2GRegisterRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MsgP2GKickOffAck_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MsgP2GKickOffAck_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MsgP2GOrderNotifyReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MsgP2GOrderNotifyReq_reflection_ = NULL;
@@ -50,7 +53,7 @@ void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto() {
   static const int MsgG2PRegisterReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2PRegisterReq, game_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2PRegisterReq, server_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2PRegisterReq, server_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2PRegisterReq, server_flag_),
   };
   MsgG2PRegisterReq_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -79,9 +82,28 @@ void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto() {
       sizeof(MsgP2GRegisterRsp),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GRegisterRsp, _internal_metadata_),
       -1);
-  MsgP2GOrderNotifyReq_descriptor_ = file->message_type(2);
-  static const int MsgP2GOrderNotifyReq_offsets_[5] = {
+  MsgP2GKickOffAck_descriptor_ = file->message_type(2);
+  static const int MsgP2GKickOffAck_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GKickOffAck, last_reg_time_),
+  };
+  MsgP2GKickOffAck_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MsgP2GKickOffAck_descriptor_,
+      MsgP2GKickOffAck::default_instance_,
+      MsgP2GKickOffAck_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GKickOffAck, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(MsgP2GKickOffAck),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GKickOffAck, _internal_metadata_),
+      -1);
+  MsgP2GOrderNotifyReq_descriptor_ = file->message_type(3);
+  static const int MsgP2GOrderNotifyReq_offsets_[9] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, status_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, server_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, server_flag_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, channel_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, order_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, product_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, price_),
@@ -98,7 +120,7 @@ void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto() {
       sizeof(MsgP2GOrderNotifyReq),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgP2GOrderNotifyReq, _internal_metadata_),
       -1);
-  MsgG2POrderNotifyRsp_descriptor_ = file->message_type(3);
+  MsgG2POrderNotifyRsp_descriptor_ = file->message_type(4);
   static const int MsgG2POrderNotifyRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2POrderNotifyRsp, err_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2POrderNotifyRsp, order_id_),
@@ -114,7 +136,7 @@ void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto() {
       sizeof(MsgG2POrderNotifyRsp),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgG2POrderNotifyRsp, _internal_metadata_),
       -1);
-  ErrorCodeAck_descriptor_ = file->message_type(4);
+  ErrorCodeAck_descriptor_ = file->message_type(5);
   static const int ErrorCodeAck_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ErrorCodeAck, err_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ErrorCodeAck, err_msg_),
@@ -149,6 +171,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgP2GRegisterRsp_descriptor_, &MsgP2GRegisterRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MsgP2GKickOffAck_descriptor_, &MsgP2GKickOffAck::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgP2GOrderNotifyReq_descriptor_, &MsgP2GOrderNotifyReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MsgG2POrderNotifyRsp_descriptor_, &MsgG2POrderNotifyRsp::default_instance());
@@ -163,6 +187,8 @@ void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto() {
   delete MsgG2PRegisterReq_reflection_;
   delete MsgP2GRegisterRsp::default_instance_;
   delete MsgP2GRegisterRsp_reflection_;
+  delete MsgP2GKickOffAck::default_instance_;
+  delete MsgP2GKickOffAck_reflection_;
   delete MsgP2GOrderNotifyReq::default_instance_;
   delete MsgP2GOrderNotifyReq_reflection_;
   delete MsgG2POrderNotifyRsp::default_instance_;
@@ -182,12 +208,15 @@ void protobuf_AddDesc_msg_5fgame_5fplatform_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\027msg_game_platform.proto\022\021IPlatformPayP"
     "roto\"L\n\021MsgG2PRegisterReq\022\017\n\007game_id\030\001 \002"
-    "(\005\022\021\n\tserver_id\030\002 \002(\005\022\023\n\013server_type\030\003 \002"
-    "(\005\"8\n\021MsgP2GRegisterRsp\022\020\n\010err_code\030\001 \002("
-    "\005\022\021\n\007err_msg\030\002 \001(\t:\000\"n\n\024MsgP2GOrderNotif"
-    "yReq\022\017\n\007user_id\030\001 \002(\004\022\020\n\010order_id\030\002 \002(\r\022"
-    "\022\n\nproduct_id\030\003 \002(\t\022\r\n\005price\030\004 \002(\r\022\020\n\010ex"
-    "t_data\030\005 \001(\t\":\n\024MsgG2POrderNotifyRsp\022\020\n\010"
+    "(\r\022\021\n\tserver_id\030\002 \002(\r\022\023\n\013server_flag\030\003 \002"
+    "(\r\"8\n\021MsgP2GRegisterRsp\022\020\n\010err_code\030\001 \002("
+    "\005\022\021\n\007err_msg\030\002 \001(\t:\000\")\n\020MsgP2GKickOffAck"
+    "\022\025\n\rlast_reg_time\030\001 \002(\r\"\272\001\n\024MsgP2GOrderN"
+    "otifyReq\022\016\n\006status\030\001 \002(\r\022\021\n\tserver_id\030\002 "
+    "\002(\r\022\023\n\013server_flag\030\003 \002(\r\022\017\n\007user_id\030\004 \002("
+    "\004\022\022\n\nchannel_id\030\005 \002(\r\022\020\n\010order_id\030\006 \002(\r\022"
+    "\022\n\nproduct_id\030\007 \002(\t\022\r\n\005price\030\010 \002(\r\022\020\n\010ex"
+    "t_data\030\t \001(\t\":\n\024MsgG2POrderNotifyRsp\022\020\n\010"
     "err_code\030\001 \002(\005\022\020\n\010order_id\030\002 \002(\r\"c\n\014Erro"
     "rCodeAck\022\020\n\010err_code\030\001 \002(\005\022\036\n\007err_msg\030\002 "
     "\001(\t:\rdefault error\022!\n\020ori_msg_typename\030\003"
@@ -206,11 +235,12 @@ void protobuf_AddDesc_msg_5fgame_5fplatform_2eproto() {
     "RVER_DOWN\020\330\017\022\031\n\024IPAY_ERR_NO_REG_GAME\020\271\027\022"
     "\032\n\025IPAY_ERR_NO_SUCH_USER\020\241\037\022\033\n\026IPAY_ERR_"
     "NO_SUCH_ORDER\020\242\037\022\036\n\031IPAY_ERR_ITEM_DECODE"
-    "_FAIL\020\243\037", 1048);
+    "_FAIL\020\243\037", 1168);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_game_platform.proto", &protobuf_RegisterTypes);
   MsgG2PRegisterReq::default_instance_ = new MsgG2PRegisterReq();
   MsgP2GRegisterRsp::default_instance_ = new MsgP2GRegisterRsp();
+  MsgP2GKickOffAck::default_instance_ = new MsgP2GKickOffAck();
   MsgP2GOrderNotifyReq::default_instance_ = new MsgP2GOrderNotifyReq();
   MsgG2POrderNotifyRsp::default_instance_ = new MsgG2POrderNotifyRsp();
   ErrorCodeAck::_default_err_msg_ =
@@ -220,6 +250,7 @@ void protobuf_AddDesc_msg_5fgame_5fplatform_2eproto() {
   ErrorCodeAck::default_instance_ = new ErrorCodeAck();
   MsgG2PRegisterReq::default_instance_->InitAsDefaultInstance();
   MsgP2GRegisterRsp::default_instance_->InitAsDefaultInstance();
+  MsgP2GKickOffAck::default_instance_->InitAsDefaultInstance();
   MsgP2GOrderNotifyReq::default_instance_->InitAsDefaultInstance();
   MsgG2POrderNotifyRsp::default_instance_->InitAsDefaultInstance();
   ErrorCodeAck::default_instance_->InitAsDefaultInstance();
@@ -280,7 +311,7 @@ static void MergeFromFail(int line) {
 #ifndef _MSC_VER
 const int MsgG2PRegisterReq::kGameIdFieldNumber;
 const int MsgG2PRegisterReq::kServerIdFieldNumber;
-const int MsgG2PRegisterReq::kServerTypeFieldNumber;
+const int MsgG2PRegisterReq::kServerFlagFieldNumber;
 #endif  // !_MSC_VER
 
 MsgG2PRegisterReq::MsgG2PRegisterReq()
@@ -302,9 +333,9 @@ MsgG2PRegisterReq::MsgG2PRegisterReq(const MsgG2PRegisterReq& from)
 
 void MsgG2PRegisterReq::SharedCtor() {
   _cached_size_ = 0;
-  game_id_ = 0;
-  server_id_ = 0;
-  server_type_ = 0;
+  game_id_ = 0u;
+  server_id_ = 0u;
+  server_flag_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -352,7 +383,7 @@ void MsgG2PRegisterReq::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(game_id_, server_type_);
+  ZR_(game_id_, server_flag_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -373,11 +404,11 @@ bool MsgG2PRegisterReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 game_id = 1;
+      // required uint32 game_id = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &game_id_)));
           set_has_game_id();
         } else {
@@ -387,29 +418,29 @@ bool MsgG2PRegisterReq::MergePartialFromCodedStream(
         break;
       }
 
-      // required int32 server_id = 2;
+      // required uint32 server_id = 2;
       case 2: {
         if (tag == 16) {
          parse_server_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &server_id_)));
           set_has_server_id();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_server_type;
+        if (input->ExpectTag(24)) goto parse_server_flag;
         break;
       }
 
-      // required int32 server_type = 3;
+      // required uint32 server_flag = 3;
       case 3: {
         if (tag == 24) {
-         parse_server_type:
+         parse_server_flag:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &server_type_)));
-          set_has_server_type();
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &server_flag_)));
+          set_has_server_flag();
         } else {
           goto handle_unusual;
         }
@@ -442,19 +473,19 @@ failure:
 void MsgG2PRegisterReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:IPlatformPayProto.MsgG2PRegisterReq)
-  // required int32 game_id = 1;
+  // required uint32 game_id = 1;
   if (has_game_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->game_id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->game_id(), output);
   }
 
-  // required int32 server_id = 2;
+  // required uint32 server_id = 2;
   if (has_server_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->server_id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->server_id(), output);
   }
 
-  // required int32 server_type = 3;
-  if (has_server_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->server_type(), output);
+  // required uint32 server_flag = 3;
+  if (has_server_flag()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->server_flag(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -467,19 +498,19 @@ void MsgG2PRegisterReq::SerializeWithCachedSizes(
 ::google::protobuf::uint8* MsgG2PRegisterReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:IPlatformPayProto.MsgG2PRegisterReq)
-  // required int32 game_id = 1;
+  // required uint32 game_id = 1;
   if (has_game_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->game_id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->game_id(), target);
   }
 
-  // required int32 server_id = 2;
+  // required uint32 server_id = 2;
   if (has_server_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->server_id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->server_id(), target);
   }
 
-  // required int32 server_type = 3;
-  if (has_server_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->server_type(), target);
+  // required uint32 server_flag = 3;
+  if (has_server_flag()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->server_flag(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -494,24 +525,24 @@ int MsgG2PRegisterReq::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_game_id()) {
-    // required int32 game_id = 1;
+    // required uint32 game_id = 1;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->game_id());
   }
 
   if (has_server_id()) {
-    // required int32 server_id = 2;
+    // required uint32 server_id = 2;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->server_id());
   }
 
-  if (has_server_type()) {
-    // required int32 server_type = 3;
+  if (has_server_flag()) {
+    // required uint32 server_flag = 3;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->server_type());
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->server_flag());
   }
 
   return total_size;
@@ -520,20 +551,20 @@ int MsgG2PRegisterReq::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required int32 game_id = 1;
+    // required uint32 game_id = 1;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->game_id());
 
-    // required int32 server_id = 2;
+    // required uint32 server_id = 2;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->server_id());
 
-    // required int32 server_type = 3;
+    // required uint32 server_flag = 3;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->server_type());
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->server_flag());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -570,8 +601,8 @@ void MsgG2PRegisterReq::MergeFrom(const MsgG2PRegisterReq& from) {
     if (from.has_server_id()) {
       set_server_id(from.server_id());
     }
-    if (from.has_server_type()) {
-      set_server_type(from.server_type());
+    if (from.has_server_flag()) {
+      set_server_flag(from.server_flag());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -604,7 +635,7 @@ void MsgG2PRegisterReq::Swap(MsgG2PRegisterReq* other) {
 void MsgG2PRegisterReq::InternalSwap(MsgG2PRegisterReq* other) {
   std::swap(game_id_, other->game_id_);
   std::swap(server_id_, other->server_id_);
-  std::swap(server_type_, other->server_type_);
+  std::swap(server_flag_, other->server_flag_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -621,7 +652,7 @@ void MsgG2PRegisterReq::InternalSwap(MsgG2PRegisterReq* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // MsgG2PRegisterReq
 
-// required int32 game_id = 1;
+// required uint32 game_id = 1;
  bool MsgG2PRegisterReq::has_game_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -632,20 +663,20 @@ void MsgG2PRegisterReq::InternalSwap(MsgG2PRegisterReq* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void MsgG2PRegisterReq::clear_game_id() {
-  game_id_ = 0;
+  game_id_ = 0u;
   clear_has_game_id();
 }
- ::google::protobuf::int32 MsgG2PRegisterReq::game_id() const {
+ ::google::protobuf::uint32 MsgG2PRegisterReq::game_id() const {
   // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.game_id)
   return game_id_;
 }
- void MsgG2PRegisterReq::set_game_id(::google::protobuf::int32 value) {
+ void MsgG2PRegisterReq::set_game_id(::google::protobuf::uint32 value) {
   set_has_game_id();
   game_id_ = value;
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.game_id)
 }
 
-// required int32 server_id = 2;
+// required uint32 server_id = 2;
  bool MsgG2PRegisterReq::has_server_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -656,41 +687,41 @@ void MsgG2PRegisterReq::InternalSwap(MsgG2PRegisterReq* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void MsgG2PRegisterReq::clear_server_id() {
-  server_id_ = 0;
+  server_id_ = 0u;
   clear_has_server_id();
 }
- ::google::protobuf::int32 MsgG2PRegisterReq::server_id() const {
+ ::google::protobuf::uint32 MsgG2PRegisterReq::server_id() const {
   // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_id)
   return server_id_;
 }
- void MsgG2PRegisterReq::set_server_id(::google::protobuf::int32 value) {
+ void MsgG2PRegisterReq::set_server_id(::google::protobuf::uint32 value) {
   set_has_server_id();
   server_id_ = value;
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_id)
 }
 
-// required int32 server_type = 3;
- bool MsgG2PRegisterReq::has_server_type() const {
+// required uint32 server_flag = 3;
+ bool MsgG2PRegisterReq::has_server_flag() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
- void MsgG2PRegisterReq::set_has_server_type() {
+ void MsgG2PRegisterReq::set_has_server_flag() {
   _has_bits_[0] |= 0x00000004u;
 }
- void MsgG2PRegisterReq::clear_has_server_type() {
+ void MsgG2PRegisterReq::clear_has_server_flag() {
   _has_bits_[0] &= ~0x00000004u;
 }
- void MsgG2PRegisterReq::clear_server_type() {
-  server_type_ = 0;
-  clear_has_server_type();
+ void MsgG2PRegisterReq::clear_server_flag() {
+  server_flag_ = 0u;
+  clear_has_server_flag();
 }
- ::google::protobuf::int32 MsgG2PRegisterReq::server_type() const {
-  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_type)
-  return server_type_;
+ ::google::protobuf::uint32 MsgG2PRegisterReq::server_flag() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_flag)
+  return server_flag_;
 }
- void MsgG2PRegisterReq::set_server_type(::google::protobuf::int32 value) {
-  set_has_server_type();
-  server_type_ = value;
-  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_type)
+ void MsgG2PRegisterReq::set_server_flag(::google::protobuf::uint32 value) {
+  set_has_server_flag();
+  server_flag_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_flag)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1069,7 +1100,270 @@ void MsgP2GRegisterRsp::InternalSwap(MsgP2GRegisterRsp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int MsgP2GKickOffAck::kLastRegTimeFieldNumber;
+#endif  // !_MSC_VER
+
+MsgP2GKickOffAck::MsgP2GKickOffAck()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IPlatformPayProto.MsgP2GKickOffAck)
+}
+
+void MsgP2GKickOffAck::InitAsDefaultInstance() {
+}
+
+MsgP2GKickOffAck::MsgP2GKickOffAck(const MsgP2GKickOffAck& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IPlatformPayProto.MsgP2GKickOffAck)
+}
+
+void MsgP2GKickOffAck::SharedCtor() {
+  _cached_size_ = 0;
+  last_reg_time_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MsgP2GKickOffAck::~MsgP2GKickOffAck() {
+  // @@protoc_insertion_point(destructor:IPlatformPayProto.MsgP2GKickOffAck)
+  SharedDtor();
+}
+
+void MsgP2GKickOffAck::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MsgP2GKickOffAck::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MsgP2GKickOffAck::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MsgP2GKickOffAck_descriptor_;
+}
+
+const MsgP2GKickOffAck& MsgP2GKickOffAck::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
+  return *default_instance_;
+}
+
+MsgP2GKickOffAck* MsgP2GKickOffAck::default_instance_ = NULL;
+
+MsgP2GKickOffAck* MsgP2GKickOffAck::New(::google::protobuf::Arena* arena) const {
+  MsgP2GKickOffAck* n = new MsgP2GKickOffAck;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void MsgP2GKickOffAck::Clear() {
+  last_reg_time_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool MsgP2GKickOffAck::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:IPlatformPayProto.MsgP2GKickOffAck)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 last_reg_time = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &last_reg_time_)));
+          set_has_last_reg_time();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IPlatformPayProto.MsgP2GKickOffAck)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IPlatformPayProto.MsgP2GKickOffAck)
+  return false;
+#undef DO_
+}
+
+void MsgP2GKickOffAck::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IPlatformPayProto.MsgP2GKickOffAck)
+  // required uint32 last_reg_time = 1;
+  if (has_last_reg_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->last_reg_time(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:IPlatformPayProto.MsgP2GKickOffAck)
+}
+
+::google::protobuf::uint8* MsgP2GKickOffAck::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IPlatformPayProto.MsgP2GKickOffAck)
+  // required uint32 last_reg_time = 1;
+  if (has_last_reg_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->last_reg_time(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IPlatformPayProto.MsgP2GKickOffAck)
+  return target;
+}
+
+int MsgP2GKickOffAck::ByteSize() const {
+  int total_size = 0;
+
+  // required uint32 last_reg_time = 1;
+  if (has_last_reg_time()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->last_reg_time());
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MsgP2GKickOffAck::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const MsgP2GKickOffAck* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MsgP2GKickOffAck*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MsgP2GKickOffAck::MergeFrom(const MsgP2GKickOffAck& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_last_reg_time()) {
+      set_last_reg_time(from.last_reg_time());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void MsgP2GKickOffAck::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgP2GKickOffAck::CopyFrom(const MsgP2GKickOffAck& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgP2GKickOffAck::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void MsgP2GKickOffAck::Swap(MsgP2GKickOffAck* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgP2GKickOffAck::InternalSwap(MsgP2GKickOffAck* other) {
+  std::swap(last_reg_time_, other->last_reg_time_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata MsgP2GKickOffAck::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MsgP2GKickOffAck_descriptor_;
+  metadata.reflection = MsgP2GKickOffAck_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MsgP2GKickOffAck
+
+// required uint32 last_reg_time = 1;
+ bool MsgP2GKickOffAck::has_last_reg_time() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void MsgP2GKickOffAck::set_has_last_reg_time() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void MsgP2GKickOffAck::clear_has_last_reg_time() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgP2GKickOffAck::clear_last_reg_time() {
+  last_reg_time_ = 0u;
+  clear_has_last_reg_time();
+}
+ ::google::protobuf::uint32 MsgP2GKickOffAck::last_reg_time() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GKickOffAck.last_reg_time)
+  return last_reg_time_;
+}
+ void MsgP2GKickOffAck::set_last_reg_time(::google::protobuf::uint32 value) {
+  set_has_last_reg_time();
+  last_reg_time_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GKickOffAck.last_reg_time)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MsgP2GOrderNotifyReq::kStatusFieldNumber;
+const int MsgP2GOrderNotifyReq::kServerIdFieldNumber;
+const int MsgP2GOrderNotifyReq::kServerFlagFieldNumber;
 const int MsgP2GOrderNotifyReq::kUserIdFieldNumber;
+const int MsgP2GOrderNotifyReq::kChannelIdFieldNumber;
 const int MsgP2GOrderNotifyReq::kOrderIdFieldNumber;
 const int MsgP2GOrderNotifyReq::kProductIdFieldNumber;
 const int MsgP2GOrderNotifyReq::kPriceFieldNumber;
@@ -1096,7 +1390,11 @@ MsgP2GOrderNotifyReq::MsgP2GOrderNotifyReq(const MsgP2GOrderNotifyReq& from)
 void MsgP2GOrderNotifyReq::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  status_ = 0u;
+  server_id_ = 0u;
+  server_flag_ = 0u;
   user_id_ = GOOGLE_ULONGLONG(0);
+  channel_id_ = 0u;
   order_id_ = 0u;
   product_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   price_ = 0u;
@@ -1150,15 +1448,15 @@ void MsgP2GOrderNotifyReq::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 31) {
+  if (_has_bits_[0 / 32] & 255) {
+    ZR_(status_, channel_id_);
     ZR_(order_id_, price_);
-    user_id_ = GOOGLE_ULONGLONG(0);
     if (has_product_id()) {
       product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (has_ext_data()) {
-      ext_data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
+  }
+  if (has_ext_data()) {
+    ext_data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
 
 #undef ZR_HELPER_
@@ -1180,9 +1478,54 @@ bool MsgP2GOrderNotifyReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint64 user_id = 1;
+      // required uint32 status = 1;
       case 1: {
         if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &status_)));
+          set_has_status();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_server_id;
+        break;
+      }
+
+      // required uint32 server_id = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_server_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &server_id_)));
+          set_has_server_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_server_flag;
+        break;
+      }
+
+      // required uint32 server_flag = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_server_flag:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &server_flag_)));
+          set_has_server_flag();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_user_id;
+        break;
+      }
+
+      // required uint64 user_id = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_user_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &user_id_)));
@@ -1190,13 +1533,28 @@ bool MsgP2GOrderNotifyReq::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_order_id;
+        if (input->ExpectTag(40)) goto parse_channel_id;
         break;
       }
 
-      // required uint32 order_id = 2;
-      case 2: {
-        if (tag == 16) {
+      // required uint32 channel_id = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_channel_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &channel_id_)));
+          set_has_channel_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(48)) goto parse_order_id;
+        break;
+      }
+
+      // required uint32 order_id = 6;
+      case 6: {
+        if (tag == 48) {
          parse_order_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -1205,13 +1563,13 @@ bool MsgP2GOrderNotifyReq::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_product_id;
+        if (input->ExpectTag(58)) goto parse_product_id;
         break;
       }
 
-      // required string product_id = 3;
-      case 3: {
-        if (tag == 26) {
+      // required string product_id = 7;
+      case 7: {
+        if (tag == 58) {
          parse_product_id:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_product_id()));
@@ -1222,13 +1580,13 @@ bool MsgP2GOrderNotifyReq::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_price;
+        if (input->ExpectTag(64)) goto parse_price;
         break;
       }
 
-      // required uint32 price = 4;
-      case 4: {
-        if (tag == 32) {
+      // required uint32 price = 8;
+      case 8: {
+        if (tag == 64) {
          parse_price:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -1237,13 +1595,13 @@ bool MsgP2GOrderNotifyReq::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_ext_data;
+        if (input->ExpectTag(74)) goto parse_ext_data;
         break;
       }
 
-      // optional string ext_data = 5;
-      case 5: {
-        if (tag == 42) {
+      // optional string ext_data = 9;
+      case 9: {
+        if (tag == 74) {
          parse_ext_data:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_ext_data()));
@@ -1283,39 +1641,59 @@ failure:
 void MsgP2GOrderNotifyReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:IPlatformPayProto.MsgP2GOrderNotifyReq)
-  // required uint64 user_id = 1;
+  // required uint32 status = 1;
+  if (has_status()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->status(), output);
+  }
+
+  // required uint32 server_id = 2;
+  if (has_server_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->server_id(), output);
+  }
+
+  // required uint32 server_flag = 3;
+  if (has_server_flag()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->server_flag(), output);
+  }
+
+  // required uint64 user_id = 4;
   if (has_user_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->user_id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->user_id(), output);
   }
 
-  // required uint32 order_id = 2;
+  // required uint32 channel_id = 5;
+  if (has_channel_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->channel_id(), output);
+  }
+
+  // required uint32 order_id = 6;
   if (has_order_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->order_id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->order_id(), output);
   }
 
-  // required string product_id = 3;
+  // required string product_id = 7;
   if (has_product_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->product_id().data(), this->product_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "IPlatformPayProto.MsgP2GOrderNotifyReq.product_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->product_id(), output);
+      7, this->product_id(), output);
   }
 
-  // required uint32 price = 4;
+  // required uint32 price = 8;
   if (has_price()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->price(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->price(), output);
   }
 
-  // optional string ext_data = 5;
+  // optional string ext_data = 9;
   if (has_ext_data()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->ext_data().data(), this->ext_data().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->ext_data(), output);
+      9, this->ext_data(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1328,17 +1706,37 @@ void MsgP2GOrderNotifyReq::SerializeWithCachedSizes(
 ::google::protobuf::uint8* MsgP2GOrderNotifyReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:IPlatformPayProto.MsgP2GOrderNotifyReq)
-  // required uint64 user_id = 1;
+  // required uint32 status = 1;
+  if (has_status()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->status(), target);
+  }
+
+  // required uint32 server_id = 2;
+  if (has_server_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->server_id(), target);
+  }
+
+  // required uint32 server_flag = 3;
+  if (has_server_flag()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->server_flag(), target);
+  }
+
+  // required uint64 user_id = 4;
   if (has_user_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->user_id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->user_id(), target);
   }
 
-  // required uint32 order_id = 2;
+  // required uint32 channel_id = 5;
+  if (has_channel_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->channel_id(), target);
+  }
+
+  // required uint32 order_id = 6;
   if (has_order_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->order_id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->order_id(), target);
   }
 
-  // required string product_id = 3;
+  // required string product_id = 7;
   if (has_product_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->product_id().data(), this->product_id().length(),
@@ -1346,15 +1744,15 @@ void MsgP2GOrderNotifyReq::SerializeWithCachedSizes(
       "IPlatformPayProto.MsgP2GOrderNotifyReq.product_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->product_id(), target);
+        7, this->product_id(), target);
   }
 
-  // required uint32 price = 4;
+  // required uint32 price = 8;
   if (has_price()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->price(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->price(), target);
   }
 
-  // optional string ext_data = 5;
+  // optional string ext_data = 9;
   if (has_ext_data()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->ext_data().data(), this->ext_data().length(),
@@ -1362,7 +1760,7 @@ void MsgP2GOrderNotifyReq::SerializeWithCachedSizes(
       "IPlatformPayProto.MsgP2GOrderNotifyReq.ext_data");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->ext_data(), target);
+        9, this->ext_data(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1376,29 +1774,57 @@ void MsgP2GOrderNotifyReq::SerializeWithCachedSizes(
 int MsgP2GOrderNotifyReq::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
+  if (has_status()) {
+    // required uint32 status = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->status());
+  }
+
+  if (has_server_id()) {
+    // required uint32 server_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->server_id());
+  }
+
+  if (has_server_flag()) {
+    // required uint32 server_flag = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->server_flag());
+  }
+
   if (has_user_id()) {
-    // required uint64 user_id = 1;
+    // required uint64 user_id = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->user_id());
   }
 
+  if (has_channel_id()) {
+    // required uint32 channel_id = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->channel_id());
+  }
+
   if (has_order_id()) {
-    // required uint32 order_id = 2;
+    // required uint32 order_id = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->order_id());
   }
 
   if (has_product_id()) {
-    // required string product_id = 3;
+    // required string product_id = 7;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->product_id());
   }
 
   if (has_price()) {
-    // required uint32 price = 4;
+    // required uint32 price = 8;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->price());
@@ -1409,23 +1835,43 @@ int MsgP2GOrderNotifyReq::RequiredFieldsByteSizeFallback() const {
 int MsgP2GOrderNotifyReq::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
-    // required uint64 user_id = 1;
+  if (((_has_bits_[0] & 0x000000ff) ^ 0x000000ff) == 0) {  // All required fields are present.
+    // required uint32 status = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->status());
+
+    // required uint32 server_id = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->server_id());
+
+    // required uint32 server_flag = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->server_flag());
+
+    // required uint64 user_id = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->user_id());
 
-    // required uint32 order_id = 2;
+    // required uint32 channel_id = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->channel_id());
+
+    // required uint32 order_id = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->order_id());
 
-    // required string product_id = 3;
+    // required string product_id = 7;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->product_id());
 
-    // required uint32 price = 4;
+    // required uint32 price = 8;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->price());
@@ -1433,7 +1879,7 @@ int MsgP2GOrderNotifyReq::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // optional string ext_data = 5;
+  // optional string ext_data = 9;
   if (has_ext_data()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1466,8 +1912,20 @@ void MsgP2GOrderNotifyReq::MergeFrom(const ::google::protobuf::Message& from) {
 void MsgP2GOrderNotifyReq::MergeFrom(const MsgP2GOrderNotifyReq& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_status()) {
+      set_status(from.status());
+    }
+    if (from.has_server_id()) {
+      set_server_id(from.server_id());
+    }
+    if (from.has_server_flag()) {
+      set_server_flag(from.server_flag());
+    }
     if (from.has_user_id()) {
       set_user_id(from.user_id());
+    }
+    if (from.has_channel_id()) {
+      set_channel_id(from.channel_id());
     }
     if (from.has_order_id()) {
       set_order_id(from.order_id());
@@ -1479,6 +1937,8 @@ void MsgP2GOrderNotifyReq::MergeFrom(const MsgP2GOrderNotifyReq& from) {
     if (from.has_price()) {
       set_price(from.price());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_ext_data()) {
       set_has_ext_data();
       ext_data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ext_data_);
@@ -1502,7 +1962,7 @@ void MsgP2GOrderNotifyReq::CopyFrom(const MsgP2GOrderNotifyReq& from) {
 }
 
 bool MsgP2GOrderNotifyReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  if ((_has_bits_[0] & 0x000000ff) != 0x000000ff) return false;
 
   return true;
 }
@@ -1512,7 +1972,11 @@ void MsgP2GOrderNotifyReq::Swap(MsgP2GOrderNotifyReq* other) {
   InternalSwap(other);
 }
 void MsgP2GOrderNotifyReq::InternalSwap(MsgP2GOrderNotifyReq* other) {
+  std::swap(status_, other->status_);
+  std::swap(server_id_, other->server_id_);
+  std::swap(server_flag_, other->server_flag_);
   std::swap(user_id_, other->user_id_);
+  std::swap(channel_id_, other->channel_id_);
   std::swap(order_id_, other->order_id_);
   product_id_.Swap(&other->product_id_);
   std::swap(price_, other->price_);
@@ -1533,15 +1997,87 @@ void MsgP2GOrderNotifyReq::InternalSwap(MsgP2GOrderNotifyReq* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // MsgP2GOrderNotifyReq
 
-// required uint64 user_id = 1;
- bool MsgP2GOrderNotifyReq::has_user_id() const {
+// required uint32 status = 1;
+ bool MsgP2GOrderNotifyReq::has_status() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
- void MsgP2GOrderNotifyReq::set_has_user_id() {
+ void MsgP2GOrderNotifyReq::set_has_status() {
   _has_bits_[0] |= 0x00000001u;
 }
- void MsgP2GOrderNotifyReq::clear_has_user_id() {
+ void MsgP2GOrderNotifyReq::clear_has_status() {
   _has_bits_[0] &= ~0x00000001u;
+}
+ void MsgP2GOrderNotifyReq::clear_status() {
+  status_ = 0u;
+  clear_has_status();
+}
+ ::google::protobuf::uint32 MsgP2GOrderNotifyReq::status() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.status)
+  return status_;
+}
+ void MsgP2GOrderNotifyReq::set_status(::google::protobuf::uint32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.status)
+}
+
+// required uint32 server_id = 2;
+ bool MsgP2GOrderNotifyReq::has_server_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgP2GOrderNotifyReq::set_has_server_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgP2GOrderNotifyReq::clear_has_server_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgP2GOrderNotifyReq::clear_server_id() {
+  server_id_ = 0u;
+  clear_has_server_id();
+}
+ ::google::protobuf::uint32 MsgP2GOrderNotifyReq::server_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.server_id)
+  return server_id_;
+}
+ void MsgP2GOrderNotifyReq::set_server_id(::google::protobuf::uint32 value) {
+  set_has_server_id();
+  server_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.server_id)
+}
+
+// required uint32 server_flag = 3;
+ bool MsgP2GOrderNotifyReq::has_server_flag() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void MsgP2GOrderNotifyReq::set_has_server_flag() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void MsgP2GOrderNotifyReq::clear_has_server_flag() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void MsgP2GOrderNotifyReq::clear_server_flag() {
+  server_flag_ = 0u;
+  clear_has_server_flag();
+}
+ ::google::protobuf::uint32 MsgP2GOrderNotifyReq::server_flag() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.server_flag)
+  return server_flag_;
+}
+ void MsgP2GOrderNotifyReq::set_server_flag(::google::protobuf::uint32 value) {
+  set_has_server_flag();
+  server_flag_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.server_flag)
+}
+
+// required uint64 user_id = 4;
+ bool MsgP2GOrderNotifyReq::has_user_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void MsgP2GOrderNotifyReq::set_has_user_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void MsgP2GOrderNotifyReq::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000008u;
 }
  void MsgP2GOrderNotifyReq::clear_user_id() {
   user_id_ = GOOGLE_ULONGLONG(0);
@@ -1557,15 +2093,39 @@ void MsgP2GOrderNotifyReq::InternalSwap(MsgP2GOrderNotifyReq* other) {
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.user_id)
 }
 
-// required uint32 order_id = 2;
+// required uint32 channel_id = 5;
+ bool MsgP2GOrderNotifyReq::has_channel_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+ void MsgP2GOrderNotifyReq::set_has_channel_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+ void MsgP2GOrderNotifyReq::clear_has_channel_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+ void MsgP2GOrderNotifyReq::clear_channel_id() {
+  channel_id_ = 0u;
+  clear_has_channel_id();
+}
+ ::google::protobuf::uint32 MsgP2GOrderNotifyReq::channel_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.channel_id)
+  return channel_id_;
+}
+ void MsgP2GOrderNotifyReq::set_channel_id(::google::protobuf::uint32 value) {
+  set_has_channel_id();
+  channel_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.channel_id)
+}
+
+// required uint32 order_id = 6;
  bool MsgP2GOrderNotifyReq::has_order_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
  void MsgP2GOrderNotifyReq::set_has_order_id() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000020u;
 }
  void MsgP2GOrderNotifyReq::clear_has_order_id() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000020u;
 }
  void MsgP2GOrderNotifyReq::clear_order_id() {
   order_id_ = 0u;
@@ -1581,15 +2141,15 @@ void MsgP2GOrderNotifyReq::InternalSwap(MsgP2GOrderNotifyReq* other) {
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.order_id)
 }
 
-// required string product_id = 3;
+// required string product_id = 7;
  bool MsgP2GOrderNotifyReq::has_product_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
  void MsgP2GOrderNotifyReq::set_has_product_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000040u;
 }
  void MsgP2GOrderNotifyReq::clear_has_product_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000040u;
 }
  void MsgP2GOrderNotifyReq::clear_product_id() {
   product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1634,15 +2194,15 @@ void MsgP2GOrderNotifyReq::InternalSwap(MsgP2GOrderNotifyReq* other) {
   // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
 }
 
-// required uint32 price = 4;
+// required uint32 price = 8;
  bool MsgP2GOrderNotifyReq::has_price() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
  void MsgP2GOrderNotifyReq::set_has_price() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000080u;
 }
  void MsgP2GOrderNotifyReq::clear_has_price() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000080u;
 }
  void MsgP2GOrderNotifyReq::clear_price() {
   price_ = 0u;
@@ -1658,15 +2218,15 @@ void MsgP2GOrderNotifyReq::InternalSwap(MsgP2GOrderNotifyReq* other) {
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.price)
 }
 
-// optional string ext_data = 5;
+// optional string ext_data = 9;
  bool MsgP2GOrderNotifyReq::has_ext_data() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
  void MsgP2GOrderNotifyReq::set_has_ext_data() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000100u;
 }
  void MsgP2GOrderNotifyReq::clear_has_ext_data() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000100u;
 }
  void MsgP2GOrderNotifyReq::clear_ext_data() {
   ext_data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());

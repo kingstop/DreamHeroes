@@ -2324,7 +2324,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		}
 		const globalConfig global_config = gGameConfig.getGlobalConfig();
 		int record_size = global_config.daily_game_record_config_.size();
-		for (size_t i = record_size - 1; i >= 0; i++)
+		for (int i = record_size - 1; i >= 0; i++)
 		{
 			if (global_config.daily_game_record_config_[i] == _info.daily_game_progress())
 			{

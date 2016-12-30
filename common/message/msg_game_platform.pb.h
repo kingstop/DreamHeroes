@@ -39,6 +39,7 @@ void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
 
 class MsgG2PRegisterReq;
 class MsgP2GRegisterRsp;
+class MsgP2GKickOffAck;
 class MsgP2GOrderNotifyReq;
 class MsgG2POrderNotifyRsp;
 class ErrorCodeAck;
@@ -146,26 +147,26 @@ class MsgG2PRegisterReq : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required int32 game_id = 1;
+  // required uint32 game_id = 1;
   bool has_game_id() const;
   void clear_game_id();
   static const int kGameIdFieldNumber = 1;
-  ::google::protobuf::int32 game_id() const;
-  void set_game_id(::google::protobuf::int32 value);
+  ::google::protobuf::uint32 game_id() const;
+  void set_game_id(::google::protobuf::uint32 value);
 
-  // required int32 server_id = 2;
+  // required uint32 server_id = 2;
   bool has_server_id() const;
   void clear_server_id();
   static const int kServerIdFieldNumber = 2;
-  ::google::protobuf::int32 server_id() const;
-  void set_server_id(::google::protobuf::int32 value);
+  ::google::protobuf::uint32 server_id() const;
+  void set_server_id(::google::protobuf::uint32 value);
 
-  // required int32 server_type = 3;
-  bool has_server_type() const;
-  void clear_server_type();
-  static const int kServerTypeFieldNumber = 3;
-  ::google::protobuf::int32 server_type() const;
-  void set_server_type(::google::protobuf::int32 value);
+  // required uint32 server_flag = 3;
+  bool has_server_flag() const;
+  void clear_server_flag();
+  static const int kServerFlagFieldNumber = 3;
+  ::google::protobuf::uint32 server_flag() const;
+  void set_server_flag(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:IPlatformPayProto.MsgG2PRegisterReq)
  private:
@@ -173,8 +174,8 @@ class MsgG2PRegisterReq : public ::google::protobuf::Message {
   inline void clear_has_game_id();
   inline void set_has_server_id();
   inline void clear_has_server_id();
-  inline void set_has_server_type();
-  inline void clear_has_server_type();
+  inline void set_has_server_flag();
+  inline void clear_has_server_flag();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -182,9 +183,9 @@ class MsgG2PRegisterReq : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::int32 game_id_;
-  ::google::protobuf::int32 server_id_;
-  ::google::protobuf::int32 server_type_;
+  ::google::protobuf::uint32 game_id_;
+  ::google::protobuf::uint32 server_id_;
+  ::google::protobuf::uint32 server_flag_;
   friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
@@ -298,6 +299,95 @@ class MsgP2GRegisterRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MsgP2GKickOffAck : public ::google::protobuf::Message {
+ public:
+  MsgP2GKickOffAck();
+  virtual ~MsgP2GKickOffAck();
+
+  MsgP2GKickOffAck(const MsgP2GKickOffAck& from);
+
+  inline MsgP2GKickOffAck& operator=(const MsgP2GKickOffAck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgP2GKickOffAck& default_instance();
+
+  void Swap(MsgP2GKickOffAck* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgP2GKickOffAck* New() const { return New(NULL); }
+
+  MsgP2GKickOffAck* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgP2GKickOffAck& from);
+  void MergeFrom(const MsgP2GKickOffAck& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgP2GKickOffAck* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 last_reg_time = 1;
+  bool has_last_reg_time() const;
+  void clear_last_reg_time();
+  static const int kLastRegTimeFieldNumber = 1;
+  ::google::protobuf::uint32 last_reg_time() const;
+  void set_last_reg_time(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:IPlatformPayProto.MsgP2GKickOffAck)
+ private:
+  inline void set_has_last_reg_time();
+  inline void clear_has_last_reg_time();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 last_reg_time_;
+  friend void  protobuf_AddDesc_msg_5fgame_5fplatform_2eproto();
+  friend void protobuf_AssignDesc_msg_5fgame_5fplatform_2eproto();
+  friend void protobuf_ShutdownFile_msg_5fgame_5fplatform_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgP2GKickOffAck* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MsgP2GOrderNotifyReq : public ::google::protobuf::Message {
  public:
   MsgP2GOrderNotifyReq();
@@ -362,24 +452,52 @@ class MsgP2GOrderNotifyReq : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required uint64 user_id = 1;
+  // required uint32 status = 1;
+  bool has_status() const;
+  void clear_status();
+  static const int kStatusFieldNumber = 1;
+  ::google::protobuf::uint32 status() const;
+  void set_status(::google::protobuf::uint32 value);
+
+  // required uint32 server_id = 2;
+  bool has_server_id() const;
+  void clear_server_id();
+  static const int kServerIdFieldNumber = 2;
+  ::google::protobuf::uint32 server_id() const;
+  void set_server_id(::google::protobuf::uint32 value);
+
+  // required uint32 server_flag = 3;
+  bool has_server_flag() const;
+  void clear_server_flag();
+  static const int kServerFlagFieldNumber = 3;
+  ::google::protobuf::uint32 server_flag() const;
+  void set_server_flag(::google::protobuf::uint32 value);
+
+  // required uint64 user_id = 4;
   bool has_user_id() const;
   void clear_user_id();
-  static const int kUserIdFieldNumber = 1;
+  static const int kUserIdFieldNumber = 4;
   ::google::protobuf::uint64 user_id() const;
   void set_user_id(::google::protobuf::uint64 value);
 
-  // required uint32 order_id = 2;
+  // required uint32 channel_id = 5;
+  bool has_channel_id() const;
+  void clear_channel_id();
+  static const int kChannelIdFieldNumber = 5;
+  ::google::protobuf::uint32 channel_id() const;
+  void set_channel_id(::google::protobuf::uint32 value);
+
+  // required uint32 order_id = 6;
   bool has_order_id() const;
   void clear_order_id();
-  static const int kOrderIdFieldNumber = 2;
+  static const int kOrderIdFieldNumber = 6;
   ::google::protobuf::uint32 order_id() const;
   void set_order_id(::google::protobuf::uint32 value);
 
-  // required string product_id = 3;
+  // required string product_id = 7;
   bool has_product_id() const;
   void clear_product_id();
-  static const int kProductIdFieldNumber = 3;
+  static const int kProductIdFieldNumber = 7;
   const ::std::string& product_id() const;
   void set_product_id(const ::std::string& value);
   void set_product_id(const char* value);
@@ -388,17 +506,17 @@ class MsgP2GOrderNotifyReq : public ::google::protobuf::Message {
   ::std::string* release_product_id();
   void set_allocated_product_id(::std::string* product_id);
 
-  // required uint32 price = 4;
+  // required uint32 price = 8;
   bool has_price() const;
   void clear_price();
-  static const int kPriceFieldNumber = 4;
+  static const int kPriceFieldNumber = 8;
   ::google::protobuf::uint32 price() const;
   void set_price(::google::protobuf::uint32 value);
 
-  // optional string ext_data = 5;
+  // optional string ext_data = 9;
   bool has_ext_data() const;
   void clear_ext_data();
-  static const int kExtDataFieldNumber = 5;
+  static const int kExtDataFieldNumber = 9;
   const ::std::string& ext_data() const;
   void set_ext_data(const ::std::string& value);
   void set_ext_data(const char* value);
@@ -409,8 +527,16 @@ class MsgP2GOrderNotifyReq : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:IPlatformPayProto.MsgP2GOrderNotifyReq)
  private:
+  inline void set_has_status();
+  inline void clear_has_status();
+  inline void set_has_server_id();
+  inline void clear_has_server_id();
+  inline void set_has_server_flag();
+  inline void clear_has_server_flag();
   inline void set_has_user_id();
   inline void clear_has_user_id();
+  inline void set_has_channel_id();
+  inline void clear_has_channel_id();
   inline void set_has_order_id();
   inline void clear_has_order_id();
   inline void set_has_product_id();
@@ -426,7 +552,11 @@ class MsgP2GOrderNotifyReq : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
+  ::google::protobuf::uint32 status_;
+  ::google::protobuf::uint32 server_id_;
   ::google::protobuf::uint64 user_id_;
+  ::google::protobuf::uint32 server_flag_;
+  ::google::protobuf::uint32 channel_id_;
   ::google::protobuf::internal::ArenaStringPtr product_id_;
   ::google::protobuf::uint32 order_id_;
   ::google::protobuf::uint32 price_;
@@ -669,7 +799,7 @@ class ErrorCodeAck : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // MsgG2PRegisterReq
 
-// required int32 game_id = 1;
+// required uint32 game_id = 1;
 inline bool MsgG2PRegisterReq::has_game_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -680,20 +810,20 @@ inline void MsgG2PRegisterReq::clear_has_game_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void MsgG2PRegisterReq::clear_game_id() {
-  game_id_ = 0;
+  game_id_ = 0u;
   clear_has_game_id();
 }
-inline ::google::protobuf::int32 MsgG2PRegisterReq::game_id() const {
+inline ::google::protobuf::uint32 MsgG2PRegisterReq::game_id() const {
   // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.game_id)
   return game_id_;
 }
-inline void MsgG2PRegisterReq::set_game_id(::google::protobuf::int32 value) {
+inline void MsgG2PRegisterReq::set_game_id(::google::protobuf::uint32 value) {
   set_has_game_id();
   game_id_ = value;
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.game_id)
 }
 
-// required int32 server_id = 2;
+// required uint32 server_id = 2;
 inline bool MsgG2PRegisterReq::has_server_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -704,41 +834,41 @@ inline void MsgG2PRegisterReq::clear_has_server_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void MsgG2PRegisterReq::clear_server_id() {
-  server_id_ = 0;
+  server_id_ = 0u;
   clear_has_server_id();
 }
-inline ::google::protobuf::int32 MsgG2PRegisterReq::server_id() const {
+inline ::google::protobuf::uint32 MsgG2PRegisterReq::server_id() const {
   // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_id)
   return server_id_;
 }
-inline void MsgG2PRegisterReq::set_server_id(::google::protobuf::int32 value) {
+inline void MsgG2PRegisterReq::set_server_id(::google::protobuf::uint32 value) {
   set_has_server_id();
   server_id_ = value;
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_id)
 }
 
-// required int32 server_type = 3;
-inline bool MsgG2PRegisterReq::has_server_type() const {
+// required uint32 server_flag = 3;
+inline bool MsgG2PRegisterReq::has_server_flag() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void MsgG2PRegisterReq::set_has_server_type() {
+inline void MsgG2PRegisterReq::set_has_server_flag() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void MsgG2PRegisterReq::clear_has_server_type() {
+inline void MsgG2PRegisterReq::clear_has_server_flag() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void MsgG2PRegisterReq::clear_server_type() {
-  server_type_ = 0;
-  clear_has_server_type();
+inline void MsgG2PRegisterReq::clear_server_flag() {
+  server_flag_ = 0u;
+  clear_has_server_flag();
 }
-inline ::google::protobuf::int32 MsgG2PRegisterReq::server_type() const {
-  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_type)
-  return server_type_;
+inline ::google::protobuf::uint32 MsgG2PRegisterReq::server_flag() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgG2PRegisterReq.server_flag)
+  return server_flag_;
 }
-inline void MsgG2PRegisterReq::set_server_type(::google::protobuf::int32 value) {
-  set_has_server_type();
-  server_type_ = value;
-  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_type)
+inline void MsgG2PRegisterReq::set_server_flag(::google::protobuf::uint32 value) {
+  set_has_server_flag();
+  server_flag_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgG2PRegisterReq.server_flag)
 }
 
 // -------------------------------------------------------------------
@@ -824,17 +954,117 @@ inline void MsgP2GRegisterRsp::set_allocated_err_msg(::std::string* err_msg) {
 
 // -------------------------------------------------------------------
 
-// MsgP2GOrderNotifyReq
+// MsgP2GKickOffAck
 
-// required uint64 user_id = 1;
-inline bool MsgP2GOrderNotifyReq::has_user_id() const {
+// required uint32 last_reg_time = 1;
+inline bool MsgP2GKickOffAck::has_last_reg_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MsgP2GOrderNotifyReq::set_has_user_id() {
+inline void MsgP2GKickOffAck::set_has_last_reg_time() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MsgP2GOrderNotifyReq::clear_has_user_id() {
+inline void MsgP2GKickOffAck::clear_has_last_reg_time() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgP2GKickOffAck::clear_last_reg_time() {
+  last_reg_time_ = 0u;
+  clear_has_last_reg_time();
+}
+inline ::google::protobuf::uint32 MsgP2GKickOffAck::last_reg_time() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GKickOffAck.last_reg_time)
+  return last_reg_time_;
+}
+inline void MsgP2GKickOffAck::set_last_reg_time(::google::protobuf::uint32 value) {
+  set_has_last_reg_time();
+  last_reg_time_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GKickOffAck.last_reg_time)
+}
+
+// -------------------------------------------------------------------
+
+// MsgP2GOrderNotifyReq
+
+// required uint32 status = 1;
+inline bool MsgP2GOrderNotifyReq::has_status() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgP2GOrderNotifyReq::set_has_status() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgP2GOrderNotifyReq::clear_has_status() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgP2GOrderNotifyReq::clear_status() {
+  status_ = 0u;
+  clear_has_status();
+}
+inline ::google::protobuf::uint32 MsgP2GOrderNotifyReq::status() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.status)
+  return status_;
+}
+inline void MsgP2GOrderNotifyReq::set_status(::google::protobuf::uint32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.status)
+}
+
+// required uint32 server_id = 2;
+inline bool MsgP2GOrderNotifyReq::has_server_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgP2GOrderNotifyReq::set_has_server_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgP2GOrderNotifyReq::clear_has_server_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgP2GOrderNotifyReq::clear_server_id() {
+  server_id_ = 0u;
+  clear_has_server_id();
+}
+inline ::google::protobuf::uint32 MsgP2GOrderNotifyReq::server_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.server_id)
+  return server_id_;
+}
+inline void MsgP2GOrderNotifyReq::set_server_id(::google::protobuf::uint32 value) {
+  set_has_server_id();
+  server_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.server_id)
+}
+
+// required uint32 server_flag = 3;
+inline bool MsgP2GOrderNotifyReq::has_server_flag() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgP2GOrderNotifyReq::set_has_server_flag() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgP2GOrderNotifyReq::clear_has_server_flag() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgP2GOrderNotifyReq::clear_server_flag() {
+  server_flag_ = 0u;
+  clear_has_server_flag();
+}
+inline ::google::protobuf::uint32 MsgP2GOrderNotifyReq::server_flag() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.server_flag)
+  return server_flag_;
+}
+inline void MsgP2GOrderNotifyReq::set_server_flag(::google::protobuf::uint32 value) {
+  set_has_server_flag();
+  server_flag_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.server_flag)
+}
+
+// required uint64 user_id = 4;
+inline bool MsgP2GOrderNotifyReq::has_user_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgP2GOrderNotifyReq::set_has_user_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgP2GOrderNotifyReq::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void MsgP2GOrderNotifyReq::clear_user_id() {
   user_id_ = GOOGLE_ULONGLONG(0);
@@ -850,15 +1080,39 @@ inline void MsgP2GOrderNotifyReq::set_user_id(::google::protobuf::uint64 value) 
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.user_id)
 }
 
-// required uint32 order_id = 2;
+// required uint32 channel_id = 5;
+inline bool MsgP2GOrderNotifyReq::has_channel_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgP2GOrderNotifyReq::set_has_channel_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgP2GOrderNotifyReq::clear_has_channel_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgP2GOrderNotifyReq::clear_channel_id() {
+  channel_id_ = 0u;
+  clear_has_channel_id();
+}
+inline ::google::protobuf::uint32 MsgP2GOrderNotifyReq::channel_id() const {
+  // @@protoc_insertion_point(field_get:IPlatformPayProto.MsgP2GOrderNotifyReq.channel_id)
+  return channel_id_;
+}
+inline void MsgP2GOrderNotifyReq::set_channel_id(::google::protobuf::uint32 value) {
+  set_has_channel_id();
+  channel_id_ = value;
+  // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.channel_id)
+}
+
+// required uint32 order_id = 6;
 inline bool MsgP2GOrderNotifyReq::has_order_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void MsgP2GOrderNotifyReq::set_has_order_id() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void MsgP2GOrderNotifyReq::clear_has_order_id() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void MsgP2GOrderNotifyReq::clear_order_id() {
   order_id_ = 0u;
@@ -874,15 +1128,15 @@ inline void MsgP2GOrderNotifyReq::set_order_id(::google::protobuf::uint32 value)
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.order_id)
 }
 
-// required string product_id = 3;
+// required string product_id = 7;
 inline bool MsgP2GOrderNotifyReq::has_product_id() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void MsgP2GOrderNotifyReq::set_has_product_id() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void MsgP2GOrderNotifyReq::clear_has_product_id() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void MsgP2GOrderNotifyReq::clear_product_id() {
   product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -927,15 +1181,15 @@ inline void MsgP2GOrderNotifyReq::set_allocated_product_id(::std::string* produc
   // @@protoc_insertion_point(field_set_allocated:IPlatformPayProto.MsgP2GOrderNotifyReq.product_id)
 }
 
-// required uint32 price = 4;
+// required uint32 price = 8;
 inline bool MsgP2GOrderNotifyReq::has_price() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void MsgP2GOrderNotifyReq::set_has_price() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void MsgP2GOrderNotifyReq::clear_has_price() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void MsgP2GOrderNotifyReq::clear_price() {
   price_ = 0u;
@@ -951,15 +1205,15 @@ inline void MsgP2GOrderNotifyReq::set_price(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:IPlatformPayProto.MsgP2GOrderNotifyReq.price)
 }
 
-// optional string ext_data = 5;
+// optional string ext_data = 9;
 inline bool MsgP2GOrderNotifyReq::has_ext_data() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void MsgP2GOrderNotifyReq::set_has_ext_data() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void MsgP2GOrderNotifyReq::clear_has_ext_data() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void MsgP2GOrderNotifyReq::clear_ext_data() {
   ext_data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());

@@ -45,28 +45,35 @@ enum ipay_err_code_t {
 
 /** @brief Game向Proxy注册包 */
 message MsgG2PRegisterReq {
-	required int32 game_id = 1;
-	required int32 server_id = 2;
-	required int32 server_type = 3;
+	required uint32 game_id = 1;
+	required uint32 server_id = 2;
+	required uint32 server_flag = 3;
 }
 message MsgP2GRegisterRsp {
 	required int32  err_code = 1;//处理结果: 0-成功,其他表示失败
 	optional string err_msg = 2 [default = ""];
 }
+/** @brief Proxy给Game的被踢掉线数据包 */
+message MsgP2GKickOffAck {
+	required uint32  last_reg_time = 1;//最近一次成功注册时间
+}
 
 /** @brief Proxy给Game的订单包 */
 message MsgP2GOrderNotifyReq {
-	required uint64 user_id = 1;
-	required uint32 order_id = 2;
-	required string product_id = 3;
-	required uint32 price = 4;
-	optional string ext_data = 5;//扩展字段
+	required uint32  status = 1;//订单状态: 0-成功,其他表示失败
+	required uint32 server_id = 2;
+	required uint32 server_flag = 3;
+	required uint64 user_id = 4;
+	required uint32 channel_id = 5;//支付渠道
+	required uint32 order_id = 6;
+	required string product_id = 7;
+	required uint32 price = 8;
+	optional string ext_data = 9;//扩展字段
 }
 message MsgG2POrderNotifyRsp {
 	required int32  err_code = 1;//处理结果: 0-成功,其他表示失败
 	required uint32 order_id = 2;
 }
-
 
 /** @brief 返回错误码统一协议 */
 message ErrorCodeAck {

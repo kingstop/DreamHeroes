@@ -7,6 +7,7 @@ void PlatformClient::initPBModule()
 	ProtocMsgBase<PlatformClient>::registerSDFun(&PlatformClient::send_message, &PlatformClient::parseMsg);
 	ProtocMsgBase<PlatformClient>::registerCBFun(PROTOCO_NAME(IPlatformPayProto::MsgP2GOrderNotifyReq), &PlatformClient::parseClinchADealNotify);
 	ProtocMsgBase<PlatformClient>::registerCBFun(PROTOCO_NAME(IPlatformPayProto::MsgP2GRegisterRsp), &PlatformClient::registerRegisterACK);
+	ProtocMsgBase<PlatformClient>::registerCBFun(PROTOCO_NAME(IPlatformPayProto::MsgP2GKickOffAck), &PlatformClient::parseKick);
 
 }
 
@@ -32,7 +33,7 @@ void PlatformClient::on_connect()
 	IPlatformPayProto::MsgG2PRegisterReq msg;
 	msg.set_game_id(gGameConfig.getGameID());
 	msg.set_server_id(gGameConfig.getServerID());
-	msg.set_server_type(gGameConfig.getServerType());
+	msg.set_server_flag(gGameConfig.getServerType());
 	sendPBMessage(&msg, gGameConfig.getGameID());
 }
 void PlatformClient::on_connect_failed(boost::system::error_code error)
@@ -54,15 +55,34 @@ void PlatformClient::on_close(const boost::system::error_code& error)
 void PlatformClient::registerRegisterACK(google::protobuf::Message* p, pb_flag_type flag)
 {
 	IPlatformPayProto::MsgP2GRegisterRsp* msg = (IPlatformPayProto::MsgP2GRegisterRsp*)p;
-	Mylog::log_server(LOG_INFO, "Register platform server!");
+	if (msg->err_code() == IPlatformPayProto::IPAY_ERR_OK)
+	{
+		Mylog::log_server(LOG_INFO, "Register platform server success!");
+	}
+	else
+	{
+		Mylog::log_server(LOG_INFO, "Register platform server failed!");
+	}
+	
+	
+}
+
+void PlatformClient::parseKick(google::protobuf::Message* p, pb_flag_type flag)
+{
+	IPlatformPayProto::MsgP2GKickOffAck* msg = (IPlatformPayProto::MsgP2GKickOffAck*)p;
+	Mylog::log_server(LOG_ERROR, "platform server kick!");
+	m_isreconnect = false;
 }
 
 void PlatformClient::parseClinchADealNotify(google::protobuf::Message* p, pb_flag_type flag)
 {
 	IPlatformPayProto::MsgP2GOrderNotifyReq* msg = (IPlatformPayProto::MsgP2GOrderNotifyReq*)p;
-	
-	
 	account_type acc = msg->user_id();
+	IPlatformPayProto::MsgG2POrderNotifyRsp msgACK;
+	msgACK.set_order_id(msg->order_id());
+	msgACK.set_err_code((s32)IPlatformPayProto::IPAY_ERR_OK);
+	sendPBMessage(&msgACK, gGameConfig.getGameID());
+
 	if (acc != 0)
 	{
 		DreamHero* hero = gDreamHeroManager.GetHero(acc);
@@ -73,24 +93,8 @@ void PlatformClient::parseClinchADealNotify(google::protobuf::Message* p, pb_fla
 		else
 		{
 			gDreamHeroManager.OfflineHeroDealWaitToPay(msg->order_id(), acc, msg->product_id().c_str(), 0);
-		}
-	
+		}	
 	}
-	
 
 
-	bool find_user = false;
-	if (acc != 0)
-	{
-		DreamHero* hero = gDreamHeroManager.GetHero(acc);
-		//if (hero)
-		//{
-		//	hero->completeDealByOrder(order_id.c_str(), true, msg->success());
-		//	find_user = true;
-		//}
-	}
-	if (find_user == false)
-	{
-		//gDreamHeroManager.OfflineHeroDealWaitToPay()
-	}
 }
