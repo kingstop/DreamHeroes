@@ -126,6 +126,10 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 		switch (it_deal->second.type_)
 		{
 		case DealStatusType_WaitToPay:
+		{
+
+		}
+		break;
 		case DealStatusType_WaitPrepareToPay:
 		{
 			addDealPay(WaitToPay.key_code_.c_str(), WaitToPay.status_, WaitToPay.order_id_, message::Error_NO, false);
