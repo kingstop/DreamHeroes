@@ -1572,7 +1572,13 @@ void DreamHero::LoadFromConfig()
 	pair_entry_1->set_number_2(0);
 	_info.set_gold(gGameConfig.getGlobalConfig().config_gold_);
 	_info.set_complete_task_count(0);
-	
+	_info.set_daily_game_progress(0);
+	_info.set_daily_game_gold(0);
+	_info.set_daily_game_score(0);
+	_info.set_daily_game_hp_pct(100);
+	_info.set_daily_game_record_progress(0);
+	_info.set_daily_reset_game_count(0);
+	_info.set_daily_top_grogress(0);
 	_info.set_current_hero(0);
 	std::string name = _parent->generateName();
 	_info.set_name(name.c_str());
