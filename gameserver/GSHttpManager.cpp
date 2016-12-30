@@ -120,7 +120,7 @@ bool CreateDealHttpTask::excute()
 					std::string product_id = value["product_id"].asString();
 					_price = value["price"].asInt();
 					_order_id = value["order_id"].asInt();
-					if (bret_url_platform_call_back)
+					if (bret_url_platform_call_back == false)
 					{
 						_url_platform_call_back = value["notify_url"].asString();
 					}
