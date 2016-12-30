@@ -76,24 +76,35 @@ void PlatformClient::parseKick(google::protobuf::Message* p, pb_flag_type flag)
 
 void PlatformClient::parseClinchADealNotify(google::protobuf::Message* p, pb_flag_type flag)
 {
-	IPlatformPayProto::MsgP2GOrderNotifyReq* msg = (IPlatformPayProto::MsgP2GOrderNotifyReq*)p;
-	account_type acc = msg->user_id();
-	IPlatformPayProto::MsgG2POrderNotifyRsp msgACK;
-	msgACK.set_order_id(msg->order_id());
-	msgACK.set_err_code((s32)IPlatformPayProto::IPAY_ERR_OK);
-	sendPBMessage(&msgACK, gGameConfig.getGameID());
-
-	if (acc != 0)
+	try
 	{
-		DreamHero* hero = gDreamHeroManager.GetHero(acc);
-		if (hero)
+		if (p)
 		{
-			hero->addDealPay(msg->product_id(),0, msg->order_id(), message::Error_NO);
+			IPlatformPayProto::MsgP2GOrderNotifyReq* msg = (IPlatformPayProto::MsgP2GOrderNotifyReq*)p;
+			account_type acc = msg->user_id();
+			IPlatformPayProto::MsgG2POrderNotifyRsp msgACK;
+			msgACK.set_order_id(msg->order_id());
+			msgACK.set_err_code((s32)IPlatformPayProto::IPAY_ERR_OK);
+			sendPBMessage(&msgACK, gGameConfig.getGameID());
+
+			if (acc != 0)
+			{
+				DreamHero* hero = gDreamHeroManager.GetHero(acc);
+				if (hero)
+				{
+					hero->addDealPay(msg->product_id(), 0, msg->order_id(), message::Error_NO);
+				}
+				else
+				{
+					gDreamHeroManager.OfflineHeroDealWaitToPay(msg->order_id(), acc, msg->product_id().c_str(), 0);
+				}
+			}
+
 		}
-		else
-		{
-			gDreamHeroManager.OfflineHeroDealWaitToPay(msg->order_id(), acc, msg->product_id().c_str(), 0);
-		}	
+	}
+	catch (const std::exception& x)
+	{
+		Mylog::log_server(LOG_CRITICAL, "parse clinch dael crash[%s]!", x.what());
 	}
 
 
