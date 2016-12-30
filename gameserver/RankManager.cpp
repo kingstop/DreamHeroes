@@ -118,25 +118,53 @@ void RankManager::DailyGameUpdate()
 	std::string sql;
 	std::string game_time;
 	build_unix_time_to_string(_daily_game_begin_time, game_time);
-	for (int i = 0; it != _heroes_daily_rank.end(); ++ it)
+	std::string sql_delete = "DELETE * FROM table_name;";
+	message::MsgSaveDataGS2DB msg_db;
+	msg_db.set_sql(sql_delete.c_str());
+	gGSDBClient.sendPBMessage(&msg_db, 0);
+
+	std::string sql_head = "replace into hero_daily_game_rank(`account_id`, `name`, `score`, `rank`, `time`) values";
+	std::string sql_rank;
+	std::string rank_time;
+	int number = 0;
+	for (int i = 0; it != _heroes_daily_rank.end(); ++ it, number ++)
 	{
-		const DailyGameRankTg& entry = (*it);
-		int prize_gold = GetDailyGamePrize(entry.rank_);
-		DreamHero* hero = gDreamHeroManager.GetHero(entry.acc_);
-		if (hero)
+		if (number == 0)
 		{
-							
-			hero->DailyGamePrize(prize_gold);
+			sql_rank = "replace into hero_daily_game_rank(`account_id`, `name`, `score`, `rank`, `time`) values";
 		}
 		else
 		{
-			
+			sql_rank += ",";
+		}
+		const DailyGameRankTg& entry = (*it);
+		int prize_gold = GetDailyGamePrize(entry.rank_);
+		DreamHero* hero = gDreamHeroManager.GetHero(entry.acc_);
+		build_unix_time_to_string(entry.time_, rank_time);
+		sprintf(sz_temp, "(%llu, '%s', %d, %d, '%s')", entry.acc_, entry.name_.c_str(), 
+			entry.score_, entry.rank_, rank_time.c_str());
+		sql_rank += sz_temp;
+		if (number >= 20)
+		{
+			number = 0;
+			msg_db.set_sql(sql_rank.c_str());
+			gGSDBClient.sendPBMessage(&msg_db, 0);
+			sql_rank.clear();
+		}
+
+		if (hero)
+		{							
+			hero->DailyGamePrize(prize_gold);
+		}
+		else
+		{			
+			i++;
 			sprintf(sz_temp, "update `character` set `daily_game_gold`=%d, `daily_game_prize_time`='%s' where `account_id`=%llu;", prize_gold,
 				game_time.c_str(), entry.acc_);
 			sql += sz_temp;
 			if (i >= 20)
 			{
-				message::MsgSaveDataGS2DB msg_db;
+				//message::MsgSaveDataGS2DB msg_db;
 				msg_db.set_sql(sql.c_str());
 				gGSDBClient.sendPBMessage(&msg_db, 0);
 				sql.clear();
@@ -144,13 +172,18 @@ void RankManager::DailyGameUpdate()
 			}
 		}
 	}
-	if (sql.empty() == false)
+	if (sql_rank.empty() == false)
 	{
-		message::MsgSaveDataGS2DB msg_db;
+		msg_db.set_sql(sql_rank.c_str());
+		gGSDBClient.sendPBMessage(&msg_db, 0);
+		sql_rank.clear();
+	}
+	
+	if (sql.empty() == false)
+	{		
 		msg_db.set_sql(sql.c_str());
 		gGSDBClient.sendPBMessage(&msg_db, 0);
 		sql.clear();
-
 	}
 	DreamHeroManager::MAPHEROS* heroes = gDreamHeroManager.GetHeroes();
 	DreamHeroManager::MAPHEROS::iterator it_heroes = heroes->begin();
@@ -194,6 +227,16 @@ void RankManager::updateHeroDailyRank(account_type acc, const char* name, int sc
 		need_add = true;
 		need_rank = true;
 	}
+	std::list<DailyGameRankTg>::iterator it = _heroes_daily_rank.begin();
+	for (; it != _heroes_daily_rank.end(); ++ it)
+	{
+		DailyGameRankTg& entry = (*it);
+		if (entry.acc_ == acc)
+		{
+			need_add = false;
+			break;
+		}
+	}
 
 	if (need_add)
 	{
@@ -213,7 +256,7 @@ void RankManager::updateHeroDailyRank(account_type acc, const char* name, int sc
 	{
 		_heroes_rank.clear();
 		_heroes_daily_rank.sort(DailyRank());
-		std::list<DailyGameRankTg>::iterator it = _heroes_daily_rank.begin();
+		it = _heroes_daily_rank.begin();
 		for (int temp_rank = 1; it != _heroes_daily_rank.end(); ++ it, temp_rank++)
 		{
 			DailyGameRankTg& entry = (*it);
