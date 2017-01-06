@@ -2026,7 +2026,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 
 				for (; it_map != map_random_lottery.end(); ++it_map)
 				{
-					if (current_rating >= it_map->first)
+					if (it_map->first > current_rating)
 					{
 						break;
 					}
