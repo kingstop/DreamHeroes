@@ -292,8 +292,9 @@ void DreamHeroManager::dayRefresh()
 	{
 		it->second->dayRefresh();
 	}
-
-	
+	std::string day_refresh_time = "";
+	build_unix_time_to_string(g_server_time, day_refresh_time);
+	Mylog::log_server(LOG_INFO, "server day refresh [%s]", day_refresh_time.c_str());
 }
 
 DreamHeroManager::MAPHEROS* DreamHeroManager::GetHeroes()

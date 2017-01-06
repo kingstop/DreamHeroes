@@ -199,6 +199,11 @@ void RankManager::DailyGameUpdate()
 		hero->TryToGetGamePrize(true);
 	}
 	_daily_game_begin_time = g_server_time;
+
+	std::string day_refresh_time = "";
+	build_unix_time_to_string(g_server_time, day_refresh_time);
+	Mylog::log_server(LOG_INFO, "daily game day refresh [%s]", day_refresh_time.c_str());
+
 }
 
 u32 RankManager::getDailyRankMaxSize()
