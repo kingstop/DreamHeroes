@@ -557,6 +557,8 @@ void GameConfig::Load(DBQuery* p)
 			entry_config.set_use_count(row["use_count"]);
 			entry_config.set_resource_id(row["resource_id"]);
 			entry_config.set_describe(row["describe"].c_str());
+			entry_config.set_big_resource_id(row["big_resource_id"]);
+			entry_config.set_name(row["name"].c_str());
 			_map_lotion_shop_configs[entry_config.lotion_id()] = entry_config;
 		}
 
