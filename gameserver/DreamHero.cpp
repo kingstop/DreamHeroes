@@ -2020,6 +2020,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 			}
 			if (rating > 0)
 			{
+				
 				_last_day_lottery_time = g_server_time;
 				int current_rating = rand() % rating;
 				std::map<int, LotteryDrawBoxConfig>::iterator it_map = map_random_lottery.begin();
@@ -2033,6 +2034,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 					entry = it_map->second;
 				}
 
+				msgACK.set_type(entry.lottery_type_);
 				if (entry.lottery_type_ == message::Lottery_Lotion)
 				{
 					if (entry.sub_index_>=0 && entry.sub_index_ <= 3)
