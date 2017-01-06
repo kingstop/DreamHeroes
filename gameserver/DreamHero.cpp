@@ -1699,6 +1699,7 @@ void DreamHero::ReqReceiveDailyGamePrize()
 	{
 		int gold = _info.gold() + daily_game_gold;
 		_info.set_gold(gold);
+		_info.set_daily_game_gold(0);
 	}
 
 	msg.set_current_gold(_info.gold());
