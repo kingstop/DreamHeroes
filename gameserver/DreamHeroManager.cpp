@@ -190,8 +190,9 @@ void DreamHeroManager::eventPerHour()
 {
 	time_t server_time = g_server_time;
 	tm* p1 = localtime(&server_time);
-	int next_hour_second = p1->tm_min * 60 + p1->tm_sec;
-	gEventMgr.modifyEventTime(this, EVENT_PER_HOUR, next_hour_second);
+	int next_hour_second = (p1->tm_min * 60 + p1->tm_sec )* _TIME_SECOND_MSEL_;
+
+	gEventMgr.modifyEventTimeAndTimeLeft(this, EVENT_PER_HOUR, next_hour_second);
 	
 	if (p1->tm_hour == gGameConfig.getGlobalConfig().day_Refresh_time_)
 	{
