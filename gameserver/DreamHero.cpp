@@ -170,6 +170,12 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	//		completeDealByOrder(deal_it->first.c_str(), true,false);
 	//	}
 	//}
+		
+	if (gRankManager.getDailyGameBeginTime() != _daily_game_time)
+	{
+		_info.set_daily_game_progress(0);
+	}
+	
 	TryToGetGamePrize(false);
 
 }
@@ -1541,7 +1547,7 @@ void DreamHero::SendClientInit()
 	{
 		msg.add_daily_game_record_configs(globalConfig.daily_game_record_config_[i]);
 	}
-	
+
 	sendPBMessage(&msg);
 
 	
