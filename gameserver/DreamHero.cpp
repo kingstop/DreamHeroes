@@ -2351,6 +2351,13 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	msgACK.set_daily_game_progress(_info.daily_game_progress());
 	msgACK.set_daily_game_progress_record(_info.daily_game_record_progress());
 	msgACK.set_hp_pct(_info.daily_game_hp_pct());
+	std::string daily_game_time;
+	build_unix_time_to_string(_daily_game_time, daily_game_time);
+	std::string server_now_time;
+	build_unix_time_to_string(g_server_time, server_now_time);
+	Mylog::log_player(LOG_INFO, "daily game time[%s] now time[%s]", daily_game_time.c_str(), server_now_time.c_str());
+	msgACK.set_daily_game_time(_daily_game_time);
+	msgACK.set_server_time(g_server_time);
 	sendPBMessage(&msgACK);
 }
 

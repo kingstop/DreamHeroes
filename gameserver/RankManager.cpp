@@ -41,6 +41,12 @@ void RankManager::Init()
 	}
 }
 
+void RankManager::ClearRankList()
+{
+	_heroes_daily_rank.clear();
+	_heroes_rank.clear();
+}
+
 RankManager::HEROESDAILYRANK* RankManager::getHeroesRank()
 {
 	return &_heroes_daily_rank;

@@ -28,6 +28,7 @@ public:
 	u32 getDailyRankMaxSize();
 	void setDailyGameBeginTime(u32 begin_time);
 	HEROESDAILYRANK* getHeroesRank();
+	void ClearRankList();
 public:
 	HEROESDAILYRANK _heroes_daily_rank;
 	std::map<account_type, int> _heroes_rank;

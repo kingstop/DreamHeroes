@@ -67,6 +67,7 @@ public:
 	void parseCmdReqModifySpirit(google::protobuf::Message* p);
 	void parseCmdReqResetDailyLottery(google::protobuf::Message* p);
 	void parseCmdReqResetResetDailyGame(google::protobuf::Message* p);
+	void parseCmdReqClearDailyRankList(google::protobuf::Message* p);
 
 	int getState();
 

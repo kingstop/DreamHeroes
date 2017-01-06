@@ -106,6 +106,8 @@ message MsgS2CUpdateDailyGameProgressACK
 	required int32 hp_pct = 4;
 	required GameError error = 5 [default=Error_NO];	
 	required int32 daily_game_progress_record = 6;
+	required uint64 daily_game_time = 7;
+	required uint64 server_time = 8;
 }
 
 
@@ -520,6 +522,16 @@ message MsgS2CReliveACK
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
+
+message MsgC2SCmdClearDailyRankList
+{
+
+}
+message MsgS2CCmdClearDailyRankListACK
+{
+	required GameError error = 1 [default=Error_NO];
+}
+
 message MsgC2SCmdReqRemoveSpecialCreatureListHis
 {
 

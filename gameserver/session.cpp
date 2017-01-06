@@ -66,7 +66,9 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetDailyGame), &Session::parseCmdReqResetResetDailyGame);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqResetDailyGameProgress), &Session::parseReqResetDailyGameProgress);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqDailyGameRankList), &Session::parseReqDailyGameRankList);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdClearDailyRankList), &Session::parseCmdReqClearDailyRankList);
 
+	//parseCmdReqClearDailyRankList
 
 	//
 
@@ -194,6 +196,24 @@ void Session::parseCmdReqResetDailyLottery(google::protobuf::Message* p)
 	message::MsgS2CCmdResetDailyLotteryACK msg;
 	msg.set_error(error);
 	sendPBMessage(&msg);
+}
+
+void Session::parseCmdReqClearDailyRankList(google::protobuf::Message* p)
+{
+	message::MsgC2SCmdClearDailyRankList* msg = (message::MsgC2SCmdClearDailyRankList*)p;
+	message::GameError error = message::Error_NO;
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		gRankManager.ClearRankList();
+	}
+	else
+	{
+		error = message::Error_CmdFailedRequiredGMLevel;
+	}
+	message::MsgS2CCmdClearDailyRankListACK msgACK;
+	msgACK.set_error(error);
+	sendPBMessage(&msgACK);
+
 }
 void Session::parseCmdReqResetResetDailyGame(google::protobuf::Message* p)
 {

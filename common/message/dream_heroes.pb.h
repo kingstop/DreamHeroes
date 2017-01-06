@@ -96,6 +96,8 @@ class MsgC2SReqModifyNewTutorial;
 class MsgS2CModifyNewTutorialACK;
 class MsgC2SReliveReq;
 class MsgS2CReliveACK;
+class MsgC2SCmdClearDailyRankList;
+class MsgS2CCmdClearDailyRankListACK;
 class MsgC2SCmdReqRemoveSpecialCreatureListHis;
 class MsgC2SCmdReqSetSpecialCreatureHis;
 class MsgS2CCmdNotifySpecialCreatureHisModify;
@@ -856,6 +858,20 @@ class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_progress_record() const;
   void set_daily_game_progress_record(::google::protobuf::int32 value);
 
+  // required uint64 daily_game_time = 7;
+  bool has_daily_game_time() const;
+  void clear_daily_game_time();
+  static const int kDailyGameTimeFieldNumber = 7;
+  ::google::protobuf::uint64 daily_game_time() const;
+  void set_daily_game_time(::google::protobuf::uint64 value);
+
+  // required uint64 server_time = 8;
+  bool has_server_time() const;
+  void clear_server_time();
+  static const int kServerTimeFieldNumber = 8;
+  ::google::protobuf::uint64 server_time() const;
+  void set_server_time(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CUpdateDailyGameProgressACK)
  private:
   inline void set_has_daily_game_progress();
@@ -870,6 +886,10 @@ class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
   inline void clear_has_error();
   inline void set_has_daily_game_progress_record();
   inline void clear_has_daily_game_progress_record();
+  inline void set_has_daily_game_time();
+  inline void clear_has_daily_game_time();
+  inline void set_has_server_time();
+  inline void clear_has_server_time();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -883,6 +903,8 @@ class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 hp_pct_;
   int error_;
   ::google::protobuf::int32 daily_game_progress_record_;
+  ::google::protobuf::uint64 daily_game_time_;
+  ::google::protobuf::uint64 server_time_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -6789,6 +6811,174 @@ class MsgS2CReliveACK : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MsgC2SCmdClearDailyRankList : public ::google::protobuf::Message {
+ public:
+  MsgC2SCmdClearDailyRankList();
+  virtual ~MsgC2SCmdClearDailyRankList();
+
+  MsgC2SCmdClearDailyRankList(const MsgC2SCmdClearDailyRankList& from);
+
+  inline MsgC2SCmdClearDailyRankList& operator=(const MsgC2SCmdClearDailyRankList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SCmdClearDailyRankList& default_instance();
+
+  void Swap(MsgC2SCmdClearDailyRankList* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SCmdClearDailyRankList* New() const { return New(NULL); }
+
+  MsgC2SCmdClearDailyRankList* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SCmdClearDailyRankList& from);
+  void MergeFrom(const MsgC2SCmdClearDailyRankList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SCmdClearDailyRankList* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SCmdClearDailyRankList)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SCmdClearDailyRankList* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CCmdClearDailyRankListACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CCmdClearDailyRankListACK();
+  virtual ~MsgS2CCmdClearDailyRankListACK();
+
+  MsgS2CCmdClearDailyRankListACK(const MsgS2CCmdClearDailyRankListACK& from);
+
+  inline MsgS2CCmdClearDailyRankListACK& operator=(const MsgS2CCmdClearDailyRankListACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CCmdClearDailyRankListACK& default_instance();
+
+  void Swap(MsgS2CCmdClearDailyRankListACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CCmdClearDailyRankListACK* New() const { return New(NULL); }
+
+  MsgS2CCmdClearDailyRankListACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CCmdClearDailyRankListACK& from);
+  void MergeFrom(const MsgS2CCmdClearDailyRankListACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CCmdClearDailyRankListACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .message.GameError error = 1 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CCmdClearDailyRankListACK)
+ private:
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CCmdClearDailyRankListACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MsgC2SCmdReqRemoveSpecialCreatureListHis : public ::google::protobuf::Message {
  public:
   MsgC2SCmdReqRemoveSpecialCreatureListHis();
@@ -9686,6 +9876,54 @@ inline void MsgS2CUpdateDailyGameProgressACK::set_daily_game_progress_record(::g
   set_has_daily_game_progress_record();
   daily_game_progress_record_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.daily_game_progress_record)
+}
+
+// required uint64 daily_game_time = 7;
+inline bool MsgS2CUpdateDailyGameProgressACK::has_daily_game_time() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_has_daily_game_time() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_has_daily_game_time() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_daily_game_time() {
+  daily_game_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_daily_game_time();
+}
+inline ::google::protobuf::uint64 MsgS2CUpdateDailyGameProgressACK::daily_game_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CUpdateDailyGameProgressACK.daily_game_time)
+  return daily_game_time_;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_daily_game_time(::google::protobuf::uint64 value) {
+  set_has_daily_game_time();
+  daily_game_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.daily_game_time)
+}
+
+// required uint64 server_time = 8;
+inline bool MsgS2CUpdateDailyGameProgressACK::has_server_time() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_has_server_time() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_has_server_time() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_server_time() {
+  server_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_server_time();
+}
+inline ::google::protobuf::uint64 MsgS2CUpdateDailyGameProgressACK::server_time() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CUpdateDailyGameProgressACK.server_time)
+  return server_time_;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_server_time(::google::protobuf::uint64 value) {
+  set_has_server_time();
+  server_time_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.server_time)
 }
 
 // -------------------------------------------------------------------
@@ -14216,6 +14454,39 @@ inline void MsgS2CReliveACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CReliveACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SCmdClearDailyRankList
+
+// -------------------------------------------------------------------
+
+// MsgS2CCmdClearDailyRankListACK
+
+// required .message.GameError error = 1 [default = Error_NO];
+inline bool MsgS2CCmdClearDailyRankListACK::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CCmdClearDailyRankListACK::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CCmdClearDailyRankListACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CCmdClearDailyRankListACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CCmdClearDailyRankListACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdClearDailyRankListACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CCmdClearDailyRankListACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdClearDailyRankListACK.error)
 }
 
 // -------------------------------------------------------------------
