@@ -1948,10 +1948,17 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 resource_id() const;
   void set_resource_id(::google::protobuf::int32 value);
 
-  // required string describe = 5;
+  // required int32 big_resource_id = 5;
+  bool has_big_resource_id() const;
+  void clear_big_resource_id();
+  static const int kBigResourceIdFieldNumber = 5;
+  ::google::protobuf::int32 big_resource_id() const;
+  void set_big_resource_id(::google::protobuf::int32 value);
+
+  // required string describe = 6;
   bool has_describe() const;
   void clear_describe();
-  static const int kDescribeFieldNumber = 5;
+  static const int kDescribeFieldNumber = 6;
   const ::std::string& describe() const;
   void set_describe(const ::std::string& value);
   void set_describe(const char* value);
@@ -1959,6 +1966,18 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   ::std::string* mutable_describe();
   ::std::string* release_describe();
   void set_allocated_describe(::std::string* describe);
+
+  // required string name = 7;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 7;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
 
   // @@protoc_insertion_point(class_scope:message.MsgLotionShopConfigInfo)
  private:
@@ -1970,8 +1989,12 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_use_count();
   inline void set_has_resource_id();
   inline void clear_has_resource_id();
+  inline void set_has_big_resource_id();
+  inline void clear_has_big_resource_id();
   inline void set_has_describe();
   inline void clear_has_describe();
+  inline void set_has_name();
+  inline void clear_has_name();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1984,6 +2007,8 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 use_count_;
   ::google::protobuf::int32 resource_id_;
   ::google::protobuf::internal::ArenaStringPtr describe_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::int32 big_resource_id_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -10441,15 +10466,39 @@ inline void MsgLotionShopConfigInfo::set_resource_id(::google::protobuf::int32 v
   // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.resource_id)
 }
 
-// required string describe = 5;
-inline bool MsgLotionShopConfigInfo::has_describe() const {
+// required int32 big_resource_id = 5;
+inline bool MsgLotionShopConfigInfo::has_big_resource_id() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void MsgLotionShopConfigInfo::set_has_describe() {
+inline void MsgLotionShopConfigInfo::set_has_big_resource_id() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void MsgLotionShopConfigInfo::clear_has_describe() {
+inline void MsgLotionShopConfigInfo::clear_has_big_resource_id() {
   _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgLotionShopConfigInfo::clear_big_resource_id() {
+  big_resource_id_ = 0;
+  clear_has_big_resource_id();
+}
+inline ::google::protobuf::int32 MsgLotionShopConfigInfo::big_resource_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.big_resource_id)
+  return big_resource_id_;
+}
+inline void MsgLotionShopConfigInfo::set_big_resource_id(::google::protobuf::int32 value) {
+  set_has_big_resource_id();
+  big_resource_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.big_resource_id)
+}
+
+// required string describe = 6;
+inline bool MsgLotionShopConfigInfo::has_describe() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgLotionShopConfigInfo::set_has_describe() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgLotionShopConfigInfo::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void MsgLotionShopConfigInfo::clear_describe() {
   describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -10492,6 +10541,59 @@ inline void MsgLotionShopConfigInfo::set_allocated_describe(::std::string* descr
   }
   describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
   // @@protoc_insertion_point(field_set_allocated:message.MsgLotionShopConfigInfo.describe)
+}
+
+// required string name = 7;
+inline bool MsgLotionShopConfigInfo::has_name() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MsgLotionShopConfigInfo::set_has_name() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MsgLotionShopConfigInfo::clear_has_name() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MsgLotionShopConfigInfo::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& MsgLotionShopConfigInfo::name() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgLotionShopConfigInfo::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.name)
+}
+inline void MsgLotionShopConfigInfo::set_name(const char* value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgLotionShopConfigInfo.name)
+}
+inline void MsgLotionShopConfigInfo::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgLotionShopConfigInfo.name)
+}
+inline ::std::string* MsgLotionShopConfigInfo::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:message.MsgLotionShopConfigInfo.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgLotionShopConfigInfo::release_name() {
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgLotionShopConfigInfo::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgLotionShopConfigInfo.name)
 }
 
 // -------------------------------------------------------------------

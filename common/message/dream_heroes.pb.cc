@@ -548,12 +548,14 @@ void protobuf_AssignDesc_dream_5fheroes_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgSpiritShopInfo, _internal_metadata_),
       -1);
   MsgLotionShopConfigInfo_descriptor_ = file->message_type(16);
-  static const int MsgLotionShopConfigInfo_offsets_[5] = {
+  static const int MsgLotionShopConfigInfo_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, lotion_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, use_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, use_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, resource_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, big_resource_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, describe_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLotionShopConfigInfo, name_),
   };
   MsgLotionShopConfigInfo_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -2115,243 +2117,244 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "ConfigInfo\"m\n\021MsgSpiritShopInfo\022\r\n\005index"
     "\030\001 \002(\005\022\016\n\006spirit\030\002 \002(\005\022\022\n\nneed_jewel\030\003 \002"
     "(\005\022\023\n\013resource_id\030\004 \002(\005\022\020\n\010describe\030\005 \002("
-    "\t\"\244\001\n\027MsgLotionShopConfigInfo\022\021\n\tlotion_"
+    "\t\"\313\001\n\027MsgLotionShopConfigInfo\022\021\n\tlotion_"
     "id\030\001 \002(\005\022<\n\010use_type\030\002 \002(\0162\026.message.Lot"
     "ionUseType:\022LotionUseType_gold\022\021\n\tuse_co"
-    "unt\030\003 \002(\005\022\023\n\013resource_id\030\004 \002(\005\022\020\n\010descri"
-    "be\030\005 \002(\t\"\207\007\n\020MsgS2CHeroesInit\022\"\n\004info\030\001 "
-    "\002(\0132\024.message.MsgHeroData\0225\n\021task_config"
-    "_infos\030\002 \003(\0132\032.message.MsgTaskConfigInfo"
-    "\022\'\n\037free_advertisement_config_count\030\003 \002("
-    "\005\022#\n\033current_advertisement_count\030\004 \002(\005\022\037"
-    "\n\027last_advertisement_time\030\005 \002(\003\022\035\n\025adver"
-    "tisement_time_cd\030\006 \002(\005\022\020\n\010gm_level\030\007 \002(\005"
-    "\022.\n\021special_creatures\030\010 \003(\0132\023.message.Ms"
-    "gIntPair\022\023\n\013relive_gold\030\t \002(\005\022\031\n\021refresh"
-    "_task_gold\030\n \002(\005\022\022\n\nmax_spirit\030\013 \002(\005\022$\n\034"
-    "config_recover_spirit_minute\030\014 \002(\005\022\035\n\025co"
-    "nfig_recover_spirit\030\r \002(\005\022$\n\034config_ente"
-    "r_game_use_spirit\030\016 \002(\005\0224\n\020sprit_shop_in"
-    "fos\030\017 \003(\0132\032.message.MsgSpiritShopInfo\022\035\n"
-    "\025config_day_buy_spirit\030\020 \002(\005\022 \n\030last_rec"
-    "over_spirit_time\030\021 \002(\004\022\034\n\024last_buy_spiri"
-    "t_time\030\022 \002(\004\022\030\n\020day_refresh_time\030\023 \002(\005\022="
-    "\n\023lotion_shop_configs\030\024 \003(\0132 .message.Ms"
-    "gLotionShopConfigInfo\022\031\n\021last_lottery_ti"
-    "me\030\025 \002(\004\022\023\n\013server_time\030\026 \002(\004\022\027\n\017daily_g"
-    "ame_time\030\027 \002(\004\022\033\n\023reset_jewel_configs\030\030 "
-    "\003(\005\022!\n\031daily_game_record_configs\030\031 \003(\005\022\""
-    "\n\032last_reset_daily_game_time\030\032 \002(\004\"\025\n\023Ms"
-    "gC2SReqDayLottery\"\365\001\n\023MsgS2CDayLotteryAC"
-    "K\022+\n\005error\030\001 \002(\0162\022.message.GameError:\010Er"
-    "ror_NO\0222\n\004type\030\002 \002(\0162\025.message.enLottery"
-    "Box:\rLottery_Jewel\022\r\n\005index\030\003 \002(\005\022\r\n\005cou"
-    "nt\030\004 \002(\005\022\025\n\rcurrent_jewel\030\005 \002(\005\022\024\n\014curre"
-    "nt_gold\030\006 \002(\005\022\027\n\017current_lotions\030\007 \003(\005\022\031"
-    "\n\021last_lottery_time\030\010 \002(\r\"\'\n\022MsgC2SReqBu"
-    "yLotion\022\021\n\tlotion_id\030\001 \002(\005\"\201\001\n\022MsgS2CBuy"
-    "LotionACK\022\021\n\tlotion_id\030\001 \002(\005\022\024\n\014current_"
-    "gold\030\002 \002(\005\022\025\n\rcurrent_jewel\030\003 \002(\005\022+\n\005err"
-    "or\030\004 \002(\0162\022.message.GameError:\010Error_NO\"#"
-    "\n\022MsgC2SReqBuySpirit\022\r\n\005index\030\001 \002(\005\"o\n\022M"
-    "sgS2CBuySpiritACK\022\r\n\005index\030\001 \002(\005\022\r\n\005jewe"
-    "l\030\002 \002(\005\022\016\n\006spirit\030\003 \002(\005\022+\n\005error\030\004 \002(\0162\022"
-    ".message.GameError:\010Error_NO\"A\n\024MsgDaily"
-    "GameHeroInfo\022\014\n\004name\030\001 \002(\t\022\r\n\005score\030\002 \002("
-    "\005\022\014\n\004rank\030\003 \002(\005\"\034\n\032MsgC2SReqDailyGameRan"
-    "kList\"J\n\032MsgS2CDailyGameRankListACK\022,\n\005i"
-    "nfos\030\001 \003(\0132\035.message.MsgDailyGameHeroInf"
-    "o\"<\n\022MsgC2SReqEnterGame\022\022\n\nchapter_id\030\001 "
-    "\002(\005\022\022\n\nsection_id\030\002 \002(\005\"\330\001\n\022MsgS2CEnterG"
-    "ameACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id"
-    "\030\002 \002(\005\0223\n\020drop_box_configs\030\003 \003(\0132\031.messa"
-    "ge.MsgDropBoxConfig\022(\n\tkill_list\030\004 \003(\0132\025"
-    ".message.MsgObjConfig\022+\n\005error\030\005 \002(\0162\022.m"
-    "essage.GameError:\010Error_NO\022\016\n\006spirit\030\006 \002"
-    "(\005\"C\n\016MsgKillHistroy\022\"\n\003obj\030\001 \002(\0132\025.mess"
-    "age.MsgObjConfig\022\r\n\005count\030\002 \002(\005\"\277\002\n\021MsgC"
-    "2SReqExitGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsec"
-    "tion_id\030\002 \002(\005\022(\n\ntask_infos\030\003 \003(\0132\024.mess"
-    "age.MsgTaskInfo\022\014\n\004gold\030\004 \002(\005\022\017\n\007success"
-    "\030\005 \002(\010\022\026\n\016complete_tasks\030\006 \003(\005\0220\n\021specia"
-    "l_kill_list\030\007 \003(\0132\025.message.MsgObjConfig"
-    "\022*\n\tkill_list\030\010 \003(\0132\027.message.MsgKillHis"
-    "troy\022.\n\021special_creatures\030\t \003(\0132\023.messag"
-    "e.MsgIntPair\022\023\n\013use_lotions\030\n \003(\005\"\307\002\n\021Ms"
-    "gS2CExitGameACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\ns"
-    "ection_id\030\002 \002(\005\022(\n\ntask_infos\030\003 \003(\0132\024.me"
-    "ssage.MsgTaskInfo\022\024\n\014current_gold\030\004 \002(\005\022"
-    "&\n\ttask_gift\030\005 \003(\0132\023.message.MsgIntPair\022"
-    "\017\n\007success\030\006 \002(\010\022\033\n\023complete_task_count\030"
-    "\007 \002(\005\022+\n\005error\030\010 \002(\0162\022.message.GameError"
-    ":\010Error_NO\022.\n\021special_creatures\030\t \003(\0132\023."
-    "message.MsgIntPair\022\027\n\017current_lotions\030\n "
-    "\003(\005\",\n\026MsgC2SReqUnlockChapter\022\022\n\nchapter"
-    "_id\030\001 \002(\005\"/\n\037MsgC2SReqAdvertisementApply"
-    "Task\022\014\n\004gold\030\001 \002(\010\"\217\001\n\037MsgS2CAdvertiseme"
-    "ntApplyTaskACK\022+\n\005error\030\001 \002(\0162\022.message."
-    "GameError:\010Error_NO\022)\n\005infos\030\002 \003(\0132\032.mes"
-    "sage.MsgTaskConfigInfo\022\024\n\014current_gold\030\003"
-    " \002(\005\"J\n!MsgC2SReqAdvertisementRefreshTas"
-    "k\022\027\n\017give_up_task_id\030\001 \002(\005\022\014\n\004gold\030\002 \002(\010"
-    "\"\252\001\n!MsgS2CAdvertisementRefreshTaskACK\022\027"
-    "\n\017give_up_task_id\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022"
-    ".message.GameError:\010Error_NO\022)\n\005infos\030\003 "
-    "\003(\0132\032.message.MsgTaskConfigInfo\022\024\n\014curre"
-    "nt_gold\030\004 \002(\005\"2\n\032MsgC2SReqModifyCurrentH"
-    "ero\022\024\n\014current_grid\030\001 \002(\005\"_\n\032MsgS2CModif"
-    "yCurrentHeroACK\022\024\n\014current_grid\030\001 \002(\005\022+\n"
-    "\005error\030\002 \002(\0162\022.message.GameError:\010Error_"
-    "NO\"o\n\026MsgS2CUnlockChapterACK\022\022\n\nchapter_"
-    "id\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005\022+\n\005error\030"
-    "\003 \002(\0162\022.message.GameError:\010Error_NO\".\n\020M"
-    "sgC2SReqBuyHero\022\014\n\004grid\030\001 \002(\005\022\014\n\004gold\030\002 "
-    "\002(\005\"c\n\020MsgS2CBuyHeroACK\022\014\n\004grid\030\001 \002(\005\022\024\n"
-    "\014current_gold\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.mes"
-    "sage.GameError:\010Error_NO\"\032\n\030MsgC2SReqGol"
-    "dShopConfigs\"I\n\030MsgS2CGoldShopConfigsACK"
-    "\022-\n\005infos\030\001 \003(\0132\036.message.MsgGoldShopCon"
-    "figInfo\"9\n\024MsgC2SReqCrearteDeal\022\020\n\010key_c"
-    "ode\030\001 \002(\t\022\017\n\007channel\030\002 \002(\005\"\234\001\n\024MsgS2CCre"
-    "arteDealACK\022\020\n\010key_code\030\001 \002(\t\022\016\n\006status\030"
-    "\002 \002(\005\022\r\n\005price\030\003 \002(\005\022\020\n\010order_id\030\004 \002(\005\022+"
-    "\n\005error\030\005 \002(\0162\022.message.GameError:\010Error"
-    "_NO\022\024\n\014platform_url\030\006 \002(\t\"8\n\023MsgC2SReqVe"
-    "rifyDeal\022\017\n\007receipt\030\001 \002(\t\022\020\n\010order_id\030\002 "
-    "\002(\005\"\216\001\n\023MsgS2CVerifyDealACK\022\022\n\nproduct_i"
-    "d\030\001 \002(\t\022\016\n\006status\030\002 \002(\005\022\020\n\010order_id\030\003 \002("
-    "\005\022\024\n\014current_gold\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022"
-    ".message.GameError:\010Error_NO\"1\n\022MsgC2SRe"
-    "qApplyDeal\022\n\n\002id\030\001 \002(\005\022\017\n\007channel\030\002 \002(\005\""
-    "\205\001\n\022MsgS2CApplyDealACK\022\n\n\002id\030\001 \002(\005\022\022\n\npr"
-    "oduct_id\030\002 \002(\t\022\020\n\010order_id\030\003 \002(\t\022+\n\005erro"
-    "r\030\004 \002(\0162\022.message.GameError:\010Error_NO\022\020\n"
-    "\010external\030\005 \002(\t\"~\n\030MsgS2CNotifyDealCompl"
-    "ete\022\020\n\010order_id\030\001 \002(\t\022\022\n\nproduct_id\030\002 \002("
-    "\t\022\025\n\rcurrent_jewel\030\003 \002(\005\022\024\n\014current_gold"
-    "\030\004 \002(\005\022\017\n\007success\030\005 \002(\010\"4\n\020MsgS2CPingNot"
-    "ify\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"3\n"
-    "\031MsgS2CRecoverSpiritNotify\022\026\n\016current_sp"
-    "irit\030\001 \002(\005\"4\n\020MsgC2SPingNotify\022\022\n\nping_c"
-    "ount\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"*\n\032MsgC2SReqMod"
-    "ifyNewTutorial\022\014\n\004flag\030\001 \002(\005\"*\n\032MsgS2CMo"
-    "difyNewTutorialACK\022\014\n\004flag\030\001 \002(\005\"\021\n\017MsgC"
-    "2SReliveReq\"T\n\017MsgS2CReliveACK\022\024\n\014curren"
-    "t_gold\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.Ga"
-    "meError:\010Error_NO\"\035\n\033MsgC2SCmdClearDaily"
-    "RankList\"M\n\036MsgS2CCmdClearDailyRankListA"
-    "CK\022+\n\005error\030\001 \002(\0162\022.message.GameError:\010E"
-    "rror_NO\"*\n(MsgC2SCmdReqRemoveSpecialCrea"
-    "tureListHis\"H\n!MsgC2SCmdReqSetSpecialCre"
-    "atureHis\022\023\n\013creature_id\030\001 \002(\005\022\016\n\006status\030"
-    "\002 \002(\005\"Y\n\'MsgS2CCmdNotifySpecialCreatureH"
-    "isModify\022.\n\021special_creatures\030\001 \003(\0132\023.me"
-    "ssage.MsgIntPair\"B\n#MsgC2SCmdReqModifyTa"
-    "skCompleteCount\022\033\n\023task_complete_count\030\001"
-    " \002(\005\"A\n#MsgS2CCmdModifyTaskCompleteCount"
-    "ACK\022\032\n\022current_task_count\030\001 \002(\005\"\031\n\027MsgC2"
-    "SCmdReqShowGMLevel\"X\n\027MsgS2CCmdShowGMLev"
-    "elACK\022\020\n\010gm_level\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022"
-    ".message.GameError:\010Error_NO\"8\n\031MsgC2SCm"
-    "dReqModifyGMLevel\022\014\n\004name\030\001 \002(\t\022\r\n\005level"
-    "\030\002 \002(\005\"e\n\031MsgS2CCmdModifyGMLevelACK\022\014\n\004n"
-    "ame\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\022+\n\005error\030\003 \002(\0162"
-    "\022.message.GameError:\010Error_NO\"\?\n\025MsgC2SC"
-    "mdReqEnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nse"
-    "ction_id\030\002 \002(\005\">\n\024MsgC2SCmdReqResetMap\022\022"
-    "\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"k"
-    "\n\024MsgS2CCmdResetMapACK\022\022\n\nchapter_id\030\001 \002"
-    "(\005\022\022\n\nsection_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022."
-    "message.GameError:\010Error_NO\"\027\n\025MsgC2SCmd"
-    "ReqResetGame\"\256\001\n\025MsgS2CCmdResetGameACK\022\""
-    "\n\004info\030\001 \002(\0132\024.message.MsgHeroData\022#\n\033cu"
-    "rrent_advertisement_count\030\002 \002(\005\022\037\n\027last_"
-    "advertisement_time\030\003 \002(\003\022+\n\005error\030\004 \002(\0162"
-    "\022.message.GameError:\010Error_NO\"&\n\026MsgC2SC"
-    "mdReqModifyGold\022\014\n\004gold\030\001 \002(\005\"&\n\026MsgS2CC"
-    "mdModifyGoldACK\022\014\n\004gold\030\001 \002(\005\"-\n\027MsgS2CC"
-    "mdReqReplaceTask\022\022\n\ntask_count\030\001 \002(\005\"q\n\027"
-    "MsgS2CCmdReplaceTaskACK\022+\n\005error\030\001 \002(\0162\022"
-    ".message.GameError:\010Error_NO\022)\n\005infos\030\002 "
-    "\003(\0132\032.message.MsgTaskConfigInfo\"(\n\027MsgC2"
-    "SCmdReqModifyJewel\022\r\n\005jewel\030\001 \002(\005\"]\n\027Msg"
-    "S2CCmdModifyJewelACK\022\025\n\rcurrent_jewel\030\001 "
-    "\002(\005\022+\n\005error\030\002 \002(\0162\022.message.GameError:\010"
-    "Error_NO\"*\n\030MsgC2SCmdReqModifySpirit\022\016\n\006"
-    "spirit\030\001 \002(\005\"_\n\030MsgS2CCmdModifySpiritACK"
-    "\022\026\n\016current_spirit\030\001 \002(\005\022+\n\005error\030\002 \002(\0162"
-    "\022.message.GameError:\010Error_NO\"\037\n\035MsgC2SC"
-    "mdReqResetDailyLottery\"L\n\035MsgS2CCmdReset"
-    "DailyLotteryACK\022+\n\005error\030\001 \002(\0162\022.message"
-    ".GameError:\010Error_NO\"\034\n\032MsgC2SCmdReqRese"
-    "tDailyGame\"I\n\032MsgS2CCmdResetDailyGameACK"
+    "unt\030\003 \002(\005\022\023\n\013resource_id\030\004 \002(\005\022\027\n\017big_re"
+    "source_id\030\005 \002(\005\022\020\n\010describe\030\006 \002(\t\022\014\n\004nam"
+    "e\030\007 \002(\t\"\207\007\n\020MsgS2CHeroesInit\022\"\n\004info\030\001 \002"
+    "(\0132\024.message.MsgHeroData\0225\n\021task_config_"
+    "infos\030\002 \003(\0132\032.message.MsgTaskConfigInfo\022"
+    "\'\n\037free_advertisement_config_count\030\003 \002(\005"
+    "\022#\n\033current_advertisement_count\030\004 \002(\005\022\037\n"
+    "\027last_advertisement_time\030\005 \002(\003\022\035\n\025advert"
+    "isement_time_cd\030\006 \002(\005\022\020\n\010gm_level\030\007 \002(\005\022"
+    ".\n\021special_creatures\030\010 \003(\0132\023.message.Msg"
+    "IntPair\022\023\n\013relive_gold\030\t \002(\005\022\031\n\021refresh_"
+    "task_gold\030\n \002(\005\022\022\n\nmax_spirit\030\013 \002(\005\022$\n\034c"
+    "onfig_recover_spirit_minute\030\014 \002(\005\022\035\n\025con"
+    "fig_recover_spirit\030\r \002(\005\022$\n\034config_enter"
+    "_game_use_spirit\030\016 \002(\005\0224\n\020sprit_shop_inf"
+    "os\030\017 \003(\0132\032.message.MsgSpiritShopInfo\022\035\n\025"
+    "config_day_buy_spirit\030\020 \002(\005\022 \n\030last_reco"
+    "ver_spirit_time\030\021 \002(\004\022\034\n\024last_buy_spirit"
+    "_time\030\022 \002(\004\022\030\n\020day_refresh_time\030\023 \002(\005\022=\n"
+    "\023lotion_shop_configs\030\024 \003(\0132 .message.Msg"
+    "LotionShopConfigInfo\022\031\n\021last_lottery_tim"
+    "e\030\025 \002(\004\022\023\n\013server_time\030\026 \002(\004\022\027\n\017daily_ga"
+    "me_time\030\027 \002(\004\022\033\n\023reset_jewel_configs\030\030 \003"
+    "(\005\022!\n\031daily_game_record_configs\030\031 \003(\005\022\"\n"
+    "\032last_reset_daily_game_time\030\032 \002(\004\"\025\n\023Msg"
+    "C2SReqDayLottery\"\365\001\n\023MsgS2CDayLotteryACK"
     "\022+\n\005error\030\001 \002(\0162\022.message.GameError:\010Err"
-    "or_NO*\251\023\n\tGameError\022\014\n\010Error_NO\020\000\022*\n&Err"
-    "or_CanNotEnterGameTheInstanceIsLock\020\001\022+\n"
-    "\'Error_CanNotEnterGameTheCharacterIsLock"
-    "\020\002\022)\n%Error_CanNotEnterGameTheSectionIsL"
-    "ock\020\003\022(\n$Error_CanNotEnterGameNotEnoughS"
-    "pirit\020\004\022$\n Error_CanNotBuyHeroNotEnoughg"
-    "old\020\005\0224\n0Error_CanNotPassGameTheInstance"
-    "NotHaveEnoughGold\020\006\022\035\n\031Error_NotEnterThe"
-    "ExitGame\020\007\022)\n%Error_NotFoundTheChapterWh"
-    "enEnterGame\020\010\022\035\n\031Error_TheChapterIsNotLo"
-    "ck\020\t\0225\n1Error_UnlockChapterFailedNotFoun"
-    "dTheUnlockChapter\020\n\0226\n2Error_UnlockChapt"
-    "erFailedTheRequiredSectionNotPass\020\013\0229\n5E"
-    "rror_UnlockChapterFailedYouHaveToComplet"
-    "eEnoughTasks\020\014\0221\n-Error_UnlockChapterFai"
-    "ledYouNotHaveEnoughGold\020\r\022,\n(Error_Refre"
-    "shAdvertisementTaskFailedInCD\020\016\022<\n8Error"
-    "_RefreshAdvertisementTaskFailedNotFoundG"
-    "iveUpTaskID\020\017\022.\n*Error_RefreshAdvertisem"
-    "entTaskFailedUnknow\020\020\0225\n1Error_RefreshAd"
-    "vertisementTaskFailedNotEnoughGold\020\021\022$\n "
-    "Error_BuyHeroFailedNotEnoughGold\020\022\022$\n Er"
-    "ror_BuyHeroFailedThePriceIsOld\020\023\022#\n\037Erro"
-    "r_BuyHeroFailedNotFoundGrid\020\024\022-\n)Error_B"
-    "uyHeroFailedNotPassRequiredSection\020\025\022/\n+"
-    "Error_ModifyCurrentFailedTheCharacterIsL"
-    "ock\020\026\022%\n!Error_BuyGoldFailedNotFoundConf"
-    "ig\020\027\022$\n Error_BuyGoldFailedNotFoundOrder"
-    "\020\030\0220\n,Error_BuyGoldFailedTheOrderHaveBee"
-    "nCompleted\020\031\022-\n)Error_CreateDealFailedTh"
-    "eHttpErrorRespone\020\032\022.\n*Error_CreateDealF"
-    "ailedTheHttpResponeFailed\020\033\0227\n3Error_Cre"
-    "ateDealDailedTheHttpResponeErrorProduct_"
-    "id\020\034\022-\n)Error_VerifyDealFailedTheHttpErr"
-    "orRespone\020\035\022.\n*Error_VerifyDealFailedThe"
-    "HttpResponeFailed\020\036\022\'\n#Error_BuySpiritFa"
-    "iledNotEnoughJewel\020\037\022,\n(Error_BuySpiritF"
-    "ailedCanNotBuyMoreSpirit\020 \022\'\n#Error_BuyS"
-    "piritFailedNotFoundConfig\020!\022\"\n\036Error_Cmd"
-    "FailedRequiredGMLevel\020\"\022\"\n\036Error_ReliveF"
-    "ailedNotEnoughGod\020#\022(\n$Error_FailedToBuy"
-    "LotionNotEnoughGold\020$\022)\n%Error_FailedToB"
-    "uyLotionNotEnoughJewel\020%\022,\n(Error_Failed"
-    "ToBuyLotionAlreadyHaveLotion\020&\022\'\n#Error_"
-    "FailedToBuyNotFoundThisLotion\020\'\022,\n(Error"
-    "_FailedExitGameNotFoundTheUseLotion\020(\022/\n"
-    "+Error_FailedToLotteryTodayHaveBeenLotte"
-    "ried\020)\022.\n*Error_FailedToLotteryNothingCa"
-    "nBeLotteried\020*\022$\n Error_FailedToLotteryE"
-    "rrorRating\020+\022*\n&Error_FailedToLotteryErr"
-    "orLotionConfig\020,\022/\n+Error_FailedToApplyD"
-    "ealOrderNotFooundConfig\020-\022;\n7Error_Faile"
-    "dToEnterDailyGameYouHaveBeenAlreadyBegin"
-    "Game\020.\0222\n.Error_FailedToUpdateDailyProgr"
-    "essErrorProgress\020/\0224\n0Error_FailedToUpda"
-    "teDailyProgressTheGameNotBegin\0200\022)\n%Erro"
-    "r_FailedToUpdateDailyProgressNoHp\0201\022/\n+E"
-    "rror_FailedToReceivedDailyGamePrizeNOPri"
-    "ze\0202\022.\n*Error_FailedToResetDailyGameNotE"
-    "noughJewel\0203\022&\n\"Error_FailedToResetDaily"
-    "GameUseOut\0204\0221\n-Error_FailedToResetDaily"
-    "GameTheProgressIsZero\0205\022\020\n\014Error_Unknow\020"
-    "6*@\n\rLotionUseType\022\026\n\022LotionUseType_gold"
-    "\020\001\022\027\n\023LotionUseType_jewel\020\002*G\n\014enLottery"
-    "Box\022\021\n\rLottery_Jewel\020\000\022\020\n\014Lottery_Gold\020\001"
-    "\022\022\n\016Lottery_Lotion\020\002", 10860);
+    "or_NO\0222\n\004type\030\002 \002(\0162\025.message.enLotteryB"
+    "ox:\rLottery_Jewel\022\r\n\005index\030\003 \002(\005\022\r\n\005coun"
+    "t\030\004 \002(\005\022\025\n\rcurrent_jewel\030\005 \002(\005\022\024\n\014curren"
+    "t_gold\030\006 \002(\005\022\027\n\017current_lotions\030\007 \003(\005\022\031\n"
+    "\021last_lottery_time\030\010 \002(\r\"\'\n\022MsgC2SReqBuy"
+    "Lotion\022\021\n\tlotion_id\030\001 \002(\005\"\201\001\n\022MsgS2CBuyL"
+    "otionACK\022\021\n\tlotion_id\030\001 \002(\005\022\024\n\014current_g"
+    "old\030\002 \002(\005\022\025\n\rcurrent_jewel\030\003 \002(\005\022+\n\005erro"
+    "r\030\004 \002(\0162\022.message.GameError:\010Error_NO\"#\n"
+    "\022MsgC2SReqBuySpirit\022\r\n\005index\030\001 \002(\005\"o\n\022Ms"
+    "gS2CBuySpiritACK\022\r\n\005index\030\001 \002(\005\022\r\n\005jewel"
+    "\030\002 \002(\005\022\016\n\006spirit\030\003 \002(\005\022+\n\005error\030\004 \002(\0162\022."
+    "message.GameError:\010Error_NO\"A\n\024MsgDailyG"
+    "ameHeroInfo\022\014\n\004name\030\001 \002(\t\022\r\n\005score\030\002 \002(\005"
+    "\022\014\n\004rank\030\003 \002(\005\"\034\n\032MsgC2SReqDailyGameRank"
+    "List\"J\n\032MsgS2CDailyGameRankListACK\022,\n\005in"
+    "fos\030\001 \003(\0132\035.message.MsgDailyGameHeroInfo"
+    "\"<\n\022MsgC2SReqEnterGame\022\022\n\nchapter_id\030\001 \002"
+    "(\005\022\022\n\nsection_id\030\002 \002(\005\"\330\001\n\022MsgS2CEnterGa"
+    "meACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030"
+    "\002 \002(\005\0223\n\020drop_box_configs\030\003 \003(\0132\031.messag"
+    "e.MsgDropBoxConfig\022(\n\tkill_list\030\004 \003(\0132\025."
+    "message.MsgObjConfig\022+\n\005error\030\005 \002(\0162\022.me"
+    "ssage.GameError:\010Error_NO\022\016\n\006spirit\030\006 \002("
+    "\005\"C\n\016MsgKillHistroy\022\"\n\003obj\030\001 \002(\0132\025.messa"
+    "ge.MsgObjConfig\022\r\n\005count\030\002 \002(\005\"\277\002\n\021MsgC2"
+    "SReqExitGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsect"
+    "ion_id\030\002 \002(\005\022(\n\ntask_infos\030\003 \003(\0132\024.messa"
+    "ge.MsgTaskInfo\022\014\n\004gold\030\004 \002(\005\022\017\n\007success\030"
+    "\005 \002(\010\022\026\n\016complete_tasks\030\006 \003(\005\0220\n\021special"
+    "_kill_list\030\007 \003(\0132\025.message.MsgObjConfig\022"
+    "*\n\tkill_list\030\010 \003(\0132\027.message.MsgKillHist"
+    "roy\022.\n\021special_creatures\030\t \003(\0132\023.message"
+    ".MsgIntPair\022\023\n\013use_lotions\030\n \003(\005\"\307\002\n\021Msg"
+    "S2CExitGameACK\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nse"
+    "ction_id\030\002 \002(\005\022(\n\ntask_infos\030\003 \003(\0132\024.mes"
+    "sage.MsgTaskInfo\022\024\n\014current_gold\030\004 \002(\005\022&"
+    "\n\ttask_gift\030\005 \003(\0132\023.message.MsgIntPair\022\017"
+    "\n\007success\030\006 \002(\010\022\033\n\023complete_task_count\030\007"
+    " \002(\005\022+\n\005error\030\010 \002(\0162\022.message.GameError:"
+    "\010Error_NO\022.\n\021special_creatures\030\t \003(\0132\023.m"
+    "essage.MsgIntPair\022\027\n\017current_lotions\030\n \003"
+    "(\005\",\n\026MsgC2SReqUnlockChapter\022\022\n\nchapter_"
+    "id\030\001 \002(\005\"/\n\037MsgC2SReqAdvertisementApplyT"
+    "ask\022\014\n\004gold\030\001 \002(\010\"\217\001\n\037MsgS2CAdvertisemen"
+    "tApplyTaskACK\022+\n\005error\030\001 \002(\0162\022.message.G"
+    "ameError:\010Error_NO\022)\n\005infos\030\002 \003(\0132\032.mess"
+    "age.MsgTaskConfigInfo\022\024\n\014current_gold\030\003 "
+    "\002(\005\"J\n!MsgC2SReqAdvertisementRefreshTask"
+    "\022\027\n\017give_up_task_id\030\001 \002(\005\022\014\n\004gold\030\002 \002(\010\""
+    "\252\001\n!MsgS2CAdvertisementRefreshTaskACK\022\027\n"
+    "\017give_up_task_id\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022."
+    "message.GameError:\010Error_NO\022)\n\005infos\030\003 \003"
+    "(\0132\032.message.MsgTaskConfigInfo\022\024\n\014curren"
+    "t_gold\030\004 \002(\005\"2\n\032MsgC2SReqModifyCurrentHe"
+    "ro\022\024\n\014current_grid\030\001 \002(\005\"_\n\032MsgS2CModify"
+    "CurrentHeroACK\022\024\n\014current_grid\030\001 \002(\005\022+\n\005"
+    "error\030\002 \002(\0162\022.message.GameError:\010Error_N"
+    "O\"o\n\026MsgS2CUnlockChapterACK\022\022\n\nchapter_i"
+    "d\030\001 \002(\005\022\024\n\014current_gold\030\002 \002(\005\022+\n\005error\030\003"
+    " \002(\0162\022.message.GameError:\010Error_NO\".\n\020Ms"
+    "gC2SReqBuyHero\022\014\n\004grid\030\001 \002(\005\022\014\n\004gold\030\002 \002"
+    "(\005\"c\n\020MsgS2CBuyHeroACK\022\014\n\004grid\030\001 \002(\005\022\024\n\014"
+    "current_gold\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.mess"
+    "age.GameError:\010Error_NO\"\032\n\030MsgC2SReqGold"
+    "ShopConfigs\"I\n\030MsgS2CGoldShopConfigsACK\022"
+    "-\n\005infos\030\001 \003(\0132\036.message.MsgGoldShopConf"
+    "igInfo\"9\n\024MsgC2SReqCrearteDeal\022\020\n\010key_co"
+    "de\030\001 \002(\t\022\017\n\007channel\030\002 \002(\005\"\234\001\n\024MsgS2CCrea"
+    "rteDealACK\022\020\n\010key_code\030\001 \002(\t\022\016\n\006status\030\002"
+    " \002(\005\022\r\n\005price\030\003 \002(\005\022\020\n\010order_id\030\004 \002(\005\022+\n"
+    "\005error\030\005 \002(\0162\022.message.GameError:\010Error_"
+    "NO\022\024\n\014platform_url\030\006 \002(\t\"8\n\023MsgC2SReqVer"
+    "ifyDeal\022\017\n\007receipt\030\001 \002(\t\022\020\n\010order_id\030\002 \002"
+    "(\005\"\216\001\n\023MsgS2CVerifyDealACK\022\022\n\nproduct_id"
+    "\030\001 \002(\t\022\016\n\006status\030\002 \002(\005\022\020\n\010order_id\030\003 \002(\005"
+    "\022\024\n\014current_gold\030\004 \002(\005\022+\n\005error\030\005 \002(\0162\022."
+    "message.GameError:\010Error_NO\"1\n\022MsgC2SReq"
+    "ApplyDeal\022\n\n\002id\030\001 \002(\005\022\017\n\007channel\030\002 \002(\005\"\205"
+    "\001\n\022MsgS2CApplyDealACK\022\n\n\002id\030\001 \002(\005\022\022\n\npro"
+    "duct_id\030\002 \002(\t\022\020\n\010order_id\030\003 \002(\t\022+\n\005error"
+    "\030\004 \002(\0162\022.message.GameError:\010Error_NO\022\020\n\010"
+    "external\030\005 \002(\t\"~\n\030MsgS2CNotifyDealComple"
+    "te\022\020\n\010order_id\030\001 \002(\t\022\022\n\nproduct_id\030\002 \002(\t"
+    "\022\025\n\rcurrent_jewel\030\003 \002(\005\022\024\n\014current_gold\030"
+    "\004 \002(\005\022\017\n\007success\030\005 \002(\010\"4\n\020MsgS2CPingNoti"
+    "fy\022\022\n\nping_count\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"3\n\031"
+    "MsgS2CRecoverSpiritNotify\022\026\n\016current_spi"
+    "rit\030\001 \002(\005\"4\n\020MsgC2SPingNotify\022\022\n\nping_co"
+    "unt\030\001 \002(\005\022\014\n\004time\030\002 \002(\004\"*\n\032MsgC2SReqModi"
+    "fyNewTutorial\022\014\n\004flag\030\001 \002(\005\"*\n\032MsgS2CMod"
+    "ifyNewTutorialACK\022\014\n\004flag\030\001 \002(\005\"\021\n\017MsgC2"
+    "SReliveReq\"T\n\017MsgS2CReliveACK\022\024\n\014current"
+    "_gold\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022.message.Gam"
+    "eError:\010Error_NO\"\035\n\033MsgC2SCmdClearDailyR"
+    "ankList\"M\n\036MsgS2CCmdClearDailyRankListAC"
+    "K\022+\n\005error\030\001 \002(\0162\022.message.GameError:\010Er"
+    "ror_NO\"*\n(MsgC2SCmdReqRemoveSpecialCreat"
+    "ureListHis\"H\n!MsgC2SCmdReqSetSpecialCrea"
+    "tureHis\022\023\n\013creature_id\030\001 \002(\005\022\016\n\006status\030\002"
+    " \002(\005\"Y\n\'MsgS2CCmdNotifySpecialCreatureHi"
+    "sModify\022.\n\021special_creatures\030\001 \003(\0132\023.mes"
+    "sage.MsgIntPair\"B\n#MsgC2SCmdReqModifyTas"
+    "kCompleteCount\022\033\n\023task_complete_count\030\001 "
+    "\002(\005\"A\n#MsgS2CCmdModifyTaskCompleteCountA"
+    "CK\022\032\n\022current_task_count\030\001 \002(\005\"\031\n\027MsgC2S"
+    "CmdReqShowGMLevel\"X\n\027MsgS2CCmdShowGMLeve"
+    "lACK\022\020\n\010gm_level\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022."
+    "message.GameError:\010Error_NO\"8\n\031MsgC2SCmd"
+    "ReqModifyGMLevel\022\014\n\004name\030\001 \002(\t\022\r\n\005level\030"
+    "\002 \002(\005\"e\n\031MsgS2CCmdModifyGMLevelACK\022\014\n\004na"
+    "me\030\001 \002(\t\022\r\n\005level\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022"
+    ".message.GameError:\010Error_NO\"\?\n\025MsgC2SCm"
+    "dReqEnterGame\022\022\n\nchapter_id\030\001 \002(\005\022\022\n\nsec"
+    "tion_id\030\002 \002(\005\">\n\024MsgC2SCmdReqResetMap\022\022\n"
+    "\nchapter_id\030\001 \002(\005\022\022\n\nsection_id\030\002 \002(\005\"k\n"
+    "\024MsgS2CCmdResetMapACK\022\022\n\nchapter_id\030\001 \002("
+    "\005\022\022\n\nsection_id\030\002 \002(\005\022+\n\005error\030\003 \002(\0162\022.m"
+    "essage.GameError:\010Error_NO\"\027\n\025MsgC2SCmdR"
+    "eqResetGame\"\256\001\n\025MsgS2CCmdResetGameACK\022\"\n"
+    "\004info\030\001 \002(\0132\024.message.MsgHeroData\022#\n\033cur"
+    "rent_advertisement_count\030\002 \002(\005\022\037\n\027last_a"
+    "dvertisement_time\030\003 \002(\003\022+\n\005error\030\004 \002(\0162\022"
+    ".message.GameError:\010Error_NO\"&\n\026MsgC2SCm"
+    "dReqModifyGold\022\014\n\004gold\030\001 \002(\005\"&\n\026MsgS2CCm"
+    "dModifyGoldACK\022\014\n\004gold\030\001 \002(\005\"-\n\027MsgS2CCm"
+    "dReqReplaceTask\022\022\n\ntask_count\030\001 \002(\005\"q\n\027M"
+    "sgS2CCmdReplaceTaskACK\022+\n\005error\030\001 \002(\0162\022."
+    "message.GameError:\010Error_NO\022)\n\005infos\030\002 \003"
+    "(\0132\032.message.MsgTaskConfigInfo\"(\n\027MsgC2S"
+    "CmdReqModifyJewel\022\r\n\005jewel\030\001 \002(\005\"]\n\027MsgS"
+    "2CCmdModifyJewelACK\022\025\n\rcurrent_jewel\030\001 \002"
+    "(\005\022+\n\005error\030\002 \002(\0162\022.message.GameError:\010E"
+    "rror_NO\"*\n\030MsgC2SCmdReqModifySpirit\022\016\n\006s"
+    "pirit\030\001 \002(\005\"_\n\030MsgS2CCmdModifySpiritACK\022"
+    "\026\n\016current_spirit\030\001 \002(\005\022+\n\005error\030\002 \002(\0162\022"
+    ".message.GameError:\010Error_NO\"\037\n\035MsgC2SCm"
+    "dReqResetDailyLottery\"L\n\035MsgS2CCmdResetD"
+    "ailyLotteryACK\022+\n\005error\030\001 \002(\0162\022.message."
+    "GameError:\010Error_NO\"\034\n\032MsgC2SCmdReqReset"
+    "DailyGame\"I\n\032MsgS2CCmdResetDailyGameACK\022"
+    "+\n\005error\030\001 \002(\0162\022.message.GameError:\010Erro"
+    "r_NO*\251\023\n\tGameError\022\014\n\010Error_NO\020\000\022*\n&Erro"
+    "r_CanNotEnterGameTheInstanceIsLock\020\001\022+\n\'"
+    "Error_CanNotEnterGameTheCharacterIsLock\020"
+    "\002\022)\n%Error_CanNotEnterGameTheSectionIsLo"
+    "ck\020\003\022(\n$Error_CanNotEnterGameNotEnoughSp"
+    "irit\020\004\022$\n Error_CanNotBuyHeroNotEnoughgo"
+    "ld\020\005\0224\n0Error_CanNotPassGameTheInstanceN"
+    "otHaveEnoughGold\020\006\022\035\n\031Error_NotEnterTheE"
+    "xitGame\020\007\022)\n%Error_NotFoundTheChapterWhe"
+    "nEnterGame\020\010\022\035\n\031Error_TheChapterIsNotLoc"
+    "k\020\t\0225\n1Error_UnlockChapterFailedNotFound"
+    "TheUnlockChapter\020\n\0226\n2Error_UnlockChapte"
+    "rFailedTheRequiredSectionNotPass\020\013\0229\n5Er"
+    "ror_UnlockChapterFailedYouHaveToComplete"
+    "EnoughTasks\020\014\0221\n-Error_UnlockChapterFail"
+    "edYouNotHaveEnoughGold\020\r\022,\n(Error_Refres"
+    "hAdvertisementTaskFailedInCD\020\016\022<\n8Error_"
+    "RefreshAdvertisementTaskFailedNotFoundGi"
+    "veUpTaskID\020\017\022.\n*Error_RefreshAdvertiseme"
+    "ntTaskFailedUnknow\020\020\0225\n1Error_RefreshAdv"
+    "ertisementTaskFailedNotEnoughGold\020\021\022$\n E"
+    "rror_BuyHeroFailedNotEnoughGold\020\022\022$\n Err"
+    "or_BuyHeroFailedThePriceIsOld\020\023\022#\n\037Error"
+    "_BuyHeroFailedNotFoundGrid\020\024\022-\n)Error_Bu"
+    "yHeroFailedNotPassRequiredSection\020\025\022/\n+E"
+    "rror_ModifyCurrentFailedTheCharacterIsLo"
+    "ck\020\026\022%\n!Error_BuyGoldFailedNotFoundConfi"
+    "g\020\027\022$\n Error_BuyGoldFailedNotFoundOrder\020"
+    "\030\0220\n,Error_BuyGoldFailedTheOrderHaveBeen"
+    "Completed\020\031\022-\n)Error_CreateDealFailedThe"
+    "HttpErrorRespone\020\032\022.\n*Error_CreateDealFa"
+    "iledTheHttpResponeFailed\020\033\0227\n3Error_Crea"
+    "teDealDailedTheHttpResponeErrorProduct_i"
+    "d\020\034\022-\n)Error_VerifyDealFailedTheHttpErro"
+    "rRespone\020\035\022.\n*Error_VerifyDealFailedTheH"
+    "ttpResponeFailed\020\036\022\'\n#Error_BuySpiritFai"
+    "ledNotEnoughJewel\020\037\022,\n(Error_BuySpiritFa"
+    "iledCanNotBuyMoreSpirit\020 \022\'\n#Error_BuySp"
+    "iritFailedNotFoundConfig\020!\022\"\n\036Error_CmdF"
+    "ailedRequiredGMLevel\020\"\022\"\n\036Error_ReliveFa"
+    "iledNotEnoughGod\020#\022(\n$Error_FailedToBuyL"
+    "otionNotEnoughGold\020$\022)\n%Error_FailedToBu"
+    "yLotionNotEnoughJewel\020%\022,\n(Error_FailedT"
+    "oBuyLotionAlreadyHaveLotion\020&\022\'\n#Error_F"
+    "ailedToBuyNotFoundThisLotion\020\'\022,\n(Error_"
+    "FailedExitGameNotFoundTheUseLotion\020(\022/\n+"
+    "Error_FailedToLotteryTodayHaveBeenLotter"
+    "ied\020)\022.\n*Error_FailedToLotteryNothingCan"
+    "BeLotteried\020*\022$\n Error_FailedToLotteryEr"
+    "rorRating\020+\022*\n&Error_FailedToLotteryErro"
+    "rLotionConfig\020,\022/\n+Error_FailedToApplyDe"
+    "alOrderNotFooundConfig\020-\022;\n7Error_Failed"
+    "ToEnterDailyGameYouHaveBeenAlreadyBeginG"
+    "ame\020.\0222\n.Error_FailedToUpdateDailyProgre"
+    "ssErrorProgress\020/\0224\n0Error_FailedToUpdat"
+    "eDailyProgressTheGameNotBegin\0200\022)\n%Error"
+    "_FailedToUpdateDailyProgressNoHp\0201\022/\n+Er"
+    "ror_FailedToReceivedDailyGamePrizeNOPriz"
+    "e\0202\022.\n*Error_FailedToResetDailyGameNotEn"
+    "oughJewel\0203\022&\n\"Error_FailedToResetDailyG"
+    "ameUseOut\0204\0221\n-Error_FailedToResetDailyG"
+    "ameTheProgressIsZero\0205\022\020\n\014Error_Unknow\0206"
+    "*@\n\rLotionUseType\022\026\n\022LotionUseType_gold\020"
+    "\001\022\027\n\023LotionUseType_jewel\020\002*G\n\014enLotteryB"
+    "ox\022\021\n\rLottery_Jewel\020\000\022\020\n\014Lottery_Gold\020\001\022"
+    "\022\n\016Lottery_Lotion\020\002", 10899);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgC2SReqEnterDailyGame::default_instance_ = new MsgC2SReqEnterDailyGame();
@@ -8161,7 +8164,9 @@ const int MsgLotionShopConfigInfo::kLotionIdFieldNumber;
 const int MsgLotionShopConfigInfo::kUseTypeFieldNumber;
 const int MsgLotionShopConfigInfo::kUseCountFieldNumber;
 const int MsgLotionShopConfigInfo::kResourceIdFieldNumber;
+const int MsgLotionShopConfigInfo::kBigResourceIdFieldNumber;
 const int MsgLotionShopConfigInfo::kDescribeFieldNumber;
+const int MsgLotionShopConfigInfo::kNameFieldNumber;
 #endif  // !_MSC_VER
 
 MsgLotionShopConfigInfo::MsgLotionShopConfigInfo()
@@ -8188,7 +8193,9 @@ void MsgLotionShopConfigInfo::SharedCtor() {
   use_type_ = 1;
   use_count_ = 0;
   resource_id_ = 0;
+  big_resource_id_ = 0;
   describe_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -8199,6 +8206,7 @@ MsgLotionShopConfigInfo::~MsgLotionShopConfigInfo() {
 
 void MsgLotionShopConfigInfo::SharedDtor() {
   describe_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -8237,12 +8245,16 @@ void MsgLotionShopConfigInfo::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 31) {
+  if (_has_bits_[0 / 32] & 127) {
     ZR_(use_count_, resource_id_);
     lotion_id_ = 0;
     use_type_ = 1;
+    big_resource_id_ = 0;
     if (has_describe()) {
       describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_name()) {
+      name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
 
@@ -8325,13 +8337,28 @@ bool MsgLotionShopConfigInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_describe;
+        if (input->ExpectTag(40)) goto parse_big_resource_id;
         break;
       }
 
-      // required string describe = 5;
+      // required int32 big_resource_id = 5;
       case 5: {
-        if (tag == 42) {
+        if (tag == 40) {
+         parse_big_resource_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &big_resource_id_)));
+          set_has_big_resource_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(50)) goto parse_describe;
+        break;
+      }
+
+      // required string describe = 6;
+      case 6: {
+        if (tag == 50) {
          parse_describe:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_describe()));
@@ -8339,6 +8366,23 @@ bool MsgLotionShopConfigInfo::MergePartialFromCodedStream(
             this->describe().data(), this->describe().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "message.MsgLotionShopConfigInfo.describe");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(58)) goto parse_name;
+        break;
+      }
+
+      // required string name = 7;
+      case 7: {
+        if (tag == 58) {
+         parse_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "message.MsgLotionShopConfigInfo.name");
         } else {
           goto handle_unusual;
         }
@@ -8392,14 +8436,29 @@ void MsgLotionShopConfigInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->resource_id(), output);
   }
 
-  // required string describe = 5;
+  // required int32 big_resource_id = 5;
+  if (has_big_resource_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->big_resource_id(), output);
+  }
+
+  // required string describe = 6;
   if (has_describe()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->describe().data(), this->describe().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "message.MsgLotionShopConfigInfo.describe");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->describe(), output);
+      6, this->describe(), output);
+  }
+
+  // required string name = 7;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgLotionShopConfigInfo.name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      7, this->name(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8433,7 +8492,12 @@ void MsgLotionShopConfigInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->resource_id(), target);
   }
 
-  // required string describe = 5;
+  // required int32 big_resource_id = 5;
+  if (has_big_resource_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->big_resource_id(), target);
+  }
+
+  // required string describe = 6;
   if (has_describe()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->describe().data(), this->describe().length(),
@@ -8441,7 +8505,18 @@ void MsgLotionShopConfigInfo::SerializeWithCachedSizes(
       "message.MsgLotionShopConfigInfo.describe");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->describe(), target);
+        6, this->describe(), target);
+  }
+
+  // required string name = 7;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "message.MsgLotionShopConfigInfo.name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        7, this->name(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8482,11 +8557,25 @@ int MsgLotionShopConfigInfo::RequiredFieldsByteSizeFallback() const {
         this->resource_id());
   }
 
+  if (has_big_resource_id()) {
+    // required int32 big_resource_id = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->big_resource_id());
+  }
+
   if (has_describe()) {
-    // required string describe = 5;
+    // required string describe = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->describe());
+  }
+
+  if (has_name()) {
+    // required string name = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
   }
 
   return total_size;
@@ -8494,7 +8583,7 @@ int MsgLotionShopConfigInfo::RequiredFieldsByteSizeFallback() const {
 int MsgLotionShopConfigInfo::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000007f) ^ 0x0000007f) == 0) {  // All required fields are present.
     // required int32 lotion_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8514,10 +8603,20 @@ int MsgLotionShopConfigInfo::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->resource_id());
 
-    // required string describe = 5;
+    // required int32 big_resource_id = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->big_resource_id());
+
+    // required string describe = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->describe());
+
+    // required string name = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -8560,9 +8659,16 @@ void MsgLotionShopConfigInfo::MergeFrom(const MsgLotionShopConfigInfo& from) {
     if (from.has_resource_id()) {
       set_resource_id(from.resource_id());
     }
+    if (from.has_big_resource_id()) {
+      set_big_resource_id(from.big_resource_id());
+    }
     if (from.has_describe()) {
       set_has_describe();
       describe_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.describe_);
+    }
+    if (from.has_name()) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -8583,7 +8689,7 @@ void MsgLotionShopConfigInfo::CopyFrom(const MsgLotionShopConfigInfo& from) {
 }
 
 bool MsgLotionShopConfigInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
 
   return true;
 }
@@ -8597,7 +8703,9 @@ void MsgLotionShopConfigInfo::InternalSwap(MsgLotionShopConfigInfo* other) {
   std::swap(use_type_, other->use_type_);
   std::swap(use_count_, other->use_count_);
   std::swap(resource_id_, other->resource_id_);
+  std::swap(big_resource_id_, other->big_resource_id_);
   describe_.Swap(&other->describe_);
+  name_.Swap(&other->name_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -8711,15 +8819,39 @@ void MsgLotionShopConfigInfo::InternalSwap(MsgLotionShopConfigInfo* other) {
   // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.resource_id)
 }
 
-// required string describe = 5;
- bool MsgLotionShopConfigInfo::has_describe() const {
+// required int32 big_resource_id = 5;
+ bool MsgLotionShopConfigInfo::has_big_resource_id() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
- void MsgLotionShopConfigInfo::set_has_describe() {
+ void MsgLotionShopConfigInfo::set_has_big_resource_id() {
   _has_bits_[0] |= 0x00000010u;
 }
- void MsgLotionShopConfigInfo::clear_has_describe() {
+ void MsgLotionShopConfigInfo::clear_has_big_resource_id() {
   _has_bits_[0] &= ~0x00000010u;
+}
+ void MsgLotionShopConfigInfo::clear_big_resource_id() {
+  big_resource_id_ = 0;
+  clear_has_big_resource_id();
+}
+ ::google::protobuf::int32 MsgLotionShopConfigInfo::big_resource_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.big_resource_id)
+  return big_resource_id_;
+}
+ void MsgLotionShopConfigInfo::set_big_resource_id(::google::protobuf::int32 value) {
+  set_has_big_resource_id();
+  big_resource_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.big_resource_id)
+}
+
+// required string describe = 6;
+ bool MsgLotionShopConfigInfo::has_describe() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+ void MsgLotionShopConfigInfo::set_has_describe() {
+  _has_bits_[0] |= 0x00000020u;
+}
+ void MsgLotionShopConfigInfo::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000020u;
 }
  void MsgLotionShopConfigInfo::clear_describe() {
   describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -8762,6 +8894,59 @@ void MsgLotionShopConfigInfo::InternalSwap(MsgLotionShopConfigInfo* other) {
   }
   describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
   // @@protoc_insertion_point(field_set_allocated:message.MsgLotionShopConfigInfo.describe)
+}
+
+// required string name = 7;
+ bool MsgLotionShopConfigInfo::has_name() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+ void MsgLotionShopConfigInfo::set_has_name() {
+  _has_bits_[0] |= 0x00000040u;
+}
+ void MsgLotionShopConfigInfo::clear_has_name() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+ void MsgLotionShopConfigInfo::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+ const ::std::string& MsgLotionShopConfigInfo::name() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgLotionShopConfigInfo::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.name)
+}
+ void MsgLotionShopConfigInfo::set_name(const char* value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgLotionShopConfigInfo.name)
+}
+ void MsgLotionShopConfigInfo::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgLotionShopConfigInfo.name)
+}
+ ::std::string* MsgLotionShopConfigInfo::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:message.MsgLotionShopConfigInfo.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* MsgLotionShopConfigInfo::release_name() {
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void MsgLotionShopConfigInfo::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgLotionShopConfigInfo.name)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
