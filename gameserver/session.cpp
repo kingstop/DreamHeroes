@@ -58,7 +58,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuyLotion), &Session::parseReqBuyLotion);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqDayLottery), &Session::parseReqDayLottery);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqEnterDailyGame), &Session::parseReqEnterDailyGame);
-	registerCBFun(PROTOCO_NAME(message::MsgC2SReqReceiveDailyGamePrize), &Session::parseReqUpdateDailyGameProgress);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqReceiveDailyGamePrize), &Session::parseReqReceiveDailyGamePrize);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqUpdateDailyGameProgress), &Session::parseReqUpdateDailyGameProgress);
 
 	///

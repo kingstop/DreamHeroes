@@ -2313,7 +2313,11 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 			{
 				int score = msg->score();
 				_info.set_daily_game_score(score);
-				_info.set_daily_game_progress(msg->daily_game_progress());
+				if (msg->hp_pct() != 0)
+				{
+					_info.set_daily_game_progress(msg->daily_game_progress());
+				}
+				
 				_info.set_daily_game_hp_pct(msg->hp_pct());
 				gRankManager.updateHeroDailyRank(_account, _info.name().c_str(), score, rank);
 
