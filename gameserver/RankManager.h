@@ -26,6 +26,8 @@ public:
 	int GetDailyGamePrize(int rank);
 	u32 getDailyGameBeginTime();
 	u32 getDailyRankMaxSize();
+	void setMaxDailyProgress(int progress);
+	int getMaxDailyProgress();
 	void setDailyGameBeginTime(u32 begin_time);
 	HEROESDAILYRANK* getHeroesRank();
 	void ClearRankList();
@@ -35,5 +37,6 @@ public:
 	int _daily_max_rank_size;
 	int _min_daily_score;
 	u32 _daily_game_begin_time;
+	int _max_daily_progress;
 };
 

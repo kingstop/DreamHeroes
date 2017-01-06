@@ -1536,6 +1536,7 @@ void DreamHero::SendClientInit()
 	msg.set_server_time(g_server_time);
 	msg.set_last_reset_daily_game_time(_last_daily_reset_game_time);
 	fillSpecialCreatureList(msg.mutable_special_creatures());
+	msg.set_max_daily_game_progress(gRankManager.getMaxDailyProgress());
 	int daily_jewel_sonfig_size = globalConfig.daily_game_reset_jewel_config_.size();
 	for (int i = 0; i < daily_jewel_sonfig_size; i ++)
 	{
@@ -2282,7 +2283,11 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	message::MsgS2CUpdateDailyGameProgressACK msgACK;
 	message::GameError error = message::Error_NO;
 	int rank = 101;
-	if (msg->daily_game_progress() == 1)
+	if (_info.daily_game_progress() == gRankManager.getDailyRankMaxSize())
+	{
+		error = message::Error_FailedToUpdateDailyProgressIsMaxProgress;
+	}
+	else if (msg->daily_game_progress() == 1)
 	{
 		
 		if (gRankManager.getDailyGameBeginTime() != _daily_game_prize_time)

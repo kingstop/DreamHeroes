@@ -176,11 +176,12 @@ enum GameError {
   Error_FailedToUpdateDailyProgressErrorProgress = 47,
   Error_FailedToUpdateDailyProgressTheGameNotBegin = 48,
   Error_FailedToUpdateDailyProgressNoHp = 49,
-  Error_FailedToReceivedDailyGamePrizeNOPrize = 50,
-  Error_FailedToResetDailyGameNotEnoughJewel = 51,
-  Error_FailedToResetDailyGameUseOut = 52,
-  Error_FailedToResetDailyGameTheProgressIsZero = 53,
-  Error_Unknow = 54
+  Error_FailedToUpdateDailyProgressIsMaxProgress = 50,
+  Error_FailedToReceivedDailyGamePrizeNOPrize = 51,
+  Error_FailedToResetDailyGameNotEnoughJewel = 52,
+  Error_FailedToResetDailyGameUseOut = 53,
+  Error_FailedToResetDailyGameTheProgressIsZero = 54,
+  Error_Unknow = 55
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
@@ -1979,6 +1980,13 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
+  // required int32 spell_id = 8;
+  bool has_spell_id() const;
+  void clear_spell_id();
+  static const int kSpellIdFieldNumber = 8;
+  ::google::protobuf::int32 spell_id() const;
+  void set_spell_id(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgLotionShopConfigInfo)
  private:
   inline void set_has_lotion_id();
@@ -1995,6 +2003,8 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_describe();
   inline void set_has_name();
   inline void clear_has_name();
+  inline void set_has_spell_id();
+  inline void clear_has_spell_id();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -2007,8 +2017,9 @@ class MsgLotionShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 use_count_;
   ::google::protobuf::int32 resource_id_;
   ::google::protobuf::internal::ArenaStringPtr describe_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::int32 big_resource_id_;
+  ::google::protobuf::int32 spell_id_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -2296,6 +2307,13 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::uint64 last_reset_daily_game_time() const;
   void set_last_reset_daily_game_time(::google::protobuf::uint64 value);
 
+  // required int32 max_daily_game_progress = 27;
+  bool has_max_daily_game_progress() const;
+  void clear_max_daily_game_progress();
+  static const int kMaxDailyGameProgressFieldNumber = 27;
+  ::google::protobuf::int32 max_daily_game_progress() const;
+  void set_max_daily_game_progress(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
   inline void set_has_info();
@@ -2338,6 +2356,8 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   inline void clear_has_daily_game_time();
   inline void set_has_last_reset_daily_game_time();
   inline void clear_has_last_reset_daily_game_time();
+  inline void set_has_max_daily_game_progress();
+  inline void clear_has_max_daily_game_progress();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -2371,6 +2391,7 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > reset_jewel_configs_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > daily_game_record_configs_;
   ::google::protobuf::uint64 last_reset_daily_game_time_;
+  ::google::protobuf::int32 max_daily_game_progress_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -10596,6 +10617,30 @@ inline void MsgLotionShopConfigInfo::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:message.MsgLotionShopConfigInfo.name)
 }
 
+// required int32 spell_id = 8;
+inline bool MsgLotionShopConfigInfo::has_spell_id() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void MsgLotionShopConfigInfo::set_has_spell_id() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void MsgLotionShopConfigInfo::clear_has_spell_id() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void MsgLotionShopConfigInfo::clear_spell_id() {
+  spell_id_ = 0;
+  clear_has_spell_id();
+}
+inline ::google::protobuf::int32 MsgLotionShopConfigInfo::spell_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgLotionShopConfigInfo.spell_id)
+  return spell_id_;
+}
+inline void MsgLotionShopConfigInfo::set_spell_id(::google::protobuf::int32 value) {
+  set_has_spell_id();
+  spell_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLotionShopConfigInfo.spell_id)
+}
+
 // -------------------------------------------------------------------
 
 // MsgS2CHeroesInit
@@ -11277,6 +11322,30 @@ inline void MsgS2CHeroesInit::set_last_reset_daily_game_time(::google::protobuf:
   set_has_last_reset_daily_game_time();
   last_reset_daily_game_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.last_reset_daily_game_time)
+}
+
+// required int32 max_daily_game_progress = 27;
+inline bool MsgS2CHeroesInit::has_max_daily_game_progress() const {
+  return (_has_bits_[0] & 0x04000000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_max_daily_game_progress() {
+  _has_bits_[0] |= 0x04000000u;
+}
+inline void MsgS2CHeroesInit::clear_has_max_daily_game_progress() {
+  _has_bits_[0] &= ~0x04000000u;
+}
+inline void MsgS2CHeroesInit::clear_max_daily_game_progress() {
+  max_daily_game_progress_ = 0;
+  clear_has_max_daily_game_progress();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::max_daily_game_progress() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.max_daily_game_progress)
+  return max_daily_game_progress_;
+}
+inline void MsgS2CHeroesInit::set_max_daily_game_progress(::google::protobuf::int32 value) {
+  set_has_max_daily_game_progress();
+  max_daily_game_progress_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.max_daily_game_progress)
 }
 
 // -------------------------------------------------------------------

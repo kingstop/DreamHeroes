@@ -99,6 +99,14 @@ u32 RankManager::getDailyGameBeginTime()
 {
 	return _daily_game_begin_time;
 }
+void RankManager::setMaxDailyProgress(int progress)
+{
+	_max_daily_progress = progress;
+}
+int RankManager::getMaxDailyProgress()
+{
+	return _max_daily_progress;
+}
 
 int RankManager::GetDailyGamePrize(int rank)
 {

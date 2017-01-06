@@ -368,7 +368,8 @@ void GameConfig::Load(DBQuery* p)
 			_global_config.config_max_spirit_ = row["config_max_spirit"];
 			_global_config.config_enter_game_use_spirit_ = row["config_enter_game_use_spirit"];
 			_global_config.config_day_buy_spirit_ = row["config_day_buy_spirit"];
-
+			int max_daily_game_progress = row["daily_game_max_progress"];
+			gRankManager.setMaxDailyProgress(max_daily_game_progress);
 		}
 
 		query.reset();
@@ -559,6 +560,7 @@ void GameConfig::Load(DBQuery* p)
 			entry_config.set_describe(row["describe"].c_str());
 			entry_config.set_big_resource_id(row["big_resource_id"]);
 			entry_config.set_name(row["name"].c_str());
+			entry_config.set_spell_id(row["spell_id"]);
 			_map_lotion_shop_configs[entry_config.lotion_id()] = entry_config;
 		}
 
