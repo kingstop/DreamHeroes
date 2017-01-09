@@ -11,9 +11,13 @@ void UserManager::addToWait(tran_id_type t,  account_type a, int c)
 {
     UserSession* p = m_onlines.getData(t);
     if (p)
-    {   kickUser(t, a);}
-	p->set_channel(c);
+    {  
+		p->set_channel(c);
+		kickUser(t, a);
+	}
+	
     m_wait_map.addData(t, a);
+	m_wait_map_channel.addData(t, c);
     gEventMgr.addEvent(this, &UserManager::eventCallRemoveWait, t, EVENT_REMOVE_WAIT_CONNECT, _WAITE_CONNECT_TIME_, 1, EVENT_FLAG_DELETES_OBJECT);
     
     message::MsgGT2LNPrepar msg;
@@ -42,7 +46,9 @@ void UserManager::collectInfo()
 void UserManager::eventCallRemoveWait(tran_id_type t)
 {
     account_type v = INVALID_ACCOUNT ;
+	int temp = 0;
     m_wait_map.eraseData(t, v);
+	m_wait_map_channel.eraseData(t, temp);
 }
 void UserManager::kickUser(tran_id_type t,  account_type a)
 {
@@ -63,6 +69,8 @@ void UserManager::kickUser(tran_id_type t,  account_type a)
 
     account_type v = INVALID_ACCOUNT;
     m_wait_map.eraseData(t, v);
+	int temp = 0;
+	m_wait_map_channel.eraseData(t, temp);
     if (v != INVALID_ACCOUNT)
     {   m_onlineaccs.eraseData(v);}
 
@@ -164,12 +172,20 @@ void UserManager::eventCallRemoveReconn(tran_id_type t)
          {  p->removePlayer(t);}
     }
 }
-bool UserManager::checkConn(tran_id_type t, UserSession* p, int channel)
+bool UserManager::checkConn(tran_id_type t, UserSession* p)
 {
     account_type v = INVALID_ACCOUNT;
     if (m_wait_map.hasData(t))
     {
         m_wait_map.eraseData(t, v);
+		int channel = 0;
+		m_wait_map_channel.getData(t, channel);
+		if (m_wait_map_channel.hasData(t))
+		{
+			int temp = 0;
+			m_wait_map_channel.eraseData(t, temp);
+		}
+		
         GateGameClient* gscliet = gGTGameMgr.getIdleGameClient();
         if (NULL == gscliet )
         {

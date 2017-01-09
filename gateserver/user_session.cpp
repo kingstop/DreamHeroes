@@ -120,7 +120,7 @@ void UserSession::parseLoginGame(google::protobuf::Message* p, pb_flag_type flag
             return ;
         }
 		tran_id_type t = (tran_id_type)msg->user_account();
-        if(gGTUserMgr.checkConn(t, this, _channel))
+        if(gGTUserMgr.checkConn(t, this))
         {   m_tranid = t;}
 	}
 	if (gEventMgr.hasEvent(this, EVENT_WAIT_PING_INFO) == true)

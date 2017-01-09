@@ -9,7 +9,7 @@ public:
 public:
     void addToWait(tran_id_type t,  account_type a, int channel);
     void kickUser(tran_id_type t,  account_type a);
-    bool checkConn(tran_id_type t, UserSession* p, int channel);
+    bool checkConn(tran_id_type t, UserSession* p);
     void checkClose(UserSession* p);
 
     void eventCallRemoveWait(tran_id_type t);
@@ -28,6 +28,7 @@ private:
     obj_ptr_map<tran_id_type, UserSession> m_onlines;
     obj_map<account_type, tran_id_type> m_onlineaccs;
     obj_map<tran_id_type, account_type> m_wait_map;
+	obj_map<tran_id_type, int> m_wait_map_channel;
     obj_map<tran_id_type, u16> m_recon_map;
 };
 #endif
