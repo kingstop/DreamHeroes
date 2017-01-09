@@ -42,11 +42,14 @@ public:
 	virtual void proc_message( const message_t& msg );
 	virtual void reset();
 	virtual void run();
+	void set_channel(int channel);
+	int get_channel();
 private:
 	u32 m_tranid;
     u16 m_gs_id;
 	u8  m_state;
 	int _ping_count;
+	int _channel;
 };
 /* 
 bool ProtocMsgBase<UserSession>::sendPBMessage(google::protobuf::Message* msg, pb_flag_type flag )

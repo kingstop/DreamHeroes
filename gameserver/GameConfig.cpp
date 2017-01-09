@@ -34,36 +34,48 @@ const MAPTASKS* GameConfig::getMapTasks()
 	return &_tasks;
 }
 
-const MAPGOLDSHOPCONFIGINFOS* GameConfig::getGoldShopConfigInfos()
+const MAPGOLDSHOPCONFIGINFOS* GameConfig::getGoldShopConfigInfos(int channel)
 {
-	return &_gold_shop_config_infos;
-}
-
-
-const GoldShopConfigInfo* GameConfig::getGoldShopConfigInfo(const char* appstore_product_id)
-{
-	GoldShopConfigInfo* entry = NULL;
-	MAPGOLDSHOPCONFIGINFOS::iterator it = _gold_shop_config_infos.begin();
-	for (; it != _gold_shop_config_infos.end(); ++ it)
-	{
-		if (it->second.appstore_product_id_ == appstore_product_id)
-		{
-			entry = &it->second;
-			break;
-		}
-	}
-	return entry;
-}
-
-const GoldShopConfigInfo* GameConfig::getGoldShopConfigInfo(int id)
-{
-	GoldShopConfigInfo* entry = NULL;
-	MAPGOLDSHOPCONFIGINFOS::iterator it = _gold_shop_config_infos.find(id);
+	MAPGOLDSHOPCONFIGINFOS* entry = NULL;
+	CHANNELMAPGOLDSHOPCONFIGINFOS::iterator it = _gold_shop_config_infos.find(channel);
 	if (it != _gold_shop_config_infos.end())
 	{
 		entry = &it->second;
 	}
 	return entry;
+}
+
+
+const GoldShopConfigInfo* GameConfig::getGoldShopConfigInfo(int channel, const char* appstore_product_id)
+{
+
+	const MAPGOLDSHOPCONFIGINFOS* map_configs = getGoldShopConfigInfos(channel);
+	if (map_configs)
+	{
+		MAPGOLDSHOPCONFIGINFOS::const_iterator it = map_configs->begin();
+		for (; it != map_configs->end(); ++it)
+		{
+			if (it->second.appstore_product_id_ == appstore_product_id)
+			{
+				return &it->second;
+
+			}
+		}
+	}
+	return NULL;
+}
+
+const GoldShopConfigInfo* GameConfig::getGoldShopConfigInfo(int channel, int id)
+{
+	const MAPGOLDSHOPCONFIGINFOS* map_configs = getGoldShopConfigInfos(channel);
+
+	GoldShopConfigInfo* entry = NULL;
+	MAPGOLDSHOPCONFIGINFOS::const_iterator it = map_configs->find(id);
+	if (it != map_configs->end())
+	{
+		return &it->second;
+	}
+	return NULL;
 }
 
 
@@ -399,7 +411,13 @@ void GameConfig::Load(DBQuery* p)
 		{
 			DBRow& row = sResult[i];
 			GoldShopConfigInfo info_entry;
-			
+			int channel = row["channel"];
+			CHANNELMAPGOLDSHOPCONFIGINFOS::iterator it = _gold_shop_config_infos.find(channel);
+			if (it == _gold_shop_config_infos.end())
+			{
+				MAPGOLDSHOPCONFIGINFOS map_config_entry;
+				_gold_shop_config_infos[channel] = map_config_entry;
+			}
 			info_entry.info_.set_id(row["shop_id"]);
 			info_entry.info_.set_describe(row["describe"]);
 			info_entry.info_.set_gold(row["gold"]);
@@ -408,7 +426,7 @@ void GameConfig::Load(DBQuery* p)
 			info_entry.appstore_product_id_ = row["appstore_key"].c_str();
 			info_entry.info_.set_jewel(row["jewel"]);
 			
-			_gold_shop_config_infos[info_entry.info_.id()] = info_entry;
+			_gold_shop_config_infos[channel][info_entry.info_.id()] = info_entry;
 		}
 
 		query.reset();

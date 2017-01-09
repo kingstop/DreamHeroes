@@ -86,6 +86,7 @@ void GameServer::shutDown()
 {
     gGSDBClient.close();
     gGSGateServer.stop();
+	gPlatformClient.close();
 	gHttpManager.setStop(true);
 	_http_thread->join();
 }

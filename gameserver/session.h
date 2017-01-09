@@ -68,15 +68,16 @@ public:
 	void parseCmdReqResetDailyLottery(google::protobuf::Message* p);
 	void parseCmdReqResetResetDailyGame(google::protobuf::Message* p);
 	void parseCmdReqClearDailyRankList(google::protobuf::Message* p);
-
 	int getState();
-
+	void set_channel(int channel);
+	int get_channel();
 protected:
 	tran_id_type m_tranid;
 	account_type m_account;
 	u16 m_gate;
 	u8  m_state;
 	DreamHero* _dream_hero;
+	int _channel;
 private:
 };
 #endif

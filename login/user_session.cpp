@@ -121,6 +121,7 @@ UserLoginSession::UserLoginSession(void) : tcp_session( *net_global::get_io_serv
 	m_accid = 0;
 	_proto_user_ptr = this;
 	_base64 = true;
+	_channel = 0;
 }
 
 UserLoginSession::~UserLoginSession(void)
@@ -232,3 +233,12 @@ void UserLoginSession::run()
 }
 
 
+void UserLoginSession::set_channel(int channel)
+{
+	_channel = channel;
+}
+
+int UserLoginSession::get_channel()
+{
+	return _channel;
+}

@@ -18,7 +18,8 @@ void GateSession::parseAddUser(google::protobuf::Message* p, pb_flag_type flag)
     {
         tran_id_type t = msg->data().transid();
         account_type a = msg->data().account();
-        gGSGateManager.addUser( t, a, m_gate_id);
+		Session* p = gGSGateManager.addUser( t, a, m_gate_id);
+		p->set_channel(msg->channel());
     }
 }
 

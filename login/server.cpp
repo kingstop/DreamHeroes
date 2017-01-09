@@ -60,6 +60,11 @@ void LoginServer::shutDown()
 	gLGUserServer.stop();
 	gLGGateServer.stop();
     gLGCenterDB.shutDown();
+	if (_http_thread)
+	{
+		_http_thread->join();
+	}
+	
 }
 
 void LoginServer::memoryLog() 

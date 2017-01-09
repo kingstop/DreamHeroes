@@ -77,6 +77,15 @@ void UserSession::noPing()
 	close();
 }
 
+int UserSession::get_channel()
+{
+	return _channel;
+}
+void UserSession::set_channel(int channel)
+{
+	_channel = channel;
+}
+
 void UserSession::pingNotify()
 {
 	message::MsgS2CPingNotify msg;
@@ -111,7 +120,7 @@ void UserSession::parseLoginGame(google::protobuf::Message* p, pb_flag_type flag
             return ;
         }
 		tran_id_type t = (tran_id_type)msg->user_account();
-        if(gGTUserMgr.checkConn(t, this))
+        if(gGTUserMgr.checkConn(t, this, _channel))
         {   m_tranid = t;}
 	}
 	if (gEventMgr.hasEvent(this, EVENT_WAIT_PING_INFO) == true)

@@ -1321,7 +1321,7 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 	int current_gold = _info.gold();
 	if (error == message::Error_NO )
 	{
-		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(key_code.c_str());
+		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(_session->get_channel(),key_code.c_str());
 		
 		if (entry_config)
 		{
@@ -1383,7 +1383,7 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 	}
 }
 
-void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, int order_id, const char* notify_url, message::GameError error)
+void DreamHero::addDealWaitToPay(std::string key_code, const char* secret_key, int status, int price, int order_id, const char* notify_url, message::GameError error)
 {
 	if (error == message::Error_NO)
 	{
@@ -1412,6 +1412,7 @@ void DreamHero::addDealWaitToPay(std::string key_code, int status, int price, in
 	msg.set_order_id(order_id);
 	msg.set_error(error);
 	msg.set_platform_url(notify_url);
+	msg.set_secret_key(secret_key);
 	sendPBMessage(&msg);
 	if (error == message::Error_NO)
 	{
@@ -1627,7 +1628,7 @@ void DreamHero::ReqApplyHeroDeal(const message::MsgC2SReqApplyDeal* msg)
 	msgACK.set_order_id("");
 	msgACK.set_product_id("");
 	msgACK.set_error(message::Error_NO);
-	const GoldShopConfigInfo* config_entry = gGameConfig.getGoldShopConfigInfo(id);
+	const GoldShopConfigInfo* config_entry = gGameConfig.getGoldShopConfigInfo(_session->get_channel(), id);
 	if (config_entry != NULL)
 	{
 		std::string order_id = gDreamHeroManager.generateDealOrderID(_account);
@@ -2189,7 +2190,7 @@ void DreamHero::ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg)
 void DreamHero::ReqGoldShopConfigs()
 {
 	message::MsgS2CGoldShopConfigsACK msg;
-	const MAPGOLDSHOPCONFIGINFOS* infos = gGameConfig.getGoldShopConfigInfos();
+	const MAPGOLDSHOPCONFIGINFOS* infos = gGameConfig.getGoldShopConfigInfos(_session->get_channel());
 	MAPGOLDSHOPCONFIGINFOS::const_iterator it = infos->begin();
 	for (; it != infos->end(); ++ it)
 	{
@@ -2329,7 +2330,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		if (_info.daily_game_hp_pct() != 0)
 		{
 			if (progress_temp == msg->daily_game_progress() 
-				|| msg->daily_game_progress() == _info.daily_game_record_progress() + 1)
+			|| msg->daily_game_progress() == _info.daily_game_record_progress() + 1)
 			{
 				int score = msg->score();
 				_info.set_daily_game_score(score);

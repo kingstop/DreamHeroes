@@ -3,6 +3,7 @@ import "msg_gate_login.proto";
 message MsgGT2GSAddUser
 {
 	required GTLGData data = 1;
+	required int32 channel = 2;
 }
 message MsgGT2GSRemoveUser
 {

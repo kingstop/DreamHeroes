@@ -27,7 +27,7 @@ public:
     void parseGameRegister(google::protobuf::Message* p, pb_flag_type flag);
     void parseGameOnlines(google::protobuf::Message* p, pb_flag_type flag);
 	void parseChangeGS(google::protobuf::Message* p, pb_flag_type flag);
-    void addNewPlayer(tran_id_type t,  account_type a);
+    void addNewPlayer(tran_id_type t,  account_type a, int channel);
     void removePlayer(tran_id_type t);
     void offlinePlayer(tran_id_type t);
 

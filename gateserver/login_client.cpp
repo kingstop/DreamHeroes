@@ -15,7 +15,7 @@ void GateLoginClient::parseLoginUser(google::protobuf::Message* p, pb_flag_type 
     if (msg)
     {
         const ::message::GTLGData& d = msg->data();
-        gGTUserMgr.addToWait(d.transid(), d.account());
+        gGTUserMgr.addToWait(d.transid(), d.account(), msg->channel());
     }
     
 }

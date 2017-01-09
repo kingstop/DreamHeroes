@@ -7,12 +7,12 @@ enum
 	_COLLECT_INFO_TIME = 10 * _TIME_MINUTE_ * _TIME_SECOND_MSEL_,
     _TELL_LOGIN_GATE_INFO = 30 * _TIME_SECOND_MSEL_,
 };
-void UserManager::addToWait(tran_id_type t,  account_type a)
+void UserManager::addToWait(tran_id_type t,  account_type a, int c)
 {
     UserSession* p = m_onlines.getData(t);
     if (p)
     {   kickUser(t, a);}
-
+	p->set_channel(c);
     m_wait_map.addData(t, a);
     gEventMgr.addEvent(this, &UserManager::eventCallRemoveWait, t, EVENT_REMOVE_WAIT_CONNECT, _WAITE_CONNECT_TIME_, 1, EVENT_FLAG_DELETES_OBJECT);
     
@@ -164,7 +164,7 @@ void UserManager::eventCallRemoveReconn(tran_id_type t)
          {  p->removePlayer(t);}
     }
 }
-bool UserManager::checkConn(tran_id_type t, UserSession* p)
+bool UserManager::checkConn(tran_id_type t, UserSession* p, int channel)
 {
     account_type v = INVALID_ACCOUNT;
     if (m_wait_map.hasData(t))
@@ -176,7 +176,7 @@ bool UserManager::checkConn(tran_id_type t, UserSession* p)
             p->setState(UserSession::_wait_close_);
             return false;
         }
-        gscliet->addNewPlayer(t, v);
+        gscliet->addNewPlayer(t, v, channel);
         p->setGSid(gscliet->getGameId());
         p->setState(UserSession::_connect_);
         m_onlines.addData(t, p);

@@ -433,11 +433,12 @@ message MsgC2SReqCrearteDeal
 message MsgS2CCrearteDealACK
 {
 	required string key_code = 1;
-	required int32 status = 2;
-	required int32 price = 3;
-	required int32 order_id = 4;
-	required GameError error = 5 [default=Error_NO];
-	required string platform_url = 6;
+	required string secret_key = 2;
+	required int32 status = 3;
+	required int32 price = 4;
+	required int32 order_id = 5;
+	required GameError error = 6 [default=Error_NO];
+	required string platform_url = 7;
 }
 ////////IOS
 message MsgC2SReqVerifyDeal

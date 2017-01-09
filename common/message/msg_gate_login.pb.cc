@@ -65,8 +65,9 @@ void protobuf_AssignDesc_msg_5fgate_5flogin_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GTLGData, _internal_metadata_),
       -1);
   MsgLN2GTUserLogin_descriptor_ = file->message_type(1);
-  static const int MsgLN2GTUserLogin_offsets_[1] = {
+  static const int MsgLN2GTUserLogin_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLN2GTUserLogin, data_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgLN2GTUserLogin, channel_),
   };
   MsgLN2GTUserLogin_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -195,14 +196,15 @@ void protobuf_AddDesc_msg_5fgate_5flogin_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024msg_gate_login.proto\022\007message\032\014msgs2s."
     "proto\",\n\010GTLGData\022\017\n\007account\030\001 \002(\004\022\017\n\007tr"
-    "ansid\030\002 \002(\r\"4\n\021MsgLN2GTUserLogin\022\037\n\004data"
-    "\030\001 \002(\0132\021.message.GTLGData\"3\n\020MsgLN2GTKic"
-    "kUser\022\037\n\004data\030\001 \002(\0132\021.message.GTLGData\"\""
-    "\n\017MsgGT2LNOnlines\022\017\n\007onlines\030\001 \002(\r\"!\n\016Ms"
-    "gGT2LNPrepar\022\017\n\007account\030\001 \002(\004\"~\n\017MsgGTRe"
-    "gisterLG\022,\n\010GateInfo\030\001 \002(\0132\032.message.Msg"
-    "ServerRegister\022\n\n\002ip\030\002 \002(\t\022\014\n\004port\030\003 \002(\r"
-    "\022#\n\010Accounts\030\004 \003(\0132\021.message.GTLGData", 397);
+    "ansid\030\002 \002(\r\"E\n\021MsgLN2GTUserLogin\022\037\n\004data"
+    "\030\001 \002(\0132\021.message.GTLGData\022\017\n\007channel\030\002 \002"
+    "(\005\"3\n\020MsgLN2GTKickUser\022\037\n\004data\030\001 \002(\0132\021.m"
+    "essage.GTLGData\"\"\n\017MsgGT2LNOnlines\022\017\n\007on"
+    "lines\030\001 \002(\r\"!\n\016MsgGT2LNPrepar\022\017\n\007account"
+    "\030\001 \002(\004\"~\n\017MsgGTRegisterLG\022,\n\010GateInfo\030\001 "
+    "\002(\0132\032.message.MsgServerRegister\022\n\n\002ip\030\002 "
+    "\002(\t\022\014\n\004port\030\003 \002(\r\022#\n\010Accounts\030\004 \003(\0132\021.me"
+    "ssage.GTLGData", 414);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_gate_login.proto", &protobuf_RegisterTypes);
   GTLGData::default_instance_ = new GTLGData();
@@ -594,6 +596,7 @@ void GTLGData::InternalSwap(GTLGData* other) {
 
 #ifndef _MSC_VER
 const int MsgLN2GTUserLogin::kDataFieldNumber;
+const int MsgLN2GTUserLogin::kChannelFieldNumber;
 #endif  // !_MSC_VER
 
 MsgLN2GTUserLogin::MsgLN2GTUserLogin()
@@ -617,6 +620,7 @@ MsgLN2GTUserLogin::MsgLN2GTUserLogin(const MsgLN2GTUserLogin& from)
 void MsgLN2GTUserLogin::SharedCtor() {
   _cached_size_ = 0;
   data_ = NULL;
+  channel_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -657,8 +661,11 @@ MsgLN2GTUserLogin* MsgLN2GTUserLogin::New(::google::protobuf::Arena* arena) cons
 }
 
 void MsgLN2GTUserLogin::Clear() {
-  if (has_data()) {
-    if (data_ != NULL) data_->::message::GTLGData::Clear();
+  if (_has_bits_[0 / 32] & 3) {
+    if (has_data()) {
+      if (data_ != NULL) data_->::message::GTLGData::Clear();
+    }
+    channel_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -681,6 +688,21 @@ bool MsgLN2GTUserLogin::MergePartialFromCodedStream(
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_channel;
+        break;
+      }
+
+      // required int32 channel = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_channel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &channel_)));
+          set_has_channel();
         } else {
           goto handle_unusual;
         }
@@ -719,6 +741,11 @@ void MsgLN2GTUserLogin::SerializeWithCachedSizes(
       1, *this->data_, output);
   }
 
+  // required int32 channel = 2;
+  if (has_channel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->channel(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -736,6 +763,11 @@ void MsgLN2GTUserLogin::SerializeWithCachedSizes(
         1, *this->data_, target);
   }
 
+  // required int32 channel = 2;
+  if (has_channel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->channel(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -744,14 +776,41 @@ void MsgLN2GTUserLogin::SerializeWithCachedSizes(
   return target;
 }
 
-int MsgLN2GTUserLogin::ByteSize() const {
+int MsgLN2GTUserLogin::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
-  // required .message.GTLGData data = 1;
   if (has_data()) {
+    // required .message.GTLGData data = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->data_);
+  }
+
+  if (has_channel()) {
+    // required int32 channel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->channel());
+  }
+
+  return total_size;
+}
+int MsgLN2GTUserLogin::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required .message.GTLGData data = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->data_);
+
+    // required int32 channel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->channel());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -782,6 +841,9 @@ void MsgLN2GTUserLogin::MergeFrom(const MsgLN2GTUserLogin& from) {
     if (from.has_data()) {
       mutable_data()->::message::GTLGData::MergeFrom(from.data());
     }
+    if (from.has_channel()) {
+      set_channel(from.channel());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -801,7 +863,7 @@ void MsgLN2GTUserLogin::CopyFrom(const MsgLN2GTUserLogin& from) {
 }
 
 bool MsgLN2GTUserLogin::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (has_data()) {
     if (!this->data_->IsInitialized()) return false;
@@ -815,6 +877,7 @@ void MsgLN2GTUserLogin::Swap(MsgLN2GTUserLogin* other) {
 }
 void MsgLN2GTUserLogin::InternalSwap(MsgLN2GTUserLogin* other) {
   std::swap(data_, other->data_);
+  std::swap(channel_, other->channel_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -872,6 +935,30 @@ void MsgLN2GTUserLogin::InternalSwap(MsgLN2GTUserLogin* other) {
     clear_has_data();
   }
   // @@protoc_insertion_point(field_set_allocated:message.MsgLN2GTUserLogin.data)
+}
+
+// required int32 channel = 2;
+ bool MsgLN2GTUserLogin::has_channel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgLN2GTUserLogin::set_has_channel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgLN2GTUserLogin::clear_has_channel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgLN2GTUserLogin::clear_channel() {
+  channel_ = 0;
+  clear_has_channel();
+}
+ ::google::protobuf::int32 MsgLN2GTUserLogin::channel() const {
+  // @@protoc_insertion_point(field_get:message.MsgLN2GTUserLogin.channel)
+  return channel_;
+}
+ void MsgLN2GTUserLogin::set_channel(::google::protobuf::int32 value) {
+  set_has_channel();
+  channel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgLN2GTUserLogin.channel)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

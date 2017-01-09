@@ -49,6 +49,7 @@ public:
 protected:
 	std::string _name;
 	std::string _key_code;
+	std::string _secret_key;
 	std::string _url_platform_call_back;
 	int _status;
 	int _price;

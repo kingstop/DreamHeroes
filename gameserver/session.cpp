@@ -158,6 +158,11 @@ void Session::parseReqEnterGame(google::protobuf::Message* p)
 	_dream_hero->ReqEnterGame(msg);
 }
 
+int Session::get_channel()
+{
+	return _channel;
+}
+
 void Session::parseCmdReqModifyJewel(google::protobuf::Message* p)
 {
 	if (_dream_hero == NULL)
@@ -215,6 +220,12 @@ void Session::parseCmdReqClearDailyRankList(google::protobuf::Message* p)
 	sendPBMessage(&msgACK);
 
 }
+
+void Session::set_channel(int channel)
+{
+	_channel = channel;
+}
+
 void Session::parseCmdReqResetResetDailyGame(google::protobuf::Message* p)
 {
 	message::GameError error = message::Error_NO;

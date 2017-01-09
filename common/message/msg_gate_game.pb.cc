@@ -43,8 +43,9 @@ void protobuf_AssignDesc_msg_5fgate_5fgame_2eproto() {
       "msg_gate_game.proto");
   GOOGLE_CHECK(file != NULL);
   MsgGT2GSAddUser_descriptor_ = file->message_type(0);
-  static const int MsgGT2GSAddUser_offsets_[1] = {
+  static const int MsgGT2GSAddUser_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGT2GSAddUser, data_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGT2GSAddUser, channel_),
   };
   MsgGT2GSAddUser_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -146,11 +147,11 @@ void protobuf_AddDesc_msg_5fgate_5fgame_2eproto() {
   ::message::protobuf_AddDesc_msg_5fgate_5flogin_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023msg_gate_game.proto\022\007message\032\024msg_gate"
-    "_login.proto\"2\n\017MsgGT2GSAddUser\022\037\n\004data\030"
-    "\001 \002(\0132\021.message.GTLGData\"#\n\022MsgGT2GSRemo"
-    "veUser\022\r\n\005trans\030\001 \002(\r\"$\n\023MsgGT2GSOffline"
-    "User\022\r\n\005trans\030\001 \002(\r\"\"\n\017MsgGS2GTOnlines\022\017"
-    "\n\007onlines\030\001 \002(\r", 215);
+    "_login.proto\"C\n\017MsgGT2GSAddUser\022\037\n\004data\030"
+    "\001 \002(\0132\021.message.GTLGData\022\017\n\007channel\030\002 \002("
+    "\005\"#\n\022MsgGT2GSRemoveUser\022\r\n\005trans\030\001 \002(\r\"$"
+    "\n\023MsgGT2GSOfflineUser\022\r\n\005trans\030\001 \002(\r\"\"\n\017"
+    "MsgGS2GTOnlines\022\017\n\007onlines\030\001 \002(\r", 232);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg_gate_game.proto", &protobuf_RegisterTypes);
   MsgGT2GSAddUser::default_instance_ = new MsgGT2GSAddUser();
@@ -185,6 +186,7 @@ static void MergeFromFail(int line) {
 
 #ifndef _MSC_VER
 const int MsgGT2GSAddUser::kDataFieldNumber;
+const int MsgGT2GSAddUser::kChannelFieldNumber;
 #endif  // !_MSC_VER
 
 MsgGT2GSAddUser::MsgGT2GSAddUser()
@@ -208,6 +210,7 @@ MsgGT2GSAddUser::MsgGT2GSAddUser(const MsgGT2GSAddUser& from)
 void MsgGT2GSAddUser::SharedCtor() {
   _cached_size_ = 0;
   data_ = NULL;
+  channel_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -248,8 +251,11 @@ MsgGT2GSAddUser* MsgGT2GSAddUser::New(::google::protobuf::Arena* arena) const {
 }
 
 void MsgGT2GSAddUser::Clear() {
-  if (has_data()) {
-    if (data_ != NULL) data_->::message::GTLGData::Clear();
+  if (_has_bits_[0 / 32] & 3) {
+    if (has_data()) {
+      if (data_ != NULL) data_->::message::GTLGData::Clear();
+    }
+    channel_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -272,6 +278,21 @@ bool MsgGT2GSAddUser::MergePartialFromCodedStream(
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_channel;
+        break;
+      }
+
+      // required int32 channel = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_channel:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &channel_)));
+          set_has_channel();
         } else {
           goto handle_unusual;
         }
@@ -310,6 +331,11 @@ void MsgGT2GSAddUser::SerializeWithCachedSizes(
       1, *this->data_, output);
   }
 
+  // required int32 channel = 2;
+  if (has_channel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->channel(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -327,6 +353,11 @@ void MsgGT2GSAddUser::SerializeWithCachedSizes(
         1, *this->data_, target);
   }
 
+  // required int32 channel = 2;
+  if (has_channel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->channel(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -335,14 +366,41 @@ void MsgGT2GSAddUser::SerializeWithCachedSizes(
   return target;
 }
 
-int MsgGT2GSAddUser::ByteSize() const {
+int MsgGT2GSAddUser::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
-  // required .message.GTLGData data = 1;
   if (has_data()) {
+    // required .message.GTLGData data = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->data_);
+  }
+
+  if (has_channel()) {
+    // required int32 channel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->channel());
+  }
+
+  return total_size;
+}
+int MsgGT2GSAddUser::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required .message.GTLGData data = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->data_);
+
+    // required int32 channel = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->channel());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -373,6 +431,9 @@ void MsgGT2GSAddUser::MergeFrom(const MsgGT2GSAddUser& from) {
     if (from.has_data()) {
       mutable_data()->::message::GTLGData::MergeFrom(from.data());
     }
+    if (from.has_channel()) {
+      set_channel(from.channel());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -392,7 +453,7 @@ void MsgGT2GSAddUser::CopyFrom(const MsgGT2GSAddUser& from) {
 }
 
 bool MsgGT2GSAddUser::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (has_data()) {
     if (!this->data_->IsInitialized()) return false;
@@ -406,6 +467,7 @@ void MsgGT2GSAddUser::Swap(MsgGT2GSAddUser* other) {
 }
 void MsgGT2GSAddUser::InternalSwap(MsgGT2GSAddUser* other) {
   std::swap(data_, other->data_);
+  std::swap(channel_, other->channel_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -463,6 +525,30 @@ void MsgGT2GSAddUser::InternalSwap(MsgGT2GSAddUser* other) {
     clear_has_data();
   }
   // @@protoc_insertion_point(field_set_allocated:message.MsgGT2GSAddUser.data)
+}
+
+// required int32 channel = 2;
+ bool MsgGT2GSAddUser::has_channel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void MsgGT2GSAddUser::set_has_channel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void MsgGT2GSAddUser::clear_has_channel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void MsgGT2GSAddUser::clear_channel() {
+  channel_ = 0;
+  clear_has_channel();
+}
+ ::google::protobuf::int32 MsgGT2GSAddUser::channel() const {
+  // @@protoc_insertion_point(field_get:message.MsgGT2GSAddUser.channel)
+  return channel_;
+}
+ void MsgGT2GSAddUser::set_channel(::google::protobuf::int32 value) {
+  set_has_channel();
+  channel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgGT2GSAddUser.channel)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

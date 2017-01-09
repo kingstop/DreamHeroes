@@ -117,15 +117,28 @@ class MsgGT2GSAddUser : public ::google::protobuf::Message {
   ::message::GTLGData* release_data();
   void set_allocated_data(::message::GTLGData* data);
 
+  // required int32 channel = 2;
+  bool has_channel() const;
+  void clear_channel();
+  static const int kChannelFieldNumber = 2;
+  ::google::protobuf::int32 channel() const;
+  void set_channel(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgGT2GSAddUser)
  private:
   inline void set_has_data();
   inline void clear_has_data();
+  inline void set_has_channel();
+  inline void clear_has_channel();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::message::GTLGData* data_;
+  ::google::protobuf::int32 channel_;
   friend void  protobuf_AddDesc_msg_5fgate_5fgame_2eproto();
   friend void protobuf_AssignDesc_msg_5fgate_5fgame_2eproto();
   friend void protobuf_ShutdownFile_msg_5fgate_5fgame_2eproto();
@@ -449,6 +462,30 @@ inline void MsgGT2GSAddUser::set_allocated_data(::message::GTLGData* data) {
     clear_has_data();
   }
   // @@protoc_insertion_point(field_set_allocated:message.MsgGT2GSAddUser.data)
+}
+
+// required int32 channel = 2;
+inline bool MsgGT2GSAddUser::has_channel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgGT2GSAddUser::set_has_channel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgGT2GSAddUser::clear_has_channel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgGT2GSAddUser::clear_channel() {
+  channel_ = 0;
+  clear_has_channel();
+}
+inline ::google::protobuf::int32 MsgGT2GSAddUser::channel() const {
+  // @@protoc_insertion_point(field_get:message.MsgGT2GSAddUser.channel)
+  return channel_;
+}
+inline void MsgGT2GSAddUser::set_channel(::google::protobuf::int32 value) {
+  set_has_channel();
+  channel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgGT2GSAddUser.channel)
 }
 
 // -------------------------------------------------------------------

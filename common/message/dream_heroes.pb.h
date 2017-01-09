@@ -5494,38 +5494,50 @@ class MsgS2CCrearteDealACK : public ::google::protobuf::Message {
   ::std::string* release_key_code();
   void set_allocated_key_code(::std::string* key_code);
 
-  // required int32 status = 2;
+  // required string secret_key = 2;
+  bool has_secret_key() const;
+  void clear_secret_key();
+  static const int kSecretKeyFieldNumber = 2;
+  const ::std::string& secret_key() const;
+  void set_secret_key(const ::std::string& value);
+  void set_secret_key(const char* value);
+  void set_secret_key(const char* value, size_t size);
+  ::std::string* mutable_secret_key();
+  ::std::string* release_secret_key();
+  void set_allocated_secret_key(::std::string* secret_key);
+
+  // required int32 status = 3;
   bool has_status() const;
   void clear_status();
-  static const int kStatusFieldNumber = 2;
+  static const int kStatusFieldNumber = 3;
   ::google::protobuf::int32 status() const;
   void set_status(::google::protobuf::int32 value);
 
-  // required int32 price = 3;
+  // required int32 price = 4;
   bool has_price() const;
   void clear_price();
-  static const int kPriceFieldNumber = 3;
+  static const int kPriceFieldNumber = 4;
   ::google::protobuf::int32 price() const;
   void set_price(::google::protobuf::int32 value);
 
-  // required int32 order_id = 4;
+  // required int32 order_id = 5;
   bool has_order_id() const;
   void clear_order_id();
-  static const int kOrderIdFieldNumber = 4;
+  static const int kOrderIdFieldNumber = 5;
   ::google::protobuf::int32 order_id() const;
   void set_order_id(::google::protobuf::int32 value);
 
-  // required .message.GameError error = 5 [default = Error_NO];
+  // required .message.GameError error = 6 [default = Error_NO];
   bool has_error() const;
   void clear_error();
-  static const int kErrorFieldNumber = 5;
+  static const int kErrorFieldNumber = 6;
   ::message::GameError error() const;
   void set_error(::message::GameError value);
 
-  // required string platform_url = 6;
+  // required string platform_url = 7;
   bool has_platform_url() const;
   void clear_platform_url();
-  static const int kPlatformUrlFieldNumber = 6;
+  static const int kPlatformUrlFieldNumber = 7;
   const ::std::string& platform_url() const;
   void set_platform_url(const ::std::string& value);
   void set_platform_url(const char* value);
@@ -5538,6 +5550,8 @@ class MsgS2CCrearteDealACK : public ::google::protobuf::Message {
  private:
   inline void set_has_key_code();
   inline void clear_has_key_code();
+  inline void set_has_secret_key();
+  inline void clear_has_secret_key();
   inline void set_has_status();
   inline void clear_has_status();
   inline void set_has_price();
@@ -5556,6 +5570,7 @@ class MsgS2CCrearteDealACK : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr key_code_;
+  ::google::protobuf::internal::ArenaStringPtr secret_key_;
   ::google::protobuf::int32 status_;
   ::google::protobuf::int32 price_;
   ::google::protobuf::int32 order_id_;
@@ -13551,15 +13566,68 @@ inline void MsgS2CCrearteDealACK::set_allocated_key_code(::std::string* key_code
   // @@protoc_insertion_point(field_set_allocated:message.MsgS2CCrearteDealACK.key_code)
 }
 
-// required int32 status = 2;
-inline bool MsgS2CCrearteDealACK::has_status() const {
+// required string secret_key = 2;
+inline bool MsgS2CCrearteDealACK::has_secret_key() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MsgS2CCrearteDealACK::set_has_status() {
+inline void MsgS2CCrearteDealACK::set_has_secret_key() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MsgS2CCrearteDealACK::clear_has_status() {
+inline void MsgS2CCrearteDealACK::clear_has_secret_key() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CCrearteDealACK::clear_secret_key() {
+  secret_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_secret_key();
+}
+inline const ::std::string& MsgS2CCrearteDealACK::secret_key() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCrearteDealACK.secret_key)
+  return secret_key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CCrearteDealACK::set_secret_key(const ::std::string& value) {
+  set_has_secret_key();
+  secret_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.secret_key)
+}
+inline void MsgS2CCrearteDealACK::set_secret_key(const char* value) {
+  set_has_secret_key();
+  secret_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgS2CCrearteDealACK.secret_key)
+}
+inline void MsgS2CCrearteDealACK::set_secret_key(const char* value, size_t size) {
+  set_has_secret_key();
+  secret_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgS2CCrearteDealACK.secret_key)
+}
+inline ::std::string* MsgS2CCrearteDealACK::mutable_secret_key() {
+  set_has_secret_key();
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CCrearteDealACK.secret_key)
+  return secret_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgS2CCrearteDealACK::release_secret_key() {
+  clear_has_secret_key();
+  return secret_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgS2CCrearteDealACK::set_allocated_secret_key(::std::string* secret_key) {
+  if (secret_key != NULL) {
+    set_has_secret_key();
+  } else {
+    clear_has_secret_key();
+  }
+  secret_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), secret_key);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgS2CCrearteDealACK.secret_key)
+}
+
+// required int32 status = 3;
+inline bool MsgS2CCrearteDealACK::has_status() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CCrearteDealACK::set_has_status() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CCrearteDealACK::clear_has_status() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void MsgS2CCrearteDealACK::clear_status() {
   status_ = 0;
@@ -13575,15 +13643,15 @@ inline void MsgS2CCrearteDealACK::set_status(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.status)
 }
 
-// required int32 price = 3;
+// required int32 price = 4;
 inline bool MsgS2CCrearteDealACK::has_price() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void MsgS2CCrearteDealACK::set_has_price() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void MsgS2CCrearteDealACK::clear_has_price() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void MsgS2CCrearteDealACK::clear_price() {
   price_ = 0;
@@ -13599,15 +13667,15 @@ inline void MsgS2CCrearteDealACK::set_price(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.price)
 }
 
-// required int32 order_id = 4;
+// required int32 order_id = 5;
 inline bool MsgS2CCrearteDealACK::has_order_id() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void MsgS2CCrearteDealACK::set_has_order_id() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void MsgS2CCrearteDealACK::clear_has_order_id() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void MsgS2CCrearteDealACK::clear_order_id() {
   order_id_ = 0;
@@ -13623,15 +13691,15 @@ inline void MsgS2CCrearteDealACK::set_order_id(::google::protobuf::int32 value) 
   // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.order_id)
 }
 
-// required .message.GameError error = 5 [default = Error_NO];
+// required .message.GameError error = 6 [default = Error_NO];
 inline bool MsgS2CCrearteDealACK::has_error() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void MsgS2CCrearteDealACK::set_has_error() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void MsgS2CCrearteDealACK::clear_has_error() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void MsgS2CCrearteDealACK::clear_error() {
   error_ = 0;
@@ -13648,15 +13716,15 @@ inline void MsgS2CCrearteDealACK::set_error(::message::GameError value) {
   // @@protoc_insertion_point(field_set:message.MsgS2CCrearteDealACK.error)
 }
 
-// required string platform_url = 6;
+// required string platform_url = 7;
 inline bool MsgS2CCrearteDealACK::has_platform_url() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void MsgS2CCrearteDealACK::set_has_platform_url() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void MsgS2CCrearteDealACK::clear_has_platform_url() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void MsgS2CCrearteDealACK::clear_platform_url() {
   platform_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());

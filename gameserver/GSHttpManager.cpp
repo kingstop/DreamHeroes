@@ -57,7 +57,7 @@ bool CreateDealHttpTask::logicExcute()
 	DreamHero* hero = gDreamHeroManager.GetHero(_acc);
 	if (hero)
 	{
-		hero->addDealWaitToPay(_key_code.c_str(), _status, _price, _order_id,
+		hero->addDealWaitToPay(_key_code.c_str(), _secret_key.c_str(),_status, _price, _order_id,
 			_url_platform_call_back.c_str(),(message::GameError)_error);
 	}
 	else
@@ -120,6 +120,11 @@ bool CreateDealHttpTask::excute()
 					std::string product_id = value["product_id"].asString();
 					_price = value["price"].asInt();
 					_order_id = value["order_id"].asInt();
+					bool bret_app_secret = value["app_secret"].empty();
+					if (bret_app_secret)
+					{
+						_secret_key = value["app_secret"].asString();
+					}
 					if (bret_url_platform_call_back == false)
 					{
 						_url_platform_call_back = value["notify_url"].asString();
@@ -144,9 +149,6 @@ bool CreateDealHttpTask::excute()
 			{
 				_error = message::Error_CreateDealFailedTheHttpErrorRespone;
 			}
-
-
-
 		}
 	}
 	catch (std::exception &ex)

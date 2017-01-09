@@ -67,6 +67,9 @@ public:
 	void ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGameProgress* msg);
 	void ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGameProgress* msg);
 	void ReqReceiveDailyGamePrize();
+
+
+
 	void ReqRemoveAllSpecialCreatureList();
 	void ReqSetSpecialCreatureList(int creature_id, int status);
 	void ReqModifyCurrentHero(int grid_id);
@@ -79,7 +82,7 @@ public:
 	void DailyGamePrize(int gold);
 	void TryToGetGamePrize(bool sendmsg);
 public:
-	void addDealWaitToPay(std::string key_code, int status, int price, int order_id, const char* notify_url,
+	void addDealWaitToPay(std::string key_code, const char* secret_key,int status, int price, int order_id, const char* notify_url,
 		message::GameError error);
 	void addDealPay(std::string key_code, int status, int order_id, message::GameError error, bool send_msg = true);
 	//void completeDealByOrder(const char* order_id, bool success ,bool needmsg);

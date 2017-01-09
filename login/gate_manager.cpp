@@ -72,7 +72,7 @@ bool GateManager::giveUserToGate(Account* pkAccount, UserLoginSession* pkSession
             ::message::GTLGData* data = msg.mutable_data();
             data->set_account(pkAccount->nId);
             data->set_transid(pkAccount->nTranId);
-
+			msg.set_channel(pkSession->get_channel());
             pkSession->setAccount(pkAccount->nId);
             pkSession->setState(UserLoginSession::_wait_gate_);
 			pkGate->addBalenceTime();

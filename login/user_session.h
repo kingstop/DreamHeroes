@@ -35,12 +35,15 @@ public:
 	virtual void proc_message( const message_t& msg );
 	virtual void reset();
 	virtual void run();
+	void set_channel(int channel);
+	int get_channel();
 	const char* getPlatformUserId();
 	
 private:
 	u32 m_connecttime;
 	account_type m_accid;
 	u8  m_state;
+	int _channel;
 
 	std::string _platform_user_id;
 	

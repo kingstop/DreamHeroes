@@ -95,6 +95,7 @@ bool LoginHttpTask::logicExcute()
 		if (_status == 0)
 		{
 			_session->setState(UserLoginSession::_platform_success_);
+			_session->set_channel(_channel_id);
 			success = true;
 		}
 	}

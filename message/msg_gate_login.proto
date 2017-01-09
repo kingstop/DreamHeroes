@@ -8,6 +8,7 @@ message GTLGData
 message MsgLN2GTUserLogin
 {
 	required GTLGData data = 1;
+	required int32 channel = 2;
 }
 // login notice gate kick
 message MsgLN2GTKickUser

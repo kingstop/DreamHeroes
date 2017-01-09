@@ -7,9 +7,9 @@ class UserManager : public EventableObject
 public:
 	UserManager();
 public:
-    void addToWait(tran_id_type t,  account_type a);
+    void addToWait(tran_id_type t,  account_type a, int channel);
     void kickUser(tran_id_type t,  account_type a);
-    bool checkConn(tran_id_type t, UserSession* p);
+    bool checkConn(tran_id_type t, UserSession* p, int channel);
     void checkClose(UserSession* p);
 
     void eventCallRemoveWait(tran_id_type t);

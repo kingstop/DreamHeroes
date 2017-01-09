@@ -16,12 +16,13 @@ void GateGameClient::offlinePlayer(tran_id_type t)
     sendPBMessage(&msg);
     Mylog::log_player(LOG_INFO, "off line user[%u] from game server [%u]", t, m_GameInfo.game_id);
 }
-void GateGameClient::addNewPlayer(tran_id_type t,  account_type a)
+void GateGameClient::addNewPlayer(tran_id_type t,  account_type a, int channel)
 {
     message::MsgGT2GSAddUser msg;
     message::GTLGData* p = msg.mutable_data();
     p->set_account(a);
     p->set_transid(t);
+	msg.set_channel(channel);
     sendPBMessage(&msg);
 	static int new_user_count = 0;
 	new_user_count ++;
@@ -68,7 +69,7 @@ void GateGameClient::parseChangeGS(google::protobuf::Message* p, pb_flag_type fl
 			if (a != INVALID_ACCOUNT)
 			{
 				pksession->setGSid(msg->gameserverid());
-				pkNew->addNewPlayer(pksession->getTrans(), gGTUserMgr.getAccount(pksession->getTrans()));
+				pkNew->addNewPlayer(pksession->getTrans(), gGTUserMgr.getAccount(pksession->getTrans()), pksession->get_channel());
 			}else
 			{
 				pksession->setClose();
