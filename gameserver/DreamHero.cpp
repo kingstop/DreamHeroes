@@ -2094,6 +2094,14 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 	{
 		msgACK.set_error(message::Error_FailedToLotteryTodayHaveBeenLotteried);
 	}
+
+	std::string last_day_lottery_time = "";
+	build_unix_time_to_string(_last_day_lottery_time, last_day_lottery_time);
+	std::string current_server_time = "";
+	Mylog::log_server(LOG_INFO, "daily lottery time [%s]", last_day_lottery_time.c_str());
+	build_unix_time_to_string(g_server_time, current_server_time);
+	Mylog::log_server(LOG_INFO, "current server time [%s]", current_server_time.c_str());
+
 	msgACK.set_last_lottery_time(_last_day_lottery_time);
 	sendPBMessage(&msgACK);
 }
