@@ -2191,13 +2191,21 @@ void DreamHero::ReqGoldShopConfigs()
 {
 	message::MsgS2CGoldShopConfigsACK msg;
 	const MAPGOLDSHOPCONFIGINFOS* infos = gGameConfig.getGoldShopConfigInfos(_session->get_channel());
-	MAPGOLDSHOPCONFIGINFOS::const_iterator it = infos->begin();
-	for (; it != infos->end(); ++ it)
+	if (infos != NULL)
 	{
-		message::MsgGoldShopConfigInfo* entry_info = msg.add_infos();
-		entry_info->CopyFrom(it->second.info_);
+		MAPGOLDSHOPCONFIGINFOS::const_iterator it = infos->begin();
+		for (; it != infos->end(); ++it)
+		{
+			message::MsgGoldShopConfigInfo* entry_info = msg.add_infos();
+			entry_info->CopyFrom(it->second.info_);
+		}
+		sendPBMessage(&msg);
 	}
-	sendPBMessage(&msg);
+	else
+	{
+		Mylog::log_server(LOG_ERROR, "not found channel[%d] gold config", _session->get_channel());
+		
+	}
 }
 
 const char* DreamHero::get_name()
