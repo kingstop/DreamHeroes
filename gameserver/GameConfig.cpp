@@ -380,6 +380,8 @@ void GameConfig::Load(DBQuery* p)
 			_global_config.config_max_spirit_ = row["config_max_spirit"];
 			_global_config.config_enter_game_use_spirit_ = row["config_enter_game_use_spirit"];
 			_global_config.config_day_buy_spirit_ = row["config_day_buy_spirit"];
+			int max_daily_game_rank_size = row["daily_game_max_rank_size"];
+			gRankManager.setDailyMaxRankSize(max_daily_game_rank_size);
 			int max_daily_game_progress = row["daily_game_max_progress"];
 			gRankManager.setMaxDailyProgress(max_daily_game_progress);
 		}

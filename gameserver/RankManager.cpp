@@ -215,6 +215,11 @@ void RankManager::setDailyGameBeginTime(u32 begin_time)
 {
 	_daily_game_begin_time = begin_time;
 }
+
+void RankManager::setDailyMaxRankSize(int rank_size)
+{
+	_daily_max_rank_size = rank_size;
+}
 void RankManager::updateHeroDailyRank(account_type acc, const char* name, int score,int& rank)
 {
 	rank = _daily_max_rank_size + 1;

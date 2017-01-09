@@ -27,6 +27,7 @@ public:
 	void setMaxDailyProgress(int progress);
 	int getMaxDailyProgress();
 	void setDailyGameBeginTime(u32 begin_time);
+	void setDailyMaxRankSize(int rank_size);
 	HEROESDAILYRANK* getHeroesRank();
 	void ClearRankList();
 public:
