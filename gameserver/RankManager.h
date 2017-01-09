@@ -19,13 +19,11 @@ public:
 	virtual ~RankManager();
 	void Init();
 	void Load(DBQuery* p);
-	void setDailyMaxRankSize(int rank_size);
 	void updateHeroDailyRank(account_type acc, const char* name, int score,int& rank);
 	int getHeroDailyRank(account_type acc);
 	void DailyGameUpdate();
 	int GetDailyGamePrize(int rank);
 	u32 getDailyGameBeginTime();
-	u32 getDailyRankMaxSize();
 	void setMaxDailyProgress(int progress);
 	int getMaxDailyProgress();
 	void setDailyGameBeginTime(u32 begin_time);

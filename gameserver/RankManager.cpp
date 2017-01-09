@@ -80,10 +80,6 @@ void RankManager::Load(DBQuery* p)
 }
 
 
-void RankManager::setDailyMaxRankSize(int rank_size)
-{
-	_daily_max_rank_size = rank_size;
-}
 int RankManager::getHeroDailyRank(account_type acc)
 {
 	int rank = _daily_max_rank_size + 1;
@@ -214,10 +210,6 @@ void RankManager::DailyGameUpdate()
 
 }
 
-u32 RankManager::getDailyRankMaxSize()
-{
-	return _daily_max_rank_size;
-}
 
 void RankManager::setDailyGameBeginTime(u32 begin_time)
 {

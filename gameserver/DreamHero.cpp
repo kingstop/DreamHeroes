@@ -2268,7 +2268,7 @@ void DreamHero::TryToGetGamePrize(bool sendmsg)
 {
 	if (_daily_game_time != _daily_game_prize_time)
 	{
-		int rank = gRankManager.getDailyRankMaxSize() + 1;
+		int rank = _info.daily_game_progress() + 1;
 		_info.set_daily_game_gold(gRankManager.GetDailyGamePrize(rank));
 		_daily_game_prize_time = _daily_game_time;
 		if (sendmsg)
@@ -2285,26 +2285,25 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	message::MsgS2CUpdateDailyGameProgressACK msgACK;
 	message::GameError error = message::Error_NO;
 	int rank = 101;
-	if (_info.daily_game_progress() == gRankManager.getDailyRankMaxSize())
+	if (gRankManager.getDailyGameBeginTime() != _daily_game_prize_time)
+	{
+		_daily_game_time = gRankManager.getDailyGameBeginTime();
+		_info.set_daily_game_hp_pct(100);
+		_info.set_daily_game_progress(0);
+		_info.set_daily_game_hp_pct(100);
+	}
+
+	if (_info.daily_game_progress() == gRankManager.getMaxDailyProgress())
 	{
 		error = message::Error_FailedToUpdateDailyProgressIsMaxProgress;
 	}
 	else if (msg->daily_game_progress() == 1)
 	{
 		
-		if (gRankManager.getDailyGameBeginTime() != _daily_game_prize_time)
-		{
-			_daily_game_time = gRankManager.getDailyGameBeginTime();
-			_info.set_daily_game_hp_pct(100);
-			_info.set_daily_game_progress(0);
-			_info.set_daily_game_hp_pct(100);
-		}
-		else if(_info.daily_game_hp_pct() != 0)
-		{
-			if (_info.daily_game_progress() == 0)
-			{
 
-			}
+		if(_info.daily_game_hp_pct() != 0)
+		{
+		
 		}
 		else
 		{
