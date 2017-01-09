@@ -67,9 +67,6 @@ public:
 	void ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGameProgress* msg);
 	void ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGameProgress* msg);
 	void ReqReceiveDailyGamePrize();
-
-
-
 	void ReqRemoveAllSpecialCreatureList();
 	void ReqSetSpecialCreatureList(int creature_id, int status);
 	void ReqModifyCurrentHero(int grid_id);

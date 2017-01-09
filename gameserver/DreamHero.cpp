@@ -2302,14 +2302,16 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		_daily_game_time = gRankManager.getDailyGameBeginTime();
 		_info.set_daily_game_hp_pct(100);
 		_info.set_daily_game_progress(0);
-		_info.set_daily_game_hp_pct(100);
+		//_info.set_daily_game_hp_pct(100);
 	}
+
 
 	if (_info.daily_game_progress() == gRankManager.getMaxDailyProgress())
 	{
 		error = message::Error_FailedToUpdateDailyProgressIsMaxProgress;
 	}
-	else if (msg->daily_game_progress() == 1)
+	else if (msg->daily_game_progress() == 1 
+		|| msg->daily_game_progress() == _info.daily_game_record_progress() + 1)
 	{
 		if(_info.daily_game_hp_pct() != 0)
 		{
@@ -2326,7 +2328,8 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		int progress_temp = _info.daily_game_progress() + 1;
 		if (_info.daily_game_hp_pct() != 0)
 		{
-			if (progress_temp == msg->daily_game_progress())
+			if (progress_temp == msg->daily_game_progress() 
+				|| msg->daily_game_progress() == _info.daily_game_record_progress() + 1)
 			{
 				int score = msg->score();
 				_info.set_daily_game_score(score);
