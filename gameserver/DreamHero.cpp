@@ -2274,17 +2274,21 @@ void DreamHero::DailyGamePrize(int gold)
 
 void DreamHero::TryToGetGamePrize(bool sendmsg)
 {
-	if (_daily_game_time != _daily_game_prize_time)
+	u32 server_rank_time = gRankManager.getDailyGameBeginTime();
+	if (server_rank_time != _daily_game_time)
 	{
-		int rank = _info.daily_game_progress() + 1;
-		_info.set_daily_game_gold(gRankManager.GetDailyGamePrize(rank));
-		_daily_game_prize_time = _daily_game_time;
-		if (sendmsg)
+		if (_daily_game_time != _daily_game_prize_time)
 		{
-			message::MsgS2CNotifyDailyGamePrize msg;
-			msg.set_gold(_info.daily_game_gold());
-			msg.set_time(_daily_game_time);
-			sendPBMessage(&msg);
+			int rank = _info.daily_game_progress() + 1;
+			_info.set_daily_game_gold(gRankManager.GetDailyGamePrize(rank));
+			_daily_game_prize_time = _daily_game_time;
+			if (sendmsg)
+			{
+				message::MsgS2CNotifyDailyGamePrize msg;
+				msg.set_gold(_info.daily_game_gold());
+				msg.set_time(_daily_game_time);
+				sendPBMessage(&msg);
+			}
 		}
 	}
 }
@@ -2307,8 +2311,6 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	}
 	else if (msg->daily_game_progress() == 1)
 	{
-		
-
 		if(_info.daily_game_hp_pct() != 0)
 		{
 		
