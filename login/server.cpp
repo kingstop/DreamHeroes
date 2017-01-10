@@ -60,6 +60,7 @@ void LoginServer::shutDown()
 	gLGUserServer.stop();
 	gLGGateServer.stop();
     gLGCenterDB.shutDown();
+	gHttpManager.setStop(true);
 	if (_http_thread)
 	{
 		_http_thread->join();

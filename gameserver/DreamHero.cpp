@@ -183,7 +183,8 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	bool find_config_record_progress = false;
 	for (int i = record_size - 1; i >= 0; i++)
 	{
-		if (global_config.daily_game_record_config_[i] == record_progress)
+		int config_progress = global_config.daily_game_record_config_[i];
+		if (config_progress == record_progress)
 		{
 			find_config_record_progress = true;
 			break;
