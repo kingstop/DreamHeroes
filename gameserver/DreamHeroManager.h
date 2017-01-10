@@ -32,6 +32,7 @@ public:
 protected:
 	std::string generateStr(int& key, const char* argu);
 	void eventPerHour();
+	void eventPerMin();
 	void save();
 	void dayRefresh();
 	void refrashDayNumber();

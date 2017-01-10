@@ -114,16 +114,20 @@ void DreamHeroManager::init()
 	{
 		//Mylog::log_server()
 	}
+	time_t server_time = g_server_start_time;
 
-
-	if (gEventMgr.hasEvent(this, EVENT_PER_HOUR) == false)
+	tm* p1 = localtime(&server_time);
+	if (gEventMgr.hasEvent(this, EVENT_PER_MIN) == false)
 	{
-		time_t server_time = g_server_start_time;
-		
-		tm* p1 = localtime(&server_time);
-		int next_hour_second = ((59 - p1->tm_min) * 60 + (60 - p1->tm_sec))* _TIME_SECOND_MSEL_;
-		gEventMgr.addEvent(this, &DreamHeroManager::eventPerHour, EVENT_PER_HOUR, next_hour_second, -1, 0);
+		int next_min = (60 - p1->tm_sec) * _TIME_SECOND_MSEL_;
+		gEventMgr.addEvent(this, &DreamHeroManager::eventPerMin, EVENT_PER_MIN, next_min, -1, 0);
 	}
+
+	//if (gEventMgr.hasEvent(this, EVENT_PER_HOUR) == false)
+	//{
+	//	int next_hour_second = ((59 - p1->tm_min) * 60 + (60 - p1->tm_sec))* _TIME_SECOND_MSEL_;
+	//	gEventMgr.addEvent(this, &DreamHeroManager::eventPerHour, EVENT_PER_HOUR, next_hour_second, -1, 0);
+	//}
 
 	if (gEventMgr.hasEvent(this, EVENT_SAVE_HEROES_STATU) == false)
 	{
@@ -186,28 +190,56 @@ void DreamHeroManager::save()
 	gGSDBClient.sendPBMessage(&msg_db, 0);
 }
 
-void DreamHeroManager::eventPerHour()
+void DreamHeroManager::eventPerMin()
 {
 	time_t server_time = g_server_time;
 	tm* p1 = localtime(&server_time);
-	int next_hour_second = ((59 - p1->tm_min) * 60 + (60 - p1->tm_sec) )* _TIME_SECOND_MSEL_;
-	if (gEventMgr.hasEvent(this,EVENT_PER_HOUR))
+	if (p1->tm_min == 0 )
 	{
-		gEventMgr.removeEvents(this, EVENT_PER_HOUR);
-	}
-	gEventMgr.addEvent(this, &DreamHeroManager::eventPerHour, EVENT_PER_HOUR, next_hour_second, -1, 0);
+		if (p1->tm_hour == gGameConfig.getGlobalConfig().day_Refresh_time_)
+		{
+			dayRefresh();
+		}
 
-	//gEventMgr.modifyEventTimeAndTimeLeft(this, EVENT_PER_HOUR, next_hour_second);
-	
-	if (p1->tm_hour == gGameConfig.getGlobalConfig().day_Refresh_time_)
-	{
-		dayRefresh();
+		if (p1->tm_hour == 0)
+		{
+			refrashDayNumber();
+		}
 	}
+	if (gEventMgr.hasEvent(this,EVENT_PER_MIN) == true)
+	{
+		gEventMgr.removeEvents(this, EVENT_PER_MIN);
+	}
+	int next_min = (60 - p1->tm_sec) * _TIME_SECOND_MSEL_;
+	gEventMgr.addEvent(this, &DreamHeroManager::eventPerMin, EVENT_PER_MIN, next_min, -1, 0);
+	std::string cur_time;
+	build_unix_time_to_string(g_server_time, cur_time);
+	Mylog::log_server(LOG_INFO, "server per min time[%s]", cur_time.c_str());
 
-	if (p1->tm_hour == 0)
-	{
-		refrashDayNumber();
-	}
+}
+
+void DreamHeroManager::eventPerHour()
+{
+	//time_t server_time = g_server_time;
+	//tm* p1 = localtime(&server_time);
+	//int next_hour_second = ((59 - p1->tm_min) * 60 + (60 - p1->tm_sec) )* _TIME_SECOND_MSEL_;
+	//if (gEventMgr.hasEvent(this,EVENT_PER_HOUR))
+	//{
+	//	gEventMgr.removeEvents(this, EVENT_PER_HOUR);
+	//}
+	//gEventMgr.addEvent(this, &DreamHeroManager::eventPerHour, EVENT_PER_HOUR, next_hour_second, -1, 0);
+
+	////gEventMgr.modifyEventTimeAndTimeLeft(this, EVENT_PER_HOUR, next_hour_second);
+	//
+	//if (p1->tm_hour == gGameConfig.getGlobalConfig().day_Refresh_time_)
+	//{
+	//	dayRefresh();
+	//}
+
+	//if (p1->tm_hour == 0)
+	//{
+	//	refrashDayNumber();
+	//}
 }
 
 std::string DreamHeroManager::generateStr(int& key, const char* argu)
