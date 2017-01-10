@@ -2364,7 +2364,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 				_info.set_daily_game_score(score);
 				if (msg->hp_pct() != 0)
 				{
-					_info.set_daily_game_progress(msg->daily_game_progress());
+					_info.set_daily_game_record_progress(msg->daily_game_progress());
 				}
 				
 				_info.set_daily_game_hp_pct(msg->hp_pct());
