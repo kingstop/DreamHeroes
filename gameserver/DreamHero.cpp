@@ -174,8 +174,26 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	if (gRankManager.getDailyGameBeginTime() != _daily_game_time)
 	{
 		_info.set_daily_game_progress(0);
+		_info.set_daily_game_score(0);
 	}
 	
+	const globalConfig global_config = gGameConfig.getGlobalConfig();
+	int record_size = global_config.daily_game_record_config_.size();
+	int record_progress = _info.daily_game_record_progress();
+	bool find_config_record_progress = false;
+	for (int i = record_size - 1; i >= 0; i++)
+	{
+		if (global_config.daily_game_record_config_[i] == record_progress)
+		{
+			find_config_record_progress = true;
+			break;
+		}
+	}
+
+	if (find_config_record_progress == false)
+	{
+		_info.set_daily_game_record_progress(0);
+	}
 	TryToGetGamePrize(false);
 
 }
@@ -2311,6 +2329,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		_daily_game_time = gRankManager.getDailyGameBeginTime();
 		_info.set_daily_game_hp_pct(100);
 		_info.set_daily_game_progress(0);
+		_info.set_daily_game_score(0);
 		//_info.set_daily_game_hp_pct(100);
 	}
 
