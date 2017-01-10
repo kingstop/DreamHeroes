@@ -268,8 +268,8 @@ bool GameConfig::isInToday(u32 time)
 
 	int day_offset_time = _global_config.day_Refresh_time_ * 60 * 60;
 	bool ret = false;
-	u64 temp_time = g_server_time - day_offset_time;
-	if (same_day(temp_time, time) == true)
+	u64 temp_time = time - day_offset_time;
+	if (same_day(g_server_time, temp_time) == true)
 	{
 		ret = true;
 	}
