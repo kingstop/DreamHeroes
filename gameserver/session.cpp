@@ -190,17 +190,20 @@ void Session::parseCmdReqModifyJewel(google::protobuf::Message* p)
 void Session::parseCmdReqResetDailyLottery(google::protobuf::Message* p)
 {
 	message::GameError error = message::Error_NO;
-	if (_dream_hero->getGMLevel() > 0)
+	if (_dream_hero)
 	{
-		_dream_hero->ResetDailyLottery();
+		if (_dream_hero->getGMLevel() > 0)
+		{
+			_dream_hero->ResetDailyLottery();
+		}
+		else
+		{
+			error = message::Error_CmdFailedRequiredGMLevel;
+		}
+		message::MsgS2CCmdResetDailyLotteryACK msg;
+		msg.set_error(error);
+		sendPBMessage(&msg);
 	}
-	else
-	{
-		error = message::Error_CmdFailedRequiredGMLevel;
-	}
-	message::MsgS2CCmdResetDailyLotteryACK msg;
-	msg.set_error(error);
-	sendPBMessage(&msg);
 }
 
 void Session::parseCmdReqClearDailyRankList(google::protobuf::Message* p)
@@ -397,13 +400,20 @@ void Session::parseReqDailyGameRankList(google::protobuf::Message* p)
 void Session::parseReqCrearteDeal(google::protobuf::Message* p)
 {
 	message::MsgC2SReqCrearteDeal* msg = (message::MsgC2SReqCrearteDeal*)p;
-	_dream_hero->ReqCrearteDeal(msg);
+	if (_dream_hero != NULL)
+	{
+		_dream_hero->ReqCrearteDeal(msg);
+	}	
 }
 
 void Session::parseReqVerifyDeal(google::protobuf::Message* p)
 {
 	message::MsgC2SReqVerifyDeal* msg = (message::MsgC2SReqVerifyDeal*)p;
-	_dream_hero->ReqVerifyDeal(msg);
+	if (_dream_hero != NULL)
+	{
+		_dream_hero->ReqVerifyDeal(msg);
+	}
+	
 }
 
 
