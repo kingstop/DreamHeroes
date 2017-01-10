@@ -1641,6 +1641,18 @@ class MsgGoldShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 jewel() const;
   void set_jewel(::google::protobuf::int32 value);
 
+  // required string set_product_id = 7;
+  bool has_set_product_id() const;
+  void clear_set_product_id();
+  static const int kSetProductIdFieldNumber = 7;
+  const ::std::string& set_product_id() const;
+  void set_set_product_id(const ::std::string& value);
+  void set_set_product_id(const char* value);
+  void set_set_product_id(const char* value, size_t size);
+  ::std::string* mutable_set_product_id();
+  ::std::string* release_set_product_id();
+  void set_allocated_set_product_id(::std::string* set_product_id);
+
   // @@protoc_insertion_point(class_scope:message.MsgGoldShopConfigInfo)
  private:
   inline void set_has_id();
@@ -1655,6 +1667,8 @@ class MsgGoldShopConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_describe();
   inline void set_has_jewel();
   inline void clear_has_jewel();
+  inline void set_has_set_product_id();
+  inline void clear_has_set_product_id();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1667,6 +1681,7 @@ class MsgGoldShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 gold_;
   float money_;
   ::google::protobuf::internal::ArenaStringPtr describe_;
+  ::google::protobuf::internal::ArenaStringPtr set_product_id_;
   ::google::protobuf::int32 jewel_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
@@ -3508,6 +3523,59 @@ inline void MsgGoldShopConfigInfo::set_jewel(::google::protobuf::int32 value) {
   set_has_jewel();
   jewel_ = value;
   // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.jewel)
+}
+
+// required string set_product_id = 7;
+inline bool MsgGoldShopConfigInfo::has_set_product_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MsgGoldShopConfigInfo::set_has_set_product_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MsgGoldShopConfigInfo::clear_has_set_product_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MsgGoldShopConfigInfo::clear_set_product_id() {
+  set_product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_set_product_id();
+}
+inline const ::std::string& MsgGoldShopConfigInfo::set_product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.set_product_id)
+  return set_product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgGoldShopConfigInfo::set_set_product_id(const ::std::string& value) {
+  set_has_set_product_id();
+  set_product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.set_product_id)
+}
+inline void MsgGoldShopConfigInfo::set_set_product_id(const char* value) {
+  set_has_set_product_id();
+  set_product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgGoldShopConfigInfo.set_product_id)
+}
+inline void MsgGoldShopConfigInfo::set_set_product_id(const char* value, size_t size) {
+  set_has_set_product_id();
+  set_product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgGoldShopConfigInfo.set_product_id)
+}
+inline ::std::string* MsgGoldShopConfigInfo::mutable_set_product_id() {
+  set_has_set_product_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgGoldShopConfigInfo.set_product_id)
+  return set_product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgGoldShopConfigInfo::release_set_product_id() {
+  clear_has_set_product_id();
+  return set_product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgGoldShopConfigInfo::set_allocated_set_product_id(::std::string* set_product_id) {
+  if (set_product_id != NULL) {
+    set_has_set_product_id();
+  } else {
+    clear_has_set_product_id();
+  }
+  set_product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), set_product_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgGoldShopConfigInfo.set_product_id)
 }
 
 // -------------------------------------------------------------------

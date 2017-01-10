@@ -127,6 +127,7 @@ message MsgGoldShopConfigInfo
 	required float money = 4;
 	required string describe = 5;
 	required int32 jewel = 6;
+	required string set_product_id = 7;
 }
 
 enum HeroDealType
