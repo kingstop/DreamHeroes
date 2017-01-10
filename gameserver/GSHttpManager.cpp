@@ -86,7 +86,7 @@ bool CreateDealHttpTask::excute()
 	std::string post_url;
 	std::string respone_url;
 	char sz_temp[1024];
-	sprintf(sz_temp, "%s/paygateway/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%s&extra_data=%s",
+	sprintf(sz_temp, "%s/paycallback/index.php?action=third_preorder&channel_id=%d&game_id=%d&user_id=%llu&ud=%s&product_id=%s&extra_data=%s",
 		gGameConfig.getPlatformHttpUrl(),
 		channel_id, game_id, _acc, _name.c_str(), _key_code.c_str(), gGameConfig.getServerTitle());
 	
@@ -214,7 +214,7 @@ bool VerifyDealHttpTaskIOS::excute()
 		unsigned char sz_temp_target[10240];
 		//urlencode((unsigned char*)_receipt.c_str(), sz_temp_target);
 		sprintf((char*)sz_temp,
-			"%s/paygateway/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt=%s",
+			"%s/paycallback/index.php?action=third_confirm&channel_id=%d&game_id=%d&user_id=%llu&order_id=%d&receipt=%s",
 			gGameConfig.getPlatformHttpUrl(),
 			channel_id, game_id, _acc, _order_id, _receipt.c_str());
 		//Mylog::log_server(LOG_INFO, "http verify [%s] ", sz_temp);
