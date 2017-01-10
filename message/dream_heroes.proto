@@ -170,6 +170,7 @@ message MsgSpiritShopInfo
 	required int32 need_jewel = 3;
 	required int32 resource_id = 4;
 	required string describe = 5;
+	required string product_id = 6;
 }
 
 enum LotionUseType

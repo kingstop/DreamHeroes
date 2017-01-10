@@ -558,6 +558,7 @@ void GameConfig::Load(DBQuery* p)
 			entry.set_spirit(row["spirit"]);
 			entry.set_need_jewel(row["need_jewel"]);
 			entry.set_resource_id(row["resource_id"]);
+			entry.set_product_id(row["appstore_key"].c_str());
 			std::string script = row["describe"].c_str();
 			entry.set_describe(script.c_str());
 			_map_spirit_shop[entry.index()] = entry;
