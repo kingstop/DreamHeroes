@@ -202,6 +202,8 @@ void RankManager::DailyGameUpdate()
 		DreamHero* hero = it_heroes->second;
 		hero->TryToGetGamePrize(true);
 	}
+	_heroes_daily_rank.clear();
+	_heroes_rank.clear();
 	_daily_game_begin_time = g_server_time;
 
 	std::string day_refresh_time = "";
