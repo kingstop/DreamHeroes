@@ -13,7 +13,7 @@ DreamHero::DreamHero()
 	_day_offset_time = gGameConfig.getGlobalConfig().day_Refresh_time_ * 60 * 60;
 	_current_chapter = -1;
 	_current_section = -1;
-
+	_last_buy_spirit_time = 0;
 	_current_task_count = 0;
 	_last_task_advertisement_time = 0;
 	_day_offset_time = 0;
@@ -418,13 +418,14 @@ void DreamHero::ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGame
 					_info.set_daily_game_hp_pct(100);
 					int cur_jewel = _info.jewel() - jewel;
 					_info.set_jewel(cur_jewel);
+					_last_daily_reset_game_time = g_server_time;
 				}
 				else
 				{
-
+					error = message::Error_FailedToResetDailyGameTheTheHpIsFull;
 				}
 
-				_last_daily_reset_game_time = g_server_time;
+				
 			}
 		}
 	}
@@ -1680,11 +1681,11 @@ void DreamHero::ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg)
 			int spirit_config = config_info->spirit();
 			if (need_jewel <= _info.jewel())
 			{
-
 				int jewel = _info.jewel() - need_jewel;
 				int spirit = _info.spirit() + spirit_config;
 				_info.set_jewel(jewel);
 				_info.set_spirit(spirit);
+				_last_buy_spirit_time = g_server_time;
 			}
 			else
 			{

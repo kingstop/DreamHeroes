@@ -2293,7 +2293,7 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "ryACK\022+\n\005error\030\001 \002(\0162\022.message.GameError"
     ":\010Error_NO\"\034\n\032MsgC2SCmdReqResetDailyGame"
     "\"I\n\032MsgS2CCmdResetDailyGameACK\022+\n\005error\030"
-    "\001 \002(\0162\022.message.GameError:\010Error_NO*\335\023\n\t"
+    "\001 \002(\0162\022.message.GameError:\010Error_NO*\215\024\n\t"
     "GameError\022\014\n\010Error_NO\020\000\022*\n&Error_CanNotE"
     "nterGameTheInstanceIsLock\020\001\022+\n\'Error_Can"
     "NotEnterGameTheCharacterIsLock\020\002\022)\n%Erro"
@@ -2356,11 +2356,12 @@ void protobuf_AddDesc_dream_5fheroes_2eproto() {
     "rize\0203\022.\n*Error_FailedToResetDailyGameNo"
     "tEnoughJewel\0204\022&\n\"Error_FailedToResetDai"
     "lyGameUseOut\0205\0221\n-Error_FailedToResetDai"
-    "lyGameTheProgressIsZero\0206\022\020\n\014Error_Unkno"
-    "w\0207*@\n\rLotionUseType\022\026\n\022LotionUseType_go"
-    "ld\020\001\022\027\n\023LotionUseType_jewel\020\002*G\n\014enLotte"
-    "ryBox\022\021\n\rLottery_Jewel\020\000\022\020\n\014Lottery_Gold"
-    "\020\001\022\022\n\016Lottery_Lotion\020\002", 11022);
+    "lyGameTheProgressIsZero\0206\022.\n*Error_Faile"
+    "dToResetDailyGameTheTheHpIsFull\0207\022\020\n\014Err"
+    "or_Unknow\0208*@\n\rLotionUseType\022\026\n\022LotionUs"
+    "eType_gold\020\001\022\027\n\023LotionUseType_jewel\020\002*G\n"
+    "\014enLotteryBox\022\021\n\rLottery_Jewel\020\000\022\020\n\014Lott"
+    "ery_Gold\020\001\022\022\n\016Lottery_Lotion\020\002", 11070);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dream_heroes.proto", &protobuf_RegisterTypes);
   MsgC2SReqEnterDailyGame::default_instance_ = new MsgC2SReqEnterDailyGame();
@@ -2606,6 +2607,7 @@ bool GameError_IsValid(int value) {
     case 53:
     case 54:
     case 55:
+    case 56:
       return true;
     default:
       return false;

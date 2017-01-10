@@ -181,7 +181,8 @@ enum GameError {
   Error_FailedToResetDailyGameNotEnoughJewel = 52,
   Error_FailedToResetDailyGameUseOut = 53,
   Error_FailedToResetDailyGameTheProgressIsZero = 54,
-  Error_Unknow = 55
+  Error_FailedToResetDailyGameTheTheHpIsFull = 55,
+  Error_Unknow = 56
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
