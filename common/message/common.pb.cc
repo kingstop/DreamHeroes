@@ -273,7 +273,7 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, money_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, describe_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, jewel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, set_product_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgGoldShopConfigInfo, product_id_),
   };
   MsgGoldShopConfigInfo_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -420,24 +420,24 @@ void protobuf_AddDesc_common_2eproto() {
     "ter_id\030\001 \002(\005\022\033\n\023required_chapter_id\030\002 \002("
     "\005\022\033\n\023required_section_id\030\003 \002(\005\022$\n\034requir"
     "ed_task_complete_count\030\004 \002(\005\022\024\n\014require_"
-    "gold\030\005 \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"\216\001"
+    "gold\030\005 \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"\212\001"
     "\n\025MsgGoldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013r"
     "esource_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030"
-    "\004 \002(\002\022\020\n\010describe\030\005 \002(\t\022\r\n\005jewel\030\006 \002(\005\022\026"
-    "\n\016set_product_id\030\007 \002(\t\"p\n\017MsgHeroDealInf"
-    "o\022\020\n\010order_id\030\001 \002(\t\022\022\n\nproduct_id\030\002 \002(\t\022"
-    "#\n\004type\030\003 \002(\0162\025.message.HeroDealType\022\022\n\n"
-    "createtime\030\004 \002(\r*4\n\007SubType\022\013\n\007DEFAULT\020\000"
-    "\022\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010TaskT"
-    "ype\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_KillM"
-    "onster\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020TaskT"
-    "ype_UnKnown\020\003\022\027\n\023TaskType_LimitLevel\020\004\022\030"
-    "\n\024TaskType_LimitRevive\020\005\022\"\n\036TaskType_Lim"
-    "itTime_KillMonster\020\006\022#\n\037TaskType_Accumul"
-    "ate_KillMonster\020\007*v\n\014HeroDealType\022\031\n\025Her"
-    "oDealTypApplyOrder\020\000\022\031\n\025HeroDealTypeWait"
-    "ToPay\020\001\022\030\n\024HeroDealTypeComplete\020\002\022\026\n\022Her"
-    "oDealTypeFailed\020\003", 2257);
+    "\004 \002(\002\022\020\n\010describe\030\005 \002(\t\022\r\n\005jewel\030\006 \002(\005\022\022"
+    "\n\nproduct_id\030\007 \002(\t\"p\n\017MsgHeroDealInfo\022\020\n"
+    "\010order_id\030\001 \002(\t\022\022\n\nproduct_id\030\002 \002(\t\022#\n\004t"
+    "ype\030\003 \002(\0162\025.message.HeroDealType\022\022\n\ncrea"
+    "tetime\030\004 \002(\r*4\n\007SubType\022\013\n\007DEFAULT\020\000\022\013\n\007"
+    "MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010TaskType\022"
+    "\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_KillMonst"
+    "er\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020TaskType_"
+    "UnKnown\020\003\022\027\n\023TaskType_LimitLevel\020\004\022\030\n\024Ta"
+    "skType_LimitRevive\020\005\022\"\n\036TaskType_LimitTi"
+    "me_KillMonster\020\006\022#\n\037TaskType_Accumulate_"
+    "KillMonster\020\007*v\n\014HeroDealType\022\031\n\025HeroDea"
+    "lTypApplyOrder\020\000\022\031\n\025HeroDealTypeWaitToPa"
+    "y\020\001\022\030\n\024HeroDealTypeComplete\020\002\022\026\n\022HeroDea"
+    "lTypeFailed\020\003", 2253);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   MsgObjConfig::default_instance_ = new MsgObjConfig();
@@ -6711,7 +6711,7 @@ const int MsgGoldShopConfigInfo::kGoldFieldNumber;
 const int MsgGoldShopConfigInfo::kMoneyFieldNumber;
 const int MsgGoldShopConfigInfo::kDescribeFieldNumber;
 const int MsgGoldShopConfigInfo::kJewelFieldNumber;
-const int MsgGoldShopConfigInfo::kSetProductIdFieldNumber;
+const int MsgGoldShopConfigInfo::kProductIdFieldNumber;
 #endif  // !_MSC_VER
 
 MsgGoldShopConfigInfo::MsgGoldShopConfigInfo()
@@ -6740,7 +6740,7 @@ void MsgGoldShopConfigInfo::SharedCtor() {
   money_ = 0;
   describe_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   jewel_ = 0;
-  set_product_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  product_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6751,7 +6751,7 @@ MsgGoldShopConfigInfo::~MsgGoldShopConfigInfo() {
 
 void MsgGoldShopConfigInfo::SharedDtor() {
   describe_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  set_product_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  product_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -6796,8 +6796,8 @@ void MsgGoldShopConfigInfo::Clear() {
       describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     jewel_ = 0;
-    if (has_set_product_id()) {
-      set_product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    if (has_product_id()) {
+      product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
 
@@ -6907,20 +6907,20 @@ bool MsgGoldShopConfigInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(58)) goto parse_set_product_id;
+        if (input->ExpectTag(58)) goto parse_product_id;
         break;
       }
 
-      // required string set_product_id = 7;
+      // required string product_id = 7;
       case 7: {
         if (tag == 58) {
-         parse_set_product_id:
+         parse_product_id:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_set_product_id()));
+                input, this->mutable_product_id()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->set_product_id().data(), this->set_product_id().length(),
+            this->product_id().data(), this->product_id().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "message.MsgGoldShopConfigInfo.set_product_id");
+            "message.MsgGoldShopConfigInfo.product_id");
         } else {
           goto handle_unusual;
         }
@@ -6988,14 +6988,14 @@ void MsgGoldShopConfigInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->jewel(), output);
   }
 
-  // required string set_product_id = 7;
-  if (has_set_product_id()) {
+  // required string product_id = 7;
+  if (has_product_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->set_product_id().data(), this->set_product_id().length(),
+      this->product_id().data(), this->product_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgGoldShopConfigInfo.set_product_id");
+      "message.MsgGoldShopConfigInfo.product_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      7, this->set_product_id(), output);
+      7, this->product_id(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -7044,15 +7044,15 @@ void MsgGoldShopConfigInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->jewel(), target);
   }
 
-  // required string set_product_id = 7;
-  if (has_set_product_id()) {
+  // required string product_id = 7;
+  if (has_product_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->set_product_id().data(), this->set_product_id().length(),
+      this->product_id().data(), this->product_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "message.MsgGoldShopConfigInfo.set_product_id");
+      "message.MsgGoldShopConfigInfo.product_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->set_product_id(), target);
+        7, this->product_id(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -7106,11 +7106,11 @@ int MsgGoldShopConfigInfo::RequiredFieldsByteSizeFallback() const {
         this->jewel());
   }
 
-  if (has_set_product_id()) {
-    // required string set_product_id = 7;
+  if (has_product_id()) {
+    // required string product_id = 7;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->set_product_id());
+        this->product_id());
   }
 
   return total_size;
@@ -7147,10 +7147,10 @@ int MsgGoldShopConfigInfo::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->jewel());
 
-    // required string set_product_id = 7;
+    // required string product_id = 7;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->set_product_id());
+        this->product_id());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -7200,9 +7200,9 @@ void MsgGoldShopConfigInfo::MergeFrom(const MsgGoldShopConfigInfo& from) {
     if (from.has_jewel()) {
       set_jewel(from.jewel());
     }
-    if (from.has_set_product_id()) {
-      set_has_set_product_id();
-      set_product_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.set_product_id_);
+    if (from.has_product_id()) {
+      set_has_product_id();
+      product_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.product_id_);
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -7239,7 +7239,7 @@ void MsgGoldShopConfigInfo::InternalSwap(MsgGoldShopConfigInfo* other) {
   std::swap(money_, other->money_);
   describe_.Swap(&other->describe_);
   std::swap(jewel_, other->jewel_);
-  set_product_id_.Swap(&other->set_product_id_);
+  product_id_.Swap(&other->product_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -7429,57 +7429,57 @@ void MsgGoldShopConfigInfo::InternalSwap(MsgGoldShopConfigInfo* other) {
   // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.jewel)
 }
 
-// required string set_product_id = 7;
- bool MsgGoldShopConfigInfo::has_set_product_id() const {
+// required string product_id = 7;
+ bool MsgGoldShopConfigInfo::has_product_id() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
- void MsgGoldShopConfigInfo::set_has_set_product_id() {
+ void MsgGoldShopConfigInfo::set_has_product_id() {
   _has_bits_[0] |= 0x00000040u;
 }
- void MsgGoldShopConfigInfo::clear_has_set_product_id() {
+ void MsgGoldShopConfigInfo::clear_has_product_id() {
   _has_bits_[0] &= ~0x00000040u;
 }
- void MsgGoldShopConfigInfo::clear_set_product_id() {
-  set_product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_set_product_id();
+ void MsgGoldShopConfigInfo::clear_product_id() {
+  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_product_id();
 }
- const ::std::string& MsgGoldShopConfigInfo::set_product_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.set_product_id)
-  return set_product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& MsgGoldShopConfigInfo::product_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgGoldShopConfigInfo.product_id)
+  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgGoldShopConfigInfo::set_set_product_id(const ::std::string& value) {
-  set_has_set_product_id();
-  set_product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.set_product_id)
+ void MsgGoldShopConfigInfo::set_product_id(const ::std::string& value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgGoldShopConfigInfo.product_id)
 }
- void MsgGoldShopConfigInfo::set_set_product_id(const char* value) {
-  set_has_set_product_id();
-  set_product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgGoldShopConfigInfo.set_product_id)
+ void MsgGoldShopConfigInfo::set_product_id(const char* value) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgGoldShopConfigInfo.product_id)
 }
- void MsgGoldShopConfigInfo::set_set_product_id(const char* value, size_t size) {
-  set_has_set_product_id();
-  set_product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+ void MsgGoldShopConfigInfo::set_product_id(const char* value, size_t size) {
+  set_has_product_id();
+  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgGoldShopConfigInfo.set_product_id)
+  // @@protoc_insertion_point(field_set_pointer:message.MsgGoldShopConfigInfo.product_id)
 }
- ::std::string* MsgGoldShopConfigInfo::mutable_set_product_id() {
-  set_has_set_product_id();
-  // @@protoc_insertion_point(field_mutable:message.MsgGoldShopConfigInfo.set_product_id)
-  return set_product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* MsgGoldShopConfigInfo::mutable_product_id() {
+  set_has_product_id();
+  // @@protoc_insertion_point(field_mutable:message.MsgGoldShopConfigInfo.product_id)
+  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* MsgGoldShopConfigInfo::release_set_product_id() {
-  clear_has_set_product_id();
-  return set_product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ ::std::string* MsgGoldShopConfigInfo::release_product_id() {
+  clear_has_product_id();
+  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void MsgGoldShopConfigInfo::set_allocated_set_product_id(::std::string* set_product_id) {
-  if (set_product_id != NULL) {
-    set_has_set_product_id();
+ void MsgGoldShopConfigInfo::set_allocated_product_id(::std::string* product_id) {
+  if (product_id != NULL) {
+    set_has_product_id();
   } else {
-    clear_has_set_product_id();
+    clear_has_product_id();
   }
-  set_product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), set_product_id);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgGoldShopConfigInfo.set_product_id)
+  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgGoldShopConfigInfo.product_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

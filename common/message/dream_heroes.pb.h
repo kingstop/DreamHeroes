@@ -1825,18 +1825,6 @@ class MsgSpiritShopInfo : public ::google::protobuf::Message {
   ::std::string* release_describe();
   void set_allocated_describe(::std::string* describe);
 
-  // required string product_id = 6;
-  bool has_product_id() const;
-  void clear_product_id();
-  static const int kProductIdFieldNumber = 6;
-  const ::std::string& product_id() const;
-  void set_product_id(const ::std::string& value);
-  void set_product_id(const char* value);
-  void set_product_id(const char* value, size_t size);
-  ::std::string* mutable_product_id();
-  ::std::string* release_product_id();
-  void set_allocated_product_id(::std::string* product_id);
-
   // @@protoc_insertion_point(class_scope:message.MsgSpiritShopInfo)
  private:
   inline void set_has_index();
@@ -1849,8 +1837,6 @@ class MsgSpiritShopInfo : public ::google::protobuf::Message {
   inline void clear_has_resource_id();
   inline void set_has_describe();
   inline void clear_has_describe();
-  inline void set_has_product_id();
-  inline void clear_has_product_id();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1863,7 +1849,6 @@ class MsgSpiritShopInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 need_jewel_;
   ::google::protobuf::int32 resource_id_;
   ::google::protobuf::internal::ArenaStringPtr describe_;
-  ::google::protobuf::internal::ArenaStringPtr product_id_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -10415,59 +10400,6 @@ inline void MsgSpiritShopInfo::set_allocated_describe(::std::string* describe) {
   }
   describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
   // @@protoc_insertion_point(field_set_allocated:message.MsgSpiritShopInfo.describe)
-}
-
-// required string product_id = 6;
-inline bool MsgSpiritShopInfo::has_product_id() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void MsgSpiritShopInfo::set_has_product_id() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void MsgSpiritShopInfo::clear_has_product_id() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void MsgSpiritShopInfo::clear_product_id() {
-  product_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_product_id();
-}
-inline const ::std::string& MsgSpiritShopInfo::product_id() const {
-  // @@protoc_insertion_point(field_get:message.MsgSpiritShopInfo.product_id)
-  return product_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void MsgSpiritShopInfo::set_product_id(const ::std::string& value) {
-  set_has_product_id();
-  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:message.MsgSpiritShopInfo.product_id)
-}
-inline void MsgSpiritShopInfo::set_product_id(const char* value) {
-  set_has_product_id();
-  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:message.MsgSpiritShopInfo.product_id)
-}
-inline void MsgSpiritShopInfo::set_product_id(const char* value, size_t size) {
-  set_has_product_id();
-  product_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:message.MsgSpiritShopInfo.product_id)
-}
-inline ::std::string* MsgSpiritShopInfo::mutable_product_id() {
-  set_has_product_id();
-  // @@protoc_insertion_point(field_mutable:message.MsgSpiritShopInfo.product_id)
-  return product_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* MsgSpiritShopInfo::release_product_id() {
-  clear_has_product_id();
-  return product_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void MsgSpiritShopInfo::set_allocated_product_id(::std::string* product_id) {
-  if (product_id != NULL) {
-    set_has_product_id();
-  } else {
-    clear_has_product_id();
-  }
-  product_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), product_id);
-  // @@protoc_insertion_point(field_set_allocated:message.MsgSpiritShopInfo.product_id)
 }
 
 // -------------------------------------------------------------------
