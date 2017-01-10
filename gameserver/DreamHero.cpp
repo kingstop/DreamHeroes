@@ -56,6 +56,10 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	_current_task_count = info->free_task_count();
 	_last_recover_spirit_time = info->last_recover_spirit_time();
 	_last_buy_spirit_time = info->last_buy_spirit_time();
+	std::string last_buy_spirit_time;
+	_last_buy_spirit_time = g_server_time;
+	build_unix_time_to_string(_last_buy_spirit_time, last_buy_spirit_time);
+	Mylog::log_server(LOG_INFO, "load name[%s] last buy spirit time [%s]",_info.name().c_str(), last_buy_spirit_time.c_str());
 	int size_special_kills =  info->special_kills_size();
 	_last_day_lottery_time = info->last_lottery_time();
 	_gm_level = info->gm_level();
@@ -1689,7 +1693,11 @@ void DreamHero::ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg)
 				int spirit = _info.spirit() + spirit_config;
 				_info.set_jewel(jewel);
 				_info.set_spirit(spirit);
+				std::string last_buy_spirit_time;
+
 				_last_buy_spirit_time = g_server_time;
+				build_unix_time_to_string(_last_buy_spirit_time, last_buy_spirit_time);
+				Mylog::log_server(LOG_INFO, "name[%s] buy spirit time [%s]",_info.name().c_str(), last_buy_spirit_time.c_str());
 			}
 			else
 			{
@@ -1866,6 +1874,9 @@ void DreamHero::SaveHero()
 		last_buy_spirit_time.c_str(), str_lotion_status.c_str(), last_lottery_time.c_str(), _info.daily_game_progress(),
 		 _info.daily_game_score(), _info.daily_game_gold(), daily_game_time.c_str(), daily_game_prize_time.c_str(), _info.daily_game_hp_pct(),
 		_info.daily_game_record_progress(), _info.daily_reset_game_count(), last_reset_daily_game_time.c_str(), _info.daily_top_grogress());
+		Mylog::log_server(LOG_INFO, "save hero[%s] last buy spirit time[%s]", _info.name().c_str(), last_buy_spirit_time.c_str());
+		Mylog::log_server(LOG_INFO, "last buy spirit save hero[%s] sql[%s]", _info.name().c_str(), temp);
+
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
 //		`current_hero`, `current_chapter`, `current_section`, `current_gold`, `complete_task_count`, `free_task_count`,`last_task_advertisement_time`) values \
