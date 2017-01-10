@@ -181,13 +181,16 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	int record_size = global_config.daily_game_record_config_.size();
 	int record_progress = _info.daily_game_record_progress();
 	bool find_config_record_progress = false;
-	for (int i = record_size - 1; i >= 0; i++)
+	if (record_size > 0)
 	{
-		int config_progress = global_config.daily_game_record_config_[i];
-		if (config_progress == record_progress)
+		for (int i = record_size - 1; i >= 0; i--)
 		{
-			find_config_record_progress = true;
-			break;
+			int config_progress = global_config.daily_game_record_config_[i];
+			if (config_progress == record_progress)
+			{
+				find_config_record_progress = true;
+				break;
+			}
 		}
 	}
 
@@ -2394,14 +2397,18 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		}
 		const globalConfig global_config = gGameConfig.getGlobalConfig();
 		int record_size = global_config.daily_game_record_config_.size();
-		for (int i = record_size - 1; i >= 0; i++)
+		if (record_size > 0)
 		{
-			if (global_config.daily_game_record_config_[i] == _info.daily_game_progress())
+			for (int i = record_size - 1; i >= 0; i--)
 			{
-				_info.set_daily_game_record_progress(_info.daily_game_progress());
-				break;
+				if (global_config.daily_game_record_config_[i] == _info.daily_game_progress())
+				{
+					_info.set_daily_game_record_progress(_info.daily_game_progress());
+					break;
+				}
 			}
 		}
+
 		_info.set_daily_game_hp_pct(msg->hp_pct());
 		rank = gRankManager.getHeroDailyRank(_account);
 	}
