@@ -1698,6 +1698,8 @@ void DreamHero::ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg)
 				int spirit = _info.spirit() + spirit_config;
 				_info.set_jewel(jewel);
 				_info.set_spirit(spirit);
+				int day_buy_spirit = _info.day_buy_spirit() + 1;
+				_info.set_day_buy_spirit(day_buy_spirit);
 				std::string last_buy_spirit_time;
 
 				_last_buy_spirit_time = g_server_time;
