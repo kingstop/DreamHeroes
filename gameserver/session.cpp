@@ -158,10 +158,6 @@ void Session::parseReqEnterGame(google::protobuf::Message* p)
 	_dream_hero->ReqEnterGame(msg);
 }
 
-int Session::get_channel()
-{
-	return _channel;
-}
 
 void Session::parseCmdReqModifyJewel(google::protobuf::Message* p)
 {
@@ -468,7 +464,13 @@ Session::Session(tran_id_type t, account_type a, u16 gate)
 
 Session::~Session()
 {
+	_dream_hero->set_session(NULL);
 	_dream_hero = NULL;
+}
+
+int Session::get_channel()
+{
+	return _channel;
 }
 
 void Session::close()

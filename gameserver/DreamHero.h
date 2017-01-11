@@ -23,7 +23,7 @@ public:
 	message::MsgHeroData get_info();
 	u64 get_account();
 	void set_account(u64 account);
-	void set_info(const message::MsgHeroDataDB2GS* info);
+	void set_info(const message::MsgHeroDataDB2GS* info, int channel);
 	void set_session(Session* session);
 	void set_name(const char* name);
 	void set_parent(DreamHeroManager* p);
@@ -32,7 +32,7 @@ public:
 	void SaveHero();
 	void StartSave();
 	void StopSave();
-	void LoadFromConfig();
+	void LoadFromConfig(int channel);
 	void SendClientInit();
 	void set_online(bool online);
 	bool is_online();
@@ -124,6 +124,7 @@ protected:
 	u32 _daily_game_time;
 	u32 _daily_game_prize_time;
 	u32 _last_daily_reset_game_time;
+	int _channel;
 	//std::map<std::string, message::MsgHeroDealInfo> _hero_deals;
 	
 };

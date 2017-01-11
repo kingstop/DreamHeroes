@@ -46,8 +46,9 @@ void DreamHero::set_account(u64 account)
 	
 }
 
-void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
+void DreamHero::set_info(const message::MsgHeroDataDB2GS* info, int channel)
 {
+	_channel = channel;
 	_account = info->account();
 	_info.CopyFrom(info->data());
 	_current_chapter = info->current_chapter();
@@ -58,15 +59,8 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info)
 	_last_buy_spirit_time = info->last_buy_spirit_time();
 	std::string last_buy_spirit_time;
 	//_last_buy_spirit_time = g_server_time;
-	build_unix_time_to_string(_last_buy_spirit_time, last_buy_spirit_time);
-	
-
-	Mylog::log_server(LOG_INFO, "load name[%s] last buy spirit time [%s]",_info.name().c_str(), last_buy_spirit_time.c_str());
 	int size_special_kills =  info->special_kills_size();
 	_last_day_lottery_time = info->last_lottery_time();
-	std::string last_day_lottery_time;
-	build_unix_time_to_string(_last_day_lottery_time, last_day_lottery_time);
-	Mylog::log_server(LOG_INFO, "load name[%s] last day lottery time [%s]", _info.name().c_str(), last_day_lottery_time.c_str());
 	_gm_level = info->gm_level();
 	_daily_game_time = info->daily_game_time();
 	_daily_game_prize_time = info->daily_game_prize_time();
@@ -1353,7 +1347,7 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 	int current_gold = _info.gold();
 	if (error == message::Error_NO )
 	{
-		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(_session->get_channel(),key_code.c_str());
+		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(_channel,key_code.c_str());
 		
 		if (entry_config)
 		{
@@ -1455,7 +1449,7 @@ void DreamHero::addDealWaitToPay(std::string key_code, const char* secret_key, i
 
 void DreamHero::ResetGame()
 {
-	LoadFromConfig();
+	LoadFromConfig(_channel);
 	SendResetGameACK(message::Error_NO);
 }
 
@@ -1592,7 +1586,7 @@ void DreamHero::SendClientInit()
 }
 
 
-void DreamHero::LoadFromConfig()
+void DreamHero::LoadFromConfig(int channel)
 {
 	_special_kills.clear();
 	_special_creatures.clear();
@@ -1631,6 +1625,7 @@ void DreamHero::LoadFromConfig()
 	_info.set_jewel(gGameConfig.getGlobalConfig().config_jewel_);
 	_info.set_spirit(gGameConfig.getGlobalConfig().config_max_spirit_);
 	_last_recover_spirit_time = g_server_time;
+	_channel = channel;
 	SetGMLevel(1);
 }
 
@@ -1660,7 +1655,7 @@ void DreamHero::ReqApplyHeroDeal(const message::MsgC2SReqApplyDeal* msg)
 	msgACK.set_order_id("");
 	msgACK.set_product_id("");
 	msgACK.set_error(message::Error_NO);
-	const GoldShopConfigInfo* config_entry = gGameConfig.getGoldShopConfigInfo(_session->get_channel(), id);
+	const GoldShopConfigInfo* config_entry = gGameConfig.getGoldShopConfigInfo(_channel, id);
 	if (config_entry != NULL)
 	{
 		std::string order_id = gDreamHeroManager.generateDealOrderID(_account);
@@ -2234,7 +2229,7 @@ void DreamHero::ReqBuyLotion(const message::MsgC2SReqBuyLotion* msg)
 void DreamHero::ReqGoldShopConfigs()
 {
 	message::MsgS2CGoldShopConfigsACK msg;
-	const MAPGOLDSHOPCONFIGINFOS* infos = gGameConfig.getGoldShopConfigInfos(_session->get_channel());
+	const MAPGOLDSHOPCONFIGINFOS* infos = gGameConfig.getGoldShopConfigInfos(_channel);
 	if (infos != NULL)
 	{
 		MAPGOLDSHOPCONFIGINFOS::const_iterator it = infos->begin();
@@ -2247,7 +2242,7 @@ void DreamHero::ReqGoldShopConfigs()
 	}
 	else
 	{
-		Mylog::log_server(LOG_ERROR, "not found channel[%d] gold config", _session->get_channel());
+		Mylog::log_server(LOG_ERROR, "not found channel[%d] gold config",_channel);
 		
 	}
 }
