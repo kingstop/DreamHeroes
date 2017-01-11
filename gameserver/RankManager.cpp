@@ -65,14 +65,18 @@ void RankManager::Load(DBQuery* p)
 		for (int i = 0; i < rows_length; i++)
 		{
 			DBRow& row = sResult[i];
-			DailyGameRankTg entry;
-			entry.acc_ = row["account_id"];
-			entry.name_ = row["name"].c_str();
-			entry.score_ = row["score"];
-			entry.time_ = row["UNIX_TIMESTAMP(`time`)"];
-			entry.rank_ = row["rank"];
-			_heroes_daily_rank.push_back(entry);
-			_heroes_rank[entry.acc_] = entry.rank_;
+			u32 temp_time = row["UNIX_TIMESTAMP(`time`)"];			
+			if (isInToday(temp_time))
+			{
+				DailyGameRankTg entry;
+				entry.acc_ = row["account_id"];
+				entry.name_ = row["name"].c_str();
+				entry.score_ = row["score"];
+				entry.rank_ = row["rank"];
+				entry.time_ = row["UNIX_TIMESTAMP(`time`)"];
+				_heroes_daily_rank.push_back(entry);
+				_heroes_rank[entry.acc_] = entry.rank_;
+			}
 		}
 
 	}

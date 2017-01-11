@@ -30,3 +30,14 @@ std::string GBKToUtf8(const char* strGBK)
 	//delete szUtf8;
 	return temp; 
 }
+
+bool isInToday(u32 time)
+{
+	bool ret = false;
+	u64 temp_time = g_server_time - gGameConfig.getGlobalConfig().day_Refresh_time_ * 60 * 60;;
+	if (same_day(temp_time, time) == true)
+	{
+		ret = true;
+	}
+	return ret;
+}

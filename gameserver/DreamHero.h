@@ -99,7 +99,7 @@ protected:
 protected:
 	void fillSpecialCreatureList(::google::protobuf::RepeatedPtrField< ::message::MsgIntPair >* list);
 	void sendPBMessage(google::protobuf::Message* p);
-	bool isInToday(u32 time);
+	//bool isInToday(u32 time);
 	//void pingNotify();
 protected:
 	SPECIALKILLS _special_kills;

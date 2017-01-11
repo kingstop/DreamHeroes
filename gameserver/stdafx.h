@@ -42,7 +42,7 @@
 
 
 std::string Utf8ToGBK(const char* strUtf8);
-
+bool isInToday(u32 time);
 std::string GBKToUtf8(const char* strGBK);
 enum EventTypes
 {

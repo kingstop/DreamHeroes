@@ -317,16 +317,16 @@ void DreamHero::SetGMLevel(int level)
 	_gm_level = level;
 }
 
-bool DreamHero::isInToday(u32 time)
-{
-	bool ret = false;
-	u64 temp_time = g_server_time - _day_offset_time;
-	if (same_day(temp_time, time) == true)
-	{
-		ret = true;
-	}
-	return ret;
-}
+//bool DreamHero::isInToday(u32 time)
+//{
+//	bool ret = false;
+//	u64 temp_time = g_server_time - _day_offset_time;
+//	if (same_day(temp_time, time) == true)
+//	{
+//		ret = true;
+//	}
+//	return ret;
+//}
 void DreamHero::dayRefresh(bool need_send_msg)
 {
 
