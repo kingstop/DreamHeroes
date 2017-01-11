@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "DreamHeroManager.h"
 #include "DreamHero.h"
+#include "session.h"
 #define _SAVE_COLLECT_TIME_  (10* _TIME_MINUTE_ * _TIME_SECOND_MSEL_)
 DreamHeroManager::DreamHeroManager()
 {
@@ -381,7 +382,7 @@ DreamHero* DreamHeroManager::CreateHero(message::MsgHeroDataDB2GS* HeroDataMsg, 
 	{
 		hero = new DreamHero();
 		const message::MsgHeroData* entry_msg = HeroDataMsg->mutable_data();
-		hero->set_info(HeroDataMsg);
+		hero->set_info(HeroDataMsg, session->get_channel());
 		
 		_heroes.insert(MAPHEROS::value_type(hero->get_account(), hero));
 	}	
@@ -399,7 +400,7 @@ DreamHero* DreamHeroManager::CreateHero(account_type acc, Session* session)
 	{
 		hero = new DreamHero();
 		hero->set_parent(this);
-		hero->LoadFromConfig();
+		hero->LoadFromConfig(session->get_channel());
 	}
 	else
 	{

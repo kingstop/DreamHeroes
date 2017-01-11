@@ -464,7 +464,10 @@ Session::Session(tran_id_type t, account_type a, u16 gate)
 
 Session::~Session()
 {
-	_dream_hero->set_session(NULL);
+	if (_dream_hero != NULL)
+	{
+		_dream_hero->set_session(NULL);
+	}	
 	_dream_hero = NULL;
 }
 
