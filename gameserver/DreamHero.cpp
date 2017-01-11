@@ -1876,11 +1876,11 @@ void DreamHero::SaveHero()
 		last_buy_spirit_time.c_str(), str_lotion_status.c_str(), last_lottery_time.c_str(), _info.daily_game_progress(),
 		 _info.daily_game_score(), _info.daily_game_gold(), daily_game_time.c_str(), daily_game_prize_time.c_str(), _info.daily_game_hp_pct(),
 		_info.daily_game_record_progress(), _info.daily_reset_game_count(), last_reset_daily_game_time.c_str(), _info.daily_top_grogress());
-		Mylog::log_server(LOG_INFO, "save hero[%s] last buy spirit time[%s]", _info.name().c_str(), last_buy_spirit_time.c_str());
-		Mylog::log_server(LOG_INFO, "last buy spirit save hero[%s] sql[%s]", _info.name().c_str(), temp);
-		std::string last_day_lottery_time;
-		build_unix_time_to_string(_last_day_lottery_time, last_day_lottery_time);
-		Mylog::log_server(LOG_INFO, "load name[%s] last day lottery time [%s]", _info.name().c_str(), last_day_lottery_time.c_str());
+		//Mylog::log_server(LOG_INFO, "save hero[%s] last buy spirit time[%s]", _info.name().c_str(), last_buy_spirit_time.c_str());
+		//Mylog::log_server(LOG_INFO, "last buy spirit save hero[%s] sql[%s]", _info.name().c_str(), temp);
+		//std::string last_day_lottery_time;
+		//build_unix_time_to_string(_last_day_lottery_time, last_day_lottery_time);
+		//Mylog::log_server(LOG_INFO, "load name[%s] last day lottery time [%s]", _info.name().c_str(), last_day_lottery_time.c_str());
 
 //#else
 //	sprintf(temp, "replace into `character`(`account_id`, `name`, `gold`, `record_his`, `heroes_state`, `tasks`,\
