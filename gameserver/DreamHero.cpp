@@ -2345,6 +2345,11 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	message::MsgS2CUpdateDailyGameProgressACK msgACK;
 	message::GameError error = message::Error_NO;
 	int rank = 101;
+	int hp_pct = msg->hp_pct();
+	if (hp_pct < 0)
+	{
+		hp_pct = 0;
+	}
 	if (gRankManager.getDailyGameBeginTime() != _daily_game_time)
 	{
 		_daily_game_time = gRankManager.getDailyGameBeginTime();
@@ -2375,23 +2380,24 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	if (error == message::Error_NO)
 	{
 		int progress_temp = _info.daily_game_progress();
-		if (msg->hp_pct() != 0)
+		if (hp_pct > 0)
 		{
 			progress_temp = progress_temp + 1;
 		}
-		if (_info.daily_game_hp_pct() != 0)
+		if (_info.daily_game_hp_pct() > 0)
 		{
 			if (progress_temp == msg->daily_game_progress() 
 			|| msg->daily_game_progress() == _info.daily_game_record_progress() + 1)
 			{
 				int score = msg->score();
 				_info.set_daily_game_score(score);
-				if (msg->hp_pct() != 0)
+				if (hp_pct > 0)
 				{
 					_info.set_daily_game_progress(msg->daily_game_progress());
 				}
 				
-				_info.set_daily_game_hp_pct(msg->hp_pct());
+
+				_info.set_daily_game_hp_pct(hp_pct);
 				gRankManager.updateHeroDailyRank(_account, _info.name().c_str(), score, rank);
 
 			}
@@ -2429,7 +2435,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 			}
 		}
 
-		_info.set_daily_game_hp_pct(msg->hp_pct());
+		_info.set_daily_game_hp_pct(hp_pct);
 		rank = gRankManager.getHeroDailyRank(_account);
 	}
 	msgACK.set_score(_info.daily_game_score());
