@@ -30,6 +30,7 @@ public:
 	void setDailyMaxRankSize(int rank_size);
 	HEROESDAILYRANK* getHeroesRank();
 	void ClearRankList();
+	void save();
 public:
 	HEROESDAILYRANK _heroes_daily_rank;
 	std::map<account_type, int> _heroes_rank;

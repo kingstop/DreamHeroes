@@ -147,6 +147,7 @@ void DreamHeroManager::init()
 
 void DreamHeroManager::save()
 {
+	
 	std::string number_str;
 	std::string number_temp;
 	char sz_temp[64];
@@ -418,6 +419,7 @@ DreamHero* DreamHeroManager::CreateHero(account_type acc, Session* session)
 
 void DreamHeroManager::SaveDreamHeroes()
 {
+	gRankManager.save();
 	save();
 	MAPHEROS::iterator it = _heroes.begin();
 	for (; it != _heroes.end(); ++ it)

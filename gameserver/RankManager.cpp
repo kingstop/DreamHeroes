@@ -39,6 +39,11 @@ void RankManager::Init()
 	{
 		DailyGameUpdate();
 	}
+
+	if (gEventMgr.hasEvent(this, EVENT_SAVE_DAILY_GAME_RANK_) == false)
+	{
+		gEventMgr.addEvent(this, &RankManager::save, EVENT_SAVE_DAILY_GAME_RANK_, 5 * 60 * _TIME_SECOND_MSEL_, -1, 0);
+	}
 }
 
 void RankManager::ClearRankList()
@@ -124,6 +129,52 @@ int RankManager::GetDailyGamePrize(int rank)
 	}
 	return prize_gold;
 }
+
+
+void RankManager::save()
+{
+	char sz_temp[1024];
+	std::string sql_delete = "DELETE * FROM hero_daily_game_rank;";
+	message::MsgSaveDataGS2DB msg_db;
+	msg_db.set_sql(sql_delete.c_str());
+	gGSDBClient.sendPBMessage(&msg_db, 0);
+	HEROESDAILYRANK::const_iterator it = _heroes_daily_rank.begin();
+	std::string sql_head = "replace into hero_daily_game_rank(`account_id`, `name`, `score`, `rank`, `time`) values";
+	std::string sql_rank;
+	std::string rank_time;
+	int number = 0;
+	for (int i = 0; it != _heroes_daily_rank.end(); ++it, number++)
+	{
+		if (number == 0)
+		{
+			sql_rank = "replace into hero_daily_game_rank(`account_id`, `name`, `score`, `rank`, `time`) values";
+		}
+		else
+		{
+			sql_rank += ",";
+		}
+		const DailyGameRankTg& entry = (*it);
+		int prize_gold = GetDailyGamePrize(entry.rank_);
+		DreamHero* hero = gDreamHeroManager.GetHero(entry.acc_);
+		build_unix_time_to_string(entry.time_, rank_time);
+		sprintf(sz_temp, "(%llu, '%s', %d, %d, '%s')", entry.acc_, entry.name_.c_str(),
+			entry.score_, entry.rank_, rank_time.c_str());
+		sql_rank += sz_temp;
+		if (number >= 20)
+		{
+			number = 0;
+			msg_db.set_sql(sql_rank.c_str());
+			gGSDBClient.sendPBMessage(&msg_db, 0);
+			sql_rank.clear();
+		}
+	}
+	if (sql_rank.empty() == false)
+	{
+		msg_db.set_sql(sql_rank.c_str());
+		gGSDBClient.sendPBMessage(&msg_db, 0);
+		sql_rank.clear();
+	}
+}
 void RankManager::DailyGameUpdate()
 {
 	const DAILYGAMEPRIZECONFIGS* daily_configs = gGameConfig.getDailyGamePrizeConfigs();
@@ -132,7 +183,7 @@ void RankManager::DailyGameUpdate()
 	std::string sql;
 	std::string game_time;
 	build_unix_time_to_string(_daily_game_begin_time, game_time);
-	std::string sql_delete = "DELETE * FROM table_name;";
+	std::string sql_delete = "DELETE * FROM hero_daily_game_rank;";
 	message::MsgSaveDataGS2DB msg_db;
 	msg_db.set_sql(sql_delete.c_str());
 	gGSDBClient.sendPBMessage(&msg_db, 0);
@@ -213,7 +264,6 @@ void RankManager::DailyGameUpdate()
 	std::string day_refresh_time = "";
 	build_unix_time_to_string(g_server_time, day_refresh_time);
 	Mylog::log_server(LOG_INFO, "daily game day refresh [%s]", day_refresh_time.c_str());
-
 }
 
 
