@@ -2345,7 +2345,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 	message::MsgS2CUpdateDailyGameProgressACK msgACK;
 	message::GameError error = message::Error_NO;
 	int rank = 101;
-	if (gRankManager.getDailyGameBeginTime() != _daily_game_prize_time)
+	if (gRankManager.getDailyGameBeginTime() != _daily_game_time)
 	{
 		_daily_game_time = gRankManager.getDailyGameBeginTime();
 		_info.set_daily_game_hp_pct(100);
