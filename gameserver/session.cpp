@@ -466,6 +466,7 @@ Session::~Session()
 {
 	if (_dream_hero != NULL)
 	{
+		_dream_hero->StartDestroyTime();
 		_dream_hero->set_session(NULL);
 	}	
 	_dream_hero = NULL;
