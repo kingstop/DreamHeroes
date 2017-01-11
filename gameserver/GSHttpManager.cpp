@@ -121,7 +121,7 @@ bool CreateDealHttpTask::excute()
 					_price = value["price"].asInt();
 					_order_id = value["order_id"].asInt();
 					bool bret_app_secret = value["app_secret"].empty();
-					if (bret_app_secret)
+					if (bret_app_secret == false)
 					{
 						_secret_key = value["app_secret"].asString();
 					}
