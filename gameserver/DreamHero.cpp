@@ -2374,7 +2374,11 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 
 	if (error == message::Error_NO)
 	{
-		int progress_temp = _info.daily_game_progress() + 1;
+		int progress_temp = _info.daily_game_progress();
+		if (msg->hp_pct() != 0)
+		{
+			progress_temp = progress_temp + 1;
+		}
 		if (_info.daily_game_hp_pct() != 0)
 		{
 			if (progress_temp == msg->daily_game_progress() 
