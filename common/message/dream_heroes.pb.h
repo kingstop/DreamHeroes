@@ -884,6 +884,13 @@ class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
   ::google::protobuf::uint64 server_time() const;
   void set_server_time(::google::protobuf::uint64 value);
 
+  // required int32 anger = 9;
+  bool has_anger() const;
+  void clear_anger();
+  static const int kAngerFieldNumber = 9;
+  ::google::protobuf::int32 anger() const;
+  void set_anger(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CUpdateDailyGameProgressACK)
  private:
   inline void set_has_daily_game_progress();
@@ -902,6 +909,8 @@ class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
   inline void clear_has_daily_game_time();
   inline void set_has_server_time();
   inline void clear_has_server_time();
+  inline void set_has_anger();
+  inline void clear_has_anger();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -917,6 +926,7 @@ class MsgS2CUpdateDailyGameProgressACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_progress_record_;
   ::google::protobuf::uint64 daily_game_time_;
   ::google::protobuf::uint64 server_time_;
+  ::google::protobuf::int32 anger_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -10020,6 +10030,30 @@ inline void MsgS2CUpdateDailyGameProgressACK::set_server_time(::google::protobuf
   set_has_server_time();
   server_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.server_time)
+}
+
+// required int32 anger = 9;
+inline bool MsgS2CUpdateDailyGameProgressACK::has_anger() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_has_anger() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_has_anger() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::clear_anger() {
+  anger_ = 0;
+  clear_has_anger();
+}
+inline ::google::protobuf::int32 MsgS2CUpdateDailyGameProgressACK::anger() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CUpdateDailyGameProgressACK.anger)
+  return anger_;
+}
+inline void MsgS2CUpdateDailyGameProgressACK::set_anger(::google::protobuf::int32 value) {
+  set_has_anger();
+  anger_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CUpdateDailyGameProgressACK.anger)
 }
 
 // -------------------------------------------------------------------

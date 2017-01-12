@@ -111,6 +111,7 @@ message MsgS2CUpdateDailyGameProgressACK
 	required int32 daily_game_progress_record = 6;
 	required uint64 daily_game_time = 7;
 	required uint64 server_time = 8;
+	required int32 anger = 9;
 }
 
 
