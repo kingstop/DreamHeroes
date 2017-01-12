@@ -457,7 +457,8 @@ message MsgS2CVerifyDealACK
 	required int32 status = 2;
 	required int32 order_id = 3;
 	required int32 current_gold = 4;
-	required GameError error = 5 [default=Error_NO];
+	required int32 current_jewel = 5;
+	required GameError error = 6 [default=Error_NO];
 }
 ///////
 

@@ -5810,10 +5810,17 @@ class MsgS2CVerifyDealACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 current_gold() const;
   void set_current_gold(::google::protobuf::int32 value);
 
-  // required .message.GameError error = 5 [default = Error_NO];
+  // required int32 current_jewel = 5;
+  bool has_current_jewel() const;
+  void clear_current_jewel();
+  static const int kCurrentJewelFieldNumber = 5;
+  ::google::protobuf::int32 current_jewel() const;
+  void set_current_jewel(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 6 [default = Error_NO];
   bool has_error() const;
   void clear_error();
-  static const int kErrorFieldNumber = 5;
+  static const int kErrorFieldNumber = 6;
   ::message::GameError error() const;
   void set_error(::message::GameError value);
 
@@ -5827,6 +5834,8 @@ class MsgS2CVerifyDealACK : public ::google::protobuf::Message {
   inline void clear_has_order_id();
   inline void set_has_current_gold();
   inline void clear_has_current_gold();
+  inline void set_has_current_jewel();
+  inline void clear_has_current_jewel();
   inline void set_has_error();
   inline void clear_has_error();
 
@@ -5840,6 +5849,7 @@ class MsgS2CVerifyDealACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 status_;
   ::google::protobuf::int32 order_id_;
   ::google::protobuf::int32 current_gold_;
+  ::google::protobuf::int32 current_jewel_;
   int error_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
@@ -14048,15 +14058,39 @@ inline void MsgS2CVerifyDealACK::set_current_gold(::google::protobuf::int32 valu
   // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealACK.current_gold)
 }
 
-// required .message.GameError error = 5 [default = Error_NO];
-inline bool MsgS2CVerifyDealACK::has_error() const {
+// required int32 current_jewel = 5;
+inline bool MsgS2CVerifyDealACK::has_current_jewel() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void MsgS2CVerifyDealACK::set_has_error() {
+inline void MsgS2CVerifyDealACK::set_has_current_jewel() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void MsgS2CVerifyDealACK::clear_has_error() {
+inline void MsgS2CVerifyDealACK::clear_has_current_jewel() {
   _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgS2CVerifyDealACK::clear_current_jewel() {
+  current_jewel_ = 0;
+  clear_has_current_jewel();
+}
+inline ::google::protobuf::int32 MsgS2CVerifyDealACK::current_jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CVerifyDealACK.current_jewel)
+  return current_jewel_;
+}
+inline void MsgS2CVerifyDealACK::set_current_jewel(::google::protobuf::int32 value) {
+  set_has_current_jewel();
+  current_jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CVerifyDealACK.current_jewel)
+}
+
+// required .message.GameError error = 6 [default = Error_NO];
+inline bool MsgS2CVerifyDealACK::has_error() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgS2CVerifyDealACK::set_has_error() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgS2CVerifyDealACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void MsgS2CVerifyDealACK::clear_error() {
   error_ = 0;

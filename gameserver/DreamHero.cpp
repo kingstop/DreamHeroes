@@ -1347,7 +1347,9 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 	message::MsgS2CVerifyDealACK msg;
 	//message::GameError error = message::Error_NO;
 	int add_gold = 0;
+	int add_jewel = 0;
 	int current_gold = _info.gold();
+	int current_jewel = _info.jewel();
 	if (error == message::Error_NO )
 	{
 		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(_channel,key_code.c_str());
@@ -1364,8 +1366,11 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 						_deals_wait_to_pay[order_id].type_ = DealStatusType_Complete;
 
 						add_gold = entry_config->info_.gold();
+						add_jewel = entry_config->info_.jewel();
 						int gold_entry = current_gold + add_gold;
+						int jewel_entry = current_jewel + add_jewel;
 						_info.set_gold(gold_entry);
+						_info.set_jewel(jewel_entry);
 						error = message::Error_NO;
 					}
 					else
@@ -1400,6 +1405,7 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 		msg.set_error(error);
 		msg.set_order_id(order_id);
 		msg.set_current_gold(_info.gold());
+		msg.set_current_jewel(_info.jewel());
 		msg.set_product_id(key_code.c_str());
 		msg.set_status(status);
 		msg.set_error(error);
