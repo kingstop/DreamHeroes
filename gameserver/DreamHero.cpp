@@ -423,6 +423,7 @@ void DreamHero::ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGame
 					_info.set_daily_game_progress(0);
 					_info.set_daily_game_record_progress(0);
 					_info.set_daily_game_hp_pct(100);
+					_info.set_daily_game_anger(0);
 					int cur_jewel = _info.jewel() - jewel;
 					_info.set_jewel(cur_jewel);
 					_last_daily_reset_game_time = g_server_time;
@@ -1606,7 +1607,7 @@ void DreamHero::LoadFromConfig(int channel)
 	}
 	message::MsgIntPair* pair_entry = _info.mutable_records()->Add();
 	pair_entry->set_number_1(1);
-	pair_entry->set_number_2(0);
+	pair_entry->set_number_2(1);
 	message::MsgIntPair* pair_entry_1 = _info.mutable_records()->Add();
 	pair_entry_1->set_number_1(0);
 	pair_entry_1->set_number_2(0);
@@ -1616,6 +1617,7 @@ void DreamHero::LoadFromConfig(int channel)
 	_info.set_daily_game_gold(0);
 	_info.set_daily_game_score(0);
 	_info.set_daily_game_hp_pct(100);
+	_info.set_daily_game_anger(0);
 	_info.set_daily_game_record_progress(0);
 	_info.set_daily_reset_game_count(0);
 	_info.set_daily_top_grogress(0);
@@ -1635,10 +1637,12 @@ void DreamHero::LoadFromConfig(int channel)
 void DreamHero::ResetDailyGame()
 {
 	_info.set_daily_game_hp_pct(100);
+	_info.set_daily_game_anger(0);
 	//_info.set_daily_game_gold(0);
 	_info.set_daily_game_progress(0);
 	_info.set_daily_game_record_progress(0);
 	_info.set_daily_reset_game_count(0);
+	_info.set_daily_game_anger(0);
 	_daily_game_time = 0;
 	_daily_game_prize_time = 0;
 	_last_daily_reset_game_time = 0;

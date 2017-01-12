@@ -82,9 +82,6 @@ public:
 	void addDealWaitToPay(std::string key_code, const char* secret_key,int status, int price, int order_id, const char* notify_url,
 		message::GameError error);
 	void addDealPay(std::string key_code, int status, int order_id, message::GameError error, bool send_msg = true);
-	//void completeDealByOrder(const char* order_id, bool success ,bool needmsg);
-	
-
 public:
 	int	getSpirit();
 	void setSpirit(int spirit);
