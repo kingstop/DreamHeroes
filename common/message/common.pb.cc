@@ -135,7 +135,7 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgIntBoolPair, _internal_metadata_),
       -1);
   MsgHeroData_descriptor_ = file->message_type(4);
-  static const int MsgHeroData_offsets_[19] = {
+  static const int MsgHeroData_offsets_[20] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, records_),
@@ -155,6 +155,7 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_game_record_progress_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_reset_game_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_top_grogress_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_game_anger_),
   };
   MsgHeroData_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -246,13 +247,14 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgTaskInfo, _internal_metadata_),
       -1);
   MsgChapterConfigInfo_descriptor_ = file->message_type(9);
-  static const int MsgChapterConfigInfo_offsets_[6] = {
+  static const int MsgChapterConfigInfo_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, required_chapter_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, required_section_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, required_task_complete_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, require_gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, max_section_count_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgChapterConfigInfo, open_chapter_id_),
   };
   MsgChapterConfigInfo_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -388,7 +390,7 @@ void protobuf_AddDesc_common_2eproto() {
     "d\030\002 \002(\005\022\023\n\013random_gold\030\003 \002(\005\"0\n\nMsgIntPa"
     "ir\022\020\n\010number_1\030\001 \002(\005\022\020\n\010number_2\030\002 \002(\005\"/"
     "\n\016MsgIntBoolPair\022\016\n\006number\030\001 \002(\005\022\r\n\005vali"
-    "d\030\002 \002(\010\"\340\003\n\013MsgHeroData\022\014\n\004name\030\001 \002(\t\022\014\n"
+    "d\030\002 \002(\010\"\372\003\n\013MsgHeroData\022\014\n\004name\030\001 \002(\t\022\014\n"
     "\004gold\030\002 \002(\005\022$\n\007records\030\003 \003(\0132\023.message.M"
     "sgIntPair\022\016\n\006heroes\030\004 \003(\010\022#\n\005tasks\030\005 \003(\013"
     "2\024.message.MsgTaskInfo\022\024\n\014current_hero\030\006"
@@ -400,44 +402,45 @@ void protobuf_AddDesc_common_2eproto() {
     "e\030\017 \002(\005\022\031\n\021daily_game_hp_pct\030\020 \002(\005\022\"\n\032da"
     "ily_game_record_progress\030\021 \002(\005\022\036\n\026daily_"
     "reset_game_count\030\022 \002(\005\022\032\n\022daily_top_grog"
-    "ress\030\023 \002(\005\"r\n\024MsgTaskConditionInfo\0222\n\010ta"
-    "skType\030\001 \002(\0162\021.message.TaskType:\rTaskTyp"
-    "e_NULL\022\022\n\nargument_1\030\002 \002(\005\022\022\n\nargument_2"
-    "\030\003 \002(\005\"\225\002\n\021MsgTaskConfigInfo\022\016\n\006taskID\030\001"
-    " \002(\005\0225\n\016task_condition\030\002 \003(\0132\035.message.M"
-    "sgTaskConditionInfo\022\024\n\014require_time\030\003 \002("
-    "\005\022\036\n\026require_unlock_chapter\030\004 \002(\005\022\036\n\026req"
-    "uire_unlock_section\030\005 \002(\005\022*\n\"require_unl"
-    "ock_complete_task_count\030\006 \002(\005\022\021\n\tgift_go"
-    "ld\030\007 \002(\005\022\022\n\ndifficulty\030\010 \002(\005\022\020\n\010describe"
-    "\030\t \002(\t\"\252\001\n\021MsgShopConfigInfo\022\017\n\007grid_id\030"
-    "\001 \002(\005\022\017\n\007hero_id\030\002 \002(\005\022\024\n\014require_gold\030\003"
-    " \002(\005\022\023\n\013cheape_gold\030\004 \002(\005\022\032\n\022require_cha"
-    "pter_id\030\005 \002(\005\022\032\n\022require_section_id\030\006 \002("
-    "\005\022\020\n\010describe\030\007 \002(\t\"B\n\013MsgTaskInfo\022\016\n\006Ta"
-    "skID\030\001 \002(\005\022\022\n\nargument_1\030\002 \002(\005\022\017\n\007useTim"
-    "e\030\003 \002(\005\"\273\001\n\024MsgChapterConfigInfo\022\022\n\nchap"
-    "ter_id\030\001 \002(\005\022\033\n\023required_chapter_id\030\002 \002("
-    "\005\022\033\n\023required_section_id\030\003 \002(\005\022$\n\034requir"
-    "ed_task_complete_count\030\004 \002(\005\022\024\n\014require_"
-    "gold\030\005 \002(\005\022\031\n\021max_section_count\030\006 \002(\005\"\212\001"
-    "\n\025MsgGoldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013r"
-    "esource_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030"
-    "\004 \002(\002\022\020\n\010describe\030\005 \002(\t\022\r\n\005jewel\030\006 \002(\005\022\022"
-    "\n\nproduct_id\030\007 \002(\t\"p\n\017MsgHeroDealInfo\022\020\n"
-    "\010order_id\030\001 \002(\t\022\022\n\nproduct_id\030\002 \002(\t\022#\n\004t"
-    "ype\030\003 \002(\0162\025.message.HeroDealType\022\022\n\ncrea"
-    "tetime\030\004 \002(\r*4\n\007SubType\022\013\n\007DEFAULT\020\000\022\013\n\007"
-    "MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010TaskType\022"
-    "\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_KillMonst"
-    "er\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020TaskType_"
-    "UnKnown\020\003\022\027\n\023TaskType_LimitLevel\020\004\022\030\n\024Ta"
-    "skType_LimitRevive\020\005\022\"\n\036TaskType_LimitTi"
-    "me_KillMonster\020\006\022#\n\037TaskType_Accumulate_"
-    "KillMonster\020\007*v\n\014HeroDealType\022\031\n\025HeroDea"
-    "lTypApplyOrder\020\000\022\031\n\025HeroDealTypeWaitToPa"
-    "y\020\001\022\030\n\024HeroDealTypeComplete\020\002\022\026\n\022HeroDea"
-    "lTypeFailed\020\003", 2253);
+    "ress\030\023 \002(\005\022\030\n\020daily_game_anger\030\024 \002(\005\"r\n\024"
+    "MsgTaskConditionInfo\0222\n\010taskType\030\001 \002(\0162\021"
+    ".message.TaskType:\rTaskType_NULL\022\022\n\nargu"
+    "ment_1\030\002 \002(\005\022\022\n\nargument_2\030\003 \002(\005\"\225\002\n\021Msg"
+    "TaskConfigInfo\022\016\n\006taskID\030\001 \002(\005\0225\n\016task_c"
+    "ondition\030\002 \003(\0132\035.message.MsgTaskConditio"
+    "nInfo\022\024\n\014require_time\030\003 \002(\005\022\036\n\026require_u"
+    "nlock_chapter\030\004 \002(\005\022\036\n\026require_unlock_se"
+    "ction\030\005 \002(\005\022*\n\"require_unlock_complete_t"
+    "ask_count\030\006 \002(\005\022\021\n\tgift_gold\030\007 \002(\005\022\022\n\ndi"
+    "fficulty\030\010 \002(\005\022\020\n\010describe\030\t \002(\t\"\252\001\n\021Msg"
+    "ShopConfigInfo\022\017\n\007grid_id\030\001 \002(\005\022\017\n\007hero_"
+    "id\030\002 \002(\005\022\024\n\014require_gold\030\003 \002(\005\022\023\n\013cheape"
+    "_gold\030\004 \002(\005\022\032\n\022require_chapter_id\030\005 \002(\005\022"
+    "\032\n\022require_section_id\030\006 \002(\005\022\020\n\010describe\030"
+    "\007 \002(\t\"B\n\013MsgTaskInfo\022\016\n\006TaskID\030\001 \002(\005\022\022\n\n"
+    "argument_1\030\002 \002(\005\022\017\n\007useTime\030\003 \002(\005\"\324\001\n\024Ms"
+    "gChapterConfigInfo\022\022\n\nchapter_id\030\001 \002(\005\022\033"
+    "\n\023required_chapter_id\030\002 \002(\005\022\033\n\023required_"
+    "section_id\030\003 \002(\005\022$\n\034required_task_comple"
+    "te_count\030\004 \002(\005\022\024\n\014require_gold\030\005 \002(\005\022\031\n\021"
+    "max_section_count\030\006 \002(\005\022\027\n\017open_chapter_"
+    "id\030\007 \002(\005\"\212\001\n\025MsgGoldShopConfigInfo\022\n\n\002id"
+    "\030\001 \002(\005\022\023\n\013resource_id\030\002 \002(\005\022\014\n\004gold\030\003 \002("
+    "\005\022\r\n\005money\030\004 \002(\002\022\020\n\010describe\030\005 \002(\t\022\r\n\005je"
+    "wel\030\006 \002(\005\022\022\n\nproduct_id\030\007 \002(\t\"p\n\017MsgHero"
+    "DealInfo\022\020\n\010order_id\030\001 \002(\t\022\022\n\nproduct_id"
+    "\030\002 \002(\t\022#\n\004type\030\003 \002(\0162\025.message.HeroDealT"
+    "ype\022\022\n\ncreatetime\030\004 \002(\r*4\n\007SubType\022\013\n\007DE"
+    "FAULT\020\000\022\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001"
+    "\n\010TaskType\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskTyp"
+    "e_KillMonster\020\001\022\025\n\021TaskType_PassGame\020\002\022\024"
+    "\n\020TaskType_UnKnown\020\003\022\027\n\023TaskType_LimitLe"
+    "vel\020\004\022\030\n\024TaskType_LimitRevive\020\005\022\"\n\036TaskT"
+    "ype_LimitTime_KillMonster\020\006\022#\n\037TaskType_"
+    "Accumulate_KillMonster\020\007*v\n\014HeroDealType"
+    "\022\031\n\025HeroDealTypApplyOrder\020\000\022\031\n\025HeroDealT"
+    "ypeWaitToPay\020\001\022\030\n\024HeroDealTypeComplete\020\002"
+    "\022\026\n\022HeroDealTypeFailed\020\003", 2304);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   MsgObjConfig::default_instance_ = new MsgObjConfig();
@@ -2068,6 +2071,7 @@ const int MsgHeroData::kDailyGameHpPctFieldNumber;
 const int MsgHeroData::kDailyGameRecordProgressFieldNumber;
 const int MsgHeroData::kDailyResetGameCountFieldNumber;
 const int MsgHeroData::kDailyTopGrogressFieldNumber;
+const int MsgHeroData::kDailyGameAngerFieldNumber;
 #endif  // !_MSC_VER
 
 MsgHeroData::MsgHeroData()
@@ -2105,6 +2109,7 @@ void MsgHeroData::SharedCtor() {
   daily_game_record_progress_ = 0;
   daily_reset_game_count_ = 0;
   daily_top_grogress_ = 0;
+  daily_game_anger_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2164,7 +2169,7 @@ void MsgHeroData::Clear() {
     ZR_(jewel_, spirit_);
     ZR_(day_buy_spirit_, daily_game_hp_pct_);
   }
-  ZR_(daily_game_record_progress_, daily_top_grogress_);
+  ZR_(daily_game_record_progress_, daily_game_anger_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -2477,6 +2482,21 @@ bool MsgHeroData::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(160)) goto parse_daily_game_anger;
+        break;
+      }
+
+      // required int32 daily_game_anger = 20;
+      case 20: {
+        if (tag == 160) {
+         parse_daily_game_anger:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &daily_game_anger_)));
+          set_has_daily_game_anger();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2610,6 +2630,11 @@ void MsgHeroData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->daily_top_grogress(), output);
   }
 
+  // required int32 daily_game_anger = 20;
+  if (has_daily_game_anger()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->daily_game_anger(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2725,6 +2750,11 @@ void MsgHeroData::SerializeWithCachedSizes(
   // required int32 daily_top_grogress = 19;
   if (has_daily_top_grogress()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->daily_top_grogress(), target);
+  }
+
+  // required int32 daily_game_anger = 20;
+  if (has_daily_game_anger()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->daily_game_anger(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2843,12 +2873,19 @@ int MsgHeroData::RequiredFieldsByteSizeFallback() const {
         this->daily_top_grogress());
   }
 
+  if (has_daily_game_anger()) {
+    // required int32 daily_game_anger = 20;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->daily_game_anger());
+  }
+
   return total_size;
 }
 int MsgHeroData::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0007f7e3) ^ 0x0007f7e3) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x000ff7e3) ^ 0x000ff7e3) == 0) {  // All required fields are present.
     // required string name = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2923,6 +2960,11 @@ int MsgHeroData::ByteSize() const {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->daily_top_grogress());
+
+    // required int32 daily_game_anger = 20;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->daily_game_anger());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -3040,6 +3082,9 @@ void MsgHeroData::MergeFrom(const MsgHeroData& from) {
     if (from.has_daily_top_grogress()) {
       set_daily_top_grogress(from.daily_top_grogress());
     }
+    if (from.has_daily_game_anger()) {
+      set_daily_game_anger(from.daily_game_anger());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3059,7 +3104,7 @@ void MsgHeroData::CopyFrom(const MsgHeroData& from) {
 }
 
 bool MsgHeroData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0007f7e3) != 0x0007f7e3) return false;
+  if ((_has_bits_[0] & 0x000ff7e3) != 0x000ff7e3) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->records())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->tasks())) return false;
@@ -3090,6 +3135,7 @@ void MsgHeroData::InternalSwap(MsgHeroData* other) {
   std::swap(daily_game_record_progress_, other->daily_game_record_progress_);
   std::swap(daily_reset_game_count_, other->daily_reset_game_count_);
   std::swap(daily_top_grogress_, other->daily_top_grogress_);
+  std::swap(daily_game_anger_, other->daily_game_anger_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -3613,6 +3659,30 @@ MsgHeroData::mutable_lotions() {
   set_has_daily_top_grogress();
   daily_top_grogress_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_top_grogress)
+}
+
+// required int32 daily_game_anger = 20;
+ bool MsgHeroData::has_daily_game_anger() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+ void MsgHeroData::set_has_daily_game_anger() {
+  _has_bits_[0] |= 0x00080000u;
+}
+ void MsgHeroData::clear_has_daily_game_anger() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+ void MsgHeroData::clear_daily_game_anger() {
+  daily_game_anger_ = 0;
+  clear_has_daily_game_anger();
+}
+ ::google::protobuf::int32 MsgHeroData::daily_game_anger() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_game_anger)
+  return daily_game_anger_;
+}
+ void MsgHeroData::set_daily_game_anger(::google::protobuf::int32 value) {
+  set_has_daily_game_anger();
+  daily_game_anger_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_anger)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -6088,6 +6158,7 @@ const int MsgChapterConfigInfo::kRequiredSectionIdFieldNumber;
 const int MsgChapterConfigInfo::kRequiredTaskCompleteCountFieldNumber;
 const int MsgChapterConfigInfo::kRequireGoldFieldNumber;
 const int MsgChapterConfigInfo::kMaxSectionCountFieldNumber;
+const int MsgChapterConfigInfo::kOpenChapterIdFieldNumber;
 #endif  // !_MSC_VER
 
 MsgChapterConfigInfo::MsgChapterConfigInfo()
@@ -6115,6 +6186,7 @@ void MsgChapterConfigInfo::SharedCtor() {
   required_task_complete_count_ = 0;
   require_gold_ = 0;
   max_section_count_ = 0;
+  open_chapter_id_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6162,8 +6234,8 @@ void MsgChapterConfigInfo::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 63) {
-    ZR_(chapter_id_, max_section_count_);
+  if (_has_bits_[0 / 32] & 127) {
+    ZR_(chapter_id_, open_chapter_id_);
   }
 
 #undef ZR_HELPER_
@@ -6270,6 +6342,21 @@ bool MsgChapterConfigInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(56)) goto parse_open_chapter_id;
+        break;
+      }
+
+      // required int32 open_chapter_id = 7;
+      case 7: {
+        if (tag == 56) {
+         parse_open_chapter_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &open_chapter_id_)));
+          set_has_open_chapter_id();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -6329,6 +6416,11 @@ void MsgChapterConfigInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->max_section_count(), output);
   }
 
+  // required int32 open_chapter_id = 7;
+  if (has_open_chapter_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->open_chapter_id(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -6367,6 +6459,11 @@ void MsgChapterConfigInfo::SerializeWithCachedSizes(
   // required int32 max_section_count = 6;
   if (has_max_section_count()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->max_section_count(), target);
+  }
+
+  // required int32 open_chapter_id = 7;
+  if (has_open_chapter_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->open_chapter_id(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6422,12 +6519,19 @@ int MsgChapterConfigInfo::RequiredFieldsByteSizeFallback() const {
         this->max_section_count());
   }
 
+  if (has_open_chapter_id()) {
+    // required int32 open_chapter_id = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->open_chapter_id());
+  }
+
   return total_size;
 }
 int MsgChapterConfigInfo::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000007f) ^ 0x0000007f) == 0) {  // All required fields are present.
     // required int32 chapter_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6457,6 +6561,11 @@ int MsgChapterConfigInfo::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->max_section_count());
+
+    // required int32 open_chapter_id = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->open_chapter_id());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -6505,6 +6614,9 @@ void MsgChapterConfigInfo::MergeFrom(const MsgChapterConfigInfo& from) {
     if (from.has_max_section_count()) {
       set_max_section_count(from.max_section_count());
     }
+    if (from.has_open_chapter_id()) {
+      set_open_chapter_id(from.open_chapter_id());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -6524,7 +6636,7 @@ void MsgChapterConfigInfo::CopyFrom(const MsgChapterConfigInfo& from) {
 }
 
 bool MsgChapterConfigInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
 
   return true;
 }
@@ -6540,6 +6652,7 @@ void MsgChapterConfigInfo::InternalSwap(MsgChapterConfigInfo* other) {
   std::swap(required_task_complete_count_, other->required_task_complete_count_);
   std::swap(require_gold_, other->require_gold_);
   std::swap(max_section_count_, other->max_section_count_);
+  std::swap(open_chapter_id_, other->open_chapter_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -6698,6 +6811,30 @@ void MsgChapterConfigInfo::InternalSwap(MsgChapterConfigInfo* other) {
   set_has_max_section_count();
   max_section_count_ = value;
   // @@protoc_insertion_point(field_set:message.MsgChapterConfigInfo.max_section_count)
+}
+
+// required int32 open_chapter_id = 7;
+ bool MsgChapterConfigInfo::has_open_chapter_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+ void MsgChapterConfigInfo::set_has_open_chapter_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+ void MsgChapterConfigInfo::clear_has_open_chapter_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+ void MsgChapterConfigInfo::clear_open_chapter_id() {
+  open_chapter_id_ = 0;
+  clear_has_open_chapter_id();
+}
+ ::google::protobuf::int32 MsgChapterConfigInfo::open_chapter_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgChapterConfigInfo.open_chapter_id)
+  return open_chapter_id_;
+}
+ void MsgChapterConfigInfo::set_open_chapter_id(::google::protobuf::int32 value) {
+  set_has_open_chapter_id();
+  open_chapter_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgChapterConfigInfo.open_chapter_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

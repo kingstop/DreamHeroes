@@ -770,11 +770,13 @@ void DreamHero::ReqExitGame(const message::MsgC2SReqExitGame* msg)
 					{
 						if (section_id_temp == pair_entry->number_2() + 1)
 						{
+							
 							pair_entry->set_number_2(section_id_temp);
 							find_chapter = true;
 						}
 					}
 				}
+
 			}
 			msgACK.set_current_gold(gold_entry);
 			_info.set_gold(gold_entry);
@@ -2356,6 +2358,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		_info.set_daily_game_hp_pct(100);
 		_info.set_daily_game_progress(0);
 		_info.set_daily_game_score(0);
+		_info.set_daily_game_anger(0);
 		//_info.set_daily_game_hp_pct(100);
 	}
 
@@ -2396,7 +2399,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 					_info.set_daily_game_progress(msg->daily_game_progress());
 				}
 				
-
+				_info.set_daily_game_anger(msg->anger());
 				_info.set_daily_game_hp_pct(hp_pct);
 				gRankManager.updateHeroDailyRank(_account, _info.name().c_str(), score, rank);
 
@@ -2421,6 +2424,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		{
 			_info.set_daily_top_grogress(daily_game_progress);
 		}
+		_info.set_daily_game_anger(_info.anger());
 		const globalConfig global_config = gGameConfig.getGlobalConfig();
 		int record_size = global_config.daily_game_record_config_.size();
 		if (record_size > 0)

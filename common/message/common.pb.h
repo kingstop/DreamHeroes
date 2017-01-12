@@ -760,6 +760,13 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_top_grogress() const;
   void set_daily_top_grogress(::google::protobuf::int32 value);
 
+  // required int32 daily_game_anger = 20;
+  bool has_daily_game_anger() const;
+  void clear_daily_game_anger();
+  static const int kDailyGameAngerFieldNumber = 20;
+  ::google::protobuf::int32 daily_game_anger() const;
+  void set_daily_game_anger(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -792,6 +799,8 @@ class MsgHeroData : public ::google::protobuf::Message {
   inline void clear_has_daily_reset_game_count();
   inline void set_has_daily_top_grogress();
   inline void clear_has_daily_top_grogress();
+  inline void set_has_daily_game_anger();
+  inline void clear_has_daily_game_anger();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -818,6 +827,7 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_record_progress_;
   ::google::protobuf::int32 daily_reset_game_count_;
   ::google::protobuf::int32 daily_top_grogress_;
+  ::google::protobuf::int32 daily_game_anger_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -1494,6 +1504,13 @@ class MsgChapterConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 max_section_count() const;
   void set_max_section_count(::google::protobuf::int32 value);
 
+  // required int32 open_chapter_id = 7;
+  bool has_open_chapter_id() const;
+  void clear_open_chapter_id();
+  static const int kOpenChapterIdFieldNumber = 7;
+  ::google::protobuf::int32 open_chapter_id() const;
+  void set_open_chapter_id(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgChapterConfigInfo)
  private:
   inline void set_has_chapter_id();
@@ -1508,6 +1525,8 @@ class MsgChapterConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_require_gold();
   inline void set_has_max_section_count();
   inline void clear_has_max_section_count();
+  inline void set_has_open_chapter_id();
+  inline void clear_has_open_chapter_id();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1521,6 +1540,7 @@ class MsgChapterConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 required_task_complete_count_;
   ::google::protobuf::int32 require_gold_;
   ::google::protobuf::int32 max_section_count_;
+  ::google::protobuf::int32 open_chapter_id_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2591,6 +2611,30 @@ inline void MsgHeroData::set_daily_top_grogress(::google::protobuf::int32 value)
   // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_top_grogress)
 }
 
+// required int32 daily_game_anger = 20;
+inline bool MsgHeroData::has_daily_game_anger() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+inline void MsgHeroData::set_has_daily_game_anger() {
+  _has_bits_[0] |= 0x00080000u;
+}
+inline void MsgHeroData::clear_has_daily_game_anger() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline void MsgHeroData::clear_daily_game_anger() {
+  daily_game_anger_ = 0;
+  clear_has_daily_game_anger();
+}
+inline ::google::protobuf::int32 MsgHeroData::daily_game_anger() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.daily_game_anger)
+  return daily_game_anger_;
+}
+inline void MsgHeroData::set_daily_game_anger(::google::protobuf::int32 value) {
+  set_has_daily_game_anger();
+  daily_game_anger_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_anger)
+}
+
 // -------------------------------------------------------------------
 
 // MsgTaskConditionInfo
@@ -3346,6 +3390,30 @@ inline void MsgChapterConfigInfo::set_max_section_count(::google::protobuf::int3
   set_has_max_section_count();
   max_section_count_ = value;
   // @@protoc_insertion_point(field_set:message.MsgChapterConfigInfo.max_section_count)
+}
+
+// required int32 open_chapter_id = 7;
+inline bool MsgChapterConfigInfo::has_open_chapter_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MsgChapterConfigInfo::set_has_open_chapter_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MsgChapterConfigInfo::clear_has_open_chapter_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MsgChapterConfigInfo::clear_open_chapter_id() {
+  open_chapter_id_ = 0;
+  clear_has_open_chapter_id();
+}
+inline ::google::protobuf::int32 MsgChapterConfigInfo::open_chapter_id() const {
+  // @@protoc_insertion_point(field_get:message.MsgChapterConfigInfo.open_chapter_id)
+  return open_chapter_id_;
+}
+inline void MsgChapterConfigInfo::set_open_chapter_id(::google::protobuf::int32 value) {
+  set_has_open_chapter_id();
+  open_chapter_id_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgChapterConfigInfo.open_chapter_id)
 }
 
 // -------------------------------------------------------------------

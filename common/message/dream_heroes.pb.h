@@ -727,6 +727,13 @@ class MsgC2SReqUpdateDailyGameProgress : public ::google::protobuf::Message {
   ::google::protobuf::int32 hp_pct() const;
   void set_hp_pct(::google::protobuf::int32 value);
 
+  // required int32 anger = 4;
+  bool has_anger() const;
+  void clear_anger();
+  static const int kAngerFieldNumber = 4;
+  ::google::protobuf::int32 anger() const;
+  void set_anger(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgC2SReqUpdateDailyGameProgress)
  private:
   inline void set_has_daily_game_progress();
@@ -735,6 +742,8 @@ class MsgC2SReqUpdateDailyGameProgress : public ::google::protobuf::Message {
   inline void clear_has_score();
   inline void set_has_hp_pct();
   inline void clear_has_hp_pct();
+  inline void set_has_anger();
+  inline void clear_has_anger();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -745,6 +754,7 @@ class MsgC2SReqUpdateDailyGameProgress : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_progress_;
   ::google::protobuf::int32 score_;
   ::google::protobuf::int32 hp_pct_;
+  ::google::protobuf::int32 anger_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -9789,6 +9799,30 @@ inline void MsgC2SReqUpdateDailyGameProgress::set_hp_pct(::google::protobuf::int
   set_has_hp_pct();
   hp_pct_ = value;
   // @@protoc_insertion_point(field_set:message.MsgC2SReqUpdateDailyGameProgress.hp_pct)
+}
+
+// required int32 anger = 4;
+inline bool MsgC2SReqUpdateDailyGameProgress::has_anger() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::set_has_anger() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::clear_has_anger() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::clear_anger() {
+  anger_ = 0;
+  clear_has_anger();
+}
+inline ::google::protobuf::int32 MsgC2SReqUpdateDailyGameProgress::anger() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqUpdateDailyGameProgress.anger)
+  return anger_;
+}
+inline void MsgC2SReqUpdateDailyGameProgress::set_anger(::google::protobuf::int32 value) {
+  set_has_anger();
+  anger_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqUpdateDailyGameProgress.anger)
 }
 
 // -------------------------------------------------------------------

@@ -98,6 +98,7 @@ message MsgC2SReqUpdateDailyGameProgress
 	required int32 daily_game_progress = 1;
 	required int32 score = 2;
 	required int32 hp_pct = 3;
+	required int32 anger = 4;
 }
 
 message MsgS2CUpdateDailyGameProgressACK
@@ -464,11 +465,6 @@ message MsgC2SReqApplyDeal
 	required int32 id = 1;
 	required int32 channel = 2;
 }
-
-
-
-
-
 
 message MsgS2CApplyDealACK
 {
