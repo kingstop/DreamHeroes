@@ -237,6 +237,7 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			data->set_daily_game_record_progress(row["daily_game_record_progress"]);
 			data->set_daily_reset_game_count(row["daily_reset_game_count"]);
 			data->set_daily_top_grogress(row["daily_top_grogress"]);
+			data->set_daily_game_anger(row["daily_game_anger"]);
 			pkParm->info.set_current_section(row["current_section"]);
 			pkParm->info.set_current_chapter(row["current_chapter"]);
 			pkParm->info.set_free_task_count(row["free_task_count"]);
