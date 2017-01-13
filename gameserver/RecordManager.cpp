@@ -15,7 +15,7 @@ RecordManager::RecordManager()
 	_sql_head[RecordTypeGoldModify] = "insert into `modify_gold_record`(`account_id`, `nick_name`, `gold`,  `current_gold`,`modify_type`, `record_time`) values";
 	_sql_head[RecordTypeBuyHero] = "insert into `buy_hero_record`(`account_id`, `nick_name`, `grid_hero`, `gold`, `current_gold`, `record_time`) values";
 	_sql_head[RecordTypeDealWaitToPay] = "insert into `deal_wait_to_pay`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
-	_sql_head[RecordTypeDealToPay] = "insert into `deal_to_pay`(`account_id`, `status`, `order_id`, `modify_gold`, `current_gold`, `product_id`, `record_time`) values";
+	_sql_head[RecordTypeDealToPay] = "insert into `deal_to_pay`(`account_id`, `status`, `order_id`, `modify_gold`, `current_gold`, `product_id`, `modify_jewel`, `current_jewel`, `record_time`) values";
 	_sql_head[RecordTypeGiveUpDeal] = "insert into `give_up_deal`(`account_id`, `status`, `price`, `order_id`, `product_id`, `record_time`) values";
 	_sql_head[RecordTypeWaitToVerify] = "insert into `deal_wait_to_verify_reocrd`(`account_id`, `order_id`, `name`, `receipt`, `record_time`) values";
 	_sql_head[RecordTypeRelive] = "insert into `relive_record`(`account_id`, `nick_name`, `gold`, `current_gold`, `record_time`) values";
@@ -112,10 +112,10 @@ void RecordManager::dealWaitToVerifyRecord(account_type acc, const char* name, i
 	_record[RecordTypeWaitToVerify].push_back(_szTemp);
 }
 
-void RecordManager::dealPayRecord(account_type acc, const char* key_code, int status, int order_id, int modify_gold, int current_gold)
+void RecordManager::dealPayRecord(account_type acc, const char* key_code, int status, int order_id, int modify_gold, int current_gold, int modify_jewel, int current_jewel)
 {	
 	//`account_id`, `status`, `order_id`, `modify_gold`, `current_gold`, `product_id`, `record_time`
-	sprintf(_szTemp, "(%llu, %d, %d, %d, %d, '%s', '%s')", acc, status, order_id, modify_gold, current_gold, key_code, getCurTime());
+	sprintf(_szTemp, "(%llu, %d, %d, %d, %d, '%s', %d, %d,'%s')", acc, status, order_id, modify_gold, current_gold, key_code, modify_jewel, current_jewel,getCurTime());
 	_record[RecordTypeDealToPay].push_back(_szTemp);
 
 }

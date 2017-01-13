@@ -1414,7 +1414,7 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 	if (error == message::Error_NO)
 	{
 		gRecordManager.goldModifyRecord(_account, _info.name().c_str(), add_gold, _info.gold(), RecordManager::GoldModify_BuyHero);
-		gRecordManager.dealPayRecord(_account, key_code.c_str(), status, order_id, add_gold, _info.gold());
+		gRecordManager.dealPayRecord(_account, key_code.c_str(), status, order_id, add_gold, _info.gold(), add_jewel, _info.jewel());
 	}
 }
 

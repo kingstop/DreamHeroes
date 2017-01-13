@@ -267,12 +267,20 @@ bool GameConfig::isInToday(u32 time)
 	Mylog::log_server(LOG_INFO, "server time[%s]  time1[%s]!", time_str.c_str(), time_cur.c_str());
 
 	int day_offset_time = _global_config.day_Refresh_time_ * 60 * 60;
+
+	time_t _t1 = (time_t)g_server_time;
+	tm* p1 = localtime(&_t1);
+	p1->tm_min = 0;
+	p1->tm_sec = 0;
+	p1->tm_hour = _global_config.day_Refresh_time_;
+	time_t today_refresh_time =  mktime(p1) - 8 * 60 * 60; //utf Ê±¼ä²î
+	time_t Yesterday_refresh_time = mktime(p1) - (8 + 24) * 60 * 60 ;
 	bool ret = false;
-	u64 temp_time = time - day_offset_time;
-	if (same_day(g_server_time, temp_time) == true)
+	if (time > Yesterday_refresh_time && time <= today_refresh_time)
 	{
 		ret = true;
 	}
+	
 	return ret;
 }
 void GameConfig::Load(DBQuery* p)
