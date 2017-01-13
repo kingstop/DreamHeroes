@@ -105,6 +105,7 @@ bool ServerFrame::getIpByname(const char* address, std::string& ip)
 }
 bool ServerFrame::getNetConfig(net_info& _conf, const UDBResult& r)
 {
+	
 	while (DBRow row = r.fetch_row()) 
 	{
 		_conf._id = row["ServerId"];

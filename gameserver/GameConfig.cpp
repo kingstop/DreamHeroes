@@ -361,7 +361,6 @@ void GameConfig::Load(DBQuery* p)
 			ChapterConfig.set_required_task_complete_count(row["require_task_complete_count"]);
 			ChapterConfig.set_require_gold(row["require_gold"]);
 			ChapterConfig.set_max_section_count(row["max_section_count"]);
-			ChapterConfig.set_open_chapter_id(row["open_chapter_id"]);
 			_chapter_config_infos.insert(MAPCHAPTERCONFIGINFOS::value_type(ChapterConfig.chapter_id(), ChapterConfig));
 		}
 
