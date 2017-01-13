@@ -444,6 +444,7 @@ void DreamHero::ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGame
 	msgACK.set_daily_game_progress(_info.daily_game_progress());
 	msgACK.set_daily_reset_game_count(_info.daily_reset_game_count());
 	msgACK.set_last_reset_daily_game_time(_last_daily_reset_game_time);
+	msgACK.set_current_jewel(_info.jewel());
 	sendPBMessage(&msgACK);
 }
 

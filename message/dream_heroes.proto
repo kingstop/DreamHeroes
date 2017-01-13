@@ -91,6 +91,7 @@ message MsgS2CResetDailyGameProgressACK
 	required int32 daily_game_progress = 2;
 	required int32 daily_reset_game_count = 3;
 	required uint64 last_reset_daily_game_time = 4;
+	required int32 current_jewel = 5;
 }
 
 message MsgC2SReqUpdateDailyGameProgress

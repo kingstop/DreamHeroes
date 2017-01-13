@@ -612,6 +612,13 @@ class MsgS2CResetDailyGameProgressACK : public ::google::protobuf::Message {
   ::google::protobuf::uint64 last_reset_daily_game_time() const;
   void set_last_reset_daily_game_time(::google::protobuf::uint64 value);
 
+  // required int32 current_jewel = 5;
+  bool has_current_jewel() const;
+  void clear_current_jewel();
+  static const int kCurrentJewelFieldNumber = 5;
+  ::google::protobuf::int32 current_jewel() const;
+  void set_current_jewel(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CResetDailyGameProgressACK)
  private:
   inline void set_has_error();
@@ -622,6 +629,8 @@ class MsgS2CResetDailyGameProgressACK : public ::google::protobuf::Message {
   inline void clear_has_daily_reset_game_count();
   inline void set_has_last_reset_daily_game_time();
   inline void clear_has_last_reset_daily_game_time();
+  inline void set_has_current_jewel();
+  inline void clear_has_current_jewel();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -633,6 +642,7 @@ class MsgS2CResetDailyGameProgressACK : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_progress_;
   ::google::protobuf::uint64 last_reset_daily_game_time_;
   ::google::protobuf::int32 daily_reset_game_count_;
+  ::google::protobuf::int32 current_jewel_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -9743,6 +9753,30 @@ inline void MsgS2CResetDailyGameProgressACK::set_last_reset_daily_game_time(::go
   set_has_last_reset_daily_game_time();
   last_reset_daily_game_time_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CResetDailyGameProgressACK.last_reset_daily_game_time)
+}
+
+// required int32 current_jewel = 5;
+inline bool MsgS2CResetDailyGameProgressACK::has_current_jewel() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgS2CResetDailyGameProgressACK::set_has_current_jewel() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgS2CResetDailyGameProgressACK::clear_has_current_jewel() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgS2CResetDailyGameProgressACK::clear_current_jewel() {
+  current_jewel_ = 0;
+  clear_has_current_jewel();
+}
+inline ::google::protobuf::int32 MsgS2CResetDailyGameProgressACK::current_jewel() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CResetDailyGameProgressACK.current_jewel)
+  return current_jewel_;
+}
+inline void MsgS2CResetDailyGameProgressACK::set_current_jewel(::google::protobuf::int32 value) {
+  set_has_current_jewel();
+  current_jewel_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CResetDailyGameProgressACK.current_jewel)
 }
 
 // -------------------------------------------------------------------
