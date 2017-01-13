@@ -20,6 +20,7 @@ public:
 	void Init();
 	void Load(DBQuery* p);
 	void updateHeroDailyRank(account_type acc, const char* name, int score,int& rank);
+	void removeHero(account_type acc);
 	int getHeroDailyRank(account_type acc);
 	void DailyGameUpdate();
 	int GetDailyGamePrize(int rank);

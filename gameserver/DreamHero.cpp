@@ -1654,6 +1654,7 @@ void DreamHero::ResetDailyGame()
 	_daily_game_time = 0;
 	_daily_game_prize_time = 0;
 	_last_daily_reset_game_time = 0;
+	gRankManager.removeHero(_account);
 }
 void DreamHero::ResetDailyLottery()
 {

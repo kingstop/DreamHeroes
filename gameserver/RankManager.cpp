@@ -276,6 +276,30 @@ void RankManager::setDailyMaxRankSize(int rank_size)
 {
 	_daily_max_rank_size = rank_size;
 }
+
+void RankManager::removeHero(account_type acc)
+{
+	_heroes_rank.clear();
+	std::list<DailyGameRankTg>::iterator it = _heroes_daily_rank.begin();
+	for (int temp_rank = 1; it != _heroes_daily_rank.end(); ++it)
+	{
+		DailyGameRankTg& entry = (*it);
+		entry.rank_ = temp_rank;
+		_heroes_rank[entry.acc_] = temp_rank;
+		if (entry.acc_ == acc)
+		{
+			it = _heroes_daily_rank.erase(it);		
+		}
+		else
+		{
+			temp_rank++;
+			_heroes_rank[entry.acc_] = temp_rank;
+		}
+	}
+	
+
+}
+
 void RankManager::updateHeroDailyRank(account_type acc, const char* name, int score,int& rank)
 {
 	rank = _daily_max_rank_size + 1;
