@@ -432,12 +432,13 @@ void DreamHero::ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGame
 				{
 					error = message::Error_FailedToResetDailyGameTheTheHpIsFull;
 				}
-
-				
 			}
 		}
 	}
-	_info.set_daily_reset_game_count(reset_game_count);
+	if (error == message::Error_NO )
+	{
+		_info.set_daily_reset_game_count(reset_game_count);
+	}	
 	message::MsgS2CResetDailyGameProgressACK msgACK;
 	msgACK.set_error(error);
 	msgACK.set_daily_game_progress(_info.daily_game_progress());
