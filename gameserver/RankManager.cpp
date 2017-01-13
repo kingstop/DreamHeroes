@@ -329,6 +329,7 @@ void RankManager::updateHeroDailyRank(account_type acc, const char* name, int sc
 		DailyGameRankTg& entry = (*it);
 		if (entry.acc_ == acc)
 		{
+			entry.score_ = score;
 			need_add = false;
 			break;
 		}
