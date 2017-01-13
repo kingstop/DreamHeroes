@@ -1650,7 +1650,7 @@ void DreamHero::ResetDailyGame()
 	_info.set_daily_game_progress(0);
 	_info.set_daily_game_record_progress(0);
 	_info.set_daily_reset_game_count(0);
-	_info.set_daily_game_anger(0);
+	_info.set_daily_game_score(0);
 	_daily_game_time = 0;
 	_daily_game_prize_time = 0;
 	_last_daily_reset_game_time = 0;
