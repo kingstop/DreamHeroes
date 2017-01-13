@@ -2096,6 +2096,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 					{
 						_info.add_lotions(entry.sub_index_);
 						msgACK.add_current_lotions(entry.sub_index_);
+						msgACK.set_index(entry.sub_index_);
 					}
 					else
 					{
