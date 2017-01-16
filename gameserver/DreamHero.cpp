@@ -1521,7 +1521,10 @@ void DreamHero::ReqVerifyDeal(const message::MsgC2SReqVerifyDeal* msg)
 		gRecordManager.dealWaitToVerifyRecord(_account, _info.name().c_str(), order_id, receipt.c_str());
 		sprintf(sz_temp, "replace into deal_wait_to_pay(`order_id`, `complete_status`, `receipt`) \
 				values(%d, %d, '%s') ", order_id, DealStatusType_WaitPrepareToVerify, receipt.c_str());
-		gDreamHeroManager.addSql(sz_temp);
+		message::MsgSaveDataGS2DB msg_db;
+		msg_db.set_sql(sz_temp);
+		gGSDBClient.sendPBMessage(&msg_db, 0);
+		//gDreamHeroManager.addSql(sz_temp);
 		entry->init(_account, _info.name().c_str(), receipt.c_str(), order_id);
 		gHttpManager.addHttpTask(entry);
 	}

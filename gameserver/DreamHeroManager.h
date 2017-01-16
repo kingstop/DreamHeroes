@@ -27,7 +27,7 @@ public:
 	void CollectInfo();
 	std::string generateName();
 	std::string generateDealOrderID(account_type acc);
-	void addSql(const char* sql);
+	//void addSql(const char* sql);
 	void OfflineHeroDealWaitToPay(int order_id, account_type acc, const char* product_id, int status);
 protected:
 	std::string generateStr(int& key, const char* argu);
@@ -46,7 +46,7 @@ protected:
 	std::string _hero_day_title;
 	std::vector<char> _char_configs;
 	u64 _last_save_time;
-	std::vector<std::string> _vc_sql;
+	//std::vector<std::string> _vc_sql;
 	MAPSTRACCPAIR _heroes_orders;
 	int _recover_spirit_minute;
 	int _recover_spirit;
