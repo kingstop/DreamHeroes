@@ -42,22 +42,24 @@ bool ServerFrame::init()
 #endif
 	g_server_start_time = time(NULL);
 	g_server_time = g_server_start_time;
+	_last_server_time = 0;
 	return true;
 }
 
 void ServerFrame::run()
 {
-	boost::posix_time::millisec_posix_time_system_config::time_duration_type time_elapse;
-	boost::posix_time::ptime nLastTime = boost::posix_time::microsec_clock::universal_time();  
-	boost::posix_time::ptime nStartTime = nLastTime ;
+	//boost::posix_time::millisec_posix_time_system_config::time_duration_type time_elapse;
+	//boost::posix_time::ptime nLastTime = boost::posix_time::microsec_clock::universal_time();  
+	//boost::posix_time::ptime nStartTime = nLastTime ;
+	_last_server_time = GetSysTimeMicros();
 	while(!_stop)
 	{		
-		nStartTime = boost::posix_time::microsec_clock::universal_time();
-		time_elapse = nStartTime - nLastTime ;
-		nLastTime = nStartTime ;
+		s64 nStartTime = GetSysTimeMicros();
+		s64 time_spawn = nStartTime - _last_server_time ;
+		_last_server_time = nStartTime ;
 		g_server_time = time(NULL);
 		
-		runOnce((u32)(time_elapse.total_milliseconds()));
+		runOnce(time_spawn);
 		onKey();
 		if (_wait_stop)
 		{ 

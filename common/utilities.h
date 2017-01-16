@@ -23,13 +23,14 @@
 #ifndef WIN32
 #include <sys/types.h>
 #include <unistd.h>
+#include <Windows.h>
 #else
 #include <process.h>
 #endif
 #include <time.h>
 #include <stdio.h>
 #include <signal.h>
-
+#include "common_type.h"
 #include <stdio.h>
 void signal_handle(int n);
 bool is_in_today(const time_t * t);
@@ -293,6 +294,14 @@ int base64_decode(const char * base64, unsigned char * bindata);
 
 int Base64Encode(unsigned char *out, const unsigned char *in, int inlen);
 int Base64Decode(const char *base64code, long base64length, unsigned char* outbin);
+
+
+
+
+
+
+// 获取系统的当前时间，单位微秒(us)
+s64 GetSysTimeMicros();
 //std::string base64_encode(unsigned char const*, unsigned int len);
 //std::string base64_decode(std::string const& s);
 #endif // _NEW_COMMON_UTILITIES_HEAD

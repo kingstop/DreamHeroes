@@ -1293,3 +1293,25 @@ int Base64Decode(const char *base64code, long base64length, unsigned char* outbi
 	}
 	return outlen;
 }
+
+s64 GetSysTimeMicros()
+{
+#ifdef _WIN32
+	// 从1601年1月1日0:0:0:000到1970年1月1日0:0:0:000的时间(单位100ns)
+#define EPOCHFILETIME   (116444736000000000UL)
+	FILETIME ft;
+	LARGE_INTEGER li;
+	s64 tt = 0;
+	GetSystemTimeAsFileTime(&ft);
+	li.LowPart = ft.dwLowDateTime;
+	li.HighPart = ft.dwHighDateTime;
+	// 从1970年1月1日0:0:0:000到现在的微秒数(UTC时间)
+	tt = (li.QuadPart - EPOCHFILETIME) / 10;
+	return tt;
+#else
+	timeval tv;
+	gettimeofday(&tv, 0);
+	return (s64)tv.tv_sec * 1000000 + (int64_t)tv.tv_usec;
+#endif // _WIN32
+	return 0;
+}

@@ -51,6 +51,7 @@ protected:
 	bool _wait_stop;
 	bool _print;
 	u32 _service_stop_state;
+	u32 _last_server_time;
 private:
 };
 
