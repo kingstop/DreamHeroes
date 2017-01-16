@@ -28,7 +28,7 @@ bool GameServer::init()
         return false;
     }
 
-	gEventMgr.addEvent(this, &GameServer::minuteCollect, EVENT_PER_MIN_COLLECT_, 60 * 10000, -1, 0);
+	gEventMgr.addEvent(this, &GameServer::minuteCollect, EVENT_PER_MIN_COLLECT_, 60 * 1000, -1, 0);
     if (!Database::addBlockTask(dbconfig, this, &GameServer::initDataFromDatabase, NULL))
     {
 		//printf("init from Database server init  failed \n" );
