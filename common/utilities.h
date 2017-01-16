@@ -23,9 +23,10 @@
 #ifndef WIN32
 #include <sys/types.h>
 #include <unistd.h>
-#include <Windows.h>
+
 #else
 #include <process.h>
+#include <Windows.h>
 #endif
 #include <time.h>
 #include <stdio.h>
