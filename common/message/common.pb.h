@@ -1504,6 +1504,18 @@ class MsgChapterConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 max_section_count() const;
   void set_max_section_count(::google::protobuf::int32 value);
 
+  // required string describe = 7;
+  bool has_describe() const;
+  void clear_describe();
+  static const int kDescribeFieldNumber = 7;
+  const ::std::string& describe() const;
+  void set_describe(const ::std::string& value);
+  void set_describe(const char* value);
+  void set_describe(const char* value, size_t size);
+  ::std::string* mutable_describe();
+  ::std::string* release_describe();
+  void set_allocated_describe(::std::string* describe);
+
   // @@protoc_insertion_point(class_scope:message.MsgChapterConfigInfo)
  private:
   inline void set_has_chapter_id();
@@ -1518,6 +1530,8 @@ class MsgChapterConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_require_gold();
   inline void set_has_max_section_count();
   inline void clear_has_max_section_count();
+  inline void set_has_describe();
+  inline void clear_has_describe();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1531,6 +1545,7 @@ class MsgChapterConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 required_task_complete_count_;
   ::google::protobuf::int32 require_gold_;
   ::google::protobuf::int32 max_section_count_;
+  ::google::protobuf::internal::ArenaStringPtr describe_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -3380,6 +3395,59 @@ inline void MsgChapterConfigInfo::set_max_section_count(::google::protobuf::int3
   set_has_max_section_count();
   max_section_count_ = value;
   // @@protoc_insertion_point(field_set:message.MsgChapterConfigInfo.max_section_count)
+}
+
+// required string describe = 7;
+inline bool MsgChapterConfigInfo::has_describe() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MsgChapterConfigInfo::set_has_describe() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MsgChapterConfigInfo::clear_has_describe() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MsgChapterConfigInfo::clear_describe() {
+  describe_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_describe();
+}
+inline const ::std::string& MsgChapterConfigInfo::describe() const {
+  // @@protoc_insertion_point(field_get:message.MsgChapterConfigInfo.describe)
+  return describe_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgChapterConfigInfo::set_describe(const ::std::string& value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgChapterConfigInfo.describe)
+}
+inline void MsgChapterConfigInfo::set_describe(const char* value) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgChapterConfigInfo.describe)
+}
+inline void MsgChapterConfigInfo::set_describe(const char* value, size_t size) {
+  set_has_describe();
+  describe_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgChapterConfigInfo.describe)
+}
+inline ::std::string* MsgChapterConfigInfo::mutable_describe() {
+  set_has_describe();
+  // @@protoc_insertion_point(field_mutable:message.MsgChapterConfigInfo.describe)
+  return describe_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgChapterConfigInfo::release_describe() {
+  clear_has_describe();
+  return describe_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgChapterConfigInfo::set_allocated_describe(::std::string* describe) {
+  if (describe != NULL) {
+    set_has_describe();
+  } else {
+    clear_has_describe();
+  }
+  describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgChapterConfigInfo.describe)
 }
 
 // -------------------------------------------------------------------
