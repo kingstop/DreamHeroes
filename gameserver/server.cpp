@@ -28,6 +28,8 @@ bool GameServer::init()
         return false;
     }
 
+	gEventMgr.addEvent(this, &GameServer::tenMinuteCollect, EVENT_PER_TEN_MIN_COLLECT_, 60 * 1000 * 10, -1, 0);
+
 	gEventMgr.addEvent(this, &GameServer::minuteCollect, EVENT_PER_MIN_COLLECT_, 60 * 1000, -1, 0);
     if (!Database::addBlockTask(dbconfig, this, &GameServer::initDataFromDatabase, NULL))
     {
@@ -83,6 +85,15 @@ void GameServer::runOnce(u32 nDiff)
         Mylog::log_server(LOG_WARNING, "server delay [%u]", nDiff);
     }
 	_time_pass += nDiff;
+}
+
+void GameServer::tenMinuteCollect()
+{
+	std::string time_unix;
+	build_unix_time_to_string(g_server_time, time_unix);
+	u64 time_spawn = _time_pass - _last_ten_pass;
+	Mylog::log_server(LOG_INFO, " Ten time[%s] time pass[%llu] time spawn[%llu]", time_unix.c_str(), _time_pass, time_spawn);
+	_last_ten_pass = _time_pass;
 }
 
 void GameServer::minuteCollect()

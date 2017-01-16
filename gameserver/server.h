@@ -20,6 +20,7 @@ public:
 	bool initDataFromWorldDB(DBQuery* query, const void* data);
 	bool initDataFromCharacterDB(DBQuery* p, const void* data);
 	void minuteCollect();
+	void tenMinuteCollect();
 private:
 	service_config m_service_conf;
 	DataBaseConfig m_world_db_conf;
@@ -30,6 +31,7 @@ protected:
 private:
 	u64 _time_pass;
 	u64 _last_pass;
+	u64 _last_ten_pass;
 	
 };
 #endif
