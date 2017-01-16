@@ -1503,14 +1503,25 @@ void DreamHero::ReqVerifyDeal(const message::MsgC2SReqVerifyDeal* msg)
 {
 	std::string receipt = msg->receipt().c_str();
 	VerifyDealHttpTaskIOS* entry = new VerifyDealHttpTaskIOS();
-	
-	char sz_temp[10240];
-	gRecordManager.dealWaitToVerifyRecord(_account, _info.name().c_str(), msg->order_id(), receipt.c_str());
-	sprintf(sz_temp, "replace into deal_wait_to_pay(`order_id`, `complete_status`, `receipt`) \
-				values(%d, %d, '%s') ", msg->order_id(), DealStatusType_WaitPrepareToVerify, receipt.c_str());
-	gDreamHeroManager.addSql(sz_temp);
-	entry->init(_account, _info.name().c_str(), receipt.c_str(), msg->order_id());
-	gHttpManager.addHttpTask(entry);
+	int order_id = msg->order_id();
+	DEALSWAITTOPAY::iterator it = _deals_wait_to_pay.find(order_id);
+	if (it != _deals_wait_to_pay.end())
+	{
+		it->second.type_ = DealStatusType_WaitPrepareToVerify;
+		char sz_temp[10240];
+		gRecordManager.dealWaitToVerifyRecord(_account, _info.name().c_str(), order_id, receipt.c_str());
+		sprintf(sz_temp, "replace into deal_wait_to_pay(`order_id`, `complete_status`, `receipt`) \
+				values(%d, %d, '%s') ", order_id, DealStatusType_WaitPrepareToVerify, receipt.c_str());
+		gDreamHeroManager.addSql(sz_temp);
+		entry->init(_account, _info.name().c_str(), receipt.c_str(), order_id);
+		gHttpManager.addHttpTask(entry);
+	}
+	else
+	{
+		Mylog::log_server(LOG_ERROR, "not found the order [%d] when verify deal", order_id);
+	}
+
+
 }
 
 void DreamHero::SendClientInit()

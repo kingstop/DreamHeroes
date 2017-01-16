@@ -36,6 +36,7 @@ void BaseGSHttpTask::set_acc(account_type acc)
 CreateDealHttpTask::CreateDealHttpTask()
 {
 	_en = HttpType_CreateDeal;
+	_error = message::Error_NO;
 }
 CreateDealHttpTask::~CreateDealHttpTask()
 {
@@ -162,7 +163,7 @@ bool CreateDealHttpTask::excute()
 
 VerifyDealHttpTaskIOS::VerifyDealHttpTaskIOS()
 {
-
+	_error = message::Error_NO;
 }
 VerifyDealHttpTaskIOS::~VerifyDealHttpTaskIOS()
 {
@@ -195,6 +196,7 @@ void VerifyDealHttpTaskIOS::init(account_type acc, const char* name, const char*
 	_name = name;
 	_receipt = receipt;
 	_order_id = order_id;
+	_error = message::Error_NO;
 }
 
 bool VerifyDealHttpTaskIOS::excute()
