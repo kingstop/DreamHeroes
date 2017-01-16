@@ -80,7 +80,7 @@ void GameServer::runOnce(u32 nDiff)
 	gShopSalesPromotionManager.update();
 	gHttpManager.logicUpdate();
 	gRecordManager.update();
-    if (nDiff > 800)
+    if (nDiff > 15000)
     {
         Mylog::log_server(LOG_WARNING, "server delay [%u]", nDiff);
     }
