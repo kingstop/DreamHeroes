@@ -17,6 +17,10 @@ enum RecordType
 	RecordTypeGiveUpDeal,
 	RecordTypeRelive,
 	RecordTypeOnlineCount,
+	RecordTypeBuySpirit,
+	RecordDailyGame,
+	RecordDailyGameReward,
+	RecordDailyLotteryRecord,
 	RecordTypeMax
 };
 
@@ -34,7 +38,9 @@ public:
 		GoldModify_BuyHero,
 		GoldModify_BuyGold,
 		GoldModify_AcceptTask,
-		GoldModify_ReliveRecord
+		GoldModify_ReliveRecord,
+		GoldModify_DailyGameReward,
+		GoldModify_DailyLottery,
 	};
 public:
 	RecordManager();
@@ -56,6 +62,10 @@ public:
 	void dealPayRecord(account_type acc, const char* key_code, int status, int order_id, int modify_gold, int current_gold, int modify_jewel, int current_jewel);
 	void dealWaitToVerifyRecord(account_type acc, const char* name, int order_id, const char* recepit);
 	void giveUpDealRecord(account_type acc, const char* key_code, int status, int price, int order_id);
+	void buySpiritRecord(account_type acc, const char* nick_name, int spirit, int day_buy_count, int current_spirit, int use_jewel, int current_jewel);
+	void dailyGameRecord(account_type acc, const char* nick_name, int daily_game_rank, int daily_game_score);
+	void dailyGameRewardRecord(account_type acc, const char* nick_name, int daily_game_rank, int daily_gold, int current_gold);
+	void dailyLotteryRecord(account_type acc, const char* nick_name, int jewel, int current_jewel, int gold, int current_gold, int lotion_id);
 	const char* getCurTime();
 	void update();
 public:

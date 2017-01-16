@@ -1706,8 +1706,11 @@ void DreamHero::ReqBuySpirit(const message::MsgC2SReqBuySpirit* msg)
 			{
 				int jewel = _info.jewel() - need_jewel;
 				int spirit = _info.spirit() + spirit_config;
+
 				_info.set_jewel(jewel);
 				_info.set_spirit(spirit);
+				gRecordManager.buySpiritRecord(_account, _info.name().c_str(), spirit_config, day_buy_spirit,
+					_info.spirit(), need_jewel, _info.jewel());
 				int day_buy_spirit = _info.day_buy_spirit() + 1;
 				_info.set_day_buy_spirit(day_buy_spirit);
 				std::string last_buy_spirit_time;
@@ -1750,6 +1753,7 @@ void DreamHero::ReqReceiveDailyGamePrize()
 		int gold = _info.gold() + daily_game_gold;
 		_info.set_gold(gold);
 		_info.set_daily_game_gold(0);
+		gRecordManager.dailyGameRewardRecord(_account, _info.name().c_str(), 0, gold, _info.gold());
 	}
 
 	msg.set_current_gold(_info.gold());
@@ -2079,6 +2083,9 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 				
 				_last_day_lottery_time = g_server_time;
 				int current_rating = rand() % rating;
+				int lottion_id = -1;
+				int add_gold = 0;
+				int add_jewel = 0;
 				std::map<int, LotteryDrawBoxConfig>::iterator it_map = map_random_lottery.begin();
 
 				for (; it_map != map_random_lottery.end(); ++it_map)
@@ -2098,6 +2105,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 						_info.add_lotions(entry.sub_index_);
 						msgACK.add_current_lotions(entry.sub_index_);
 						msgACK.set_index(entry.sub_index_);
+						lottion_id = entry.sub_index_;
 					}
 					else
 					{
@@ -2119,6 +2127,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 						{
 							int gold = _info.gold();
 							gold += add_count;
+							add_gold = add_count;
 							_info.set_gold(gold);
 							
 							msgACK.set_current_gold(_info.gold());
@@ -2127,6 +2136,7 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 						{
 							int jewel = _info.jewel();
 							jewel += add_count;
+							add_jewel = add_count;
 							_info.set_jewel(jewel);
 							msgACK.set_current_jewel(_info.jewel());
 						}
@@ -2134,6 +2144,8 @@ void DreamHero::ReqDayLottery(const message::MsgC2SReqDayLottery* msg)
 					}
 					
 				}
+				gRecordManager.dailyLotteryRecord(_account, _info.name().c_str(),
+					add_jewel, _info.jewel(), add_gold, _info.gold(), lottion_id);
 
 			}
 			else
@@ -2434,11 +2446,13 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 
 	if (error == message::Error_NO)
 	{
+		
 		int daily_game_progress = msg->daily_game_progress();
 		if (daily_game_progress > _info.daily_top_grogress())
 		{
 			_info.set_daily_top_grogress(daily_game_progress);
 		}
+
 		_info.set_daily_game_anger(msg->anger());
 		const globalConfig global_config = gGameConfig.getGlobalConfig();
 		int record_size = global_config.daily_game_record_config_.size();
@@ -2456,6 +2470,8 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 
 		_info.set_daily_game_hp_pct(hp_pct);
 		rank = gRankManager.getHeroDailyRank(_account);
+		gRecordManager.dailyGameRecord(_account, _info.name().c_str(),
+			rank, _info.daily_game_score());
 	}
 	msgACK.set_score(_info.daily_game_score());
 	msgACK.set_error(error);

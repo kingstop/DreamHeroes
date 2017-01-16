@@ -20,12 +20,50 @@ RecordManager::RecordManager()
 	_sql_head[RecordTypeWaitToVerify] = "insert into `deal_wait_to_verify_reocrd`(`account_id`, `order_id`, `name`, `receipt`, `record_time`) values";
 	_sql_head[RecordTypeRelive] = "insert into `relive_record`(`account_id`, `nick_name`, `gold`, `current_gold`, `record_time`) values";
 	_sql_head[RecordTypeOnlineCount] = "insert into `game_online_record`(`online_player_count`, `offline_player_count`, `record_time`) values";
+	_sql_head[RecordTypeBuySpirit] = "insert into `buy_spirit_record`(`account_id`, `nick_name`,`spirit`, `day_buy_count`, `current_spirit`, `use_jewel`, `current_jewel`, `record_time`) values";
+	_sql_head[RecordDailyGame] = "insert into `daily_game_record`(`account_id`, `nick_name`, `daily_game_rank`, `daily_game_score`, `record_time`) values";
+	_sql_head[RecordDailyGameReward] = "insert into `daily_game_reward`(`account_id`, `nick_name`, `daily_game_rank`, `daily_gold`, `current_gold`, `record_time`) values";
+	_sql_head[RecordDailyLotteryRecord] = "insert into `daily_game_reward`(`account_id`, `nick_name`, `daily_gold`, `current_gold`, `daily_jewel`, `current_jewel`, `record_time`) values";
+}
+
+void RecordManager::dailyLotteryRecord(account_type acc, const char* nick_name, int jewel, int current_jewel, int gold, int current_gold, int lotion_id)
+{
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, %d, %d, %d,'%s')", acc, nick_name, jewel, current_jewel, gold, current_jewel, lotion_id, getCurTime());
+	_record[RecordDailyLotteryRecord].push_back(_szTemp);
+	if (gold != 0)
+	{
+		goldModifyRecord(acc, nick_name, gold, current_gold, GoldModify_DailyLottery);
+	}
+
+}
+
+void RecordManager::dailyGameRewardRecord(account_type acc, const char* nick_name, int daily_game_rank, int daily_gold, int current_gold)
+{
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, %d,'%s')", acc, nick_name, daily_game_rank, daily_gold, current_gold, getCurTime());
+	_record[RecordDailyGameReward].push_back(_szTemp);
+	if (daily_gold != 0)
+	{
+		goldModifyRecord(acc, nick_name, daily_gold, current_gold, GoldModify_DailyGameReward);
+	}
+
+}
+
+void RecordManager::dailyGameRecord(account_type acc, const char* nick_name, int daily_game_rank, int daily_game_score)
+{
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, '%s')", acc, nick_name, daily_game_rank, daily_game_score, getCurTime());
+	_record[RecordDailyGame].push_back(_szTemp);
 }
 
 void RecordManager::reliveRecord(account_type acc, const char* nick_name, int gold, int current_gold)
 {
 	sprintf(_szTemp, "(%llu, '%s', %d, %d,'%s')", acc, nick_name, gold , current_gold,getCurTime());
 	_record[RecordTypeRelive].push_back(_szTemp);
+}
+
+void RecordManager::buySpiritRecord(account_type acc, const char* nick_name,int spirit, int day_buy_count, int current_spirit, int use_jewel, int current_jewel)
+{
+	sprintf(_szTemp, "(%llu, '%s', %d, %d, %d, %d, %d, '%s')", acc, nick_name, spirit, day_buy_count, current_spirit, use_jewel, current_jewel, getCurTime());
+	_record[RecordTypeBuySpirit].push_back(_szTemp);
 }
 
 RecordManager::~RecordManager()
