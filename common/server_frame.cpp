@@ -58,8 +58,10 @@ void ServerFrame::run()
 		s64 time_spawn = nStartTime - _last_server_time ;
 		_last_server_time = nStartTime ;
 		g_server_time = time(NULL);
-		
-		runOnce(time_spawn);
+		if (time_spawn != 0)
+		{
+			runOnce(time_spawn);
+		}		
 		onKey();
 		if (_wait_stop)
 		{ 
