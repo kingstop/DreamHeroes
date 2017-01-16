@@ -1361,11 +1361,12 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 			DEALSWAITTOPAY::iterator it = _deals_wait_to_pay.find(order_id);
 			if (it != _deals_wait_to_pay.end())
 			{
+				DealWaitToPay& entry = (it->second);
 				if (status == 0)
 				{
-					if (_deals_wait_to_pay[order_id].type_ == DealStatusType_WaitToPay || _deals_wait_to_pay[order_id].type_ == DealStatusType_WaitPrepareToPay)
+					if (entry.type_ == DealStatusType_WaitToPay || entry.type_ == DealStatusType_WaitPrepareToPay)
 					{
-						_deals_wait_to_pay[order_id].type_ = DealStatusType_Complete;
+						entry.type_ = DealStatusType_Complete;
 
 						add_gold = entry_config->info_.gold();
 						add_jewel = entry_config->info_.jewel();
@@ -1375,26 +1376,34 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 						_info.set_jewel(jewel_entry);
 						error = message::Error_NO;
 					}
-					else
+					else if (entry.type_ == DealStatusType_Complete)
 					{
+						Mylog::log_server(LOG_ERROR, "error deal order[%d] the deal is already completed when deal verify", order_id);
 						error = message::Error_BuyGoldFailedTheOrderHaveBeenCompleted;
-
+					}
+					else
+					{						
+						Mylog::log_server(LOG_ERROR, "error deal order[%d] type[%d] when deal verify",entry.order_id_, entry.type_);
+						error = message::Error_Unknow;
 					}
 				}
 				else
 				{
-					_deals_wait_to_pay[order_id].type_ = DealStatusType_Failed;
+					entry.type_ = DealStatusType_Failed;
 					error = message::Error_Unknow;
+					Mylog::log_server(LOG_ERROR, "error deal order[%d] in unkonw", order_id);
 				}
 			}
 			else
 			{
 				error = message::Error_BuyGoldFailedNotFoundOrder;
+				Mylog::log_server(LOG_ERROR, "error deal order[%d] not found order when verify", order_id);
 			}
 		}
 		else
 		{
 			error = message::Error_BuyGoldFailedNotFoundConfig;
+			Mylog::log_server(LOG_ERROR, "error deal order[%d] not found config channel[%d] product[%s] ", order_id, _channel, key_code.c_str());
 		}
 	}
 	else
@@ -1507,7 +1516,7 @@ void DreamHero::ReqVerifyDeal(const message::MsgC2SReqVerifyDeal* msg)
 	DEALSWAITTOPAY::iterator it = _deals_wait_to_pay.find(order_id);
 	if (it != _deals_wait_to_pay.end())
 	{
-		it->second.type_ = DealStatusType_WaitPrepareToVerify;
+		//it->second.type_ = DealStatusType_WaitPrepareToVerify;
 		char sz_temp[10240];
 		gRecordManager.dealWaitToVerifyRecord(_account, _info.name().c_str(), order_id, receipt.c_str());
 		sprintf(sz_temp, "replace into deal_wait_to_pay(`order_id`, `complete_status`, `receipt`) \
@@ -1520,8 +1529,6 @@ void DreamHero::ReqVerifyDeal(const message::MsgC2SReqVerifyDeal* msg)
 	{
 		Mylog::log_server(LOG_ERROR, "not found the order [%d] when verify deal", order_id);
 	}
-
-
 }
 
 void DreamHero::SendClientInit()
