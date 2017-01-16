@@ -1,7 +1,7 @@
 #ifndef __server_h__
 #define __server_h__
 #include "utilities.h"
-class GameServer : public ServerFrame
+class GameServer : public ServerFrame,  public EventableObject
 {
 public:
 	GameServer();
@@ -19,6 +19,7 @@ public:
 	bool initDataFromDatabase(DBQuery* query, const void* data);
 	bool initDataFromWorldDB(DBQuery* query, const void* data);
 	bool initDataFromCharacterDB(DBQuery* p, const void* data);
+	void minuteCollect();
 private:
 	service_config m_service_conf;
 	DataBaseConfig m_world_db_conf;
@@ -27,5 +28,8 @@ private:
 protected:
 	boost::thread* _http_thread;
 private:
+	u64 _time_pass;
+	u64 _last_pass;
+	
 };
 #endif

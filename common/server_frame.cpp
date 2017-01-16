@@ -51,11 +51,12 @@ void ServerFrame::run()
 	boost::posix_time::ptime nLastTime = boost::posix_time::microsec_clock::universal_time();  
 	boost::posix_time::ptime nStartTime = nLastTime ;
 	while(!_stop)
-	{
+	{		
 		nStartTime = boost::posix_time::microsec_clock::universal_time();
 		time_elapse = nStartTime - nLastTime ;
 		nLastTime = nStartTime ;
 		g_server_time = time(NULL);
+		
 		runOnce((u32)(time_elapse.total_milliseconds()));
 		onKey();
 		if (_wait_stop)

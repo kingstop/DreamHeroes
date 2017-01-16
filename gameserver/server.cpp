@@ -2,8 +2,9 @@
 
 GameServer::GameServer()
     :m_EventHold(WORLD_INSTANCE),
-	_http_thread(NULL)
-
+	_http_thread(NULL),
+	_time_pass(0),
+	_last_pass(0)
 {
 }
 
@@ -27,7 +28,7 @@ bool GameServer::init()
         return false;
     }
 
-
+	gEventMgr.addEvent(this, &GameServer::minuteCollect, EVENT_PER_MIN_COLLECT_, 60 * 1000, -1, 0);
     if (!Database::addBlockTask(dbconfig, this, &GameServer::initDataFromDatabase, NULL))
     {
 		//printf("init from Database server init  failed \n" );
@@ -59,6 +60,7 @@ bool GameServer::onKey()
 }
 
 
+
 void GameServer::runOnce(u32 nDiff)
 {
     net_global::update_net_service();
@@ -80,6 +82,16 @@ void GameServer::runOnce(u32 nDiff)
     {
         Mylog::log_server(LOG_WARNING, "server delay [%u]", nDiff);
     }
+	_time_pass += nDiff;
+}
+
+void GameServer::minuteCollect()
+{
+	std::string time_unix;
+	build_unix_time_to_string(g_server_time, time_unix);
+	u64 time_spawn = _time_pass - _last_pass;
+	Mylog::log_server(LOG_INFO, "Time[%s] time pass[%llu] time spawn[%llu]", time_unix.c_str(), _time_pass, time_spawn);
+	_last_pass = _time_pass;
 }
 
 void GameServer::shutDown()
