@@ -303,6 +303,7 @@ int Base64Decode(const char *base64code, long base64length, unsigned char* outbi
 
 // 获取系统的当前时间，单位微秒(us)
 s64 GetSysTimeMicros();
+s64 GetSysTimeMillisecond();
 //std::string base64_encode(unsigned char const*, unsigned int len);
 //std::string base64_decode(std::string const& s);
 #endif // _NEW_COMMON_UTILITIES_HEAD

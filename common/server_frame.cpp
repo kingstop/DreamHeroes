@@ -51,10 +51,10 @@ void ServerFrame::run()
 	//boost::posix_time::millisec_posix_time_system_config::time_duration_type time_elapse;
 	//boost::posix_time::ptime nLastTime = boost::posix_time::microsec_clock::universal_time();  
 	//boost::posix_time::ptime nStartTime = nLastTime ;
-	_last_server_time = GetSysTimeMicros();
+	_last_server_time = GetSysTimeMillisecond();
 	while(!_stop)
 	{		
-		s64 nStartTime = GetSysTimeMicros();
+		s64 nStartTime = GetSysTimeMillisecond();
 		s64 time_spawn = nStartTime - _last_server_time ;
 		_last_server_time = nStartTime ;
 		g_server_time = time(NULL);

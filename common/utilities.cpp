@@ -1294,6 +1294,11 @@ int Base64Decode(const char *base64code, long base64length, unsigned char* outbi
 	return outlen;
 }
 
+s64 GetSysTimeMillisecond()
+{
+	return s64(GetSysTimeMicros() / 1000);
+}
+
 s64 GetSysTimeMicros()
 {
 #ifdef _WIN32
@@ -1315,3 +1320,4 @@ s64 GetSysTimeMicros()
 #endif // _WIN32
 	return 0;
 }
+
