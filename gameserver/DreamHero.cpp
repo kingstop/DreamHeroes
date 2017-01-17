@@ -154,8 +154,10 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info, int channel)
 	}
 
 	if (g_server_time > _last_recover_spirit_time)
-	{		
-		int recorver_times = (int) float(float(g_server_time) - float(_last_recover_spirit_time)) / float(gGameConfig.getGlobalConfig().config_recover_spirit_minute_ * 60);
+	{	
+		float entry_time = float(gGameConfig.getGlobalConfig().config_recover_spirit_minute_ * 60);
+		u32 time_pass = g_server_time - _last_recover_spirit_time;
+		int recorver_times = time_pass / entry_time;
 		int recorver_spirit = gGameConfig.getGlobalConfig().config_recover_spirit_ * recorver_times;
 		int temp_spirit = recorver_spirit + _info.spirit();
 		if (temp_spirit > gGameConfig.getGlobalConfig().config_max_spirit_)
@@ -163,7 +165,11 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info, int channel)
 			temp_spirit = gGameConfig.getGlobalConfig().config_max_spirit_;
 		}
 		_info.set_spirit(temp_spirit);
-		_last_recover_spirit_time = g_server_time;
+		if (recorver_times != 0)
+		{
+			_last_recover_spirit_time = g_server_time - (time_pass - (recorver_times * entry_time));
+		}
+
 	}
 	//std::map<std::string, message::MsgHeroDealInfo>::iterator deal_it = _hero_deals.begin();
 	//for (; deal_it != _hero_deals.end(); ++ deal_it)
