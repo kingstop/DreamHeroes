@@ -163,6 +163,7 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info, int channel)
 			temp_spirit = gGameConfig.getGlobalConfig().config_max_spirit_;
 		}
 		_info.set_spirit(temp_spirit);
+		_last_recover_spirit_time = g_server_time;
 	}
 	//std::map<std::string, message::MsgHeroDealInfo>::iterator deal_it = _hero_deals.begin();
 	//for (; deal_it != _hero_deals.end(); ++ deal_it)
