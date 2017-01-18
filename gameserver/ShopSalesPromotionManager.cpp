@@ -168,7 +168,7 @@ void TimeShopPromotion::apply()
 
 	if (delay_time > 0)
 	{
-		gEventMgr.addEvent(this, &TimeShopPromotion::apply, EVENT_SHOP_SALES_PROMOTION_EXIT, delay_time * 1000, 1, 0);
+		gEventMgr.addEvent(this, &TimeShopPromotion::exit, EVENT_SHOP_SALES_PROMOTION_EXIT, delay_time * 1000, 1, 0);
 	}
 	else
 	{
