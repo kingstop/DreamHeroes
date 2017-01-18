@@ -164,7 +164,7 @@ void TimeShopPromotion::apply()
 	ShopSalesPromotion::apply();
 	const TimeShopSalesPromotionConfig* config_entry = gGameConfig.getTimeShopSalesPromotionConfig(_id);	
 	_parent->modifyCheapGold(config_entry->grid_id_, config_entry->cheap_gold_);
-	s64 delay_time = g_server_time - config_entry->end_time_;
+	s64 delay_time = config_entry->end_time_ - g_server_time;
 
 	if (delay_time > 0)
 	{
