@@ -183,7 +183,7 @@ void RankManager::DailyGameUpdate()
 	std::string sql;
 	std::string game_time;
 	build_unix_time_to_string(_daily_game_begin_time, game_time);
-	std::string sql_delete = "DELETE * FROM hero_daily_game_rank;";
+	std::string sql_delete = "DELETE FROM hero_daily_game_rank;";
 	message::MsgSaveDataGS2DB msg_db;
 	msg_db.set_sql(sql_delete.c_str());
 	gGSDBClient.sendPBMessage(&msg_db, 0);
