@@ -429,7 +429,7 @@ void DreamHero::ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGame
 			}
 			else
 			{
-				if (_info.daily_game_hp_pct() != 100)
+				if (_info.daily_game_hp_pct() != 100 || _info.daily_game_progress() != 0)
 				{
 					_info.set_daily_game_progress(0);
 					_info.set_daily_game_record_progress(0);
