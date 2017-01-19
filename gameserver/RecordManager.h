@@ -21,6 +21,7 @@ enum RecordType
 	RecordDailyGame,
 	RecordDailyGameReward,
 	RecordDailyLotteryRecord,
+	RecordCreateName,
 	RecordTypeMax
 };
 
@@ -66,6 +67,7 @@ public:
 	void dailyGameRecord(account_type acc, const char* nick_name, int daily_game_rank, int daily_game_score);
 	void dailyGameRewardRecord(account_type acc, const char* nick_name, int daily_game_rank, int daily_gold, int current_gold);
 	void dailyLotteryRecord(account_type acc, const char* nick_name, int jewel, int current_jewel, int gold, int current_gold, int lotion_id);
+	void generateNameRecord(const char* nick_name, int day_create_count, const char* day_title);
 	const char* getCurTime();
 	void update();
 public:

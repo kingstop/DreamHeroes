@@ -25,7 +25,7 @@ public:
 	bool is_save_all_heroes_ok();
 	void save_all_heroes_ok();
 	void CollectInfo();
-	std::string generateName();
+	std::string generateName(int count = 0);
 	std::string generateDealOrderID(account_type acc);
 	//void addSql(const char* sql);
 	void OfflineHeroDealWaitToPay(int order_id, account_type acc, const char* product_id, int status);
@@ -45,6 +45,7 @@ protected:
 	int _day_create_heroes_count;
 	std::string _hero_day_title;
 	std::vector<char> _char_configs;
+	std::vector<std::string> _names;
 	u64 _last_save_time;
 	//std::vector<std::string> _vc_sql;
 	MAPSTRACCPAIR _heroes_orders;

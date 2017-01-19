@@ -75,6 +75,21 @@ void DreamHeroManager::Load(DBQuery* p)
 			_last_save_time = row["UNIX_TIMESTAMP(`save_time`)"];
 			_deal_order_id = row["deal_order_id"];
 			gRankManager.setDailyGameBeginTime(row["UNIX_TIMESTAMP(`daily_game_begin_time`)"]);
+
+			query.reset();
+			sResult.clear();
+			query << "select `name` from `character`";
+			sResult = query.store();
+			rows_length = sResult.num_rows();
+			if (sResult.size() > 0)
+			{
+				for (size_t i = 0; i < sResult.size(); i++)
+				{
+					std::string  name = row["name"].c_str();
+					_names.push_back(name);
+				}
+			}
+			
 		}
 
 	}
@@ -265,11 +280,31 @@ std::string DreamHeroManager::generateStr(int& key, const char* argu)
 
 }
 
-std::string DreamHeroManager::generateName()
+std::string DreamHeroManager::generateName(int count)
 {
 	_day_create_heroes_count++;
-	//int number_entry;
-	return generateStr(_day_create_heroes_count, "");
+	std::string name;
+	if (count > 100)
+	{
+		name = generateStr(_day_create_heroes_count, "q");
+	}
+	else
+	{
+		name = generateStr(_day_create_heroes_count, "");
+		gRecordManager.generateNameRecord(name.c_str(), _day_create_heroes_count, _hero_day_title.c_str());
+		std::vector<std::string>::iterator it = _names.begin();
+		for (; it != _names.end(); ++it)
+		{
+			if (name == (*it))
+			{
+				std::string cur_time;
+				build_unix_time_to_string(g_server_time, cur_time);
+				Mylog::log_server(LOG_ERROR, "create the same name[%s] time[%s]", name.c_str(), cur_time.c_str());
+				name = generateName(count + 1);
+			}
+		}
+	}
+	return name;		
 }
 
 std::string DreamHeroManager::generateDealOrderID(account_type acc)

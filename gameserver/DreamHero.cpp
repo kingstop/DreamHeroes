@@ -2459,8 +2459,8 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 					_info.set_daily_game_progress(msg->daily_game_progress());
 				}
 				
-				_info.set_daily_game_anger(msg->anger());
-				_info.set_daily_game_hp_pct(hp_pct);
+				
+				//_info.set_daily_game_hp_pct(hp_pct);
 				gRankManager.updateHeroDailyRank(_account, _info.name().c_str(), score, rank);
 
 			}
@@ -2502,6 +2502,7 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		//}
 
 		_info.set_daily_game_hp_pct(hp_pct);
+		_info.set_daily_game_anger(msg->anger());
 		rank = gRankManager.getHeroDailyRank(_account);
 		gRecordManager.dailyGameRecord(_account, _info.name().c_str(),
 			rank, _info.daily_game_score());
