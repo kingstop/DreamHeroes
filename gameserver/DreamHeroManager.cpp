@@ -85,7 +85,8 @@ void DreamHeroManager::Load(DBQuery* p)
 			{
 				for (size_t i = 0; i < sResult.size(); i++)
 				{
-					const char* name_temp =  row["name"].c_str();
+					DBRow& row_name = sResult[i];
+					const char* name_temp = row_name["name"].c_str();
 					_names.push_back(name_temp);
 				}
 			}
