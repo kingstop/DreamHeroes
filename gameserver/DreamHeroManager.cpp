@@ -85,8 +85,8 @@ void DreamHeroManager::Load(DBQuery* p)
 			{
 				for (size_t i = 0; i < sResult.size(); i++)
 				{
-					std::string  name = row["name"].c_str();
-					_names.push_back(name);
+					const char* name_temp =  row["name"].c_str();
+					_names.push_back(name_temp);
 				}
 			}
 			
