@@ -273,7 +273,7 @@ bool GameConfig::isInToday(u32 time)
 	p1->tm_min = 0;
 	p1->tm_sec = 0;
 	p1->tm_hour = _global_config.day_Refresh_time_;
-	time_t today_refresh_time =  mktime(p1) - (8 * 60 * 60); //utf 时间差
+	time_t today_refresh_time =  mktime(p1); //utf 时间差
 	time_t Tomorrow_refresh_time = today_refresh_time + (24 * 60 * 60 );
 	bool ret = false;
 	if (time < Tomorrow_refresh_time && time >= today_refresh_time)

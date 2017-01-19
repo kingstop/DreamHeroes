@@ -46,7 +46,7 @@ void UserLoginSession::parseLoginGame(google::protobuf::Message* p, pb_flag_type
 	if (msg)
 	{
 		bool check_account = true;
-		if (gLoginConfig.IsNeedPlatformVerify())
+		if (gLoginConfig.IsNeedPlatformVerify()&& msg->channel()!= 0 )
 		{
 			if (m_state != UserLoginSession::_platform_success_ || msg->name() != _platform_user_id)
 			{
