@@ -208,6 +208,7 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info, int channel)
 	{
 		_info.set_daily_game_record_progress(0);
 	}
+	_info.set_daily_game_record_progress(0);
 	TryToGetGamePrize(false);
 
 }
@@ -2483,18 +2484,18 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 
 		_info.set_daily_game_anger(msg->anger());
 		const globalConfig global_config = gGameConfig.getGlobalConfig();
-		int record_size = global_config.daily_game_record_config_.size();
-		if (record_size > 0)
-		{
-			for (int i = record_size - 1; i >= 0; i--)
-			{
-				if (global_config.daily_game_record_config_[i] == _info.daily_game_progress())
-				{
-					_info.set_daily_game_record_progress(_info.daily_game_progress());
-					break;
-				}
-			}
-		}
+		//int record_size = global_config.daily_game_record_config_.size();
+		//if (record_size > 0)
+		//{
+		//	for (int i = record_size - 1; i >= 0; i--)
+		//	{
+		//		if (global_config.daily_game_record_config_[i] == _info.daily_game_progress())
+		//		{
+		//			_info.set_daily_game_record_progress(_info.daily_game_progress());
+		//			break;
+		//		}
+		//	}
+		//}
 
 		_info.set_daily_game_hp_pct(hp_pct);
 		rank = gRankManager.getHeroDailyRank(_account);
