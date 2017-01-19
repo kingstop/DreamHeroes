@@ -330,6 +330,7 @@ void RankManager::updateHeroDailyRank(account_type acc, const char* name, int sc
 		if (entry.acc_ == acc)
 		{
 			entry.score_ = score;
+			entry.name_ = name;
 			need_add = false;
 			break;
 		}
