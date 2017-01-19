@@ -185,6 +185,9 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info, int channel)
 	{
 		_info.set_daily_game_progress(0);
 		_info.set_daily_game_score(0);
+		_info.set_daily_reset_game_count(0);
+		_info.set_daily_game_hp_pct(100);
+		_info.set_daily_game_anger(0);
 	}
 	
 	const globalConfig global_config = gGameConfig.getGlobalConfig();
@@ -2415,7 +2418,8 @@ void DreamHero::ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGa
 		_info.set_daily_game_progress(0);
 		_info.set_daily_game_score(0);
 		_info.set_daily_game_anger(0);
-		//_info.set_daily_game_hp_pct(100);
+		_info.set_daily_reset_game_count(0);
+		
 	}
 
 
