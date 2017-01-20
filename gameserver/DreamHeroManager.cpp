@@ -151,10 +151,10 @@ void DreamHeroManager::init()
 		gEventMgr.addEvent(this, &DreamHeroManager::save, EVENT_SAVE_HEROES_STATU, 60 * _TIME_SECOND_MSEL_, -1, 0);
 	}
 
-	refrashHeroTitle();
+	refreshHeroTitle();
 	if (same_day(_last_save_time, g_server_time) == false)
 	{
-		refrashDayNumber();
+		refreshDayNumber();
 	}
 	
 	gRankManager.Init();
@@ -221,7 +221,7 @@ void DreamHeroManager::eventPerMin()
 
 		if (p1->tm_hour == 0)
 		{
-			refrashDayNumber();
+			refreshDayNumber();
 		}
 	}
 	if (gEventMgr.hasEvent(this,EVENT_PER_MIN) == true)
@@ -256,7 +256,7 @@ void DreamHeroManager::eventPerHour()
 
 	//if (p1->tm_hour == 0)
 	//{
-	//	refrashDayNumber();
+	//	refreshDayNumber();
 	//}
 }
 
@@ -316,7 +316,7 @@ std::string DreamHeroManager::generateDealOrderID(account_type acc)
 	return order;
 }
 
-void DreamHeroManager::refrashHeroTitle()
+void DreamHeroManager::refreshHeroTitle()
 {
 	time_t server_open_time = gGameConfig.getServerOpenTime();
 	tm* p_open_time = localtime(&server_open_time);
@@ -338,7 +338,7 @@ void DreamHeroManager::refrashHeroTitle()
 	}
 }
 
-void DreamHeroManager::refrashDayNumber()
+void DreamHeroManager::refreshDayNumber()
 {
 	std::vector<int> vc_number;
 	for (size_t i = 0; i <= 9; i++)
@@ -355,7 +355,7 @@ void DreamHeroManager::refrashDayNumber()
 		}
 	}
 	_day_create_heroes_count = 0;
-	refrashHeroTitle();
+	refreshHeroTitle();
 	save();
 }
 

@@ -35,8 +35,8 @@ protected:
 	void eventPerMin();
 	void save();
 	void dayRefresh();
-	void refrashDayNumber();
-	void refrashHeroTitle();
+	void refreshDayNumber();
+	void refreshHeroTitle();
 	void recoverSpirit();
 protected:
 	MAPHEROS _heroes;
