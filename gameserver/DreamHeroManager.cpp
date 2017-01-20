@@ -334,7 +334,7 @@ void DreamHeroManager::refrashHeroTitle()
 		_hero_day_title.push_back(_char_configs[number_char_2]);
 		_hero_day_title.push_back(_char_configs[number_char_3]);
 		_hero_day_title.push_back('\0');
-		_day_create_heroes_count = 0;
+		//_day_create_heroes_count = 0;
 	}
 }
 
@@ -354,7 +354,7 @@ void DreamHeroManager::refrashDayNumber()
 			_day_number[i][j] = vc_number[j];
 		}
 	}
-
+	_day_create_heroes_count = 0;
 	refrashHeroTitle();
 	save();
 }
