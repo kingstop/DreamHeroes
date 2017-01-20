@@ -1670,6 +1670,12 @@ void DreamHero::LoadFromConfig(int channel)
 	_info.set_spirit(gGameConfig.getGlobalConfig().config_max_spirit_);
 	_last_recover_spirit_time = g_server_time;
 	_channel = channel;
+	_last_recover_spirit_time = 0;
+	_last_buy_spirit_time = 0;
+	_last_day_lottery_time = 0;	
+	_daily_game_time = 0;
+	_daily_game_prize_time = 0;
+	_last_daily_reset_game_time = 0;
 	SetGMLevel(1);
 }
 
@@ -2386,7 +2392,7 @@ void DreamHero::TryToGetGamePrize(bool sendmsg)
 	u32 server_rank_time = gRankManager.getDailyGameBeginTime();
 	if (server_rank_time != _daily_game_time)
 	{
-		if (_daily_game_time != _daily_game_prize_time)
+		if (_daily_game_time != 0 && _daily_game_time != _daily_game_prize_time)
 		{
 			int rank = _info.daily_game_progress() + 1;
 			_info.set_daily_game_gold(gRankManager.GetDailyGamePrize(rank));

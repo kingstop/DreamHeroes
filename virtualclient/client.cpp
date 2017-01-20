@@ -130,8 +130,8 @@ void Client::on_connect()
             msg.set_name(_acc.c_str());
             msg.set_pwd("123456");
 			msg.set_channel(0);
-			msg.mutable_version()->set_number_1(0);
-			msg.mutable_version()->set_number_2(0);
+			msg.mutable_version()->set_number_1(3);
+			msg.mutable_version()->set_number_2(2);
 			msg.mutable_version()->set_number_3(0);
             sendPBMessage(&msg);
 			//static int login = 0;
