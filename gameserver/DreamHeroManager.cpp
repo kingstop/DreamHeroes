@@ -300,7 +300,7 @@ std::string DreamHeroManager::generateName(int count)
 			{
 				std::string cur_time;
 				build_unix_time_to_string(g_server_time, cur_time);
-				Mylog::log_server(LOG_ERROR, "create the same name[%s] time[%s]", name.c_str(), cur_time.c_str());
+				Mylog::log_server(LOG_ERROR, "create the same name[%s] time[%s] create count[%d]", name.c_str(), cur_time.c_str(), _day_create_heroes_count);
 				name = generateName(count + 1);
 			}
 		}
