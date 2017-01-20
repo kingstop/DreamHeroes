@@ -134,7 +134,7 @@ int RankManager::GetDailyGamePrize(int rank)
 void RankManager::save()
 {
 	char sz_temp[1024];
-	std::string sql_delete = "DELETE * FROM hero_daily_game_rank;";
+	std::string sql_delete = "DELETE FROM hero_daily_game_rank;";
 	message::MsgSaveDataGS2DB msg_db;
 	msg_db.set_sql(sql_delete.c_str());
 	gGSDBClient.sendPBMessage(&msg_db, 0);

@@ -23,13 +23,13 @@ RecordManager::RecordManager()
 	_sql_head[RecordTypeBuySpirit] = "insert into `buy_spirit_record`(`account_id`, `nick_name`,`spirit`, `day_buy_count`, `current_spirit`, `use_jewel`, `current_jewel`, `record_time`) values";
 	_sql_head[RecordDailyGame] = "insert into `daily_game_record`(`account_id`, `nick_name`, `daily_game_rank`, `daily_game_score`, `record_time`) values";
 	_sql_head[RecordDailyGameReward] = "insert into `daily_game_reward`(`account_id`, `nick_name`, `daily_game_rank`, `daily_gold`, `current_gold`, `record_time`) values";
-	_sql_head[RecordDailyLotteryRecord] = "insert into `daily_game_reward`(`account_id`, `nick_name`, `daily_gold`, `current_gold`, `daily_jewel`, `current_jewel`, `record_time`) values";
+	_sql_head[RecordDailyLotteryRecord] = "insert into `daily_lottery_record`(`account_id`, `nick_name`, `daily_gold`, `current_gold`, `daily_jewel`, `current_jewel`, `record_time`) values";
 	_sql_head[RecordCreateName] = "insert into `crreate_name_record`(`name`, `day_create_count`, `day_title`, `record_time`) values";
 }
 
 void RecordManager::generateNameRecord(const char* nick_name, int day_create_count, const char* day_title)
 {
-	sprintf(_szTemp, "('%s', %d, '%s', %s)", nick_name, day_create_count, day_title, getCurTime());
+	sprintf(_szTemp, "('%s', %d, '%s', '%s')", nick_name, day_create_count, day_title, getCurTime());
 	_record[RecordCreateName].push_back(_szTemp);
 }
 
