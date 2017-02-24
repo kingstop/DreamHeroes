@@ -66,6 +66,7 @@ public:
 	void ReqReqEnterDailyGame(const message::MsgC2SReqEnterDailyGame* msg);
 	void ReqUpdateDailyGameProgress(const message::MsgC2SReqUpdateDailyGameProgress* msg);
 	void ReqResetDailyGameProgress(const message::MsgC2SReqResetDailyGameProgress* msg);
+	void ReqConcernWeiXin(const message::MsgC2SReqConcernWeiXin* msg);
 	void ReqReceiveDailyGamePrize();
 	void ReqRemoveAllSpecialCreatureList();
 	void ReqSetSpecialCreatureList(int creature_id, int status);

@@ -42,6 +42,7 @@ public:
 		GoldModify_ReliveRecord,
 		GoldModify_DailyGameReward,
 		GoldModify_DailyLottery,
+		GoldModify_DailyConcernWeiXin
 	};
 public:
 	RecordManager();

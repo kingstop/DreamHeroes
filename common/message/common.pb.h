@@ -767,6 +767,13 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_game_anger() const;
   void set_daily_game_anger(::google::protobuf::int32 value);
 
+  // required bool concern_weixin = 21;
+  bool has_concern_weixin() const;
+  void clear_concern_weixin();
+  static const int kConcernWeixinFieldNumber = 21;
+  bool concern_weixin() const;
+  void set_concern_weixin(bool value);
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -801,6 +808,8 @@ class MsgHeroData : public ::google::protobuf::Message {
   inline void clear_has_daily_top_grogress();
   inline void set_has_daily_game_anger();
   inline void clear_has_daily_game_anger();
+  inline void set_has_concern_weixin();
+  inline void clear_has_concern_weixin();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -828,6 +837,7 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_reset_game_count_;
   ::google::protobuf::int32 daily_top_grogress_;
   ::google::protobuf::int32 daily_game_anger_;
+  bool concern_weixin_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2638,6 +2648,30 @@ inline void MsgHeroData::set_daily_game_anger(::google::protobuf::int32 value) {
   set_has_daily_game_anger();
   daily_game_anger_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_anger)
+}
+
+// required bool concern_weixin = 21;
+inline bool MsgHeroData::has_concern_weixin() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void MsgHeroData::set_has_concern_weixin() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void MsgHeroData::clear_has_concern_weixin() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void MsgHeroData::clear_concern_weixin() {
+  concern_weixin_ = false;
+  clear_has_concern_weixin();
+}
+inline bool MsgHeroData::concern_weixin() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.concern_weixin)
+  return concern_weixin_;
+}
+inline void MsgHeroData::set_concern_weixin(bool value) {
+  set_has_concern_weixin();
+  concern_weixin_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.concern_weixin)
 }
 
 // -------------------------------------------------------------------

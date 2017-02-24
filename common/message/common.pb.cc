@@ -135,7 +135,7 @@ void protobuf_AssignDesc_common_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgIntBoolPair, _internal_metadata_),
       -1);
   MsgHeroData_descriptor_ = file->message_type(4);
-  static const int MsgHeroData_offsets_[20] = {
+  static const int MsgHeroData_offsets_[21] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, gold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, records_),
@@ -156,6 +156,7 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_reset_game_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_top_grogress_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_game_anger_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, concern_weixin_),
   };
   MsgHeroData_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -390,7 +391,7 @@ void protobuf_AddDesc_common_2eproto() {
     "d\030\002 \002(\005\022\023\n\013random_gold\030\003 \002(\005\"0\n\nMsgIntPa"
     "ir\022\020\n\010number_1\030\001 \002(\005\022\020\n\010number_2\030\002 \002(\005\"/"
     "\n\016MsgIntBoolPair\022\016\n\006number\030\001 \002(\005\022\r\n\005vali"
-    "d\030\002 \002(\010\"\372\003\n\013MsgHeroData\022\014\n\004name\030\001 \002(\t\022\014\n"
+    "d\030\002 \002(\010\"\222\004\n\013MsgHeroData\022\014\n\004name\030\001 \002(\t\022\014\n"
     "\004gold\030\002 \002(\005\022$\n\007records\030\003 \003(\0132\023.message.M"
     "sgIntPair\022\016\n\006heroes\030\004 \003(\010\022#\n\005tasks\030\005 \003(\013"
     "2\024.message.MsgTaskInfo\022\024\n\014current_hero\030\006"
@@ -402,45 +403,46 @@ void protobuf_AddDesc_common_2eproto() {
     "e\030\017 \002(\005\022\031\n\021daily_game_hp_pct\030\020 \002(\005\022\"\n\032da"
     "ily_game_record_progress\030\021 \002(\005\022\036\n\026daily_"
     "reset_game_count\030\022 \002(\005\022\032\n\022daily_top_grog"
-    "ress\030\023 \002(\005\022\030\n\020daily_game_anger\030\024 \002(\005\"r\n\024"
-    "MsgTaskConditionInfo\0222\n\010taskType\030\001 \002(\0162\021"
-    ".message.TaskType:\rTaskType_NULL\022\022\n\nargu"
-    "ment_1\030\002 \002(\005\022\022\n\nargument_2\030\003 \002(\005\"\225\002\n\021Msg"
-    "TaskConfigInfo\022\016\n\006taskID\030\001 \002(\005\0225\n\016task_c"
-    "ondition\030\002 \003(\0132\035.message.MsgTaskConditio"
-    "nInfo\022\024\n\014require_time\030\003 \002(\005\022\036\n\026require_u"
-    "nlock_chapter\030\004 \002(\005\022\036\n\026require_unlock_se"
-    "ction\030\005 \002(\005\022*\n\"require_unlock_complete_t"
-    "ask_count\030\006 \002(\005\022\021\n\tgift_gold\030\007 \002(\005\022\022\n\ndi"
-    "fficulty\030\010 \002(\005\022\020\n\010describe\030\t \002(\t\"\252\001\n\021Msg"
-    "ShopConfigInfo\022\017\n\007grid_id\030\001 \002(\005\022\017\n\007hero_"
-    "id\030\002 \002(\005\022\024\n\014require_gold\030\003 \002(\005\022\023\n\013cheape"
-    "_gold\030\004 \002(\005\022\032\n\022require_chapter_id\030\005 \002(\005\022"
-    "\032\n\022require_section_id\030\006 \002(\005\022\020\n\010describe\030"
-    "\007 \002(\t\"B\n\013MsgTaskInfo\022\016\n\006TaskID\030\001 \002(\005\022\022\n\n"
-    "argument_1\030\002 \002(\005\022\017\n\007useTime\030\003 \002(\005\"\315\001\n\024Ms"
-    "gChapterConfigInfo\022\022\n\nchapter_id\030\001 \002(\005\022\033"
-    "\n\023required_chapter_id\030\002 \002(\005\022\033\n\023required_"
-    "section_id\030\003 \002(\005\022$\n\034required_task_comple"
-    "te_count\030\004 \002(\005\022\024\n\014require_gold\030\005 \002(\005\022\031\n\021"
-    "max_section_count\030\006 \002(\005\022\020\n\010describe\030\007 \002("
-    "\t\"\212\001\n\025MsgGoldShopConfigInfo\022\n\n\002id\030\001 \002(\005\022"
-    "\023\n\013resource_id\030\002 \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005mo"
-    "ney\030\004 \002(\002\022\020\n\010describe\030\005 \002(\t\022\r\n\005jewel\030\006 \002"
-    "(\005\022\022\n\nproduct_id\030\007 \002(\t\"p\n\017MsgHeroDealInf"
-    "o\022\020\n\010order_id\030\001 \002(\t\022\022\n\nproduct_id\030\002 \002(\t\022"
-    "#\n\004type\030\003 \002(\0162\025.message.HeroDealType\022\022\n\n"
-    "createtime\030\004 \002(\r*4\n\007SubType\022\013\n\007DEFAULT\020\000"
-    "\022\013\n\007MONSTER\020\001\022\017\n\013INTERACTIVE\020\002*\340\001\n\010TaskT"
-    "ype\022\021\n\rTaskType_NULL\020\000\022\030\n\024TaskType_KillM"
-    "onster\020\001\022\025\n\021TaskType_PassGame\020\002\022\024\n\020TaskT"
-    "ype_UnKnown\020\003\022\027\n\023TaskType_LimitLevel\020\004\022\030"
-    "\n\024TaskType_LimitRevive\020\005\022\"\n\036TaskType_Lim"
-    "itTime_KillMonster\020\006\022#\n\037TaskType_Accumul"
-    "ate_KillMonster\020\007*v\n\014HeroDealType\022\031\n\025Her"
-    "oDealTypApplyOrder\020\000\022\031\n\025HeroDealTypeWait"
-    "ToPay\020\001\022\030\n\024HeroDealTypeComplete\020\002\022\026\n\022Her"
-    "oDealTypeFailed\020\003", 2297);
+    "ress\030\023 \002(\005\022\030\n\020daily_game_anger\030\024 \002(\005\022\026\n\016"
+    "concern_weixin\030\025 \002(\010\"r\n\024MsgTaskCondition"
+    "Info\0222\n\010taskType\030\001 \002(\0162\021.message.TaskTyp"
+    "e:\rTaskType_NULL\022\022\n\nargument_1\030\002 \002(\005\022\022\n\n"
+    "argument_2\030\003 \002(\005\"\225\002\n\021MsgTaskConfigInfo\022\016"
+    "\n\006taskID\030\001 \002(\005\0225\n\016task_condition\030\002 \003(\0132\035"
+    ".message.MsgTaskConditionInfo\022\024\n\014require"
+    "_time\030\003 \002(\005\022\036\n\026require_unlock_chapter\030\004 "
+    "\002(\005\022\036\n\026require_unlock_section\030\005 \002(\005\022*\n\"r"
+    "equire_unlock_complete_task_count\030\006 \002(\005\022"
+    "\021\n\tgift_gold\030\007 \002(\005\022\022\n\ndifficulty\030\010 \002(\005\022\020"
+    "\n\010describe\030\t \002(\t\"\252\001\n\021MsgShopConfigInfo\022\017"
+    "\n\007grid_id\030\001 \002(\005\022\017\n\007hero_id\030\002 \002(\005\022\024\n\014requ"
+    "ire_gold\030\003 \002(\005\022\023\n\013cheape_gold\030\004 \002(\005\022\032\n\022r"
+    "equire_chapter_id\030\005 \002(\005\022\032\n\022require_secti"
+    "on_id\030\006 \002(\005\022\020\n\010describe\030\007 \002(\t\"B\n\013MsgTask"
+    "Info\022\016\n\006TaskID\030\001 \002(\005\022\022\n\nargument_1\030\002 \002(\005"
+    "\022\017\n\007useTime\030\003 \002(\005\"\315\001\n\024MsgChapterConfigIn"
+    "fo\022\022\n\nchapter_id\030\001 \002(\005\022\033\n\023required_chapt"
+    "er_id\030\002 \002(\005\022\033\n\023required_section_id\030\003 \002(\005"
+    "\022$\n\034required_task_complete_count\030\004 \002(\005\022\024"
+    "\n\014require_gold\030\005 \002(\005\022\031\n\021max_section_coun"
+    "t\030\006 \002(\005\022\020\n\010describe\030\007 \002(\t\"\212\001\n\025MsgGoldSho"
+    "pConfigInfo\022\n\n\002id\030\001 \002(\005\022\023\n\013resource_id\030\002"
+    " \002(\005\022\014\n\004gold\030\003 \002(\005\022\r\n\005money\030\004 \002(\002\022\020\n\010des"
+    "cribe\030\005 \002(\t\022\r\n\005jewel\030\006 \002(\005\022\022\n\nproduct_id"
+    "\030\007 \002(\t\"p\n\017MsgHeroDealInfo\022\020\n\010order_id\030\001 "
+    "\002(\t\022\022\n\nproduct_id\030\002 \002(\t\022#\n\004type\030\003 \002(\0162\025."
+    "message.HeroDealType\022\022\n\ncreatetime\030\004 \002(\r"
+    "*4\n\007SubType\022\013\n\007DEFAULT\020\000\022\013\n\007MONSTER\020\001\022\017\n"
+    "\013INTERACTIVE\020\002*\340\001\n\010TaskType\022\021\n\rTaskType_"
+    "NULL\020\000\022\030\n\024TaskType_KillMonster\020\001\022\025\n\021Task"
+    "Type_PassGame\020\002\022\024\n\020TaskType_UnKnown\020\003\022\027\n"
+    "\023TaskType_LimitLevel\020\004\022\030\n\024TaskType_Limit"
+    "Revive\020\005\022\"\n\036TaskType_LimitTime_KillMonst"
+    "er\020\006\022#\n\037TaskType_Accumulate_KillMonster\020"
+    "\007*v\n\014HeroDealType\022\031\n\025HeroDealTypApplyOrd"
+    "er\020\000\022\031\n\025HeroDealTypeWaitToPay\020\001\022\030\n\024HeroD"
+    "ealTypeComplete\020\002\022\026\n\022HeroDealTypeFailed\020"
+    "\003", 2321);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
   MsgObjConfig::default_instance_ = new MsgObjConfig();
@@ -2072,6 +2074,7 @@ const int MsgHeroData::kDailyGameRecordProgressFieldNumber;
 const int MsgHeroData::kDailyResetGameCountFieldNumber;
 const int MsgHeroData::kDailyTopGrogressFieldNumber;
 const int MsgHeroData::kDailyGameAngerFieldNumber;
+const int MsgHeroData::kConcernWeixinFieldNumber;
 #endif  // !_MSC_VER
 
 MsgHeroData::MsgHeroData()
@@ -2110,6 +2113,7 @@ void MsgHeroData::SharedCtor() {
   daily_reset_game_count_ = 0;
   daily_top_grogress_ = 0;
   daily_game_anger_ = 0;
+  concern_weixin_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2169,7 +2173,9 @@ void MsgHeroData::Clear() {
     ZR_(jewel_, spirit_);
     ZR_(day_buy_spirit_, daily_game_hp_pct_);
   }
-  ZR_(daily_game_record_progress_, daily_game_anger_);
+  if (_has_bits_[16 / 32] & 2031616) {
+    ZR_(daily_game_record_progress_, concern_weixin_);
+  }
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -2497,6 +2503,21 @@ bool MsgHeroData::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(168)) goto parse_concern_weixin;
+        break;
+      }
+
+      // required bool concern_weixin = 21;
+      case 21: {
+        if (tag == 168) {
+         parse_concern_weixin:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &concern_weixin_)));
+          set_has_concern_weixin();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2635,6 +2656,11 @@ void MsgHeroData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->daily_game_anger(), output);
   }
 
+  // required bool concern_weixin = 21;
+  if (has_concern_weixin()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(21, this->concern_weixin(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2755,6 +2781,11 @@ void MsgHeroData::SerializeWithCachedSizes(
   // required int32 daily_game_anger = 20;
   if (has_daily_game_anger()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->daily_game_anger(), target);
+  }
+
+  // required bool concern_weixin = 21;
+  if (has_concern_weixin()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(21, this->concern_weixin(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2880,12 +2911,17 @@ int MsgHeroData::RequiredFieldsByteSizeFallback() const {
         this->daily_game_anger());
   }
 
+  if (has_concern_weixin()) {
+    // required bool concern_weixin = 21;
+    total_size += 2 + 1;
+  }
+
   return total_size;
 }
 int MsgHeroData::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x000ff7e3) ^ 0x000ff7e3) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x001ff7e3) ^ 0x001ff7e3) == 0) {  // All required fields are present.
     // required string name = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2965,6 +3001,9 @@ int MsgHeroData::ByteSize() const {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->daily_game_anger());
+
+    // required bool concern_weixin = 21;
+    total_size += 2 + 1;
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -3085,6 +3124,9 @@ void MsgHeroData::MergeFrom(const MsgHeroData& from) {
     if (from.has_daily_game_anger()) {
       set_daily_game_anger(from.daily_game_anger());
     }
+    if (from.has_concern_weixin()) {
+      set_concern_weixin(from.concern_weixin());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3104,7 +3146,7 @@ void MsgHeroData::CopyFrom(const MsgHeroData& from) {
 }
 
 bool MsgHeroData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000ff7e3) != 0x000ff7e3) return false;
+  if ((_has_bits_[0] & 0x001ff7e3) != 0x001ff7e3) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->records())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->tasks())) return false;
@@ -3136,6 +3178,7 @@ void MsgHeroData::InternalSwap(MsgHeroData* other) {
   std::swap(daily_reset_game_count_, other->daily_reset_game_count_);
   std::swap(daily_top_grogress_, other->daily_top_grogress_);
   std::swap(daily_game_anger_, other->daily_game_anger_);
+  std::swap(concern_weixin_, other->concern_weixin_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -3683,6 +3726,30 @@ MsgHeroData::mutable_lotions() {
   set_has_daily_game_anger();
   daily_game_anger_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.daily_game_anger)
+}
+
+// required bool concern_weixin = 21;
+ bool MsgHeroData::has_concern_weixin() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+ void MsgHeroData::set_has_concern_weixin() {
+  _has_bits_[0] |= 0x00100000u;
+}
+ void MsgHeroData::clear_has_concern_weixin() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+ void MsgHeroData::clear_concern_weixin() {
+  concern_weixin_ = false;
+  clear_has_concern_weixin();
+}
+ bool MsgHeroData::concern_weixin() const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.concern_weixin)
+  return concern_weixin_;
+}
+ void MsgHeroData::set_concern_weixin(bool value) {
+  set_has_concern_weixin();
+  concern_weixin_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgHeroData.concern_weixin)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -238,6 +238,8 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			data->set_daily_reset_game_count(row["daily_reset_game_count"]);
 			data->set_daily_top_grogress(row["daily_top_grogress"]);
 			data->set_daily_game_anger(row["daily_game_anger"]);
+			int concern_weixin = row["concern_weixin"];
+			data->set_concern_weixin((bool)concern_weixin);
 			pkParm->info.set_current_section(row["current_section"]);
 			pkParm->info.set_current_chapter(row["current_chapter"]);
 			pkParm->info.set_free_task_count(row["free_task_count"]);

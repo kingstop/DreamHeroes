@@ -1545,6 +1545,46 @@ void DreamHero::ReqVerifyDeal(const message::MsgC2SReqVerifyDeal* msg)
 	}
 }
 
+void DreamHero::ReqConcernWeiXin(const message::MsgC2SReqConcernWeiXin* msg)
+{
+	message::MsgS2CConcernWeiXinACK msgACK;
+	int add_gold = 0;
+	message::GameError error = message::Error_NO;
+	if (gGameConfig.isConcernWeiXin() == false)
+	{
+		error = message::Error_FailedToConcernWeiXinErrorCanNotConcernWeiXin;
+	}
+	else
+	{
+		if (_info.concern_weixin() == true)
+		{
+			error = message::Error_FailedToConcernWeiXinHaveBeenConcernedWeiXin;
+		}
+		else
+		{
+			if (gGameConfig.getGlobalConfig().config_weixin_cd_key == msg->cd_key())
+			{
+				add_gold = gGameConfig.getGlobalConfig().config_weixin_gold;
+				_info.set_concern_weixin(true);
+			}
+			else
+			{
+				error = message::Error_FailedToConcernWeiXinErrorCdkey;
+			}
+		}
+	}
+	
+
+	if (error == message::Error_NO)
+	{
+		int gold = _info.gold() + add_gold;		
+		_info.set_gold(gold);
+		gRecordManager.goldModifyRecord(_account, _info.name().c_str(), add_gold, _info.gold(), RecordManager::GoldModify_DailyConcernWeiXin);
+	}
+	msgACK.set_gold(add_gold);
+	msgACK.set_current_gold(_info.gold());
+}
+
 void DreamHero::SendClientInit()
 {
 	StopDestroyClock();
@@ -1605,6 +1645,7 @@ void DreamHero::SendClientInit()
 	msg.set_last_lottery_time(_last_day_lottery_time);
 	msg.set_server_time(g_server_time);
 	msg.set_last_reset_daily_game_time(_last_daily_reset_game_time);
+	msg.set_concern_weixin_config(gGameConfig.isConcernWeiXin());
 	fillSpecialCreatureList(msg.mutable_special_creatures());
 	msg.set_max_daily_game_progress(gRankManager.getMaxDailyProgress());
 	int daily_jewel_sonfig_size = globalConfig.daily_game_reset_jewel_config_.size();
@@ -1922,9 +1963,9 @@ void DreamHero::SaveHero()
 		 `free_task_count`,`last_task_advertisement_time`,`gm_level`, `current_task_count`, `tutorial_flag`,\
 		 `jewel`, `spirit`,`last_recover_spirit_time`,`day_buy_spirit`, `last_buy_spirit_time`, `lotions`, `last_lottery_time`,\
 		 `daily_game_progress`, `daily_game_score`, `daily_game_gold`, `daily_game_time`, `daily_game_prize_time`,`daily_game_hp_pct`,\
-		 `daily_game_record_progress`, `daily_reset_game_count`, `last_daily_reset_game_time`, `daily_top_grogress`, `daily_game_anger`) values \
+		 `daily_game_record_progress`, `daily_reset_game_count`, `last_daily_reset_game_time`, `daily_top_grogress`, `daily_game_anger`, `concern_weixin`) values \
 		(%llu, '%s', %d, '%s', '%s', '%s', '%s', %d, %d, %d, %d, '%s',%d, '%s', %d, %d, %d, %d, %d,\
-		 '%s', %d, '%s', '%s', '%s', %d, %d, %d, '%s','%s', %d, %d, %d, '%s', %d, %d);",
+		 '%s', %d, '%s', '%s', '%s', %d, %d, %d, '%s','%s', %d, %d, %d, '%s', %d, %d, %d);",
 		_account, _info.name().c_str(), _info.gold(), record_temp.c_str(), heroes_temp.c_str(), tasks_temp.c_str(), 
 		special_kill_temp.c_str(), _info.current_hero(), _current_chapter,
 		_current_section, _info.complete_task_count(), special_creatures.c_str(), _current_task_count,
@@ -1933,7 +1974,7 @@ void DreamHero::SaveHero()
 		last_buy_spirit_time.c_str(), str_lotion_status.c_str(), last_lottery_time.c_str(), _info.daily_game_progress(),
 		 _info.daily_game_score(), _info.daily_game_gold(), daily_game_time.c_str(), daily_game_prize_time.c_str(), _info.daily_game_hp_pct(),
 		_info.daily_game_record_progress(), _info.daily_reset_game_count(), 
-		last_reset_daily_game_time.c_str(), _info.daily_top_grogress(), _info.daily_game_anger());
+		last_reset_daily_game_time.c_str(), _info.daily_top_grogress(), _info.daily_game_anger(), (int)_info.concern_weixin());
 		//Mylog::log_server(LOG_INFO, "save hero[%s] last buy spirit time[%s]", _info.name().c_str(), last_buy_spirit_time.c_str());
 		//Mylog::log_server(LOG_INFO, "last buy spirit save hero[%s] sql[%s]", _info.name().c_str(), temp);
 		//std::string last_day_lottery_time;

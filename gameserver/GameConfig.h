@@ -34,8 +34,11 @@ struct globalConfig
 	int config_recover_spirit_;
 	int config_enter_game_use_spirit_;
 	int config_day_buy_spirit_;
+	int config_weixin_gold;
 	std::vector<int> daily_game_record_config_;
 	std::vector<int> daily_game_reset_jewel_config_;
+	std::string config_weixin_cd_key;
+	
 
 };
 struct ShopSalesPromotionConfig
@@ -176,6 +179,8 @@ public:
 	void setNeedConnectPlatform(bool b);
 	void setPlatformServerIp(const char* ip);
 	void setPlatformServerPort(int port);
+	void setCanConcernWeiXin(bool concern_weixin);
+	bool isConcernWeiXin();
 
 	bool isNeedConnectPlatform( );
 	const char* getPlatformServerIp();
@@ -212,6 +217,7 @@ protected:
 	int _platform_port;
 	int _game_id;
 	int _server_type;
+	bool _can_concern_weixin;
 	std::string _server_title;
 };
 

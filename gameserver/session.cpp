@@ -42,7 +42,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyNewTutorial), &Session::parseReqModifyTutorial);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReliveReq), &Session::parseReqRelive);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuySpirit), &Session::parseReqBuySpirit);
-
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqConcernWeiXin), &Session::parseReqConcernWeiXin);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGMLevel), &Session::parseCmdReqMdodifyGMLevel);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqEnterGame), &Session::parseCmdReqEnterGame);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetMap), &Session::parseCmdReqResetMap);
@@ -545,6 +545,16 @@ void Session::parseReqBuySpirit(google::protobuf::Message* p)
 	{
 		message::MsgC2SReqBuySpirit* msg = (message::MsgC2SReqBuySpirit*)p;
 		_dream_hero->ReqBuySpirit(msg);
+	}
+}
+
+void Session::parseReqConcernWeiXin(google::protobuf::Message* p)
+{
+	if (_dream_hero)
+	{
+		message::MsgC2SReqConcernWeiXin* msg = (message::MsgC2SReqConcernWeiXin*)p;
+		_dream_hero->ReqConcernWeiXin(msg);
+
 	}
 }
 

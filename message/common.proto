@@ -56,6 +56,8 @@ message MsgHeroData
 	required int32 daily_reset_game_count = 18;
 	required int32 daily_top_grogress = 19;
 	required int32 daily_game_anger = 20;
+	required bool concern_weixin = 21;
+	
 }
 
 

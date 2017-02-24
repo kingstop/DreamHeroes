@@ -59,7 +59,10 @@ enum GameError
 	Error_FailedToResetDailyGameUseOut = 53;
 	Error_FailedToResetDailyGameTheProgressIsZero = 54;
 	Error_FailedToResetDailyGameTheTheHpIsFull = 55;
-	Error_Unknow = 56;
+	Error_FailedToConcernWeiXinHaveBeenConcernedWeiXin = 56;
+	Error_FailedToConcernWeiXinErrorCdkey = 57;
+	Error_FailedToConcernWeiXinErrorCanNotConcernWeiXin= 58;
+	Error_Unknow = 59;
 }
 
 
@@ -224,6 +227,7 @@ message MsgS2CHeroesInit
 	repeated int32 daily_game_record_configs = 25;
 	required uint64 last_reset_daily_game_time = 26;
 	required int32 max_daily_game_progress = 27;
+	required bool concern_weixin_config = 28;
 
 
 }
@@ -364,6 +368,19 @@ message MsgC2SReqUnlockChapter
 message MsgC2SReqAdvertisementApplyTask
 {
 	required bool gold = 1;
+}
+
+message MsgC2SReqConcernWeiXin
+{
+	required string cd_key = 1;
+}
+
+message MsgS2CConcernWeiXinACK
+{
+	required int32 gold = 1;
+	required int32 current_gold = 2;
+	required GameError error = 3 [default=Error_NO];
+	
 }
 
 message MsgS2CAdvertisementApplyTaskACK

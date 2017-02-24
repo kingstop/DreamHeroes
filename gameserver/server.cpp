@@ -252,7 +252,9 @@ bool GameServer::initDataFromDatabase(DBQuery* p, const void* data)
 		std::string platformIp = row["platform_ip"].c_str();
 		int platform_port = row["platform_port"];
 		int need_connect_platform = row["need_connect_platform"];
+		int can_concern_weixin = row["concern_weixin"];
 		gGameConfig.setNeedConnectPlatform((bool)need_connect_platform);
+		gGameConfig.setCanConcernWeiXin((bool)can_concern_weixin);
 		gGameConfig.setPlatformServerIp(platformIp.c_str());
 		gGameConfig.setPlatformServerPort(platform_port);
 		int game_id = row["game_id"];

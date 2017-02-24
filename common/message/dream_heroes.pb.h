@@ -72,6 +72,8 @@ class MsgC2SReqExitGame;
 class MsgS2CExitGameACK;
 class MsgC2SReqUnlockChapter;
 class MsgC2SReqAdvertisementApplyTask;
+class MsgC2SReqConcernWeiXin;
+class MsgS2CConcernWeiXinACK;
 class MsgS2CAdvertisementApplyTaskACK;
 class MsgC2SReqAdvertisementRefreshTask;
 class MsgS2CAdvertisementRefreshTaskACK;
@@ -182,7 +184,10 @@ enum GameError {
   Error_FailedToResetDailyGameUseOut = 53,
   Error_FailedToResetDailyGameTheProgressIsZero = 54,
   Error_FailedToResetDailyGameTheTheHpIsFull = 55,
-  Error_Unknow = 56
+  Error_FailedToConcernWeiXinHaveBeenConcernedWeiXin = 56,
+  Error_FailedToConcernWeiXinErrorCdkey = 57,
+  Error_FailedToConcernWeiXinErrorCanNotConcernWeiXin = 58,
+  Error_Unknow = 59
 };
 bool GameError_IsValid(int value);
 const GameError GameError_MIN = Error_NO;
@@ -2345,6 +2350,13 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::int32 max_daily_game_progress() const;
   void set_max_daily_game_progress(::google::protobuf::int32 value);
 
+  // required bool concern_weixin_config = 28;
+  bool has_concern_weixin_config() const;
+  void clear_concern_weixin_config();
+  static const int kConcernWeixinConfigFieldNumber = 28;
+  bool concern_weixin_config() const;
+  void set_concern_weixin_config(bool value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
   inline void set_has_info();
@@ -2389,6 +2401,8 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   inline void clear_has_last_reset_daily_game_time();
   inline void set_has_max_daily_game_progress();
   inline void clear_has_max_daily_game_progress();
+  inline void set_has_concern_weixin_config();
+  inline void clear_has_concern_weixin_config();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -2423,6 +2437,7 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > daily_game_record_configs_;
   ::google::protobuf::uint64 last_reset_daily_game_time_;
   ::google::protobuf::int32 max_daily_game_progress_;
+  bool concern_weixin_config_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -4309,6 +4324,212 @@ class MsgC2SReqAdvertisementApplyTask : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgC2SReqAdvertisementApplyTask* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqConcernWeiXin : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqConcernWeiXin();
+  virtual ~MsgC2SReqConcernWeiXin();
+
+  MsgC2SReqConcernWeiXin(const MsgC2SReqConcernWeiXin& from);
+
+  inline MsgC2SReqConcernWeiXin& operator=(const MsgC2SReqConcernWeiXin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqConcernWeiXin& default_instance();
+
+  void Swap(MsgC2SReqConcernWeiXin* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqConcernWeiXin* New() const { return New(NULL); }
+
+  MsgC2SReqConcernWeiXin* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqConcernWeiXin& from);
+  void MergeFrom(const MsgC2SReqConcernWeiXin& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqConcernWeiXin* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string cd_key = 1;
+  bool has_cd_key() const;
+  void clear_cd_key();
+  static const int kCdKeyFieldNumber = 1;
+  const ::std::string& cd_key() const;
+  void set_cd_key(const ::std::string& value);
+  void set_cd_key(const char* value);
+  void set_cd_key(const char* value, size_t size);
+  ::std::string* mutable_cd_key();
+  ::std::string* release_cd_key();
+  void set_allocated_cd_key(::std::string* cd_key);
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqConcernWeiXin)
+ private:
+  inline void set_has_cd_key();
+  inline void clear_has_cd_key();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr cd_key_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqConcernWeiXin* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CConcernWeiXinACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CConcernWeiXinACK();
+  virtual ~MsgS2CConcernWeiXinACK();
+
+  MsgS2CConcernWeiXinACK(const MsgS2CConcernWeiXinACK& from);
+
+  inline MsgS2CConcernWeiXinACK& operator=(const MsgS2CConcernWeiXinACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CConcernWeiXinACK& default_instance();
+
+  void Swap(MsgS2CConcernWeiXinACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CConcernWeiXinACK* New() const { return New(NULL); }
+
+  MsgS2CConcernWeiXinACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CConcernWeiXinACK& from);
+  void MergeFrom(const MsgS2CConcernWeiXinACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CConcernWeiXinACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 gold = 1;
+  bool has_gold() const;
+  void clear_gold();
+  static const int kGoldFieldNumber = 1;
+  ::google::protobuf::int32 gold() const;
+  void set_gold(::google::protobuf::int32 value);
+
+  // required int32 current_gold = 2;
+  bool has_current_gold() const;
+  void clear_current_gold();
+  static const int kCurrentGoldFieldNumber = 2;
+  ::google::protobuf::int32 current_gold() const;
+  void set_current_gold(::google::protobuf::int32 value);
+
+  // required .message.GameError error = 3 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 3;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CConcernWeiXinACK)
+ private:
+  inline void set_has_gold();
+  inline void clear_has_gold();
+  inline void set_has_current_gold();
+  inline void clear_has_current_gold();
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 gold_;
+  ::google::protobuf::int32 current_gold_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CConcernWeiXinACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -11476,6 +11697,30 @@ inline void MsgS2CHeroesInit::set_max_daily_game_progress(::google::protobuf::in
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.max_daily_game_progress)
 }
 
+// required bool concern_weixin_config = 28;
+inline bool MsgS2CHeroesInit::has_concern_weixin_config() const {
+  return (_has_bits_[0] & 0x08000000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_concern_weixin_config() {
+  _has_bits_[0] |= 0x08000000u;
+}
+inline void MsgS2CHeroesInit::clear_has_concern_weixin_config() {
+  _has_bits_[0] &= ~0x08000000u;
+}
+inline void MsgS2CHeroesInit::clear_concern_weixin_config() {
+  concern_weixin_config_ = false;
+  clear_has_concern_weixin_config();
+}
+inline bool MsgS2CHeroesInit::concern_weixin_config() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.concern_weixin_config)
+  return concern_weixin_config_;
+}
+inline void MsgS2CHeroesInit::set_concern_weixin_config(bool value) {
+  set_has_concern_weixin_config();
+  concern_weixin_config_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.concern_weixin_config)
+}
+
 // -------------------------------------------------------------------
 
 // MsgC2SReqDayLottery
@@ -12972,6 +13217,140 @@ inline void MsgC2SReqAdvertisementApplyTask::set_gold(bool value) {
   set_has_gold();
   gold_ = value;
   // @@protoc_insertion_point(field_set:message.MsgC2SReqAdvertisementApplyTask.gold)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqConcernWeiXin
+
+// required string cd_key = 1;
+inline bool MsgC2SReqConcernWeiXin::has_cd_key() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgC2SReqConcernWeiXin::set_has_cd_key() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgC2SReqConcernWeiXin::clear_has_cd_key() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgC2SReqConcernWeiXin::clear_cd_key() {
+  cd_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_cd_key();
+}
+inline const ::std::string& MsgC2SReqConcernWeiXin::cd_key() const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqConcernWeiXin.cd_key)
+  return cd_key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgC2SReqConcernWeiXin::set_cd_key(const ::std::string& value) {
+  set_has_cd_key();
+  cd_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:message.MsgC2SReqConcernWeiXin.cd_key)
+}
+inline void MsgC2SReqConcernWeiXin::set_cd_key(const char* value) {
+  set_has_cd_key();
+  cd_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:message.MsgC2SReqConcernWeiXin.cd_key)
+}
+inline void MsgC2SReqConcernWeiXin::set_cd_key(const char* value, size_t size) {
+  set_has_cd_key();
+  cd_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:message.MsgC2SReqConcernWeiXin.cd_key)
+}
+inline ::std::string* MsgC2SReqConcernWeiXin::mutable_cd_key() {
+  set_has_cd_key();
+  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqConcernWeiXin.cd_key)
+  return cd_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgC2SReqConcernWeiXin::release_cd_key() {
+  clear_has_cd_key();
+  return cd_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgC2SReqConcernWeiXin::set_allocated_cd_key(::std::string* cd_key) {
+  if (cd_key != NULL) {
+    set_has_cd_key();
+  } else {
+    clear_has_cd_key();
+  }
+  cd_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cd_key);
+  // @@protoc_insertion_point(field_set_allocated:message.MsgC2SReqConcernWeiXin.cd_key)
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CConcernWeiXinACK
+
+// required int32 gold = 1;
+inline bool MsgS2CConcernWeiXinACK::has_gold() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CConcernWeiXinACK::set_has_gold() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CConcernWeiXinACK::clear_has_gold() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CConcernWeiXinACK::clear_gold() {
+  gold_ = 0;
+  clear_has_gold();
+}
+inline ::google::protobuf::int32 MsgS2CConcernWeiXinACK::gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CConcernWeiXinACK.gold)
+  return gold_;
+}
+inline void MsgS2CConcernWeiXinACK::set_gold(::google::protobuf::int32 value) {
+  set_has_gold();
+  gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CConcernWeiXinACK.gold)
+}
+
+// required int32 current_gold = 2;
+inline bool MsgS2CConcernWeiXinACK::has_current_gold() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgS2CConcernWeiXinACK::set_has_current_gold() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgS2CConcernWeiXinACK::clear_has_current_gold() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgS2CConcernWeiXinACK::clear_current_gold() {
+  current_gold_ = 0;
+  clear_has_current_gold();
+}
+inline ::google::protobuf::int32 MsgS2CConcernWeiXinACK::current_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CConcernWeiXinACK.current_gold)
+  return current_gold_;
+}
+inline void MsgS2CConcernWeiXinACK::set_current_gold(::google::protobuf::int32 value) {
+  set_has_current_gold();
+  current_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CConcernWeiXinACK.current_gold)
+}
+
+// required .message.GameError error = 3 [default = Error_NO];
+inline bool MsgS2CConcernWeiXinACK::has_error() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgS2CConcernWeiXinACK::set_has_error() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgS2CConcernWeiXinACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgS2CConcernWeiXinACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CConcernWeiXinACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CConcernWeiXinACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CConcernWeiXinACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CConcernWeiXinACK.error)
 }
 
 // -------------------------------------------------------------------

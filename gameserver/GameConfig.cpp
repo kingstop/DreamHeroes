@@ -283,6 +283,16 @@ bool GameConfig::isInToday(u32 time)
 	
 	return ret;
 }
+
+void GameConfig::setCanConcernWeiXin(bool concern_weixin)
+{
+	_can_concern_weixin = concern_weixin;
+}
+bool GameConfig::isConcernWeiXin()
+{
+	return _can_concern_weixin;
+}
+
 void GameConfig::Load(DBQuery* p)
 {
 
@@ -389,6 +399,8 @@ void GameConfig::Load(DBQuery* p)
 			_global_config.config_max_spirit_ = row["config_max_spirit"];
 			_global_config.config_enter_game_use_spirit_ = row["config_enter_game_use_spirit"];
 			_global_config.config_day_buy_spirit_ = row["config_day_buy_spirit"];
+			_global_config.config_weixin_cd_key = row["weixin_cd_key"].c_str();
+			_global_config.config_weixin_gold = row["weixin_gold"];
 			int max_daily_game_rank_size = row["daily_game_max_rank_size"];
 			gRankManager.setDailyMaxRankSize(max_daily_game_rank_size);
 			int max_daily_game_progress = row["daily_game_max_progress"];
