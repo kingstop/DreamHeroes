@@ -2357,6 +2357,13 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   bool concern_weixin_config() const;
   void set_concern_weixin_config(bool value);
 
+  // required int32 concern_weixin_gold = 29;
+  bool has_concern_weixin_gold() const;
+  void clear_concern_weixin_gold();
+  static const int kConcernWeixinGoldFieldNumber = 29;
+  ::google::protobuf::int32 concern_weixin_gold() const;
+  void set_concern_weixin_gold(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:message.MsgS2CHeroesInit)
  private:
   inline void set_has_info();
@@ -2403,6 +2410,8 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   inline void clear_has_max_daily_game_progress();
   inline void set_has_concern_weixin_config();
   inline void clear_has_concern_weixin_config();
+  inline void set_has_concern_weixin_gold();
+  inline void clear_has_concern_weixin_gold();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -2438,6 +2447,7 @@ class MsgS2CHeroesInit : public ::google::protobuf::Message {
   ::google::protobuf::uint64 last_reset_daily_game_time_;
   ::google::protobuf::int32 max_daily_game_progress_;
   bool concern_weixin_config_;
+  ::google::protobuf::int32 concern_weixin_gold_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -11719,6 +11729,30 @@ inline void MsgS2CHeroesInit::set_concern_weixin_config(bool value) {
   set_has_concern_weixin_config();
   concern_weixin_config_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.concern_weixin_config)
+}
+
+// required int32 concern_weixin_gold = 29;
+inline bool MsgS2CHeroesInit::has_concern_weixin_gold() const {
+  return (_has_bits_[0] & 0x10000000u) != 0;
+}
+inline void MsgS2CHeroesInit::set_has_concern_weixin_gold() {
+  _has_bits_[0] |= 0x10000000u;
+}
+inline void MsgS2CHeroesInit::clear_has_concern_weixin_gold() {
+  _has_bits_[0] &= ~0x10000000u;
+}
+inline void MsgS2CHeroesInit::clear_concern_weixin_gold() {
+  concern_weixin_gold_ = 0;
+  clear_has_concern_weixin_gold();
+}
+inline ::google::protobuf::int32 MsgS2CHeroesInit::concern_weixin_gold() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CHeroesInit.concern_weixin_gold)
+  return concern_weixin_gold_;
+}
+inline void MsgS2CHeroesInit::set_concern_weixin_gold(::google::protobuf::int32 value) {
+  set_has_concern_weixin_gold();
+  concern_weixin_gold_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CHeroesInit.concern_weixin_gold)
 }
 
 // -------------------------------------------------------------------
