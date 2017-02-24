@@ -1365,8 +1365,7 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 	int current_jewel = _info.jewel();
 	if (error == message::Error_NO )
 	{
-		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(_channel,key_code.c_str());
-		
+		const GoldShopConfigInfo* entry_config = gGameConfig.getGoldShopConfigInfo(_channel,key_code.c_str());		
 		if (entry_config)
 		{
 			DEALSWAITTOPAY::iterator it = _deals_wait_to_pay.find(order_id);
@@ -1648,6 +1647,7 @@ void DreamHero::SendClientInit()
 	msg.set_concern_weixin_config(gGameConfig.isConcernWeiXin());
 	fillSpecialCreatureList(msg.mutable_special_creatures());
 	msg.set_max_daily_game_progress(gRankManager.getMaxDailyProgress());
+	msg.set_concern_weixin_gold(globalConfig.config_weixin_gold);
 	int daily_jewel_sonfig_size = globalConfig.daily_game_reset_jewel_config_.size();
 	for (int i = 0; i < daily_jewel_sonfig_size; i ++)
 	{
