@@ -1685,6 +1685,7 @@ void DreamHero::LoadFromConfig(int channel)
 	_last_task_advertisement_time = 0;
 	_info.mutable_tasks()->Clear();
 	_info.mutable_records()->Clear();
+	_info.mutable_lotions()->Clear();
 	int length = gGameConfig.getGlobalConfig().hero_unlock_count_;
 	_info.clear_heroes();
 	for (size_t i = 0; i < length; i++)
