@@ -76,6 +76,7 @@ public:
 	void ResetGame();
 	void ResetDailyGame();
 	void ResetDailyLottery();
+	void ResetWeiXin();
 	void SendResetGameACK(message::GameError en);
 	void DailyGamePrize(int gold);
 	void TryToGetGamePrize(bool sendmsg);

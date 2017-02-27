@@ -43,6 +43,8 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReliveReq), &Session::parseReqRelive);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuySpirit), &Session::parseReqBuySpirit);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqConcernWeiXin), &Session::parseReqConcernWeiXin);
+	registerCBFun(PROTOCO_NAME(message::MsgS2CCmdResetConcernWeiXinACK), &Session::parseCmdReqResetConcernWeiXin);
+	
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGMLevel), &Session::parseCmdReqMdodifyGMLevel);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqEnterGame), &Session::parseCmdReqEnterGame);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetMap), &Session::parseCmdReqResetMap);
@@ -658,6 +660,28 @@ void Session::parseCmdReqResetMap(google::protobuf::Message* p)
 		msgError.set_error(message::Error_CmdFailedRequiredGMLevel);
 		sendPBMessage(&msgError);
 	}
+}
+
+
+void Session::parseCmdReqResetConcernWeiXin(google::protobuf::Message* p)
+{
+
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+	message::GameError error = message::Error_NO;
+	message::MsgS2CCmdResetConcernWeiXinACK msg;
+	if (_dream_hero->getGMLevel() > 0)
+	{
+		_dream_hero->ResetWeiXin();
+	}
+	else
+	{
+		error = message::Error_CmdFailedRequiredGMLevel;		
+	}
+	msg.set_error(error);
+	sendPBMessage(&msg);
 }
 
 void Session::parseCmdReqResetGame(google::protobuf::Message* p)

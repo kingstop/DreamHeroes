@@ -126,6 +126,8 @@ class MsgC2SCmdReqResetDailyLottery;
 class MsgS2CCmdResetDailyLotteryACK;
 class MsgC2SCmdReqResetDailyGame;
 class MsgS2CCmdResetDailyGameACK;
+class MsgC2SCmdReqResetConcernWeiXin;
+class MsgS2CCmdResetConcernWeiXinACK;
 
 enum GameError {
   Error_NO = 0,
@@ -9772,6 +9774,174 @@ class MsgS2CCmdResetDailyGameACK : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MsgS2CCmdResetDailyGameACK* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class MsgC2SCmdReqResetConcernWeiXin : public ::google::protobuf::Message {
+ public:
+  MsgC2SCmdReqResetConcernWeiXin();
+  virtual ~MsgC2SCmdReqResetConcernWeiXin();
+
+  MsgC2SCmdReqResetConcernWeiXin(const MsgC2SCmdReqResetConcernWeiXin& from);
+
+  inline MsgC2SCmdReqResetConcernWeiXin& operator=(const MsgC2SCmdReqResetConcernWeiXin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SCmdReqResetConcernWeiXin& default_instance();
+
+  void Swap(MsgC2SCmdReqResetConcernWeiXin* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SCmdReqResetConcernWeiXin* New() const { return New(NULL); }
+
+  MsgC2SCmdReqResetConcernWeiXin* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SCmdReqResetConcernWeiXin& from);
+  void MergeFrom(const MsgC2SCmdReqResetConcernWeiXin& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SCmdReqResetConcernWeiXin* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SCmdReqResetConcernWeiXin)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SCmdReqResetConcernWeiXin* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CCmdResetConcernWeiXinACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CCmdResetConcernWeiXinACK();
+  virtual ~MsgS2CCmdResetConcernWeiXinACK();
+
+  MsgS2CCmdResetConcernWeiXinACK(const MsgS2CCmdResetConcernWeiXinACK& from);
+
+  inline MsgS2CCmdResetConcernWeiXinACK& operator=(const MsgS2CCmdResetConcernWeiXinACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CCmdResetConcernWeiXinACK& default_instance();
+
+  void Swap(MsgS2CCmdResetConcernWeiXinACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CCmdResetConcernWeiXinACK* New() const { return New(NULL); }
+
+  MsgS2CCmdResetConcernWeiXinACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CCmdResetConcernWeiXinACK& from);
+  void MergeFrom(const MsgS2CCmdResetConcernWeiXinACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CCmdResetConcernWeiXinACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .message.GameError error = 1 [default = Error_NO];
+  bool has_error() const;
+  void clear_error();
+  static const int kErrorFieldNumber = 1;
+  ::message::GameError error() const;
+  void set_error(::message::GameError value);
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CCmdResetConcernWeiXinACK)
+ private:
+  inline void set_has_error();
+  inline void clear_has_error();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  int error_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CCmdResetConcernWeiXinACK* default_instance_;
+};
 // ===================================================================
 
 
@@ -16342,6 +16512,39 @@ inline void MsgS2CCmdResetDailyGameACK::set_error(::message::GameError value) {
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CCmdResetDailyGameACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SCmdReqResetConcernWeiXin
+
+// -------------------------------------------------------------------
+
+// MsgS2CCmdResetConcernWeiXinACK
+
+// required .message.GameError error = 1 [default = Error_NO];
+inline bool MsgS2CCmdResetConcernWeiXinACK::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgS2CCmdResetConcernWeiXinACK::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgS2CCmdResetConcernWeiXinACK::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgS2CCmdResetConcernWeiXinACK::clear_error() {
+  error_ = 0;
+  clear_has_error();
+}
+inline ::message::GameError MsgS2CCmdResetConcernWeiXinACK::error() const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CCmdResetConcernWeiXinACK.error)
+  return static_cast< ::message::GameError >(error_);
+}
+inline void MsgS2CCmdResetConcernWeiXinACK::set_error(::message::GameError value) {
+  assert(::message::GameError_IsValid(value));
+  set_has_error();
+  error_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgS2CCmdResetConcernWeiXinACK.error)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

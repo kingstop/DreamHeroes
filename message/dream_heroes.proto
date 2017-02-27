@@ -712,7 +712,15 @@ message MsgS2CCmdResetDailyGameACK
 	required GameError error = 1 [default=Error_NO];
 }
 
+message MsgC2SCmdReqResetConcernWeiXin
+{
 
+}
+
+message MsgS2CCmdResetConcernWeiXinACK
+{
+	required GameError error = 1 [default=Error_NO];
+}
 
 
 

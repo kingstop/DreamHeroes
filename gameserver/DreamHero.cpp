@@ -1480,6 +1480,11 @@ void DreamHero::addDealWaitToPay(std::string key_code, const char* secret_key, i
 
 }
 
+void DreamHero::ResetWeiXin()
+{
+	_info.set_concern_weixin(false);
+}
+
 void DreamHero::ResetGame()
 {
 	LoadFromConfig(_channel);

@@ -69,6 +69,7 @@ public:
 	void parseCmdReqResetDailyLottery(google::protobuf::Message* p);
 	void parseCmdReqResetResetDailyGame(google::protobuf::Message* p);
 	void parseCmdReqClearDailyRankList(google::protobuf::Message* p);
+	void parseCmdReqResetConcernWeiXin(google::protobuf::Message* p);
 	int getState();
 	void set_channel(int channel);
 	int get_channel();
