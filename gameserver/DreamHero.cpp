@@ -1585,6 +1585,8 @@ void DreamHero::ReqConcernWeiXin(const message::MsgC2SReqConcernWeiXin* msg)
 	}
 	msgACK.set_gold(add_gold);
 	msgACK.set_current_gold(_info.gold());
+	msgACK.set_error(error);
+	sendPBMessage(&msgACK);
 }
 
 void DreamHero::SendClientInit()
