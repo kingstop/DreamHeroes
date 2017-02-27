@@ -51,6 +51,9 @@ void DreamHero::set_info(const message::MsgHeroDataDB2GS* info, int channel)
 	_channel = channel;
 	_account = info->account();
 	_info.CopyFrom(info->data());
+	//bool concern_wei_xin = info->data().concern_weixin();
+
+		
 	_current_chapter = info->current_chapter();
 	_current_section = info->current_section();
 	_last_task_advertisement_time = info->last_task_advertisement_time();
@@ -1703,6 +1706,7 @@ void DreamHero::LoadFromConfig(int channel)
 	_info.set_daily_reset_game_count(0);
 	_info.set_daily_top_grogress(0);
 	_info.set_current_hero(0);
+	_info.set_concern_weixin(false);
 	std::string name = _parent->generateName();
 	_info.set_name(name.c_str());
 	_info.set_new_tutorial(0);
