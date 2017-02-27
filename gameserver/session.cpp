@@ -43,7 +43,7 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReliveReq), &Session::parseReqRelive);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqBuySpirit), &Session::parseReqBuySpirit);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqConcernWeiXin), &Session::parseReqConcernWeiXin);
-	registerCBFun(PROTOCO_NAME(message::MsgS2CCmdResetConcernWeiXinACK), &Session::parseCmdReqResetConcernWeiXin);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqResetConcernWeiXin), &Session::parseCmdReqResetConcernWeiXin);
 	
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqModifyGMLevel), &Session::parseCmdReqMdodifyGMLevel);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdReqEnterGame), &Session::parseCmdReqEnterGame);
