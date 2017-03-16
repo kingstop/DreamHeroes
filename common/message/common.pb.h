@@ -1257,6 +1257,13 @@ class MsgShopConfigInfo : public ::google::protobuf::Message {
   ::std::string* release_describe();
   void set_allocated_describe(::std::string* describe);
 
+  // required bool open = 8;
+  bool has_open() const;
+  void clear_open();
+  static const int kOpenFieldNumber = 8;
+  bool open() const;
+  void set_open(bool value);
+
   // @@protoc_insertion_point(class_scope:message.MsgShopConfigInfo)
  private:
   inline void set_has_grid_id();
@@ -1273,6 +1280,8 @@ class MsgShopConfigInfo : public ::google::protobuf::Message {
   inline void clear_has_require_section_id();
   inline void set_has_describe();
   inline void clear_has_describe();
+  inline void set_has_open();
+  inline void clear_has_open();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -1287,6 +1296,7 @@ class MsgShopConfigInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 require_chapter_id_;
   ::google::protobuf::int32 require_section_id_;
   ::google::protobuf::internal::ArenaStringPtr describe_;
+  bool open_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -3205,6 +3215,30 @@ inline void MsgShopConfigInfo::set_allocated_describe(::std::string* describe) {
   }
   describe_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), describe);
   // @@protoc_insertion_point(field_set_allocated:message.MsgShopConfigInfo.describe)
+}
+
+// required bool open = 8;
+inline bool MsgShopConfigInfo::has_open() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void MsgShopConfigInfo::set_has_open() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void MsgShopConfigInfo::clear_has_open() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void MsgShopConfigInfo::clear_open() {
+  open_ = false;
+  clear_has_open();
+}
+inline bool MsgShopConfigInfo::open() const {
+  // @@protoc_insertion_point(field_get:message.MsgShopConfigInfo.open)
+  return open_;
+}
+inline void MsgShopConfigInfo::set_open(bool value) {
+  set_has_open();
+  open_ = value;
+  // @@protoc_insertion_point(field_set:message.MsgShopConfigInfo.open)
 }
 
 // -------------------------------------------------------------------

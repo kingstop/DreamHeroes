@@ -54,6 +54,7 @@ public:
 	void parseReqResetDailyGameProgress(google::protobuf::Message* p);
 	void parseReqDailyGameRankList(google::protobuf::Message* p);
 	void parseReqConcernWeiXin(google::protobuf::Message* p);
+	void parseReqActivityAnnouncement(google::protobuf::Message* p);
 public:
 	void parseCmdReqMdodifyGMLevel(google::protobuf::Message* p);
 	void parseCmdReqEnterGame(google::protobuf::Message* p);

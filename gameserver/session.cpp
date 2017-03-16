@@ -69,13 +69,14 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqResetDailyGameProgress), &Session::parseReqResetDailyGameProgress);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqDailyGameRankList), &Session::parseReqDailyGameRankList);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdClearDailyRankList), &Session::parseCmdReqClearDailyRankList);
-
-	//parseCmdReqClearDailyRankList
-
-	//
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqActivityAnnouncement), &Session::parseReqActivityAnnouncement);
 
 }
 
+void Session::parseReqActivityAnnouncement(google::protobuf::Message* p)
+{
+	gShopSalesPromotionManager.ReqActivityAnnouncement(this);
+}
 void Session::parseReqResetDailyGameProgress(google::protobuf::Message* p)
 {
 	message::MsgC2SReqResetDailyGameProgress* msg = (message::MsgC2SReqResetDailyGameProgress*)p;

@@ -1380,9 +1380,10 @@ void DreamHero::addDealPay(std::string key_code, int status, int order_id, messa
 					if (entry.type_ == DealStatusType_WaitToPay || entry.type_ == DealStatusType_WaitPrepareToPay)
 					{
 						entry.type_ = DealStatusType_Complete;
-
-						add_gold = entry_config->info_.gold();
-						add_jewel = entry_config->info_.jewel();
+						float scale_gold = (float)(gShopSalesPromotionManager.getGoldRechargeRatting()) / (float)100 + 1;
+						float scale_jewel = (float)(gShopSalesPromotionManager.getJewelRechargeRatting()) / (float)100 + 1;
+						add_gold = (float)entry_config->info_.gold() * scale_gold;
+						add_jewel = (float)entry_config->info_.jewel() * scale_jewel;
 						int gold_entry = current_gold + add_gold;
 						int jewel_entry = current_jewel + add_jewel;
 						_info.set_gold(gold_entry);
@@ -1669,7 +1670,7 @@ void DreamHero::SendClientInit()
 	{
 		msg.add_daily_game_record_configs(globalConfig.daily_game_record_config_[i]);
 	}
-
+	
 	sendPBMessage(&msg);
 
 	
@@ -2358,7 +2359,10 @@ void DreamHero::ReqGoldShopConfigs()
 			message::MsgGoldShopConfigInfo* entry_info = msg.add_infos();
 			entry_info->CopyFrom(it->second.info_);
 		}
+		msg.set_recharge_gold_ratting(gShopSalesPromotionManager.getGoldRechargeRatting());
+		msg.set_recharge_jewel_ratting(gShopSalesPromotionManager.getJewelRechargeRatting());
 		sendPBMessage(&msg);
+		
 	}
 	else
 	{

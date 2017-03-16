@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <map>
+#include <list>
 
 struct TaskConfig
 {
@@ -37,21 +38,170 @@ struct globalConfig
 	int config_weixin_gold;
 	std::vector<int> daily_game_record_config_;
 	std::vector<int> daily_game_reset_jewel_config_;
-	std::string config_weixin_cd_key;
-	
-
+	std::string config_weixin_cd_key;	
 };
 struct ShopSalesPromotionConfig
 {
 	int id_;
 };
 
-struct TimeShopSalesPromotionConfig : public ShopSalesPromotionConfig
+enum TimeShopPromotionType
 {
-	int grid_id_;
-	int cheap_gold_;
+	HeroPromotionType,
+	RechargePromotionType,
+	OpenHideHeroType
+};
+
+
+struct BaseShopPromotion
+{
+	TimeShopPromotionType PromotionType_;
+
+};
+
+struct HeroPromotion : public BaseShopPromotion
+{
+
+	HeroPromotion()
+	{
+		PromotionType_ = HeroPromotionType;
+	}
+	std::map<int, int> cheap_hero_;
+	
+};
+
+struct OpenHideHeroPromotion : public BaseShopPromotion
+{
+	OpenHideHeroPromotion()
+	{
+		PromotionType_ = OpenHideHeroType;
+	}
+	std::list<int> hide_grid_ids_;
+};
+
+struct RechargeRattingPromotion : public BaseShopPromotion
+{
+	RechargeRattingPromotion()
+	{
+		PromotionType_ = RechargePromotionType;
+	}
+	enum 
+	{
+		ALL,
+		GOLD,
+		JEWEL
+	};
+	int recharge_ratting_;
+	int rechagre_type;
+};
+
+enum TimeEventType
+{
+	Time_Normal,
+	Time_Week,
+	Time_OpenServerOffsetTime,
+
+};
+struct EventTimeBase
+{
+	TimeEventType type_;
+};
+
+struct TimeNormal : public EventTimeBase
+{
+	TimeNormal()
+	{
+		type_ = Time_Normal;
+	}
+	s64 show_time_;
 	s64 begin_time_;
 	s64 end_time_;
+};
+
+struct TimeWeek : public TimeNormal
+{
+	TimeWeek()
+	{
+		type_ = Time_Week;
+	}
+};
+
+struct TimeOpenServerOffsetTime : public TimeNormal
+{
+	TimeOpenServerOffsetTime()
+	{
+		type_ = Time_OpenServerOffsetTime;
+	}
+};
+
+
+
+class TimeShopSalesPromotionConfig : public ShopSalesPromotionConfig
+{
+public:
+	TimeShopSalesPromotionConfig() : _time(NULL), _promotion(NULL)
+	{
+
+	}
+	~TimeShopSalesPromotionConfig()
+	{
+		if (_time != NULL)
+		{
+			delete _time;
+		}
+		if (_promotion != NULL)
+		{
+			delete _promotion;
+		}
+	}
+	void set_time(EventTimeBase* p)
+	{
+		_time = p;
+	}
+	void set_promotion(BaseShopPromotion* promotion)
+	{
+		_promotion = promotion;
+	}
+
+	const EventTimeBase* GetTime() const
+	{
+		return _time;
+	}
+	const BaseShopPromotion* GetPromotion() const
+	{
+		return _promotion;
+	}
+	void setName(const char* name)
+	{
+		_name = name;
+	}
+	void setTimeDescribe(const char* time_describe)
+	{
+		_time_describe = time_describe;
+	}
+	void setDescribe(const char* describe)
+	{
+		_describe = describe;
+	}
+
+	const char* getTimeDescribe() const
+	{
+		return _time_describe.c_str();
+	}
+	const char* getName() const
+	{
+		return _name.c_str();
+	}
+	const char* getDescribe() const
+	{
+		return _describe.c_str();
+	}
+protected:
+	EventTimeBase* _time;
+	BaseShopPromotion* _promotion;
+	std::string _name;
+	std::string _time_describe;
+	std::string _describe;
 };
 
 
@@ -129,7 +279,7 @@ typedef std::map<int, message::MsgChapterConfigInfo> MAPCHAPTERCONFIGINFOS;
 typedef std::map<int, GoldShopConfigInfo> MAPGOLDSHOPCONFIGINFOS;
 
 typedef std::map<int, MAPGOLDSHOPCONFIGINFOS> CHANNELMAPGOLDSHOPCONFIGINFOS;
-typedef std::map<int, TimeShopSalesPromotionConfig> MAPTIMESHOPSALESPROMOTIONCONFIGS;
+typedef std::map<int, TimeShopSalesPromotionConfig*> MAPTIMESHOPSALESPROMOTIONCONFIGS;
 typedef std::map<int, ObjDropBoxConfig> MAPDROPBOXCONFIGS;
 typedef std::map<message::SubType, MAPDROPBOXCONFIGS> MAPTYPEDROPBOXCONFIGS;
 typedef std::map<int, MapBehaviorConfig> MAPBEHAVIORCONFIGS;
@@ -151,6 +301,7 @@ public:
 	void Load(DBQuery* p);
 	const MAPSHOPHEROCONFIGS* getShopConfigs();
 	const message::MsgShopConfigInfo* getShopConfig(int  grid_id);
+	void setHeroShopConfig(int  grid_id, bool open);
 	const MAPTASKS* getMapTasks();
 	const message::MsgTaskConfigInfo* getMapTask(int id);
 	const MAPCHAPTERCONFIGINFOS* getChapterConfigInfos();
@@ -172,6 +323,7 @@ public:
 	void setServerOpenTime(u64 time_open);
 	void setServerID(char server_id);
 	u64 getServerOpenTime();
+	int getOpenServerPassedDay(s64 curTime);
 	char getServerID();
 	void setPlatformHttpUrl(const char* http);
 	const char* getPlatformHttpUrl();

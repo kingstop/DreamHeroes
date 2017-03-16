@@ -102,6 +102,7 @@ message MsgShopConfigInfo
 	required int32 require_chapter_id = 5;
 	required int32 require_section_id = 6;
 	required string describe = 7;
+	required bool open = 8;
 }
 
 message MsgTaskInfo

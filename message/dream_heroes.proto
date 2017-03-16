@@ -230,7 +230,6 @@ message MsgS2CHeroesInit
 	required bool concern_weixin_config = 28;
 	required int32 concern_weixin_gold = 29;
 
-
 }
 
 
@@ -444,6 +443,8 @@ message MsgC2SReqGoldShopConfigs
 message MsgS2CGoldShopConfigsACK
 {
 	repeated MsgGoldShopConfigInfo infos = 1;
+	required int32 recharge_gold_ratting = 2;
+	required int32 recharge_jewel_ratting = 3;
 }
 
 
@@ -546,6 +547,24 @@ message MsgS2CReliveACK
 	required GameError error = 2 [default=Error_NO];
 }
 
+
+message MsgActivity
+{	
+	required int32 id = 1;
+	required string name = 2;
+	required string time_describe = 3;
+	required string describe = 4;
+}
+
+message MsgC2SReqActivityAnnouncement
+{
+
+}
+
+message MsgS2CActivityAnnouncementACK
+{
+	repeated MsgActivity activity = 1;
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 
 message MsgC2SCmdClearDailyRankList

@@ -14,6 +14,20 @@ GameConfig::~GameConfig()
 }
 
 
+void GameConfig::setHeroShopConfig(int  grid_id, bool open)
+{
+	message::MsgShopConfigInfo* shop_config = NULL;
+	MAPSHOPHEROCONFIGS::iterator it = _shop_heroes.find(grid_id);
+	if (it != _shop_heroes.end())
+	{
+		shop_config = &it->second;
+	}
+	if (shop_config != NULL)
+	{
+		shop_config->set_open(open);
+	}
+}
+
 const message::MsgShopConfigInfo* GameConfig::getShopConfig(int  grid_id)
 {
 	message::MsgShopConfigInfo* shop_config = NULL;
@@ -138,7 +152,7 @@ const TimeShopSalesPromotionConfig* GameConfig::getTimeShopSalesPromotionConfig(
 	MAPTIMESHOPSALESPROMOTIONCONFIGS::iterator it = _shop_time_sales_promotion.find(id);
 	if (it != _shop_time_sales_promotion.end())
 	{
-		config = &it->second;
+		config = it->second;
 	}
 	return config;
 }
@@ -293,6 +307,20 @@ bool GameConfig::isConcernWeiXin()
 	return _can_concern_weixin;
 }
 
+int GameConfig::getOpenServerPassedDay(s64 curTime)
+{
+	time_t _t1 = (time_t)_server_open_time;
+	tm* p1 = localtime(&_t1);
+	p1->tm_min = 0;
+	p1->tm_sec = 0;
+	p1->tm_hour = 0;
+	time_t today_refresh_time = mktime(p1); //utf Ê±¼ä²î
+	s64 time_diff = curTime - today_refresh_time;
+	int passed_day = 0;
+	passed_day = (time_diff / (24 * 60 * 60));
+	return passed_day;
+}
+
 void GameConfig::Load(DBQuery* p)
 {
 
@@ -352,7 +380,8 @@ void GameConfig::Load(DBQuery* p)
 			ShopConfig.set_require_chapter_id(row["require_chapter_id"]);
 			ShopConfig.set_require_section_id(row["require_section_id"]);
 			ShopConfig.set_describe(row["describe"].c_str());
-			
+			int open_temp = row["open"];
+			ShopConfig.set_open((bool)open_temp);
 			_shop_heroes.insert(MAPSHOPHEROCONFIGS::value_type(ShopConfig.grid_id(), ShopConfig));
 		}
 		query.reset();
@@ -415,13 +444,106 @@ void GameConfig::Load(DBQuery* p)
 		for (int i = 0; i < rows_length; i ++)
 		{
 			DBRow& row = sResult[i];
-			TimeShopSalesPromotionConfig SalesPromotionConfig;
-			SalesPromotionConfig.id_ = row["sales_promotion_id"];
-			SalesPromotionConfig.grid_id_ = row["grid_id"];
-			SalesPromotionConfig.cheap_gold_ = row["cheap_gold"];
-			SalesPromotionConfig.begin_time_ = row["UNIX_TIMESTAMP(`begin_time`)"];
-			SalesPromotionConfig.end_time_ = row["UNIX_TIMESTAMP(`end_time`)"];
-			_shop_time_sales_promotion.insert(MAPTIMESHOPSALESPROMOTIONCONFIGS::value_type(SalesPromotionConfig.id_, SalesPromotionConfig));
+			TimeShopSalesPromotionConfig* SalesPromotionConfig = new TimeShopSalesPromotionConfig();
+			SalesPromotionConfig->id_ = row["sales_promotion_id"];
+			int promotion_type = row["promotion_type"];
+			SalesPromotionConfig->setName(row["name"].c_str());
+			SalesPromotionConfig->setTimeDescribe(row["time_describe"].c_str());
+			SalesPromotionConfig->setDescribe(row["describe"].c_str());
+			TimeShopPromotionType type_promotion = (TimeShopPromotionType)promotion_type;
+			EventTimeBase* timeEntry = NULL;
+			BaseShopPromotion* promotionEntry = NULL;
+			std::vector<std::string> vcOut;
+			switch (type_promotion)
+			{
+			case HeroPromotionType:
+				{
+					HeroPromotion* HeroPromotionentry = new HeroPromotion();
+					std::string grid_ids = row["grid_ids"].c_str();
+					SplitStringA(grid_ids, ";", vcOut);
+					std::vector<std::string> vcOut1;
+					int size_temp = vcOut.size();
+					std::vector<std::string> pair_entry;
+					for (size_t i = 0; i < size_temp; i++)
+					{
+						std::string pair_entry = vcOut[i].c_str();
+						SplitStringA(pair_entry, ";", vcOut1);
+						if (vcOut1.size() == 2)
+						{
+							int grid_id = atoi(vcOut1[0].c_str());
+							int cheap_gold = atoi(vcOut1[1].c_str());
+							HeroPromotionentry->cheap_hero_[grid_id] = cheap_gold;
+						}										
+					}
+					
+					promotionEntry = HeroPromotionentry;
+				}
+				break;
+			case RechargePromotionType:
+				{
+					RechargeRattingPromotion* RechargeRattingPromotionentry = new RechargeRattingPromotion();
+					RechargeRattingPromotionentry->recharge_ratting_ = row["recharge_ratting"];
+					RechargeRattingPromotionentry->rechagre_type = row["recharge_type"];
+					promotionEntry = RechargeRattingPromotionentry;
+				}
+				break;
+			case OpenHideHeroType:
+				{
+					OpenHideHeroPromotion* OpenHideHeroEntry = new OpenHideHeroPromotion();
+					std::string hide_grid_ids = row["open_hide_grides"].c_str();
+					SplitStringA(hide_grid_ids, ",", vcOut);
+					int size_temp = vcOut.size();
+					for (size_t i = 0; i < size_temp; i++)
+					{
+						int grid_id = atoi(vcOut[i].c_str());
+						OpenHideHeroEntry->hide_grid_ids_.push_back(grid_id);
+					}
+					promotionEntry = OpenHideHeroEntry;
+				}
+				break;
+			default:
+				break;
+			}
+			SalesPromotionConfig->set_promotion(promotionEntry);
+			
+
+			int time_type = row["time_type"];
+			TimeEventType cur_time_type = (TimeEventType)time_type;
+			EventTimeBase* TimeBase = NULL;
+			switch (cur_time_type)
+			{
+			case Time_Normal:
+				{
+					TimeNormal* time_normal = new TimeNormal();
+					time_normal->show_time_ = row["UNIX_TIMESTAMP(`show_time`)"];
+					time_normal->begin_time_ = row["UNIX_TIMESTAMP(`begin_time`)"];
+					time_normal->end_time_ = row["UNIX_TIMESTAMP(`end_time`)"];
+					TimeBase = time_normal;
+				}
+				break;
+			case Time_Week:
+				{
+					TimeWeek* time_week = new TimeWeek();
+					time_week->show_time_ = row["show_time_week"];
+					time_week->begin_time_ = row["begin_time_week"];
+					time_week->end_time_ = row["end_time_week"];
+					TimeBase = time_week;
+				}
+				break;
+			case Time_OpenServerOffsetTime:
+				{
+					TimeOpenServerOffsetTime* timeOpenServer = new TimeOpenServerOffsetTime();
+					timeOpenServer->show_time_ = row["offset_show_time"];
+					timeOpenServer->begin_time_ = row["offset_begin_time"];
+					timeOpenServer->end_time_ = row["offset_end_time"];
+					TimeBase = timeOpenServer;
+				}
+				break;
+			default:
+				break;
+			}
+			SalesPromotionConfig->set_time(TimeBase);
+			_shop_time_sales_promotion.insert(MAPTIMESHOPSALESPROMOTIONCONFIGS::value_type(SalesPromotionConfig->id_, SalesPromotionConfig));
 		}
 
 
@@ -448,8 +570,7 @@ void GameConfig::Load(DBQuery* p)
 			info_entry.info_.set_money(row["money"]);
 			info_entry.info_.set_product_id(row["appstore_key"].c_str());
 			info_entry.appstore_product_id_ = row["appstore_key"].c_str();
-			info_entry.info_.set_jewel(row["jewel"]);
-			
+			info_entry.info_.set_jewel(row["jewel"]);		
 			_gold_shop_config_infos[channel][info_entry.info_.id()] = info_entry;
 		}
 
