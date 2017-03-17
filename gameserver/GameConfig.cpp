@@ -438,7 +438,7 @@ void GameConfig::Load(DBQuery* p)
 
 		query.reset();
 		sResult.clear();
-		query << "select * , UNIX_TIMESTAMP(`begin_time`), UNIX_TIMESTAMP(`end_time`) from `time_shop_sales_promotion`;";
+		query << "select * , UNIX_TIMESTAMP(`show_time`), UNIX_TIMESTAMP(`begin_time`), UNIX_TIMESTAMP(`end_time`) from `time_shop_sales_promotion`;";
 		sResult = query.store();
 		rows_length = sResult.num_rows();
 		for (int i = 0; i < rows_length; i ++)
