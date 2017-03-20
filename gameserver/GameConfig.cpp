@@ -467,7 +467,7 @@ void GameConfig::Load(DBQuery* p)
 					for (size_t i = 0; i < size_temp; i++)
 					{
 						std::string pair_entry = vcOut[i].c_str();
-						SplitStringA(pair_entry, ";", vcOut1);
+						SplitStringA(pair_entry, ",", vcOut1);
 						if (vcOut1.size() == 2)
 						{
 							int grid_id = atoi(vcOut1[0].c_str());
