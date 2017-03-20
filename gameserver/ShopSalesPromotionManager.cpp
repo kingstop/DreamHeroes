@@ -203,7 +203,7 @@ void TimeShopPromotion::DayPass()
 			const TimeWeek* timeweek = (const TimeWeek*)cur_time;
 			time_t tim_entry = (time_t)g_server_time;
 			tm* p1 = localtime(&tim_entry);
-			int week_time = p1->tm_wday - timeweek->show_time_;
+			int week_time = p1->tm_wday;
 			if (timeweek->show_time_ <= timeweek->end_time_)
 			{
 				if (week_time >= timeweek->show_time_ && week_time <= timeweek->end_time_)
@@ -249,7 +249,7 @@ void TimeShopPromotion::DayPass()
 			const TimeWeek* timeweek = (const TimeWeek*)cur_time;
 			time_t tim_entry = (time_t)g_server_time;
 			tm* p1 = localtime(&tim_entry);
-			int week_time = p1->tm_wday - timeweek->show_time_;
+			int week_time = p1->tm_wday;
 			if (timeweek->begin_time_ <= timeweek->end_time_)
 			{
 				if (week_time >= timeweek->begin_time_ && week_time <= timeweek->end_time_)
@@ -294,7 +294,7 @@ void TimeShopPromotion::DayPass()
 				const TimeWeek* timeweek = (const TimeWeek*)cur_time;
 				time_t tim_entry = (time_t)g_server_time;
 				tm* p1 = localtime(&tim_entry);
-				int week_time = p1->tm_wday - timeweek->show_time_;
+				int week_time = p1->tm_wday;
 				if (timeweek->begin_time_ <= timeweek->end_time_)
 				{
 					if (week_time < timeweek->begin_time_ && week_time > timeweek->end_time_)
