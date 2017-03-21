@@ -360,7 +360,7 @@ bool TimeShopPromotion::init(int id, ShopSalesPromotionManager* parent)
 			begin_time = normal->begin_time_;
 			end_time = normal->end_time_;
 			show_time = normal->show_time_;
-			if (show_time < end_time)
+			if (show_time > end_time)
 			{
 				return false;
 			}
