@@ -472,10 +472,13 @@ void TimeShopPromotion::excute(bool b)
 		{
 		case RechargeRattingPromotion::ALL:
 			_parent->modifyRechargeRatting(modify);
+			break;
 		case RechargeRattingPromotion::GOLD:
 			_parent->modifyGoldRechargeRatting(modify);
+			break;
 		case RechargeRattingPromotion::JEWEL:
 			_parent->modifyJewelRechargeRatting(modify);
+			break;
 		default:
 			break;
 		}
