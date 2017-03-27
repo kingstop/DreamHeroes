@@ -36,12 +36,18 @@ void ShopSalesPromotionManager::ReqActivityAnnouncement(Session* p)
 	std::list<ShopSalesPromotion*>::iterator it = _shopSalesPromotions.begin();
 	for (; it != _shopSalesPromotions.end(); ++ it)
 	{
+		
 		ShopSalesPromotion* entry = (*it);
-		message::MsgActivity* entryActivity = msg.add_activity();
-		entryActivity->set_id(entry->GetID());
-		entryActivity->set_name(entry->getName());
-		entryActivity->set_time_describe(entry->getTimeDescribe());
-		entryActivity->set_describe(entry->getDescribe());
+		if (entry->getType() == ShopSalesPromotionType_Apply ||
+			entry->getType() == ShopSalesPromotionType_Excute)
+		{
+			message::MsgActivity* entryActivity = msg.add_activity();
+			entryActivity->set_id(entry->GetID());
+			entryActivity->set_name(entry->getName());
+			entryActivity->set_time_describe(entry->getTimeDescribe());
+			entryActivity->set_describe(entry->getDescribe());
+
+		}
 	}
 	p->sendPBMessage(&msg);
 }
