@@ -229,7 +229,7 @@ void TimeShopPromotion::DayPass()
 		case Time_OpenServerOffsetTime:
 		{
 			const TimeOpenServerOffsetTime* openserveroffsettime = (const TimeOpenServerOffsetTime*)cur_time;
-			int passed_day = gGameConfig.getOpenServerPassedDay(g_server_start_time);
+			int passed_day = gGameConfig.getOpenServerPassedDay(g_server_time);
 			if (openserveroffsettime->show_time_ > openserveroffsettime->end_time_)
 			{
 				return;
@@ -323,7 +323,7 @@ void TimeShopPromotion::DayPass()
 		case Time_OpenServerOffsetTime:
 		{
 			const TimeOpenServerOffsetTime* openserveroffsettime = (const TimeOpenServerOffsetTime*)cur_time;
-			int passed_day = gGameConfig.getOpenServerPassedDay(g_server_start_time);
+			int passed_day = gGameConfig.getOpenServerPassedDay(g_server_time);
 			if (openserveroffsettime->show_time_ > openserveroffsettime->end_time_)
 			{
 
