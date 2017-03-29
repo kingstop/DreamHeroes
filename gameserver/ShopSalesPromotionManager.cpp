@@ -306,14 +306,14 @@ void TimeShopPromotion::DayPass()
 			int week_time = p1->tm_wday;
 			if (timeweek->begin_time_ <= timeweek->end_time_)
 			{
-				if (week_time < timeweek->begin_time_ && week_time > timeweek->end_time_)
+				if (week_time < timeweek->begin_time_ || week_time > timeweek->end_time_)
 				{
 					exit();
 				}
 			}
 			else
 			{
-				if (week_time > timeweek->begin_time_ || week_time < timeweek->end_time_)
+				if (week_time > timeweek->begin_time_ && week_time < timeweek->end_time_)
 				{
 					exit();
 				}
@@ -328,7 +328,7 @@ void TimeShopPromotion::DayPass()
 			{
 
 			}
-			if (passed_day < openserveroffsettime->begin_time_ && passed_day > openserveroffsettime->end_time_)
+			if (passed_day < openserveroffsettime->begin_time_ || passed_day > openserveroffsettime->end_time_)
 			{
 				exit();
 			}
