@@ -383,7 +383,7 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 
 			outVC.clear();
 			outVC1.clear();
-			SplitStringA(special_creatures, ";", outVC);
+			SplitStringA(grid_state_notify, ";", outVC);
 			length_vc = outVC.size();
 			for (int i = 0; i < length_vc; i++)
 			{
