@@ -138,13 +138,13 @@ message MsgS2CReceiveDailyGamePrizeACK
 
 message MsgC2SReqModifyNotifyGridState
 {
-	repeated MsgIntBoolPair gird_notify_state = 1;
+	repeated MsgIntBoolPair grid_notify_state = 1;
 }
 
 
 message MsgS2CModifyNotifyGridStateACK
 {
-	repeated MsgIntBoolPair gird_notify_state = 1;
+	repeated MsgIntBoolPair grid_notify_state = 1;
 }
 
 

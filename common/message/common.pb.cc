@@ -157,7 +157,7 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_top_grogress_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, daily_game_anger_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, concern_weixin_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, gird_notify_state_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MsgHeroData, grid_notify_state_),
   };
   MsgHeroData_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -406,7 +406,7 @@ void protobuf_AddDesc_common_2eproto() {
     "ily_game_record_progress\030\021 \002(\005\022\036\n\026daily_"
     "reset_game_count\030\022 \002(\005\022\032\n\022daily_top_grog"
     "ress\030\023 \002(\005\022\030\n\020daily_game_anger\030\024 \002(\005\022\026\n\016"
-    "concern_weixin\030\025 \002(\010\0222\n\021gird_notify_stat"
+    "concern_weixin\030\025 \002(\010\0222\n\021grid_notify_stat"
     "e\030\026 \003(\0132\027.message.MsgIntBoolPair\"r\n\024MsgT"
     "askConditionInfo\0222\n\010taskType\030\001 \002(\0162\021.mes"
     "sage.TaskType:\rTaskType_NULL\022\022\n\nargument"
@@ -2078,7 +2078,7 @@ const int MsgHeroData::kDailyResetGameCountFieldNumber;
 const int MsgHeroData::kDailyTopGrogressFieldNumber;
 const int MsgHeroData::kDailyGameAngerFieldNumber;
 const int MsgHeroData::kConcernWeixinFieldNumber;
-const int MsgHeroData::kGirdNotifyStateFieldNumber;
+const int MsgHeroData::kGridNotifyStateFieldNumber;
 #endif  // !_MSC_VER
 
 MsgHeroData::MsgHeroData()
@@ -2188,7 +2188,7 @@ void MsgHeroData::Clear() {
   heroes_.Clear();
   tasks_.Clear();
   lotions_.Clear();
-  gird_notify_state_.Clear();
+  grid_notify_state_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -2523,20 +2523,20 @@ bool MsgHeroData::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(178)) goto parse_gird_notify_state;
+        if (input->ExpectTag(178)) goto parse_grid_notify_state;
         break;
       }
 
-      // repeated .message.MsgIntBoolPair gird_notify_state = 22;
+      // repeated .message.MsgIntBoolPair grid_notify_state = 22;
       case 22: {
         if (tag == 178) {
-         parse_gird_notify_state:
+         parse_grid_notify_state:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_gird_notify_state()));
+                input, add_grid_notify_state()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(178)) goto parse_gird_notify_state;
+        if (input->ExpectTag(178)) goto parse_grid_notify_state;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2680,10 +2680,10 @@ void MsgHeroData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(21, this->concern_weixin(), output);
   }
 
-  // repeated .message.MsgIntBoolPair gird_notify_state = 22;
-  for (unsigned int i = 0, n = this->gird_notify_state_size(); i < n; i++) {
+  // repeated .message.MsgIntBoolPair grid_notify_state = 22;
+  for (unsigned int i = 0, n = this->grid_notify_state_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      22, this->gird_notify_state(i), output);
+      22, this->grid_notify_state(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2813,11 +2813,11 @@ void MsgHeroData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(21, this->concern_weixin(), target);
   }
 
-  // repeated .message.MsgIntBoolPair gird_notify_state = 22;
-  for (unsigned int i = 0, n = this->gird_notify_state_size(); i < n; i++) {
+  // repeated .message.MsgIntBoolPair grid_notify_state = 22;
+  for (unsigned int i = 0, n = this->grid_notify_state_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        22, this->gird_notify_state(i), target);
+        22, this->grid_notify_state(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3073,12 +3073,12 @@ int MsgHeroData::ByteSize() const {
     total_size += 1 * this->lotions_size() + data_size;
   }
 
-  // repeated .message.MsgIntBoolPair gird_notify_state = 22;
-  total_size += 2 * this->gird_notify_state_size();
-  for (int i = 0; i < this->gird_notify_state_size(); i++) {
+  // repeated .message.MsgIntBoolPair grid_notify_state = 22;
+  total_size += 2 * this->grid_notify_state_size();
+  for (int i = 0; i < this->grid_notify_state_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->gird_notify_state(i));
+        this->grid_notify_state(i));
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3110,7 +3110,7 @@ void MsgHeroData::MergeFrom(const MsgHeroData& from) {
   heroes_.MergeFrom(from.heroes_);
   tasks_.MergeFrom(from.tasks_);
   lotions_.MergeFrom(from.lotions_);
-  gird_notify_state_.MergeFrom(from.gird_notify_state_);
+  grid_notify_state_.MergeFrom(from.grid_notify_state_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
       set_has_name();
@@ -3191,7 +3191,7 @@ bool MsgHeroData::IsInitialized() const {
 
   if (!::google::protobuf::internal::AllAreInitialized(this->records())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->tasks())) return false;
-  if (!::google::protobuf::internal::AllAreInitialized(this->gird_notify_state())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->grid_notify_state())) return false;
   return true;
 }
 
@@ -3221,7 +3221,7 @@ void MsgHeroData::InternalSwap(MsgHeroData* other) {
   std::swap(daily_top_grogress_, other->daily_top_grogress_);
   std::swap(daily_game_anger_, other->daily_game_anger_);
   std::swap(concern_weixin_, other->concern_weixin_);
-  gird_notify_state_.UnsafeArenaSwap(&other->gird_notify_state_);
+  grid_notify_state_.UnsafeArenaSwap(&other->grid_notify_state_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -3795,34 +3795,34 @@ MsgHeroData::mutable_lotions() {
   // @@protoc_insertion_point(field_set:message.MsgHeroData.concern_weixin)
 }
 
-// repeated .message.MsgIntBoolPair gird_notify_state = 22;
- int MsgHeroData::gird_notify_state_size() const {
-  return gird_notify_state_.size();
+// repeated .message.MsgIntBoolPair grid_notify_state = 22;
+ int MsgHeroData::grid_notify_state_size() const {
+  return grid_notify_state_.size();
 }
- void MsgHeroData::clear_gird_notify_state() {
-  gird_notify_state_.Clear();
+ void MsgHeroData::clear_grid_notify_state() {
+  grid_notify_state_.Clear();
 }
- const ::message::MsgIntBoolPair& MsgHeroData::gird_notify_state(int index) const {
-  // @@protoc_insertion_point(field_get:message.MsgHeroData.gird_notify_state)
-  return gird_notify_state_.Get(index);
+ const ::message::MsgIntBoolPair& MsgHeroData::grid_notify_state(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.grid_notify_state)
+  return grid_notify_state_.Get(index);
 }
- ::message::MsgIntBoolPair* MsgHeroData::mutable_gird_notify_state(int index) {
-  // @@protoc_insertion_point(field_mutable:message.MsgHeroData.gird_notify_state)
-  return gird_notify_state_.Mutable(index);
+ ::message::MsgIntBoolPair* MsgHeroData::mutable_grid_notify_state(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroData.grid_notify_state)
+  return grid_notify_state_.Mutable(index);
 }
- ::message::MsgIntBoolPair* MsgHeroData::add_gird_notify_state() {
-  // @@protoc_insertion_point(field_add:message.MsgHeroData.gird_notify_state)
-  return gird_notify_state_.Add();
+ ::message::MsgIntBoolPair* MsgHeroData::add_grid_notify_state() {
+  // @@protoc_insertion_point(field_add:message.MsgHeroData.grid_notify_state)
+  return grid_notify_state_.Add();
 }
  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
-MsgHeroData::gird_notify_state() const {
-  // @@protoc_insertion_point(field_list:message.MsgHeroData.gird_notify_state)
-  return gird_notify_state_;
+MsgHeroData::grid_notify_state() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroData.grid_notify_state)
+  return grid_notify_state_;
 }
  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
-MsgHeroData::mutable_gird_notify_state() {
-  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroData.gird_notify_state)
-  return &gird_notify_state_;
+MsgHeroData::mutable_grid_notify_state() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroData.grid_notify_state)
+  return &grid_notify_state_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

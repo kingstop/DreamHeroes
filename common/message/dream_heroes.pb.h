@@ -1305,17 +1305,17 @@ class MsgC2SReqModifyNotifyGridState : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .message.MsgIntBoolPair gird_notify_state = 1;
-  int gird_notify_state_size() const;
-  void clear_gird_notify_state();
-  static const int kGirdNotifyStateFieldNumber = 1;
-  const ::message::MsgIntBoolPair& gird_notify_state(int index) const;
-  ::message::MsgIntBoolPair* mutable_gird_notify_state(int index);
-  ::message::MsgIntBoolPair* add_gird_notify_state();
+  // repeated .message.MsgIntBoolPair grid_notify_state = 1;
+  int grid_notify_state_size() const;
+  void clear_grid_notify_state();
+  static const int kGridNotifyStateFieldNumber = 1;
+  const ::message::MsgIntBoolPair& grid_notify_state(int index) const;
+  ::message::MsgIntBoolPair* mutable_grid_notify_state(int index);
+  ::message::MsgIntBoolPair* add_grid_notify_state();
   const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
-      gird_notify_state() const;
+      grid_notify_state() const;
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
-      mutable_gird_notify_state();
+      mutable_grid_notify_state();
 
   // @@protoc_insertion_point(class_scope:message.MsgC2SReqModifyNotifyGridState)
  private:
@@ -1323,7 +1323,7 @@ class MsgC2SReqModifyNotifyGridState : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair > gird_notify_state_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair > grid_notify_state_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -1397,17 +1397,17 @@ class MsgS2CModifyNotifyGridStateACK : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .message.MsgIntBoolPair gird_notify_state = 1;
-  int gird_notify_state_size() const;
-  void clear_gird_notify_state();
-  static const int kGirdNotifyStateFieldNumber = 1;
-  const ::message::MsgIntBoolPair& gird_notify_state(int index) const;
-  ::message::MsgIntBoolPair* mutable_gird_notify_state(int index);
-  ::message::MsgIntBoolPair* add_gird_notify_state();
+  // repeated .message.MsgIntBoolPair grid_notify_state = 1;
+  int grid_notify_state_size() const;
+  void clear_grid_notify_state();
+  static const int kGridNotifyStateFieldNumber = 1;
+  const ::message::MsgIntBoolPair& grid_notify_state(int index) const;
+  ::message::MsgIntBoolPair* mutable_grid_notify_state(int index);
+  ::message::MsgIntBoolPair* add_grid_notify_state();
   const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
-      gird_notify_state() const;
+      grid_notify_state() const;
   ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
-      mutable_gird_notify_state();
+      mutable_grid_notify_state();
 
   // @@protoc_insertion_point(class_scope:message.MsgS2CModifyNotifyGridStateACK)
  private:
@@ -1415,7 +1415,7 @@ class MsgS2CModifyNotifyGridStateACK : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair > gird_notify_state_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair > grid_notify_state_;
   friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
   friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
   friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
@@ -11134,68 +11134,68 @@ inline void MsgS2CReceiveDailyGamePrizeACK::set_error(::message::GameError value
 
 // MsgC2SReqModifyNotifyGridState
 
-// repeated .message.MsgIntBoolPair gird_notify_state = 1;
-inline int MsgC2SReqModifyNotifyGridState::gird_notify_state_size() const {
-  return gird_notify_state_.size();
+// repeated .message.MsgIntBoolPair grid_notify_state = 1;
+inline int MsgC2SReqModifyNotifyGridState::grid_notify_state_size() const {
+  return grid_notify_state_.size();
 }
-inline void MsgC2SReqModifyNotifyGridState::clear_gird_notify_state() {
-  gird_notify_state_.Clear();
+inline void MsgC2SReqModifyNotifyGridState::clear_grid_notify_state() {
+  grid_notify_state_.Clear();
 }
-inline const ::message::MsgIntBoolPair& MsgC2SReqModifyNotifyGridState::gird_notify_state(int index) const {
-  // @@protoc_insertion_point(field_get:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
-  return gird_notify_state_.Get(index);
+inline const ::message::MsgIntBoolPair& MsgC2SReqModifyNotifyGridState::grid_notify_state(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqModifyNotifyGridState.grid_notify_state)
+  return grid_notify_state_.Get(index);
 }
-inline ::message::MsgIntBoolPair* MsgC2SReqModifyNotifyGridState::mutable_gird_notify_state(int index) {
-  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
-  return gird_notify_state_.Mutable(index);
+inline ::message::MsgIntBoolPair* MsgC2SReqModifyNotifyGridState::mutable_grid_notify_state(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqModifyNotifyGridState.grid_notify_state)
+  return grid_notify_state_.Mutable(index);
 }
-inline ::message::MsgIntBoolPair* MsgC2SReqModifyNotifyGridState::add_gird_notify_state() {
-  // @@protoc_insertion_point(field_add:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
-  return gird_notify_state_.Add();
+inline ::message::MsgIntBoolPair* MsgC2SReqModifyNotifyGridState::add_grid_notify_state() {
+  // @@protoc_insertion_point(field_add:message.MsgC2SReqModifyNotifyGridState.grid_notify_state)
+  return grid_notify_state_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
-MsgC2SReqModifyNotifyGridState::gird_notify_state() const {
-  // @@protoc_insertion_point(field_list:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
-  return gird_notify_state_;
+MsgC2SReqModifyNotifyGridState::grid_notify_state() const {
+  // @@protoc_insertion_point(field_list:message.MsgC2SReqModifyNotifyGridState.grid_notify_state)
+  return grid_notify_state_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
-MsgC2SReqModifyNotifyGridState::mutable_gird_notify_state() {
-  // @@protoc_insertion_point(field_mutable_list:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
-  return &gird_notify_state_;
+MsgC2SReqModifyNotifyGridState::mutable_grid_notify_state() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgC2SReqModifyNotifyGridState.grid_notify_state)
+  return &grid_notify_state_;
 }
 
 // -------------------------------------------------------------------
 
 // MsgS2CModifyNotifyGridStateACK
 
-// repeated .message.MsgIntBoolPair gird_notify_state = 1;
-inline int MsgS2CModifyNotifyGridStateACK::gird_notify_state_size() const {
-  return gird_notify_state_.size();
+// repeated .message.MsgIntBoolPair grid_notify_state = 1;
+inline int MsgS2CModifyNotifyGridStateACK::grid_notify_state_size() const {
+  return grid_notify_state_.size();
 }
-inline void MsgS2CModifyNotifyGridStateACK::clear_gird_notify_state() {
-  gird_notify_state_.Clear();
+inline void MsgS2CModifyNotifyGridStateACK::clear_grid_notify_state() {
+  grid_notify_state_.Clear();
 }
-inline const ::message::MsgIntBoolPair& MsgS2CModifyNotifyGridStateACK::gird_notify_state(int index) const {
-  // @@protoc_insertion_point(field_get:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
-  return gird_notify_state_.Get(index);
+inline const ::message::MsgIntBoolPair& MsgS2CModifyNotifyGridStateACK::grid_notify_state(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CModifyNotifyGridStateACK.grid_notify_state)
+  return grid_notify_state_.Get(index);
 }
-inline ::message::MsgIntBoolPair* MsgS2CModifyNotifyGridStateACK::mutable_gird_notify_state(int index) {
-  // @@protoc_insertion_point(field_mutable:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
-  return gird_notify_state_.Mutable(index);
+inline ::message::MsgIntBoolPair* MsgS2CModifyNotifyGridStateACK::mutable_grid_notify_state(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CModifyNotifyGridStateACK.grid_notify_state)
+  return grid_notify_state_.Mutable(index);
 }
-inline ::message::MsgIntBoolPair* MsgS2CModifyNotifyGridStateACK::add_gird_notify_state() {
-  // @@protoc_insertion_point(field_add:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
-  return gird_notify_state_.Add();
+inline ::message::MsgIntBoolPair* MsgS2CModifyNotifyGridStateACK::add_grid_notify_state() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CModifyNotifyGridStateACK.grid_notify_state)
+  return grid_notify_state_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
-MsgS2CModifyNotifyGridStateACK::gird_notify_state() const {
-  // @@protoc_insertion_point(field_list:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
-  return gird_notify_state_;
+MsgS2CModifyNotifyGridStateACK::grid_notify_state() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CModifyNotifyGridStateACK.grid_notify_state)
+  return grid_notify_state_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
-MsgS2CModifyNotifyGridStateACK::mutable_gird_notify_state() {
-  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
-  return &gird_notify_state_;
+MsgS2CModifyNotifyGridStateACK::mutable_grid_notify_state() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CModifyNotifyGridStateACK.grid_notify_state)
+  return &grid_notify_state_;
 }
 
 // -------------------------------------------------------------------

@@ -394,7 +394,7 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 				{
 					int grid_id = atoi(outVC1[0].c_str());
 					int grid_state = atoi(outVC1[1].c_str());
-					message::MsgIntBoolPair* temp_entry = data->add_gird_notify_state();
+					message::MsgIntBoolPair* temp_entry = data->add_grid_notify_state();
 					temp_entry->set_number(grid_id);
 					if (grid_state == 0)
 					{

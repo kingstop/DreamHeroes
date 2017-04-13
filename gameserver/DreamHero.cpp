@@ -1930,14 +1930,14 @@ void DreamHero::SaveHero()
 		}
 	}
 	std::string str_grid_state;
-	length = _info.gird_notify_state_size();
+	length = _info.grid_notify_state_size();
 	for (size_t i = 0; i < length; i++)
 	{
 		if (i != 0)
 		{
 			str_grid_state +=";";
 		}
-		const message::MsgIntBoolPair& pair_entry = _info.gird_notify_state(i);
+		const message::MsgIntBoolPair& pair_entry = _info.grid_notify_state(i);
 		sprintf(sz_temp, "%d,%d", pair_entry.number(), pair_entry.valid());
 		str_grid_state += sz_temp;
 	}
@@ -2082,13 +2082,13 @@ void DreamHero::ReqRemoveAllSpecialCreatureList()
 void DreamHero::ReqModifyNotifyGridState(const message::MsgC2SReqModifyNotifyGridState* msg)
 {
 	message::MsgS2CModifyNotifyGridStateACK msgACK;
-	int length = msg->gird_notify_state_size();
-	_info.clear_gird_notify_state();
+	int length = msg->grid_notify_state_size();
+	_info.clear_grid_notify_state();
 	for (size_t i = 0; i < length; i++)
 	{
-		const message::MsgIntBoolPair& entry = msg->gird_notify_state(i);
-		_info.add_gird_notify_state()->CopyFrom(entry);
-		msgACK.add_gird_notify_state()->CopyFrom(entry);
+		const message::MsgIntBoolPair& entry = msg->grid_notify_state(i);
+		_info.add_grid_notify_state()->CopyFrom(entry);
+		msgACK.add_grid_notify_state()->CopyFrom(entry);
 	}
 	
 	sendPBMessage(&msgACK);
