@@ -1730,6 +1730,7 @@ void DreamHero::LoadFromConfig(int channel)
 	_daily_game_time = 0;
 	_daily_game_prize_time = 0;
 	_last_daily_reset_game_time = 0;
+	_info.mutable_grid_notify_state()->Clear();
 	SetGMLevel(1);
 }
 
