@@ -47,6 +47,8 @@ class MsgS2CUpdateDailyGameProgressACK;
 class MsgS2CNotifyDailyGamePrize;
 class MsgC2SReqReceiveDailyGamePrize;
 class MsgS2CReceiveDailyGamePrizeACK;
+class MsgC2SReqModifyNotifyGridState;
+class MsgS2CModifyNotifyGridStateACK;
 class MsgS2CNotifyError;
 class MsgC2SReqShopConfig;
 class MsgS2CShopConfigACK;
@@ -1236,6 +1238,190 @@ class MsgS2CReceiveDailyGamePrizeACK : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static MsgS2CReceiveDailyGamePrizeACK* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgC2SReqModifyNotifyGridState : public ::google::protobuf::Message {
+ public:
+  MsgC2SReqModifyNotifyGridState();
+  virtual ~MsgC2SReqModifyNotifyGridState();
+
+  MsgC2SReqModifyNotifyGridState(const MsgC2SReqModifyNotifyGridState& from);
+
+  inline MsgC2SReqModifyNotifyGridState& operator=(const MsgC2SReqModifyNotifyGridState& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgC2SReqModifyNotifyGridState& default_instance();
+
+  void Swap(MsgC2SReqModifyNotifyGridState* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgC2SReqModifyNotifyGridState* New() const { return New(NULL); }
+
+  MsgC2SReqModifyNotifyGridState* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgC2SReqModifyNotifyGridState& from);
+  void MergeFrom(const MsgC2SReqModifyNotifyGridState& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgC2SReqModifyNotifyGridState* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .message.MsgIntBoolPair gird_notify_state = 1;
+  int gird_notify_state_size() const;
+  void clear_gird_notify_state();
+  static const int kGirdNotifyStateFieldNumber = 1;
+  const ::message::MsgIntBoolPair& gird_notify_state(int index) const;
+  ::message::MsgIntBoolPair* mutable_gird_notify_state(int index);
+  ::message::MsgIntBoolPair* add_gird_notify_state();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
+      gird_notify_state() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
+      mutable_gird_notify_state();
+
+  // @@protoc_insertion_point(class_scope:message.MsgC2SReqModifyNotifyGridState)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair > gird_notify_state_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgC2SReqModifyNotifyGridState* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MsgS2CModifyNotifyGridStateACK : public ::google::protobuf::Message {
+ public:
+  MsgS2CModifyNotifyGridStateACK();
+  virtual ~MsgS2CModifyNotifyGridStateACK();
+
+  MsgS2CModifyNotifyGridStateACK(const MsgS2CModifyNotifyGridStateACK& from);
+
+  inline MsgS2CModifyNotifyGridStateACK& operator=(const MsgS2CModifyNotifyGridStateACK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgS2CModifyNotifyGridStateACK& default_instance();
+
+  void Swap(MsgS2CModifyNotifyGridStateACK* other);
+
+  // implements Message ----------------------------------------------
+
+  inline MsgS2CModifyNotifyGridStateACK* New() const { return New(NULL); }
+
+  MsgS2CModifyNotifyGridStateACK* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MsgS2CModifyNotifyGridStateACK& from);
+  void MergeFrom(const MsgS2CModifyNotifyGridStateACK& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(MsgS2CModifyNotifyGridStateACK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .message.MsgIntBoolPair gird_notify_state = 1;
+  int gird_notify_state_size() const;
+  void clear_gird_notify_state();
+  static const int kGirdNotifyStateFieldNumber = 1;
+  const ::message::MsgIntBoolPair& gird_notify_state(int index) const;
+  ::message::MsgIntBoolPair* mutable_gird_notify_state(int index);
+  ::message::MsgIntBoolPair* add_gird_notify_state();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
+      gird_notify_state() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
+      mutable_gird_notify_state();
+
+  // @@protoc_insertion_point(class_scope:message.MsgS2CModifyNotifyGridStateACK)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair > gird_notify_state_;
+  friend void  protobuf_AddDesc_dream_5fheroes_2eproto();
+  friend void protobuf_AssignDesc_dream_5fheroes_2eproto();
+  friend void protobuf_ShutdownFile_dream_5fheroes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MsgS2CModifyNotifyGridStateACK* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -10942,6 +11128,74 @@ inline void MsgS2CReceiveDailyGamePrizeACK::set_error(::message::GameError value
   set_has_error();
   error_ = value;
   // @@protoc_insertion_point(field_set:message.MsgS2CReceiveDailyGamePrizeACK.error)
+}
+
+// -------------------------------------------------------------------
+
+// MsgC2SReqModifyNotifyGridState
+
+// repeated .message.MsgIntBoolPair gird_notify_state = 1;
+inline int MsgC2SReqModifyNotifyGridState::gird_notify_state_size() const {
+  return gird_notify_state_.size();
+}
+inline void MsgC2SReqModifyNotifyGridState::clear_gird_notify_state() {
+  gird_notify_state_.Clear();
+}
+inline const ::message::MsgIntBoolPair& MsgC2SReqModifyNotifyGridState::gird_notify_state(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
+  return gird_notify_state_.Get(index);
+}
+inline ::message::MsgIntBoolPair* MsgC2SReqModifyNotifyGridState::mutable_gird_notify_state(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
+  return gird_notify_state_.Mutable(index);
+}
+inline ::message::MsgIntBoolPair* MsgC2SReqModifyNotifyGridState::add_gird_notify_state() {
+  // @@protoc_insertion_point(field_add:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
+  return gird_notify_state_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
+MsgC2SReqModifyNotifyGridState::gird_notify_state() const {
+  // @@protoc_insertion_point(field_list:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
+  return gird_notify_state_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
+MsgC2SReqModifyNotifyGridState::mutable_gird_notify_state() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgC2SReqModifyNotifyGridState.gird_notify_state)
+  return &gird_notify_state_;
+}
+
+// -------------------------------------------------------------------
+
+// MsgS2CModifyNotifyGridStateACK
+
+// repeated .message.MsgIntBoolPair gird_notify_state = 1;
+inline int MsgS2CModifyNotifyGridStateACK::gird_notify_state_size() const {
+  return gird_notify_state_.size();
+}
+inline void MsgS2CModifyNotifyGridStateACK::clear_gird_notify_state() {
+  gird_notify_state_.Clear();
+}
+inline const ::message::MsgIntBoolPair& MsgS2CModifyNotifyGridStateACK::gird_notify_state(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
+  return gird_notify_state_.Get(index);
+}
+inline ::message::MsgIntBoolPair* MsgS2CModifyNotifyGridStateACK::mutable_gird_notify_state(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
+  return gird_notify_state_.Mutable(index);
+}
+inline ::message::MsgIntBoolPair* MsgS2CModifyNotifyGridStateACK::add_gird_notify_state() {
+  // @@protoc_insertion_point(field_add:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
+  return gird_notify_state_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
+MsgS2CModifyNotifyGridStateACK::gird_notify_state() const {
+  // @@protoc_insertion_point(field_list:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
+  return gird_notify_state_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
+MsgS2CModifyNotifyGridStateACK::mutable_gird_notify_state() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgS2CModifyNotifyGridStateACK.gird_notify_state)
+  return &gird_notify_state_;
 }
 
 // -------------------------------------------------------------------

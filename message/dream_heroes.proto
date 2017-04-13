@@ -134,7 +134,17 @@ message MsgS2CReceiveDailyGamePrizeACK
 {
 	required int32 current_gold = 1;
 	required GameError error = 2 [default=Error_NO];
-	
+}
+
+message MsgC2SReqModifyNotifyGridState
+{
+	repeated MsgIntBoolPair gird_notify_state = 1;
+}
+
+
+message MsgS2CModifyNotifyGridStateACK
+{
+	repeated MsgIntBoolPair gird_notify_state = 1;
 }
 
 

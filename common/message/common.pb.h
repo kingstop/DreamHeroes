@@ -774,6 +774,18 @@ class MsgHeroData : public ::google::protobuf::Message {
   bool concern_weixin() const;
   void set_concern_weixin(bool value);
 
+  // repeated .message.MsgIntBoolPair gird_notify_state = 22;
+  int gird_notify_state_size() const;
+  void clear_gird_notify_state();
+  static const int kGirdNotifyStateFieldNumber = 22;
+  const ::message::MsgIntBoolPair& gird_notify_state(int index) const;
+  ::message::MsgIntBoolPair* mutable_gird_notify_state(int index);
+  ::message::MsgIntBoolPair* add_gird_notify_state();
+  const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
+      gird_notify_state() const;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
+      mutable_gird_notify_state();
+
   // @@protoc_insertion_point(class_scope:message.MsgHeroData)
  private:
   inline void set_has_name();
@@ -838,6 +850,7 @@ class MsgHeroData : public ::google::protobuf::Message {
   ::google::protobuf::int32 daily_top_grogress_;
   ::google::protobuf::int32 daily_game_anger_;
   bool concern_weixin_;
+  ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair > gird_notify_state_;
   friend void  protobuf_AddDesc_common_2eproto();
   friend void protobuf_AssignDesc_common_2eproto();
   friend void protobuf_ShutdownFile_common_2eproto();
@@ -2682,6 +2695,36 @@ inline void MsgHeroData::set_concern_weixin(bool value) {
   set_has_concern_weixin();
   concern_weixin_ = value;
   // @@protoc_insertion_point(field_set:message.MsgHeroData.concern_weixin)
+}
+
+// repeated .message.MsgIntBoolPair gird_notify_state = 22;
+inline int MsgHeroData::gird_notify_state_size() const {
+  return gird_notify_state_.size();
+}
+inline void MsgHeroData::clear_gird_notify_state() {
+  gird_notify_state_.Clear();
+}
+inline const ::message::MsgIntBoolPair& MsgHeroData::gird_notify_state(int index) const {
+  // @@protoc_insertion_point(field_get:message.MsgHeroData.gird_notify_state)
+  return gird_notify_state_.Get(index);
+}
+inline ::message::MsgIntBoolPair* MsgHeroData::mutable_gird_notify_state(int index) {
+  // @@protoc_insertion_point(field_mutable:message.MsgHeroData.gird_notify_state)
+  return gird_notify_state_.Mutable(index);
+}
+inline ::message::MsgIntBoolPair* MsgHeroData::add_gird_notify_state() {
+  // @@protoc_insertion_point(field_add:message.MsgHeroData.gird_notify_state)
+  return gird_notify_state_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >&
+MsgHeroData::gird_notify_state() const {
+  // @@protoc_insertion_point(field_list:message.MsgHeroData.gird_notify_state)
+  return gird_notify_state_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::message::MsgIntBoolPair >*
+MsgHeroData::mutable_gird_notify_state() {
+  // @@protoc_insertion_point(field_mutable_list:message.MsgHeroData.gird_notify_state)
+  return &gird_notify_state_;
 }
 
 // -------------------------------------------------------------------

@@ -238,6 +238,9 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 			data->set_daily_reset_game_count(row["daily_reset_game_count"]);
 			data->set_daily_top_grogress(row["daily_top_grogress"]);
 			data->set_daily_game_anger(row["daily_game_anger"]);
+			std::string grid_state_notify = row["grid_state_notify"].c_str();
+
+
 			int concern_weixin = row["concern_weixin"];
 			data->set_concern_weixin((bool)concern_weixin);
 			pkParm->info.set_current_section(row["current_section"]);
@@ -377,7 +380,33 @@ void DBQuestManager::dbDoQueryHeroInfo(const SDBResult* r, const void* d, bool s
 					entry->set_number_2(creature_status);		
 				}
 			}
-		
+
+			outVC.clear();
+			outVC1.clear();
+			SplitStringA(special_creatures, ";", outVC);
+			length_vc = outVC.size();
+			for (int i = 0; i < length_vc; i++)
+			{
+				strTemp = outVC[i];
+				outVC1.clear();
+				SplitStringA(strTemp, ",", outVC1);
+				if (outVC1.size() >= 2)
+				{
+					int grid_id = atoi(outVC1[0].c_str());
+					int grid_state = atoi(outVC1[1].c_str());
+					message::MsgIntBoolPair* temp_entry = data->add_gird_notify_state();
+					temp_entry->set_number(grid_id);
+					if (grid_state == 0)
+					{
+						temp_entry->set_valid(false);
+					}
+					else
+					{
+						temp_entry->set_valid(true);
+					}
+				}
+			}
+
 			pkParm->info.set_account(acc);
 			need_create = false;
 			char sz_sql[256];

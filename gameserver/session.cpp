@@ -70,6 +70,8 @@ void Session::registerPBCall()
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqDailyGameRankList), &Session::parseReqDailyGameRankList);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SCmdClearDailyRankList), &Session::parseCmdReqClearDailyRankList);
 	registerCBFun(PROTOCO_NAME(message::MsgC2SReqActivityAnnouncement), &Session::parseReqActivityAnnouncement);
+	registerCBFun(PROTOCO_NAME(message::MsgC2SReqModifyNotifyGridState), &Session::parseReqModifyNotifyGridState);
+	
 
 }
 
@@ -149,6 +151,17 @@ void Session::parseReqShopConfig(google::protobuf::Message* p)
 		info->set_cheape_gold(cheap_gold);
 	}
 	sendPBMessage(&msg);	
+}
+
+
+void Session::parseReqModifyNotifyGridState(google::protobuf::Message* p)
+{
+	const message::MsgC2SReqModifyNotifyGridState* msg = (message::MsgC2SReqModifyNotifyGridState*)p;
+	if (_dream_hero == NULL)
+	{
+		return;
+	}
+	_dream_hero->ReqModifyNotifyGridState(msg);
 }
 
 void Session::parseReqEnterGame(google::protobuf::Message* p)
