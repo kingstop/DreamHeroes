@@ -1234,13 +1234,15 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 	}
 	else
 	{
-		en_error = message::Error_CanNotEnterGameTheInstanceIsLock;
+		en_error = message::Error_NO;
+		
 		if (chapter_id_temp == -1 && section_id_temp == -1)
 		{
 
 		}
 		else
 		{
+			/*
 			for (int i = 0; i < records_length; i++)
 			{
 				const message::MsgIntPair record_entry = _info.records(i);
@@ -1260,6 +1262,7 @@ void DreamHero::EnterGame(int chapter_id, int section_id, bool admin)
 					break;
 				}
 			}
+			*/
 
 			if (en_error == message::Error_NO)
 			{
