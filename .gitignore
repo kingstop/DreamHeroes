@@ -244,6 +244,8 @@ pip-log.txt
 client/pushmole/pushmole.CSharp.csproj
 
 client/pushmole/Assembly-CSharp-firstpass.csproj
+.vs
 
 *.csproj
 *.xslt
+
