@@ -176,6 +176,7 @@
     <ClInclude Include="mapstorage.h" />
     <ClInclude Include="md5.h" />
     <ClInclude Include="memory.h" />
+    <ClInclude Include="message\battle.pb.h" />
     <ClInclude Include="message\common.pb.h" />
     <ClInclude Include="message\dream_heroes.pb.h" />
     <ClInclude Include="message\login.pb.h" />
@@ -221,6 +222,7 @@
     <ClCompile Include="io_service_pool.cpp" />
     <ClCompile Include="json_help.cpp" />
     <ClCompile Include="md5.cpp" />
+    <ClCompile Include="message\battle.pb.cc" />
     <ClCompile Include="message\common.pb.cc" />
     <ClCompile Include="message\dream_heroes.pb.cc" />
     <ClCompile Include="message\login.pb.cc" />

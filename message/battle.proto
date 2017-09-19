@@ -1,0 +1,30 @@
+package message;
+
+enum AliveState
+{
+  AliveState_Alive=1;
+  AliveState_Dead=2;
+}
+
+
+enum ObjAttributeInt
+{	
+   ALiveState = 0;
+   AFaction = 1;
+   AObjMax = 2;
+
+}
+
+enum UnitAttributeInt
+{
+	AMaxHp = 0;
+	AHp = 1;
+	AManaType = 2;
+	AMaxMana = 3;
+	AMana = 4;	
+	AUnitMax = 5;
+}
+
+
+
+

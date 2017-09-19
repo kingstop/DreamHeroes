@@ -1,0 +1,75 @@
+#pragma once
+#include "common_type.h"
+#include "message\battle.pb.h"
+enum AiEvents
+{
+	EVENT_NULL = 0,
+	EVENT_ENTERCOMBAT,
+	EVENT_LEAVECOMBAT,
+	EVENT_DAMAGETAKEN,
+	EVENT_TARGET_CAST_SPELL,
+	EVENT_TARGET_PARRY,
+	EVENT_TARGET_DODGE,
+	EVENT_TARGET_BLOCK,
+	EVENT_TARGET_CRI_ATTACK,
+	EVENT_TARGET_SPELL_CRI_HIT,
+	EVENT_TARGET_SPELL_HIT,
+	EVENT_TARGET_DEAD,
+	EVENT_PARRY,
+	EVENT_DODGE,
+	EVENT_BLOCK,
+	EVENT_CRI_ATTACK,
+	EVENT_SPELL_CRI_HIT,
+	EVENT_SPELL_HIT,
+	EVENT_DEAD,
+	EVENT_SUPPORT_DEAD,
+	EVENT_FEAR,
+	EVENT_UNFEAR,
+	EVENT_FOLLOWOWNER,
+	EVENT_WANDER,
+	EVENT_UNWANDER,
+	EVENT_UNITDIED,
+	EVENT_BEBORN
+};
+
+enum AI_State
+{
+	STATE_IDLE,
+	STATE_ATTACKING,
+	STATE_CASTING,
+	STATE_FLEEING,
+	STATE_FOLLOWING,
+	STATE_EVADE,
+	STATE_MOVEWP,
+	STATE_FEAR,
+	STATE_WANDER,
+	STATE_STOPPED,
+	STATE_SCRIPTMOVE,
+	STATE_SCRIPTIDLE
+};
+
+
+enum MovementState
+{
+	MOVEMENTSTATE_MOVE,
+	MOVEMENTSTATE_FOLLOW,
+	MOVEMENTSTATE_STOP,
+	MOVEMENTSTATE_FOLLOW_OWNER
+};
+class BattleUnit;
+class AIInterface
+{
+public:
+	AIInterface();
+	virtual ~AIInterface();
+public:
+	void update(u32 time_diff);
+	void combatUpdate(u32 time_diff);
+	void normalUpdate(u32 time_diff);
+protected:
+	BattleUnit* _Unit;
+	AI_State _AIState;
+	MovementState _MoveState;
+	
+};
+
