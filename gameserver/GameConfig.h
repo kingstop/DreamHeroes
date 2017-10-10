@@ -313,6 +313,7 @@ public:
 	const GoldShopConfigInfo* getGoldShopConfigInfo(int channel, const char* appstore_product_id);
 	const globalConfig& getGlobalConfig();
 	const MAPTYPEDROPBOXCONFIGS* getMapDropBox(int chapter_id, int section_id);
+	const MAPTYPEDROPBOXCONFIGS* getDropBox();
 	const MAPSPIRITSHOP* getSpiritShop();
 	const message::MsgSpiritShopInfo* getSpiritShop(int index);
 	const MAPLOTIONSHOPCONFIGS* getLotionShop();

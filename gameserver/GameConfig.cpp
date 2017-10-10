@@ -173,6 +173,10 @@ const message::MsgLotionShopConfigInfo* GameConfig::getLotionShop(int index)
 	return entry;
 }
 
+const MAPTYPEDROPBOXCONFIGS* GameConfig::getDropBox()
+{
+	return &_drop_box_configs;
+}
 
 const MAPTYPEDROPBOXCONFIGS* GameConfig::getMapDropBox(int chapter_id, int section_id)
 {
@@ -187,6 +191,8 @@ const MAPTYPEDROPBOXCONFIGS* GameConfig::getMapDropBox(int chapter_id, int secti
 	}
 	return ret;
 }
+
+
 
 const MAPSPIRITSHOP* GameConfig::getSpiritShop()
 {
